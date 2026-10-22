@@ -478,6 +478,11 @@ An arXiv identifier will be added once the preprint is announced.
 
 ## Licence
 
-Code is MIT (`LICENSE`). The generated corpus is CC BY 4.0 (`LICENSE-DATA`).
+The source code in this public distribution is licensed under the
+GNU Affero General Public License, version 3 only
+([AGPL-3.0-only](LICENSE)), including the benchmark framework, task generators,
+scoring tools, reproduction scripts and the `dmaic-harbor` integration.
+The generated corpus is licensed separately under
+[CC BY 4.0](LICENSE-DATA).
 The software license does not relicense the paper manuscript or its figures; see
 `paper/README.md` for the publication's license status.

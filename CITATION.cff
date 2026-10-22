@@ -34,7 +34,7 @@ authors:
   affiliation: The Hong Kong University of Science and Technology (Guangzhou)
   website: https://openreview.net/profile?id=~Jia_Li4
 license:
-- MIT
+- AGPL-3.0-only
 - CC-BY-4.0
 version: 0.2.0
 date-released: '2026-10-22'

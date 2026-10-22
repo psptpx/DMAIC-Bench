@@ -3,6 +3,9 @@ name = "dmaic-bench"
 version = "0.2.0"
 description = "DMAIC-Bench: a system-agnostic benchmark for autonomous statistical improvement (DMAIC) agents"
 requires-python = ">=3.10"
+# The wheel contains AGPL software and separately licensed benchmark-corpus files.
+license = "AGPL-3.0-only AND CC-BY-4.0"
+license-files = ["LICENSE", "LICENSE-DATA", "NOTICE"]
 # EXACT pins, on purpose, and IDENTICAL to the pins baked into the agent and verifier images
 # (harbor/templates/{environment,verifier}/Dockerfile). Truth values for the ~20 parametric
 # native cases are DERIVED at generate() time by scipy/statsmodels (see truth/verifiers.py),
@@ -52,7 +55,7 @@ dependencies = [
 dev = ["pytest==7.4.4"]
 
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]

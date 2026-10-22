@@ -5,7 +5,7 @@ manuscript's conference template. Its public version identifies the authors and
 uses a preprint header rather than claiming conference acceptance.
 
 The paper manuscript and its figures are research publications, separate from
-the MIT-licensed software and CC BY 4.0 benchmark corpus. Copyright in the paper
+the AGPL-3.0-only software and CC BY 4.0 benchmark corpus. Copyright in the paper
 remains with its authors. Its arXiv license and identifier will be recorded once
 the authors complete the arXiv submission. No conference acceptance or arXiv
 publication is claimed by this repository.

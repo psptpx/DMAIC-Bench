@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling>=1.24"]
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [project]
@@ -8,7 +8,8 @@ version = "0.2.0"
 description = "DMAIC-Bench ported onto the Harbor agent-evaluation framework (task builder, data steward, and separate-container verifier)."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "Apache-2.0" }
+license = "AGPL-3.0-only"
+license-files = ["LICENSE", "NOTICE"]
 keywords = ["benchmark", "harbor", "dmaic", "six-sigma", "agents", "evaluation"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -86,7 +87,7 @@ packages = ["src/dmaic_harbor"]
 # Allowlist, not a denylist: only these paths are packaged. The operator-only
 # contestant adapter directory is deliberately absent, and any path added here is
 # a path that ships -- tests/test_public_image_hygiene.py checks this list.
-include = ["src/dmaic_harbor", "templates", "datasets", "README.md", "pyproject.toml"]
+include = ["src/dmaic_harbor", "templates", "datasets", "README.md", "pyproject.toml", "LICENSE", "NOTICE"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

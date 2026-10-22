@@ -1,0 +1,12 @@
+DMAIC-Bench
+Copyright (c) 2026 ps
+Source repository: https://github.com/psptpx/DMAIC-Bench-public
+
+The project source code in this public distribution is licensed under the
+GNU Affero General Public License, version 3 only (AGPL-3.0-only).
+See LICENSE for the complete license text.
+
+The benchmark corpus is licensed separately under CC BY 4.0; see LICENSE-DATA
+in the repository root. The paper manuscript and figures are separate research
+publications; see paper/README.md. Third-party dependencies retain their own
+licenses.

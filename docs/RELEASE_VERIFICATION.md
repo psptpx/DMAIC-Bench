@@ -39,3 +39,17 @@ This repository includes the code, generators, scorer, checked-in result
 tables, two expert review packages and life-sciences per-trial evidence.
 The main industrial campaigns' raw job archive is not included. See the
 README's run-evidence section for the resulting reproduction requirements.
+
+## Public-distribution licensing checks
+
+The public software distribution uses AGPL-3.0-only. Both the root package
+and the Harbor integration carry the complete, unmodified GNU AGPL v3 text.
+The root package also ships the corpus's separate CC BY 4.0 notice; its
+distribution metadata therefore declares `AGPL-3.0-only AND CC-BY-4.0`.
+The Harbor package declares `AGPL-3.0-only`.
+
+Both packages' source distributions and wheels built successfully, and the
+built archives contain the declared license files and matching license
+expressions. The relevant public-corpus and packaging-hygiene checks report
+**24 passed, 4 skipped**. This licensing update changes no benchmark runtime
+source, data, truths or scoring behavior.

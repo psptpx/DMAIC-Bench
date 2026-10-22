@@ -1,5 +1,13 @@
 # Contributing
 
+## Licensing contributions
+
+Source-code contributions to this public distribution are made under GNU AGPL
+version 3 only (`AGPL-3.0-only`); see `LICENSE`. Benchmark-corpus contributions
+are covered separately by CC BY 4.0; see `LICENSE-DATA`. Submit only material
+that you have the right to contribute under the applicable license, and preserve
+any required third-party attribution.
+
 ## Adding a case
 
 A case enters only through the onboarding gates — there is no manual path, and a

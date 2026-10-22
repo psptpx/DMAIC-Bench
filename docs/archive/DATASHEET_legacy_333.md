@@ -135,7 +135,8 @@ directly.
 task directories are build output, regenerable from the builder and a seed, and
 are not committed.
 
-**Licence.** Code MIT (`LICENSE`); corpus CC BY 4.0 (`LICENSE-DATA`).
+**Licence for the current public distribution.** Code AGPL-3.0-only (`LICENSE`);
+corpus CC BY 4.0 (`LICENSE-DATA`).
 
 **Any third-party restrictions?** None on the published corpus. Every shipped
 case is self-authored and generates its data from a seed; no third-party data

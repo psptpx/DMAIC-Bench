@@ -18,5 +18,5 @@ no published case contains data from a real organisation. See docs/CASE_SOURCES.
 docs/DATASHEET.md for the corpus datasheet, and docs/HELD_OUT_V2.md for the
 held-out designation.
 
-The SOURCE CODE in this repository is licensed separately under the MIT licence;
-see LICENSE.
+The SOURCE CODE in this public distribution is licensed separately under the
+GNU Affero General Public License, version 3 only (AGPL-3.0-only); see LICENSE.

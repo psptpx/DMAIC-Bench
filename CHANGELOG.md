@@ -10,6 +10,16 @@ Versioning policy: a reported number must cite the version that produced it.
 
 Tags are immutable.
 
+## Public distribution licensing - 2026-10-22
+
+- License the current public software distribution under GNU AGPL version 3 only
+  (`AGPL-3.0-only`), including the benchmark framework and the `dmaic-harbor`
+  integration. Synchronize package metadata, container metadata and documentation.
+- Preserve the generated corpus's separate CC BY 4.0 license and the paper's
+  separate publication status. No benchmark code, data or scoring behavior changes.
+- This licensing update does not revoke rights validly granted with earlier
+  distributions.
+
 ## [0.2.0] - 2026-09-26
 
 First public release. It contains the material the manuscript
@@ -69,4 +79,5 @@ First public release. It contains the material the manuscript
 ### Documentation and licensing
 - `docs/README.md` indexes the documentation; retired design and result notes are under
   `docs/archive/`.
-- Dual licensing: MIT for code (`LICENSE`), CC BY 4.0 for the generated corpus (`LICENSE-DATA`).
+- Separate software and generated-corpus licensing; see `LICENSE`, `LICENSE-DATA`
+  and the current public-distribution licensing entry above.

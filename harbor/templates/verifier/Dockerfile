@@ -74,7 +74,7 @@ FROM ${BASE_IMAGE}
 
 LABEL org.opencontainers.image.title="dmaic-bench-verifier" \
       org.opencontainers.image.description="DMAIC-Bench separate verifier: truth + oracle" \
-      org.opencontainers.image.licenses="Apache-2.0"
+      org.opencontainers.image.licenses="AGPL-3.0-only"
 
 # NO_PROXY=* : container runtimes inject http_proxy/https_proxy pointing at a host-side
 # forwarder (podman sets http://host.containers.internal:10808). urllib honours those, so an
