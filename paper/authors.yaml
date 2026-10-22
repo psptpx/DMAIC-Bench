@@ -1,0 +1,31 @@
+title: 'DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage
+  Analytical Tasks'
+authors:
+- name: Shan Peng
+  openreview: ~Shan_Peng2
+  affiliations:
+  - Xiwei Technology (Guangzhou) Co., Ltd.
+  - The Hong Kong University of Science and Technology (Guangzhou)
+- name: Shuaiqi Cheng
+  openreview: ~Shuaiqi_Cheng1
+  affiliations:
+  - The Hong Kong University of Science and Technology (Guangzhou)
+- name: Miao Peng
+  openreview: ~Miao_Peng1
+  affiliations:
+  - The Hong Kong University of Science and Technology (Guangzhou)
+- name: Chenyi Zi
+  openreview: ~Chenyi_Zi2
+  affiliations:
+  - The Hong Kong University of Science and Technology (Guangzhou)
+- name: Jia Li
+  openreview: ~Jia_Li4
+  affiliations:
+  - The Hong Kong University of Science and Technology (Guangzhou)
+equal_contribution: []
+source: https://openreview.net/forum?id=BVBCVDNh1Y
+verified: '2026-10-22'
+verification_note: Author order checked on submission 28667; affiliations checked
+  against each author profile. Institutional names standardized to the Guangzhou university.
+  Jia Li profile explicitly names the Guangzhou institution despite its ust.hk history
+  domain. No equal-contribution or corresponding-author role is inferred from profiles.

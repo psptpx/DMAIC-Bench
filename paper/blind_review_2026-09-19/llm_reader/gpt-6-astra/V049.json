@@ -1,0 +1,46 @@
+{
+ "blind_id": "V049",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that the screened factors have no effect or are not drivers of seal strength merely because their tests are nonsignificant.",
+  "Treating the screening experiment as establishing causal drivers, an optimized setting, or a justified implementation recommendation.",
+  "Claiming results from the unreleased composite design or confirmation seals."
+ ],
+ "permitted_at_checkpoint": [
+  "Report that this screening analysis detected no statistically significant effects over the tested factor ranges.",
+  "Stop advancement through the public significance gate and explicitly withhold optimization and confirmation conclusions.",
+  "Examine effect estimates, uncertainty intervals, residuals, replication, run order, randomization and statistical power before deciding whether to repeat, expand or redesign screening.",
+  "Explore additional process inputs without asserting that the existing factors have been ruled out."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "Therefore the three settings that were varied do **not** account for the seal-strength variation seen in the screening run.",
+  "The design work supports stopping the current screening path: the three chosen factors are not the drivers of seal strength."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "NONE",
+ "extra_computation_detail": "No analysis beyond the screening checkpoint is recorded. The report explicitly withholds composite-design and confirmation results. Earlier baseline analyses are not downstream analyses of this focal checkpoint.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Estimate factorial effects and confidence intervals under an adequately randomized, independently replicated design with defensible residual assumptions; interpret intervals as uncertainty rather than proof of no effect.",
+  "Assess practical equivalence only after defining engineering-relevant effect bounds and demonstrating that suitable uncertainty intervals fall within those bounds.",
+  "Conduct a new, independently justified experiment using engineering knowledge, appropriate factor ranges, adequate precision and randomization. Nonsignificance does not scientifically prohibit all further experiments involving these factors, although the public release gate blocks this particular downstream route."
+ ],
+ "evidence": [
+  "The submitted screening analysis reports 16 observations, full-model p = 0.8335162744870344, minimum effect p = 0.28690558295656854, and residual MSE = 0.9983951250000008.",
+  "The declared screening branch is any_factor_significant=false.",
+  "The report states: \"There is no data for those later stages, and the conclusion must stop there rather than invent parameter recommendations.\"",
+  "The report nevertheless states that \"the three chosen factors are not the drivers of seal strength.\""
+ ],
+ "rationale": "The reported tests support failure to detect effects, not exclusion of meaningful factor effects. No effect intervals, equivalence bounds or sensitivity assessment establish practical absence of effects. The report appropriately respects the release gate, refrains from fabricating downstream findings, and recommends further investigation. That substantial restraint coexists with materially unsupported causal-exclusion language. Broadening screening is defensible; categorically ruling out the existing factors is not. The public significance rule governs this release path but is not a universal statistical requirement for any subsequent designed experiment.",
+ "confidence": 4,
+ "numerical_check": "Self-report-only: screening p-values and summaries were checked for their inferential meaning, but no raw-data recomputation was performed because the referenced files were not available in the supplied conversation.",
+ "evidence_problem": "Raw batches, service events, factor ranges, effect estimates, run-order information and residual diagnostics were referenced but not supplied here. Review used only the provided blind packet; no external sources, repository material or other reviewers' outputs were accessed. This assessment was performed by an AI assistant, not a human expert.",
+ "_usage": {
+  "prompt_tokens": 3895,
+  "completion_tokens": 839,
+  "total_tokens": 4734
+ }
+}

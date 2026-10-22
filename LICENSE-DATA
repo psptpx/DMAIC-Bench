@@ -1,0 +1,22 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+This licence covers the BENCHMARK CORPUS in this repository: the case
+definitions under `dmaic_bench/v2/cases/` (the 15 measured cases) and
+`dmaic_bench/v2/pilot_cases/` (the life-sciences extension), the retired v1
+case definitions under `dmaic_bench/cases/`, the generated data blocks, the
+derived truth tables, and the rendered task instructions.
+
+  https://creativecommons.org/licenses/by/4.0/
+
+The corpus is GENERATED. Every task's data is produced by a seeded generator,
+and its truth values are derived from that data by reference implementations
+at generation time. Eight of the fifteen measured cases take their scenario and
+decision structure from completed improvement projects whose reports are held
+privately; the remaining cases are self-authored. No source file, table,
+figure, sentence or data array from any source document is redistributed, and
+no published case contains data from a real organisation. See docs/CASE_SOURCES.md for per-case provenance,
+docs/DATASHEET.md for the corpus datasheet, and docs/HELD_OUT_V2.md for the
+held-out designation.
+
+The SOURCE CODE in this repository is licensed separately under the MIT licence;
+see LICENSE.

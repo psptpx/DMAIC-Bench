@@ -1,0 +1,282 @@
+{
+  "baseline": {
+    "data": [
+      53.86,
+      57.72,
+      47.17,
+      51.08,
+      62.92,
+      57.43,
+      59.31,
+      58.58,
+      53.35,
+      49.77,
+      56.56,
+      55.03,
+      55.19,
+      49.4,
+      47.02,
+      49.34,
+      49.73,
+      42.88,
+      46.36,
+      49.95,
+      48.26,
+      56.07,
+      58.06,
+      49.13,
+      47.99,
+      51.4,
+      47.78,
+      50.75,
+      48.18,
+      48.11,
+      45.95,
+      54.42,
+      50.57,
+      59.84,
+      57.52,
+      53.23,
+      54.45,
+      50.21,
+      62.92,
+      55.84,
+      52.69,
+      55.83,
+      55.41,
+      52.29,
+      55.68,
+      43.95,
+      47.4,
+      51.31,
+      49.43,
+      55.39,
+      45.56,
+      52.49,
+      54.55,
+      44.22,
+      52.86,
+      48.8,
+      49.18,
+      49.86,
+      46.79,
+      58.67
+    ],
+    "lsl": 45.0,
+    "required_level": 55.0
+  },
+  "composite_design": {
+    "coding": "coded units; the centre setting was run five times",
+    "columns": [
+      "bond_angle",
+      "bead_spacing",
+      "y"
+    ],
+    "runs": [
+      {
+        "bead_spacing": -1,
+        "bond_angle": -1,
+        "y": 49.882
+      },
+      {
+        "bead_spacing": -1,
+        "bond_angle": 1,
+        "y": 54.9096
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": -1,
+        "y": 52.4941
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": 1,
+        "y": 59.4808
+      },
+      {
+        "bead_spacing": 0,
+        "bond_angle": -1.41421356,
+        "y": 49.8074
+      },
+      {
+        "bead_spacing": 0,
+        "bond_angle": 1.41421356,
+        "y": 57.6998
+      },
+      {
+        "bead_spacing": -1.41421356,
+        "bond_angle": 0,
+        "y": 52.3916
+      },
+      {
+        "bead_spacing": 1.41421356,
+        "bond_angle": 0,
+        "y": 57.7421
+      },
+      {
+        "bead_spacing": 0,
+        "bond_angle": 0,
+        "y": 58.0722
+      },
+      {
+        "bead_spacing": 0,
+        "bond_angle": 0,
+        "y": 58.3947
+      },
+      {
+        "bead_spacing": 0,
+        "bond_angle": 0,
+        "y": 57.6841
+      },
+      {
+        "bead_spacing": 0,
+        "bond_angle": 0,
+        "y": 57.8158
+      },
+      {
+        "bead_spacing": 0,
+        "bond_angle": 0,
+        "y": 57.7003
+      }
+    ]
+  },
+  "confirmation_runs": {
+    "data": [
+      60.61,
+      57.85,
+      54.62,
+      57.82,
+      59.45,
+      57.16,
+      61.09,
+      56.28,
+      60.87,
+      58.57,
+      57.67,
+      61.13,
+      58.79,
+      55.69,
+      59.94,
+      57.64,
+      57.19,
+      58.97,
+      59.09,
+      61.71
+    ],
+    "mu": 55.0,
+    "note": "seals made at the settings the design work recommended"
+  },
+  "define": {
+    "goal": "hold seal strength above the level the product requires",
+    "lsl": 45.0,
+    "required_level": 55.0,
+    "unit": "N"
+  },
+  "screening_run": {
+    "coding": "-1 / +1, low and high setting of each",
+    "columns": [
+      "bond_angle",
+      "bead_spacing",
+      "cure_temperature",
+      "y"
+    ],
+    "runs": [
+      {
+        "bead_spacing": -1,
+        "bond_angle": -1,
+        "cure_temperature": -1,
+        "y": 50.054
+      },
+      {
+        "bead_spacing": -1,
+        "bond_angle": -1,
+        "cure_temperature": -1,
+        "y": 49.957
+      },
+      {
+        "bead_spacing": -1,
+        "bond_angle": -1,
+        "cure_temperature": 1,
+        "y": 47.899
+      },
+      {
+        "bead_spacing": -1,
+        "bond_angle": -1,
+        "cure_temperature": 1,
+        "y": 49.133
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": -1,
+        "cure_temperature": -1,
+        "y": 49.237
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": -1,
+        "cure_temperature": -1,
+        "y": 53.165
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": -1,
+        "cure_temperature": 1,
+        "y": 52.038
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": -1,
+        "cure_temperature": 1,
+        "y": 50.155
+      },
+      {
+        "bead_spacing": -1,
+        "bond_angle": 1,
+        "cure_temperature": -1,
+        "y": 53.615
+      },
+      {
+        "bead_spacing": -1,
+        "bond_angle": 1,
+        "cure_temperature": -1,
+        "y": 52.324
+      },
+      {
+        "bead_spacing": -1,
+        "bond_angle": 1,
+        "cure_temperature": 1,
+        "y": 51.39
+      },
+      {
+        "bead_spacing": -1,
+        "bond_angle": 1,
+        "cure_temperature": 1,
+        "y": 52.517
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": 1,
+        "cure_temperature": -1,
+        "y": 56.721
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": 1,
+        "cure_temperature": -1,
+        "y": 56.909
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": 1,
+        "cure_temperature": 1,
+        "y": 59.146
+      },
+      {
+        "bead_spacing": 1,
+        "bond_angle": 1,
+        "cure_temperature": 1,
+        "y": 58.777
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "the project charter, the voiding acceptance limit, and the improvement target",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "the study of repeat X-ray readings where the same joints were measured several times by several operators",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "repeat readings / operator study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "gage_rr_percent_study_variation=18.612",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "declare",
+    "text": "gage_rr_percent_tolerance=13.650",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "declare",
+    "text": "msa_acceptable=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "void fraction / build order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "Around the 25th joint in build order the void fraction stepped up by about 5 percentage points and stayed there. What changed on the line at that point - material lot, equipment setting, tooling, or operator?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

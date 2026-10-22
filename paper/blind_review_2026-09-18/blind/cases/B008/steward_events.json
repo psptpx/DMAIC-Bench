@@ -1,0 +1,20 @@
+[
+  {
+    "seq": 1,
+    "action": "request",
+    "text": "Please release the complete shop-floor record of the sixty consecutive pieces, including the characteristic measurement in production order and any available piece sequence identifiers. I need the raw batch to inspect its shape before analysis.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Consecutive piece record (piece record/off the line)",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  }
+]

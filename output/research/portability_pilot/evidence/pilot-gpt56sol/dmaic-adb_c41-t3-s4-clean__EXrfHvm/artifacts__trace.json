@@ -1,0 +1,132 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "samplesRetained": 240,
+        "affectedRetained": 120,
+        "unaffectedRetained": 120,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes participant QC; proceed because the computed failure fraction does not exceed the protocol maximum."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Discarded: the first custom exact-HWE recurrence emitted divide-by-zero and invalid-value warnings, so its provisional retention result was not used."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedSamples": 240,
+        "variants": 150,
+        "controlSamples": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 10,
+        "snpsRetained": 140,
+        "failedCallRate": 5,
+        "failedMaf": 3,
+        "failedHwe": 2,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06,
+        "snpsSupplied": 150
+      },
+      "status": "success",
+      "decision": "Retain variants satisfying all three protocol criteria; use the corrected finite exact-HWE calculation."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "qcVariants": 140,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 0.9020282133392976,
+        "pc1VarianceFraction": 0.020937526414815125,
+        "pc1CaseMin": -3.8928531283317525,
+        "pc1CaseMax": 4.786812317511982,
+        "pc1ControlMin": -4.56280316450207,
+        "pc1ControlMax": 3.8246537989541904
+      },
+      "status": "success",
+      "decision": "Case and control PC1 ranges overlap and PC1 is not associated with affection status; compare groups without ancestry-axis covariates."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "testedVariants": 140,
+        "groups": 2
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.8920987391435681,
+        "tests": 140,
+        "familywiseAlpha": 0.05,
+        "bonferroniThreshold": 0.00035714285714285714
+      },
+      "status": "success",
+      "decision": "No retained variant meets the protocol Bonferroni threshold."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_analysis",
+      "observed": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "overlapping_no_pc_adjustment",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.9020282133392976
+      }
+    },
+    {
+      "point": "association_declaration",
+      "chosen_branch": "no_association_declared",
+      "observed": {
+        "nSignificant": 0,
+        "bonferroniThreshold": 0.00035714285714285714
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

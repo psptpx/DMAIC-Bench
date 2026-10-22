@@ -1,0 +1,112 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "group_count": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "totalLibraries": 12,
+        "failedAssignedReads": 2,
+        "failedMappingRate": 2,
+        "usableLibraries": 8,
+        "controlUsable": 4,
+        "treatedUsable": 4
+      },
+      "status": "success",
+      "decision": "Apply both facility QC criteria inclusively. Four libraries failed; both arms retained four usable biological replicates, so the replication gate passed."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usable_sample_size": 8,
+        "group_count": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "usableLibraries": 8,
+        "modelColumns": 3,
+        "modelRank": 2,
+        "controlL1": 4,
+        "controlL2": 0,
+        "treatedL1": 0,
+        "treatedL2": 4
+      },
+      "status": "success",
+      "decision": "Among usable libraries, all controls are in L1 and all treated libraries are in L2. The intercept-plus-batch-plus-condition model is rank deficient, so treatment is perfectly confounded with preparation batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "requested_batch": "counts",
+        "usable_sample_size": 8
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The steward locked gene-level counts because design_confounded=true does not satisfy the design-identifiable gate. No batch-adjusted treatment effects, adjusted p-values, fold changes, or significant-gene count were computed."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "requested_batch": "qPCR validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Validation data are downstream of the unreleased gene-count analysis; concordance and confirmation count could not be computed."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "requested_batch": "gene-set annotation"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation is downstream of validation and was not released; no enrichment analysis was computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_replication_gate",
+      "chosen_branch": "pass_to_design_assessment",
+      "observed": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "controlUsable": 4,
+        "treatedUsable": 4
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "stop_before_differential_expression",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "modelColumns": 3,
+        "modelRank": 2
+      }
+    },
+    {
+      "point": "candidate_release_gate",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "designConfounded": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

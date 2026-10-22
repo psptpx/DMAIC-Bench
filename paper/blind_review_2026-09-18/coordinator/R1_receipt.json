@@ -1,0 +1,10 @@
+{
+  "reviewer_id": "R1",
+  "received_frozen_utc": "2026-09-18T00:37:08.498095+00:00",
+  "json_sha256": "67850de18913a81b4114f36e06d4cfb5bb4de8a25d5419885f20b74d88e4d0e7",
+  "markdown_sha256": "87f7f25b061c5fccafdeeb960144325b580620248ebb3f3a3d681dc881e1e4cd",
+  "original_json_sha256": "1633dfa554d7d2b9d787f31cc14848a44e54dfd5010fe8ad56ef1f563187ee3b",
+  "original_markdown_sha256": "c4ceacc4e22b63e93735201737041734e2e817188261e65028f5156bfe1658b7",
+  "reviewer_type": "Human",
+  "editorial_updated_utc": "2026-09-18T10:13:52.058725+00:00"
+}

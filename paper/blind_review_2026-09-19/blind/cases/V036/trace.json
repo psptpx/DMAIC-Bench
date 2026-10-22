@@ -1,0 +1,94 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 180.0,
+        "usl": 260.0,
+        "target": 220.0,
+        "tolerance": 80.0
+      },
+      "status": "success",
+      "decision": "Specifications read from charter; tolerance computed."
+    },
+    {
+      "step_id": 2,
+      "method_id": "msa.gage_rr_crossed",
+      "inputs_digest": {
+        "batch": "msa",
+        "shape": [
+          3,
+          10,
+          3
+        ]
+      },
+      "outputs": {
+        "percentStudyVariation": 44.34026199179066,
+        "percentTolerance": 63.70295058178359,
+        "ndc": 2,
+        "interactionPValue": 0.5001485510264241,
+        "repeatabilityVariance": 72.14339400578065,
+        "operatorVariance": 0,
+        "interactionVariance": 0.0,
+        "partVariance": 294.8008335854499,
+        "gageStdDev": 8.493726744237811,
+        "numReadings": 90,
+        "numParts": 10,
+        "numOperators": 3,
+        "numReplicates": 3
+      },
+      "status": "success",
+      "decision": "Crossed random-effects ANOVA; interaction pooled if p >= .05. Measurement system unacceptable."
+    },
+    {
+      "step_id": 3,
+      "method_id": "control_chart.xbar_r",
+      "inputs_digest": {
+        "requested_batch": "sampling order",
+        "data_received": false
+      },
+      "outputs": {},
+      "status": "refused",
+      "decision": "Locked: computed GRR fails measurement gate. No quantitative analysis run."
+    },
+    {
+      "step_id": 4,
+      "method_id": "anova.oneway",
+      "inputs_digest": {
+        "requested_batch": "applicator sample",
+        "data_received": false
+      },
+      "outputs": {},
+      "status": "refused",
+      "decision": "Locked: sampling-order prerequisite unmet. No quantitative analysis run."
+    },
+    {
+      "step_id": 5,
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "requested_batch": "monitoring record",
+        "data_received": false
+      },
+      "outputs": {},
+      "status": "refused",
+      "decision": "Locked: sampling-order prerequisite unmet. No quantitative analysis run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_pass",
+      "chosen_branch": "stop_and_repair_measurement_system",
+      "observed": {
+        "grr_pct": 44.34026199179066,
+        "ndc": 2
+      }
+    },
+    {
+      "point": "downstream_access",
+      "chosen_branch": "locked_no_process_conclusions"
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

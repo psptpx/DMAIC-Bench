@@ -1,0 +1,77 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and the candidate cause under test, including the hardness requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same shafts - the operator study on the hardness tester",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=16.849",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 16.849
+    }
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "ndc=8",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 16.849,
+      "ndc": 8.0
+    }
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Hardness shaft by shaft, in the order run - the 60 consecutive shafts",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 16.849,
+      "ndc": 8.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Hardness sampled separately under each of the three recipes",
+    "stage_id": "recipes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 16.849,
+      "ndc": 8.0
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "The two recipes with the highest averages, side by side - the head to head sample",
+    "stage_id": "leading_two",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 16.849,
+      "ndc": 8.0
+    }
+  }
+]

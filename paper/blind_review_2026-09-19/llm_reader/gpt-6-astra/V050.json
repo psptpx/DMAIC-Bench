@@ -1,0 +1,47 @@
+{
+ "blind_id": "V050",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Implementing the coded stationary point as a validated physical operating recipe without a coding map and verified setting records.",
+  "Claiming that optimization of the fitted quadratic achieves the 55 N programme target.",
+  "Treating the stronger archived batch as validation of the fitted surface or as proof of a causal improvement from its recommended settings.",
+  "Closing the project on the basis of established sustained capability or guaranteed individual-seal target attainment."
+ ],
+ "permitted_at_checkpoint": [
+  "Reporting the stationary point as the maximum of the fitted quadratic, conditional on model adequacy within the experimental region.",
+  "Reporting observed confirmation-batch performance separately from model validation and causal attribution.",
+  "Auditing coding, response units, actual settings, measurement adequacy and batch provenance to reconcile the design and confirmation records.",
+  "Conducting fresh randomized, blocked confirmation at a verified and physically feasible recipe, with adequate measurement validation and representative production coverage."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The confirmation summaries, provisional charts, conditional capability indices, target-mean test and Welch comparison characterize a separate archived batch; they do not validate the optimized recipe. The report explicitly withholds that validation and causal attribution. Inferential interpretation of the t tests still requires independent, representative observations, which the supplied sampling record does not establish. Comparing confirmation observations with the stationary-point prediction interval is acceptable as a discrepancy screen, not as a calibrated validation test: recipe equivalence is unknown, the interval is pointwise, and the optimum was estimated from the fitted data.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Retain the fitted stationary point as a candidate for a new experiment after recovering the coding map and checking physical feasibility; do not present it as a target-achieving solution.",
+  "Investigate the stronger archived recipe independently of the quadratic if its actual settings and provenance can be recovered, then prospectively confirm its performance using randomized or appropriately blocked trials.",
+  "Compare batches descriptively without attributing their difference to the settings. Population-mean inference additionally requires defensible independence and sampling assumptions; causal attribution requires control of material, time and other process differences."
+ ],
+ "evidence": [
+  "The reported quadratic coefficients are angleSquared=-1.5978150032289886, spacingSquared=-1.2017650018998314 and interaction=-0.01754999999999238; the reported quadratic-form eigenvalues are both negative.",
+  "The reported stationary point is coded angle 0.24071617975852067 and spacing 0.23443155367212534, with fitted strength 48.36230139645569 N, below 55 N.",
+  "The reported confirmation mean is 59.87299999999999 N, exceeding the fitted maximum by 11.510698603544299 N.",
+  "\u201cDo not close the project or deploy the model as a validated operating recipe until this discrepancy and the physical setting records are reconciled.\u201d",
+  "\u201cThe result is encouraging observed performance, **not validation of that surface**.\u201d",
+  "\u201cNo physical coding map or implementation record was released: the request was unroutable, not a checked denial.\u201d",
+  "The public protocol supplies a screening-significance release threshold, not a statistical requirement to implement the fitted optimum or accept confirmation as model validation."
+ ],
+ "rationale": "The negative-definite quadratic supports a fitted maximum, but that maximum is below the programme target and lacks a verified physical recipe. The substantially higher archived batch cannot establish that this surface or its optimum generated the improvement. The report correctly separates these findings, withholds deployment and closure, and recommends reconciliation followed by properly designed confirmation. Its mean-test language remains conditional on unverified sampling assumptions, but it does not use those tests to authorize the focal implementation or validation claim.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from the supplied summaries: 59.873 - 48.36230139645569 = 11.51069860354431 N; 55 - 48.36230139645569 = 6.63769860354431 N. Substitution of the reported stationary coordinates into the quadratic gives approximately 48.3623 N, and its gradient is approximately zero. Raw observations, fitted residuals, prediction-interval construction and service records were not available in the supplied text and were not independently checked; those results remain self-report-only.",
+ "evidence_problem": "Actual physical settings, coding map, measurement validation, randomization and confirmation sampling chronology are missing. Only the supplied blind packet was reviewed; no filesystem, other reviewer output or external source was accessed. This assessment was generated by an AI assistant, not an independent human expert, and no human credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 5295,
+  "completion_tokens": 1088,
+  "total_tokens": 6383
+ }
+}

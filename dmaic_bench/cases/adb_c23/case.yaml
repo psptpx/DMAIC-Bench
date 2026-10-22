@@ -1,0 +1,69 @@
+schema_version: 1
+case_id: adb_c23
+title: Proving the machining line's own records can be relied on, before any change is discussed
+
+tier: T1
+industry: discrete_manufacturing
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the quality team at a plant that machines steering knuckles for the automotive trade.
+  The customer's annual audit has put it to us that before we discuss any change to a process
+  step, we must first show that our own records can be relied on. The critical shaft diameter
+  is taken by three operators on one and the same digital micrometer; the appearance and the
+  burr condition of the finished part are judged pass or fail by eye by three inspectors. We
+  organised two dedicated studies. In the first, the three operators each measured the shaft
+  diameter of the same batch of ten steering knuckles three times over. In the second, the
+  three inspectors each judged thirty sample parts twice over, independently, and their calls
+  were set against the condition a senior engineer had established for each part beforehand.
+
+goal: |
+  From the two studies, quantify separately how much of the spread in the dimensional readings
+  belongs to the act of measuring, and how closely the judgements made by eye agree with the
+  established condition. Say whether this measuring and judging system reaches a level that can
+  be relied on, and give a clear conclusion on whether the records we already hold may go on
+  being used to carry the project forward.
+
+stages:
+  - stage_id: M_GRR
+    phase: measure
+    label: "Repeat shaft-diameter readings taken by three operators on the same ten parts"
+    topics: ["shaft diameter", "micrometer", "repeat readings", "three operators"]
+    methods:
+      - method_id: msa.gage_rr_crossed
+        required: true
+  - stage_id: M_AttrAgreement
+    phase: measure
+    label: "Repeat pass-or-fail calls made by eye by three inspectors, set against the established condition"
+    topics: ["visual", "by eye", "three inspectors", "established condition", "repeat judgements"]
+    methods:
+      - method_id: msa.attribute_agreement
+        required: true
+
+decision_points:
+  - point_id: msa_gate
+    phase: measure
+    rule: "Both measurement-system studies must pass (dimensional measurement variation as a share of study variation is within the acceptable limit, and visual judgments agree closely with the reference) before subsequent process data are trusted and the project proceeds."
+    source: "AIAG MSA-4"
+    correct_branch: proceed
+    acceptable_branches: []
+    branch_evidence:
+      proceed: [msa.attribute_agreement]
+
+faults:
+  - stage_id: M_AttrAgreement
+    method_id: msa.attribute_agreement

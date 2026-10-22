@@ -1,0 +1,56 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and the required reject level",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Inspector judgements of retained boards against the answer key",
+    "stage_id": "study_1",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Items called differently from the key, by reject category",
+    "stage_id": "disagreements",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Per-lot inspected and rejected counts",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "A second study on retained boards after the criteria were rewritten",
+    "stage_id": "study_2",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Placed and rejected counts for each placement head",
+    "stage_id": "heads",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  }
+]

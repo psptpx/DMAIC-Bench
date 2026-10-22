@@ -1,0 +1,29 @@
+{\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+\raisebox{-0.5\normalbaselineskip}[0pt][0pt]{Agent}
+ & \multicolumn{1}{c}{NO-GO right $\uparrow$}
+ & \multicolumn{1}{c}{GO right $\uparrow$}
+ & \multicolumn{1}{c}{Both sides $\uparrow$}
+ & \multicolumn{1}{c}{B-divert $\uparrow$}
+ & \multicolumn{1}{c@{}}{\raisebox{-0.5\normalbaselineskip}[0pt][0pt]{Mean reward $\uparrow$}} \\
+ & \multicolumn{1}{c}{(\%)}
+ & \multicolumn{1}{c}{(\%)}
+ & \multicolumn{1}{c}{(of 40)}
+ & \multicolumn{1}{c}{(of 18)} & \\
+\midrule
+\logo{openai.png}GPT-6-astra & \textbf{23\% $\rightarrow$ 79\%} & 82\% $\rightarrow$ 67\% & 7 $\rightarrow$ 15 & 1 $\rightarrow$ 11 & 0.662 $\rightarrow$ 0.717 \\
+\logo{anthropic.png}Claude-Fable-5.1 & 17\% $\rightarrow$ 44\% & 81\% $\rightarrow$ 81\% & \textbf{4 $\rightarrow$ 13} & 0 $\rightarrow$ 3 & 0.557 $\rightarrow$ 0.654 \\
+\logo{deepseek.png}DeepSeek-v4-flash & 21\% $\rightarrow$ 42\% & 79\% $\rightarrow$ 77\% & 6 $\rightarrow$ 9 & 0 $\rightarrow$ 3 & 0.599 $\rightarrow$ 0.652 \\
+\logo{openai.png}GPT-5.6-sol & 21\% $\rightarrow$ 38\% & 81\% $\rightarrow$ 77\% & 5 $\rightarrow$ 10 & 0 $\rightarrow$ 1 & 0.649 $\rightarrow$ 0.674 \\
+\logo{alibaba.png}Qwen3.8-max & 13\% $\rightarrow$ 27\% & 77\% $\rightarrow$ 80\% & 1 $\rightarrow$ 6 & 0 $\rightarrow$ 3 & 0.404 $\rightarrow$ 0.488 \\
+\logo{moonshot.png}Kimi-k3 & 17\% $\rightarrow$ 27\% & 82\% $\rightarrow$ 81\% & 4 $\rightarrow$ 7 & 0 $\rightarrow$ 0 & 0.603 $\rightarrow$ 0.648 \\
+\logo{alibaba.png}Qwen3.8-flash & 10\% $\rightarrow$ 17\% & 77\% $\rightarrow$ 78\% & 0 $\rightarrow$ 3 & 1 $\rightarrow$ 1 & 0.379 $\rightarrow$ 0.441 \\
+\logo{zhipu.png}GLM-5.3 & 21\% $\rightarrow$ 29\% & 82\% $\rightarrow$ 83\% & 4 $\rightarrow$ 8 & 0 $\rightarrow$ 1 & 0.582 $\rightarrow$ 0.636 \\
+\logo{anthropic.png}Claude-Opus-5 & 17\% $\rightarrow$ 25\% & 78\% $\rightarrow$ 83\% & 4 $\rightarrow$ 7 & 0 $\rightarrow$ 2 & 0.542 $\rightarrow$ 0.634 \\
+\logo{anthropic.png}Claude-Sonnet-5 & 19\% $\rightarrow$ 25\% & 82\% $\rightarrow$ 81\% & 5 $\rightarrow$ 8 & 0 $\rightarrow$ 0 & 0.599 $\rightarrow$ 0.644 \\
+\logo{openai.png}GPT-5.6-luna & 25\% $\rightarrow$ 27\% & 70\% $\rightarrow$ 73\% & 7 $\rightarrow$ 7 & 4 $\rightarrow$ 2 & 0.564 $\rightarrow$ 0.595 \\
+\logo{zhipu.png}GLM-5.3-Flash & 17\% $\rightarrow$ 19\% & 82\% $\rightarrow$ 81\% & 3 $\rightarrow$ 3 & 0 $\rightarrow$ 0 & 0.556 $\rightarrow$ 0.576 \\
+\logo{deepseek.png}DeepSeek-v4-pro & 23\% $\rightarrow$ 23\% & 79\% $\rightarrow$ 77\% & 5 $\rightarrow$ 5 & 0 $\rightarrow$ 0 & 0.592 $\rightarrow$ 0.575 \\
+\bottomrule
+\end{tabular*}}

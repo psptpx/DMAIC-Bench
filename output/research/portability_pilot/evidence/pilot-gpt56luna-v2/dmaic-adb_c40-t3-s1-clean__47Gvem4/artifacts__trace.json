@@ -1,0 +1,86 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c40-T3-s1-clean",
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "usableSamples": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All 12 libraries are usable; both arms retain 6 replicates, exceeding the minimum of 3."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2,
+        "batch_count": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "controlInL1": 6,
+        "treatedInL1": 0,
+        "controlInL2": 0,
+        "treatedInL2": 6
+      },
+      "status": "success",
+      "decision": "Treatment is perfectly confounded with preparation batch; the intended contrast is not estimable separately from batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "reason": "design_identifiable gate refused release"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "No gene-level counts were released because design_confounded=true; differential expression was not computed and the conclusion stops at the design gate."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "retain_all_usable",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "stop_before_gene_calling",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2
+      }
+    },
+    {
+      "point": "counts_release",
+      "chosen_branch": "refused_by_design_gate",
+      "observed": {
+        "confounded": true
+      }
+    }
+  ]
+}

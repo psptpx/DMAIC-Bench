@@ -1,0 +1,104 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "nLibraries": 12,
+        "nGroups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "retainedSamples": 8,
+        "controlRetained": 4,
+        "treatedRetained": 4,
+        "requiredMinReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "armMinimumMet": true
+      },
+      "status": "success",
+      "decision": "Four libraries failed the joint assigned-read and mapping-rate rules; four usable libraries remained in each arm, so the minimum usable-replicate criterion was met."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "nUsableLibraries": 8,
+        "nGroups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "nUsable": 8,
+        "controlL1": 4,
+        "controlL2": 0,
+        "treatedL1": 0,
+        "treatedL2": 4,
+        "fullDesignColumns": 3,
+        "fullDesignRank": 2
+      },
+      "status": "success",
+      "decision": "After QC, arm and preparation batch were perfectly aligned. The condition-plus-batch model matrix was rank deficient, so the compound effect could not be separated from batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "requested_batch": "counts",
+        "nUsableLibraries": 8
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-level counts were locked by the design_identifiable gate after design_confounded=true; no defensible differential-expression result or responder count was computed."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "requested_batch": "qPCR_validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Validation is downstream of an analyzed counts batch and could not be reached; no concordance or confirmed-candidate count was computed."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "requested_batch": "gene_set_annotation"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation is downstream of validation and could not be reached; no enrichment result was computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_sufficiency",
+      "chosen_branch": "proceed_to_design_assessment",
+      "observed": {
+        "minReplicates": 4,
+        "requiredMinReplicates": 3,
+        "armMinimumMet": true
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "stop_differential_expression",
+      "observed": {
+        "confounded": true,
+        "fullDesignColumns": 3,
+        "fullDesignRank": 2
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

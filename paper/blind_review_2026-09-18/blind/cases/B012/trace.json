@@ -1,0 +1,67 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage_id": "define",
+        "records": 1
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0,
+        "toleranceUm": 80.0
+      },
+      "status": "success",
+      "decision": "Recorded project charter and accepted coating-thickness range."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage_id": "msa",
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "totalReadings": 90
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 44.43814624,
+        "percentTolerance": 54.84378863,
+        "ndc": 2,
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "totalReadings": 90,
+        "grr_pct": 54.84378863
+      },
+      "status": "success",
+      "decision": "Crossed gage R&R shows percent GRR > 30% and ndc < 5; measurement system is not adequate for process-run conclusions."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "requested": true
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Thickness readings in sampling order were locked because grr_pct=54.843789 did not satisfy grr_pct <= 30 [msa_pass], so no process-run analysis could be run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "gate:msa_pass",
+      "chosen_branch": "stop_at_measurement_system_failure",
+      "observed": {
+        "grr_pct": 54.84378863,
+        "ndc": 2,
+        "required_grr_pct_max": 30
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

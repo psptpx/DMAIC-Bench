@@ -1,0 +1,314 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "descriptive_fields": 5
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0,
+        "toleranceWidth": 80.0
+      },
+      "status": "success",
+      "decision": "Charter limits and target extracted; accepted width computed as USL minus LSL."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "msa",
+        "n": 90,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 12.266610182513121,
+        "percentTolerance": 11.349033580368573,
+        "ndc": 11,
+        "gageVariance": 2.2897877903703736,
+        "repeatabilityVariance": 1.815612143555555,
+        "interactionVariance": 0.4655628432469113,
+        "operatorVariance": 0.008612803567907374,
+        "partVariance": 149.88619211149373,
+        "operatorPValue": 0.3604697260935204,
+        "interactionPValue": 0.05154148122043768,
+        "n": 90,
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3
+      },
+      "status": "success",
+      "decision": "Crossed random-effects ANOVA gage R&R; measurement system can distinguish process differences, although its contribution is not negligible."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 125
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 291.34136000000007,
+        "median": 291.13,
+        "stdDev": 7.742209127099444,
+        "skewness": 0.011340618383606478,
+        "adPValue": 0.5966564503704606,
+        "minimum": 272.04,
+        "maximum": 311.4,
+        "n": 125
+      },
+      "status": "success",
+      "decision": "Baseline thickness was centered far above target."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 125
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.5966564503704606,
+        "statistic": 0.293375065094196
+      },
+      "status": "success",
+      "decision": "Anderson-Darling test did not detect a departure from normality in the baseline sample."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 125,
+        "groups": 25,
+        "subgroup_size": 5
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 291.34136,
+        "flaggedXBarCount": 0,
+        "xBarUCL": 301.4545544,
+        "xBarLCL": 281.2281656,
+        "rBar": 17.527199999999997,
+        "rUCL": 37.05250079999999,
+        "flaggedRCount": 0,
+        "subgroupCount": 25,
+        "subgroupSize": 5
+      },
+      "status": "success",
+      "decision": "No basic point-limit flags: the baseline was stable around an unacceptable high center."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 125,
+        "groups": 25,
+        "subgroup_size": 5
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.769440260471344,
+        "cpk": -1.386416605048157,
+        "pp": 1.7221613514240681,
+        "ppk": -1.3493719723267086,
+        "withinStdDev": 7.535339638865003,
+        "overallStdDev": 7.742209127099444,
+        "belowLslCount": 0,
+        "aboveUslCount": 125,
+        "outsideSpecCount": 125,
+        "outsideSpecPct": 100.0,
+        "meanMinusTarget": 71.34136000000007
+      },
+      "status": "success",
+      "decision": "Baseline process was not capable because it was centered above the upper specification limit."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "applicators",
+        "n": 60,
+        "groups": 4,
+        "per_group": 15
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.30935641609930664,
+        "statistic": 1.2244844378661417
+      },
+      "status": "success",
+      "decision": "Median-centered Levene test did not detect unequal applicator variances."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "applicators",
+        "n": 60,
+        "groups": 4,
+        "per_group": 15
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 0.14598101308079076,
+        "fStatistic": 1.86518479653037,
+        "nozzleAMean": 291.55333333333334,
+        "nozzleBMean": 290.76800000000003,
+        "nozzleCMean": 294.0566666666667,
+        "nozzleDMean": 290.91133333333335,
+        "minimumGroupMean": 290.76800000000003,
+        "maximumGroupMean": 294.0566666666667,
+        "meanSpread": 3.288666666666643,
+        "groupCount": 4,
+        "totalN": 60,
+        "perGroupN": 15
+      },
+      "status": "success",
+      "decision": "One-way ANOVA did not demonstrate an applicator mean effect; no single applicator is established as the cause."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n": 20
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 219.24650000000003,
+        "median": 218.62,
+        "stdDev": 5.079968167119493,
+        "skewness": 0.25397212128372904,
+        "adPValue": 0.30680781462722406,
+        "minimum": 208.93,
+        "maximum": 230.61,
+        "n": 20
+      },
+      "status": "success",
+      "decision": "Post-change monitoring is centered close to target."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n": 20
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.30680781462722406,
+        "statistic": 0.4129421640186983
+      },
+      "status": "success",
+      "decision": "Anderson-Darling test did not detect a departure from normality in the sustaining sample."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n": 20,
+        "subgroup_size": 1
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 237.4155929451288,
+        "individualsLCL": 201.07740705487126,
+        "centerLine": 219.24650000000003,
+        "flaggedCount": 0,
+        "averageMovingRange": 6.8315789473684205,
+        "movingRangeUCL": 22.318768421052628,
+        "flaggedMovingRangeCount": 0,
+        "n": 20
+      },
+      "status": "success",
+      "decision": "No point-limit or moving-range-limit flags were found in the available post-change record."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n": 20,
+        "subgroup_size": 1
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.201540832049307,
+        "cpk": 2.1600693066255796,
+        "pp": 2.6246883631347173,
+        "ppk": 2.5752457960941686,
+        "withinStdDev": 6.056364315042926,
+        "overallStdDev": 5.079968167119493,
+        "belowLslCount": 0,
+        "aboveUslCount": 0,
+        "outsideSpecCount": 0,
+        "outsideSpecPct": 0.0,
+        "meanMinusTarget": -0.7534999999999741
+      },
+      "status": "success",
+      "decision": "Available post-change sample is in specification and shows strong estimated capability, subject to continued monitoring."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "batches": [
+          "process_run",
+          "sustaining"
+        ],
+        "pre_n": 125,
+        "post_n": 20
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": -72.09486000000004,
+        "median": 70.58786000000009,
+        "stdDev": -2.6622409599799504,
+        "skewness": -100.0,
+        "adPValue": 0.0,
+        "preMean": 291.34136000000007,
+        "postMean": 219.24650000000003,
+        "preStdDev": 7.742209127099444,
+        "postStdDev": 5.079968167119493,
+        "preOutsideSpecPct": 100.0,
+        "postOutsideSpecPct": 0.0
+      },
+      "status": "success",
+      "decision": "Closest canonical method: descriptive pre/post comparison, not a distribution summary; output aliases retain the computed change quantities."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_gate",
+      "chosen_branch": "proceed_with_process_analysis",
+      "observed": {
+        "grr_pct": 12.266610182513121,
+        "ndc": 11
+      }
+    },
+    {
+      "point": "baseline_chart_selection",
+      "chosen_branch": "xbar_r_for_ordered_subgroups",
+      "observed": {
+        "subgroupSize": 5,
+        "subgroupCount": 25
+      }
+    },
+    {
+      "point": "applicator_comparison",
+      "chosen_branch": "equal_variance_oneway_anova",
+      "observed": {
+        "levenePValue": 0.30935641609930664
+      }
+    },
+    {
+      "point": "sustaining_chart_selection",
+      "chosen_branch": "imr_for_individuals",
+      "observed": {
+        "subgroupSize": 1,
+        "n": 20
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

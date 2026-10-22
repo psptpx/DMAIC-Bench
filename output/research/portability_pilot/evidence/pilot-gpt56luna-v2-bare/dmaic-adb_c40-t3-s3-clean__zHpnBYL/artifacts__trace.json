@@ -1,0 +1,63 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2,
+        "group_labels": [
+          "control",
+          "treated"
+        ]
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "totalLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 2,
+        "requiredMinReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "QC fails the replicate gate: the treated arm has fewer than the required usable replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "blocked_by": "replicates_sufficient"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The steward refused release because min_replicates=2 does not satisfy the required minimum of 3; identifiability and preparation-batch confounding cannot be computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "stop downstream release",
+      "observed": {
+        "minReplicates": 2,
+        "requiredMinReplicates": 3
+      }
+    },
+    {
+      "point": "study_conclusion",
+      "chosen_branch": "do not issue gene list or validation conclusion",
+      "observed": {
+        "failedSamples": 4,
+        "treatedUsable": 2
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

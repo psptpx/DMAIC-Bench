@@ -1,0 +1,124 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 150,
+        "batchCode": 1
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "samplesRetained": 240,
+        "minSampleCallRate": 0.95,
+        "observedMinCallRate": 0.9533333333333334,
+        "observedMaxCallRate": 1.0,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes: observed participant failure fraction did not exceed the protocol maximum."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 150,
+        "batchCode": 1
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 10,
+        "snpsRetained": 140,
+        "failedCallRate": 5,
+        "failedMaf": 3,
+        "failedHweControls": 2,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain only variants meeting call-rate, pooled MAF, and unaffected-participant exact-HWE criteria."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 140,
+        "groupCount": 2,
+        "pcCountEvaluated": 1
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 0.8985276605213535,
+        "pc1VarianceFraction": 0.02098564776332856,
+        "affectedCount": 120,
+        "unaffectedCount": 120,
+        "pc1BestThresholdAccuracy": 0.5291666666666667,
+        "pc1AffectedMin": -3.508826971760219,
+        "pc1AffectedMax": 4.924733760106628,
+        "pc1UnaffectedMin": -4.523926025774327,
+        "pc1UnaffectedMax": 4.191099686615217
+      },
+      "status": "success",
+      "decision": "Affected and unaffected PC1 ranges overlap and PC1 is not associated with status; groups are comparable and no ancestry-axis adjustment is indicated."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 140,
+        "groupCount": 2
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.8941492183950938,
+        "nTested": 140,
+        "familywiseAlpha": 0.05,
+        "bonferroniThreshold": 0.00035714285714285714,
+        "minimumPValue": 0.020612867069947347,
+        "minimumChiSquare": 5.359230499112436,
+        "minimumPValueCalledSamples": 237
+      },
+      "status": "success",
+      "decision": "No retained variant crosses the Bonferroni threshold."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_sample_qc",
+      "observed": {
+        "sampleFailFraction": 0.0,
+        "maximumAllowed": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_handling",
+      "chosen_branch": "unadjusted_additive_trend_test",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.8985276605213535
+      }
+    },
+    {
+      "point": "multiplicity",
+      "chosen_branch": "bonferroni_over_retained_variants",
+      "observed": {
+        "familywiseAlpha": 0.05,
+        "tests": 140,
+        "threshold": 0.00035714285714285714
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

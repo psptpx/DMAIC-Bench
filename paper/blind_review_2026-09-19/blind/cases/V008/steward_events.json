@@ -1,0 +1,99 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Crossed gauge repeatability and reproducibility study with part operator repeat thickness readings",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "detail": "\"Repeat readings of the same pieces\" must be obtained and analysed first",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same pieces",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Project charter and the accepted thickness range",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=16.613104067158304",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 16.613104067158304
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "ndc=8",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 16.613104067158304,
+      "ndc": 8.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Thickness readings in sampling order, five to a point",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 16.613104067158304,
+      "ndc": 8.0
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Thickness sampled separately for each applicator",
+    "stage_id": "applicators",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 16.613104067158304,
+      "ndc": 8.0
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "The monitoring record kept since the change",
+    "stage_id": "sustaining",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 16.613104067158304,
+      "ndc": 8.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "What specific process change was implemented before the monitoring record, and what evidence motivated it?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 16.613104067158304,
+      "ndc": 8.0
+    }
+  }
+]

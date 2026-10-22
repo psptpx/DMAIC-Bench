@@ -1,0 +1,105 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the baseline batch containing the sixty consecutive fillet-height measurements in production order.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the project charter batch with the accepted fillet-height range and target.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "The baseline has now been analyzed. Please release the designed run in which each of the three line settings was taken to a low and high level, twice over.",
+    "stage_id": "design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Please release the before-and-after fillet-height windows around the change made to the line.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Please release the log of the three further process variables recorded throughout the run.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Please release the two windows of fillet height before and after the change.",
+    "stage_id": "after_change",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Please release the logged variables process log containing the three process variables.",
+    "stage_id": "logged_variables",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "What were the physical low and high settings corresponding to the coded -1 and +1 levels of chain speed, rail angle, and air pressure?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 13,
+    "action": "provision",
+    "text": "What specific physical change was made to the line between the before-change and after-change windows?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  }
+]

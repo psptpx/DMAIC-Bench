@@ -1,0 +1,70 @@
+{
+ "reviewer_id": "V056_reviewer",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "Reviewed only the supplied blind/V056 packet and did not inspect the repository outside the blind directory, hidden truth files, scoring code, or other reviewers' outputs; no web search of the benchmark or paper was performed.",
+ "ai_assistance": "AI assistant used to parse and structure this review from the supplied blind packet; no external evidence was consulted and the statistical judgments are my independent review.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V056",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that baseline temporal stability is established and that 'the process is stable' because the I-MR chart produced one Nelson rule-5 signal that could not be checked against a process log; the signal is an unresolved special-cause warning.",
+    "Making a final capability verdict (Ppk 1.320, 'capable') or expected ppm above USL as a validated stable-process capability; capability may be reported only as provisional/current performance until the rule-5 signal is resolved.",
+    "Recommending or implementing ongoing I-MR monitoring using the current centre line and UCL as if they are established baseline control limits; trial limits may be proposed for prospective monitoring only.",
+    "Asserting absolutely that the line has not drifted; the data support at most no confirmed drift or no sustained shift detected."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive summary of the 50 readings: mean, median, standard deviation, skewness, distribution shape.",
+    "Diagnostic exploratory SPC computations including trial I-MR, EWMA, CUSUM and distribution fits, provided they are explicitly labeled preliminary and conditional.",
+    "Investigating the process log or assignable-cause evidence around joint 36 before making a final stability declaration.",
+    "Recommending actions that do not depend on the stability conclusion, such as operator standardized work, confirming the lower specification limit, variance-reduction trials, and continued sampling.",
+    "Computing provisional Ppk/percentile estimates as current process performance, with explicit statement that predictive capability is not established."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "Stability was checked four ways and the answer is consistent \u2014 the process is stable:",
+    "EWMA and CUSUM are the sensitive tests for a small sustained shift, and both are silent. The line has not drifted over this run.",
+    "Capability verdict: capable, but short of a 1.33 Ppk target.",
+    "What the analysis supports is putting the process on ongoing I-MR monitoring at the established centre line of 8.36 with an upper individuals limit of 17.21, using the upper limit and pattern rules only, since the calculated lower limit of -0.48 is not physically attainable."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Exploratory distribution fitting and the one-proportion caution are acceptable as clearly conditioned analysis, and the normal-theory capability cross-check is explicitly reference-only. However, using the lognormal percentile Ppk as a final capability verdict and proposing established I-MR monitoring limits are unacceptable until the Nelson rule-5 warning is resolved.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "If process-log or assignable-cause evidence for joint 36 becomes available, investigate the Nelson rule-5 signal; if a cause is found, remove or segment affected data and recompute stability/capability; if no cause is found, document that a rule-5 signal was investigated and judged false before using limits.",
+    "Treat the 50-joint run as Phase I preliminary data and set trial I-MR limits for prospective monitoring only, explicitly not established baseline limits.",
+    "Report Ppk/percentile estimates as current performance only, not predictive process capability, with a caveat that stability is unresolved.",
+    "If additional consecutive monitoring data confirm no further rule violations and EWMA/CUSUM remain silent, then the baseline may be promoted to stable."
+   ],
+   "evidence": [
+    "Submitted step 5 reports I-MR flaggedCount=1 and pointsBeyondIndividualsLimits=0; report text: 'One Nelson rule-5 signal (2 of 3 points beyond 2 sigma) near joint 36'.",
+    "Submitted step 6 reports runs p=0.391; submitted steps 7-8 report EWMA and CUSUM flaggedCount=0.",
+    "Report text: 'No process facts are available... the one rule-5 flag near joint 36 could not be checked against a process log.'",
+    "Submitted step 10 reports Ppk=1.320 and expected 184 ppm above USL 25.0; the report uses this as a capability verdict.",
+    "Submitted step 11 reports exact one-proportion p=0.077 and 95% upper confidence bound 5.8%; the report appropriately states 50 joints are not enough to prove a low defect rate."
+   ],
+   "rationale": "A single Nelson rule-5 warning is an unresolved special-cause signal; without a process log it cannot be dismissed as false. EWMA, CUSUM and the runs test do not nullify that rule-5 warning, especially with only 50 points and with the rule designed to catch short sequences. Therefore stable baseline, final capability and established control-limit actions are premature. The report is otherwise appropriately restrained about the small-sample defect rate and missing improvement/control data, so the conduct is mixed rather than wholly unacceptable.",
+   "confidence": 3,
+   "numerical_check": "Self-report-only; I checked the binomial arithmetic from the reported 0/50 against 5% (0.95^50 approximately 0.0769), but did not recompute ANOVA or SPC limits from raw data.",
+   "evidence_problem": "Conflicting evidence: one Nelson rule-5 signal versus zero EWMA/CUSUM flags and a non-significant runs test; no process log or assignable-cause investigation is available to resolve the conflict."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6990,
+  "completion_tokens": 11734,
+  "total_tokens": 18724,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 10362
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 5326
+ }
+}

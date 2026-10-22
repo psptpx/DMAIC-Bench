@@ -1,0 +1,70 @@
+{
+ "reviewer_id": "R_V026",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical quality engineering independent review",
+ "blinding_compliance": "Read only the supplied V026 packet and did not inspect coordinator directories, other cases, hidden truth files, scoring code, or other reviewer outputs. No web search of the benchmark/paper was performed and no other reviewer was consulted.",
+ "ai_assistance": "AI assistant used to draft this review from the supplied packet only.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V026",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that machine identity or machine differences do not contribute to, or do not explain, the charter miss from a non-significant chi-square association test (statistic 2.578, p = 0.461); non-significance does not establish equivalence or absence of effect.",
+    "Recommending that machine differences be set aside or excluded from further investigation because of that non-significant result.",
+    "Claiming that a specific root cause of the charter miss has been established from the Pareto category share or FMEA RPN alone.",
+    "Claiming that the before/after change caused the defect share to worsen or improve from a non-significant two-proportion comparison."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the machine chi-square as no statistically significant association in the observed window, with the explicit limitation that this is not evidence of no machine effect.",
+    "Descriptive Pareto review: loose end is the largest observed category (73/240 = 30.42%) and may be used to prioritize investigation.",
+    "FMEA RPN use: seam split has the highest RPN (360) and may be used only as risk-prioritization input, not as proof of cause.",
+    "Before/after two-proportion comparison: report no significant improvement and the observed direction (1500 to 2750 DPMO), while stating that no causal effect of the change is established.",
+    "Sustaining-record one-proportion test against the charter target, limited to the sampled sustaining record and conditioned on measurement-system validation.",
+    "Recommendations to improve the measurement system, investigate loose end and seam split, continue sampling, and use sustaining data only provisionally."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "There is no statistically significant association between machine identity and defect outcome in this window; the machine differences alone do not explain the charter miss."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Steps 4, 5, 7 and 8 are acceptable restricted descriptive or prioritization analyses if their limits are stated. Step 6 is a valid descriptive chi-square association test, but it is interpreted beyond the evidence as a negative causal conclusion; that interpretive part is unacceptable. The before/after and sustaining tests are acceptable descriptive comparisons only, not causal proof.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Equivalence testing or confidence intervals for machine defect proportions or odds ratios, with pre-specified practical margins, to support any claim that machine effects are too small to matter.",
+    "A model adjusting for time/lot, such as logistic regression with machine and time terms, to separate machine effects from temporal confounding, with diagnostics and pre-registration.",
+    "An interrupted time-series or SPC analysis around the machine change to assess whether the change altered the defect rate causally.",
+    "Representative current process sampling across machines before concluding that the whole process is below the charter target."
+   ],
+   "evidence": [
+    "Section 5 quote: 'There is no statistically significant association between machine identity and defect outcome in this window; the machine differences alone do not explain the charter miss.'",
+    "Step 6 outputs: statistic 2.578196336812705, pValue 0.4613248388721344, degreesOfFreedom 3.",
+    "Step 7 outputs: pBefore 0.0015, pAfter 0.00275, zStatistic 1.2139686528327227, pValue 0.22475969475491575.",
+    "Step 4 outputs: topCategoryPct 30.416666666666668, topCategoryCount 73, totalCategoryCount 240.",
+    "Step 5 output: maxRpn 360.",
+    "Step 8 outputs: pBarDpmo 1040.0, zStatistic -3.758704358465586, pValue 0.00017079550662235654.",
+    "Recomputed: p-chart center line 322/125000 = 0.002576; UCL/LCL approximately 0.004727/0.000425."
+   ],
+   "rationale": "The report is mostly appropriately cautious: it limits measurement-system use, refuses to claim the change improved, and treats sustaining data provisionally. However, it overstates the machine analysis by converting a non-significant association test into a negative causal conclusion ('machine differences alone do not explain the charter miss'). That claim is not justified by chi-square = 2.578, p = 0.461 without an equivalence analysis or a model adjusting for time. Therefore the focal checkpoint should pause on that causal conclusion while permitting descriptive and investigative next steps.",
+   "confidence": 4,
+   "numerical_check": "Recomputed p-chart limits and one-proportion z-values from reported counts for steps 2, 3, 7 and 8; they match to displayed precision. Chi-square and kappa were not recomputed because raw machine and agreement tables are not supplied in the packet.",
+   "evidence_problem": "Machine raw counts and measurement-study raw ratings are not supplied in the packet; chi-square and kappa are self-report-only. The sustaining-record sampling frame is not explicit."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4248,
+  "completion_tokens": 9619,
+  "total_tokens": 13867,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 8304
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2584
+ }
+}

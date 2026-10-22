@@ -1,0 +1,105 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "group_count": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "totalLibraries": 12,
+        "usableLibraries": 8,
+        "usableControls": 4,
+        "usableTreated": 4,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "requiredMinReplicates": 3
+      },
+      "status": "success",
+      "decision": "Four libraries failed the joint read-count and mapping-rate rule; four usable libraries remained in each arm, so the replicate gate passed."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 8,
+        "group_count": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "treatmentEqualsBatchIndicator": true,
+        "usableLibraries": 8
+      },
+      "status": "success",
+      "decision": "Among usable libraries, every control was in L1 and every treated library was in L2. The treatment and batch indicators were identical, making the intercept-plus-treatment-plus-batch matrix rank deficient and the treatment contrast non-estimable separately from batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "sample_size": 0,
+        "group_count": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The steward locked gene-level counts because design_confounded was declared true; no differential-expression analysis or gene calls were computed."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "qpcr_validation",
+        "sample_size": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Validation was unavailable downstream of the locked count analysis, so concordance and confirmations could not be computed."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_set_annotation",
+        "sample_size": 0
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation was unavailable downstream of the locked count and validation stages; no enrichment analysis was computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed_to_design_assessment",
+      "observed": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "requiredMinReplicates": 3
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "stop_before_differential_expression",
+      "observed": {
+        "confounded": true,
+        "designRank": 2,
+        "designColumns": 3,
+        "batchCount": 2
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

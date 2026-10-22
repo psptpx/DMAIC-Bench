@@ -1,0 +1,289 @@
+{
+  "schema_version": 2,
+  "updated": "2026-09-25",
+  "manuscript": "dmaic_bench.tex",
+  "main_figures": 5,
+  "total_figures": 14,
+  "figures": [
+    {
+      "number": 1,
+      "scope": "main",
+      "page": 2,
+      "title": "Motivation and design of DMAIC-Bench",
+      "label": "fig:intro",
+      "previous_stem": "figure1_intro",
+      "stem": "figure01_workflow",
+      "files": {
+        "pdf": "figures/figure01_workflow.pdf",
+        "svg": "figures/figure01_workflow.svg",
+        "png": "figures/figure01_workflow.png"
+      },
+      "sha256": {
+        "pdf": "0d761614065f4515de17fcf743ded7b9c7386967453cf7a894998347905c3193",
+        "svg": "03919dd18737b1951395c9cab1963ff938d9c606749b0aefa12126dc3b2e9af1",
+        "png": "86c5922286d522c509fb2e435946c7dee5c2e62989fdbb940cccfad1c4198be3"
+      },
+      "asset_number": 1
+    },
+    {
+      "number": 2,
+      "scope": "main",
+      "page": 4,
+      "title": "DMAIC-Bench architecture",
+      "label": "fig:arch",
+      "previous_stem": "figure2_architecture",
+      "stem": "figure02_architecture",
+      "files": {
+        "pdf": "figures/figure02_architecture.pdf",
+        "svg": "figures/figure02_architecture.svg",
+        "png": "figures/figure02_architecture.png"
+      },
+      "sha256": {
+        "pdf": "3430b6e4a476edb2ff97d7ca8b822614623714485c30cd4f8f697ce965483ae6",
+        "svg": "d61d8cb98a20567642b435e8c59c686a6abdd6bb58e089c3583951769345da4f",
+        "png": "348860e8b7ea51bd7ef9d2315c075e35887719dd03f24b79a384e718a494fed5"
+      },
+      "asset_number": 2
+    },
+    {
+      "number": 3,
+      "scope": "main",
+      "page": 4,
+      "title": "Task breakdown",
+      "label": "fig:corpus-overview",
+      "previous_stem": "figure_corpus_sunburst_radar_compact",
+      "stem": "figure03_task_breakdown",
+      "files": {
+        "pdf": "figures/figure03_task_breakdown.pdf",
+        "svg": "figures/figure03_task_breakdown.svg",
+        "png": "figures/figure03_task_breakdown.png"
+      },
+      "sha256": {
+        "pdf": "9dc4df7c7e9401246354758fd01442eab08fd541a16666210df1664ebf749acc",
+        "svg": "130cdd6248ca67651437ab5359722a8cd072bd55c3fad68f46c5217754f640bb",
+        "png": "823cb85830ca1c65a8f098afb56f5585917c95c6e4f57aa3099778825ce2bd1a"
+      },
+      "asset_number": 3
+    },
+    {
+      "number": 4,
+      "scope": "main",
+      "page": 8,
+      "title": "Reward, restraint, and reliability",
+      "label": "fig:results-summary",
+      "previous_stem": "figure_results_summary",
+      "stem": "figure04_results_summary",
+      "files": {
+        "pdf": "figures/figure04_results_summary.pdf",
+        "svg": "figures/figure04_results_summary.svg",
+        "png": "figures/figure04_results_summary.png"
+      },
+      "sha256": {
+        "pdf": "82c7a5a6b16221369eb43159187efdd1d95a433194b41c13e9dae7292c5aa7ad",
+        "svg": "49d4d88ff1454cdd9ae7ade089cf5ee8c5b7fdff2d47c5c3cc48cda8633e0e09",
+        "png": "e3bae71178bfe78c1dc542d8cdf800437766ab8ddd089f43524163016a7b6892"
+      },
+      "asset_number": 4
+    },
+    {
+      "number": 5,
+      "scope": "main",
+      "page": 9,
+      "title": "Report validity and routing interventions",
+      "label": "fig:expert-controls",
+      "previous_stem": "figure_expert_controls",
+      "stem": "figure05_expert_controls",
+      "files": {
+        "pdf": "figures/figure05_expert_controls.pdf",
+        "svg": "figures/figure05_expert_controls.svg",
+        "png": "figures/figure05_expert_controls.png"
+      },
+      "sha256": {
+        "pdf": "ddfb1478f8f1445fa116f8f7ecfee559bce6f16b344c7abaad13f7d98c55d1f0",
+        "svg": "86afdaa052f8224af5c75177ee6404a5de9c02a23c29b7ccc74ef8e3d7c636dd",
+        "png": "e4d9266935cc8304874e7c22efce0857a5da9feea76ae59e6287388c567504f0"
+      },
+      "asset_number": 5
+    },
+    {
+      "number": 6,
+      "scope": "appendix",
+      "page": 23,
+      "title": "Execution-time and token distributions",
+      "label": "fig:appendix-resources",
+      "previous_stem": "figure_appendix_resources",
+      "stem": "figure06_resource_distributions",
+      "files": {
+        "pdf": "figures/figure06_resource_distributions.pdf",
+        "svg": "figures/figure06_resource_distributions.svg",
+        "png": "figures/figure06_resource_distributions.png"
+      },
+      "sha256": {
+        "pdf": "b630901dc371411e77832f8a66105f49070ea5c4cd8217debb9260dd0361c13f",
+        "svg": "0a155fd4f9f4464fd20befc077a5e0105cd3d1176414caedfe05d3010d9c99d7",
+        "png": "f952647875d3979793e30a065929de96d87ed2ec332c87a8af7f7fbd0563fb98"
+      },
+      "asset_number": 6
+    },
+    {
+      "number": 7,
+      "scope": "appendix",
+      "page": 25,
+      "title": "Execution time by model and task",
+      "label": "fig:runtime-tasks",
+      "previous_stem": "figure_appendix_runtime_tasks",
+      "stem": "figure07_runtime_by_task",
+      "files": {
+        "pdf": "figures/figure07_runtime_by_task.pdf",
+        "svg": "figures/figure07_runtime_by_task.svg",
+        "png": "figures/figure07_runtime_by_task.png"
+      },
+      "sha256": {
+        "pdf": "1bcc5fd86574f7eab5cf04e8e812f3cb3fce55fb84a6bdcda292d2fce0e2fe5c",
+        "svg": "b479e4fc81e052286e8e76f2fc6265a2b8c6ce33014a38c1aced5af4b441ab45",
+        "png": "5e71eb0e2b34d7aa808e3b972bef56c91039b95cf089e1142e1141952bc87469"
+      },
+      "asset_number": 7
+    },
+    {
+      "number": 8,
+      "scope": "appendix",
+      "page": 26,
+      "title": "Resources and route correctness on C-stop tasks",
+      "label": "fig:runtime-stop",
+      "previous_stem": "figure_appendix_runtime_stop",
+      "stem": "figure08_stop_task_resources",
+      "files": {
+        "pdf": "figures/figure08_stop_task_resources.pdf",
+        "svg": "figures/figure08_stop_task_resources.svg",
+        "png": "figures/figure08_stop_task_resources.png"
+      },
+      "sha256": {
+        "pdf": "6c4a19edefa230450014fb026caa0825c3791607d8f867477a6dc1792232d954",
+        "svg": "8ef87061f65d376a556b1183f6420d9985aad3362af506e13a53e6db320f1616",
+        "png": "cf7a7f6a947e3b41cbf4eef4becf9fb55ac4fbef8c228fabaf889c65e1c3babd"
+      },
+      "asset_number": 8
+    },
+    {
+      "number": 9,
+      "scope": "appendix",
+      "page": 27,
+      "title": "Case 33 and its two reference routes",
+      "label": "fig:c33-graph",
+      "previous_stem": "figure_c33_graph",
+      "stem": "figure09_case33_routes",
+      "files": {
+        "pdf": "figures/figure09_case33_routes.pdf",
+        "svg": "figures/figure09_case33_routes.svg",
+        "png": "figures/figure09_case33_routes.png"
+      },
+      "sha256": {
+        "pdf": "509faa037ec76170edd7b733701b1100745fb988abc192faaa571dd1ab1d7d13",
+        "svg": "7bdc96476e43484dc8c7cf77518e9e5bbc46ee36b10bba5ad357f8eb706e0124",
+        "png": "4607b042f747591c2790eb7f097cddcb904b7fc609937044ecfbe80b60ad557d"
+      },
+      "asset_number": 9
+    },
+    {
+      "number": 10,
+      "scope": "appendix",
+      "page": 41,
+      "title": "Reward components and evidence sources",
+      "label": "fig:metrics",
+      "previous_stem": "figure_reward",
+      "stem": "figure10_reward_components",
+      "files": {
+        "pdf": "figures/figure10_reward_components.pdf",
+        "svg": "figures/figure10_reward_components.svg",
+        "png": "figures/figure10_reward_components.png"
+      },
+      "sha256": {
+        "pdf": "80aceb97a8ce90725815b8aae507fea75538813c2825127d76c7a550aa31e1e8",
+        "svg": "dabff469f6f811780d4b16f93a127d3a99574589e30ab0c97039088435126e0f",
+        "png": "d0d7b282c2c7eb4e82c43fd47abf08d915d5e08c4fcbd6d9f1260d1ec68fd826"
+      },
+      "asset_number": 10
+    },
+    {
+      "number": 11,
+      "scope": "appendix",
+      "page": 44,
+      "title": "Warranted continuation: A-go tasks",
+      "label": "fig:appendix-heatmap-a",
+      "previous_stem": "figure_appendix_heatmap_a_go",
+      "stem": "figure11_heatmap_go",
+      "files": {
+        "pdf": "figures/figure11_heatmap_go.pdf",
+        "svg": "figures/figure11_heatmap_go.svg",
+        "png": "figures/figure11_heatmap_go.png"
+      },
+      "sha256": {
+        "pdf": "1507286a7aa22d21d073ef81146fa5dc9bc5df4c76644a8bb77b5144f59eaf27",
+        "svg": "a24c877fe29e3d2bf2447cfe5f2a58d33efbfddbe31ce3c32a6b1db38bd9a41c",
+        "png": "5ef0fca29e9f53f63052589dae129b5b3830c869ef21e9bc23b846d360993768"
+      },
+      "asset_number": 11
+    },
+    {
+      "number": 12,
+      "scope": "appendix",
+      "page": 44,
+      "title": "Warranted diversion: B-divert tasks",
+      "label": "fig:appendix-heatmap-b",
+      "previous_stem": "figure_appendix_heatmap_b_divert",
+      "stem": "figure12_heatmap_divert",
+      "files": {
+        "pdf": "figures/figure12_heatmap_divert.pdf",
+        "svg": "figures/figure12_heatmap_divert.svg",
+        "png": "figures/figure12_heatmap_divert.png"
+      },
+      "sha256": {
+        "pdf": "bbb43da816cb53b8cc1ba1714937e15122affd238430214c4fb1bb6d948ed65d",
+        "svg": "366a5699e6bc15088b07b683c2429b6688b5ecba3f4eea7ea409c189ab7b6b1f",
+        "png": "32cbcced0a83764e030efa462dd4fdd8735cc31cd40c6c2a8f0ede964645e909"
+      },
+      "asset_number": 12
+    },
+    {
+      "number": 13,
+      "scope": "appendix",
+      "page": 45,
+      "title": "Warranted terminal stopping: C-stop tasks",
+      "label": "fig:appendix-heatmap-c",
+      "previous_stem": "figure_appendix_heatmap_c_stop",
+      "stem": "figure13_heatmap_stop",
+      "files": {
+        "pdf": "figures/figure13_heatmap_stop.pdf",
+        "svg": "figures/figure13_heatmap_stop.svg",
+        "png": "figures/figure13_heatmap_stop.png"
+      },
+      "sha256": {
+        "pdf": "2814885674988dbf7f5f7003e217162c7afb8647e489ae3edf6653f26c952055",
+        "svg": "7ea7d6ea1bf03b18cd772edfd5040e18b15e45d8fff024ea811344266cefa5db",
+        "png": "a88c01f3358ee6a150fa1e8c8041314f955af88c8bd2e3cabf5b6d8eabba56ff"
+      },
+      "asset_number": 13
+    },
+    {
+      "number": 14,
+      "scope": "appendix",
+      "page": 46,
+      "title": "Correct routes and decision errors",
+      "label": "fig:appendix-decision-outcomes",
+      "previous_stem": "figure_appendix_decision_outcomes",
+      "stem": "figure14_decision_outcomes",
+      "files": {
+        "pdf": "figures/figure14_decision_outcomes.pdf",
+        "svg": "figures/figure14_decision_outcomes.svg",
+        "png": "figures/figure14_decision_outcomes.png"
+      },
+      "sha256": {
+        "pdf": "7074c17c3e175804c53e2544f33af60b19a48d5b79d31bed65c0d917fdeeb39b",
+        "svg": "1491bb03370f1aac9f44f3881e3fd7c5b4fe09b2e3c88548fa0e9c94438e492f",
+        "png": "c8d0cc5441d11f59dc892e44e3b60d28c30768db7429051b77bf7500b5a68099"
+      },
+      "asset_number": 14
+    }
+  ]
+}

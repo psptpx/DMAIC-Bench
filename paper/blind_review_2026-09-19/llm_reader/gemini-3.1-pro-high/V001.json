@@ -1,0 +1,42 @@
+{
+ "blind_id": "V001",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the baseline measurements as a single stable process",
+  "Asserting that the overall baseline process is in statistical control",
+  "Using unstratified overall capability indices (e.g., Pp/Ppk) from the baseline to predict future process performance"
+ ],
+ "permitted_at_checkpoint": [
+  "Diagnosing the nature of the instability using changepoint detection (e.g., CUSUM) or runs tests",
+  "Partitioning the baseline into distinct phases (e.g., pre-shift and post-shift) and evaluating stability within those segments",
+  "Descriptively computing overall baseline capability metrics, provided their predictive use is explicitly withheld and they are used solely to contrast with short-term variation or highlight the shift"
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The analyst computed overall unstratified capability and baseline control limits (which would typically be unacceptable if relied upon), but explicitly restricted their interpretation, stating the limits were compromised by a level shift. They correctly pursued a valid alternative by using CUSUM and split-phase charts to characterize the discrete process phases.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Applying phase-specific control charts to evaluate within-phase stability after confirming a level shift",
+  "Using CUSUM or structural break tests to formalize the changepoint instead of ignoring the temporal order"
+ ],
+ "evidence": [
+  "The baseline is not a single stable level. It starts near the target, then shifts high",
+  "An overall individuals chart produced three limit signals, but it mixed the two levels.",
+  "Separate charts for each half had no within-half signals and centers of 7.1394 and 7.388167 mm.",
+  "The high mean, rather than short-term variation alone, is the principal concern.",
+  "CUSUM first signaled at index 22"
+ ],
+ "rationale": "The baseline data exhibit a significant structural level shift, rendering the process temporally unstable. This instability strictly forbids (STOP) the intended advancement of treating the baseline as a single, stable capability distribution. The analyst correctly identified this condition, actively withheld the forbidden conclusion of stability, and properly diagnosed the structural shift using appropriate and fully stated alternative analyses.",
+ "confidence": 5,
+ "numerical_check": "self-report-only",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 12810,
+  "completion_tokens": 5038,
+  "total_tokens": 17848
+ }
+}

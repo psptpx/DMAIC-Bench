@@ -1,0 +1,123 @@
+{
+  "system_id": "local-statistical-assistant",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesTotal": 240,
+        "samplesRetained": 237,
+        "affectedRetained": 119,
+        "unaffectedRetained": 118
+      },
+      "status": "success",
+      "decision": "Plate passes"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 2
+      },
+      "status": "success",
+      "decision": "Apply variant QC after participant QC"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 0.5956860477011223,
+        "pc1VarianceFraction": 0.021095690170957707,
+        "pc1RangeOverlap": 7.792925039320888,
+        "pc2PValue": 0.664642984893081,
+        "pc2VarianceFraction": 0.020188392506599335,
+        "pc2RangeOverlap": 7.341904971230669,
+        "pc3PValue": 0.6657897417663243,
+        "pc3VarianceFraction": 0.019991391183988485,
+        "pc3RangeOverlap": 9.059963580731322,
+        "pc4PValue": 0.04379024655049357,
+        "pc4VarianceFraction": 0.019597730280273336,
+        "pc4RangeOverlap": 7.128963050483629,
+        "pc5PValue": 0.23818375944055778,
+        "pc5VarianceFraction": 0.019188451391111607,
+        "pc5RangeOverlap": 8.714334344803689,
+        "pc6PValue": 0.4361566301103246,
+        "pc6VarianceFraction": 0.01851593076088443,
+        "pc6RangeOverlap": 8.75932934307508,
+        "pc7PValue": 0.7059434002513975,
+        "pc7VarianceFraction": 0.017994062442247626,
+        "pc7RangeOverlap": 7.674051458408538,
+        "pc8PValue": 0.8720385746530669,
+        "pc8VarianceFraction": 0.017829348463011367,
+        "pc8RangeOverlap": 8.069512518534548,
+        "pc9PValue": 0.8243457852555764,
+        "pc9VarianceFraction": 0.01760342594751383,
+        "pc9RangeOverlap": 6.393515410209712,
+        "pc10PValue": 0.1890427790408639,
+        "pc10VarianceFraction": 0.0174022310515877,
+        "pc10RangeOverlap": 7.780875596925454,
+        "separated": false,
+        "separatedAxis": 0
+      },
+      "status": "success",
+      "decision": "Standardized genotype PCA, mean-imputed missing calls; Welch tests and group range overlap on leading axes"
+    },
+    {
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1113772313100216,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "minPValue": 0.0133919805153635
+      },
+      "status": "success",
+      "decision": "Additive genotype score test; no convincing ancestry structure on leading axes.",
+      "step_id": 4
+    },
+    {
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nCandidates": 0,
+        "nReplicated": 0,
+        "stewardNominations": 0,
+        "replicationParticipants": 120
+      },
+      "status": "success",
+      "decision": "Reconciled empty discovery and nominated candidate sets. No variant-level replication test applicable; zero replicated is an empty-set count, not a failed replication.",
+      "step_id": 5
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "retain passing participants"
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "overlapping, no convincing structure; trend scan"
+    },
+    {
+      "point": "discovery",
+      "chosen_branch": "replicate corrected hits",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no discovery hits; no reportable association",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

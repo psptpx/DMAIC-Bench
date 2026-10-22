@@ -1,0 +1,44 @@
+{
+  "system_id": "api-assistant",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "samplesRetained": 209,
+        "casesRetained": 103,
+        "controlsRetained": 106,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "sampleFailPercent": 12.916666666666668,
+        "sampleCallRatePercent": 95.0,
+        "maxSampleFailPercent": 10.0
+      },
+      "status": "success",
+      "decision": "Re-genotype plate",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150,
+        "missing": "JSON null; call rate is nonmissing calls divided by panel size"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_sample_qc",
+      "chosen_branch": "stop_and_regenotype",
+      "observed": {
+        "sampleFailFraction": 0.12916666666666668,
+        "maxSampleFailFraction": 0.1
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

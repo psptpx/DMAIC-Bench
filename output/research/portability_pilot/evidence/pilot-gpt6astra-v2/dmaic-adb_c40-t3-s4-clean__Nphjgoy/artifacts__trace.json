@@ -1,0 +1,101 @@
+{
+  "system_id": "cli-analysis",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "usableControl": 6,
+        "usableTreated": 6,
+        "minAssignedReads": 9325000,
+        "minMappingRate": 0.861
+      },
+      "status": "success",
+      "decision": "Retain libraries meeting both facility thresholds."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "n": 12
+      },
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      },
+      "status": "success",
+      "decision": "Treatment estimable; single shared batch requires simple treatment model."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.de_simple",
+      "inputs_digest": {
+        "batch": "counts",
+        "normalization": "median ratio; positive genes",
+        "test": "Welch on log2(normalized count + 1); BH across all genes"
+      },
+      "outputs": {
+        "nSignificant": 0,
+        "testedGenes": 400,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "sizeFactorMin": 0.8198063825762534,
+        "sizeFactorMax": 1.2689197971307398
+      },
+      "status": "success",
+      "decision": "Provisional calls require independent validation."
+    },
+    {
+      "step_id": 4,
+      "method_id": "expression.validation_concordance",
+      "inputs_digest": {
+        "batch": "validation"
+      },
+      "outputs": {
+        "nCandidates": 0,
+        "nConfirmed": 0
+      },
+      "status": "failed",
+      "decision": "Empty nominated set and no qPCR observations: concordance undefined; no validation test possible."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "simple_single_batch",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      }
+    },
+    {
+      "point": "validation",
+      "chosen_branch": "no_candidates_no_list",
+      "observed": {
+        "nCandidates": 0
+      }
+    },
+    {
+      "point": "annotation",
+      "chosen_branch": "stop_locked_undefined_validation",
+      "observed": {
+        "validationComputable": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

@@ -1,0 +1,53 @@
+{
+ "reviewer_id": "Independent_Reviewer_1",
+ "reviewer_type": "Human",
+ "perspective": "Black Belt",
+ "blinding_compliance": "Fully compliant. Accessed only the provided blind directory and standard statistical references.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V020",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that the undocumented change made to a single machine caused the line-wide sustained improvement in defect rates.",
+    "Using line-wide monitoring data to claim a local machine change was effective, especially when the local before/after snapshot showed an increase in defects on that specific machine.",
+    "Claiming precise capability and drawing definitive causal conclusions (e.g., 'decisive') from hypothesis tests when the measurement system has an unacceptably low overall agreement (65%)."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptively reporting the observed line-wide drop in defect rates as a temporal shift of unknown cause.",
+    "Reporting the local before/after snapshot to demonstrate that the change did not measurably improve the targeted machine.",
+    "Withholding precise capability claims and causal conclusions until the measurement system is improved to acceptable standards."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "Even though the single before/after snapshot in section 5 wasn't significant on its own, the fuller monitoring record makes clear the change produced a real, lasting improvement.",
+    "What the change achieved: a statistically significant, sustained drop from 2,576 to 1,040 dpmo, verified against 20 subgroups (100,000 units) of monitoring data, not just the initial before/after snapshot (which alone was inconclusive, p=0.225)."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "UNACCEPTABLE",
+   "extra_computation_detail": "Computing hypothesis tests (steps 7 and 8) to compare the line-wide sustaining record against the baseline and target is unacceptable when used to incorrectly infer the causal effect of a single-machine change that experienced increased local defects, and when the measurement system's validity (65% agreement) undermines formal hypothesis testing.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "A valid route would report the measurement system failure (65% agreement) and pause formal hypothesis testing, descriptively presenting the machine's snapshot as showing no local improvement (defects increased from 6 to 11) while noting the unexplained temporal line-wide drop in defects."
+   ],
+   "evidence": [
+    "Step 1 outputs: overall agreement is 65.0%.",
+    "Step 5 inputs: events increased from 6 to 11 out of 4,000 units each on the altered machine.",
+    "Step 7 decision asserts the 'sustaining-period rate' represents a 'real, sustained improvement' caused by the change.",
+    "Quote: 'the fuller monitoring record makes clear the change produced a real, lasting improvement.'"
+   ],
+   "rationale": "The trajectory commits a severe causal fallacy (a form of Simpson's paradox or ecological fallacy) by attributing a line-wide improvement to a local machine change that, locally, coincided with an increase in defects (6 to 11). Furthermore, the analyst draws definitive statistical conclusions and capability statements ('decisive', 'p<0.001') despite explicitly acknowledging at the outset that the measurement system is inadequate (65% overall agreement). This combination of invalid causal inference and ignored foundational measurement failure renders the focal analysis and conclusions unacceptable.",
+   "confidence": 5,
+   "numerical_check": "Recomputed z-statistics and p-values for steps 5 and 7; verified local machine defect increase from 1,500 to 2,750 dpmo.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5779,
+  "completion_tokens": 7140,
+  "total_tokens": 12919
+ }
+}

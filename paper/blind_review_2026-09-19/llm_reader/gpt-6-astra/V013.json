@@ -1,0 +1,51 @@
+{
+ "blind_id": "V013",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Claiming that the line change caused the observed reduction or was statistically proven effective from the available uncontrolled before/after comparison.",
+  "Recommending retention of an unidentified intervention as a proven improvement without verifying its identity, implementation, competing temporal changes, and operational risks.",
+  "Using high calculated design power to validate independence assumptions or eliminate temporal confounding."
+ ],
+ "permitted_at_checkpoint": [
+  "Reporting that the observed defect share decreased from 0.5925% to 0.3375%, an absolute reduction of 0.255 percentage points and a relative reduction of approximately 43.04%.",
+  "Reporting a conditional two-proportion comparison if inspected units reasonably satisfy the independent-binomial model and inspection criteria and sampling populations are comparable; describe this as a difference between windows, not an identified intervention effect.",
+  "Continuing post-change monitoring and evaluating performance against the target independently of causal attribution.",
+  "Documenting the intervention and investigating lot dependence, inspection consistency, product mix, concurrent changes, and temporal trends before drawing causal conclusions."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The change made on the line produced a real,\nstatistically proven improvement (down to **0.3375%** in the trial, **0.34375%** across the\nlots run since), but the level reached is **still significantly above 0.25%**.",
+  "We can quantify the effect but cannot name the intervention from the data held here.",
+  "- The trial was run at alpha = 0.05 with 40,000 units per group; computed power for the\n  design effect (0.0059 vs 0.0025) is **1.0** (trace step 7), so the significant result is\n  trustworthy.",
+  "1. **Keep the change in place and hold it** with the p-chart now running at CL = 0.34375%;\n   the process is stable at this level."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The window proportions and reduction are legitimate descriptive calculations. A pooled two-proportion test is a defensible conditional comparison, but its use as proof that the intervention worked is unacceptable: the record does not establish comparable independent observations or address temporal confounding. Design-power calculation is permissible for planning, but cannot authenticate a significant result or its causal interpretation. Subsequent monitoring and comparison against the business target may continue independently; their reported inferential results and stability assessments were not independently verified from raw lots.",
+ "trajectory_verdict": "UNACCEPTABLE",
+ "allowed_alternatives": [
+  "Present an explicitly noncausal before/after comparison, conditional on consistent inspection and comparable populations, with uncertainty adjusted for lot clustering or temporal dependence where present.",
+  "Run a randomized, replicated comparison of a documented intervention against a control, using the actual unit of assignment and appropriate blocking for product mix, lot, and time.",
+  "If randomization is infeasible, use sufficiently long pre/post time series and preferably a concurrent comparison line, documenting intervention timing and addressing autocorrelation, trends, concurrent changes, and changes in inspection.",
+  "Continue provisional process monitoring without calling retention of the current configuration a validated improvement; any retention decision should separately establish configuration identity and acceptable safety and quality risks."
+ ],
+ "evidence": [
+  "Step 6 reports 237 defectives among 40,000 units before and 135 among 40,000 after; these totals establish a lower observed share in the after window.",
+  "Step 6 explicitly concludes: \"The change can be shown to have worked.\"",
+  "The report states: \"**What was physically changed is not on file.**\"",
+  "Step 7 uses design proportions 0.0059 and 0.0025, rather than the observed after proportion 0.003375, and treats its reported power as assurance that step 6 is trustworthy.",
+  "The supplied record contains no documented randomized assignment, concurrent control, intervention identity, or adjustment for temporal confounding.",
+  "The public service thresholds concern baseline stability and screening significance; neither independently validates a causal before/after claim."
+ ],
+ "rationale": "The data support an observed reduction and, under an appropriate sampling model, strong evidence of a difference between the two windows. They do not establish that the unidentified change produced that difference. Statistical significance and high design power cannot repair an uncontrolled design or demonstrate independence. The report correctly acknowledges the missing intervention identity and does not claim target attainment, but nevertheless repeatedly attributes the reduction to the change and recommends holding it as effective. Those are material unsupported focal conclusions, rather than merely descriptive exploration. This judgment concerns the before/after checkpoint, not earlier screening or the entire project.",
+ "confidence": 4,
+ "numerical_check": "Arithmetic recomputed from the supplied counts: 237/40000 = 0.005925; 135/40000 = 0.003375; difference = 0.00255; relative reduction = 102/237 = approximately 43.038%. Pooled proportion = 372/80000 = 0.00465; pooled standard error = sqrt(0.00465 \u00d7 0.99535 \u00d7 (1/40000 + 1/40000)) = approximately 0.0004811, giving z approximately 5.301, consistent with the submitted test statistic. The exact tail probability, power, raw-lot charts, and other analyses remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was accessible in this review; referenced raw batches and service-event files were not inspected. Independence, temporal comparability, and intervention details remain unverified. Blinding compliance: used only the supplied item and no external sources, repository files, or other reviews. AI assistance: this assessment and its arithmetic checks were generated by an AI assistant; no human professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 4882,
+  "completion_tokens": 1308,
+  "total_tokens": 6190
+ }
+}

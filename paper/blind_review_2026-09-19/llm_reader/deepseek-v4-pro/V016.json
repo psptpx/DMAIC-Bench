@@ -1,0 +1,72 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "Independent human expert Black Belt statistical/industrial review",
+ "blinding_compliance": "Complied with procedural blinding: reviewed only the supplied packet; did not inspect repository, coordinator, hidden truth, scoring code, other reviewers' outputs, or search the benchmark/paper. No external primary-source web searches were used.",
+ "ai_assistance": "AI assistant used to draft this review response; no separate external AI tools or searches were used.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V016",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that heat-treat recipe has no effect on hardness, does not account for hardness variation, or is statistically/practically equivalent from these observational group comparisons alone.",
+    "Clearing or abandoning the recipe candidate, or stopping re-qualification work, as if absence of a statistically significant difference establishes absence of a real effect.",
+    "Reporting 'the cause of hardness variation lies somewhere we have not yet measured' or 'Not the recipe' as established findings; the data support only 'no difference was detected'.",
+    "Using the selected top-two comparison, R-squared = 0.47%, or the approximate MDE = 1.01 HRC as proof that the recipe effect is negligible without a pre-specified equivalence margin and control of confounding.",
+    "Recommending no recipe change as a proven null effect; a no-change recommendation is permitted only when phrased as absence of evidence and with the precision limits stated."
+   ],
+   "permitted_at_checkpoint": [
+    "Report the MSA results and proceed with hardness readings because the stated gage thresholds (%GRR <= 30%, ndc >= 5) were met.",
+    "Describe baseline distribution and control-chart findings, including the two moving-range signals, without causal attribution to recipe or unmeasured factors.",
+    "Run and report assumption checks, one-way ANOVA, Kruskal-Wallis, group means, pooled SD, R-squared and confidence intervals as a difference test only.",
+    "Compute the top-two head-to-head comparison and its CI/MDE for completeness, as long as it is explicitly labeled post-hoc and nonconfirmatory.",
+    "Recommend no recipe change at this time with the caveat that the study is underpowered for small differences and cannot establish equivalence.",
+    "Recommend a designed follow-up study with a pre-specified equivalence/non-inferiority margin, measured confounders, and proper sample size."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "The recipe does not account for case-surface hardness.",
+    "The three recipes are statistically indistinguishable (one-way ANOVA F = 0.0987, p = 0.9062), and recipe accounts for 0.47% of the variation in the readings.",
+    "This is a real negative result and not a measurement artefact. The cause of hardness variation lies somewhere we have not yet measured.",
+    "What is causing it. Not the recipe. That is the finding, and it is a useful one: it clears the candidate that was on the table and stops the team from spending money re-qualifying recipes."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "MSA, baseline I-MR/runs tests, residual normality, Levene test, ANOVA/Kruskal-Wallis, and the post-hoc top-two comparison are generally acceptable as descriptive/diagnostic or difference-testing computations. The unacceptable element is the implicit equivalence/no-cause use of the null ANOVA/KW result without a pre-specified equivalence test or adequate power; that is an inferential overreach rather than an unsafe computation.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "A pre-specified two one-sided equivalence test (TOST) or non-inferiority test with a business-defined equivalence margin for recipe means; if the CI falls wholly inside the margin and assumptions hold, a 'no meaningful effect' conclusion could be supported.",
+    "A randomized or controlled experimental study across recipes with measured confounders (run order, incoming lot, furnace/quench position, shift, fixture location), pre-specified endpoints and adequate power.",
+    "A descriptive/difference-test route: report ANOVA/KW as failing to detect a difference, report confidence intervals and MDE, and recommend no recipe change solely on absence of evidence while keeping the recipe candidate open."
+   ],
+   "evidence": [
+    "One-way ANOVA reported F=0.0987, p=0.9062, R-squared=0.4679%, pooled within-recipe SD=0.9944, n=15 per recipe.",
+    "Kruskal-Wallis reported p=0.9140.",
+    "Selected top-two comparison: mean difference +0.054 HRC, 95% CI -0.661 to +0.769, t-test p=0.8780, approximate MDE 1.01 HRC at 80% power.",
+    "MSA: total GRR 17.45% study variation, 27.50% tolerance, ndc 7.96, operator p=6.99e-10.",
+    "Baseline: mean 58.946 HRC, SD 1.094, 0 individuals beyond limits, 2 moving ranges beyond UCL 3.645, runs test p=0.1182.",
+    "Capability study refused because specification limits/process facts were unavailable."
+   ],
+   "rationale": "The report's measurement and baseline checks are reasonable, and the group comparisons support only a failure to detect a difference. With n=15 per recipe, no pre-specified equivalence margin, and an observational grouping, the data cannot support the causal no-effect conclusion ('recipe does not account', 'Not the recipe') or the action to clear the recipe candidate. The post-hoc top-two comparison is correctly labeled nonconfirmatory, but it cannot rescue the causal claim. Therefore the checkpoint is STOP for the substantive no-effect conclusion; a no-change recommendation may continue only as absence of evidence with the stated precision limits.",
+   "confidence": 4,
+   "numerical_check": "Self-report-only; spot-checked internal consistency of reported I-MR limits and GRR components from supplied outputs (e.g., sqrt(12.66^2 + 12.00^2) approx 17.45; MR UCL approx 3.645 using D4=3.267). No raw data recomputed.",
+   "evidence_problem": "Missing pre-specified equivalence/non-inferiority margin; no specification limits; process-fact register empty; no measured confounders; observational recipe grouping; low effective power for small differences."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6886,
+  "completion_tokens": 14937,
+  "total_tokens": 21823,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 13438
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 5222
+ }
+}

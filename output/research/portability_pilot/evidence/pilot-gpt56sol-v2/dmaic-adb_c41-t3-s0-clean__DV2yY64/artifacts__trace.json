@@ -1,0 +1,170 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation failed because the sklearn dependency was unavailable; no result was produced."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "minCallRate": 0.94,
+        "platePass": true,
+        "casesRetained": 119,
+        "controlsRetained": 118
+      },
+      "status": "success",
+      "decision": "Plate passes: participant failure fraction does not exceed the protocol maximum. Failed participants: P053, P129, P160. The retained participant set is every supplied participant except P053, P129, and P160."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participantsRetained": 237,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "failedCallRate": 6,
+        "failedMaf": 4,
+        "failedHwe": 3
+      },
+      "status": "success",
+      "decision": "Applied call-rate, pooled MAF, and exact control-only HWE criteria. Failed variants: rs000003, rs000025, rs000061, rs000079, rs000086, rs000091, rs000107, rs000108, rs000122, rs000130, rs000138, rs000149, rs000150. The retained variant set is every supplied panel variant except those listed."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 137,
+        "axesInspected": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.939778863712323,
+        "axesInspected": 10,
+        "smallestAxisPValue": 0.02659641854927208,
+        "smallestBonferroniAdjustedPValue": 0.2659641854927208
+      },
+      "status": "success",
+      "decision": "Affected and unaffected score ranges overlap on every inspected axis; no axis is significant after correction across inspected axes, so separate ancestries are not established and comparison is permitted. No prespecified axis-count rule was available; the analysis inspected ten leading axes and corrected the axis-wise tests across those ten axes."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 137
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.115940928253286,
+        "bonferroniThreshold": 0.00036496350364963507,
+        "topPValue": 5.253540318605901e-11,
+        "topChiSquare": 43.08041958041958,
+        "topNonmissing": 234
+      },
+      "status": "success",
+      "decision": "One Bonferroni-significant discovery candidate: rs000008."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variant": "rs000008",
+        "nonmissing": 234
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.7865156743439763,
+        "beta": 1.3314462490967724
+      },
+      "status": "success",
+      "decision": "Unadjusted additive logistic per-allele effect for the discovery candidate."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "nCandidates": 1
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "pValue": 1.7973641155483908e-05,
+        "oddsRatio": 3.224088318489,
+        "chiSquare": 18.392794104592795,
+        "nonmissing": 119,
+        "caseNonmissing": 59,
+        "controlNonmissing": 60,
+        "sameDirection": true,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Replication supports reporting rs000008."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_qc",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_precondition",
+      "chosen_branch": "compare_without_pc_covariates",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.939778863712323
+      }
+    },
+    {
+      "point": "discovery_multiplicity",
+      "chosen_branch": "bonferroni_over_retained_variants",
+      "observed": {
+        "snpsRetained": 137,
+        "threshold": 0.00036496350364963507
+      }
+    },
+    {
+      "point": "reporting_gate",
+      "chosen_branch": "report_replicated_hit",
+      "observed": {
+        "pValue": 1.7973641155483908e-05,
+        "sameDirection": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

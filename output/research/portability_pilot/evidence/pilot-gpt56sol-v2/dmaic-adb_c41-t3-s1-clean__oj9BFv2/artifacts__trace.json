@@ -1,0 +1,98 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleCount": 240,
+        "variantCount": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "platePass": true,
+        "minimumObservedCallRate": 0.94,
+        "maximumObservedCallRate": 1.0
+      },
+      "status": "success",
+      "decision": "Plate passes the participant-failure rule; exclude P039 and P197 and continue to variant QC."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedSampleCount": 238,
+        "variantCount": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "failedCallRateCount": 5,
+        "failedMafCount": 4,
+        "failedHweCount": 3,
+        "minimumObservedVariantCallRate": 0.8025210084033614,
+        "minimumObservedMaf": 0.0,
+        "minimumObservedHwePValue": 1.8366080589294412e-15,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "Retain the variants passing call rate, MAF, and control-only exact HWE criteria; exclude the listed twelve variants."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedSampleCount": 238,
+        "retainedVariantCount": 138,
+        "axesAssessed": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.1188787428926535e-128,
+        "pc1Statistic": -54.39945230423162,
+        "pc1RangeOverlapFraction": 0.0,
+        "pc1VarianceFraction": 0.08458419269851693
+      },
+      "status": "success",
+      "decision": "Cases and controls are completely separated on PC1. Protocol prohibits comparing them, so no association scan is run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_sample_qc",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "platePass": true
+      }
+    },
+    {
+      "point": "association_model",
+      "chosen_branch": "stop_separate_ancestries",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.1188787428926535e-128,
+        "pc1RangeOverlapFraction": 0.0
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "not_applicable_no_valid_discovery_candidates",
+      "observed": {
+        "discoveryAssociationRun": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

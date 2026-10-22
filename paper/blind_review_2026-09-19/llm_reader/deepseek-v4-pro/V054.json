@@ -1,0 +1,69 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "Independent statistical/industrial validation review",
+ "blinding_compliance": "I accessed only the assigned blind item packet and public technical standards where useful. I did not inspect repository areas outside the assigned blind directory, hidden truth files, scoring code, other reviewers' outputs, or model identities. I did not search the benchmark or paper name on the web.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V054",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Treating the production readings as reliable for final process, capability, or customer-complaint root-cause decisions.",
+    "Asserting stable capability or target attainment from the Cp, Cpk, Pp, or Ppk values as validated for current production.",
+    "Concluding that the process is currently centered at 19.7531 mm or that today's production is within the 12 to 28 mm accepted range.",
+    "Establishing a cause for the complaints, a process-change effect, or a chronology from the released production record.",
+    "Implementing or recommending an optimized process setting based on the unvalidated measurement system.",
+    "Concluding that the production run is representative of the current process or that the customer complaint is resolved."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the MSA failure using the crossed gage R&R results: percent study variation 51.4733%, percent tolerance 54.1109%, and ndc 2.",
+    "Describing the production readings as recorded observations only, clearly labeled as unconfirmed piece values.",
+    "Recommending measurement-system repair, repeat MSA, and revalidation before future process or capability decisions.",
+    "Performing provisional descriptive, control-chart, normality, or capability calculations only if their use is explicitly withheld and they are labeled as conditional on gauge remediation.",
+    "Investigating repeatability sources such as instrument condition, calibration, fixture, procedure, environment, and inspector practice without asserting an operator effect from these MSA data."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The report computed production descriptive statistics, normality tests, an individuals chart, capability indices, and an order-index correlation after the MSA had already failed. These are substantive-looking analyses, but the report explicitly withholds process/capability conclusions and labels them as applying only to the recorded readings. Therefore they are acceptable as restricted description, not as a valid alternative route to capability or stability conclusions.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Compute crossed gage R&R and, if GRR_pct > 30 or ndc < 5, stop substantive process/capability conclusions until the gauge is repaired and revalidated.",
+    "Provide descriptive summaries of the production record only when explicitly labeled as unconfirmed recorded observations, with no acceptance, capability, stability, or causal conclusions.",
+    "Model measurement-error contribution quantitatively to describe uncertainty in the production mean if desired, provided the failed MSA result is still reported and no process decision is made from it.",
+    "Plan a future fresh, time-stamped current-production study using a validated gauge before process capability or complaint-discrimination conclusions."
+   ],
+   "evidence": [
+    "MSA step output: percentStudyVariation = 51.473329606737806, percentTolerance = 54.110887452284864, ndc = 2.",
+    "Public protocol threshold: msa_pass requires grr_pct <= 30.0.",
+    "Report quote: 'The measurement variation consumed 51.4733% of total study variation and 54.1109% of tolerance, with only 2 distinct categories.'",
+    "Report quote: 'The production values are recorded observations, not confirmed piece values.'",
+    "Report quote: 'Because the gauge failed its study and the record has no released timeframe, they should not be used as confirmation that the customer complaint is resolved or that today's production has this capability.'",
+    "Report quote: 'Those conclusions stop here rather than being guessed.'",
+    "Step outputs also show repeatabilityVariance = 2.0132255837777775, operatorVariance = 0.06889931639917493, interactionVariance = 0, partToPartVariance = 5.776422083469133."
+   ],
+   "rationale": "The crossed MSA clearly fails the stated acceptance threshold: percent study variation 51.47%, percent tolerance 54.11%, and ndc 2. Therefore the production readings cannot support final process, capability, cause, or current-state conclusions. The submitted report correctly declares the gauge unacceptable, avoids asserting process stability or capability, states that cause and change conclusions stop for lack of data, and recommends measurement-system repair. The additional production analyses are acceptable only because they are explicitly presented as provisional recorded-reading descriptions and are not relied on for forbidden conclusions.",
+   "confidence": 4,
+   "numerical_check": "Recomputed %Study and %Tolerance from the component variances: total variance = 2.0132256 + 0.0688993 + 0 + 5.7764221 = 7.858547; measurement SD = sqrt(2.0821249) = 1.442958; %Study = 1.442958/sqrt(7.858547) = 51.47%; %Tolerance = 6*1.442958/16 = 54.11%; ndc = floor(sqrt(5.7764221/2.0821249)*1.41) = 2. Production descriptive values were not independently recomputed from raw data because only self-reported compact outputs were available in the packet.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4098,
+  "completion_tokens": 5108,
+  "total_tokens": 9206,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 3780
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2434
+ }
+}

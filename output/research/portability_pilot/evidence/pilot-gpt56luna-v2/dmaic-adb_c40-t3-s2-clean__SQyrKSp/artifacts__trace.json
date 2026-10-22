@@ -1,0 +1,136 @@
+{
+  "system_id": "local-steward-analysis",
+  "task_id": "adb_c40-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "usableLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6
+      },
+      "status": "success",
+      "decision": "All libraries passed sequencing usability criteria; replicate gate passed."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2,
+        "batch_count": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "usableLibraries": 12,
+        "L1Control": 5,
+        "L1Treated": 1,
+        "L2Control": 1,
+        "L2Treated": 5
+      },
+      "status": "success",
+      "decision": "Treatment is estimable separately from preparation batch; batch was included in the model."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "design": "treatment plus batch"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 31,
+        "up": 10,
+        "down": 21,
+        "genesTested": 400,
+        "samples": 12,
+        "residualDf": 9,
+        "padjThreshold": 0.05,
+        "absoluteLog2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "31 genes met adjusted p < 0.05 and absolute log2 fold change >= 1."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidates": 10,
+        "replicatesPerArm": 4
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "minConcordance": 0.75
+      },
+      "status": "success",
+      "decision": "Independent qPCR validation passed; candidate list may be issued."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "universe": 400,
+        "candidate_count": 31,
+        "sets": 12
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "universe": 400,
+        "candidateCount": 31,
+        "setsTested": 12,
+        "significantSetOverlap": 14,
+        "significantSetPadj": 9.55232041519293e-09,
+        "nonSignificantSets": 11
+      },
+      "status": "success",
+      "decision": "One gene set was significantly enriched after BH adjustment."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "usable_replicates_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "minReplicates": 6,
+        "required": 3
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "batch-adjusted contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "issue_candidate_list",
+      "observed": {
+        "concordance": 1.0,
+        "required": 0.75
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

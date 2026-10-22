@@ -1,0 +1,73 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "samplesRetained": 209,
+        "affected": 103,
+        "unaffected": 106,
+        "minCallRate": 0.5066666666666667,
+        "sampleThreshold": 0.95,
+        "plateThreshold": 0.1,
+        "participantsTotal": 240,
+        "sampleFailPercent": 12.916666666666668,
+        "plateThresholdPercent": 10.0
+      },
+      "status": "success",
+      "decision": "Plate fails protocol; re-genotype before inferential analysis."
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callFailures": 5,
+        "mafFailures": 3,
+        "hweFailures": 3,
+        "variantThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Premature exploratory computation on failed plate, not an authorized downstream conclusion. Exact two-sided HWE in retained controls."
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 0.0865563294345742,
+        "pc1VarianceFraction": 0.02280169214023552,
+        "pc2PValue": 0.5962834846190599,
+        "pc2VarianceFraction": 0.022190490696177213,
+        "pc3PValue": 0.8320161690887946,
+        "pc3VarianceFraction": 0.021856726439052235,
+        "pc4PValue": 0.6355898991008397,
+        "pc4VarianceFraction": 0.021373438367227514,
+        "pc5PValue": 0.6771561839421585,
+        "pc5VarianceFraction": 0.02035443581932235,
+        "separated": false,
+        "separatedAxis": 0
+      },
+      "status": "success",
+      "decision": "Premature exploratory computation on failed plate, not an authorized downstream conclusion. PCA of mean-imputed, allele-variance-standardized retained genotypes; Welch group comparisons of leading axes and range overlap."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "stop_and_regenotype",
+      "observed": {
+        "sampleFailFraction": 0.12916666666666668,
+        "maximum": 0.1
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

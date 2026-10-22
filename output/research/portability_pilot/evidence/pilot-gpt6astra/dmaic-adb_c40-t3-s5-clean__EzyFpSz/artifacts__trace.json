@@ -1,0 +1,109 @@
+{
+  "system_id": "cli-analysis",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6
+      },
+      "status": "success",
+      "decision": "Libraries pass the read and mapping requirements; replication sufficient."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12
+      },
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "L1_control": 5,
+        "L1_treated": 1,
+        "L2_control": 1,
+        "L2_treated": 5
+      },
+      "status": "success",
+      "decision": "Full rank; use batch-adjusted treatment model because multiple preparation batches are present."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.batch_assessment",
+      "inputs_digest": {
+        "batch": "counts"
+      },
+      "outputs": {
+        "batchVarianceFraction": 0.5511886373402114
+      },
+      "status": "success",
+      "decision": "Fraction of treatment-only residual sum of squares removed by adding batch, across normalized log-expression genes; descriptive, not a causal variance component."
+    },
+    {
+      "step_id": 4,
+      "method_id": "expression.de_blocked",
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12
+      },
+      "outputs": {
+        "nSignificant": 0,
+        "genesTested": 400,
+        "residualDF": 9,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization using count pseudocount for size factors; log2(normalized count + 1) OLS ~ treatment + batch; two-sided t tests and BH across all genes. No unadjusted arm comparison used for calls."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_readiness",
+      "chosen_branch": "proceed_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6
+      }
+    },
+    {
+      "point": "design",
+      "chosen_branch": "batch_adjusted",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "L1_control": 5,
+        "L1_treated": 1,
+        "L2_control": 1,
+        "L2_treated": 5
+      }
+    },
+    {
+      "point": "gene_calls",
+      "chosen_branch": "no_genes_called_after_batch_adjustment",
+      "observed": {
+        "nSignificant": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

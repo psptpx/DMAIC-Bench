@@ -1,0 +1,11 @@
+% Compact construction diagram; no changes to the existing architecture artwork.
+\begingroup
+\setlength{\fboxsep}{5pt}
+\newcommand{\constructionbox}[2]{\fcolorbox{black!35}{blue!3}{\begin{minipage}[t][1.55cm][t]{0.18\linewidth}\raggedright\small\textbf{#1}\par\vspace{3pt}\footnotesize #2\end{minipage}}}
+\noindent\makebox[\linewidth][s]{%
+\constructionbox{Project evidence}{Manual extraction of scenarios, quantities and decisions}\hfill$\rightarrow$\hfill
+\constructionbox{Decision graphs}{Source routes and standards-defined prerequisites}\hfill$\rightarrow$\hfill
+\constructionbox{Task instances}{Seeded batches and recomputed reference routes}\hfill$\rightarrow$\hfill
+\constructionbox{Validation}{Source checks, executable checks and expert feedback}
+}
+\endgroup

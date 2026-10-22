@@ -1,0 +1,127 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "sampleCount": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minAssignedReadsRule": 5000000,
+        "minMappingRateRule": 0.7,
+        "requiredReplicates": 3,
+        "minAssignedReadsObserved": 9194000,
+        "minMappingRateObserved": 0.865
+      },
+      "status": "success",
+      "decision": "All libraries met both QC rules; both arms exceed the required usable-replicate minimum."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage": "sample_sheet",
+        "usableLibraries": 12,
+        "factors": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "conditionCount": 2,
+        "designRows": 12,
+        "designColumns": 3,
+        "designRank": 3,
+        "controlL1": 5,
+        "controlL2": 1,
+        "treatedL1": 1,
+        "treatedL2": 5
+      },
+      "status": "success",
+      "decision": "The intercept-plus-treatment-plus-batch matrix is full rank, so the treatment contrast is estimable with batch adjustment."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage": "counts",
+        "genes": 400,
+        "libraries": 12,
+        "model": "negative-binomial GLM with treatment and batch"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 3,
+        "panelGenes": 400,
+        "sampleCount": 12,
+        "normalizationGenes": 396,
+        "sizeFactorMin": 0.7593333786314963,
+        "sizeFactorMax": 1.2133152441597175,
+        "designRank": 3,
+        "designColumns": 3,
+        "testsCompleted": 398,
+        "untestedGenes": 2,
+        "modelsConverged": 399,
+        "nonconvergedModels": 1,
+        "upCalled": 1,
+        "downCalled": 2,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "G0269Log2FC": -1.225721945591161,
+        "G0269PValue": 9.212693007378917e-09,
+        "G0269Padj": 3.666651816936809e-06,
+        "G0241Log2FC": 1.0381701034271085,
+        "G0241PValue": 0.0004601274390483943,
+        "G0241Padj": 0.022517160310255167,
+        "G0037Log2FC": -1.0088042595053173,
+        "G0037PValue": 0.0009804393609548455,
+        "G0037Padj": 0.03547407869636623,
+        "diagnosticGeneCount": 3,
+        "G0103CountSum": 403,
+        "G0103NonzeroLibraries": 12
+      },
+      "status": "success",
+      "decision": "Three genes met both strict thresholds in the batch-adjusted analysis; two genes lacked finite Wald tests and one fitted model was nonconvergent, so diagnostics are disclosed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "requiredReplicates": 3
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_differential_expression",
+      "observed": {
+        "confounded": false,
+        "designRank": 3,
+        "designColumns": 3,
+        "batchCount": 2
+      }
+    },
+    {
+      "point": "gene_calling",
+      "chosen_branch": "apply_both_thresholds",
+      "observed": {
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "nSignificant": 3
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

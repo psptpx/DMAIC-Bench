@@ -1,0 +1,63 @@
+{
+ "reviewer_id": "V015-human-reviewer",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical validity; Black Belt methods",
+ "blinding_compliance": "Reviewed only the supplied packet and blinded raw files; did not inspect repository, coordinator, other reviewer outputs, or truth files.",
+ "ai_assistance": "AI assistant used to draft this review and recompute/check arithmetic.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V015",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the post-change defect share meets the 0.0025 committed target",
+    "Closing the project or declaring target attainment based on the current 20-lot post-change level",
+    "Treating the current post-change process as compliant with the commitment without further reduction"
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptively reporting the post-change level as 275/80000 = 0.0034375 and the excess defectives relative to target",
+    "Computing and reporting a Wilson confidence interval and one-proportion test showing the current level is above 0.0025",
+    "Continuing p-chart monitoring of post-change lots",
+    "Planning further improvement and a confirmatory trial",
+    "Using the settings regression only as observational screening association, not as causal proof or optimization"
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Direct focal analyses (post-change one-proportion target test and Wilson interval) are appropriate. The p-chart stability checks, power calculation, and regression are acceptable as descriptive/planning tools under stated conditions. The before/after two-proportion comparison is acceptable only as an associational estimate; the report's causal phrases such as 'The change helped' and 'Effect of the change' exceed that computation because no released process-change identity or concurrent-condition control supports causal attribution.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "To support target attainment/closure, a future post-change dataset with an upper 95% confidence bound below 0.0025 and a stable p-chart would be required",
+    "To support effectiveness of the change causally, a controlled confirmation trial with documented implementation and concurrent comparison or randomization would be required"
+   ],
+   "evidence": [
+    "Submitted post-change step: 275 defectives / 80000 inspected = 0.0034375; target = 0.0025; excess = 75",
+    "Wilson 95% interval: 0.003055072228494698 to 0.003867613591607647",
+    "Report: 'Meeting the commitment requires a further 27.272727272727273% reduction from the current lot-share level.'",
+    "Report recommendation: 'Do not declare success until the stable center is at or below 0.0025, not merely below the old baseline.'",
+    "Report causal language: 'The change helped, but it did not close the gap.'",
+    "Report limitation: 'we cannot state what was changed... or attribute the improvement specifically to that change rather than to another concurrent condition.'"
+   ],
+   "rationale": "At this focal checkpoint, target attainment/closure is not supported; the evidence requires withholding it. The submitted report does withhold target attainment and recommends further action, but it is mixed because it also makes an unsupported causal attribution for the before/after change.",
+   "confidence": 4,
+   "numerical_check": "Recomputed 275/80000 = 0.0034375; excess over target 75; ratio to target 1.375; further reduction (0.0009375/0.0034375)=27.27%; Wilson endpoints approximately match for p=0.0034375, n=80000, z=1.96; p-chart limits match for n=4000. One-proportion p-values are self-reported only; standard normal approximations differ but are not decision-relevant.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5391,
+  "completion_tokens": 16045,
+  "total_tokens": 21436,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 15096
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3727
+ }
+}

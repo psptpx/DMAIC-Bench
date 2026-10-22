@@ -1,0 +1,122 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the archived crossed gage R&R study: same shafts, repeated hardness readings by multiple operators.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same shafts",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Project charter and the candidate under test",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=14.352546404740247",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 14.352546404740247
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "ndc=9",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 14.352546404740247,
+      "ndc": 9.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Hardness shaft by shaft, in the order run",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 14.352546404740247,
+      "ndc": 9.0
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Hardness sampled separately under each recipe",
+    "stage_id": "recipes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 14.352546404740247,
+      "ndc": 9.0
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "The two recipes with the highest averages, side by side",
+    "stage_id": "leading_two",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 14.352546404740247,
+      "ndc": 9.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "Were shafts randomly assigned to recipes, are the recipe samples independent, and was anything else systematically changed with recipe?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 14.352546404740247,
+      "ndc": 9.0
+    }
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "What are the approved lower and upper hardness specification limits, and is higher hardness necessarily better?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 14.352546404740247,
+      "ndc": 9.0
+    }
+  },
+  {
+    "seq": 12,
+    "action": "request",
+    "text": "Implementation change records and post-change confirmation hardness results",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 14.352546404740247,
+      "ndc": 9.0
+    }
+  }
+]

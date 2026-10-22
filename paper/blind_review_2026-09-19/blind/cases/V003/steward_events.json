@@ -1,0 +1,96 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "baseline record of 60 consecutive fillet height joints in order of production",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "the designed run with three line settings each at a low and high level, twice over",
+    "stage_id": "design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "fillet height measurements in the window before the change and the window after the change",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "before and after the change, two windows of fillet height",
+    "stage_id": "after_change",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "project charter and the accepted fillet height range",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "the three process variables logged throughout the run but not varied in any experiment",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "logged variables, process log",
+    "stage_id": "logged_variables",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 13,
+    "action": "provision",
+    "text": "what specific change to the line was implemented between the before window and the after window, and was it based on the DOE results",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  }
+]

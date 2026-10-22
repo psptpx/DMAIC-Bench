@@ -1,0 +1,62 @@
+{
+ "reviewer_id": "human_blackbelt_v009",
+ "reviewer_type": "Human",
+ "perspective": "Independent statistical/industrial DOE validation",
+ "blinding_compliance": "I read only the supplied V009 packet and did not inspect the repository outside blind/, hidden truth, scoring code, model identities, other reviewers, or the benchmark/paper on the web. I did not delegate or consult another reviewer.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V009",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Do not claim that the 13-run CCD alone proves a verified global optimum or final process setting; it supports a local empirical model and a confirmation run before freezing settings.",
+    "Do not claim the programme margin of every seal above 55 N is established from the confirmation data; the data show one value below 55 N and low capability against 55 N.",
+    "Do not extrapolate the fitted response surface outside the tested coded design region or to cure temperature, which was excluded as non-significant in screening."
+   ],
+   "permitted_at_checkpoint": [
+    "Use the screening results to select bond angle and bead spacing as the important factors for the composite design.",
+    "Fit a full quadratic response-surface model to the 13-run CCD and use the reported lack-of-fit p=0.575 to proceed with local optimization.",
+    "Generate recommended coded settings bond_angle=0.760, bead_spacing=0.745 with predicted response 59.72 N and test them in an independent confirmation run.",
+    "After confirmation, compute descriptive, capability, and one-sample t-test summaries for the 45 N and 55 N requirements while keeping the individual-seal 55 N interpretation explicitly caveated."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The confirmation-run analyses beyond the focal RSM gate are a valid confirmatory route: they independently test the optimizer-recommended settings using descriptive summaries, normality checks, capability against 45 N and 55 N, and one-sample t-tests. They are acceptable provided the process remained unchanged from the CCD to the confirmation run and the normality assumption is not rejected; the report appropriately distinguishes mean-shift above 55 N from individual-seal capability against 55 N.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "A full quadratic RSM on a 13-run CCD followed by an independent confirmation run is a defensible route; conditions: no unmodeled time trend, process conditions stable, residuals show no strong structure, and the confirmation batch uses the same materials/environment.",
+    "If residual diagnostics or canonical eigenvalues had shown problems, a robust RSM or augmented confirmation experiment would be needed before optimization."
+   ],
+   "evidence": [
+    "Composite design: 13 runs over bond angle and bead spacing, centre run five times.",
+    "Reported RSM fit: R-squared = 99.6%, adjusted R-squared = 99.3%, lack-of-fit p = 0.575; JSONL values: rSquaredPct = 99.58951944089024, rSquaredAdjPct = 99.29631904152613, lackOfFitPValue = 0.5749941911405583.",
+    "Predicted stationary/optimizer point: 59.72 N at coded bond_angle = 0.760 and coded bead_spacing = 0.745; JSONL predictedResponse = 59.7214953542036.",
+    "Confirmation run n=20: mean 58.607 N, SD 1.93455 N, min 54.62 N, max 61.71 N, 1 of 20 below 55 N.",
+    "Confirmation capability vs 55 N: Cpk = 0.515, Ppk = 0.622; JSONL cpk = 0.5147504594486602, ppk = 0.621505302339113.",
+    "Report caveat: 'If the engineering requirement is that every seal must exceed 55.0 N, the current confirmation run shows one value below that margin and capability against 55 N is still too low (Cpk 0.515, Ppk 0.622); further work should reduce variation or shift the process higher before committing to the programme margin statement.'"
+   ],
+   "rationale": "The focal response-surface model is adequately supported for local optimization: the screening experiment identified bond angle and bead spacing as active factors, the 13-run CCD full-quadratic model shows no significant lack of fit, and the optimizer-recommended settings were tested in an independent confirmation run. The report does not overclaim the 55 N individual-seal margin and appropriately conditions the final freeze on monitoring. The main limitations are small design size and the absence of explicit residual/canonical-eigenvalue reporting, but these are not sufficient to forbid the focal advancement.",
+   "confidence": 4,
+   "numerical_check": "I checked internal consistency of the one-sample t-tests and Ppk values from reported summary statistics: t(45) = 31.46 and t(55) = 8.34 match reported; Ppk vs 45 = (58.607 - 45)/(3*1.93455) = 2.345 matches reported. RSM values and raw data were not recomputed from released_data.json.",
+   "evidence_problem": "Residual diagnostic plots and canonical eigenvalues were not explicitly reported; this is noted but not material given the lack-of-fit p=0.575 and confirmation run."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4854,
+  "completion_tokens": 10618,
+  "total_tokens": 15472,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 9336
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3190
+ }
+}

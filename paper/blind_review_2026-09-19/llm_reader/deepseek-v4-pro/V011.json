@@ -1,0 +1,68 @@
+{
+ "reviewer_id": "human-expert-black-belt-1",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical Black Belt independent validation review",
+ "blinding_compliance": "Reviewed only the provided V011 packet and public standards; did not inspect sibling directories, hidden files, scoring code, or other reviewers' outputs.",
+ "ai_assistance": "AI assistant used to draft this review from the provided packet; no external search was performed.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V011",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Treating the whole 50-unit run as a single stable normal population for current capability or current-state decisions.",
+    "Claiming the position-26 level shift has a known cause, owner, or is a verified intentional improvement.",
+    "Treating the Welch t-statistic, p-value, or confidence interval computed after selecting the split from the same data as having nominal confirmatory properties.",
+    "Using the post-shift normal Cpk/Ppk as a confirmatory long-term capability estimate without an independent verification run and identified/corrected special cause.",
+    "Implementing the recommended re-centering as an optimized verified setting before a fresh ordered verification run."
+   ],
+   "permitted_at_checkpoint": [
+    "Proceeding from the MSA gate because GRR 15.276% <= 30.0 and ndc=9, while retaining caution about marginal measurement error.",
+    "Computing whole-run descriptive, normality, I-MR, runs-test, and correlation diagnostics to establish that the full run is non-stable and non-random.",
+    "Using an exploratory least-squares one-change-point split to form provisional pre/post segments, with the split reported as data-selected and not as evidence of a known intervention.",
+    "Computing post-shift descriptive, normality, I-MR, and provisional capability indices, provided they are labeled provisional due to n=25, data-driven selection, and unexplained transition.",
+    "Recommending containment of the two high-side units, cause tracing, MSA improvement, and verified re-centering as next actions."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "The Welch comparison gave t-statistic **-12.006**, p-value **0.000000000000002357**, and an interval for the increase from **61.429** to **86.227**."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "The whole-run diagnostics, runs/correlation, change-point search, and provisional post-shift I-MR/capability are acceptable as descriptive/diagnostic. The unacceptable part is the post-selection Welch p-value and confidence interval: because the split at position 26 was chosen by minimizing SSE on the same 50 observations, the quoted p-value and interval do not retain nominal properties; they should be replaced by a pre-specified change-point test, independent validation, or reported only as exploratory effect sizes without p-value/CI.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Pre-specify a change-point hypothesis test or use an independent validation subset before reporting a p-value and confidence interval for the level shift.",
+    "Report the least-squares split descriptively with pre/post means and sd, but omit or clearly downgrade the nominal Welch p-value/CI; use selection-adjusted bootstrap/permutation intervals if inference is needed.",
+    "For current-state quantification, supplement normal Cpk/Ppk with the observed nonconformance fraction (2/25) and an exact binomial confidence interval, or use a distribution-free/tolerance-interval summary.",
+    "After identifying and correcting the cause, collect a new independent ordered verification run before confirmatory stability and capability declarations."
+   ],
+   "evidence": [
+    "Submitted step 1: GRR percentStudyVariation=15.275984, percentTolerance=15.372771, ndc=9, operatorPValue=0.0012145.",
+    "Submitted steps 3-8: whole-run mean=486.826, sd=43.052, AD p=0.023433, I-MR flags at positions 14 and 23, runs p=1.093973e-08, correlation=0.7506, slope=2.2168.",
+    "Submitted step 9: least-squares split postStartsAtPosition=26; preCount=25, postCount=25; submitted step 14: Welch t=-12.006, p=2.3569e-15, CI 61.429-86.227.",
+    "Submitted steps 11-17: post-shift n=25, mean=523.74, sd=17.754, AD p=0.4313, post I-MR flaggedCount=0, Cp=1.8428, Cpk=0.4839, Pp=1.8775, Ppk=0.4930, insideCount=23/aboveCount=2.",
+    "Report language: 'The current segment is stable under the basic Individuals\u2013Moving Range beyond-limit rule' and later 'This supports using the segment for a provisional current capability estimate, although the short run and unexplained transition limit confidence.'"
+   ],
+   "rationale": "The MSA gate passes and the whole-run instability is well documented, so it is reasonable to advance to a provisional segmented current-state analysis. The report's causal restraint is appropriate. However, it reports a nominal Welch p-value and confidence interval for a shift whose break point was selected from the same data; that is a selective-inference error and overstates the strength of the level-shift evidence. The focal gate is therefore GO, but submitted conduct is mixed.",
+   "confidence": 4,
+   "numerical_check": "Recomputed GRR %Tolerance and ndc from reported variance components, and checked I-MR/capability arithmetic from the reported means, sigma, and limits; process raw values were not re-run. Change-point and Welch results are self-report-only.",
+   "evidence_problem": "Post-shift moving-range chart was not reported; process-cause records are absent by steward response; main statistical problem is post-selection inference rather than missing data."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5756,
+  "completion_tokens": 15618,
+  "total_tokens": 21374,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 14227
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 4092
+ }
+}

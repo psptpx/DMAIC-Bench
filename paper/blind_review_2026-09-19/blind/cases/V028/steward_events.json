@@ -1,0 +1,72 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the programme charter and seal-strength requirement batch now.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the seal-strength assembly-by-assembly baseline record in build order now.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Please release the screening run with three assembly settings, each at low and high levels and replicated twice.",
+    "stage_id": "screening_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Please release the later composite design run over the two significant settings, including the five centre-point replicates.",
+    "stage_id": "composite_design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Please release the twenty confirmation seals made at the settings recommended by the composite design.",
+    "stage_id": "confirmation_runs",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "What are the physical settings for the composite design's coded centre (0,0), and how does that centre relate to the screening run's high levels of bond angle and bead spacing?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  }
+]

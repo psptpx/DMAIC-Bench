@@ -1,0 +1,74 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and bore finish requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same bores",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Per-bore roughness record in finishing order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "improvement actions taken on the honing line",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "verification run after process change",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "control plan and holding the gains",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "provision",
+    "text": "Which process settings on the honing line determine where the bore roughness average sits, so we can recenter toward the 1.0 um Ra target?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "Has any process change been made and verified with a new data run for bore roughness, or is the 50-bore record the latest state?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

@@ -1,0 +1,54 @@
+{
+ "blind_id": "V056",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Declare baseline temporal stability established while dismissing the reported Nelson rule-5 signal without investigation or a justified assessment of its false-alarm behavior.",
+  "Treat fitted capability and tail probabilities as validated predictions of an ongoing stable process.",
+  "Attribute the observed right tail exclusively to common causes or rule out events during the run.",
+  "Adopt the estimated baseline control limits as validated ongoing limits without resolving or adequately evaluating the baseline signal."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the observed run, including its distribution, zero observed exceedances, and all chart signals.",
+  "Investigate the signal near joint 36, verify chronological ordering and chart calculations, and seek setup, material, operator, or measurement records.",
+  "Use EWMA, CUSUM, and runs tests as complementary diagnostics, recognizing their dependence and different sensitivities rather than treating nonsignificance as proof of stability.",
+  "Compute distribution fits and capability indices as explicitly conditional baseline descriptions, withholding stable-process capability and prospective defect-rate claims.",
+  "Continue monitoring with provisional limits and an explicit signal-response procedure; conduct independently justified measurement-method or variance-reduction trials without claiming a demonstrated improvement."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "Stability was checked four ways and the answer is consistent \u2014 the process is stable:",
+  "One Nelson rule-5 signal\n  (2 of 3 points beyond 2 sigma) near joint 36; a single pattern flag in 50 points with no\n  supporting evidence elsewhere is not a real special cause.",
+  "**Capability verdict: capable, but short of a 1.33 Ppk target.**",
+  "That is inherent to the\nprocess as it currently runs, not to any event in the run.",
+  "What the analysis\nsupports is putting the process on ongoing I-MR monitoring at the established centre line of 8.36\nwith an upper individuals limit of 17.21, using the upper limit and pattern rules only, since the\ncalculated lower limit of -0.48 is not physically attainable."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Descriptive summaries, supplementary temporal diagnostics, and normal capability explicitly withheld from the verdict are acceptable exploratory computations. A fitted lognormal model can also describe this sample conditionally. However, the report uses its percentile capability and estimated 184 ppm as substantive stable-process conclusions despite an unresolved temporal signal. Ranking fitted distributions by KS p-values does not establish tail validity, particularly without documenting calibration for estimated parameters. The mean and signed-rank tests do not establish individual conformance or temporal stability. The exact binomial calculation is numerically consistent but its population-rate interpretation requires independent observations with a common exceedance probability, not established here.",
+ "trajectory_verdict": "UNACCEPTABLE",
+ "allowed_alternatives": [
+  "Investigate the flagged window and verify the rule calculation. If a documented assignable cause is found, correct it and collect a representative baseline before asserting stable capability.",
+  "Evaluate the signal using a justified chart design that accounts for skewness, estimated limits, and the combined false-alarm rate of the rules applied. A conclusion of provisional stability could be defensible if this evaluation resolves the signal and continued monitoring supports it; it cannot follow simply from other tests being silent.",
+  "Report empirical baseline performance and conditional distribution fits without claiming persistent capability. Any extrapolated tail estimate should identify model uncertainty and the assumption of a representative, temporally homogeneous process.",
+  "Use provisional I-MR monitoring for investigation while explicitly withholding validated baseline status and setting a response to pattern signals."
+ ],
+ "evidence": [
+  "Step 5 reports flaggedCount = 1, no points beyond individuals or moving-range limits, and a Nelson rule-5 signal near joint 36.",
+  "Steps 6\u20138 report runs-test p = 0.39126727928263927 and zero EWMA and CUSUM flags; these diagnostics use the same 50 observations.",
+  "The report states that the rule-5 flag could not be checked against a process log and that no matching setup, material-lot, or operator-change facts were available.",
+  "Step 10 reports lognormal Ppk = 1.3199241083134954 and expected exceedances = 184.4555432599475 ppm, explicitly calling this a defensible capability statement.",
+  "The report appropriately discloses the roughness-versus-void-fraction mismatch and withholds improvement and control-phase achievement claims because data are unavailable.",
+  "No numerical public protocol thresholds are supplied; the objection is statistical rather than a literal service-gate violation."
+ ],
+ "rationale": "An isolated pattern signal does not prove a physical special cause, especially with skewed data and multiple rules. Nevertheless, the report supplies no investigation or calibrated alternative analysis that justifies dismissing it. Silent diagnostics on the same observations are neither independent confirmations nor evidence that no drift or event occurred. The required pause concerns affirmative stability, inherent common-cause attribution, and predictive capability, not all further analysis. Appropriate restraint on absent improvement data and on some descriptive computations does not repair the material unsupported focal conclusions.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied summaries: 8.3648 \u00b1 3 \u00d7 2.949413808076422 gives approximately -0.48344 and 17.21304, consistent with the reported individuals limits. For zero exceedances in 50 independent common-probability trials, 0.95^50 = approximately 0.076945 and 1 - 0.05^(1/50) = approximately 0.058155, matching the reported one-sided binomial results. Raw observations were not available in the supplied text; the pattern flag, distribution fits, and remaining test outputs are self-report-only.",
+ "evidence_problem": "The supplied record lacks raw chronological observations and chart implementation details needed to verify the signal and supplementary diagnostics independently. Process-log information is explicitly unavailable, and the assignment characteristic conflicts with the reported released-data characteristic. Review was limited to the supplied blind packet; no external files, other reviews, or URLs were accessed. This assessment was produced by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 6788,
+  "completion_tokens": 1374,
+  "total_tokens": 8162
+ }
+}

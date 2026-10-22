@@ -1,0 +1,157 @@
+{
+  "system_id": "steward-local-analysis",
+  "task_id": "adb_c41-T3-s1-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "n": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "PCA library unavailable; rerun used NumPy SVD."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "n": 240,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "participants": 240,
+        "variants": 150,
+        "groups": 2
+      },
+      "status": "success",
+      "decision": "plate passes sample-failure gate"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variantsTested": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 134,
+        "snpsRetained": 16,
+        "variantsTested": 150
+      },
+      "status": "success",
+      "decision": "retain variants meeting call rate, MAF, and control HWE rules"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "n": 240,
+        "retainedVariants": 16,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 1.180688047409278e-59
+      },
+      "status": "success",
+      "decision": "groups cannot be compared under protocol ancestry gate"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedVariants": 16,
+        "groups": 2
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 5,
+        "lambdaGC": 5.756495912707195,
+        "bonferroniThreshold": 0.003125
+      },
+      "status": "success",
+      "decision": "five provisional unadjusted hits exceed Bonferroni threshold; not reportable because ancestry gate fails"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedVariants": 16
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 8.144605475040258
+      },
+      "status": "success",
+      "decision": "example strongest provisional hit is rs010068"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "n": 120,
+        "variants": 150,
+        "candidateVariants": 0
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0
+      },
+      "status": "success",
+      "decision": "replication sample QC computed; no candidates were nominated"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariants": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "participants": 120,
+        "variants": 150,
+        "groups": 2
+      },
+      "status": "success",
+      "decision": "replication conclusion stops because candidate set is empty"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_gate",
+      "chosen_branch": "continue",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "stop_direct_comparison",
+      "observed": {
+        "separated": true,
+        "pc1PValue": 1.180688047409278e-59
+      }
+    },
+    {
+      "point": "replication_route",
+      "chosen_branch": "no_candidates_nominated",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ]
+}

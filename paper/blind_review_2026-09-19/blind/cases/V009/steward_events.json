@@ -1,0 +1,72 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "I need the programme charter and the seal-strength requirement/product margin batch now.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "I need the seal strength assembly by assembly, in the order built, baseline record batch now.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "I need the screening run: three assembly settings at a low and a high level twice over.",
+    "stage_id": "screening_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "I need the composite design over two settings, centre run five times.",
+    "stage_id": "composite_design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "I need the twenty seals made at the settings that design work recommended.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "Please provide the recommended settings confirmation seals batch: seals made at the recommended settings.",
+    "stage_id": "confirmation_runs",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  }
+]

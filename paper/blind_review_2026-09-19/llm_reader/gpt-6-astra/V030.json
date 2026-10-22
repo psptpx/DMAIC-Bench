@@ -1,0 +1,52 @@
+{
+ "blind_id": "V030",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the pooled baseline as a stable process distribution or using its Ppk as evidence of predictable capability.",
+  "Attributing the baseline shift to the screened settings without evidence connecting those settings to the historical shift.",
+  "Claiming a verified improvement over the baseline from pooled capability comparisons or a selected pre-shift comparison without addressing changing process states and temporal confounding."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the observed baseline strengths, empirical nonconformance, sequence patterns and differences between portions of the sequence.",
+  "Investigate the apparent shift, retrieve process and measurement records, and assess stability within independently justified segments.",
+  "Report a pooled performance ratio only as a retrospective descriptive statistic, explicitly withholding stable capability and predictive interpretations.",
+  "Continue independently justified factorial and response-surface experiments if randomization or appropriate blocking, independent errors, measurement adequacy and model diagnostics support their interpretation; baseline instability alone does not prohibit experimentation.",
+  "Describe the confirmation sample and assess its performance separately, without treating its comparison with an unexplained historical state as proof of causal improvement."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "**The goal is met at the recommended settings.**",
+  "Seal strength moved from an unstable baseline averaging 52-66 N in two distinct states, with 35% of product below the required 55 N, to a verified process centred at 59.4 N with all 20 confirmation seals in spec and Ppk 2.43 against the hard limit."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Baseline summaries, sequence diagnostics and empirical below-threshold counts are appropriate. A pooled Ppk can be descriptive, but its subsequent use in a verified-transformation narrative is not justified. Comparisons with both baseline halves help expose the ambiguity, but their nominal t-test probabilities require independence and a justified split; an apparently data-selected split cannot be treated as an independently specified confirmatory test. Factorial and RSM analyses are potentially valid independent experimental routes, not automatically invalid because the historical baseline shifted, but randomization, blocking and residual evidence are not supplied here. Confirmation normality and a mean test do not establish temporal stability or individual-product conformance, and do not repair the historical comparison.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain the baseline pooled mean, SD and empirical failure fraction as historical summaries, explicitly disallowing extrapolation from the mixture to future capability.",
+  "Use change-point exploration to generate hypotheses, then corroborate the transition with process records or new data; adjust inference for selecting the breakpoint if formal significance is claimed.",
+  "Evaluate experimental setting effects through randomized replicated runs, or through a documented blocked design that separates setting effects from time and other nuisance variation.",
+  "Establish improvement using concurrent randomized old-setting and new-setting runs, or an adequately controlled comparison with verified comparable measurement and process conditions.",
+  "Establish a new stable operating state with ordered confirmation data and suitable monitoring before making predictive capability claims; distinguish performance against 45 N from performance against 55 N."
+ ],
+ "evidence": [
+  "The report explicitly states: \"The process is **not stable**:\"",
+  "The reported runs-test p-value is 4.532976172200165e-08; the reported first-half and second-half means are 52.34166666666667 N and 65.91533333333334 N.",
+  "The report acknowledges that \"the cause of the mid-run shift is **unknown from available data**.\"",
+  "The report states: \"This must be investigated before locking the process: it could hold several more newtons of margin.\" This is meaningful restraint on implementation.",
+  "Step 17 characterizes the selected pre-shift comparison as \"the gain is real, not noise,\" while step 18 reports that confirmation is below the later baseline state.",
+  "The report states: \"Data are consistent with normality (Shapiro-Wilk p = **0.41**), so capability indices are meaningful.\" Normality alone does not establish the missing temporal stability.",
+  "The only supplied public service threshold concerns screening significance; it does not independently validate baseline stability or prohibit a defensible independent experiment."
+ ],
+ "rationale": "The sequence evidence supports withholding stable baseline capability and investigating the shift. The report correctly recognizes instability, admits that the historical cause is unknown, presents both baseline-state comparisons and withholds process locking. Those are substantial focal safeguards. Nevertheless, it subsequently uses the unstable baseline and the confirmation results to claim a verified transformation and goal attainment. Neither a historical comparison with a selected lower state nor a comparison of pooled performance indices resolves temporal confounding. Continued designed experimentation is not itself the violation; the unsupported baseline-to-improvement interpretation is.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied summary values: baseline lower-side performance ratio is (59.1285 - 45)/(3 \u00d7 7.9511007286167725) \u2248 0.5923; confirmation ratio is (59.375 - 45)/(3 \u00d7 1.9679684956827954) \u2248 2.4348. The confirmation-minus-first-half difference is 7.0333 N, while confirmation-minus-second-half is -6.5403 N. These checks confirm arithmetic, not stability or causal improvement. Raw observations were not available in the supplied text, so sequence tests, fitted models and p-values remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw-data and service-event files were not accessible in this interaction. Experimental randomization, run order, residual diagnostics and confirmation stability are not documented in the supplied material. No external sources or other reviewers' outputs were consulted. This assessment was produced by an AI assistant, not an independent human expert; no human professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 6259,
+  "completion_tokens": 1301,
+  "total_tokens": 7560
+ }
+}

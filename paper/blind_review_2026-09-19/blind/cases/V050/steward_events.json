@@ -1,0 +1,81 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the sixty baseline seal pull strengths in build order.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Programme charter and seal requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "provision",
+    "text": "What are the measurement-system validation status, sampling independence and build-order conditions for the baseline destructive pull tests?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Release the screening run with three settings at low and high levels, replicated twice.",
+    "stage_id": "screening_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Composite design over two settings with centre replicated five times",
+    "stage_id": "composite_design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Seals made at the recommended settings, confirmation run",
+    "stage_id": "confirmation_runs",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Actual physical factor levels, coding maps and recommended setting implementation records",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  }
+]

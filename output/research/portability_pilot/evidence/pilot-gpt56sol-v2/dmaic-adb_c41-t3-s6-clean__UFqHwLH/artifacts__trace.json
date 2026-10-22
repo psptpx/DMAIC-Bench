@@ -1,0 +1,125 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "variants": 150,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesRetained": 239,
+        "platePass": true,
+        "failedSampleCallRate": 0.9466666666666667,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119,
+        "sampleCallRateCutoff": 0.95,
+        "plateFailFractionLimit": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes the re-genotyping stop rule; exclude P129 and continue QC."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples_after_sample_qc": 239,
+        "variants": 150,
+        "control_group_size": 119
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 4,
+        "variantCallRateCutoff": 0.95,
+        "mafCutoff": 0.01,
+        "hweControlPCutoff": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain the variants passing call rate, pooled MAF, and exact control HWE filters."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 239,
+        "retained_variants": 137,
+        "leading_axes_tested": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 2,
+        "pc1PValue": 0.5031215641305578,
+        "pc2PValue": 1.5825823445808949e-139,
+        "pc2TStatistic": 60.88768020784996,
+        "pc2VarianceFraction": 0.08136027771197267,
+        "pc2CaseMinimum": 1.4900730951609422,
+        "pc2CaseMaximum": 4.952154918194459,
+        "pc2ControlMinimum": -5.441281072629988,
+        "pc2ControlMaximum": -0.27231576013549713,
+        "pc2StandardizedMeanDifference": 7.881556702053639,
+        "significantAxes": 1
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants occupy non-overlapping PC2 ranges; the protocol forbids comparing them, so no association scan is run."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "replication",
+        "replication_samples": 120,
+        "candidate_list": "candidateVariants"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "directionEntries": 0
+      },
+      "status": "success",
+      "decision": "The released replication batch contains no nominated discovery candidates or directions; no candidate-level replication test is possible."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_sample",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667,
+        "platePass": true
+      }
+    },
+    {
+      "point": "cohort_comparability",
+      "chosen_branch": "stop_before_association",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 2,
+        "pc2PValue": 1.5825823445808949e-139,
+        "pc2CaseMinimum": 1.4900730951609422,
+        "pc2ControlMaximum": -0.27231576013549713
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_candidates_to_test",
+      "observed": {
+        "nCandidates": 0,
+        "directionEntries": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

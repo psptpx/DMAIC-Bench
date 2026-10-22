@@ -1,0 +1,203 @@
+{
+  "turns": 0,
+  "interventions": 0,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "n": 90,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 16.849,
+        "percentTolerance": 23.527,
+        "ndc": 8
+      },
+      "status": "success",
+      "decision": "Crossed ANOVA gage R&R: %GRR (study variation) = 16.85% (<30%) and ndc = 8 (>=5), %tolerance = 23.53%; the hardness tester readings can carry a conclusion. Declared grr_pct=16.849 and ndc=8 to the steward."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60,
+        "groups": 1
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 58.1817,
+        "median": 57.945,
+        "stdDev": 0.7414,
+        "skewness": 0.7809,
+        "adPValue": 0.0004
+      },
+      "status": "success",
+      "decision": "Baseline of 60 shafts: mean 58.182 HRC, sd 0.741; right-skewed and non-normal (Anderson-Darling p=0.0004)."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60,
+        "groups": 1
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.0018,
+        "statistic": 0.929
+      },
+      "status": "success",
+      "decision": "Shapiro-Wilk confirms the run-order population is not normal (p=0.0018); rank-based methods should back up any parametric comparison."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60,
+        "groups": 1
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 58.1817,
+        "individualsUCL": 60.4228,
+        "individualsLCL": 55.9405,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "I-MR chart on the 60 shafts in run order: 0 points beyond limits on both charts (MR UCL 2.7526, 0 MR flags); the baseline is statistically stable."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60,
+        "groups": 1
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.6025
+      },
+      "status": "success",
+      "decision": "Median-based runs test p=0.6025: no non-random pattern in run order; the baseline has behaved as one stable population."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "recipes",
+        "n": 45,
+        "groups": 3,
+        "n_per_group": 15
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.780655,
+        "statistic": 0.2491
+      },
+      "status": "success",
+      "decision": "Levene test (median-centred, per the batch's varianceTestCentering): p=0.7807, variances across the three recipes are not distinguishably different; a one-way comparison of means is admissible."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "recipes",
+        "n": 45,
+        "groups": 3,
+        "n_per_group": 15
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 0.58653772,
+        "fStatistic": 0.5404
+      },
+      "status": "success",
+      "decision": "One-way ANOVA of hardness by recipe: F=0.5404, p=0.5865. Heat-treat recipe shows no detectable effect on case-surface hardness (means A=59.102, B=59.311, C=59.327 HRC)."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "recipes",
+        "n": 45,
+        "groups": 3,
+        "n_per_group": 15
+      },
+      "method_id": "nonparametric.kruskal_wallis",
+      "outputs": {
+        "pValue": 0.3678051
+      },
+      "status": "success",
+      "decision": "Kruskal-Wallis (robust to the observed non-normality) agrees: p=0.3678, no recipe effect on hardness distributions."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "leading_two",
+        "n": 30,
+        "groups": 2,
+        "n_per_group": 15
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.946576,
+        "tStatistic": 0.0676
+      },
+      "status": "success",
+      "decision": "Head-to-head of the two highest-averaging recipes (C vs B): mean difference 0.0153 HRC, 95% CI [-0.4492, 0.4799], p=0.9466. Even the two best recipes are statistically indistinguishable."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "leading_two",
+        "n": 30,
+        "groups": 2,
+        "n_per_group": 15
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 0.787439
+      },
+      "status": "success",
+      "decision": "Mann-Whitney on C vs B confirms the t-test: p=0.7874, no difference."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_gate",
+      "chosen_branch": "proceed_with_analysis",
+      "observed": {
+        "grr_pct": 16.849,
+        "ndc": 8,
+        "percentTolerance": 23.527
+      }
+    },
+    {
+      "point": "baseline_distribution",
+      "chosen_branch": "nonnormal_pair_parametric_with_nonparametric",
+      "observed": {
+        "adPValue": 0.0004,
+        "shapiroPValue": 0.0018,
+        "skewness": 0.7809
+      }
+    },
+    {
+      "point": "recipe_comparison_method",
+      "chosen_branch": "oneway_anova_confirmed_by_kruskal_wallis",
+      "observed": {
+        "levenePValue": 0.780655,
+        "factorPValue": 0.58653772,
+        "kwPValue": 0.3678051
+      }
+    },
+    {
+      "point": "leading_two_followup",
+      "chosen_branch": "two_sample_t_confirmed_by_mann_whitney",
+      "observed": {
+        "tPValue": 0.946576,
+        "mwPValue": 0.787439
+      }
+    }
+  ]
+}

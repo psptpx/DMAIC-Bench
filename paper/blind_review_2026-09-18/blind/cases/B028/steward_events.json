@@ -1,0 +1,101 @@
+[
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Project charter and the candidate under test",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Repeat readings of the same shafts by several operators on the hardness tester",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=12.700490673699216",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 12.700490673699216
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "ndc=11",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 12.700490673699216,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Hardness shaft by shaft, in the order run",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.700490673699216,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Hardness sampled separately under each of the three heat-treat recipes",
+    "stage_id": "recipes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.700490673699216,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "The two recipes with the highest averages, recipes B and C, side by side",
+    "stage_id": "recipes",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {
+      "grr_pct": 12.700490673699216,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "The two recipes with the highest averages, side by side",
+    "stage_id": "leading_two",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.700490673699216,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 13,
+    "action": "provision",
+    "text": "Was there an intentional process or recipe change at shaft index 19 or 20 in the 60-shaft time-ordered baseline?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 12.700490673699216,
+      "ndc": 11.0
+    }
+  }
+]

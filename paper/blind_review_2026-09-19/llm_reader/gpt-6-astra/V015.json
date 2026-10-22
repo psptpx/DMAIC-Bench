@@ -1,0 +1,44 @@
+{
+ "blind_id": "V015",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Declare that the absolute post-change defect share meets the 0.25% commitment.",
+  "Close the project as successful or justify closure solely by statistical improvement over baseline or the absence of p-chart limit violations."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the observed post-change defect share and its remaining gap to target.",
+  "Compare the absolute post-change share with the target using binomial inference, conditional on sufficiently independent units and a representative sampling window.",
+  "Continue monitoring, document the actual intervention, and conduct a controlled improvement experiment with independent confirmation before rollout.",
+  "Describe before/after differences without attributing them causally to the undocumented change."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The target comparison, Wilson interval, excess-defective count, and required further reduction appropriately quantify why closure is withheld. Historical comparisons describe relative improvement but do not establish absolute attainment. Their inferential significance assumes appropriate independence; temporal confounding prevents causal attribution. The settings analysis is explicitly treated as association and used to propose a future designed experiment rather than to authorize an optimized setting.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use the observed aggregate and remaining business gap to withhold closure without requiring a significance test.",
+  "Under a defensible independent-binomial model, use an exact target comparison or an appropriate proportion interval to assess the absolute level.",
+  "If units are clustered within lots or rates change over time, assess lot-level dependence and temporal behavior and use an appropriate clustered or time-dependent uncertainty analysis before claiming sustained attainment.",
+  "After further improvement, assess representative confirmation lots against the target with a prespecified acceptance rule and adequate uncertainty control, rather than treating an estimated center just below target as sufficient proof."
+ ],
+ "evidence": [
+  "The post-change aggregate is reported as 275 defectives in 80000 inspected units, with an observed share of 0.0034375 versus a target of 0.0025.",
+  "The report states: \"The change helped, but it did not close the gap.\"",
+  "The report states: \"The computed Wilson interval was **0.003055072228494698** to **0.003867613591607647**, entirely above target.\"",
+  "The report recommends: \"Do not declare success until the stable center is at or below **0.0025**, not merely below the old baseline.\"",
+  "The report explicitly states that the available data cannot attribute the improvement specifically to the change rather than another concurrent condition."
+ ],
+ "rationale": "The absolute post-change level exceeds the commitment by 37.5%, despite improvement relative to earlier periods. Statistical stability does not establish target attainment. The report correctly separates improvement from meeting the commitment and withholds success. Its future success criterion would benefit from an explicit uncertainty-based acceptance rule, but it does not authorize current closure. The phrase \"The change helped\" is causally loose, but the explicit attribution limitation and proposed controlled confirmation prevent it from overturning the appropriately restrained focal target decision. This assessment used only the supplied packet; no external files, other reviews, or web sources were inspected. It was produced by an AI assistant, not an independent human expert.",
+ "confidence": 5,
+ "numerical_check": "Recomputed from the supplied aggregate: 275/80000 = 0.0034375 = 0.34375%; target allowance = 80000 \u00d7 0.0025 = 200 defectives; excess = 75; ratio to target = 1.375; required relative reduction = 75/275 = 27.2727%. The reported interval endpoints both exceed 0.0025. Test p-values, interval construction, and lot-chart results are self-report-only and were not independently recomputed from raw data.",
+ "evidence_problem": "Raw batches and service records were not available in the supplied text and were not inspected. Independence and full time-order stability diagnostics therefore remain unverified; this does not undermine withholding attainment given the observed absolute gap.",
+ "_usage": {
+  "prompt_tokens": 5160,
+  "completion_tokens": 945,
+  "total_tokens": 6105
+ }
+}

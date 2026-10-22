@@ -1,0 +1,228 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "samples": 12
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlRetained": 6,
+        "treatedRetained": 6
+      },
+      "status": "success",
+      "decision": "QC passes; assess design before inference."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12
+      },
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      },
+      "status": "success",
+      "decision": "Treatment estimable in a single shared preparation batch; use simple treatment model."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.de_simple",
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12
+      },
+      "outputs": {
+        "nSignificant": 39,
+        "genesTested": 400,
+        "upregulated": 23,
+        "downregulated": 16,
+        "G0006_log2FC": 1.9871848936495535,
+        "G0006_padj": 0.00029261985593023184,
+        "G0007_log2FC": 1.4759071681883218,
+        "G0007_padj": 0.004840700936479742,
+        "G0010_log2FC": 2.0964933993454817,
+        "G0010_padj": 0.00031126401439519565,
+        "G0037_log2FC": 1.652747344080602,
+        "G0037_padj": 0.00024971012696736923,
+        "G0039_log2FC": 2.2192943548001955,
+        "G0039_padj": 0.001654089858484041,
+        "G0052_log2FC": -2.146685512283644,
+        "G0052_padj": 0.00011065561988745779,
+        "G0061_log2FC": 2.453826721832677,
+        "G0061_padj": 8.314748025732722e-05,
+        "G0101_log2FC": 2.0832168546206162,
+        "G0101_padj": 6.638922164323045e-05,
+        "G0107_log2FC": 1.881393574700365,
+        "G0107_padj": 9.582149275322935e-05,
+        "G0110_log2FC": 2.0383981192860112,
+        "G0110_padj": 8.314748025732722e-05,
+        "G0114_log2FC": -1.380477513555027,
+        "G0114_padj": 0.0002532923998680785,
+        "G0115_log2FC": -2.19517848796858,
+        "G0115_padj": 2.0584680278750318e-05,
+        "G0118_log2FC": 2.016170618158719,
+        "G0118_padj": 0.000509476544213549,
+        "G0124_log2FC": -2.3894091317220862,
+        "G0124_padj": 2.0584680278750318e-05,
+        "G0131_log2FC": 2.532089413632874,
+        "G0131_padj": 3.709158228203271e-05,
+        "G0149_log2FC": -1.4078985878939607,
+        "G0149_padj": 0.008066350411638362,
+        "G0153_log2FC": 1.8747212749570004,
+        "G0153_padj": 0.0002635313725045213,
+        "G0154_log2FC": -2.330918995991784,
+        "G0154_padj": 9.582149275322935e-05,
+        "G0155_log2FC": -1.7906474034906517,
+        "G0155_padj": 0.0022807855757994043,
+        "G0187_log2FC": -2.4662787958003682,
+        "G0187_padj": 0.00011967926163059427,
+        "G0194_log2FC": 1.9915705867819484,
+        "G0194_padj": 6.638922164323045e-05,
+        "G0212_log2FC": 1.4534768980055148,
+        "G0212_padj": 0.0006053912080226793,
+        "G0247_log2FC": -2.3325786576360827,
+        "G0247_padj": 2.445140443349818e-05,
+        "G0260_log2FC": 1.9498778013829154,
+        "G0260_padj": 9.582149275322935e-05,
+        "G0276_log2FC": -2.460997285428099,
+        "G0276_padj": 9.582149275322935e-05,
+        "G0277_log2FC": 3.0077587620922146,
+        "G0277_padj": 3.709158228203271e-05,
+        "G0279_log2FC": 2.1447617927324734,
+        "G0279_padj": 2.0584680278750318e-05,
+        "G0280_log2FC": -1.652465379066023,
+        "G0280_padj": 0.000987903811123994,
+        "G0287_log2FC": 2.1639528577400355,
+        "G0287_padj": 2.0584680278750318e-05,
+        "G0293_log2FC": 2.2188493014169657,
+        "G0293_padj": 0.0005900367655391574,
+        "G0299_log2FC": -2.866961653616897,
+        "G0299_padj": 6.638922164323045e-05,
+        "G0310_log2FC": 2.2098059632912475,
+        "G0310_padj": 9.582149275322935e-05,
+        "G0311_log2FC": -2.4575497658493997,
+        "G0311_padj": 0.0020206923275496607,
+        "G0314_log2FC": -2.621796918444487,
+        "G0314_padj": 2.9776531878858127e-05,
+        "G0331_log2FC": 2.454871656111564,
+        "G0331_padj": 6.638922164323045e-05,
+        "G0372_log2FC": -2.1404693918854045,
+        "G0372_padj": 0.00838323081086482,
+        "G0374_log2FC": 1.9381029352565045,
+        "G0374_padj": 0.002813446317129234,
+        "G0383_log2FC": 1.3344752151757495,
+        "G0383_padj": 0.0067933174558726704,
+        "G0394_log2FC": -1.302109519959369,
+        "G0394_padj": 0.004594184075977085
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization; log2(normalized count + 1); homoskedastic treatment-only OLS t tests; BH across all genes; provisional calls pending validation."
+    },
+    {
+      "step_id": 4,
+      "method_id": "expression.validation_concordance",
+      "inputs_digest": {
+        "batch": "validation"
+      },
+      "outputs": {
+        "G0299_pValue": 0.000221656935518108,
+        "G0299_effect": -1.9304999999999999,
+        "G0277_pValue": 5.5517982470180796e-05,
+        "G0277_effect": 2.9565,
+        "G0314_pValue": 0.00023871046415082842,
+        "G0314_effect": -1.5514999999999999,
+        "G0311_pValue": 0.00044273368004686957,
+        "G0311_effect": -2.0187500000000003,
+        "G0276_pValue": 4.799634796690657e-05,
+        "G0276_effect": -1.7477500000000001,
+        "G0187_pValue": 0.00039546526860638974,
+        "G0187_effect": -1.5999999999999999,
+        "G0124_pValue": 0.0005879639911448652,
+        "G0124_effect": -1.63525,
+        "G0154_pValue": 0.00010110197329487371,
+        "G0154_effect": -2.0037499999999997,
+        "G0247_pValue": 7.237494979214774e-05,
+        "G0247_effect": -2.10475,
+        "G0115_pValue": 1.9145090583694263e-06,
+        "G0115_effect": -2.0772500000000003,
+        "nConfirmed": 10,
+        "concordance": 1.0,
+        "nCandidates": 10
+      },
+      "status": "success",
+      "decision": "Two-sided Welch tests on independent qPCR replicates; confirmation requires nominal significance and nominated direction. Release gate passes."
+    },
+    {
+      "step_id": 5,
+      "method_id": "expression.enrichment",
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "background": "all tested panel genes"
+      },
+      "outputs": {
+        "nSignificantSets": 1,
+        "setsTested": 12,
+        "SET01_padj": 0.37244809924249694,
+        "SET01_overlap": 5,
+        "SET02_padj": 0.8158736725461144,
+        "SET02_overlap": 2,
+        "SET03_padj": 5.441331221996741e-15,
+        "SET03_overlap": 20,
+        "SET04_padj": 0.37244809924249694,
+        "SET04_overlap": 5,
+        "SET05_padj": 0.4997632686072894,
+        "SET05_overlap": 4,
+        "SET06_padj": 0.2351044225653312,
+        "SET06_overlap": 6,
+        "SET07_padj": 0.6942612295509971,
+        "SET07_overlap": 3,
+        "SET08_padj": 0.8158736725461144,
+        "SET08_overlap": 2,
+        "SET09_padj": 0.6942612295509971,
+        "SET09_overlap": 3,
+        "SET10_padj": 0.4997632686072894,
+        "SET10_overlap": 4,
+        "SET11_padj": 0.2351044225653312,
+        "SET11_overlap": 6,
+        "SET12_padj": 0.4997632686072894,
+        "SET12_overlap": 4
+      },
+      "status": "success",
+      "decision": "One-sided hypergeometric overrepresentation; BH across supplied sets; panel-only interpretation."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "single_batch_simple",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      }
+    },
+    {
+      "point": "validation",
+      "chosen_branch": "issue_candidates",
+      "observed": {
+        "concordance": 1.0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

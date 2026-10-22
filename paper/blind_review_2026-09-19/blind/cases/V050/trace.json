@@ -1,0 +1,286 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "basic.descriptive_summary",
+      "inputs_digest": {
+        "batch": "baseline"
+      },
+      "outputs": {
+        "mean": 51.19733333333334,
+        "median": 51.42,
+        "stdDev": 4.358781849214244,
+        "skewness": 0.3060216575441991,
+        "n": 60.0,
+        "lsl": 45.0,
+        "requiredLevel": 55.0,
+        "belowLSL": 4.0,
+        "belowTarget": 50.0
+      },
+      "status": "success",
+      "decision": ""
+    },
+    {
+      "step_id": 2,
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "batch": "baseline"
+      },
+      "outputs": {
+        "centerLine": 51.19733333333334,
+        "individualsLCL": 37.81606755619666,
+        "individualsUCL": 64.57859911047002,
+        "flaggedCount": 0.0,
+        "movingRangeMean": 5.0313559322033905,
+        "movingRangeUCL": 16.437439830508477,
+        "movingRangeFlags": 0.0,
+        "withinSigma": 4.460421925712226
+      },
+      "status": "success",
+      "decision": "Pointwise three-sigma screen; does not establish absence of all special causes."
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "batch": "baseline"
+      },
+      "outputs": {
+        "statistic": 0.35726439281149425,
+        "pValue": 0.4440166457189789
+      },
+      "status": "success",
+      "decision": "Anderson-Darling normality test"
+    },
+    {
+      "step_id": 4,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "batch": "baseline"
+      },
+      "outputs": {
+        "cpk": 0.46313506035596014,
+        "ppk": 0.473934656342156,
+        "targetPpk": -0.29080499997586595
+      },
+      "status": "success",
+      "decision": "Lower-only indices; Cp and Pp undefined without USL. Conditional on stability and normality."
+    },
+    {
+      "step_id": 5,
+      "method_id": "basic.one_sample_t",
+      "inputs_digest": {
+        "batch": "baseline"
+      },
+      "outputs": {
+        "tStatistic": -6.757697531402264,
+        "pValue": 0.9999999965263269,
+        "meanLower95": 50.25698201684555,
+        "meanUpper95": 52.13768464982113
+      },
+      "status": "success",
+      "decision": "One-sided test mean exceeds programme target; not a guarantee for individuals."
+    },
+    {
+      "step_id": 6,
+      "method_id": "doe.factorial_analysis",
+      "inputs_digest": {
+        "batch": "screening_run"
+      },
+      "outputs": {
+        "modelPValue": 0.0036952811952333745,
+        "rSquaredPct": 88.07537815826764,
+        "n": 16.0,
+        "errorDF": 8.0,
+        "residualSD": 1.5174864496923863,
+        "AEffect": 4.6277499999999945,
+        "APValue": 0.00028971645720400456,
+        "BEffect": 3.081750000000001,
+        "BPValue": 0.0036251317340484156,
+        "CEffect": 0.5969999999999902,
+        "CPValue": 0.4540583696688957,
+        "ABEffect": 1.5965000000000011,
+        "ABPValue": 0.06849524644563439,
+        "ACEffect": 0.009750000000002368,
+        "ACPValue": 0.9900619904057812,
+        "BCEffect": -0.38525000000000786,
+        "BCPValue": 0.6253300432094485,
+        "ABCEffect": 0.2224999999999874,
+        "ABCPValue": 0.7767955788957847
+      },
+      "status": "success",
+      "decision": "Full replicated factorial; A angle, B spacing, C temperature."
+    },
+    {
+      "step_id": 7,
+      "method_id": "doe.rsm_analysis",
+      "inputs_digest": {
+        "batch": "composite_design"
+      },
+      "outputs": {
+        "rSquaredPct": 93.56781431583127,
+        "lackOfFitPValue": 0.9627114149832965,
+        "lackOfFitF": 0.08835496385922445,
+        "pureErrorSS": 2.0699970680000126,
+        "pureErrorDF": 4.0,
+        "lackOfFitDF": 3.0,
+        "residualSD": 0.5615244499318535,
+        "n": 13.0,
+        "intercept": 48.20268000026528,
+        "angle": 0.7733541208432051,
+        "spacing": 0.5676878420430844,
+        "interaction": -0.01754999999999238,
+        "angleSquared": -1.5978150032289886,
+        "spacingSquared": -1.2017650018998314
+      },
+      "status": "success",
+      "decision": "Full quadratic with replicated-centre pure-error lack-of-fit test."
+    },
+    {
+      "step_id": 8,
+      "method_id": "doe.rsm_canonical",
+      "inputs_digest": {
+        "batch": "composite_design"
+      },
+      "outputs": {
+        "predictedAtStationary": 48.36230139645569,
+        "stationaryAngle": 0.24071617975852067,
+        "stationarySpacing": 0.23443155367212534,
+        "eigenvalueLow": -1.5980093293547264,
+        "eigenvalueHigh": -1.2015706757740936,
+        "piLower": 46.911802499808,
+        "piUpper": 49.812800293103386
+      },
+      "status": "success",
+      "decision": "Negative eigenvalues identify a fitted maximum; prediction interval conditional on quadratic adequacy."
+    },
+    {
+      "step_id": 9,
+      "method_id": "basic.descriptive_summary",
+      "inputs_digest": {
+        "batch": "confirmation_runs"
+      },
+      "outputs": {
+        "mean": 59.87299999999999,
+        "median": 59.495000000000005,
+        "stdDev": 1.707648737453437,
+        "skewness": 0.7043198881179051,
+        "n": 20.0,
+        "lsl": 45.0,
+        "requiredLevel": 55.0,
+        "belowLSL": 0.0,
+        "belowTarget": 0.0
+      },
+      "status": "success",
+      "decision": ""
+    },
+    {
+      "step_id": 10,
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "batch": "confirmation_runs"
+      },
+      "outputs": {
+        "centerLine": 59.87299999999999,
+        "individualsLCL": 54.34808398656214,
+        "individualsUCL": 65.39791601343784,
+        "flaggedCount": 0.0,
+        "movingRangeMean": 2.077368421052632,
+        "movingRangeUCL": 6.7867626315789495,
+        "movingRangeFlags": 0.0,
+        "withinSigma": 1.8416386711459507
+      },
+      "status": "success",
+      "decision": "Pointwise three-sigma screen; does not establish absence of all special causes."
+    },
+    {
+      "step_id": 11,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "batch": "confirmation_runs"
+      },
+      "outputs": {
+        "statistic": 0.4773550324320155,
+        "pValue": 0.21115690637800058
+      },
+      "status": "success",
+      "decision": "Anderson-Darling normality test"
+    },
+    {
+      "step_id": 12,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "batch": "confirmation_runs"
+      },
+      "outputs": {
+        "cpk": 2.691986622751454,
+        "ppk": 2.9032122109959664,
+        "targetPpk": 0.9512104554685218
+      },
+      "status": "success",
+      "decision": "Lower-only indices; Cp and Pp undefined without USL. Conditional on stability and normality."
+    },
+    {
+      "step_id": 13,
+      "method_id": "basic.one_sample_t",
+      "inputs_digest": {
+        "batch": "confirmation_runs"
+      },
+      "outputs": {
+        "tStatistic": 12.761827436016908,
+        "pValue": 4.549448452460978e-11,
+        "meanLower95": 59.21274470092243,
+        "meanUpper95": 60.53325529907755
+      },
+      "status": "success",
+      "decision": "One-sided test mean exceeds programme target; not a guarantee for individuals."
+    },
+    {
+      "step_id": 14,
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "confirmation_runs"
+      },
+      "outputs": {
+        "tStatistic": 12.757604095833555,
+        "pValue": 1.4499350334549586e-20,
+        "meanDifference": 8.67566666666665
+      },
+      "status": "success",
+      "decision": "Welch comparison of distinct batches; association, not unconfounded causal effect."
+    },
+    {
+      "step_id": 15,
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "batch": "confirmation_runs"
+      },
+      "outputs": {
+        "confirmationMinusRsm": 11.510698603544299,
+        "confirmationOutsideRsmPI": 20.0,
+        "confidencePct": 95.0
+      },
+      "status": "success",
+      "decision": "Consistency audit of confirmation against local stationary prediction; settings equivalence is unverified."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "screening_significance",
+      "chosen_branch": "significant",
+      "observed": {
+        "any_factor_significant": true
+      }
+    },
+    {
+      "point": "release",
+      "chosen_branch": "hold_model_based_rollout_pending_reconciliation",
+      "observed": {
+        "confirmation_above_target": true,
+        "rsm_max_below_target": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

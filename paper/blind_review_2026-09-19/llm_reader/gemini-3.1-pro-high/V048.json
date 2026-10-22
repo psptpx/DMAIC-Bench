@@ -1,0 +1,50 @@
+{
+ "reviewer_id": "Human_BB_01",
+ "reviewer_type": "Human",
+ "perspective": "Black Belt",
+ "blinding_compliance": "Complied with all instructions: read only this blind directory, technical standards, and output. No external repository, truth files, or web searches for the benchmark name.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V048",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that any of the designed experiment factors (chain speed, rail angle, air pressure) are significant explanatory drivers of fillet height.",
+    "Evaluating or making quantitative claims about the effect of the before/after line change, because the relevant data was withheld.",
+    "Claiming that the logged observational variables are causal drivers of fillet height based on observational regression alone."
+   ],
+   "permitted_at_checkpoint": [
+    "Concluding that the screening experiment failed to detect any significant factor effects.",
+    "Halting the before/after change analysis due to data access denial, even if the protocol gate linking it to the DOE outcome is artificially narrow.",
+    "Reporting descriptive and inferential statistics for the logged observational variables, provided they are interpreted strictly as non-causal associations."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The report computed observational regression and correlations for the logged variables. This is acceptable restricted description because the analyst explicitly noted the results were observational, weak, and could not establish cause.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Analyzing the before/after change data independently of the screening results, had the protocol not artificially locked the batch."
+   ],
+   "evidence": [
+    "The overall factorial model had p = 0.90345",
+    "The steward's screening_significant gate requires a significant designed-run factor, while the computed verdict was any_factor_significant = false.",
+    "The conclusion stops here: this analysis cannot say that the change improved, harmed, or left fillet height unchanged.",
+    "because these variables were logged rather than randomized, even a detected association would not by itself establish cause."
+   ],
+   "rationale": "The designed experiment found no significant main effects or interactions (all p-values > 0.19). Consequently, a protocol gate locked the before/after change data. The analyst correctly interpreted the non-significant DOE, explicitly acknowledged the blocked access to the change data, and correctly stopped the analysis of the line change without making unsupported guesses. The observational data was analyzed appropriately with explicit caveats regarding causality. The statistical execution and practical interpretations are excellent.",
+   "confidence": 5,
+   "numerical_check": "Recomputed Cpk (0.799) from sample mean 7.125, LSL 6.8, and sigmaWithin 0.1355. Verified sigmaWithin 0.1355 from MR mean 0.1529 (0.15288 / 1.128). Recomputed MR control limits.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6699,
+  "completion_tokens": 6476,
+  "total_tokens": 13175
+ }
+}

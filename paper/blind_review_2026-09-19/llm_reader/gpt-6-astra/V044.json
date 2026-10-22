@@ -1,0 +1,46 @@
+{
+ "blind_id": "V044",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Claiming that the filed before/after comparison demonstrates improvement or establishes an effect of the implemented change.",
+  "Claiming that the longer-run baseline-versus-post comparison demonstrates sustained improvement or causally attributes a reduction to the change.",
+  "Interpreting nonsignificance as proof of no effect, or using prospective power to override the observed results."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the observed reductions descriptively, explicitly distinguishing favorable point estimates from demonstrated improvement.",
+  "Evaluate the subsequent defect level against the commitment separately from whether improvement occurred.",
+  "Explore the baseline-versus-post contrast with explicit assumptions about independent observations, lot variation, comparable inspection, and temporal confounding; do not treat it as randomized confirmation.",
+  "Recover the intervention record and design a randomized confirmation study with an appropriate experimental unit and sample size."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The aggregate baseline-versus-post test provides an additional exploratory comparison, but the report explicitly withholds demonstrated improvement and distinguishes it from the trial. Post-change charting, target comparison, and yield-based process Z address the subsequent level rather than rescue the effectiveness claim. Their formal interpretation depends on binomial sampling assumptions and adequate assessment of lot variation; no causal conclusion follows from these computations.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Estimate risk differences or risk ratios with confidence intervals under justified independent-binomial assumptions; retain uncertainty and avoid equating a nonsignificant result with equivalence.",
+  "Use lot-level or overdispersion-adjusted comparisons if defects cluster within lots, with temporal and inspection comparability assessed before interpreting differences.",
+  "A prospectively justified directional test could address reduction, but approximate one-sided p-values here are 0.112 for the trial and 0.054 for the aggregate contrast, so neither supports improvement at 0.05 even by that route.",
+  "Run randomized confirmation with documented settings, prespecified contrasts, appropriate blocking, and replication at the actual unit of intervention."
+ ],
+ "evidence": [
+  "The trial has 39 defects among 6000 inspected before and 29 among 6000 after; the reported two-sided p-value is 0.22393589211321674.",
+  "The aggregate comparison uses 570/100000 baseline and 411/80000 post-change, with reported two-sided p-value 0.10724104396572472.",
+  "\"The observed direction was favorable, but the trial does not statistically demonstrate that the change did anything at the filed risk level.\"",
+  "\"Prospective power for the planned contrast does not override this nonsignificant observed result.\"",
+  "\"Treat the trial result and the later favorable aggregate point estimate as distinct evidence; neither comparison statistically demonstrates improvement.\"",
+  "\"However, these are observational associations and do not alone establish causation.\""
+ ],
+ "rationale": "Both comparisons have favorable observed directions but insufficient evidence to demonstrate reduction at the filed risk level. The report respects that limitation, does not substitute planning power for observed evidence, and does not convert the settings associations into an identified cause. Continued monitoring and randomized confirmation are appropriate rather than forbidden advancement. Calling the before/after exercise a controlled trial is not established by the supplied design description, but the report does not use that label to claim efficacy. The public gates concern stability and screening significance, not independent validation of improvement.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from the supplied counts: 39/6000 = 0.0065, 29/6000 = 0.00483333, and the reduction is 0.00166667. Using pooled share 68/12000 gives standard error approximately 0.0013705 and z approximately 1.2161. For baseline versus post, 570/100000 - 411/80000 = 0.0005625; pooled share 981/180000 gives standard error approximately 0.0003492 and z approximately 1.6107. These agree with the reported tests. Exact binomial p-values, power, regression, and lot-level chart results remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was reviewed; the referenced raw batches and service records were not accessed. Lot-level independence, temporal comparability, intervention allocation, and possible overlap of trial and subsequent observations cannot be verified. This review was performed by an AI assistant, not an independent human expert; no external sources or other reviewer outputs were consulted.",
+ "_usage": {
+  "prompt_tokens": 4524,
+  "completion_tokens": 1040,
+  "total_tokens": 5564
+ }
+}

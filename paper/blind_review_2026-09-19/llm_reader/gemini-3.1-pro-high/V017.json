@@ -1,0 +1,43 @@
+{
+ "blind_id": "V017",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that the process meets or is capable of meeting the 5% internal requirement.",
+  "Concluding that there is no performance difference between teams, as high measurement error obscures small true differences.",
+  "Asserting baseline capability metrics or control limits as definitive benchmarks for future process performance."
+ ],
+ "permitted_at_checkpoint": [
+  "Diagnosing the measurement system as inadequate and recommending its improvement.",
+  "Exploratory analysis of the baseline data to flag gross anomalies (e.g., the period 13 spike) with the explicit caveat that calculated parameters are only approximate."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "So the process, when running normally, is comfortably inside the internal requirement (about 1.2 points of headroom, 3.83% vs 5%).",
+  "where things stand: the underlying ticket-handling process is capable of meeting the 5% requirement and, in its stable state, runs at roughly 3.8%.",
+  "Team-level performance was checked and found not to differ significantly, so a team-based intervention isn't supported by the data we have."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "UNACCEPTABLE",
+ "extra_computation_detail": "Hypothesis testing (one-proportion and two-proportions tests) and formal capability analyses were computed and used to draw definitive conclusions. These are unacceptable because the underlying measurement system is highly unreliable (70% agreement); measurement noise invalidates tests of small differences (such as team comparisons) or precise bounds against a capability target.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Restricting all baseline and capability analyses to purely descriptive, exploratory observations while explicitly withholding final judgement on capability and team differences until the measurement system is validated."
+ ],
+ "evidence": [
+  "kappaMin = 0.7647058823529412",
+  "overall_agreementPct = 70.0",
+  "114 breaches / 5,000 tickets = 4.56%",
+  "Conclusion: the breach measurement system is not yet reliable enough to be taken at face value."
+ ],
+ "rationale": "The report correctly diagnoses an inadequate measurement system (70% overall agreement) and explicitly advises that reported rates must be treated with caution. However, it subsequently ignores its own caveat by performing formal capability and hypothesis tests on this suspect data, ultimately making definitive claims that the process is 'comfortably inside the internal requirement' and explicitly ruling out team-based interventions. The magnitude of the measurement noise is far too large to support these precise statistical inferences. The trajectory is mixed because substantial focal restraint (recommending MSA fixes) coexists with materially misleading substantive conclusions about capability and root causes. Additionally, the report hallucinates absolute defect counts in the text (e.g., citing 114 instead of 228 breaches) while reporting the mathematically correct tool-calculated percentages.",
+ "confidence": 5,
+ "numerical_check": "Recomputed p-chart center lines and exact binomial p-values. True average P = 228 / 5000 = 4.56%. The report hallucinates the defect counts in the text (claiming 114 breaches out of 5000 and 92 out of 4800, which are exactly half the true counts) but correctly reports the percentages (4.56% and 3.83%) output by the statistical tools, as the tool ignored the flawed inputs.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 4678,
+  "completion_tokens": 7226,
+  "total_tokens": 11904
+ }
+}

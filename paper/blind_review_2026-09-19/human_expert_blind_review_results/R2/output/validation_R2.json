@@ -1,0 +1,41 @@
+{
+  "entries": 60,
+  "assigned_order_verified": true,
+  "unique_complete_id_set": true,
+  "schema_and_enums_valid": true,
+  "all_yes_fields_have_exact_report_quotes": true,
+  "all_cases_have_independent_checks_file": true,
+  "actual_external_sources": [],
+  "statistics": {
+    "gate_verdict": {
+      "STOP": 44,
+      "GO": 15,
+      "UNDETERMINED": 1
+    },
+    "trajectory_verdict": {
+      "MIXED": 21,
+      "UNACCEPTABLE": 6,
+      "ACCEPTABLE": 33
+    },
+    "report_withholds_warranted_conclusion": {
+      "NO": 59,
+      "YES": 1
+    },
+    "report_completeness": {
+      "COMPLETE": 55,
+      "STOPPED_APPROPRIATELY": 5
+    },
+    "extra_computation": {
+      "MIXED": 21,
+      "UNACCEPTABLE": 5,
+      "VALID_ALTERNATIVE": 24,
+      "RESTRICTED_DESCRIPTIVE": 7,
+      "NONE": 3
+    },
+    "confidence": {
+      "4": 26,
+      "5": 33,
+      "3": 1
+    }
+  }
+}

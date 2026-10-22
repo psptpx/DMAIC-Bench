@@ -1,0 +1,110 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "the project charter and the candidate cause under test, including the hardness requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "the archive study where the same shafts were measured several times over by several operators on the hardness tester",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "repeat readings of the same shafts, the operator study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=17.4487",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 17.4487
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "ndc=7",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 17.4487,
+      "ndc": 7.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "the baseline record: hardness shaft by shaft, in the order run",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 17.4487,
+      "ndc": 7.0
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "hardness sampled separately under each recipe, recipe by recipe for the three recipes",
+    "stage_id": "recipes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 17.4487,
+      "ndc": 7.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "the leading two recipes, the head to head sample of the two with the highest averages",
+    "stage_id": "leading_two",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 17.4487,
+      "ndc": 7.0
+    }
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "What are the engineering specification limits for case-surface hardness in HRC (lower and upper), and is there a target?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 17.4487,
+      "ndc": 7.0
+    }
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "Recipe has been ruled out as the driver of hardness variation. What else changes from shaft to shaft on this line - furnace or quench-line differences, incoming bar lots, fixture position, operator or shift?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 17.4487,
+      "ndc": 7.0
+    }
+  }
+]

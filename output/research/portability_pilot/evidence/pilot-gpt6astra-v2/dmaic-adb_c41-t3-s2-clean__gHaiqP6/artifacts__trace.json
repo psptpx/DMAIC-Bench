@@ -1,0 +1,2436 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c41-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 118,
+        "unaffectedRetained": 120,
+        "sampleThreshold": 0.95,
+        "plateThreshold": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 2,
+        "variantThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Apply all filters after sample QC; exact conditional two-sided HWE"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 4.195269044230135e-18,
+        "pc1VarianceFraction": 0.10170125571851286,
+        "pc1RangeOverlap": 10.671220683569995,
+        "pc2PValue": 0.3768869629319004,
+        "pc2VarianceFraction": 0.020039942427919843,
+        "pc2RangeOverlap": 7.584555747525092,
+        "pc3PValue": 0.11563956822019951,
+        "pc3VarianceFraction": 0.019344030258285776,
+        "pc3RangeOverlap": 6.859676600866543,
+        "pc4PValue": 0.5887667577050781,
+        "pc4VarianceFraction": 0.01862286138041862,
+        "pc4RangeOverlap": 7.929459354908465,
+        "pc5PValue": 0.7633570312822526,
+        "pc5VarianceFraction": 0.018518759869536466,
+        "pc5RangeOverlap": 8.287976435530952,
+        "pc6PValue": 0.7020573127481564,
+        "pc6VarianceFraction": 0.017215473496843228,
+        "pc6RangeOverlap": 8.005472584441243,
+        "pc7PValue": 0.6200033344904983,
+        "pc7VarianceFraction": 0.016908017558264002,
+        "pc7RangeOverlap": 7.738016755609819,
+        "pc8PValue": 0.3475780931673391,
+        "pc8VarianceFraction": 0.01634605650019772,
+        "pc8RangeOverlap": 7.407859187509791,
+        "pc9PValue": 0.49511562089037453,
+        "pc9VarianceFraction": 0.016182831745457038,
+        "pc9RangeOverlap": 7.059376045337175,
+        "pc10PValue": 0.6863128830912373,
+        "pc10VarianceFraction": 0.015779394584992883,
+        "pc10RangeOverlap": 7.090207734397459
+      },
+      "status": "success",
+      "decision": "Leading standardized dosage PCs; Welch phenotype comparisons and range overlap. Separation means disjoint case/control ranges."
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.8541386727811786,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "pcCovariates": 2
+      },
+      "status": "success",
+      "decision": "Additive logistic Wald tests with leading two PCs; per-variant complete cases."
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020002"
+      },
+      "outputs": {
+        "beta": -0.11774581972196654,
+        "oddsRatio": 0.8889219703350564,
+        "pValue": 0.6288060429167819,
+        "statistic": 0.23368332998206276,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 6,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020003"
+      },
+      "outputs": {
+        "beta": 0.30289226090260296,
+        "oddsRatio": 1.3537686027775797,
+        "pValue": 0.24775078710416565,
+        "statistic": 1.3359424935352888,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 7,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020004"
+      },
+      "outputs": {
+        "beta": 0.13999855525676766,
+        "oddsRatio": 1.1502721370081415,
+        "pValue": 0.5444503780681111,
+        "statistic": 0.36735350938946715,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 8,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020005"
+      },
+      "outputs": {
+        "beta": -0.27809508239314373,
+        "oddsRatio": 0.7572248193433494,
+        "pValue": 0.31747980658369923,
+        "statistic": 0.9993005785491538,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 9,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020006"
+      },
+      "outputs": {
+        "beta": -0.14108372926035861,
+        "oddsRatio": 0.8684165967741959,
+        "pValue": 0.6037527965506877,
+        "statistic": 0.26937282583586997,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 10,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020007"
+      },
+      "outputs": {
+        "beta": -0.2531490346034474,
+        "oddsRatio": 0.7763521698636378,
+        "pValue": 0.29391684065757273,
+        "statistic": 1.1015926914087768,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 11,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020008"
+      },
+      "outputs": {
+        "beta": 0.9473756973641536,
+        "oddsRatio": 2.578932870702771,
+        "pValue": 6.704669635289559e-05,
+        "statistic": 15.892420237461504,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 12,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020009"
+      },
+      "outputs": {
+        "beta": -0.045009312212163824,
+        "oddsRatio": 0.9559885794231716,
+        "pValue": 0.8916699311470355,
+        "statistic": 0.018548112071571,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 13,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020010"
+      },
+      "outputs": {
+        "beta": 0.00012100703962668602,
+        "oddsRatio": 1.0001210143612738,
+        "pValue": 0.9996343804949792,
+        "statistic": 2.099803330189749e-07,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 14,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020011"
+      },
+      "outputs": {
+        "beta": 0.08526156622869573,
+        "oddsRatio": 1.0890018755622182,
+        "pValue": 0.7230851261186378,
+        "statistic": 0.1255558596274149,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 15,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020012"
+      },
+      "outputs": {
+        "beta": -0.13345537063080998,
+        "oddsRatio": 0.8750665217730255,
+        "pValue": 0.6249366463558406,
+        "statistic": 0.23898985789469313,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 16,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020013"
+      },
+      "outputs": {
+        "beta": -0.03621174354196645,
+        "oddsRatio": 0.9644360587541129,
+        "pValue": 0.8862116850819023,
+        "statistic": 0.02047743600263524,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 17,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020014"
+      },
+      "outputs": {
+        "beta": -0.18843539600301276,
+        "oddsRatio": 0.8282540102298287,
+        "pValue": 0.5574029564437863,
+        "statistic": 0.34422082272516574,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 18,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020015"
+      },
+      "outputs": {
+        "beta": -0.03029548061385979,
+        "oddsRatio": 0.9701588280665797,
+        "pValue": 0.9112353985636353,
+        "statistic": 0.012427882025289714,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 19,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020017"
+      },
+      "outputs": {
+        "beta": 0.3475999889421007,
+        "oddsRatio": 1.415665854469312,
+        "pValue": 0.16062601575624835,
+        "statistic": 1.9683226504925724,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 20,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020018"
+      },
+      "outputs": {
+        "beta": -0.12816288083276484,
+        "oddsRatio": 0.8797100795642321,
+        "pValue": 0.5433213172581396,
+        "statistic": 0.3694186629400878,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 21,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020019"
+      },
+      "outputs": {
+        "beta": -0.07885220155064143,
+        "oddsRatio": 0.9241765062061028,
+        "pValue": 0.7262263205804915,
+        "statistic": 0.12260484325365115,
+        "n": 238.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 22,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020020"
+      },
+      "outputs": {
+        "beta": -0.04763392112474978,
+        "oddsRatio": 0.9534827730965483,
+        "pValue": 0.8875688448080009,
+        "statistic": 0.019988629575072896,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 23,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020021"
+      },
+      "outputs": {
+        "beta": -0.6767261202728417,
+        "oddsRatio": 0.508278313465187,
+        "pValue": 0.012950795027304292,
+        "statistic": 6.175818960347829,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 24,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020022"
+      },
+      "outputs": {
+        "beta": 0.2606750285586925,
+        "oddsRatio": 1.2978058470612832,
+        "pValue": 0.28171513969256057,
+        "statistic": 1.1587971546899118,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 25,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020023"
+      },
+      "outputs": {
+        "beta": -0.013936902578802889,
+        "oddsRatio": 0.9861597664379624,
+        "pValue": 0.9517490645087431,
+        "statistic": 0.003661518919884284,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 26,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020024"
+      },
+      "outputs": {
+        "beta": 0.5599988286812707,
+        "oddsRatio": 1.7506704497018135,
+        "pValue": 0.09321383543786513,
+        "statistic": 2.817976707409761,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 27,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020025"
+      },
+      "outputs": {
+        "beta": -0.26668672028136686,
+        "oddsRatio": 0.7659129788868702,
+        "pValue": 0.45824647589023904,
+        "statistic": 0.5501743198523222,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 28,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020026"
+      },
+      "outputs": {
+        "beta": -0.027296148172371443,
+        "oddsRatio": 0.9730730250510995,
+        "pValue": 0.9324355881789433,
+        "statistic": 0.007187798930530197,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 29,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020027"
+      },
+      "outputs": {
+        "beta": -0.0758149903473758,
+        "oddsRatio": 0.92698769236658,
+        "pValue": 0.8252481218802122,
+        "statistic": 0.04875266364922387,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 30,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020028"
+      },
+      "outputs": {
+        "beta": 0.29810942879230934,
+        "oddsRatio": 1.347309214233244,
+        "pValue": 0.2665295943567245,
+        "statistic": 1.2345210782416245,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 31,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020029"
+      },
+      "outputs": {
+        "beta": 0.22379434503644455,
+        "oddsRatio": 1.2508137569180193,
+        "pValue": 0.45762138940175534,
+        "statistic": 0.5517061735729045,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 32,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020030"
+      },
+      "outputs": {
+        "beta": 0.14150630187674715,
+        "oddsRatio": 1.1520077640488742,
+        "pValue": 0.5970032458105032,
+        "statistic": 0.279539435748171,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 33,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020031"
+      },
+      "outputs": {
+        "beta": 0.167296637590807,
+        "oddsRatio": 1.18210487004525,
+        "pValue": 0.4523961398839882,
+        "statistic": 0.5646414838772708,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 34,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020032"
+      },
+      "outputs": {
+        "beta": -0.5904010942542849,
+        "oddsRatio": 0.5541049918287905,
+        "pValue": 0.009901571668069422,
+        "statistic": 6.6525194562352885,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 35,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020033"
+      },
+      "outputs": {
+        "beta": -0.2732298514863802,
+        "oddsRatio": 0.7609178694237994,
+        "pValue": 0.3308563154193661,
+        "statistic": 0.9455432878127992,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 36,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020034"
+      },
+      "outputs": {
+        "beta": -0.1479720460660242,
+        "oddsRatio": 0.8624552236214559,
+        "pValue": 0.5547546231316574,
+        "statistic": 0.34886800911660654,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 37,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020035"
+      },
+      "outputs": {
+        "beta": -0.03890710932740965,
+        "oddsRatio": 0.9618400509660502,
+        "pValue": 0.8700623710591475,
+        "statistic": 0.026758175058404478,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 38,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020036"
+      },
+      "outputs": {
+        "beta": -0.27637533855407725,
+        "oddsRatio": 0.7585281724567225,
+        "pValue": 0.26128922092628426,
+        "statistic": 1.261913398325873,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 39,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020038"
+      },
+      "outputs": {
+        "beta": -0.05100788746195502,
+        "oddsRatio": 0.9502711752751257,
+        "pValue": 0.8935680526737634,
+        "statistic": 0.017899961127654792,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 40,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020039"
+      },
+      "outputs": {
+        "beta": 0.2725126721576278,
+        "oddsRatio": 1.313260100646046,
+        "pValue": 0.524074776654013,
+        "statistic": 0.40586693296501514,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 41,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020040"
+      },
+      "outputs": {
+        "beta": -0.2238913926335465,
+        "oddsRatio": 0.799401950595431,
+        "pValue": 0.35487228571690443,
+        "statistic": 0.855958029990404,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 42,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020041"
+      },
+      "outputs": {
+        "beta": 0.1497443793744577,
+        "oddsRatio": 1.1615372918873772,
+        "pValue": 0.49304015948247193,
+        "statistic": 0.4698848243817726,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 43,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020042"
+      },
+      "outputs": {
+        "beta": -0.03588612017505942,
+        "oddsRatio": 0.9647501528061371,
+        "pValue": 0.8747473135389335,
+        "statistic": 0.024847636555816392,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 44,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020043"
+      },
+      "outputs": {
+        "beta": 0.36950667507923685,
+        "oddsRatio": 1.4470205872375024,
+        "pValue": 0.15535383602690905,
+        "statistic": 2.0188785922471424,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 45,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020044"
+      },
+      "outputs": {
+        "beta": -0.03538825851696539,
+        "oddsRatio": 0.9652305845011961,
+        "pValue": 0.8911417267933051,
+        "statistic": 0.01873056604648752,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 46,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020046"
+      },
+      "outputs": {
+        "beta": -0.08145884540350484,
+        "oddsRatio": 0.9217706441722181,
+        "pValue": 0.7475538079002528,
+        "statistic": 0.10359806505440368,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 47,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020047"
+      },
+      "outputs": {
+        "beta": 0.022369610813356332,
+        "oddsRatio": 1.0226216866611306,
+        "pValue": 0.9401869152260622,
+        "statistic": 0.005630241638923874,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 48,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020048"
+      },
+      "outputs": {
+        "beta": -0.13531134971948477,
+        "oddsRatio": 0.8734439228280458,
+        "pValue": 0.540104027877234,
+        "statistic": 0.3753469924310046,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 49,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020049"
+      },
+      "outputs": {
+        "beta": 0.06758196707022399,
+        "oddsRatio": 1.0699179540438977,
+        "pValue": 0.8198603888014114,
+        "statistic": 0.05185846885244774,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 50,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020050"
+      },
+      "outputs": {
+        "beta": -0.26843309650540936,
+        "oddsRatio": 0.7645765739434167,
+        "pValue": 0.3267306617914476,
+        "statistic": 0.9618124205756577,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 51,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020051"
+      },
+      "outputs": {
+        "beta": -0.020915261563622722,
+        "oddsRatio": 0.9793019455691786,
+        "pValue": 0.9428465663166238,
+        "statistic": 0.005139825117984419,
+        "n": 238.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 52,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020052"
+      },
+      "outputs": {
+        "beta": -0.1219559949162156,
+        "oddsRatio": 0.8851873203877789,
+        "pValue": 0.6281160135990107,
+        "statistic": 0.23462425207641804,
+        "n": 238.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 53,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020053"
+      },
+      "outputs": {
+        "beta": -0.0472698166504393,
+        "oddsRatio": 0.9538300036506738,
+        "pValue": 0.8530174817119808,
+        "statistic": 0.034324871553487665,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 54,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020055"
+      },
+      "outputs": {
+        "beta": 0.2235720498131879,
+        "oddsRatio": 1.2505357378969677,
+        "pValue": 0.3347213840557721,
+        "statistic": 0.930544858113671,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 55,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020056"
+      },
+      "outputs": {
+        "beta": 0.015050640502271244,
+        "oddsRatio": 1.0151644717528039,
+        "pValue": 0.9564328017269808,
+        "statistic": 0.0029844967171884338,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 56,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020057"
+      },
+      "outputs": {
+        "beta": -0.1913146158019333,
+        "oddsRatio": 0.8258727146667654,
+        "pValue": 0.5058584172370331,
+        "statistic": 0.4426245339497962,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 57,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020058"
+      },
+      "outputs": {
+        "beta": -0.06869570760945878,
+        "oddsRatio": 0.9336107274993815,
+        "pValue": 0.7968528820495018,
+        "statistic": 0.06626617906200571,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 58,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020059"
+      },
+      "outputs": {
+        "beta": -0.11276866454154398,
+        "oddsRatio": 0.8933573014342543,
+        "pValue": 0.6040712495943992,
+        "statistic": 0.26889906051668805,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 59,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020060"
+      },
+      "outputs": {
+        "beta": 0.04894086406094589,
+        "oddsRatio": 1.0501582468096786,
+        "pValue": 0.8230441830371187,
+        "statistic": 0.05001097184449066,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 60,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020061"
+      },
+      "outputs": {
+        "beta": 0.044111195176829134,
+        "oddsRatio": 1.0450985583466912,
+        "pValue": 0.8749213395016971,
+        "statistic": 0.024778065235439982,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 61,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020062"
+      },
+      "outputs": {
+        "beta": 0.015369497404387878,
+        "oddsRatio": 1.015488215562637,
+        "pValue": 0.946213684335339,
+        "statistic": 0.004551160146628455,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 62,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020063"
+      },
+      "outputs": {
+        "beta": -0.24033624749353974,
+        "oddsRatio": 0.7863634038839453,
+        "pValue": 0.3543492172921634,
+        "statistic": 0.8578208972345629,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 63,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020064"
+      },
+      "outputs": {
+        "beta": 0.13552078955103625,
+        "oddsRatio": 1.1451330023879676,
+        "pValue": 0.6627844817742921,
+        "statistic": 0.19015880090556936,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 64,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020065"
+      },
+      "outputs": {
+        "beta": -0.9032559873319499,
+        "oddsRatio": 0.40524802685649486,
+        "pValue": 0.0006392264812728042,
+        "statistic": 11.65812752974062,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 65,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020066"
+      },
+      "outputs": {
+        "beta": -0.30558863862252683,
+        "oddsRatio": 0.7366896027837794,
+        "pValue": 0.19072728864511557,
+        "statistic": 1.7119907177328515,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 66,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020067"
+      },
+      "outputs": {
+        "beta": 0.18987406781605431,
+        "oddsRatio": 1.2090973238027738,
+        "pValue": 0.44152442150377047,
+        "statistic": 0.5923173210379005,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 67,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020068"
+      },
+      "outputs": {
+        "beta": 0.19560544812568417,
+        "oddsRatio": 1.2160470170402993,
+        "pValue": 0.3928447390940266,
+        "statistic": 0.7301186284645134,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 68,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020069"
+      },
+      "outputs": {
+        "beta": -0.344427210628883,
+        "oddsRatio": 0.7086261307600409,
+        "pValue": 0.1727851872932623,
+        "statistic": 1.8586110788086319,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 69,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020070"
+      },
+      "outputs": {
+        "beta": -0.10550099398850914,
+        "oddsRatio": 0.8998735783823423,
+        "pValue": 0.7520205476119363,
+        "statistic": 0.09984098011913863,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 70,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020071"
+      },
+      "outputs": {
+        "beta": 0.007915646088501623,
+        "oddsRatio": 1.0079470576412122,
+        "pValue": 0.9731499866985095,
+        "statistic": 0.0011328512078078098,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 71,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020073"
+      },
+      "outputs": {
+        "beta": 0.09021206623401234,
+        "oddsRatio": 1.094406345730299,
+        "pValue": 0.7108317478484187,
+        "statistic": 0.13744759670003032,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 72,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020074"
+      },
+      "outputs": {
+        "beta": 0.05635142223351884,
+        "oddsRatio": 1.0579694123898256,
+        "pValue": 0.8142712897209983,
+        "statistic": 0.05518712578817749,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 73,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020075"
+      },
+      "outputs": {
+        "beta": 0.08025769778008024,
+        "oddsRatio": 1.0835662643201207,
+        "pValue": 0.7693195682574367,
+        "statistic": 0.08600438769086453,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 74,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020076"
+      },
+      "outputs": {
+        "beta": -0.11140809219298951,
+        "oddsRatio": 0.8945736059234618,
+        "pValue": 0.6405793548538299,
+        "statistic": 0.21798526111009586,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 75,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020077"
+      },
+      "outputs": {
+        "beta": -0.4437254141771785,
+        "oddsRatio": 0.6416415823223269,
+        "pValue": 0.12838186786166514,
+        "statistic": 2.3119625212989736,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 76,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020078"
+      },
+      "outputs": {
+        "beta": -0.15025571714126956,
+        "oddsRatio": 0.8604879067808479,
+        "pValue": 0.48918547484944674,
+        "statistic": 0.47831735710854656,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 77,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020079"
+      },
+      "outputs": {
+        "beta": -0.08517923015420623,
+        "oddsRatio": 0.9183476740550933,
+        "pValue": 0.7644597117741747,
+        "statistic": 0.08977789062369654,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 78,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020080"
+      },
+      "outputs": {
+        "beta": -0.29558843231029536,
+        "oddsRatio": 0.744093609896523,
+        "pValue": 0.33830101256846346,
+        "statistic": 0.9168591423973672,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 79,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020081"
+      },
+      "outputs": {
+        "beta": -0.6856747749421107,
+        "oddsRatio": 0.503750196855027,
+        "pValue": 0.010980375548198308,
+        "statistic": 6.468490548329403,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 80,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020082"
+      },
+      "outputs": {
+        "beta": -0.060254249354990005,
+        "oddsRatio": 0.9415251209955703,
+        "pValue": 0.8157111225375938,
+        "statistic": 0.05431918014741364,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 81,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020083"
+      },
+      "outputs": {
+        "beta": -0.21885489174554953,
+        "oddsRatio": 0.803438295223853,
+        "pValue": 0.3504104582023594,
+        "statistic": 0.8719701735250976,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 82,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020086"
+      },
+      "outputs": {
+        "beta": 0.1847111610545168,
+        "oddsRatio": 1.2028709539684468,
+        "pValue": 0.5501671661866382,
+        "statistic": 0.3570177817670861,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 83,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020087"
+      },
+      "outputs": {
+        "beta": -0.02330045508460133,
+        "oddsRatio": 0.9769689043969539,
+        "pValue": 0.934395646445881,
+        "statistic": 0.006775879341859784,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 84,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020088"
+      },
+      "outputs": {
+        "beta": -0.28928256110960404,
+        "oddsRatio": 0.7488005935808473,
+        "pValue": 0.19919748051449904,
+        "statistic": 1.648248550032958,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 85,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020089"
+      },
+      "outputs": {
+        "beta": -0.24118304180379224,
+        "oddsRatio": 0.7856977976832907,
+        "pValue": 0.3084973334428329,
+        "statistic": 1.0370981228783673,
+        "n": 230.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 86,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020090"
+      },
+      "outputs": {
+        "beta": 0.10568988281928492,
+        "oddsRatio": 1.1114771348986419,
+        "pValue": 0.6388678086473871,
+        "statistic": 0.22022595141938395,
+        "n": 238.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 87,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020091"
+      },
+      "outputs": {
+        "beta": -0.48712940086810347,
+        "oddsRatio": 0.6143875255214225,
+        "pValue": 0.06955897044627021,
+        "statistic": 3.2933970482158292,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 88,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020092"
+      },
+      "outputs": {
+        "beta": 0.06429533762304486,
+        "oddsRatio": 1.066407302455667,
+        "pValue": 0.8276419349534627,
+        "statistic": 0.047404985277342146,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 89,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020093"
+      },
+      "outputs": {
+        "beta": 0.4443109993533819,
+        "oddsRatio": 1.5594153873930714,
+        "pValue": 0.05869846174458132,
+        "statistic": 3.573782526870068,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 90,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020094"
+      },
+      "outputs": {
+        "beta": -0.051205450060738414,
+        "oddsRatio": 0.9500834557759761,
+        "pValue": 0.8222938717562973,
+        "statistic": 0.05044319299888528,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 91,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020095"
+      },
+      "outputs": {
+        "beta": -0.2918684562621595,
+        "oddsRatio": 0.7468667751591139,
+        "pValue": 0.3655235210027358,
+        "statistic": 0.8188264049433738,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 92,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020096"
+      },
+      "outputs": {
+        "beta": -0.2298284828039418,
+        "oddsRatio": 0.7946698903665314,
+        "pValue": 0.3150213663991046,
+        "statistic": 1.0095053691988918,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 93,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020097"
+      },
+      "outputs": {
+        "beta": 0.008681005001366553,
+        "oddsRatio": 1.008718794195527,
+        "pValue": 0.9713137384506871,
+        "statistic": 0.00129316807295604,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 94,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020098"
+      },
+      "outputs": {
+        "beta": 0.28735097499411427,
+        "oddsRatio": 1.3328919431320636,
+        "pValue": 0.34390256572839484,
+        "statistic": 0.8958290420006156,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 95,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020099"
+      },
+      "outputs": {
+        "beta": 0.15990857380450574,
+        "oddsRatio": 1.1734035862618963,
+        "pValue": 0.46617153056198435,
+        "statistic": 0.5310362344716059,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 96,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020100"
+      },
+      "outputs": {
+        "beta": -0.3875211825479429,
+        "oddsRatio": 0.6787372567146576,
+        "pValue": 0.08028817874319896,
+        "statistic": 3.059058485979388,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 97,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020101"
+      },
+      "outputs": {
+        "beta": 0.33803492489316495,
+        "oddsRatio": 1.4021894738677434,
+        "pValue": 0.21176410239560406,
+        "statistic": 1.559324851322522,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 98,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020102"
+      },
+      "outputs": {
+        "beta": 0.3552585480884241,
+        "oddsRatio": 1.4265494382355308,
+        "pValue": 0.24264956275071825,
+        "statistic": 1.36513475181517,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 99,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020103"
+      },
+      "outputs": {
+        "beta": -0.1288388202982954,
+        "oddsRatio": 0.8791156497251561,
+        "pValue": 0.6381499596228026,
+        "statistic": 0.22116989454495933,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 100,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020104"
+      },
+      "outputs": {
+        "beta": 0.5710273691726454,
+        "oddsRatio": 1.7700846480028536,
+        "pValue": 0.0306743046495958,
+        "statistic": 4.6710983294940425,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 101,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020105"
+      },
+      "outputs": {
+        "beta": -0.328549451225335,
+        "oddsRatio": 0.7199673240791165,
+        "pValue": 0.20851583605187196,
+        "statistic": 1.5817010847033346,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 102,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020106"
+      },
+      "outputs": {
+        "beta": 0.1887975117033448,
+        "oddsRatio": 1.2077963630922242,
+        "pValue": 0.5330473961394759,
+        "statistic": 0.3885787926431679,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 103,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020107"
+      },
+      "outputs": {
+        "beta": -0.338889724706832,
+        "oddsRatio": 0.7125610226324227,
+        "pValue": 0.14147641702581737,
+        "statistic": 2.1618266698952024,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 104,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020108"
+      },
+      "outputs": {
+        "beta": 0.005308408837737128,
+        "oddsRatio": 1.0053225234041756,
+        "pValue": 0.9864523038092141,
+        "statistic": 0.0002883317809138843,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 105,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020109"
+      },
+      "outputs": {
+        "beta": 0.09378933843013919,
+        "oddsRatio": 1.0983283459709066,
+        "pValue": 0.6999472875796342,
+        "statistic": 0.1485267035791168,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 106,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020110"
+      },
+      "outputs": {
+        "beta": -0.07928486820069665,
+        "oddsRatio": 0.9237767323437482,
+        "pValue": 0.7944244090352508,
+        "statistic": 0.06789653443393288,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 107,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020111"
+      },
+      "outputs": {
+        "beta": 0.1578480560633129,
+        "oddsRatio": 1.1709882566241796,
+        "pValue": 0.4788903319347667,
+        "statistic": 0.5013892524954371,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 108,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020112"
+      },
+      "outputs": {
+        "beta": 0.17624249017498933,
+        "oddsRatio": 1.1927272482255737,
+        "pValue": 0.5263026778124726,
+        "statistic": 0.4015251062519779,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 109,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020113"
+      },
+      "outputs": {
+        "beta": -0.30506780418123414,
+        "oddsRatio": 0.7370733960391483,
+        "pValue": 0.17195260771915288,
+        "statistic": 1.865837242727838,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 110,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020115"
+      },
+      "outputs": {
+        "beta": 0.38679748162593264,
+        "oddsRatio": 1.472258301722251,
+        "pValue": 0.3652805724366146,
+        "statistic": 0.8196566499387218,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 111,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020116"
+      },
+      "outputs": {
+        "beta": 0.015686186973749107,
+        "oddsRatio": 1.015809861016507,
+        "pValue": 0.9449533952111341,
+        "statistic": 0.004767282270311262,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 112,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020118"
+      },
+      "outputs": {
+        "beta": -0.25489903537339376,
+        "oddsRatio": 0.774994741065775,
+        "pValue": 0.2967116582151519,
+        "statistic": 1.0889153455152016,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 113,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020119"
+      },
+      "outputs": {
+        "beta": 0.17684468399596345,
+        "oddsRatio": 1.1934457175117332,
+        "pValue": 0.4784208158406448,
+        "statistic": 0.5024608986796713,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 114,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020120"
+      },
+      "outputs": {
+        "beta": -0.2470806860545841,
+        "oddsRatio": 0.7810776689133784,
+        "pValue": 0.40882405699949853,
+        "statistic": 0.6822178590320841,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 115,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020121"
+      },
+      "outputs": {
+        "beta": 0.4372568050087854,
+        "oddsRatio": 1.5484536766614088,
+        "pValue": 0.2751113759706224,
+        "statistic": 1.191082182195269,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 116,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020122"
+      },
+      "outputs": {
+        "beta": 0.26901258244601317,
+        "oddsRatio": 1.308671607232721,
+        "pValue": 0.31452095136666136,
+        "statistic": 1.0115953262550355,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 117,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020123"
+      },
+      "outputs": {
+        "beta": -0.1957802951120734,
+        "oddsRatio": 0.8221928546248969,
+        "pValue": 0.4594973137594046,
+        "statistic": 0.5471188797138625,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 118,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020124"
+      },
+      "outputs": {
+        "beta": 0.1768182615721289,
+        "oddsRatio": 1.1934141841997565,
+        "pValue": 0.5109836092117804,
+        "statistic": 0.4320523433913132,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 119,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020125"
+      },
+      "outputs": {
+        "beta": 0.26833745039390294,
+        "oddsRatio": 1.3077883792662945,
+        "pValue": 0.22260431245464807,
+        "statistic": 1.4875028426609895,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 120,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020126"
+      },
+      "outputs": {
+        "beta": -0.029507809992207226,
+        "oddsRatio": 0.9709232947082175,
+        "pValue": 0.9205666836083544,
+        "statistic": 0.009944062918981828,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 121,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020127"
+      },
+      "outputs": {
+        "beta": 0.1199044252791866,
+        "oddsRatio": 1.1273890965319793,
+        "pValue": 0.6115026097981643,
+        "statistic": 0.2579926315582961,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 122,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020128"
+      },
+      "outputs": {
+        "beta": -0.001912833213246312,
+        "oddsRatio": 0.9980889950862747,
+        "pValue": 0.9929000238594564,
+        "statistic": 7.918540071271553e-05,
+        "n": 229.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 123,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020129"
+      },
+      "outputs": {
+        "beta": -0.23604279401170056,
+        "oddsRatio": 0.7897468767725648,
+        "pValue": 0.296292923338736,
+        "statistic": 1.090804965597583,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 124,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020130"
+      },
+      "outputs": {
+        "beta": -0.3362383735314649,
+        "oddsRatio": 0.7144527788841802,
+        "pValue": 0.36199832613342586,
+        "statistic": 0.8309487684673731,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 125,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020131"
+      },
+      "outputs": {
+        "beta": -0.09669765169990037,
+        "oddsRatio": 0.90783044563504,
+        "pValue": 0.6813970375700048,
+        "statistic": 0.16855745540732062,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 126,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020132"
+      },
+      "outputs": {
+        "beta": -0.07950513088655581,
+        "oddsRatio": 0.9235732812067176,
+        "pValue": 0.7484144620947246,
+        "statistic": 0.1028681972008304,
+        "n": 232.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 127,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020133"
+      },
+      "outputs": {
+        "beta": -0.07636161823816287,
+        "oddsRatio": 0.9264811135071966,
+        "pValue": 0.7341720173892605,
+        "statistic": 0.1153153197168041,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 128,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020134"
+      },
+      "outputs": {
+        "beta": -0.17826200700971873,
+        "oddsRatio": 0.8367231674316493,
+        "pValue": 0.42782399501666435,
+        "statistic": 0.6287233213512312,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 129,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020135"
+      },
+      "outputs": {
+        "beta": 0.2632675564904989,
+        "oddsRatio": 1.3011748101483471,
+        "pValue": 0.19904614418290056,
+        "statistic": 1.649359388378666,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 130,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020136"
+      },
+      "outputs": {
+        "beta": -0.40000525388005803,
+        "oddsRatio": 0.6703165242637684,
+        "pValue": 0.10696710803093244,
+        "statistic": 2.5984674300676947,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 131,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020137"
+      },
+      "outputs": {
+        "beta": 0.41730305940029816,
+        "oddsRatio": 1.5178624457206227,
+        "pValue": 0.12300854601151674,
+        "statistic": 2.378589767375533,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 132,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020138"
+      },
+      "outputs": {
+        "beta": -0.10993508691775268,
+        "oddsRatio": 0.8958922885388654,
+        "pValue": 0.6444223385161403,
+        "statistic": 0.21300487633305654,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 133,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020139"
+      },
+      "outputs": {
+        "beta": -0.020848132893687237,
+        "oddsRatio": 0.9793676870127931,
+        "pValue": 0.9428618241917502,
+        "statistic": 0.005137076490477544,
+        "n": 230.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 134,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020140"
+      },
+      "outputs": {
+        "beta": -0.08402372620299604,
+        "oddsRatio": 0.9194094417412886,
+        "pValue": 0.7444215512579015,
+        "statistic": 0.10627841627198059,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 135,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020141"
+      },
+      "outputs": {
+        "beta": 0.1241232350459115,
+        "oddsRatio": 1.132155383623256,
+        "pValue": 0.6785565493422644,
+        "statistic": 0.17175525034812397,
+        "n": 229.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 136,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020143"
+      },
+      "outputs": {
+        "beta": 0.38676804769949874,
+        "oddsRatio": 1.47221496801745,
+        "pValue": 0.13328707391739822,
+        "statistic": 2.2537961343017563,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 137,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020144"
+      },
+      "outputs": {
+        "beta": 0.150555903460827,
+        "oddsRatio": 1.1624802899580313,
+        "pValue": 0.5723916109606642,
+        "statistic": 0.3186972380143911,
+        "n": 231.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 138,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020145"
+      },
+      "outputs": {
+        "beta": -0.03724686971480392,
+        "oddsRatio": 0.9634382622593954,
+        "pValue": 0.8785503940052741,
+        "statistic": 0.023350011554367417,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 139,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020146"
+      },
+      "outputs": {
+        "beta": -0.12231709425948024,
+        "oddsRatio": 0.884867737531773,
+        "pValue": 0.6738398979146967,
+        "statistic": 0.17714321619063159,
+        "n": 234.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 140,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020147"
+      },
+      "outputs": {
+        "beta": -0.058805151309281566,
+        "oddsRatio": 0.9428904722333722,
+        "pValue": 0.8337064140320617,
+        "statistic": 0.04407915496531407,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 141,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020148"
+      },
+      "outputs": {
+        "beta": 0.15111085196471313,
+        "oddsRatio": 1.1631255856921308,
+        "pValue": 0.49638444209823995,
+        "statistic": 0.46265783719324505,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 142,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020149"
+      },
+      "outputs": {
+        "beta": -0.4409487218234977,
+        "oddsRatio": 0.6434256994236235,
+        "pValue": 0.14571117411002327,
+        "statistic": 2.116584512722737,
+        "n": 233.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 143,
+      "method_id": "gwas.effect_estimate",
+      "inputs_digest": {
+        "variant": "rs020150"
+      },
+      "outputs": {
+        "beta": 0.247299297410845,
+        "oddsRatio": 1.2805623244164073,
+        "pValue": 0.4453358646779769,
+        "statistic": 0.5824953950361185,
+        "n": 237.0
+      },
+      "status": "success",
+      "decision": "Dosage-coded allele effect, ancestry adjusted."
+    },
+    {
+      "step_id": 144,
+      "method_id": "gwas.sample_qc",
+      "inputs_digest": {
+        "batch": "replication"
+      },
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "samplesRetained": 120
+      },
+      "status": "success",
+      "decision": "Replication sample QC"
+    },
+    {
+      "step_id": 145,
+      "method_id": "gwas.snp_qc",
+      "inputs_digest": {
+        "batch": "replication"
+      },
+      "outputs": {
+        "snpsFailed": 9,
+        "snpsRetained": 141
+      },
+      "status": "success",
+      "decision": "Replication variant QC"
+    },
+    {
+      "step_id": 146,
+      "method_id": "gwas.stratification",
+      "inputs_digest": {
+        "batch": "replication"
+      },
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.1880358912163143,
+        "pc1RangeOverlap": 9.44964063409529,
+        "pc2PValue": 0.7058766190857064,
+        "pc2RangeOverlap": 9.024694656365458
+      },
+      "status": "success",
+      "decision": "Replication PCA with same normalization; overlapping leading axes"
+    },
+    {
+      "step_id": 147,
+      "method_id": "gwas.replication",
+      "inputs_digest": {
+        "batch": "replication"
+      },
+      "outputs": {
+        "nCandidates": 1,
+        "nReplicated": 1,
+        "replicationAlpha": 0.05,
+        "rs020008_pValue": 0.0011773987607085696,
+        "rs020008_oddsRatio": 2.63842232102269,
+        "rs020008_beta": 0.9701811328475577,
+        "rs020008_sameDirection": true,
+        "rs020008_qcPass": true
+      },
+      "status": "success",
+      "decision": "Independent additive logistic Wald test adjusted for leading two PCs, nominal significance and same dosage direction required."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "pass"
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "overlapping_structure_adjust",
+      "observed": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 4.195269044230135e-18,
+        "pc1VarianceFraction": 0.10170125571851286,
+        "pc1RangeOverlap": 10.671220683569995,
+        "pc2PValue": 0.3768869629319004,
+        "pc2VarianceFraction": 0.020039942427919843,
+        "pc2RangeOverlap": 7.584555747525092,
+        "pc3PValue": 0.11563956822019951,
+        "pc3VarianceFraction": 0.019344030258285776,
+        "pc3RangeOverlap": 6.859676600866543,
+        "pc4PValue": 0.5887667577050781,
+        "pc4VarianceFraction": 0.01862286138041862,
+        "pc4RangeOverlap": 7.929459354908465,
+        "pc5PValue": 0.7633570312822526,
+        "pc5VarianceFraction": 0.018518759869536466,
+        "pc5RangeOverlap": 8.287976435530952,
+        "pc6PValue": 0.7020573127481564,
+        "pc6VarianceFraction": 0.017215473496843228,
+        "pc6RangeOverlap": 8.005472584441243,
+        "pc7PValue": 0.6200033344904983,
+        "pc7VarianceFraction": 0.016908017558264002,
+        "pc7RangeOverlap": 7.738016755609819,
+        "pc8PValue": 0.3475780931673391,
+        "pc8VarianceFraction": 0.01634605650019772,
+        "pc8RangeOverlap": 7.407859187509791,
+        "pc9PValue": 0.49511562089037453,
+        "pc9VarianceFraction": 0.016182831745457038,
+        "pc9RangeOverlap": 7.059376045337175,
+        "pc10PValue": 0.6863128830912373,
+        "pc10VarianceFraction": 0.015779394584992883,
+        "pc10RangeOverlap": 7.090207734397459
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "report",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 1,
+        "replicationAlpha": 0.05,
+        "rs020008_pValue": 0.0011773987607085696,
+        "rs020008_oddsRatio": 2.63842232102269,
+        "rs020008_beta": 0.9701811328475577,
+        "rs020008_sameDirection": true,
+        "rs020008_qcPass": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

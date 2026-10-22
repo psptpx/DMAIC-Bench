@@ -1,0 +1,143 @@
+{
+  "system_id": "openai-cli",
+  "task_id": "adb_c41-T3-s4-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "variant_count": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "platePass": true,
+        "retainedSamples": 237,
+        "nParticipants": 240,
+        "nVariants": 150,
+        "nAffected": 120,
+        "nUnaffected": 120,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes the protocol maximum sample failure fraction."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples_used": 237,
+        "variants_input": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "minSampleCallRate": 0.94,
+        "minVariantCallRate": 0.8270042194092827,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06,
+        "nVariantsInput": 150,
+        "variantFailCount": 12
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call rate, MAF, and unaffected-control HWE rules."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples_used": 237,
+        "variants_used": 138,
+        "axes_tested": 3
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.5263147919388144,
+        "pc2PValue": 0.9089170701282936,
+        "pc3PValue": 0.29682496069719966,
+        "axesTested": 3,
+        "nSamples": 237,
+        "nVariants": 138
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants are not separated on the tested leading axes; unadjusted comparison is acceptable under the protocol rule."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples_used": 237,
+        "variants_tested": 138,
+        "test": "Fisher exact carrier-table association"
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.9283098839297474,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "variantsTested": 138,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "No discovery association crosses the Bonferroni threshold."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "samples_available": 120,
+        "variants_available": 150,
+        "candidates_available": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.008333333333333333,
+        "nParticipants": 120,
+        "nAffected": 60,
+        "nUnaffected": 60,
+        "nVariants": 150
+      },
+      "status": "success",
+      "decision": "No nominated discovery candidates were available, so no replication test was performed and no association can be reported."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "continue_after_plate_pass",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_structure",
+      "chosen_branch": "compare_groups_without_structure_covariates",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.5263147919388144
+      }
+    },
+    {
+      "point": "discovery_hits",
+      "chosen_branch": "no_candidates_for_replication",
+      "observed": {
+        "nSignificant": 0,
+        "nCandidates": 0
+      }
+    }
+  ]
+}

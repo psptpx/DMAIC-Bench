@@ -1,0 +1,294 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "sampleSize": 90
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 11.89525006200899,
+        "percentTolerance": 20.46884241168519,
+        "ndc": 11
+      },
+      "status": "success",
+      "decision": "Cage gage R&R shows acceptable measurement discrimination; GRR percent study variation=11.9%, tolerance percent=20.5%, ndc=11."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 60.63433333333333,
+        "median": 60.93,
+        "stdDev": 2.297360583303699,
+        "skewness": -0.05027142686892304,
+        "adPValue": 0.023598816664972544
+      },
+      "status": "success",
+      "decision": "Baseline hardness distribution is near normal by mean/median but AD p<0.05, and baseline is broad compared with observed shifts."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60,
+        "chart": "imr"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 60.63433333333333,
+        "individualsLCL": 56.759750282485875,
+        "individualsUCL": 64.5089163841808,
+        "flaggedCount": 2
+      },
+      "status": "success",
+      "decision": "I-MR chart on shaft-order baseline has two individual points outside control limits; process not stable in baseline period."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60,
+        "median": 60.93,
+        "runs": 10
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 4.532976172200165e-08
+      },
+      "status": "success",
+      "decision": "Runs test strongly rejects random order; baseline data show a patterned shift rather than random variation."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "recipes",
+        "group": "recipe A",
+        "sampleSize": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 57.95933333333333,
+        "median": 58.15,
+        "stdDev": 0.9090691209510234,
+        "skewness": 0.25162841503878397,
+        "adPValue": 0.07954209122843887
+      },
+      "status": "success",
+      "decision": "recipe A group summary computed from the separate recipe sample."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "recipes",
+        "group": "recipe B",
+        "sampleSize": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 59.74333333333334,
+        "median": 59.99,
+        "stdDev": 0.9278136101815362,
+        "skewness": 0.8169257484520428,
+        "adPValue": 0.20118558988872182
+      },
+      "status": "success",
+      "decision": "recipe B group summary computed from the separate recipe sample."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "recipes",
+        "group": "recipe C",
+        "sampleSize": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 61.32733333333332,
+        "median": 61.49,
+        "stdDev": 0.865872529934538,
+        "skewness": -0.35599272174967544,
+        "adPValue": 0.4132405728664873
+      },
+      "status": "success",
+      "decision": "recipe C group summary computed from the separate recipe sample."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "recipes",
+        "groups": [
+          "recipe A",
+          "recipe B",
+          "recipe C"
+        ],
+        "perGroupSize": [
+          15,
+          15,
+          15
+        ]
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.9755563118740186,
+        "statistic": 0.024761981900359043
+      },
+      "status": "success",
+      "decision": "Levene median test does not reject equal variances across all three recipe groups."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "recipes",
+        "groups": [
+          "recipe A",
+          "recipe B",
+          "recipe C"
+        ],
+        "perGroupSize": [
+          15,
+          15,
+          15
+        ]
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 3.833851301067109e-12,
+        "fStatistic": 52.42698750092324
+      },
+      "status": "success",
+      "decision": "One-way ANOVA strongly rejects the null hypothesis that all three recipes have equal case-hardness means."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "recipes",
+        "groups": [
+          "recipe A",
+          "recipe B",
+          "recipe C"
+        ],
+        "perGroupSize": [
+          15,
+          15,
+          15
+        ]
+      },
+      "method_id": "nonparametric.kruskal_wallis",
+      "outputs": {
+        "pValue": 6.715535907754879e-08
+      },
+      "status": "success",
+      "decision": "Kruskal-Wallis nonparametric test also strongly rejects equal medians across recipes."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "leading_two",
+        "groups": [
+          "recipe C",
+          "recipe B"
+        ],
+        "perGroupSize": [
+          15,
+          15
+        ]
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.9330816690985373,
+        "statistic": 0.0071785940756871605
+      },
+      "status": "success",
+      "decision": "Levene median test for the leading two recipes supports equal variances before the two-sample t-test."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "batch": "leading_two",
+        "groups": [
+          "recipe C",
+          "recipe B"
+        ],
+        "perGroupSize": [
+          15,
+          15
+        ]
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 4.3658608057111614e-05,
+        "tStatistic": 4.834043506337246,
+        "meanGroup1": 61.32733333333332,
+        "meanGroup2": 59.74333333333334,
+        "meanDifference": 1.5839999999999819
+      },
+      "status": "success",
+      "decision": "Two-sample t-test for the leading two recipes shows a significant mean hardness difference."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "batch": "leading_two",
+        "groups": [
+          "recipe C",
+          "recipe B"
+        ],
+        "perGroupSize": [
+          15,
+          15
+        ]
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 0.0002617547195372892
+      },
+      "status": "success",
+      "decision": "Mann-Whitney test confirms the leading-two difference is significant without relying on normality assumptions."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_release_baseline",
+      "chosen_branch": "computed crossed gage R&R and declared grr_pct and ndc",
+      "observed": {
+        "grr_pct": 11.89525006200899,
+        "ndc": 11
+      }
+    },
+    {
+      "point": "baseline_release_recipes",
+      "chosen_branch": "obtained baseline and analyzed stability",
+      "observed": {
+        "baseline_n": 60
+      }
+    },
+    {
+      "point": "leading_two_selection",
+      "chosen_branch": "chose top two recipes by mean hardness",
+      "observed": {
+        "ranked_means": [
+          {
+            "recipe C": 61.32733333333332
+          },
+          {
+            "recipe B": 59.74333333333334
+          },
+          {
+            "recipe A": 57.95933333333333
+          }
+        ]
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

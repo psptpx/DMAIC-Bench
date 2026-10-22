@@ -1,0 +1,47 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and bore finish requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same bores",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Per-bore roughness record in finishing order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "provision",
+    "text": "What recent process change was made on the honing line, and when was it made relative to the 50-bore run?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "process change or adjustment record for the honing line",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  }
+]

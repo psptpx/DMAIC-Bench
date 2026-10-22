@@ -1,0 +1,202 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "baseline",
+        "groups": 25,
+        "totalInspected": 100000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.00599,
+        "outOfControlCount": 0,
+        "lcl": 0.002329840198160741,
+        "ucl": 0.009650159801839258,
+        "lotCount": 25,
+        "totalDefects": 599,
+        "totalInspected": 100000
+      },
+      "status": "success",
+      "decision": "No points beyond three-sigma limits; baseline treated as stable."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "totalInspected": 100000
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 2.73393804200261e-78,
+        "observedShare": 0.00599,
+        "requiredShare": 0.0025
+      },
+      "status": "success",
+      "decision": "One-sided exact binomial test finds baseline defect share above the commitment."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "baseline",
+        "totalInspected": 100000
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 2.5127328988583177,
+        "avgP": 0.00599
+      },
+      "status": "success",
+      "decision": "Baseline binomial defect performance summarized as long-term yield Z without shift."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "settings",
+        "groups": 40,
+        "terms": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial computation failed because a dictionary was passed where a numeric design matrix was required; no numerical result was produced."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "settings",
+        "groups": 40,
+        "terms": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 8.381756185366403e-14,
+        "rSquaredPct": 82.72578038855495,
+        "rSquaredAdjPct": 81.28626208760119,
+        "fStatistic": 57.467682302993225,
+        "pastePValue": 1.0930398582647192e-11,
+        "reflowPValue": 8.322450533508334e-11,
+        "interactionPValue": 7.095312426248996e-12,
+        "alpha": 0.05,
+        "observationCount": 40
+      },
+      "status": "success",
+      "decision": "Specified model is significant and each supplied term is significant at alpha; evidence is associational, not proof of causation."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "trial_size",
+        "nPerGroup": 40000
+      },
+      "method_id": "power.two_proportions",
+      "outputs": {
+        "power": 0.9999999914471074,
+        "alpha": 0.05,
+        "nPerGroup": 40000,
+        "planningP1": 0.0059,
+        "planningP2": 0.0025
+      },
+      "status": "success",
+      "decision": "Planned two-sided two-proportion trial had essentially complete power for its specified difference."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "before_after",
+        "groups": 2,
+        "totalInspected": 80000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 3.1744942874845076e-19,
+        "zStatistic": 8.962482483814625,
+        "beforeShare": 0.005875,
+        "afterShare": 0.001925,
+        "absoluteReduction": 0.00395,
+        "relativeReduction": 0.672340425531915,
+        "differenceCiLower": 0.003086626479392266,
+        "differenceCiUpper": 0.004813373520607734,
+        "beforeDefects": 235,
+        "afterDefects": 77,
+        "nPerGroup": 40000
+      },
+      "status": "success",
+      "decision": "Two-sided pooled z-test shows a statistically significant reduction after the change."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "groups": 20,
+        "totalInspected": 80000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0018375,
+        "outOfControlCount": 0,
+        "lcl": 0,
+        "ucl": 0.0038689472884959383,
+        "lotCount": 20,
+        "totalDefects": 147,
+        "totalInspected": 80000
+      },
+      "status": "success",
+      "decision": "No post-change lots exceed three-sigma p-chart limits; current level is stable on this evidence."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "totalInspected": 80000
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 5.060125914974411e-05,
+        "observedShare": 0.0018375,
+        "requiredShare": 0.0025
+      },
+      "status": "success",
+      "decision": "One-sided exact binomial test supports that the post-change defect share is below the commitment."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "totalInspected": 80000
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 2.9047896420453334,
+        "avgP": 0.0018375
+      },
+      "status": "success",
+      "decision": "Post-change binomial defect performance summarized as long-term yield Z without shift."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability_gate",
+      "chosen_branch": "stable",
+      "observed": {
+        "outOfControlCount": 0,
+        "centerLine": 0.00599,
+        "lcl": 0.002329840198160741,
+        "ucl": 0.009650159801839258
+      }
+    },
+    {
+      "point": "settings_significance_gate",
+      "chosen_branch": "any_factor_significant_true",
+      "observed": {
+        "alpha": 0.05,
+        "modelPValue": 8.381756185366403e-14,
+        "pastePValue": 1.0930398582647192e-11,
+        "reflowPValue": 8.322450533508334e-11,
+        "interactionPValue": 7.095312426248996e-12
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

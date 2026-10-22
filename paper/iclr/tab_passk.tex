@@ -1,0 +1,56 @@
+\begin{longtable}{@{}llrrrrr@{}}
+\caption{Reliability across three attempts, by agent and routing tier.}\label{tab:passk}\\
+\toprule
+Agent & Tier & Tasks & pass$^3$ $\uparrow$ & pass@3 $\uparrow$ & Gap $\downarrow$ & Mean spread $\downarrow$ \\
+\midrule
+\endfirsthead
+\multicolumn{7}{c}{\normalfont\normalsize Table \thetable{} (continued)} \\
+\noalign{\vskip 6pt}
+\toprule
+Agent & Tier & Tasks & pass$^3$ $\uparrow$ & pass@3 $\uparrow$ & Gap $\downarrow$ & Mean spread $\downarrow$ \\
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+GLM-5.3-Flash & A-go & 48 & 0.312 & \textbf{0.542} & 0.229 & 0.166 \\*
+ & B-divert & 18 & 0.000 & 0.000 & 0.000 & 0.202 \\*
+ & C-stop & 31 & 0.129 & 0.323 & 0.194 & 0.174 \\
+Claude-Sonnet-5 & A-go & 48 & 0.292 & 0.479 & 0.188 & 0.086 \\*
+ & B-divert & 18 & 0.000 & 0.000 & 0.000 & 0.059 \\*
+ & C-stop & 31 & 0.194 & 0.355 & 0.161 & 0.085 \\
+GPT-5.6-sol & A-go & 48 & 0.292 & 0.438 & 0.146 & 0.065 \\*
+ & B-divert & 18 & 0.000 & 0.111 & 0.111 & 0.111 \\*
+ & C-stop & 31 & 0.258 & 0.355 & 0.097 & 0.112 \\
+GPT-6-astra & A-go & 48 & \textbf{0.354} & 0.417 & 0.062 & 0.070 \\*
+ & B-divert & 18 & 0.056 & 0.111 & 0.056 & 0.038 \\*
+ & C-stop & 31 & \textbf{0.323} & 0.323 & 0.000 & 0.099 \\
+GLM-5.3 & A-go & 48 & 0.271 & 0.521 & 0.250 & 0.143 \\*
+ & B-divert & 18 & 0.000 & 0.000 & 0.000 & 0.120 \\*
+ & C-stop & 31 & 0.258 & 0.355 & 0.097 & 0.064 \\
+GPT-5.6-luna & A-go & 48 & 0.250 & 0.354 & 0.104 & 0.126 \\*
+ & B-divert & 18 & \textbf{0.111} & \textbf{0.222} & 0.111 & 0.122 \\*
+ & C-stop & 31 & 0.097 & 0.323 & 0.226 & 0.224 \\
+DeepSeek-v4-flash & A-go & 48 & 0.292 & 0.375 & 0.083 & 0.106 \\*
+ & B-divert & 18 & 0.000 & 0.056 & 0.056 & 0.074 \\*
+ & C-stop & 31 & 0.194 & \textbf{0.387} & 0.194 & 0.168 \\
+DeepSeek-v4-pro & A-go & 48 & 0.208 & 0.375 & 0.167 & 0.139 \\*
+ & B-divert & 18 & 0.000 & 0.000 & 0.000 & 0.108 \\*
+ & C-stop & 31 & 0.129 & 0.290 & 0.161 & 0.156 \\
+Kimi-k3 & A-go & 48 & 0.312 & 0.396 & 0.083 & 0.077 \\*
+ & B-divert & 18 & 0.000 & 0.000 & 0.000 & 0.099 \\*
+ & C-stop & 31 & 0.097 & 0.355 & 0.258 & 0.183 \\
+Qwen3.8-max & A-go & 48 & 0.250 & 0.333 & 0.083 & 0.164 \\*
+ & B-divert & 18 & 0.000 & 0.000 & 0.000 & 0.211 \\*
+ & C-stop & 31 & 0.097 & 0.226 & 0.129 & 0.127 \\
+Qwen3.8-flash & A-go & 48 & 0.188 & 0.354 & 0.167 & 0.150 \\*
+ & B-divert & 18 & 0.000 & 0.056 & 0.056 & 0.199 \\*
+ & C-stop & 31 & 0.032 & 0.129 & 0.097 & 0.061 \\
+Claude-Opus-5 & A-go & 48 & 0.312 & 0.396 & 0.083 & 0.109 \\*
+ & B-divert & 18 & 0.000 & 0.000 & 0.000 & 0.122 \\*
+ & C-stop & 31 & 0.161 & 0.290 & 0.129 & 0.154 \\
+Claude-Fable-5.1 & A-go & 48 & 0.333 & 0.375 & 0.042 & 0.104 \\*
+ & B-divert & 18 & 0.000 & 0.000 & 0.000 & 0.077 \\*
+ & C-stop & 31 & 0.226 & 0.323 & 0.097 & 0.138 \\
+\end{longtable}

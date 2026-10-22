@@ -1,0 +1,54 @@
+{
+ "reviewer_id": "Expert-Human-1",
+ "reviewer_type": "Human",
+ "perspective": "Statistical/Industrial Validation",
+ "blinding_compliance": "I have read only the blind directory, publicly accessible technical standards, and my own review output. I have not inspected other directories or files, hidden truth files, or other reviewers' outputs. I have not searched the benchmark/paper name.",
+ "ai_assistance": "NONE",
+ "sources": [
+  "AIAG MSA Reference Manual, 4th Edition (general limits for GR&R)",
+  "AIAG SPC Reference Manual, 2nd Edition (stability and capability guidelines)"
+ ],
+ "reviews": [
+  {
+   "blind_id": "V034",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that the baseline process is temporally stable or in a state of statistical control.",
+    "Treating the baseline overall capability metrics (Pp/Ppk) or pooled capability estimates as valid, dependable predictors of future steady-state performance.",
+    "Assuming the baseline process data are independent and identically distributed for formal inferential testing without acknowledging the temporal shift."
+   ],
+   "permitted_at_checkpoint": [
+    "Diagnosing the nature of the instability by analyzing control chart signals (e.g., mean shifts vs. variance inflation) and comparing the gap between potential (Cp) and overall (Pp) capability.",
+    "Investigating potential root causes for the instability, such as evaluating applicator differences.",
+    "Implementing a corrective process change and evaluating a post-change sustaining run to verify that stability and target capability have been achieved."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The report computes capability indices on the unstable baseline and runs a Welch's two-sample t-test comparing the unstable baseline to the stable post-change run. These are acceptable here as restricted descriptive calculations because the report explicitly cautions against using the baseline capability as a steady-state estimate, and it uses the metrics/t-test primarily to descriptively confirm the massive temporal shift and subsequent variation reduction.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Conducting a one-way ANOVA on a separate applicator sample to test for specific root causes of the baseline instability.",
+    "Applying Welch's two-sample t-test as a descriptive heuristic to quantify the magnitude of the mean shift between the pre-change and post-change runs."
+   ],
+   "evidence": [
+    "The X-bar center line was 232.27360000000002 um and 20 subgroup means were flagged",
+    "This is a run-level stability problem, not just random piece-to-piece noise.",
+    "pooled capability from that unstable run should not be treated as a dependable steady-state capability estimate.",
+    "The gap between potential and overall performance is consistent with the detected run shift."
+   ],
+   "rationale": "The submitted report perfectly identifies the baseline temporal instability from the flagged X-bar subgroups and explicitly stops the reader from using the unstable run's capability as a steady-state prediction. It appropriately uses the gap between within-subgroup (Cp) and overall (Pp) variation to diagnose the shift. The subsequent analyses\u2014investigating applicators and confirming the successful process change via a stable sustaining run\u2014are statistically valid and effectively address the business need. Calculations trace flawlessly to the declared outputs.",
+   "confidence": 5,
+   "numerical_check": "Recomputed Welch's two-sample t-test (t=8.632), baseline Pp/Ppk (0.86/0.60), and post-change Pp/Ppk (2.36/2.32); all manually confirmed to match the submitted report values perfectly.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5633,
+  "completion_tokens": 8904,
+  "total_tokens": 14537
+ }
+}

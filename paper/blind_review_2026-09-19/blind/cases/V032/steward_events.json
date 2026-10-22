@@ -1,0 +1,65 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and brightness requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same units by several operators",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=54.1970532972932",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 54.1970532972932
+    }
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Per-unit end-of-line brightness record in production order",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "gate": "msa_pass",
+    "detail": "your declared grr_pct=54.1970532972932 does not satisfy grr_pct <= 30 [msa_pass; source: AIAG MSA-4 Ch. II Sec. D]",
+    "declarations": {
+      "grr_pct": 54.1970532972932
+    }
+  },
+  {
+    "seq": 7,
+    "action": "provision",
+    "text": "The crossed gage R&R on brightness readings is 54.1970532972932 percent of study variation and fails the 30 percent acceptance limit. What documented process fact or prescribed corrective action applies before the end-of-line brightness record can be interpreted?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 54.1970532972932
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Documented corrective action and repeat gage study after the brightness measurement system failed acceptance",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 54.1970532972932
+    }
+  }
+]

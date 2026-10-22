@@ -1,0 +1,53 @@
+{
+ "blind_id": "V035",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the existing classifications as validated measurements of true contractual breaches.",
+  "Concluding that true breach performance is stable, meets the 5% requirement, or has established capability from the uncorrected recorded counts.",
+  "Using the recorded chart to rule out special causes or recommend against investigating individual periods.",
+  "Establishing causal team effects or improvement achievements using these unvalidated classifications."
+ ],
+ "permitted_at_checkpoint": [
+  "Summarize recorded labels and plot their time sequence explicitly as measurement-system-contaminated observations, withholding conclusions about true breach performance.",
+  "Investigate reviewer disagreements, clarify the operational definition against the contractual standard, retrain reviewers, and repeat a representative agreement study.",
+  "Independently adjudicate archived tickets and reconstruct breach counts before assessing actual stability and target attainment.",
+  "Explore recorded team-label associations without causal attribution, provided independence and classification limitations are explicit."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The practical reading: the swings between periods, including the worst period at 8.0%, are common cause.",
+  "There is no special-cause event to investigate.",
+  "Chasing individual bad weeks would be tampering.",
+  "**Do not chase individual periods.** The chart is stable, so period-to-period variation is common cause.",
+  "Volume, staffing, shift, ticket type and queue-time detail are needed to locate the drivers of a 3.92% common-cause level."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Descriptive summaries and charts of recorded classifications can be useful diagnostics. However, the report uses the chart, runs test, and dispersion estimate to establish a true common-cause process and discourage investigation despite failed measurement validation. The binomial interval and test quantify sampling uncertainty for recorded labels under independence assumptions, not uncertainty in the true breach probability; neither addresses classification bias. Process Z and ppm are transformations of the recorded fraction, not validated true-process capability. The team comparison is appropriately described as inconclusive in the report, but cannot establish causality. Its chi-square calculation is algebraically equivalent to the pooled two-proportion test, not independent corroborating evidence. Observed-effect power adds no independent evidence to the nonsignificant result, and normality of period fractions does not validate ticket-level independence or measurement accuracy.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Restrict downstream analysis to recorded-label descriptions and diagnostic hypotheses, explicitly withholding target attainment, actual process stability, and operational recommendations based on those conclusions.",
+  "Use blinded independent adjudication against a defensible contractual reference to rebuild period and team counts, then assess stability and proportions with appropriate independence or clustering assumptions.",
+  "Estimate sensitivity and specificity from a representative validation sample and perform misclassification-adjusted estimation with uncertainty propagation, provided error rates are identifiable and their applicability across periods and teams is supported.",
+  "Revalidate the classification system using repeatability, agreement with the reference, class-specific error rates, and uncertainty against predeclared business-risk criteria; do not rely on a universal kappa threshold alone."
+ ],
+ "evidence": [
+  "The reported minimum reviewer-versus-reference kappa is 0.3617, overall judgment accuracy is 78.3%, and reviewer repeatability is 55%, 50%, and 75%. These provide substantial evidence against measurement adequacy.",
+  "The report explicitly states: \"Every breach count in the rest of this report was produced by that system\" and describes the inherited misclassification error as unquantified.",
+  "The report provides meaningful restraint: \"Fix the judging before acting on the rate.\" It also states that the true level could sit either side of the measured one.",
+  "The submitted route nevertheless declares \"stable_so_capability_is_meaningful\", and the report uses the chart to recommend against investigating individual periods.",
+  "From the supplied totals, 196/5000 = 0.0392. The conventional p-chart standard error is sqrt(0.0392 \u00d7 0.9608 / 200), approximately 0.013723, giving an upper three-sigma limit of approximately 0.080369.",
+  "The public protocol thresholds are empty; the asserted kappa acceptance value of 0.90 is report language rather than a supplied service gate."
+ ],
+ "rationale": "The agreement results justify withholding substantive reliance on the classifications, regardless of whether 0.90 is adopted as an acceptance threshold. Continuing descriptive calculations is not inherently invalid, and the report meaningfully acknowledges measurement failure and makes repair its first priority. Nevertheless, its definite common-cause conclusions and instruction not to investigate periods materially exceed what either an unvalidated measurement system or absence of chart signals can establish. Those operational conclusions prevent the downstream work from qualifying wholly as restricted description. The measured-rate target statement is explicitly qualified, but those qualifications do not neutralize the stronger stability-based recommendations.",
+ "confidence": 5,
+ "numerical_check": "Checked arithmetic from supplied aggregates: recorded proportion 196/5000 = 3.92%; conventional p-chart standard error approximately 0.013723 and upper limit approximately 8.0369%; team pooled proportion 54/1200 = 0.045, pooled two-proportion z approximately 0.8355, and z squared approximately 0.6981. Agreement metrics, temporal patterns, exact binomial p-value, interval construction, and power remain self-report-only; no raw files or computational tools were accessed.",
+ "evidence_problem": "Only the supplied packet was available for this response; raw batches and service events were not inspected. The meaning of reviewer 2 agreeing with the key on 45% of tickets is ambiguous without distinguishing agreement on both trials from individual-rating accuracy. Blinding was maintained: no external directories, other reviewer outputs, or external sources were accessed. This review was produced by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 5744,
+  "completion_tokens": 1309,
+  "total_tokens": 7053
+ }
+}

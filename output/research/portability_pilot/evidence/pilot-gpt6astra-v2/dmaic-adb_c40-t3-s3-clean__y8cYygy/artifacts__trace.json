@@ -1,0 +1,56 @@
+{
+  "system_id": "cli-analysis",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "samples": 12
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "controlUsable": 6,
+        "treatedUsable": 2,
+        "totalSamples": 12,
+        "requiredReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "lowReadFailures": 2,
+        "lowMappingFailures": 2
+      },
+      "status": "success",
+      "decision": "Insufficient usable treated replicates; stop gene calling and re-sequence first."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_acceptance",
+      "chosen_branch": "insufficient_replication",
+      "observed": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "controlUsable": 6,
+        "treatedUsable": 2,
+        "totalSamples": 12,
+        "requiredReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "lowReadFailures": 2,
+        "lowMappingFailures": 2
+      }
+    },
+    {
+      "point": "sample_sheet_access",
+      "chosen_branch": "stop_locked_resequence_first",
+      "observed": {
+        "min_replicates": 2,
+        "required": 3
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

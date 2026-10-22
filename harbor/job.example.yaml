@@ -1,0 +1,118 @@
+# =============================================================================
+# DMAIC-Bench -- reproducibility job config.
+#
+# Schema: harbor.models.job.config:JobConfig (Harbor 0.22.0). `harbor run -c`
+# does `yaml.safe_load()` then `JobConfig.model_validate()`, so every key below
+# is a real field of that model -- this file is executable, not illustrative.
+# tests/test_public_image_hygiene.py validates it against the model on every run.
+#
+# Run it from the repository root:
+#
+#     harbor run -c harbor/job.example.yaml
+#
+# Prerequisites:
+#   1. `dmaic-harbor-build --out harbor/datasets/dmaic-bench`
+#      has generated the task directories.
+#   2. The agent and verifier images are built and reachable by the local
+#      container runtime (see README.md, "Build the two images").
+#   3. The model credentials for the agents below are exported in the
+#      environment (ANTHROPIC_API_KEY, OPENAI_API_KEY, ...).
+#
+# NOT LISTED HERE: one private contestant. It depends on proprietary software and
+# infrastructure that cannot be redistributed, so it cannot be part of a published,
+# reproducible-by-anyone job. An operator who has that infrastructure adds it
+# locally, from the operator-only adapter that is not part of this repository.
+# See harbor/README.md, "Private contestants".
+# =============================================================================
+
+job_name: dmaic-bench-k3
+jobs_dir: harbor/jobs
+
+# k = 3: three independent attempts per (task x agent). Harbor reports pass@k
+# from this. Raise for tighter confidence intervals; the paper's headline table
+# is k = 3.
+n_attempts: 3
+
+# Trial-level parallelism ceiling. Each agent's `n_concurrent` is a sub-limit
+# under this number and may not exceed it.
+n_concurrent_trials: 4
+
+# DMAIC tasks are long-horizon: the agent must walk Define -> Measure -> Analyze
+# -> Improve -> Control, requesting each data block from the steward as it earns
+# it. The stock per-task timeouts are sized for a single-shot coding task.
+timeout_multiplier: 2.0
+
+# --------------------------------------------------------------------- tasks
+# Local dataset: a directory that is not itself a task is resolved as a dataset
+# of every valid task subdirectory inside it.
+datasets:
+  - path: harbor/datasets/dmaic-bench
+
+  # After `harbor publish`, swap the block above for the published package:
+  #   - name: dmaic/dmaic-bench
+  #     ref: "0.1.0"
+  #
+  # To run one tier or one case, filter without editing the dataset:
+  #   - path: harbor/datasets/dmaic-bench
+  #     task_names: ["dmaic-*-t3-*"]
+  #     exclude_task_names: ["*-fault"]
+  #     n_tasks: 10
+
+# -------------------------------------------------------------------- agents
+# Two contestants at k = 3 over the same task set. Add or remove entries here;
+# the dataset never names a contestant.
+agents:
+  - name: claude-code
+    model_name: anthropic/claude-sonnet-4-5
+    n_concurrent: 2
+
+  - name: terminus-2
+    model_name: openai/gpt-5
+    n_concurrent: 2
+
+  # A no-op control arm. It produces an empty /workspace, which is exactly the
+  # floor the scorer should report (competence 0) -- keep it in any run whose
+  # numbers you intend to publish, as the cheapest guard against a verifier that
+  # silently rewards nothing.
+  # - name: nop
+
+# ----------------------------------------------------------------- artifacts
+# The ONLY channel by which agent output reaches the separate verifier
+# container: Harbor collects these from the agent container and uploads them to
+# /logs/artifacts inside the verifier. Mirrors spec.COLLECTED_ARTIFACTS.
+artifacts:
+  - source: /workspace/trace.json
+    destination: trace.json
+  - source: /workspace/report.md
+    destination: report.md
+  - source: /workspace/.steward/audit.jsonl
+    destination: steward-audit.jsonl
+
+# --------------------------------------------------------------- environment
+environment:
+  type: docker
+  # Tasks pin `network_mode = "no-network"` in their own task.toml; the agent
+  # container sees the data blocks and the public gate thresholds and nothing
+  # else. Do not widen it here.
+  delete: true
+
+# ------------------------------------------------------------------ verifier
+verifier:
+  # The task's own `[verifier] environment_mode = "separate"` puts truth and the
+  # oracle in a second container that the agent can never reach. Nothing to add
+  # here; scorecard.json is collected with the rest of /logs/verifier.
+  disable: false
+
+# ------------------------------------------------------------------- metrics
+# `reward` is the competence term, not the paper's Trust-Gated Score. See the
+# REWARD_FORMULA comment in src/dmaic_harbor/spec.py and the "Honest note on
+# the reward" section of README.md.
+metrics:
+  - type: mean
+
+# -------------------------------------------------------------------- retry
+retry:
+  max_retries: 1
+  wait_multiplier: 2.0
+  min_wait_sec: 5.0
+  max_wait_sec: 120.0

@@ -1,0 +1,51 @@
+{
+ "reviewer_id": "Expert-1",
+ "reviewer_type": "Human",
+ "perspective": "Statistical/Industrial Validation",
+ "blinding_compliance": "I have read only the blind directory, publicly accessible technical standards, and my own review output. I have not inspected outside materials, hidden truth files, or other reviewers' outputs.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V033",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that the overall 50-joint baseline process is in statistical control",
+    "Calculating or interpreting capability indices (Cp, Cpk, Pp, Ppk) on the pooled, unsegmented baseline data",
+    "Predicting future process performance using the overall pooled mean or pooled standard deviation"
+   ],
+   "permitted_at_checkpoint": [
+    "Diagnosing the nature and timing of the instability using changepoint, CUSUM, or EWMA charts",
+    "Segmenting the baseline data at the statistically confirmed step change",
+    "Evaluating the stability of the isolated pre-shift and post-shift segments",
+    "Calculating capability indices and predicting performance on the current stable post-shift segment"
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The report explicitly computes capability on the separated post-changepoint segment rather than the whole run. This is acceptable and correct because the shift is demonstrated to be a discrete, sustained step change rather than continuous instability, and the new segment is statistically stable on its own.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Segmenting the dataset at a statistically confirmed discrete step change and treating the new stable segment as the basis for current capability and future control limits."
+   ],
+   "evidence": [
+    "Step 6: I-MR chart over full run identifies 5 points beyond limits and 27 points inside 9-in-a-row runs.",
+    "Step 7: Runs test confirms non-random ordering (p=4.8e-06).",
+    "Steps 8, 9 & 10: CUSUM, EWMA, and Two-sample t-test confirm a step change around joint 25 with a shift of +5.30 points (p=1.2e-15).",
+    "Step 14: Post-changepoint I-MR chart shows 0 flagged points, indicating stability in the current segment."
+   ],
+   "rationale": "The full baseline run exhibits a statistically significant step change around joint 25, clearly failing temporal stability criteria for the overall process. Therefore, calculating and reporting capability indices on the pooled data is statistically invalid and must be withheld. However, because the step change represents a discrete shift to a new, stable performance level (as verified by Levene's test and segment-specific I-MR charts), it is a statistically valid alternative to segment the data and assess the capability of the current post-shift process independently. The report flawlessly navigates this by explicitly refusing pooled capability, properly analyzing the separated current segment, and stopping its root-cause analysis appropriately when no covariate data is available.",
+   "confidence": 5,
+   "numerical_check": "Recomputed Cp, Cpk, Pp, Ppk for post-changepoint segment using provided mean (14.48), sdOverall (1.76), and sigmaWithin (1.65) against USL 25.0; verified they perfectly match the report values of 2.53, 2.13, 2.37, and 2.00.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 10561,
+  "completion_tokens": 6346,
+  "total_tokens": 16907
+ }
+}

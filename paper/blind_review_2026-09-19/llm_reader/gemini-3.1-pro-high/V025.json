@@ -1,0 +1,54 @@
+{
+ "reviewer_id": "Expert-Human-1",
+ "reviewer_type": "Human",
+ "perspective": "Statistical/Industrial",
+ "blinding_compliance": "Fully compliant. Analyzed solely within the provided V025 directory. No external searches or unblinded materials were accessed.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V025",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Concluding the baseline is capable or meets specifications solely based on its statistical stability",
+    "Attributing root cause to a single applicator without statistical evidence of mean differences"
+   ],
+   "permitted_at_checkpoint": [
+    "Concluding the baseline process is in statistical control",
+    "Calculating and interpreting capability indices (Cp, Cpk, Pp, Ppk) based on the stable process variation",
+    "Analyzing applicator means to check for assignable causes using ANOVA",
+    "Evaluating the post-intervention process performance against the baseline"
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Beyond baseline stability, the calculations for capability (within and overall), ANOVA for the four applicators, I-MR charting for the post-intervention run, and a custom alias-mapped descriptive summary for pre/post differences are all statistically appropriate and correctly executed.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Using a one-way ANOVA to test for applicator differences after confirming equal variances with Levene's test",
+    "Using an I-MR chart for the continuous post-intervention measurements (subgroup size 1, n=20)",
+    "Computing literal arithmetic differences of standard descriptive statistics to quantify the pre/post intervention shift"
+   ],
+   "evidence": [
+    "xBarChartCenterLine: 291.34136",
+    "flaggedXBarCount: 0",
+    "cpk: -1.386416605048157",
+    "F = 1.8652 and p = 0.1460",
+    "The original run was stable but wholly unacceptable.",
+    "Stability did not imply conformance."
+   ],
+   "rationale": "The system correctly subgrouped the baseline run (n=5) and identified it as stable, showing zero out-of-control signals on the X-bar and R charts. Because the baseline is stable, capability indices can be validly calculated; the negative Cpk perfectly quantifies that the stable mean is far above the upper specification limit. The report properly recognizes that stability does not equal capability. Downstream analyses appropriately apply ANOVA to rule out an individual nozzle as the root cause and effectively evaluate the impact of the undocumented intervention using appropriate metrics and charts. The interpretation is flawlessly tied to business actions.",
+   "confidence": 5,
+   "numerical_check": "Recomputed X-bar and R chart limits (UCLx ~ 301.45, LCLx ~ 281.23, UCLr ~ 37.05) and capability indices (Cp ~ 1.769, Cpk ~ -1.386) using standard constants for n=5 (A2=0.577, D4=2.114, d2=2.326) against the reported means and average range. The computations match the self-reported outputs precisely.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6475,
+  "completion_tokens": 4121,
+  "total_tokens": 10596
+ }
+}

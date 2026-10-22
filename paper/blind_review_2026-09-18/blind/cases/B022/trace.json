@@ -1,0 +1,243 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 14.352546404740247,
+        "percentTolerance": 19.840941233024598,
+        "ndc": 9.0,
+        "repeatVariance": 0.03700669966666668,
+        "operatorVariance": 0.0023595952345668845,
+        "interactionVariance": 0.0,
+        "partVariance": 1.8716598210493818,
+        "interactionPValue": 0.8681405191953212
+      },
+      "status": "success",
+      "decision": "Unpooled crossed random-effects ANOVA; negative components truncated at zero.",
+      "inputs_digest": {
+        "batch": "msa"
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 58.95466666666667,
+        "median": 58.825,
+        "stdDev": 0.9682930405767555,
+        "skewness": 0.05531943247125472,
+        "adPValue": 0.5708574747047122,
+        "n": 60.0
+      },
+      "status": "success",
+      "decision": "Single chronological population.",
+      "inputs_digest": {
+        "batch": "baseline"
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.300260920381362,
+        "pValue": 0.5708574747047122
+      },
+      "status": "success",
+      "decision": "Anderson-Darling normality with estimated mean and variance.",
+      "inputs_digest": {
+        "batch": "baseline"
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 58.95466666666667,
+        "individualsLCL": 56.06339367712466,
+        "individualsUCL": 61.84593965620868,
+        "flaggedCount": 0.0,
+        "mrMean": 1.0871186440677965,
+        "mrUCL": 3.551616610169491,
+        "mrFlaggedCount": 1.0,
+        "withinSigma": 0.9637576631806707
+      },
+      "status": "success",
+      "decision": "Individuals and moving ranges; point-beyond-limit rule.",
+      "inputs_digest": {
+        "batch": "baseline"
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 59.03466666666667,
+        "median": 59.0,
+        "stdDev": 0.43752333271114485,
+        "skewness": 1.9245002580118937,
+        "adPValue": 0.031077109474092385,
+        "n": 15.0
+      },
+      "status": "success",
+      "decision": "recipe A distribution and normality.",
+      "inputs_digest": {
+        "batch": "recipes"
+      }
+    },
+    {
+      "step_id": 6,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 59.30399999999999,
+        "median": 59.75,
+        "stdDev": 1.2008259062590458,
+        "skewness": -0.7111504447142736,
+        "adPValue": 0.3159599196752811,
+        "n": 15.0
+      },
+      "status": "success",
+      "decision": "recipe B distribution and normality.",
+      "inputs_digest": {
+        "batch": "recipes"
+      }
+    },
+    {
+      "step_id": 7,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 60.11133333333334,
+        "median": 59.9,
+        "stdDev": 2.722120671899201,
+        "skewness": 0.6181318209014262,
+        "adPValue": 0.5607890764320697,
+        "n": 15.0
+      },
+      "status": "success",
+      "decision": "recipe C distribution and normality.",
+      "inputs_digest": {
+        "batch": "recipes"
+      }
+    },
+    {
+      "step_id": 8,
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.0006607844289582165,
+        "statistic": 8.760828590715361
+      },
+      "status": "success",
+      "decision": "Brown-Forsythe median-centered Levene test; reject equal variances.",
+      "inputs_digest": {
+        "batch": "recipes"
+      }
+    },
+    {
+      "step_id": 9,
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 0.2754590424634292,
+        "fStatistic": 1.3708906394371467,
+        "dfNumerator": 2.0,
+        "dfDenominator": 21.22896107840732
+      },
+      "status": "success",
+      "decision": "Welch heteroscedastic one-way ANOVA, not pooled ANOVA.",
+      "inputs_digest": {
+        "batch": "recipes"
+      }
+    },
+    {
+      "step_id": 10,
+      "method_id": "nonparametric.kruskal_wallis",
+      "outputs": {
+        "pValue": 0.3602224775091209,
+        "statistic": 2.042066890660353
+      },
+      "status": "success",
+      "decision": "Sensitivity rank comparison; unequal shapes preclude a pure median interpretation.",
+      "inputs_digest": {
+        "batch": "recipes"
+      }
+    },
+    {
+      "step_id": 11,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.3062991954330387,
+        "tStatistic": 1.0509442539342937,
+        "difference": 0.8073333333333537,
+        "ciLower": -0.7991114556866232,
+        "ciUpper": 2.413778122353331,
+        "df": 19.250015562654568
+      },
+      "status": "success",
+      "decision": "Two-sided Welch C minus B; selected on these same data, exploratory not independent confirmation.",
+      "inputs_digest": {
+        "batch": "leading_two"
+      }
+    },
+    {
+      "step_id": 12,
+      "method_id": "nonparametric.moods_median",
+      "outputs": {
+        "pValue": 0.021837847908763242,
+        "statistic": 7.648221343873518,
+        "pooledMedian": 59.24
+      },
+      "status": "success",
+      "decision": "Mood median test rejects equality of recipe medians at the conventional significance level. Unequal spreads and nonnormal recipe A motivate this comparison; omnibus result does not identify a winning pair.",
+      "inputs_digest": {
+        "batch": "recipes"
+      }
+    },
+    {
+      "step_id": 13,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "jumpFromShaft": 44.0,
+        "jumpToShaft": 45.0,
+        "jumpFromValue": 60.55,
+        "jumpToValue": 56.77,
+        "largestMovingRange": 3.779999999999994
+      },
+      "status": "success",
+      "decision": "Locate largest moving range using one-based shaft numbering.",
+      "inputs_digest": {
+        "batch": "baseline"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement",
+      "chosen_branch": "proceed_conditionally",
+      "observed": {
+        "percentStudyVariation": 14.352546404740247,
+        "percentTolerance": 19.840941233024598,
+        "ndc": 9.0,
+        "repeatVariance": 0.03700669966666668,
+        "operatorVariance": 0.0023595952345668845,
+        "interactionVariance": 0.0,
+        "partVariance": 1.8716598210493818,
+        "interactionPValue": 0.8681405191953212
+      }
+    },
+    {
+      "point": "recipe_comparison",
+      "chosen_branch": "unequal_variances_welch",
+      "observed": {
+        "variancePValue": 0.0006607844289582165
+      }
+    },
+    {
+      "point": "distribution_assumptions",
+      "chosen_branch": "unequal_spread_robust_median_difference_with_inconclusive_mean_sensitivity",
+      "observed": {
+        "medianPValue": 0.021837847908763242
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

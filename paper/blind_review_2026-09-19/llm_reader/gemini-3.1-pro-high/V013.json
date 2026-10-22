@@ -1,0 +1,52 @@
+{
+ "reviewer_id": "Human_Expert_1",
+ "reviewer_type": "Human",
+ "perspective": "Independent Black Belt",
+ "blinding_compliance": "I have strictly followed the procedural blinding constraints, read only the assigned files, and conducted no external searches for the benchmark or repository.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V013",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that the observed reduction in defect share was caused by the undocumented 'change' (making a definitive causal inference).",
+    "Claiming a 'statistically proven improvement' was directly produced by the intervention without controlling for time or known significant covariates (the line settings)."
+   ],
+   "permitted_at_checkpoint": [
+    "Describing the reduction strictly as a significant difference in defect share between the two observed time periods.",
+    "Using a two-proportion test to show the after-period defect rate is significantly lower than the before-period rate.",
+    "Noting an association between the time period of the change and a reduction in defects, with explicit caveats about unobserved temporal factors or changing covariates."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "The change made on the line produced a real, statistically proven improvement (down to **0.3375%** in the trial, **0.34375%** across the lots run since), but the level reached is **still significantly above 0.25%**.",
+    "## 4. Can the change be shown to have done anything? Yes."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "Steps 8-10 appropriately analyze the stability and capability of the process in the post-change period. They accurately describe the current process state and its gap to the 0.25% target without making further unsupported causal assumptions.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "Using a regression model to control for 'paste_thickness' and 'reflow_peak' when comparing the before and after periods, to rule out covariate shifts.",
+    "Reframing the conclusion to state the process improved significantly between the two periods, but stating that causality cannot be assigned to the unrecorded intervention due to confounding."
+   ],
+   "evidence": [
+    "What was physically changed is not on file. The process owner holds no process fact describing it",
+    "OLS regression of per-lot defect share on paste_thickness, reflow_peak and their interaction (40 lots): model p = 1.2e-06, R-sq = 56.4%",
+    "Before/after totals (40,000 units each side): 237/40,000 = 0.5925% before vs 135/40,000 = 0.3375% after. Two-proportions z-test: z = 5.30, p = 1.15e-07"
+   ],
+   "rationale": "The report commits a fundamental error of causal inference by concluding that an unidentified 'change' produced a 'statistically proven improvement' based solely on an aggregated, sequential before/after comparison. The data reveals that two known line settings account for over 56% of the variance in defect share. Without controlling for these covariates or even knowing what the intervention actually was, the reduction in defects cannot be attributed to the 'change'; it could simply be the result of an incidental shift in the known settings or other temporal confounders. The report goes beyond what the evidence permits by treating the difference between two time periods as definitive proof of causation for an unrecorded intervention.",
+   "confidence": 5,
+   "numerical_check": "Recomputed the two-proportions z-test (z=5.30, p=1.15e-07) and one-proportion exact binomial tests; math is correct, but the error is in the causal inference.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5385,
+  "completion_tokens": 8999,
+  "total_tokens": 14384
+ }
+}

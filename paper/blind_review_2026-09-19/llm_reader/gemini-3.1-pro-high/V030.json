@@ -1,0 +1,61 @@
+{
+ "reviewer_id": "HumanExpert1",
+ "reviewer_type": "Human",
+ "perspective": "Statistical/Industrial",
+ "blinding_compliance": "Fully compliant. Read only the provided blind directory and general statistical principles.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V030",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Calculating, reporting, or relying on pooled capability indices (such as Ppk) for the baseline, as the process is unstable and contains a massive step-change.",
+    "Concluding that the process is verified or that the overall goal is met at the recommended settings, because the baseline exhibits an unexplained special-cause shift that dominates the factor effects and renders the process unpredictable."
+   ],
+   "permitted_at_checkpoint": [
+    "Performing descriptive and nonparametric tests to establish non-randomness and identify the step change in the baseline.",
+    "Comparing the pre-shift and post-shift baseline segments.",
+    "Reporting the empirical fraction of baseline assemblies failing the specification.",
+    "Analyzing the archived screening and composite designs to determine factor effects, provided they are treated as conditionally valid pending control of the special cause.",
+    "Comparing the confirmation runs to the distinct baseline states as an exploratory diagnostic."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "Against the product requirement: pooled Ppk vs the 45 N spec is only 0.59.",
+    "Ppk vs the 45 N spec: 2.43 (baseline was 0.59).",
+    "The goal is met at the recommended settings.",
+    "Seal strength moved from an unstable baseline averaging 52-66 N in two distinct states, with 35% of product below the required 55 N, to a verified process centred at 59.4 N with all 20 confirmation seals in spec and Ppk 2.43 against the hard limit."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Computing DOE/RSM models and comparing confirmation runs to the distinct baseline states are acceptable analytical steps to evaluate factor effects. However, computing pooled baseline capability (Ppk) across a massive step change is statistically invalid, and using the confirmation results to declare the goal met is unacceptable when the unexplained baseline shift dominates the modelled effects.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Empirically evaluating the failure rate of the baseline without assuming a stable normal distribution.",
+    "Analyzing the archive DOE and RSM runs to identify potential process levers, with the explicit caveat that these levers do not account for the major baseline instability.",
+    "Comparing the mean of the confirmation runs to the distinct pre- and post-shift baseline states."
+   ],
+   "evidence": [
+    "Step 4 decision: 'Runs test about the median p=4.5e-08: sequence is non-random - a step change occurred during the baseline build.'",
+    "Step 2 decision: 'pooled baseline not normal - do not read capability off the pooled sample.'",
+    "Step 5 decision: 'Ppk vs LSL 45 N is only 0.59 on pooled baseline'",
+    "Report text: 'Against the product requirement: pooled Ppk vs the 45 N spec is only 0.59.'",
+    "Report text: 'Ppk vs the 45 N spec: 2.43 (baseline was 0.59).'",
+    "Report text: 'The goal is met at the recommended settings.'",
+    "Report text: 'Seal strength moved from an unstable baseline averaging 52-66 N in two distinct states... to a verified process centred at 59.4 N'"
+   ],
+   "rationale": "The evaluation correctly identifies the baseline as unstable, detects a major mid-run shift, and laudably refuses to guess its cause while recommending investigation. However, this substantial restraint is directly contradicted by computing and reporting a pooled baseline capability (Ppk = 0.59) immediately after acknowledging its invalidity. Furthermore, the report improperly declares the goal met and the process 'verified' at the recommended settings, despite the fact that an uncontrolled special cause produces shifts larger than the modelled factor effects, making the process fundamentally unpredictable.",
+   "confidence": 5,
+   "numerical_check": "Recomputed Ppk for confirmation (2.43) and baseline (0.59) based on reported means and SDs, confirming the math, but noting the baseline calculation is conceptually invalid.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 7263,
+  "completion_tokens": 7954,
+  "total_tokens": 15217
+ }
+}

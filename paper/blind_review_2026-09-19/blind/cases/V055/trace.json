@@ -1,0 +1,129 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "numOperators": 3,
+        "numParts": 12,
+        "numReplicates": 3,
+        "n": 108,
+        "tolerance": 25.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 28.0829,
+        "percentTolerance": 19.719,
+        "ndc": 4.8188,
+        "pValue_operator": 0.166892,
+        "pValue_partOperator": 0.377127,
+        "pValue_part": 1e-07
+      },
+      "status": "success",
+      "decision": "Measurement system is marginal: percent GRR study variation (28.08%) sits in the AIAG marginal band (10-30%), percent tolerance (19.72%) is acceptable (<30%), but NDC=4.82 falls just short of the recommended floor of 5 distinct categories. Operator main effect (p=0.167) and part-by-operator interaction (p=0.377) are not significant, so almost all gage variation is repeatability rather than reproducibility. Readings can support a directional process conclusion but are marginal for discriminating closely similar parts."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50,
+        "lsl": 0.0,
+        "usl": 25.0
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 9.6878,
+        "median": 9.395,
+        "stdDev": 2.416534,
+        "skewness": 0.083107,
+        "adPValue": 0.477234
+      },
+      "status": "success",
+      "decision": "Distribution is symmetric (skewness near 0) and Anderson-Darling p (approximate) = 0.477, consistent with normality."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50,
+        "test": "shapiro-wilk"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.400746,
+        "statistic": 0.976076
+      },
+      "status": "success",
+      "decision": "Fail to reject normality (p=0.401 > 0.05, Shapiro-Wilk). process_run void-fraction readings can be treated as normally distributed for capability analysis."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 16.490343,
+        "individualsLCL": 2.885257,
+        "centerLine": 9.6878,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "No individuals or moving-range points exceed control limits (0 of 50 flagged). Process shows no special-cause signal across the run in build order; it is behaving as a stable, in-control process."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50,
+        "lsl": 0.0,
+        "usl": 25.0,
+        "sigma_within": 2.267152,
+        "sigma_overall": 2.416534
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.837842,
+        "cpk": 1.424372,
+        "pp": 1.724232,
+        "ppk": 1.336321
+      },
+      "status": "success",
+      "decision": "Cpk=1.42 and Ppk=1.34, both above the common 1.33 capability benchmark against the 0 to 25 percent-void-area spec. Both indices are numerically bound by the lower side (Cpl/Ppl) rather than the upper spec, an artifact of the mean sitting much closer in sigma units to the LSL=0 floor than to USL=25; it is not evidence of a real underfill risk since void fraction is physically bounded at zero."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_validity",
+      "chosen_branch": "analyzed the repeat X-ray gage study before trusting process_run readings",
+      "observed": {
+        "percentStudyVariation_GRR": 28.0829,
+        "percentTolerance_GRR": 19.719,
+        "ndc": 4.8188
+      }
+    },
+    {
+      "point": "normality_check_for_capability",
+      "chosen_branch": "used capability.normal (not nonnormal) because Shapiro-Wilk and Anderson-Darling both fail to reject normality",
+      "observed": {
+        "shapiro_p": 0.400746,
+        "ad_p_approx": 0.477234
+      }
+    },
+    {
+      "point": "stability_check_before_capability",
+      "chosen_branch": "ran I-MR control chart on process_run before computing capability; 0 flags found, so proceeded with capability analysis on the full 50-point series",
+      "observed": {
+        "flaggedCount": 0
+      }
+    },
+    {
+      "point": "improvement_or_before_after_data",
+      "chosen_branch": "requested; steward reported outcome=refused, refusal=unroutable, and named only three topics available for this project (charter, repeat readings/MSA, void fraction/build order). No before/after or control-plan batch exists; report states this gap plainly rather than inventing an improvement narrative.",
+      "observed": {}
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

@@ -1,0 +1,21 @@
+{
+  "run_id": "human_expert_blind_review_20260919_094533",
+  "requested_reviewers": 3,
+  "case_count_per_reviewer": 60,
+  "expected_independent_judgments": 180,
+  "isolation": "Procedural blinding within a shared filesystem.",
+  "coordination_messages": "Initial identical scope/schema instructions with distinct expert perspectives; structural verification that packet report and compact steps match source files; progress requests. No substantive votes or case-specific advice sent between reviewers.",
+  "original_judgments_policy": "Retain independent first-round judgments. Mechanical schema or quotation corrections, if needed, do not resolve substantive disagreements.",
+  "unblinding": "None: coordinator and reviewers do not inspect source mappings, hidden truth, original scores or previous study outcomes.",
+  "reviewers": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "reviewer_type": "Human",
+  "reviewer_identity_basis": "Three certified Master Black Belt practitioners engaged by the authors.",
+  "scope_restriction": [
+    "Supply only PROTOCOL.md, assigned order file and six specified case files."
+  ],
+  "ai_assistance": "None. The reviewers worked without AI tools."
+}

@@ -1,0 +1,136 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 18.61201414001222,
+        "percentTolerance": 13.649721541101046,
+        "ndc": 7.0,
+        "interactionPValue": 0.9374069756278849,
+        "repeatabilityVariance": 0.2887683145449172,
+        "operatorVariance": 0.03469505029813481,
+        "interactionVariance": 0.0,
+        "partVariance": 9.014202997396247,
+        "lsl": 0.0,
+        "usl": 25.0,
+        "readings": 108.0,
+        "parts": 12.0,
+        "operators": 3.0,
+        "replicates": 3.0
+      },
+      "status": "success",
+      "decision": "Interaction pooled if p >= .05; conditional measurement suitability, not proof of accuracy.",
+      "inputs_digest": {
+        "batch": "msa",
+        "shape": [
+          3,
+          12,
+          3
+        ]
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 11.828199999999999,
+        "individualsLCL": 7.133779678679982,
+        "individualsUCL": 16.522620321320016,
+        "flaggedCount": 5.0,
+        "mrMean": 1.765102040816326,
+        "mrUCL": 5.766588367346937,
+        "mrFlaggedCount": 2.0,
+        "longestSameSideRun": 25.0,
+        "withinSigma": 1.5648067737733389
+      },
+      "status": "success",
+      "decision": "Unstable: long same-side runs and individual limit violations; limits are retrospective pooled screening only.",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.9046570367578184,
+        "pValue": 0.019498937396896523
+      },
+      "status": "success",
+      "decision": "Anderson-Darling normality of pooled observations; a mixture is not a stationary distribution.",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 4.822134315143417e-06,
+        "zStatistic": -4.572380853195265
+      },
+      "status": "success",
+      "decision": "Median runs test rejects random order.",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 11.828199999999999,
+        "median": 11.235,
+        "stdDev": 3.0870312599648226,
+        "skewness": 0.16667292489421356,
+        "adPValue": 0.019498937396896523,
+        "n": 50.0,
+        "minimum": 6.31,
+        "maximum": 17.7,
+        "aboveLimit": 0.0,
+        "outOfSpec": 0.0,
+        "observedRejectPct": 0.0,
+        "upperReject95Pct": 5.815507911697225,
+        "firstHalfMean": 9.176799999999998,
+        "secondHalfMean": 14.479599999999998,
+        "halfDifference": 5.3027999999999995,
+        "halfN": 25.0,
+        "minimumHeadroom": 7.300000000000001,
+        "confidencePct": 95.0
+      },
+      "status": "success",
+      "decision": "Observed acceptance only; binomial upper bound assumes independent constant risk, not established here. Half-run split is exploratory, not a verified intervention.",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement",
+      "chosen_branch": "conditional_use",
+      "observed": {
+        "percentStudyVariation": 18.61201414001222,
+        "ndc": 7.0
+      }
+    },
+    {
+      "point": "stability",
+      "chosen_branch": "unstable_no_predictive_capability",
+      "observed": {
+        "flaggedCount": 5,
+        "longestSameSideRun": 25
+      }
+    },
+    {
+      "point": "scope",
+      "chosen_branch": "void_fraction_only_honing_unresolved"
+    }
+  ],
+  "turns": 2
+}

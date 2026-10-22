@@ -1,0 +1,105 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "controlReplicates": 6,
+        "treatedReplicates": 6,
+        "minAssignedReadsObserved": 9325000,
+        "minMappingRateObserved": 0.861
+      },
+      "status": "success",
+      "decision": "Libraries passing both prespecified QC criteria retained."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "retainedSamples": 12
+      },
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      },
+      "status": "success",
+      "decision": "Treatment estimable; shared single batch requires no additional batch term."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.de_simple",
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "libraries": 12
+      },
+      "outputs": {
+        "nSignificant": 0,
+        "nGenesTested": 400,
+        "nUp": 0,
+        "nDown": 0,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization; log2(normalized count + 1); two-sided Welch tests; BH across full panel. Single batch, no batch covariate."
+    },
+    {
+      "step_id": 4,
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "batch": "validation"
+      },
+      "outputs": {
+        "nCandidates": 0,
+        "nValidationRecords": 0
+      },
+      "status": "success",
+      "decision": "Empty validation inventory. Concordance undefined; no validation test run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "single_batch_unconfounded",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      }
+    },
+    {
+      "point": "gene_calls",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "validation",
+      "chosen_branch": "not_applicable_empty_candidate_set"
+    },
+    {
+      "point": "annotation",
+      "chosen_branch": "stop_locked_validation_gate",
+      "observed": {
+        "annotationReleased": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

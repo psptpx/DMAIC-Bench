@@ -1,0 +1,56 @@
+{
+ "blind_id": "V007",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the measurement system as qualified for routine conformance or process-capability decisions without correction or a validated measurement-error analysis.",
+  "Claiming that exactly 89.72% of production variance is measurement noise, or that the underlying honing process is demonstrably better than the readings suggest, without establishing that the study's error components apply to production measurements.",
+  "Attributing production chart signals or assembly returns to the tester, declaring every actual bore conforming, or asserting that fixing the gage resolves return risk.",
+  "Identifying operator1 as inaccurate, declaring operators 2 and 3 interchangeable, or establishing a fixed method offset solely from relative operator differences and nonsignificant variance tests."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the observed readings, including their range, sample mean, and observed count inside the specification band, explicitly distinguishing readings from true bore roughness.",
+  "Explore chronological patterns and chart signals in the recorded measurements without certifying underlying process stability or assigning a cause to signals.",
+  "Investigate measurement repeatability, operator contrasts, calibration, measurement location, and trace-averaging practices; prioritize measurement-system improvement.",
+  "Calculate conditional variance-component and averaging scenarios, stating assumptions about independent repeat errors, transferable measurement conditions, and the components actually eliminated.",
+  "Withhold honing adjustments pending reliable measurements, while continuing investigation of returns and the measurement process."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The honing process is therefore *better* than the record makes it look, not worse.",
+  "Given that gage sigma (0.0934) is three times the residual process sigma (0.0316), **the most likely explanation for those flags is the tester, not the honing process.**",
+  "They do not warrant a hunt for a special cause on the line.",
+  "Operator1 reads low by roughly that amount; the other two are interchangeable.",
+  "Scatter is equal across all three (Levene p = 0.825, Bartlett p = 0.915), so this is a **fixed offset in method, not an erratic operator**.",
+  "Fixing the gage is also the fix for return risk."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Descriptive summaries and exploratory charts of the readings are permissible. Bore-blocked operator contrasts are a defensible alternative to an unblocked comparison if bore-level contrasts are independent and their distribution is suitable; the two small reported p-values survive a three-comparison Bonferroni adjustment. However, these tests do not establish absolute bias or equivalence. Raw-reading variance tests include substantial part variation and repeated measurements, so they do not establish equal measurement-error scatter. Variance subtraction is only a conditional sensitivity calculation here, not an established partition of production variation. Calling its corrected Ppk an upper bound lacks an uncertainty argument. Capability calculations could be restricted descriptions, but the report uses them and the variance subtraction to assert superior underlying performance and dismiss signals. Averaging projections are useful scenarios, but eliminating all reproducibility variance is not equivalent to removing only a fixed operator offset when interaction was retained.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Validate the production measurement protocol and calibration, then model production variance as process variance plus independent measurement-error variance only if the error distribution and operator mix are demonstrably transferable; propagate uncertainty in both variance estimates and in measurement bias.",
+  "Use independent bore-level operator contrasts with multiplicity control to investigate relative operator differences. Establish interchangeability through prespecified equivalence margins and establish accuracy using appropriate reference measurements.",
+  "Trial standardized measurement procedures and repeated traces. The repeatability variance may be divided by the number of traces only when trace errors are sufficiently independent; retained operator and interaction components must remain unless their removal is demonstrated.",
+  "Continue descriptive monitoring of readings and investigate the reported supplementary chart signal without declaring either a process cause or a gage cause. A prespecified three-sigma-only chart is defensible for its limited detection objective, but does not prove underlying process stability."
+ ],
+ "evidence": [
+  "The reported Gage R&R has percentTolerance 46.6735, percentStudyVariation 28.2675, ndc 4.7846, and sdGRR 0.0933471.",
+  "The production standard deviation is reported as 0.0985488, nearly the same as the estimated gage standard deviation.",
+  "Step 18 records that production single-trace versus averaging practice and operator method/calibration facts were unavailable.",
+  "Step 13 subtracts gage variance 0.0087136775 from production variance 0.0097118678 to obtain residual variance 0.0009981903 and corrected Ppk 5.9783.",
+  "The report explicitly says: \"These are projections, arithmetic on the variance components measured here \u2014 they are not results, and a fresh Gage R&R must confirm them before anyone trusts a capability number off this line.\"",
+  "The report explicitly says: \"No improvement effect is claimed and none was measured.\"",
+  "The public protocol thresholds are an empty object; the judgment is based on statistical adequacy for the stated use, not a mandatory service cutoff."
+ ],
+ "rationale": "The measurement results warrant withholding routine measurement qualification and substantive capability conclusions, especially because production measurement conditions are unknown. This is not a universal prohibition on analyzing noisy data: descriptive work, blocked contrasts, and assumption-explicit measurement-error models remain available. The report appropriately prioritizes measurement correction, withholds trust in capability numbers, and acknowledges missing improvement evidence. Nevertheless, it materially undermines that restraint by asserting a precise production noise fraction, better true process performance, operator equivalence, and a tester explanation for signals and returns. Those claims exceed the available evidence. The recommendation not to adjust honing immediately is defensible; the categorical dismissal of investigation as reacting to tester noise is not.",
+ "confidence": 5,
+ "numerical_check": "Checked arithmetic from supplied summaries: 6 \u00d7 0.0933471 / 1.20 \u00d7 100 is approximately 46.67%; 0.0087136775 / 0.0097118678 \u00d7 100 is approximately 89.72%; their variance difference is approximately 0.00099819, whose square root is 0.03159. These validate arithmetic, not variance transferability. Bonferroni-adjusted p-values for the two operator1 contrasts are approximately 0.0113 and 0.0165. Raw data, ANOVA components, charts, and original p-values were not independently recomputed.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw batches and service-event files were not accessed. Production measurement protocol, calibration, and transferability of gage variance are unresolved. No outside sources or other reviewer outputs were consulted. This assessment was produced by an AI assistant, not an independent human expert; no human professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 8082,
+  "completion_tokens": 1529,
+  "total_tokens": 9611
+ }
+}

@@ -1,0 +1,504 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleSize": 60,
+        "groups": 1,
+        "batch": "baseline"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 52.07566666666666,
+        "median": 51.805,
+        "stdDev": 4.2984961369702335,
+        "skewness": -0.14758060977391452,
+        "adPValue": 0.38002711705108244,
+        "minimum": 41.08,
+        "maximum": 62.92,
+        "belowLsl": 4,
+        "belowRequired": 41,
+        "fracBelowRequired": 0.6833333333333333
+      },
+      "status": "success",
+      "decision": "Baseline centres at 52.08 N with sd 4.30 N; 4 of 60 below the 45 N floor and 41 of 60 below the 55 N requirement."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleSize": 60,
+        "groups": 1,
+        "batch": "baseline"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.6764205833753795,
+        "statistic": 0.9851228579009723,
+        "adPValue": 0.38002711705108244
+      },
+      "status": "success",
+      "decision": "Normality not rejected (Shapiro p=0.676, Anderson-Darling p=0.380), so normal-theory capability and t-tests are appropriate."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sampleSize": 60,
+        "groups": 1,
+        "batch": "baseline"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 52.07566666666666,
+        "individualsUCL": 64.74966594542613,
+        "individualsLCL": 39.401667387907196,
+        "flaggedCount": 0,
+        "sigmaWithin": 4.2246664262531555,
+        "mrBar": 4.765423728813559
+      },
+      "status": "success",
+      "decision": "No point outside the individuals or moving-range limits: the line is stable, so the shortfall is common-cause, not a special-cause excursion."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sampleSize": 60,
+        "groups": 1,
+        "batch": "baseline"
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.7945434963754623,
+        "zStatistic": 0.2604152298810939,
+        "runs": 32,
+        "expectedRuns": 31.0
+      },
+      "status": "success",
+      "decision": "Build order shows no drift or clustering (p=0.795); the 60 assemblies behave as one homogeneous population."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sampleSize": 60,
+        "groups": 1,
+        "batch": "baseline",
+        "lsl": 45.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 0.5582820790060223,
+        "ppk": 0.5486931895251083,
+        "sigmaWithin": 4.2246664262531555,
+        "sigmaOverall": 4.2984961369702335,
+        "zLsl": 1.6460795685753251,
+        "ppmBelowLsl": 49873.68915258372,
+        "capabilityVsRequired55": -0.22677181663465318
+      },
+      "status": "success",
+      "decision": "Stable but not capable: Cpk 0.56, Ppk 0.55 against the 45 N floor, about 49874 ppm below spec. cp and pp are not reported because the requirement is one-sided (LSL only), so they are undefined here rather than computed."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "sampleSize": 60,
+        "groups": 1,
+        "batch": "baseline",
+        "testValue": 55.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 2.024484174071137e-06,
+        "tStatistic": -5.2697008152912845,
+        "mean": 52.07566666666666,
+        "ci95Lower": 50.965247367906905,
+        "ci95Upper": 53.18608596542642,
+        "meanShortfall": -2.924333333333337
+      },
+      "status": "success",
+      "decision": "Baseline mean is below the 55 N product margin by 2.92 N (t=-5.27, p=2.02e-06); the whole 95% CI [50.97, 53.19] lies under 55."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sampleSize": 16,
+        "groups": 8,
+        "factors": 3,
+        "batch": "screening_run"
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.0001417792462045015,
+        "rSquaredPct": 94.9115904373612,
+        "rSquaredAdjPct": 90.45923207005224,
+        "fStatistic": 21.31714983552114,
+        "pValue_bond_angle": 1.6133893323495207e-05,
+        "pValue_bead_spacing": 0.00019993241547936803,
+        "pValue_cure_temperature": 0.7132611114928761,
+        "pValue_bond_angle_x_bead_spacing": 0.0017912880490681346,
+        "effect_bond_angle": 4.38612499999998,
+        "effect_bead_spacing": 3.081125000000008,
+        "effect_cure_temperature": 0.1821250000000042,
+        "effect_bond_angle_x_bead_spacing": 2.1926250000000143,
+        "nSignificantTerms": 3,
+        "anyFactorSignificant": true,
+        "reducedModelRSquaredPct": 93.26276613213088,
+        "reducedResidStdDev": 0.898672133854537,
+        "bestCornerMean": 59.056
+      },
+      "status": "success",
+      "decision": "Replicated 2^3: bond angle (+4.39 N), bead spacing (+3.08 N) and their interaction (+2.19 N) are significant; cure temperature is inert (+0.18 N, p=0.713). The varied settings do account for the shortfall. Declared any_factor_significant=true."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "sampleSize": 13,
+        "groups": 9,
+        "factors": 2,
+        "centrePoints": 5,
+        "batch": "composite_design"
+      },
+      "method_id": "doe.rsm_analysis",
+      "outputs": {
+        "rSquaredPct": 98.01737641449877,
+        "lackOfFitPValue": 0.0018986454618481474,
+        "rSquaredAdjPct": 96.60121671056932,
+        "modelPValue": 8.319937285038599e-06,
+        "lackOfFitF": 40.34160786968319,
+        "pureErrorStdDev": 0.2514963916242127,
+        "centreMean": 57.931799999999996,
+        "coef_bond_angle": 6.319122099301679,
+        "coef_bead_spacing": 1.798696267547763,
+        "coef_bond_angle_sq": -1.9929750035951086,
+        "coef_bead_spacing_sq": -1.6998500026113694,
+        "pValue_bond_angle": 6.436966385163061e-07,
+        "pValue_bead_spacing": 0.001997102846945542,
+        "pValue_bond_angle_sq": 0.0016645744226064787,
+        "pValue_bead_spacing_sq": 0.003945465890083207,
+        "pValue_bond_angle_x_bead_spacing": 0.13044797762324883
+      },
+      "status": "success",
+      "decision": "Quadratic surface explains 98.02% of variation (p=8.32e-06) with both linear and both quadratic terms significant, but lack of fit is significant (F=40.34, p=0.0019) against a very tight pure error of 0.25 N: the quadratic form is a working approximation, not an exact description."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "sampleSize": 13,
+        "factors": 2,
+        "batch": "composite_design"
+      },
+      "method_id": "doe.rsm_canonical",
+      "outputs": {
+        "predictedAtStationary": 64.58718079009289,
+        "stationary_bond_angle": 1.8173160589514012,
+        "stationary_bead_spacing": 1.0156909443798057,
+        "eigenvalue1": -4.649179475964806,
+        "eigenvalue2": -2.7364705364481496,
+        "stationaryRadius": 2.081889947287751,
+        "isMaximum": true
+      },
+      "status": "success",
+      "decision": "Both eigenvalues negative, so the stationary point is a true maximum, but it sits at coded radius 2.08, outside the design region (axial radius 1.414). Using it directly would be extrapolation."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "sampleSize": 13,
+        "factors": 2,
+        "batch": "composite_design",
+        "constraintRadius": 1.41421356
+      },
+      "method_id": "doe.rsm_optimizer",
+      "outputs": {
+        "predictedResponse": 63.92321358321104,
+        "compositeDesirability": 0.9629748209329545,
+        "opt_bond_angle": 1.2737647237820153,
+        "opt_bead_spacing": 0.6144294734226083,
+        "optRadius": 1.4142136151804852,
+        "marginOverRequired": 8.923213583211037
+      },
+      "status": "success",
+      "decision": "Constrained to the explored region, the optimum is bond angle +1.27, bead spacing +0.61 in coded units, predicting 63.92 N, 8.92 N above the requirement. Desirability is a one-sided score built on the 55 N target, not a Minitab multi-response value."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "sampleSize": 13,
+        "factors": 2,
+        "batch": "composite_design"
+      },
+      "method_id": "doe.factorial_prediction",
+      "outputs": {
+        "predictedValue": 63.92321358321104,
+        "piLower": 60.71938187093668,
+        "piUpper": 67.12704529548539,
+        "ciLower": 61.93628142820059,
+        "ciUpper": 65.91014573822149
+      },
+      "status": "success",
+      "decision": "Prediction at the recommended setting: 63.92 N, 95% prediction interval 60.72 to 67.13 N. Entry used for a response-surface prediction; the table has no separate rsm_prediction id."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "sampleSize": 20,
+        "groups": 1,
+        "batch": "confirmation_runs"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 59.27499999999999,
+        "median": 59.04,
+        "stdDev": 1.9797301783190986,
+        "skewness": 0.6007215186410805,
+        "adPValue": 0.5101447105824561,
+        "minimum": 56.41,
+        "maximum": 63.24,
+        "belowLsl": 0,
+        "belowRequired": 0,
+        "fracAboveRequired": 1.0
+      },
+      "status": "success",
+      "decision": "Twenty confirmation seals average 59.28 N with sd 1.98 N; the weakest is 56.41 N, so none fall below either the 45 N floor or the 55 N requirement."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "sampleSize": 20,
+        "groups": 1,
+        "batch": "confirmation_runs"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.32068275910071753,
+        "statistic": 0.9467683759131525,
+        "adPValue": 0.5101447105824561
+      },
+      "status": "success",
+      "decision": "Confirmation seals are consistent with normality (Shapiro p=0.321, AD p=0.510)."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "sampleSize": 20,
+        "groups": 1,
+        "batch": "confirmation_runs"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 59.27499999999999,
+        "individualsUCL": 65.19745240761478,
+        "individualsLCL": 53.35254759238521,
+        "flaggedCount": 0,
+        "sigmaWithin": 1.974150802538261,
+        "mrBar": 2.226842105263158
+      },
+      "status": "success",
+      "decision": "Confirmation run is stable with no flagged points; the new limits (53.35 to 65.20 N) sit entirely above the 45 N floor."
+    },
+    {
+      "step_id": 15,
+      "inputs_digest": {
+        "sampleSize": 20,
+        "groups": 1,
+        "batch": "confirmation_runs",
+        "lsl": 45.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 2.4103190735050797,
+        "ppk": 2.403526190308126,
+        "sigmaWithin": 1.974150802538261,
+        "sigmaOverall": 1.9797301783190986,
+        "zLsl": 7.210578570924379,
+        "ppmBelowLsl": 2.7857318686229193e-07,
+        "ppkVsRequired55": 0.7197950587437636,
+        "cpkVsRequired55": 0.7218293547624659,
+        "ppmBelowRequired55": 15410.148486626098
+      },
+      "status": "success",
+      "decision": "Against the 45 N floor capability is now Cpk 2.41 / Ppk 2.40. Against the tougher 55 N product margin Ppk is only 0.72, about 15410 ppm, so the margin is met on average but not with capability-grade headroom. cp and pp are undefined for a one-sided requirement and are not reported."
+    },
+    {
+      "step_id": 16,
+      "inputs_digest": {
+        "sampleSize": 20,
+        "groups": 1,
+        "batch": "confirmation_runs",
+        "testValue": 55.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 9.205634874451753e-09,
+        "tStatistic": 9.657064087317059,
+        "mean": 59.27499999999999,
+        "ci95Lower": 58.3484577557224,
+        "ci95Upper": 60.20154224427758,
+        "lower95OneSidedBound": 58.50954554071334,
+        "marginOverRequired": 4.2749999999999915
+      },
+      "status": "success",
+      "decision": "Confirmation mean exceeds the 55 N requirement by 4.27 N (t=9.66, p=9.21e-09); the one-sided 95% lower bound is 58.51 N."
+    },
+    {
+      "step_id": 17,
+      "inputs_digest": {
+        "sampleSize": 80,
+        "groups": 2,
+        "batches": "baseline+confirmation_runs"
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.0010523717921275457,
+        "statistic": 11.584918360378822,
+        "sdBaseline": 4.2984961369702335,
+        "sdConfirm": 1.9797301783190986
+      },
+      "status": "success",
+      "decision": "Variation genuinely fell, not just the mean: sd 4.30 to 1.98 N, Levene p=0.0011. Welch is therefore the right two-sample test."
+    },
+    {
+      "step_id": 18,
+      "inputs_digest": {
+        "sampleSize": 80,
+        "groups": 2,
+        "batches": "baseline+confirmation_runs"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 2.2252665764921073e-15,
+        "tStatistic": 10.141739773219125,
+        "meanDifference": 7.199333333333328,
+        "meanBaseline": 52.07566666666666,
+        "meanConfirm": 59.27499999999999,
+        "cohensD": 1.8631529590875198
+      },
+      "status": "success",
+      "decision": "Welch test: the change lifted seal strength by 7.20 N (p=2.23e-15, d=1.86)."
+    },
+    {
+      "step_id": 19,
+      "inputs_digest": {
+        "sampleSize": 80,
+        "groups": 2,
+        "batches": "baseline+confirmation_runs"
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 1.6622939292704701e-09,
+        "statistic": 1143.0
+      },
+      "status": "success",
+      "decision": "Distribution-free confirmation of the same shift (p=1.66e-09), so the result does not depend on the normal assumption."
+    },
+    {
+      "step_id": 20,
+      "inputs_digest": {
+        "sampleSize": 80,
+        "groups": 2,
+        "batches": "baseline+confirmation_runs",
+        "threshold": 55.0
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 1.1919101483570671e-07,
+        "zStatistic": 5.294732102211408,
+        "propBaselineMeetingReq": 0.31666666666666665,
+        "propConfirmMeetingReq": 1.0,
+        "countBaseline": 19,
+        "countConfirm": 20
+      },
+      "status": "success",
+      "decision": "Share of seals meeting the 55 N requirement rose from 0.317 to 1.000 (z=5.29, p=1.19e-07)."
+    },
+    {
+      "step_id": 21,
+      "inputs_digest": {
+        "sampleSize": 20,
+        "batches": "composite_design vs confirmation_runs"
+      },
+      "method_id": "doe.factorial_prediction",
+      "outputs": {
+        "predictedValue": 63.92321358321104,
+        "piLower": 60.71938187093668,
+        "piUpper": 67.12704529548539,
+        "observedMean": 59.27499999999999,
+        "gap": -4.648213583211046,
+        "tStatistic": -10.500139523884638,
+        "pValue": 2.3842485763481136e-09,
+        "observedInsidePI": false
+      },
+      "status": "success",
+      "decision": "Model validation: observed 59.28 N is 4.65 N below the predicted 63.92 N and falls outside the 95% prediction interval (p=2.38e-09). The surface over-predicts, which the significant lack of fit already warned about."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability_vs_capability",
+      "chosen_branch": "stable_but_incapable_so_attack_the_settings",
+      "observed": {
+        "flaggedCount": 0,
+        "runsPValue": 0.7945434963754623,
+        "cpk": 0.5582820790060223,
+        "ppk": 0.5486931895251083,
+        "oneSampleTPValue": 2.024484174071137e-06,
+        "meanShortfall": -2.924333333333337
+      }
+    },
+    {
+      "point": "screening_any_factor_significant",
+      "chosen_branch": "true_proceed_to_composite_design",
+      "observed": {
+        "pValue_bond_angle": 1.6133893323495207e-05,
+        "pValue_bead_spacing": 0.00019993241547936803,
+        "pValue_cure_temperature": 0.7132611114928761,
+        "nSignificantTerms": 3
+      }
+    },
+    {
+      "point": "drop_inert_factor",
+      "chosen_branch": "drop_cure_temperature_carry_two_factors_forward",
+      "observed": {
+        "effect_cure_temperature": 0.1821250000000042,
+        "pValue_cure_temperature": 0.7132611114928761
+      }
+    },
+    {
+      "point": "stationary_point_inside_design_region",
+      "chosen_branch": "no_use_constrained_optimum_on_the_boundary",
+      "observed": {
+        "stationaryRadius": 2.081889947287751,
+        "designRadius": 1.41421356,
+        "predictedAtStationary": 64.58718079009289,
+        "constrainedPrediction": 63.92321358321104
+      }
+    },
+    {
+      "point": "rsm_lack_of_fit",
+      "chosen_branch": "significant_treat_prediction_as_approximate_and_verify_empirically",
+      "observed": {
+        "lackOfFitPValue": 0.0018986454618481474,
+        "pureErrorStdDev": 0.2514963916242127
+      }
+    },
+    {
+      "point": "confirmation_verdict",
+      "chosen_branch": "improvement_confirmed_move_to_control",
+      "observed": {
+        "mean": 59.27499999999999,
+        "lower95OneSidedBound": 58.50954554071334,
+        "belowRequired": 0,
+        "flaggedCount": 0,
+        "ppk": 2.403526190308126
+      }
+    },
+    {
+      "point": "margin_headroom_at_55N",
+      "chosen_branch": "mean_meets_requirement_but_ppk_below_capability_grade",
+      "observed": {
+        "ppkVsRequired55": 0.7197950587437636,
+        "ppmBelowRequired55": 15410.148486626098
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

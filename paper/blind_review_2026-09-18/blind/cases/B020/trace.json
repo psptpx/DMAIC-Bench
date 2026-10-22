@@ -1,0 +1,187 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "control_chart.p",
+      "inputs_digest": {
+        "batch": "baseline"
+      },
+      "outputs": {
+        "centerLine": 0.0021,
+        "outOfControlCount": 0,
+        "lowerLimit": 0.0,
+        "upperLimit": 0.004271422920575354,
+        "lots": 25,
+        "inspected": 100000,
+        "defective": 210
+      },
+      "status": "success",
+      "decision": "Three-sigma point limits; no claim that absence of signals proves stability."
+    },
+    {
+      "step_id": 2,
+      "method_id": "capability.binomial",
+      "inputs_digest": {
+        "batch": "baseline"
+      },
+      "outputs": {
+        "avgP": 0.0021,
+        "processZ": 2.862736263505904,
+        "requiredShare": 0.0025
+      },
+      "status": "success",
+      "decision": "Unit defective probability; Z without long-term shift."
+    },
+    {
+      "step_id": 3,
+      "method_id": "regression.ols",
+      "inputs_digest": {
+        "batch": "settings"
+      },
+      "outputs": {
+        "modelPValue": 1.500085955616717e-19,
+        "rSquaredPct": 91.74085209479678,
+        "rSquaredAdjPct": 91.05258976936318,
+        "n": 40,
+        "alpha": 0.05,
+        "interceptCoefficient": 0.20920658711491874,
+        "interceptPValue": 8.640320689883481e-10,
+        "pasteCoefficient": -0.14058444060514141,
+        "pastePValue": 2.6315416164508688e-11,
+        "reflowCoefficient": -0.000845338179889292,
+        "reflowPValue": 9.46267808847922e-10,
+        "interactionCoefficient": 0.0005831658272310514,
+        "interactionPValue": 1.4625677522978048e-11
+      },
+      "status": "success",
+      "decision": "OLS on lot shares with specified interaction; observational association, not causal attribution. Main effects are at the other predictor equal to zero."
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.two_proportions",
+      "inputs_digest": {
+        "batch": "before_after"
+      },
+      "outputs": {
+        "pValue": 0.3568742858820937,
+        "zStatistic": -0.9213374282394291,
+        "beforeShare": 0.001975,
+        "afterShare": 0.002275,
+        "beforeEvents": 79,
+        "afterEvents": 91,
+        "beforeN": 40000,
+        "afterN": 40000,
+        "afterMinusBefore": 0.0002999999999999999,
+        "differenceLower": -0.0003381875497713958,
+        "differenceUpper": 0.0009381875497713957,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Two-sided pooled score z test, no continuity correction; Wald interval for after minus before. No significant change."
+    },
+    {
+      "step_id": 5,
+      "method_id": "power.two_proportions",
+      "inputs_digest": {
+        "batch": "trial_size"
+      },
+      "outputs": {
+        "power": 0.3203207855016455,
+        "alpha": 0.05,
+        "nPerGroup": 40000,
+        "p1": 0.002,
+        "p2": 0.0025
+      },
+      "status": "success",
+      "decision": "Two-sided normal approximation with pooled-null and unpooled-alternative variance; design power, not observed power."
+    },
+    {
+      "step_id": 6,
+      "method_id": "control_chart.p",
+      "inputs_digest": {
+        "batch": "after_lots"
+      },
+      "outputs": {
+        "centerLine": 0.001825,
+        "outOfControlCount": 0,
+        "lowerLimit": 0.0,
+        "upperLimit": 0.0038495384890759677,
+        "lots": 20,
+        "inspected": 80000,
+        "defective": 146
+      },
+      "status": "success",
+      "decision": "Three-sigma point limits; no claim that absence of signals proves stability."
+    },
+    {
+      "step_id": 7,
+      "method_id": "capability.binomial",
+      "inputs_digest": {
+        "batch": "after_lots"
+      },
+      "outputs": {
+        "avgP": 0.001825,
+        "processZ": 2.9069255989362413,
+        "requiredShare": 0.0025
+      },
+      "status": "success",
+      "decision": "Unit defective probability; Z without long-term shift."
+    },
+    {
+      "step_id": 8,
+      "method_id": "basic.one_proportion",
+      "inputs_digest": {
+        "batch": "baseline"
+      },
+      "outputs": {
+        "pValue": 0.005218966633675227,
+        "upperBound": 0.002354177731888054,
+        "confidence": 0.95,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Exact lower-tail test against commitment and one-sided Clopper-Pearson upper confidence bound; assumes independent units with common probability."
+    },
+    {
+      "step_id": 9,
+      "method_id": "basic.one_proportion",
+      "inputs_digest": {
+        "batch": "after_lots"
+      },
+      "outputs": {
+        "pValue": 3.6543497094608496e-05,
+        "upperBound": 0.00209340512012002,
+        "confidence": 0.95,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Exact lower-tail test against commitment and one-sided Clopper-Pearson upper confidence bound; assumes independent units with common probability."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability",
+      "chosen_branch": "stable",
+      "observed": {
+        "outOfControlCount": 0
+      }
+    },
+    {
+      "point": "settings_significance",
+      "chosen_branch": "any_factor_significant",
+      "observed": {
+        "interactionPValue": 1.4625677522978048e-11
+      }
+    },
+    {
+      "point": "trial_result",
+      "chosen_branch": "no_demonstrated_change_low_power",
+      "observed": {
+        "pValue": 0.3568742858820937,
+        "power": 0.3203207855016455
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

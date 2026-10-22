@@ -1,0 +1,80 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "requiredReplicates": 3
+      },
+      "status": "success",
+      "decision": "Libraries pass; proceed to design audit"
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet"
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      },
+      "status": "success",
+      "decision": "Treatment completely confounded with preparation batch; compound-specific effect not identifiable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "confounded",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      }
+    },
+    {
+      "point": "expression_access",
+      "chosen_branch": "stop_nonidentifiable_design",
+      "observed": {
+        "counts_locked": true
+      }
+    },
+    {
+      "point": "validation_access",
+      "chosen_branch": "not_evaluable",
+      "observed": {
+        "validation_locked": true
+      }
+    },
+    {
+      "point": "corrective_data",
+      "chosen_branch": "no_matching_study_fact",
+      "observed": {
+        "provision_unroutable": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

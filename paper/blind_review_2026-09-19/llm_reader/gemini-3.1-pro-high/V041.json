@@ -1,0 +1,52 @@
+{
+ "reviewer_id": "expert_1",
+ "reviewer_type": "Human",
+ "perspective": "Independent Statistical Quality Expert",
+ "blinding_compliance": "I confirm that I have strictly adhered to the procedural blinding requirements. I have not inspected anything outside the blind directory, hidden files, or other reviewers' outputs.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V041",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Extrapolating the operating conditions to the stationary point (coded radius 2.08) outside the experimentally explored region.",
+    "Treating the model's point predictions as exact or relying on them blindly, given the significant lack of fit.",
+    "Concluding that the process lacks capability based solely on the model's over-prediction, without empirical confirmation."
+   ],
+   "permitted_at_checkpoint": [
+    "Constraining the optimal settings to the boundary of the explored design space (radius 1.414).",
+    "Treating the response surface model as a working local approximation due to the tight pure error.",
+    "Running physical confirmation samples at the constrained optimum to empirically establish true capability."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Subsequent analyses of the confirmation runs (control charts, capability, two-sample comparisons) serve as a valid and necessary alternative basis for evaluating process performance, superseding the analytical predictions from a model with significant lack of fit.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Relying entirely on physical confirmation run data rather than theoretical model predictions to claim attainment of the 55 N requirement."
+   ],
+   "evidence": [
+    "Lack of fit is significant: F = 40.34, p = 0.0019",
+    "tight pure error of 0.25 N",
+    "coded radius 2.08 against a design radius of 1.414",
+    "Constrained to the region the design actually covers, the recommended operating point...",
+    "Observed 59.28 N against a predicted 63.92 N is a gap of -4.65 N",
+    "this is exactly what the significant lack of fit warned about, and it is why the confirmation run, not the model, is the basis for the verdict."
+   ],
+   "rationale": "The report brilliantly navigates standard pitfalls in response surface methodology. It correctly recognizes that the mathematical optimum requires unjustified extrapolation and successfully constrains the optimization to the explored region. Furthermore, it identifies that a significant lack-of-fit test driven by an extremely small pure error indicates the quadratic model is an approximation, not a perfect description. By proceeding to a confirmation run and observing the expected model over-prediction, the analysis successfully anchors its final capability claims in empirical reality rather than flawed theory.",
+   "confidence": 5,
+   "numerical_check": "self-report-only",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 10768,
+  "completion_tokens": 4272,
+  "total_tokens": 15040
+ }
+}

@@ -1,0 +1,71 @@
+schema_version: 1
+case_id: adb_c01
+title: Finding the reactor settings that give the highest intermediate yield
+
+tier: T1
+industry: process_industry
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the process development team at a fine chemicals plant. The yield of one key
+  intermediate has been low for a long time and swings widely from batch to batch, which has
+  pushed up our raw-material cost. Earlier work traced the influence to two key
+  settings: reaction temperature and catalyst charge. The team has already completed one
+  round of systematic trials to an agreed plan, covering combinations of the high and low
+  levels together with centre points and points extended outwards from them, thirteen charges
+  in all. We now want this trial record assessed quantitatively, the combination of settings
+  that gives the highest yield located, and the yield predicted at that combination reported,
+  for review before the scale-up run.
+
+goal: |
+  Working from the same trial record, do three things: (1) build a model and quantify how much
+  of the movement in yield it accounts for; (2) locate the combination of settings at which
+  yield turns over, and say what kind of turning point it is; (3) within the permitted range of
+  the two settings, give a recommended combination together with the yield predicted there.
+  Every number reported must be faithful to what you actually computed.
+
+stages:
+  - stage_id: R_Analyze
+    phase: improve
+    label: "Thirteen-charge trial record over the two settings"
+    topics: ["trial record", "thirteen charges", "modelling", "how much it accounts for"]
+    methods:
+      - method_id: doe.rsm_analysis
+        required: true
+  - stage_id: R_Canonical
+    phase: improve
+    label: "Where the yield turns over across the trial record"
+    topics: ["turns over", "extreme point", "peak yield", "tops out"]
+    methods:
+      - method_id: doe.rsm_canonical
+        required: true
+  - stage_id: R_Optimize
+    phase: improve
+    label: "The combination to recommend, and the yield predicted there"
+    topics: ["recommended combination", "recommended settings", "predicted yield", "scale-up review"]
+    methods:
+      - method_id: doe.rsm_optimizer
+        required: true
+
+order_constraints:
+  - before: doe.rsm_analysis
+    after: doe.rsm_canonical
+    source: "Fit the second-order model before locating stationary/extreme points (Montgomery DAOE 6e §11.3)"
+
+faults:
+  - stage_id: R_Optimize
+    method_id: doe.rsm_optimizer

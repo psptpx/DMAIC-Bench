@@ -1,0 +1,49 @@
+{
+ "reviewer_id": "Human-1",
+ "reviewer_type": "Human",
+ "perspective": "Independent",
+ "blinding_compliance": "Fully compliant. Only the contents of the blind/ directory for V047 were accessed.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V047",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Using the measurement system for product acceptance or process control",
+    "Asserting stable process capability or target attainment based on the unreliable gauge",
+    "Drawing conclusions about bore roughness, as the data provided is for an entirely different characteristic (void area)"
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive statistics, control charts, and capability indices, strictly provided they are accompanied by explicit caveats that they reflect conditional data from a failed gauge and/or the wrong characteristic",
+    "Recommending gauge improvement and fetching the correct data"
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "Capability and control chart statistics (I-MR, Cp/Cpk, normality) were computed, but they were flawlessly bounded as conditional descriptions of the recorded data, with explicit warnings not to use them as capability evidence due to the failed gauge and wrong characteristic.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Computing process statistics to illustrate the recorded values, provided they are strictly caveated as conditional and not used to assert actual capability or stability"
+   ],
+   "evidence": [
+    "Estimated Gage R&R is 48.80% of study variation, 64.10% of tolerance, with 2 distinct categories.",
+    "The released records describe percent void area for joints... not honing-line bore roughness",
+    "Consequently, the void-fraction results are observations from an unreliable gauge, not confirmed product quality.",
+    "Any process capability statement below is therefore conditional and must not be used as an independent acceptance conclusion."
+   ],
+   "rationale": "The measurement system clearly fails (Gage R&R % Study Variation of 48.8% and NDC of 2), strictly forbidding substantive use of the measurements. Moreover, the dataset provided covers an entirely different characteristic (void fraction instead of bore roughness). The report accurately identifies both critical issues, stops the substantive analysis appropriately, and perfectly restricts its subsequent calculations as conditional descriptive statistics while explicitly withholding unwarranted conclusions.",
+   "confidence": 5,
+   "numerical_check": "Verified MSA metrics against standard criteria (48.8% Study Variation > 30% limit; NDC 2 < 5 limit) based on self-reported outputs, confirming gauge failure.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5964,
+  "completion_tokens": 2165,
+  "total_tokens": 8129
+ }
+}

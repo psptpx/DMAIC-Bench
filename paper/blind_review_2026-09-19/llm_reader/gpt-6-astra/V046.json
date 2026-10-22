@@ -1,0 +1,55 @@
+{
+ "blind_id": "V046",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Conclude that the baseline lot process is statistically stable, or use its pooled defect fraction as established stable capability or a reliable forecast of future performance.",
+  "Claim demonstrated attainment of the 1500-per-million commitment from the historical aggregate alone.",
+  "Attribute the exceptional lot to machine 2 or loose-end conditions without linked diagnostic evidence.",
+  "Use the baseline summaries and exploratory downstream comparisons as sufficient justification for permanent standardization of the change."
+ ],
+ "permitted_at_checkpoint": [
+  "Report 1368 defective units per million as the observed aggregate for the archived lots, explicitly distinguishing historical performance from stable capability.",
+  "Investigate the exceptional lot, validate its inspection and production records, and examine time-linked machine and category information.",
+  "Continue common-window machine comparisons and category summaries as exploratory prioritization, without claiming machine differences or established causes.",
+  "Continue separately justified change experiments and post-change monitoring; baseline instability does not automatically invalidate evidence from a distinct process period.",
+  "Retain a change provisionally only with an explicit risk assessment, monitoring and rollback conditions, while pursuing a predefined confirmatory design."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "Loose end contributes **153**, or **63.75%**, making it the dominant observed cause.",
+  "2. Standardize the change and verify that operators can recognize the answer-key categories; review disagreements during calibration."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Historical aggregation, exploratory machine rates, Pareto counts and FMEA prioritization can continue despite a baseline chart signal. A separately defined post-change chart is also a defensible monitoring route. However, pooled binomial inference does not establish stable baseline performance when lot homogeneity is contradicted by the chart. The one-proportion test also has an unresolved target mismatch. A category-frequency table identifies a defect mode, not its generating cause. The before/after comparison is appropriately described as unconfirmed, but its low counts favor exact inference and its uncontrolled temporal design cannot establish causality. Standardization goes beyond what these analyses justify. The reported processZ is not explained or validated and should not be used as a capability conclusion.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Investigate the signaling lot and recompute a baseline only if an assignable cause and any exclusions are documented; preserve the original chart and distinguish the revised population.",
+  "If genuine between-lot heterogeneity remains, model that heterogeneity or stratify using independently justified process regimes rather than treating all inspected units as identically distributed.",
+  "Compare machines using counts and denominators with suitable exact or model-based uncertainty, accounting for product mix, clustering and selection of the highest observed rate; use results as association unless assignment supports causality.",
+  "Confirm the change through randomized or contemporaneously controlled comparisons where feasible, with predefined sample size, outcome and monitoring rules. If using an interrupted time series, collect sufficient observations and account for secular changes.",
+  "Assess a distinct post-change operating period on its own merits, verifying measurement adequacy, chart construction and relevant signal rules before making sustained-performance claims."
+ ],
+ "evidence": [
+  "The baseline chart reports centerline 0.001368, UCL 0.0029361299170668227 and one out-of-control lot.",
+  "The report says: \"The runs-test p-value is **0.39376863464299294**, so there is no computed evidence of a sustained sequence shift; nevertheless, the exceptional lot must be investigated and its records retained.\" A nonsignificant runs test does not negate the point beyond the control limit.",
+  "The report explicitly limits the baseline business conclusion: \"the level is numerically under the commitment, but this sample does not establish that it is statistically below the commitment.\"",
+  "Step 3 declares target_rate 0.001, whereas the charter is 0.0015 and the reported z statistic is consistent with the latter.",
+  "The common-window machine rates range from 750 to 1500 per million, with only 18 defects overall; no machine-difference inference or linkage to the exceptional lot is supplied.",
+  "The report explicitly withholds confirmed causal improvement from the before/after trial, but separately recommends standardizing the change."
+ ],
+ "rationale": "The baseline signal requires withholding stable capability and investigating the exceptional lot, not stopping every subsequent calculation. The report substantially respects this distinction by acknowledging the signal and limiting its aggregate target comparison. Its exploratory prioritization is largely permissible. Nevertheless, describing a reject category as a cause and recommending standardization without demonstrated benefit or explicit risk-controlled provisional conditions overstate the available evidence. These weaknesses concern the requested next steps; they do not make the descriptive baseline calculations themselves invalid. No narrower public protocol threshold is supplied.",
+ "confidence": 4,
+ "numerical_check": "Arithmetic checked from the supplied counts: 171/125000 \u00d7 1000000 = 1368; p-bar + 3sqrt[p-bar(1-p-bar)/5000] is approximately 0.00293613, matching the reported UCL. Testing against 0.0015 gives z approximately -1.20589 and a two-sided normal p approximately 0.22786; testing against the declared 0.001 instead gives z approximately +4.116. The reported before/after rates are 1500 and 750 per million, a 50% observed reduction. Raw lot ordering, the signal count, runs test and sustaining-chart limits were not independently recomputed.",
+ "evidence_problem": "Only the packet supplied in the conversation was available for this review; raw batches and service records were not inspected. The step-3 declared null rate conflicts with the charter and reported test result. Change content, implementation risks and links between lot, machine and category records are unspecified. Review was performed by an AI assistant, not a human expert, using only the supplied material; no external sources, other reviewer outputs or repository files were consulted.",
+ "_usage": {
+  "prompt_tokens": 4398,
+  "completion_tokens": 1398,
+  "total_tokens": 5796,
+  "completion_tokens_details": {
+   "reasoning_tokens": 73
+  }
+ }
+}

@@ -1,0 +1,171 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sample_size": 12,
+        "group_count": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "assignedReadsThreshold": 5000000,
+        "mappingRateThreshold": 0.7,
+        "requiredReplicates": 3,
+        "replicateRulePassed": true
+      },
+      "status": "success",
+      "decision": "All libraries met both inclusive QC thresholds; both arms passed the replicate gate."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sample_size": 12,
+        "group_count": 2,
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRows": 12,
+        "designColumns": 3,
+        "designRank": 3,
+        "controlL1": 5,
+        "controlL2": 1,
+        "treatedL1": 1,
+        "treatedL2": 5
+      },
+      "status": "success",
+      "decision": "The intercept, treatment, and batch design matrix was full rank, so treatment is estimable separately from batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sample_size": 12,
+        "gene_count": 400,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "failed",
+      "decision": "NB2 computations ran, but JSON serialization failed on a NumPy integer; no result artifact was accepted."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sample_size": 12,
+        "gene_count": 400,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "failed",
+      "decision": "The rerun again failed only at serialization on a NumPy boolean; its partial JSON was rejected."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sample_size": 12,
+        "gene_count": 400,
+        "group_count": 2,
+        "batch_count": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 3,
+        "genesTested": 400,
+        "samplesModeled": 12,
+        "modelsConverged": 397,
+        "modelsFailed": 3,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "The primary batch-adjusted NB2 run completed and called 3 genes, but 3 zero-dispersion boundary models lacked convergence and were conservatively not called pending diagnostics."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "gene_count": 3,
+        "batch": "NB2 boundary diagnostic"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "modelsFailed": 3,
+        "optimizerCount": 4
+      },
+      "status": "success",
+      "decision": "Four alternate NB2 optimizers were computed for each of 3 boundary fits; they confirmed boundary-dispersion behavior but did not provide stable finite Wald inference for every fit, motivating the Poisson-limit fallback."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sample_size": 12,
+        "gene_count": 400,
+        "group_count": 2,
+        "batch_count": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 3,
+        "genesTested": 400,
+        "samplesModeled": 12,
+        "modelsConverged": 400,
+        "modelsFailed": 0,
+        "poissonBoundaryFallbacks": 3,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "G0037Log2FoldChange": -1.0088042595053173,
+        "G0037PValue": 0.0009804393609548455,
+        "G0037Padj": 0.03565234039835802,
+        "G0241Log2FoldChange": 1.0381701034271085,
+        "G0241PValue": 0.0004601274390483943,
+        "G0241Padj": 0.02263031186960318,
+        "G0269Log2FoldChange": -1.225721945591161,
+        "G0269PValue": 9.212693007378917e-09,
+        "G0269Padj": 3.6850772029515667e-06
+      },
+      "status": "success",
+      "decision": "Batch-adjusted count models with full-panel BH correction called G0037, G0241, and G0269; three zero-dispersion singular NB2 fits used the Poisson boundary limit."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicate_gate",
+      "chosen_branch": "proceed_to_design",
+      "observed": {
+        "minReplicates": 6,
+        "requiredReplicates": 3
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_de",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3
+      }
+    },
+    {
+      "point": "nb2_boundary",
+      "chosen_branch": "poisson_limit_fallback",
+      "observed": {
+        "boundaryFits": 3
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

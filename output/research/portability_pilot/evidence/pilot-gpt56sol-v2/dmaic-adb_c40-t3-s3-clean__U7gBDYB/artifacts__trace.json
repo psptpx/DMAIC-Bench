@@ -1,0 +1,62 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sample_count": 12,
+        "group_count": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "totalLibraries": 12,
+        "usableLibraries": 8,
+        "controlUsableReplicates": 6,
+        "treatedUsableReplicates": 2,
+        "assignedReadFailures": 2,
+        "mappingRateFailures": 2,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "requiredMinReplicates": 3,
+        "replicateGatePass": false
+      },
+      "status": "success",
+      "decision": "Four libraries failed the joint sequencing-QC rule; the treated arm retained only two usable replicates, so the minimum-replicate prerequisite failed."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Preparation-batch identifiability was not computable because the steward kept the sample sheet locked after the replicate gate failed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "stop_and_resequence",
+      "observed": {
+        "minReplicates": 2,
+        "requiredMinReplicates": 3,
+        "replicateGatePass": false
+      }
+    },
+    {
+      "point": "downstream_analysis",
+      "chosen_branch": "withhold_gene_and_validation_conclusions",
+      "observed": {
+        "sampleSheetReleased": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

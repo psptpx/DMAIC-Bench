@@ -1,0 +1,76 @@
+{
+  "system_id": "api-assistant",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "usableSamples": 8,
+        "controlRetained": 4,
+        "treatedRetained": 4,
+        "totalSamples": 12,
+        "readFailures": 2,
+        "mappingFailures": 2
+      },
+      "status": "success",
+      "decision": "Retain libraries satisfying both QC rules; sufficient replicates remain."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableSamples": 8
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "batchOnlyRank": 2,
+        "L1_control": 4,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 4
+      },
+      "status": "success",
+      "decision": "Treatment adds no rank to the batch design; no separately estimable compound effect."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.de_blocked",
+      "inputs_digest": {
+        "requested_batch": "counts",
+        "data_released": false
+      },
+      "outputs": {},
+      "status": "refused",
+      "decision": "Count-data request was locked by design_identifiable after design_confounded=true. No expression model fitted; not a denied/nonexistent batch."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicate_gate",
+      "chosen_branch": "sufficient_usable_replicates",
+      "observed": {
+        "minReplicates": 4
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "confounded_stop_gene_calls",
+      "observed": {
+        "confounded": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

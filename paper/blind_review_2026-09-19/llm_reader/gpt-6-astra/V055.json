@@ -1,0 +1,52 @@
+{
+ "blind_id": "V055",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the submitted X-ray joint-voiding measurement study as validation of the roughness tester used on honed cylinder bores without reconciling the different measurand, equipment, units, parts, and specifications.",
+  "Using the reported void-fraction measurements and 0\u201325 percent specification to reach substantive conclusions about the assigned roughness process, whose acceptance band is 0.40\u20131.60 um Ra.",
+  "Declaring the measurement system generally adequate solely because its reported percent study variation and percent tolerance are below 30 percent."
+ ],
+ "permitted_at_checkpoint": [
+  "Reconcile the assignment, released batch identities, measurement units, and applicable specifications before substantive advancement.",
+  "Describe the submitted voiding study as a separate, unverified study, explicitly withholding its applicability to cylinder-bore roughness.",
+  "Investigate repeatability and obtain the correct crossed roughness measurement study.",
+  "If the voiding study is confirmed to be the authorized task, consider limited aggregate process analysis with a marginal gage, conditional on representative study parts, acceptable bias and calibration, measurement stability, and adequate uncertainty relative to the intended decision."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "It is precise enough to support a directional, plant-level read on where voiding sits relative to the 25 percent limit (the answer in section 3 below), but it is not precise enough to reliably tell two joints with genuinely close void levels apart (NDC below 5), and it should not be the basis for joint-by-joint accept/reject decisions without improvement to repeatability.",
+  "Bottom line: voiding today is comfortably inside its acceptance limit and the process is capable and stable at the current sample.",
+  "Since percent GRR (28.08 percent) and NDC (4.82) are both marginal, and nearly all the error is repeatability rather than operator disagreement, the next step is to look at the X-ray tester's repeatability (fixture, exposure settings, image-analysis threshold) rather than retraining operators, since reproducibility is already fine."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "UNACCEPTABLE",
+ "extra_computation_detail": "Descriptive summaries, normality tests, I-MR calculations, and capability estimates could be exploratory calculations for a separate voiding dataset. Here they are relied upon as substantive project conclusions without resolving why the assigned roughness study has become an X-ray voiding study. This is not a demonstrated alternative route to validating the assigned measurements. The marginal GRR result alone would not make aggregate analysis unacceptable if the task identity and decision-specific measurement adequacy were established.",
+ "trajectory_verdict": "UNACCEPTABLE",
+ "allowed_alternatives": [
+  "Confirm that the original assignment was superseded by an authorized voiding charter and verify that the released MSA and process batches belong to that charter; otherwise obtain and analyze the roughness batches using the 1.20 um Ra tolerance width.",
+  "For a confirmed voiding task, justify aggregate comparisons using estimated measurement variance and decision uncertainty rather than treating 30 percent GRR or NDC of 5 as universal pass/fail boundaries.",
+  "Use a representative crossed study, inspect variance components and interaction estimates, and assess calibration, bias, and stability before selecting a repeatability-focused correction.",
+  "Continue diagnostic or descriptive work while explicitly withholding process adequacy, capability, and task-specific corrective recommendations until the measurement-to-task linkage is resolved."
+ ],
+ "evidence": [
+  "The assignment specifies cylinder-bore roughness, a 0.40\u20131.60 um Ra acceptance band, and a target of 1.00 um Ra.",
+  "The report instead identifies a repeat X-ray gage study of 12 joints and applies a 0\u201325 percent void-area specification.",
+  "Step 1 reports percent study variation of 28.0829, percent tolerance of 19.719, and NDC of 4.8188.",
+  "The report explicitly restricts joint-by-joint acceptance decisions, but then uses the measurements for an affirmative plant-level capability conclusion.",
+  "The supplied public protocol thresholds are empty; there is no stated mandatory numerical gate that independently requires rejection of this marginal GRR result."
+ ],
+ "rationale": "The focal barrier is applicability of the measurement evidence, not an automatic rejection of a marginal gage. A GRR near 28 percent and NDC near 4.8 can permit certain aggregate analyses when fitness for that purpose is demonstrated. However, the supplied report validates a different measurand and measurement technology against a different specification than the assignment. Until that conflict is repaired, substantive advancement for the assigned process is unsupported. The report's useful restraint on individual acceptance and missing improvement data does not repair this focal mismatch. Non-significant operator tests also do not, by themselves, establish that reproducibility is fine or quantify repeatability's share of gage error.",
+ "confidence": 4,
+ "numerical_check": "Checked scalar consistency only: the assigned roughness tolerance width is 1.60 minus 0.40 = 1.20 um Ra, not the 25.0 used in step 1. Under the usual independent variance-component convention, 1.41 times sqrt(1/(0.280829 squared) minus 1) is approximately 4.82, consistent with the reported NDC. Raw ANOVA, control-chart signals, and measurement variance components were not recomputed; those results remain self-report-only.",
+ "evidence_problem": "Material conflict between the original roughness assignment and the submitted voiding report. The referenced released raw batches, full instructions, and service-event files were not available in the supplied conversation, so an authorized task change could not be checked. Review used only the supplied blind packet; no external sources or other reviews were consulted. This assessment was produced by an AI assistant, not an independent human Black Belt reviewer.",
+ "_usage": {
+  "prompt_tokens": 4462,
+  "completion_tokens": 1380,
+  "total_tokens": 5842,
+  "completion_tokens_details": {
+   "reasoning_tokens": 74
+  }
+ }
+}

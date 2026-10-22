@@ -1,0 +1,127 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sample_count": 12,
+        "group_count": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6
+      },
+      "status": "success",
+      "decision": "Library usability was computed from assigned-read and mapping-rate rules; the replicate precondition passed."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sample_count": 12,
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2,
+        "mixedArmBatchCount": 1
+      },
+      "status": "success",
+      "decision": "The treatment contrast is estimable: the reference-coded design is full rank and the observed preparation batch contains both arms."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "gene_count": 400,
+        "sample_count": 12,
+        "group_count": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "genesTested": 400,
+        "normalizationGenes": 400,
+        "upregulated": 0,
+        "downregulated": 0,
+        "sizeFactorMin": 0.8198063825762534,
+        "sizeFactorMax": 1.2689197971307398
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization and gene-wise negative-binomial treatment models with Wald tests and Benjamini-Hochberg adjustment produced no genes meeting both prespecified calling criteria."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "candidate_count": 0,
+        "batch": "validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 0.0,
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "validationAvailable": false,
+        "issueCandidateList": false
+      },
+      "status": "success",
+      "decision": "The released validation batch is empty because no genes were nominated. Mathematical concordance is undefined for an empty denominator; zero is recorded only as the operational routing value, and no list can be issued."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "candidate_count": 0,
+        "batch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked because the operational validation gate was not satisfied; enrichment was not computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_replicate_gate",
+      "chosen_branch": "continue_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_estimability",
+      "chosen_branch": "fit_treatment_only_model",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "candidate_nomination",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "validation_release",
+      "chosen_branch": "withhold_list_and_stop_before_enrichment",
+      "observed": {
+        "nCandidates": 0,
+        "nConfirmed": 0,
+        "issueCandidateList": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

@@ -1,0 +1,22 @@
+{
+  "interpretation": "Checkpoint coverage, not exhaustive human task acceptance.",
+  "studies": {
+    "study1": {
+      "manifest": "paper/blind_review_2026-09-18/coordinator/manifest_sealed.json",
+      "units": 30,
+      "cases": 15,
+      "instances": 26,
+      "case_checkpoint_pairs": 24
+    },
+    "study2": {
+      "manifest": "paper/blind_review_2026-09-19/coordinator/manifest_sealed.json",
+      "units": 60,
+      "cases": 12,
+      "instances": 44,
+      "case_checkpoint_pairs": 26
+    }
+  },
+  "cases": 15,
+  "instances": 97,
+  "instances_with_any_sampled_checkpoint": 57
+}

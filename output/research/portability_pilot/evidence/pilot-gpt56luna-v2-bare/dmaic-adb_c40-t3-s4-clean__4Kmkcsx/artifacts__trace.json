@@ -1,0 +1,125 @@
+{
+  "system_id": "openai-cli",
+  "task_id": "adb_c40-T3-s4-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableLibraries": 12,
+        "controlUsableReplicates": 6,
+        "treatedUsableReplicates": 6,
+        "minimumRequiredReplicatesPerArm": 3,
+        "minimumAssignedReads": 5000000,
+        "minimumMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All libraries passed the usability criteria and both arms exceed the minimum replicate requirement."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "controlLibraries": 6,
+        "treatedLibraries": 6
+      },
+      "status": "success",
+      "decision": "Treatment is not confounded with preparation batch because both arms occur in the same batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "sample_size": 12,
+        "groups": 2,
+        "genes": 400,
+        "control_replicates": 6,
+        "treated_replicates": 6
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "geneCount": 400,
+        "controlCount": 6,
+        "treatedCount": 6,
+        "minAdjustedPValue": 0.9147096113359283,
+        "upCount": 0,
+        "downCount": 0,
+        "adjustedPThreshold": 0.05,
+        "absoluteLog2FoldChangeThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "No gene met both the adjusted-p-value and absolute-log2-fold-change calling thresholds."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidate_count": 0,
+        "qpcr_record_count": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "candidateCount": 0,
+        "qpcrRecordCount": 0,
+        "nConfirmed": 0,
+        "validationConcordanceThreshold": 0.75
+      },
+      "status": "failed",
+      "decision": "Concordance is undefined because there were no nominated candidates and no qPCR records; no confirmed-candidate count can be interpreted as a validation result."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability_gate",
+      "chosen_branch": "proceed_to_sample_sheet",
+      "observed": {
+        "usableLibraries": 12,
+        "minReplicates": 6,
+        "minimumRequiredReplicatesPerArm": 3
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "proceed_to_counts",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "differential_expression_gate",
+      "chosen_branch": "no_candidates_for_validation",
+      "observed": {
+        "nSignificant": 0,
+        "geneCount": 400
+      }
+    },
+    {
+      "point": "gene_set_release_gate",
+      "chosen_branch": "stop_gene_set_analysis",
+      "observed": {
+        "candidateCount": 0,
+        "qpcrRecordCount": 0,
+        "validationConcordanceRequirement": 0.75
+      }
+    }
+  ]
+}

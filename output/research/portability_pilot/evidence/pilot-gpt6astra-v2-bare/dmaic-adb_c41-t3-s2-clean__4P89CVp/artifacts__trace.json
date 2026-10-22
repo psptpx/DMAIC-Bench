@@ -1,0 +1,195 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "samplesRetained": 238,
+        "affectedRetained": 118,
+        "unaffectedRetained": 120,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 2,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Filter variants on retained participants; exact two-sided control HWE",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.195269044230135e-18,
+        "pc2PValue": 0.3768869629319004,
+        "pc3PValue": 0.11563956822019951,
+        "pc4PValue": 0.5887667577050781,
+        "pc5PValue": 0.7633570312822526,
+        "pc6PValue": 0.7020573127481564,
+        "pc7PValue": 0.6200033344904983,
+        "pc8PValue": 0.3475780931673391,
+        "pc9PValue": 0.49511562089037453,
+        "pc10PValue": 0.6863128830912373,
+        "pcTests": 10,
+        "pcThreshold": 0.005
+      },
+      "status": "success",
+      "decision": "Mean-imputed variance-standardized PCA; Welch tests on leading PCs, Bonferroni screening; exploratory structure assessment",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 2,
+        "lambdaGC": 0.9870249032192632,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "alpha": 0.05,
+        "nTested": 139
+      },
+      "status": "success",
+      "decision": "Additive logistic likelihood-ratio test adjusted for leading genotype PC; no unadjusted claims"
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "p": 2.0959114151312725e-05,
+        "beta": 0.9655812829642845,
+        "oddsRatio": 2.626313844354682,
+        "ciLower": 1.6528310256012761,
+        "ciUpper": 4.173157632093607,
+        "n": 235.0
+      },
+      "status": "success",
+      "decision": "rs020008; effect per dosage-coded allele; Wald confidence interval"
+    },
+    {
+      "step_id": 6,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "p": 0.00019276486248305573,
+        "beta": -0.9061909161877599,
+        "oddsRatio": 0.4040603963866832,
+        "ciLower": 0.24424733098304643,
+        "ciUpper": 0.6684404831408207,
+        "n": 236.0
+      },
+      "status": "success",
+      "decision": "rs020065; effect per dosage-coded allele; Wald confidence interval"
+    },
+    {
+      "step_id": 7,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "samplesRetained": 120,
+        "affectedRetained": 60,
+        "unaffectedRetained": 60
+      },
+      "status": "success",
+      "decision": "Replication sample QC using discovery protocol",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 8,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "pValue": 0.00031569878897611887,
+        "oddsRatio": 2.729997712702792,
+        "ciLower": 1.5277466319181532,
+        "ciUpper": 4.878353095765,
+        "callRate": 0.9916666666666667,
+        "maf": 0.453781512605042,
+        "hweP": 0.5718559796400149,
+        "n": 119,
+        "replicated": true
+      },
+      "status": "success",
+      "decision": "rs020008 replication additive logistic likelihood-ratio test; variant QC; coded-allele direction",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 9,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "pValue": 0.3498623946313152,
+        "oddsRatio": 0.7705174388195749,
+        "ciLower": 0.44509968339736233,
+        "ciUpper": 1.333852046340493,
+        "callRate": 0.9916666666666667,
+        "maf": 0.36134453781512604,
+        "hweP": 1.000000000000004,
+        "n": 119,
+        "replicated": false
+      },
+      "status": "success",
+      "decision": "rs020065 replication additive logistic likelihood-ratio test; variant QC; coded-allele direction",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 10,
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 2,
+        "nNominated": 1,
+        "nNominatedReplicated": 1,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Separate nominated candidate from additional adjusted discovery hit; same coded-allele direction required",
+      "inputs_digest": {}
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "samplesRetained": 238,
+        "affectedRetained": 118,
+        "unaffectedRetained": 120,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "stratification",
+      "chosen_branch": "pc_adjusted",
+      "observed": {
+        "separated": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

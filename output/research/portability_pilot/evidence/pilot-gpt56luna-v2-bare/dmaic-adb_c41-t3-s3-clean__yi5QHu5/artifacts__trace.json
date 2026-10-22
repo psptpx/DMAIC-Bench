@@ -1,0 +1,129 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "variants": 150,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "sampleCallRateMin": 0.5066666666666667,
+        "sampleCallRateMean": 0.9300277777777777,
+        "sampleCallRateThreshold": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "platePasses": false,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "affectedTotal": 120,
+        "unaffectedTotal": 120,
+        "participantCallRateRequired": 0.95,
+        "plateRegenotypeFailureFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate fails participant QC and requires re-genotyping."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "variants": 150,
+        "controls": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 131,
+        "snpsRetained": 19,
+        "variantsCallRatePass": 19,
+        "variantsMafPass": 147,
+        "variantsHwePass": 147,
+        "variantCallRateThreshold": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06,
+        "samplesAfterCallRate": 209,
+        "affectedAfterCallRate": 103,
+        "unaffectedAfterCallRate": 106
+      },
+      "status": "success",
+      "decision": "Retain only variants passing call rate, MAF, and unaffected-control HWE filters."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samplesAfterSampleQC": 209,
+        "variantsAfterVariantQC": 19,
+        "affected": 103,
+        "unaffected": 106
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.8735537539127642,
+        "variantsTested": 19,
+        "rawAlpha": 0.05,
+        "bonferroniAlpha": 0.002631578947368421,
+        "topRawP": 0.03993697606300295,
+        "topRawVariantRanked": 1,
+        "associationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "No retained variant meets the Bonferroni-corrected association threshold."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "replication",
+        "samples": 120,
+        "variants": 150,
+        "nominatedCandidates": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationPThreshold": 0.05,
+        "sameDirectionRequired": true,
+        "replicationAlpha": 0.05,
+        "replicationCandidatesAvailable": 0
+      },
+      "status": "success",
+      "decision": "Replication support is not computable for discovery hits because no candidate was nominated."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "re-genotype_plate",
+      "observed": {
+        "sampleFailFraction": 0.12916666666666668,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "discovery_association",
+      "chosen_branch": "no_discovery_hit",
+      "observed": {
+        "nSignificant": 0,
+        "topRawP": 0.03993697606300295
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_candidates_to_replicate",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

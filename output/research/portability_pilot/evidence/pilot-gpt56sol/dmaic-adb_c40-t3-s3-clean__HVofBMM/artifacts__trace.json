@@ -1,0 +1,94 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "group_count": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "totalLibraries": 12,
+        "usableSamples": 8,
+        "controlUsable": 6,
+        "treatedUsable": 2,
+        "minimumRequiredReplicates": 3,
+        "minimumAssignedReadsUsed": 5000000,
+        "minimumMappingRateUsed": 0.7,
+        "passesReplicationRule": false
+      },
+      "status": "success",
+      "decision": "Applied both inclusive library-usability thresholds. Four libraries failed; six control and two treated libraries remained, so minimum arm replication was two and the replication gate failed."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "failed_sample_count": 4
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "belowAssignedReadsCount": 2,
+        "belowMappingRateCount": 2,
+        "failedBothCriteriaCount": 0
+      },
+      "status": "success",
+      "decision": "Failure-mode decomposition found two depth failures and two mapping-rate failures, with no library failing both criteria."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "requested_batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Not computable: the sample sheet was locked because minimum usable replication did not satisfy the replication gate; treatment-batch confounding and batch count remain unknown."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "requested_batch": "counts"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Not computable: gene counts were locked because the sample sheet had not been released and analyzed. No gene-level calls were made."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "stop_and_resequence_before_design_or_gene_calling",
+      "observed": {
+        "minReplicates": 2,
+        "minimumRequiredReplicates": 3,
+        "passesReplicationRule": false
+      }
+    },
+    {
+      "point": "design_assessment",
+      "chosen_branch": "not_assessable_because_sample_sheet_locked",
+      "observed": {
+        "sampleSheetReleased": false
+      }
+    },
+    {
+      "point": "differential_expression",
+      "chosen_branch": "not_run_because_counts_locked",
+      "observed": {
+        "countsReleased": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

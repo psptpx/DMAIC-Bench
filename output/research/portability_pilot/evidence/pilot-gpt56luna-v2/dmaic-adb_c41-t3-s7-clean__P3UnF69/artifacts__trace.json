@@ -1,0 +1,143 @@
+{
+  "system_id": "openai-api",
+  "task_id": "adb_c41-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "nParticipants": 240,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "plate_retest_not_triggered"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variants": 150,
+        "controls": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 148,
+        "snpsRetained": 2
+      },
+      "status": "success",
+      "decision": "retain_only_variants_meeting_call_rate_maf_hwe"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "axes": 5
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.11642150053597505
+      },
+      "status": "success",
+      "decision": "groups_comparable_no_covariate_required"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedVariants": 2
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.0
+      },
+      "status": "success",
+      "decision": "no_discovery_association"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variant": "rs070049"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 1.0084745762711864
+      },
+      "status": "success",
+      "decision": "discovery_effect_estimate"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variant": "rs070099"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.9915611814345991
+      },
+      "status": "success",
+      "decision": "discovery_effect_estimate"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 1,
+        "participants": 120
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 1
+      },
+      "status": "success",
+      "decision": "candidate_not_replicated"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "continue_without_regenotyping",
+      "observed": {
+        "sampleFailFraction": 0.0125
+      }
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "compare_groups",
+      "observed": {
+        "pc1PValue": 0.11642150053597505
+      }
+    },
+    {
+      "point": "discovery",
+      "chosen_branch": "no_hits_to_report",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "do_not_report",
+      "observed": {
+        "nReplicated": 0,
+        "nCandidates": 1
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

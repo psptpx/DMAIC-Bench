@@ -1,0 +1,54 @@
+{
+ "reviewer_id": "Human_Expert_1",
+ "reviewer_type": "Human",
+ "perspective": "Black Belt independent review",
+ "blinding_compliance": "I confirm full compliance with the blinding protocol. I accessed only the provided blind item directory and relied on standard statistical references without consulting external unauthorized sources, other reviewers, or the internet for specific study details.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V060",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the gap of over 1.0 HRC between the baseline mean and the recipe sample means is consistent with sampling error or skew.",
+    "Concluding that the process is stable and should be held on the control limits established by the baseline, while ignoring the massive uninvestigated mean shift present in the recent recipe samples.",
+    "Closing the investigation into candidate causes or making definitive recommendations to hold gains while leaving a highly statistically significant process shift entirely unresolved."
+   ],
+   "permitted_at_checkpoint": [
+    "Concluding that there is no statistically significant difference in hardness among the three distinct recipes within their specific separate samples.",
+    "Noting the large mean shift (>1 HRC) between the baseline run and the pooled recipe samples and calculating its statistical significance.",
+    "Recommending a targeted investigation into temporal confounding, raw material lot changes, measurement system calibration drift, or other unmeasured factors that could have caused the entire line to shift significantly between the baseline data collection and the recipe sampling."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "Group means (59.1\u201359.3 HRC) sit slightly above the run-order baseline mean (58.2 HRC); with both comparisons far from significance, that gap is consistent with sampling and the baseline's skew, not with a recipe effect.",
+    "Close out recipe as the candidate cause.",
+    "Hold the gains: keep the line on the individuals chart established here (CL 58.182, UCL 60.423, LCL 55.941 HRC) so any future shift is flagged against this stable baseline"
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "NONE",
+   "extra_computation_detail": "No additional computations were performed beyond the focal conclusions and next-steps formulation.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "A formal two-sample t-test or Welch's test comparing the pooled recipe samples (n=45) against the baseline population (n=60) to explicitly verify that the observed >1 HRC difference completely dwarfs any plausible sampling error."
+   ],
+   "evidence": [
+    "Baseline mean 58.182 HRC, standard deviation 0.741 HRC (n=60).",
+    "Recipe means: A = 59.102, B = 59.311, C = 59.327 (n=15 each, pooled mean ~59.25).",
+    "The gap between the baseline mean and the pooled recipes mean is ~1.07 HRC. With pooled standard errors, this represents a difference of more than 7 standard errors, rendering the report's claim that it is 'consistent with sampling' mathematically impossible.",
+    "The report asserts: 'that gap is consistent with sampling and the baseline's skew, not with a recipe effect.'"
+   ],
+   "rationale": "The report correctly recognizes the lack of a statistically significant difference among the three heat-treat recipes. However, it catastrophically misinterprets the massive, >7 standard error shift between the baseline samples (~58.2 HRC) and the experimental recipe samples (~59.25 HRC). It falsely dismisses this highly significant >1 HRC shift as 'consistent with sampling and baseline's skew' without performing any formal test. Even worse, the report recommends holding the process to the baseline's control chart (CL=58.182)\u2014a chart on which the recent recipe process would practically trigger a continuous out-of-control signal, as nearly all of its output is above the centerline. Closing an investigation while actively ignoring a massive, systemic process shift is fundamentally invalid and professionally unacceptable in industrial practice.",
+   "confidence": 5,
+   "numerical_check": "Calculated the standard error of the baseline mean (0.741/sqrt(60) = 0.096) and the pooled recipes mean (approx 0.66/sqrt(45) = 0.098), yielding a standard error of the difference of ~0.137. The ~1.07 HRC difference is therefore >7.7 standard errors apart (p < 0.00001). Furthermore, the baseline's right-skew actually means the median is lower than the mean, so using medians would reveal an even larger shift than using means, directly refuting the report's justification.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5121,
+  "completion_tokens": 8357,
+  "total_tokens": 13478
+ }
+}

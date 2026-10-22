@@ -1,0 +1,48 @@
+{
+ "blind_id": "V048",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Identify any tested setting or interaction as an established driver, or recommend an optimized production setting based on this screen.",
+  "Interpret nonsignificant results as proof that the tested settings have no practically important effects.",
+  "Treat the observational regressions or correlations as establishing causes.",
+  "Claim improvement, deterioration, equivalence, or target attainment attributable to the line change without the unavailable change-effect data."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the factorial estimates and uncertainty as an inconclusive screen over the tested settings and ranges.",
+  "Use the logged-variable regression and correlations for limited exploratory description, without causal interpretation or claims that important associations have been ruled out.",
+  "Plan a better-powered randomized experiment using process knowledge, appropriate factor ranges, measurement-system verification, and blocking for production conditions.",
+  "Seek an independently justified, authorized change-effect study; a negative factor screen does not statistically prohibit studying a separately specified intervention."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The additional joint observational regression and three marginal correlations are acceptable as limited exploration. The report explicitly denies causal identification and does not use these results to select or implement settings. Their inferential calibration would require checking independence, temporal structure, and model assumptions; the reported high p-values do not establish absence of meaningful relationships. The degenerate median-centered Levene result was explicitly rejected rather than used. Bartlett and residual-normality checks provide limited diagnostics, not proof of model adequacy. No before/after comparison was computed.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Estimate factorial-effect confidence intervals and compare them with prespecified practically important effects; claim negligible effects only if adequately precise equivalence bounds support that conclusion.",
+  "Conduct a replicated randomized factorial follow-up with adequate power for important effects and interactions, verified measurement adequacy, and blocking or explicit modeling of production drift.",
+  "Investigate logged variables with time-aware exploratory models, checking serial dependence and confounding; validate selected hypotheses with new data and randomized manipulation before attributing cause.",
+  "Evaluate the line change through an authorized randomized or controlled time-ordered study with adequate replication and explicit treatment of temporal confounding. The public release gate is narrower than statistical necessity: significant screening factors are not a prerequisite for every defensible change-effect study."
+ ],
+ "evidence": [
+  "The reported factorial model has 16 observations, eight treatment combinations, two replicates per combination, model p = 0.9034501374582152, and anyFactorSignificant = false.",
+  "All reported factorial term p-values exceed 0.19; the smallest is 0.19309301740846047 for chain speed by air pressure.",
+  "The report states: \"None of the tested settings or interactions is demonstrated to account for fillet height in this experiment.\"",
+  "The report states: \"These are weak, undetected associations; because these variables were logged rather than randomized, even a detected association would not by itself establish cause.\"",
+  "The report states: \"The conclusion stops here: this analysis cannot say that the change improved, harmed, or left fillet height unchanged.\"",
+  "The report recommends: \"Do not standardize or credit the change on the present evidence.\"",
+  "Step 16 records an empty-output refusal of the before/after comparison because screening_significant was not satisfied."
+ ],
+ "rationale": "The screen supports withholding causal identification and setting optimization, not declaring the settings ineffective. The report maintains that distinction and appropriately stops change-effect conclusions when measurements are unavailable. Its observational extension remains exploratory and is not used to bypass the negative screen. Lack of explicit temporal diagnostics limits interpretation of the observational p-values, but does not create a material unsupported focal claim here. The protocol restriction on releasing before/after data should not be confused with a universal statistical requirement for prior significant screening. This assessment used an AI assistant to review only the supplied packet; no external files, other reviews, or web sources were accessed, and no human professional credentials are claimed.",
+ "confidence": 4,
+ "numerical_check": "Raw-data results are self-report-only: no raw batches were accessible in the supplied conversation. Internal arithmetic checked using seven factorial model degrees of freedom and eight residual degrees of freedom: R-squared 0.2383021 implies F approximately 0.35755 and adjusted R-squared approximately -0.42818, consistent with the trace. The reported interaction effect 0.0444625 divided by its t statistic 1.42103 implies an effect standard error approximately 0.03129, consistent with residual SD 0.0625779 and this balanced 16-run factorial.",
+ "evidence_problem": "The referenced raw batches and service-event files were not supplied as readable contents. Randomization, actual run order, temporal independence of logged observations, and raw-data numerical accuracy could not be independently verified.",
+ "_usage": {
+  "prompt_tokens": 5535,
+  "completion_tokens": 1114,
+  "total_tokens": 6649
+ }
+}

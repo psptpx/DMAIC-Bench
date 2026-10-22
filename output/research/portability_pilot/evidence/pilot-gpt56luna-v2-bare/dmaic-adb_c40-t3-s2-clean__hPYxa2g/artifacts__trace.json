@@ -1,0 +1,162 @@
+{
+  "system_id": "openai-api",
+  "task_id": "adb_c40-T3-s2-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "usableLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6
+      },
+      "status": "success",
+      "decision": "QC passed for both arms."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2
+      },
+      "status": "success",
+      "decision": "Use batch-adjusted comparison; arm and batch are not perfectly confounded."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 118
+      },
+      "status": "success",
+      "decision": "Unblocked screen is sensitivity analysis only because batch contributes materially."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "groups": 2,
+        "covariate": "preparation batch"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 31
+      },
+      "status": "success",
+      "decision": "Use the batch-adjusted calls as the primary list."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "covariate": "preparation batch"
+      },
+      "method_id": "expression.batch_assessment",
+      "outputs": {
+        "batchVarianceFraction": 0.5918669402040435
+      },
+      "status": "success",
+      "decision": "Preparation batch explains a substantial fraction of modeled variation."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidates": 31,
+        "validated": 10,
+        "replicatesPerArm": 4
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 31,
+        "nValidated": 10,
+        "nUnvalidated": 21
+      },
+      "status": "success",
+      "decision": "Validation supports the tested portion of the primary list."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "universe": 400,
+        "candidates": 31,
+        "sets": 12
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "universe": 400,
+        "candidateCount": 31,
+        "setCount": 12,
+        "SET03Overlap": 14,
+        "SET03PValue": 7.960267012660774e-10,
+        "SET03AdjustedPValue": 9.55232041519293e-09
+      },
+      "status": "success",
+      "decision": "SET03 is the only significant enriched set."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "minReplicates": 6,
+        "failedSamples": 0
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_analysis",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "issue_tested_validated_subset",
+      "observed": {
+        "concordance": 1.0,
+        "nConfirmed": 10
+      }
+    },
+    {
+      "point": "enrichment",
+      "chosen_branch": "report_SET03",
+      "observed": {
+        "nSignificantSets": 1
+      }
+    }
+  ]
+}

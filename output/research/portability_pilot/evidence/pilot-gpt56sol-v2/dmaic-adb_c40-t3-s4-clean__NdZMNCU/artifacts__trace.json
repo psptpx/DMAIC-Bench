@@ -1,0 +1,179 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraryCount": 12,
+        "groupCount": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "usableLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "requiredReplicates": 3,
+        "passesReplicateRule": true
+      },
+      "status": "success",
+      "decision": "All libraries met both usability criteria and both arms retained enough usable replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableLibraries": 12,
+        "groupCount": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "armCount": 2,
+        "designRank": 2,
+        "designColumns": 2,
+        "batchesWithBothArms": 1
+      },
+      "status": "success",
+      "decision": "Treatment is estimable because the sole preparation batch contains both arms."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "geneCount": 400,
+        "sampleCount": 12,
+        "groupCount": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "geneCount": 400,
+        "sampleCount": 12,
+        "controlCount": 6,
+        "treatedCount": 6,
+        "nUp": 0,
+        "nDown": 0,
+        "modelFailures": 0,
+        "maxAbsLog2FoldChange": 0.883711680285951,
+        "minAdjustedPValue": 0.8400324602858182,
+        "dispersionPrior": 0.07462641706209566,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Preliminary negative-binomial analysis found no gene meeting both prespecified thresholds; its across-arm dispersion calculation was subsequently corrected to avoid absorbing treatment shifts."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "geneCount": 400,
+        "sampleCount": 12,
+        "groupCount": 2,
+        "batchCount": 1
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "geneCount": 400,
+        "sampleCount": 12,
+        "controlCount": 6,
+        "treatedCount": 6,
+        "nUp": 0,
+        "nDown": 0,
+        "modelFailures": 0,
+        "maxAbsLog2FoldChange": 0.8835428113065121,
+        "minAdjustedPValue": 0.47268554775922333,
+        "dispersionPrior": 0.07372766484760346,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Final negative-binomial analysis used median-ratio offsets, within-arm residual moment dispersion stabilized to the panel median, Wald tests, and Benjamini-Hochberg adjustment. No gene met both calling thresholds."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidateCount": 0,
+        "qpcrResultCount": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nConfirmed": 0,
+        "candidateCount": 0,
+        "qpcrResultCount": 0,
+        "validationAlpha": 0.05,
+        "requiredConcordance": 0.75
+      },
+      "status": "failed",
+      "decision": "Concordance is undefined because there were no nominated candidates and no qPCR results; no numeric value was declared."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "requestedBatch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked behind a numeric validation-concordance gate; no annotation or enrichment analysis was available."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "requiredReplicates": 3
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "estimable_single_batch_contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "batchesWithBothArms": 1
+      }
+    },
+    {
+      "point": "de_method_audit",
+      "chosen_branch": "use_corrected_within_arm_dispersion_result",
+      "observed": {
+        "preliminaryNsignificant": 0,
+        "finalNsignificant": 0
+      }
+    },
+    {
+      "point": "candidate_call",
+      "chosen_branch": "no_nominees",
+      "observed": {
+        "nSignificant": 0,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "do_not_invent_zero_over_zero_concordance",
+      "observed": {
+        "candidateCount": 0,
+        "qpcrResultCount": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

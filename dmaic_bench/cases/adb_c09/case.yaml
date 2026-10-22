@@ -1,0 +1,84 @@
+schema_version: 1
+case_id: adb_c09
+title: Surface defects on panel furniture — focusing the effort and screening the risk
+
+tier: T1
+industry: discrete_manufacturing
+provenance: SIMULATED
+y_type: attribute_count_rate
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the quality team at a made-to-order panel furniture plant. Surface defects on
+  finished goods have stayed high for the past three months; the rework hours are eating into
+  capacity and delivery lead times have stretched. The team has put together four batches of
+  material: the field definitions of the full-month defect ledger together with a sample of
+  its records; the quantities totalled by defect class; a cross-tabulation of three shifts
+  against the four main defect classes; and a sheet scoring the main failure points for
+  severity, occurrence and detection. We want to see the whole shape of the data first, then
+  find the vital few defect classes on which resources should be concentrated, settle whether
+  there is a real association between shift and defect type, and identify the failure point
+  that carries the highest risk, so that the corrective work can be scheduled on that basis.
+
+goal: |
+  From the four batches of material: (1) set out the whole shape of the defect ledger and what
+  its fields mean; (2) identify the vital few defect classes that account for the largest share
+  and quantify how much they come to together; (3) settle whether the association between
+  shift and defect type is real; (4) work out how each failure point ranks on risk and point
+  out the highest. Every number reported must be faithful to what you actually computed.
+
+stages:
+  - stage_id: Q_Profile
+    phase: define
+    label: "Defect ledger — what its fields mean, with a sample of its records"
+    topics: ["ledger", "field definitions", "whole shape", "sample of records"]
+    methods:
+      - method_id: meta.data_profiling
+        required: true
+  - stage_id: Q_Pareto
+    phase: measure
+    label: "Quantities totalled by defect class"
+    topics: ["defect class", "totalled by class", "vital few", "largest share"]
+    methods:
+      - method_id: quality.pareto
+        required: true
+  - stage_id: Q_FMEA
+    phase: analyze
+    label: "Sheet scoring the main failure points for severity, occurrence and detection"
+    topics: ["failure point", "scoring sheet", "risk ranking", "severity occurrence detection"]
+    methods:
+      - method_id: quality.fmea_rpn
+        required: true
+  - stage_id: Q_ChiAssoc
+    phase: analyze
+    label: "Three shifts cross-tabulated against the four main defect classes"
+    topics: ["shift", "cross-tabulation", "shift and defect type", "tabulated against"]
+    methods:
+      - method_id: tables.chisquare_assoc
+        required: true
+
+decision_points:
+  - point_id: vital_few
+    phase: measure
+    rule: "Defects are highly concentrated (the leading class accounts for >50%): focus improvement on the largest vital-few categories rather than distributing effort equally across all categories."
+    source: "Juran's Quality Handbook: vital few, trivial many"
+    correct_branch: pareto_first
+    acceptable_branches: []
+    branch_evidence:
+      pareto_first: [quality.pareto]
+
+faults:
+  - stage_id: Q_FMEA
+    method_id: quality.fmea_rpn

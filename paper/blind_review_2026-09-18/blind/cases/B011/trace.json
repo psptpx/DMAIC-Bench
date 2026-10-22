@@ -1,0 +1,171 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "n": 60,
+        "stage": "baseline"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 52.3485,
+        "median": 52.81,
+        "stdDev": 3.814668755195451,
+        "skewness": -0.09758455039222448,
+        "adPValue": 0.23869276091271177
+      },
+      "status": "success",
+      "decision": "Baseline seal strength approximately symmetric and consistent with normality (AD p=0.24, Shapiro p=0.485)."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "n": 60,
+        "stage": "baseline"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.9812697363665946,
+        "pValue": 0.48455578861363535
+      },
+      "status": "success",
+      "decision": "Shapiro-Wilk fails to reject normality (p=0.485); baseline data treated as normal for capability analysis."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "n": 60,
+        "stage": "baseline"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 63.38302939055174,
+        "individualsLCL": 41.31397060944825,
+        "centerLine": 52.3485,
+        "flaggedXBarCount": 0,
+        "flaggedCount": 2
+      },
+      "status": "success",
+      "decision": "No individual points out of control limits; 2 moving-range points exceeded the MR-UCL, indicating occasional excess point-to-point jumps but overall process appears stable/in control on individuals."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "n": 60,
+        "stage": "baseline",
+        "testValue": 55.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": -5.384066613114264,
+        "pValue": 1.324089594178985e-06
+      },
+      "status": "success",
+      "decision": "Mean seal strength (52.35N) is statistically significantly below the 55N margin requirement."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "n": 60,
+        "stage": "baseline",
+        "testValue": 45.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": 14.92167207485199,
+        "pValue": 1.0895797203252831e-21
+      },
+      "status": "success",
+      "decision": "Mean seal strength is statistically significantly above the 45N minimum (LSL), i.e. the minimum spec is comfortably met on average."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "n": 60,
+        "stage": "baseline",
+        "lsl": 45.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 0.6659549981616891,
+        "ppk": 0.642126527149667
+      },
+      "status": "success",
+      "decision": "One-sided capability against LSL=45N only (no USL exists): Cpk~0.67 (short-term, MR-based sigma), Ppk~0.64 (long-term, overall sigma). Both well below the conventional 1.33 capability threshold."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "n": 60,
+        "stage": "baseline",
+        "threshold": 55.0
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 1.324089594178985e-06
+      },
+      "status": "success",
+      "decision": "75% (45 of 60) of baseline seals fall below the 55N required margin; only 1.7% (1 of 60) fall below the 45N minimum spec."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "n": 16,
+        "stage": "screening_run",
+        "factors": 3,
+        "design": "2^3 full factorial, 2 replicates"
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.8335162744870344,
+        "rSquaredPct": 29.04638018576381,
+        "rSquaredAdjPct": -33.03803715169287
+      },
+      "status": "success",
+      "decision": "Full factorial model (bead_spacing, bond_angle, cure_temperature, all interactions) is not significant overall (p=0.834); no individual main effect or interaction reached p<0.05 (smallest term p=0.287, the 3-way interaction). None of the three screened assembly settings account for seal-strength variation in this run."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "stage": "screening_run",
+        "gate": "screening_significant"
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.8335162744870344
+      },
+      "status": "refused",
+      "decision": "Declared any_factor_significant=false based on step 8. This does not satisfy the gate (any_factor_significant==true) required to release the composite/RSM design batch and the confirmation-run batch; steward returned refusal=locked for both. No further DOE optimization data exists to pull honestly."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_distribution_choice",
+      "chosen_branch": "treat as normal (Shapiro p=0.485, AD p=0.239) -> use capability.normal and one-sample t-tests",
+      "observed": {
+        "shapiroP": 0.48455578861363535,
+        "adP": 0.23869276091271177,
+        "skewness": -0.09758455039222448
+      }
+    },
+    {
+      "point": "screening_significant",
+      "chosen_branch": "any_factor_significant=false",
+      "observed": {
+        "modelPValue": 0.8335162744870344,
+        "maxTermPValue": 0.9655688076923077,
+        "minTermPValue": 0.28690623
+      }
+    },
+    {
+      "point": "composite_design_availability",
+      "chosen_branch": "gate not satisfied, batch denied/locked; stop DOE path and report the gap",
+      "observed": {
+        "gate": "screening_significant",
+        "declared": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

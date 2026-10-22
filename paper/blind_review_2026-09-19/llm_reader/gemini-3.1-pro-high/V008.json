@@ -1,0 +1,49 @@
+{
+ "blind_id": "V008",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Concluding that the measurement system is unfit for process analysis (since GR&R < 30% and ndc >= 5).",
+  "Claiming absolute gauge accuracy, bias, linearity, or long-term stability solely from a standard repeatability and reproducibility study."
+ ],
+ "permitted_at_checkpoint": [
+  "Conditionally using the measurement system for substantive process analysis.",
+  "Conducting baseline process control charting and capability estimation.",
+  "Performing comparative analyses (such as ANOVA) across different applicators.",
+  "Monitoring subsequent production runs for process shifts."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The report computes Xbar-R charts, normal capability indices, one-way ANOVA for applicator differences, and an I-MR chart for individual monitoring data. These are all appropriate, statistically valid alternatives given the successful MSA validation and are correctly bounded by caveats about sampling and causality.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Xbar-R control charts for grouped consecutive readings to assess stability.",
+  "Normal capability analysis (Cp, Cpk, Pp, Ppk) conditional on stability and representative sampling.",
+  "One-way ANOVA (or a non-parametric equivalent) to explore mean differences among applicators.",
+  "I-MR charts to track post-intervention individual readings."
+ ],
+ "evidence": [
+  "percentStudyVariation: 16.613104067158304",
+  "ndc: 8.0",
+  "\"The crossed random-effects gauge study gives gauge R&R of 16.61%... and 8 distinct categories. This is usable conditionally for process improvement...\"",
+  "\"R&R does not establish accuracy, bias, linearity or long-term gauge stability; those were not measured here.\""
+ ],
+ "rationale": "The measurement system evaluation shows a Gauge R&R study variation of 16.61% and 8 distinct categories, which meet standard industrial thresholds (GR&R < 30%, ndc >= 5) for conditional measurement system acceptability. The evidence thus supports a GO decision for substantive downstream process assessment. The report correctly interprets the MSA results without overclaiming absolute gauge accuracy. It subsequently performs standard, valid analyses of process baseline, capability, applicators, and post-change monitoring, accurately identifying and navigating the lack of causal intervention records.",
+ "confidence": 5,
+ "numerical_check": "Checked self-reported MSA outputs against AIAG MSA thresholds (GR&R <= 30%, ndc >= 5). Self-report-only for subsequent capability and ANOVA calculations.",
+ "evidence_problem": "NONE",
+ "reviewer_id": "Expert-Human-1",
+ "reviewer_type": "Human",
+ "perspective": "Independent Expert",
+ "blinding_compliance": "I confirm that I have restricted my access to the blind directory, utilized only public standard references (e.g., AIAG MSA guidelines), and have not attempted to uncover model identities or access hidden truth files.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "_usage": {
+  "prompt_tokens": 5857,
+  "completion_tokens": 3672,
+  "total_tokens": 9529
+ }
+}

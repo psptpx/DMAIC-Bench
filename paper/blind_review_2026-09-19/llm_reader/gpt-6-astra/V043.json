@@ -1,0 +1,53 @@
+{
+ "blind_id": "V043",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the pooled baseline as a stable process or its normal capability indices as predictive capability.",
+  "Claiming that normality tests establish internally stable regimes or that a retrospectively selected two-sample comparison proves a unique, one-time shift.",
+  "Excluding an applicator-specific explanation or establishing a line-wide cause solely from a nonsignificant applicator ANOVA."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the observed temporal shift and summarize pooled and segmented measurements, explicitly withholding stable-process capability interpretations.",
+  "Investigate special causes using time-ordered subgroup data and production records; evaluate proposed phases for internal stability before estimating phase-specific capability.",
+  "Compare applicators exploratorily if sampling independence and timing support the comparison, without interpreting failure to reject equal means as equivalence or causal exclusion.",
+  "Assess an independently collected monitoring period on its own evidence, without attributing its performance to an unidentified intervention or assuming future durability."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "Breaking the run into its two visible halves confirms this is a real, one-time shift and not noise:",
+  "Each half individually passes a normality check (p = 0.96 and p = 0.16 respectively), so the run is best read as two distinct, internally normal regimes rather than one unstable process.",
+  "The large gap between Cpk and Ppk is itself the tell: potential capability (short-term, Cp/Cpk) looks fine, actual performance (long-term, Pp/Ppk) does not, because the mean moved out from under the target mid-run.",
+  "This rules out one bad nozzle as the explanation; whatever caused the shift affected the line as a whole, not a single piece of equipment.",
+  "The applicator ANOVA narrows the search to a line-wide cause but does not name it."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Pooled capability calculation is acceptable as a withheld descriptive diagnostic, but the subsequent favorable interpretation of short-term capability weakens that restraint. Phase summaries and normality tests are legitimate exploration; normality does not establish temporal stability. The t-test treats 125 pieces as independent despite consecutive-piece subgrouping and uses a visually selected split without addressing selection or serial dependence, so its p-value cannot confirm the asserted one-time shift. Applicator ANOVA can be exploratory under independent, suitably timed sampling, but p=0.21 cannot rule out an applicator cause. Separate monitoring analysis is not automatically prohibited by baseline instability, although its stability and capability claims require independent verification.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Use the baseline chart as evidence of instability, verify its limits, and report pooled indices only as descriptive summaries without predictive or potential-capability claims.",
+  "Define phases using documented process events or explicitly exploratory change-point analysis; assess subgroup means and ranges within each phase and account for temporal dependence and breakpoint selection before confirmatory inference.",
+  "Estimate phase-specific capability only after adequate within-phase stability evidence and a defensible distributional model, with uncertainty acknowledged.",
+  "Use a contemporaneous blocked or randomized applicator study to investigate equipment effects; use predefined practical equivalence margins and sufficiently precise intervals if the objective is to exclude material differences.",
+  "Evaluate the monitoring batch separately using verified mean and range charts and representative sampling, limiting conclusions to the observed period unless intervention and sustainment evidence are available."
+ ],
+ "evidence": [
+  "Step 2 reports 20 flagged subgroup means among 25 and a baseline centerline of 232.2736 um, directly supporting withholding pooled stable capability.",
+  "The report explicitly states that pooled capability numbers 'should not be quoted as *the* capability of the line,' providing substantial focal restraint.",
+  "The baseline limits in the report, 211.7\u2013227.1 um, match the rounded step 9 monitoring limits, not the step 2 baseline outputs of 222.053776\u2013242.493424 um.",
+  "Steps 5\u20137 report phase normality p-values of 0.9601 and 0.1602 and a two-sample t-test p-value of approximately 4.43e-38; no within-phase control charts or dependence-adjusted comparison are supplied.",
+  "Step 8 reports F=1.55865 and p=0.20959, which supports failure to detect a mean difference, not equivalence or causal exclusion.",
+  "Step 12 records that the requested root-cause and corrective-action fact was unavailable, and the report acknowledges that the specific root cause is unknown."
+ ],
+ "rationale": "Baseline instability requires stopping predictive pooled capability conclusions, not all subsequent exploration or independent monitoring. The report recognizes this central restriction and explicitly withholds pooled capability as the line's capability. However, it partly reintroduces capability interpretation, treats normality and a selected-split t-test as stronger temporal evidence than they provide, and converts a nonsignificant applicator comparison into causal exclusion. These are material overstatements alongside genuine restraint, warranting MIXED rather than blanket rejection of every downstream calculation. No supplied public protocol rule mandates a unique statistical route; the deficiencies are statistical, not merely procedural.",
+ "confidence": 4,
+ "numerical_check": "Checked internal consistency of supplied scalar outputs: the reported baseline limits are rounded monitoring limits; the midpoint of the actual step 2 limits is 232.2736 um, whereas the monitoring limits have midpoint 219.3927 um. Raw-data statistics were not recomputed; remaining numerical results are self-report-only.",
+ "evidence_problem": "Raw batches and service files were not accessed; review used only the supplied packet, without external sources or other reviewers' outputs. The baseline control-limit transcription conflicts with step 2, the outputs label limits as 'individuals' despite an Xbar-R method, and neither within-phase stability nor a range-chart result for monitoring is explicitly documented in the compact outputs. This review was performed by an AI assistant, not a human credentialed reviewer.",
+ "_usage": {
+  "prompt_tokens": 4981,
+  "completion_tokens": 1334,
+  "total_tokens": 6315
+ }
+}

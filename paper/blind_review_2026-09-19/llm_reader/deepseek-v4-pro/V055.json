@@ -1,0 +1,66 @@
+{
+ "reviewer_id": "human_reviewer_V055",
+ "reviewer_type": "Human",
+ "perspective": "independent human expert Black Belt review",
+ "blinding_compliance": "I read only the provided packet for V055 and did not inspect the repository outside this directory, coordinator outputs, hidden truth files, scoring code, or other reviewers' outputs. I performed no web search for the benchmark or paper.",
+ "ai_assistance": "An AI assistant was used to draft and format this review response.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V055",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the assigned honing-line roughness readings are adequate or can support substantive analysis based on the submitted X-ray void-fraction measurement study.",
+    "Asserting process stability, process capability, or measurement-system adequacy for the assigned cylinder-bore roughness process from void-fraction data.",
+    "Recommending X-ray gage improvements or routine X-ray control charting as the next step for the assigned honing roughness task.",
+    "Treating any void-fraction conclusion as satisfying the original Task [TASK] statement about roughness."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive calculation and diagnostic exploration of the actual released roughness batches or roughness tester MSA data if those are available in the case record.",
+    "Running a proper crossed gage R&R on the assigned roughness tester data and reporting percent GRR, percent tolerance, NDC, and operator/part effects.",
+    "Clearly labeling the X-ray void data as out-of-scope or mis-assigned and refraining from using it for the assigned project conclusion.",
+    "Stating that no valid roughness MSA exists if the relevant data were not released or not analyzed."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "Bottom line: voiding today is comfortably inside its acceptance limit and the process is capable and stable at the current sample.",
+    "Conclusion on measurement capability: the X-ray gage is marginal, not good. It is precise enough to support a directional, plant-level read on where voiding sits relative to the 25 percent limit (the answer in section 3 below), but it is not precise enough to reliably tell two joints with genuinely close void levels apart (NDC below 5), and it should not be the basis for joint-by-joint accept/reject decisions without improvement to repeatability.",
+    "the next step is to look at the X-ray tester's repeatability (fixture, exposure settings, image-analysis threshold) rather than retraining operators, since reproducibility is already fine."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "UNREACHED",
+   "extra_computation": "UNACCEPTABLE",
+   "extra_computation_detail": "All five reported computational steps concern an X-ray void-fraction MSA and void-fraction process run, not the assigned honing cylinder-bore roughness data. The individual statistical procedures would be reasonable in isolation for the correct dataset (crossed GRR, normality tests, I-MR chart, normal-capability calculation), but as used here they answer a different process and therefore are unacceptable as the project's substantive analysis.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "A proper crossed Gage R&R on the released roughness tester repeat-readings data, with percent study variation, percent tolerance, NDC, and operator/part effect p-values, would be a valid route to decide whether the roughness readings can support substantive analysis.",
+    "If no roughness MSA data were actually released or accessible, the correct route is to state that gap and stop substantive roughness conclusions at this checkpoint.",
+    "Separately, the X-ray void-fraction analysis could be valid only if the task were actually about void fraction; for the original roughness task it must be excluded or explicitly marked as non-evidence."
+   ],
+   "evidence": [
+    "Original assignment business background: 'the accepted band for roughness is 0.40 to 1.60 um Ra with 1.00 as the target.'",
+    "Submitted report scope: 'Joint void fraction against the acceptance limit (LSL = 0.0, USL = 25.0 percent void area...' and references an X-ray gage.",
+    "Submitted quantitative steps 1-5 all use batches labeled for MSA and process_run with void-fraction specification limits, not roughness 0.40-1.60 um Ra.",
+    "The report's final conclusion is about voiding, not honing roughness: 'voiding today is comfortably inside its acceptance limit and the process is capable and stable at the current sample.'"
+   ],
+   "rationale": "The focal checkpoint asks whether the recordings can support substantive analysis after the measurement system study. The available report does not address the assigned recording type at all: the original task is cylinder-bore honing roughness, but the submitted MSA, process data, capability analysis, and recommendations concern joint void fraction by X-ray. Therefore the focal substantive advancement for the assigned roughness readings must be withheld. The report's conclusions and recommended next steps are on the wrong measurement system and process, so they are forbidden in the context of the assigned task.",
+   "confidence": 5,
+   "numerical_check": "Rechecked the self-reported capability arithmetic from the submitted values: Cpk = min((25-9.6878)/(3*2.267152), (9.6878-0)/(3*2.267152)) = min(2.251, 1.424) = 1.42; Ppk = min((25-9.6878)/(3*2.416534), 9.6878/(3*2.416534)) = min(2.11, 1.336) = 1.34. The arithmetic is internally consistent, but the focal issue is the domain mismatch rather than the arithmetic. MSA and normality values were not recomputed from raw data because the provided record is self-report-only for those steps.",
+   "evidence_problem": "Missing/conflicting evidence: the original assignment concerns honing cylinder-bore roughness (0.40-1.60 um Ra), while the submitted report and all submitted computation steps concern joint void fraction from an X-ray gage. No roughness MSA or roughness process data are presented."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4610,
+  "completion_tokens": 10663,
+  "total_tokens": 15273,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 9269
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2946
+ }
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "project charter and the brightness requirement, including specification limits and improvement target",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "the repeat readings of the same units by several operators, the measurement system study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=15.12",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 15.12
+    }
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "the per-unit end-of-line brightness record, every unit in production order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 15.12
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "the designed experiment or improvement trial data on the factors driving brightness",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 15.12
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "brightness readings collected after the corrective change, to verify the improvement",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 15.12
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "the control phase data: ongoing monitoring readings and the control plan for sustaining brightness",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 15.12
+    }
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "Our end-of-line record shows brightness stepping up by about 74 cd/m2 starting at roughly the 25th unit of the run. What changed on the line at that point - a backlight current or driver setting change, a material or lot change, a recipe or calibration change?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 15.12
+    }
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "Does the charter set a numeric improvement target or nominal centring value for brightness inside the 350-550 cd/m2 range, and is there a required capability index the line must reach?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 15.12
+    }
+  }
+]

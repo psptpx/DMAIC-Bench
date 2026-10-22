@@ -1,0 +1,92 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the retained-unit attribute agreement study data with inspectors' judgements and the agreed answer key.",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the twenty-five consecutive per-lot inspected and defective counts next.",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "msa_attribute_acceptable=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Please release the machine-by-machine defective and sound unit tally for the common production window.",
+    "stage_id": "machines",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Please release the inspected and defective counts for the machine that was changed, before and after the change.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Please release the monitoring record kept since the change.",
+    "stage_id": "sustaining",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Please release the reject categories tallied for the charter and their committed level.",
+    "stage_id": "candidates",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Please release the candidate failure modes with their risk ratings.",
+    "stage_id": "failure_modes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "Please release the change trial batch: one machine's inspected and defective counts either side of a change.",
+    "stage_id": "after_change",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "What specific change was made to the high-defect machine between the before and after change trial?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

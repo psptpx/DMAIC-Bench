@@ -1,0 +1,53 @@
+{
+ "blind_id": "V037",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the fitted quadratic as an adequate response surface for dependable optimization without resolving or otherwise accommodating its significant lack of fit.",
+  "Presenting 64.28 N as a validated attainable maximum or the optimizer's settings as an established optimum.",
+  "Using confirmation at a single setting to validate the response-surface shape, establish optimality, or justify routine deployment solely on the model's recommendation."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the fitted surface and its numerical optimum as diagnostic calculations, explicitly withholding their use as validated predictions or implementation instructions.",
+  "Investigate residuals, replication, measurement consistency, model structure, and the experimental region; obtain additional design points to distinguish plausible response shapes.",
+  "Evaluate a model-suggested setting in an independently justified, controlled confirmation experiment, provided its feasibility and safety are established and the objective is pointwise performance rather than proof of optimality.",
+  "Describe the observed confirmation sample and estimate its population mean under independent, representative sampling assumptions, without treating a mean test as proof that all future seals exceed the target."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The two-factor response-surface model explains 98.02% of the composite-design variation and predicted a maximum seal strength of 64.28 N at the optimised coded settings.",
+  "However, the lack-of-fit test for the quadratic response surface is significant (p = 0.0019), so the model should be used with caution; the high R-squared does not fully remove uncertainty about the exact response surface shape.",
+  "Next steps should include: (1) run additional confirmation samples over time and across operators/shifts to verify the improvement is sustained; (2) consider a final follow-up DOE around the recommended bead-spacing/bond-angle region to resolve the lack-of-fit uncertainty; and (3) put an SPC or regular capability monitoring plan on seal strength at these settings."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Computing an optimizer result from the rejected quadratic is not inherently unacceptable as a diagnostic or candidate-generation exercise. Here its predictive use is cautioned rather than explicitly withheld, and subsequent recommendations continue to privilege the model-selected region. The confirmation sample provides potentially valid independent pointwise evidence: descriptive summaries and a one-sample mean test can remain useful despite response-surface lack of fit, conditional on independent, representative observations at a documented setting. They do not validate the surface or optimum. Baseline-versus-confirmation tests describe a cohort difference under their sampling assumptions, not a causal setting effect without control of temporal changes; Mann\u2013Whitney does not repair this design limitation. Confirmation capability is not established as sustained capability merely by computing indices from twenty observations without a demonstrated stable confirmation process.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Use the quadratic only to propose a feasible experimental candidate, explicitly reject its maximum as a dependable prediction, and assess the candidate using independent confirmation with a prespecified performance criterion.",
+  "Compare the candidate with feasible neighboring settings in randomized, replicated runs, blocking relevant time or operator effects, before making local-optimality claims.",
+  "Repair or replace the response model using scientifically motivated terms and additional informative design points, then check residual structure and predictive performance before optimizing within the supported experimental region.",
+  "Adopt a satisfactory setting without claiming optimality if independent validation establishes the relevant mean, individual-unit reliability, and sustained process behavior; distinguish these requirements explicitly."
+ ],
+ "evidence": [
+  "Step 8 reports quadratic lack-of-fit p = 0.00189864546184813 despite R-squared = 98.01737641449876%.",
+  "Step 9 reports predictedResponse = 64.28314306260685 at coded_x1 = 0.9077535443400787 and coded_x2 = 1.41421356, but supplies no prediction interval or model-repair evidence.",
+  "The report explicitly restrains its optimality claim: \"Because the response-surface model has significant lack of fit, the current recommended settings should be treated as a strong starting point rather than a fully validated optimum.\"",
+  "The confirmation summary reports n = 20, mean = 59.275 N, standard deviation = 1.9797301783190988 N, and zero observed values below 55 N.",
+  "The difference between the reported model prediction and confirmation mean is approximately 5.008 N, assuming the confirmation setting matches the optimizer setting.",
+  "The supplied public protocol threshold concerns screening significance, not response-surface adequacy; service advancement would not independently validate the quadratic."
+ ],
+ "rationale": "Significant lack of fit requires withholding model-based optimization as a dependable substantive conclusion, although it does not prohibit candidate generation or an independent pointwise confirmation experiment. The report deserves credit for acknowledging lack of fit, declining to call the optimum fully validated, and requesting further confirmation. Nevertheless, it characterizes model inadequacy primarily as uncertainty warranting caution, retains an optimized maximum, and recommends continued use and monitoring at these settings while making corrective DOE optional. This mixes substantial restraint with inadequately bounded reliance on the fitted surface. The favorable confirmation sample can support a promising operating candidate, but cannot establish the response shape, optimality, or sustained capability.",
+ "confidence": 4,
+ "numerical_check": "Checked the supplied summary arithmetic: 64.28314306260685 minus 59.275 equals 5.00814306260685 N. The confirmation mean standard error calculated from the reported standard deviation and n is approximately 0.443 N; this is not a model prediction uncertainty calculation. All fitted-model statistics and raw-data claims otherwise remain self-report-only; raw files were not accessible in the supplied conversation.",
+ "evidence_problem": "Only the supplied packet was reviewed; no repository, other reviewer output, or external source was inspected. Raw design responses, residuals, run randomization, actual confirmation settings, and confirmation time-order diagnostics were not available for verification. This review was produced by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 4608,
+  "completion_tokens": 1427,
+  "total_tokens": 6035,
+  "completion_tokens_details": {
+   "reasoning_tokens": 81
+  }
+ }
+}

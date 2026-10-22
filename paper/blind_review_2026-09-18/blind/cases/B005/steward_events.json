@@ -1,0 +1,75 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the project charter and accepted range batch for this critical fitting dimension improvement project.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the repeat readings of the same pieces from the inspector measurement study.",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=62.64435559364403",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 62.64435559364403
+    }
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Please release the piece-by-piece production record in production order for the critical fitting dimension.",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "gate": "msa_pass",
+    "detail": "your declared grr_pct=62.64435559364403 does not satisfy grr_pct <= 30 [msa_pass; source: AIAG MSA-4 Ch. II Sec. D]",
+    "declarations": {
+      "grr_pct": 62.64435559364403
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "grr_pct=51.47332960673783",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 51.47332960673783
+    }
+  },
+  {
+    "seq": 8,
+    "action": "provision",
+    "text": "The crossed MSA failed because repeatability variance dominates. Can the measurement instrument be serviced and recalibrated, and can the crossed inspector study then be repeated?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 51.47332960673783
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Please release any repeat crossed operator-by-part measurement study taken after measurement-system corrective action.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 51.47332960673783
+    }
+  }
+]

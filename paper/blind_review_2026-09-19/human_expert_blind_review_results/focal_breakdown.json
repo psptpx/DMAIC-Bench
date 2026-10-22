@@ -1,0 +1,284 @@
+{
+  "Baseline temporal stability and the analyses and conclusions that may follow.": {
+    "cases": [
+      "V001",
+      "V011",
+      "V025",
+      "V030",
+      "V033",
+      "V034",
+      "V040",
+      "V043",
+      "V056"
+    ],
+    "majority_gate_counts": {
+      "STOP": 8,
+      "GO": 1
+    },
+    "majority_trajectory_counts": {
+      "MIXED": 6,
+      "ACCEPTABLE": 3
+    },
+    "gate_disagreements": [
+      "V056"
+    ],
+    "trajectory_disagreements": [
+      "V001",
+      "V030",
+      "V034"
+    ]
+  },
+  "Baseline defect-rate chart stability, business performance, and next steps.": {
+    "cases": [
+      "V002",
+      "V012",
+      "V017",
+      "V019",
+      "V023",
+      "V027",
+      "V046",
+      "V052",
+      "V058"
+    ],
+    "majority_gate_counts": {
+      "STOP": 6,
+      "GO": 3
+    },
+    "majority_trajectory_counts": {
+      "MIXED": 3,
+      "ACCEPTABLE": 5,
+      "UNACCEPTABLE": 1
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": [
+      "V019",
+      "V027",
+      "V046",
+      "V058"
+    ]
+  },
+  "Target-attainment, implementation, or closure conclusions after confirmation experiments.": {
+    "cases": [
+      "V003",
+      "V010",
+      "V018"
+    ],
+    "majority_gate_counts": {
+      "STOP": 3
+    },
+    "majority_trajectory_counts": {
+      "MIXED": 1,
+      "ACCEPTABLE": 2
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": [
+      "V003"
+    ]
+  },
+  "Whether readings can support substantive analysis after the measurement system study.": {
+    "cases": [
+      "V004",
+      "V007",
+      "V008",
+      "V014",
+      "V024",
+      "V029",
+      "V032",
+      "V036",
+      "V039",
+      "V047",
+      "V053",
+      "V054",
+      "V055",
+      "V057",
+      "V059"
+    ],
+    "majority_gate_counts": {
+      "STOP": 9,
+      "GO": 6
+    },
+    "majority_trajectory_counts": {
+      "ACCEPTABLE": 11,
+      "MIXED": 3,
+      "NO_MAJORITY": 1
+    },
+    "gate_disagreements": [
+      "V007",
+      "V014",
+      "V024",
+      "V039",
+      "V053",
+      "V055",
+      "V057"
+    ],
+    "trajectory_disagreements": [
+      "V053",
+      "V055"
+    ]
+  },
+  "Applicability of the response-surface model and the basis for subsequent optimization.": {
+    "cases": [
+      "V005",
+      "V009",
+      "V028",
+      "V037",
+      "V041"
+    ],
+    "majority_gate_counts": {
+      "STOP": 4,
+      "GO": 1
+    },
+    "majority_trajectory_counts": {
+      "ACCEPTABLE": 3,
+      "MIXED": 2
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": []
+  },
+  "Causal judgments and next steps after candidate machine-difference analysis.": {
+    "cases": [
+      "V006",
+      "V020",
+      "V022",
+      "V026",
+      "V038"
+    ],
+    "majority_gate_counts": {
+      "GO": 2,
+      "STOP": 3
+    },
+    "majority_trajectory_counts": {
+      "ACCEPTABLE": 3,
+      "UNACCEPTABLE": 1,
+      "MIXED": 1
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": [
+      "V006",
+      "V022",
+      "V026",
+      "V038"
+    ]
+  },
+  "Whether before/after comparisons support improvement conclusions.": {
+    "cases": [
+      "V013",
+      "V044"
+    ],
+    "majority_gate_counts": {
+      "GO": 1,
+      "STOP": 1
+    },
+    "majority_trajectory_counts": {
+      "MIXED": 1,
+      "ACCEPTABLE": 1
+    },
+    "gate_disagreements": [
+      "V013"
+    ],
+    "trajectory_disagreements": [
+      "V013"
+    ]
+  },
+  "Whether the absolute post-change business level supports target attainment or closure.": {
+    "cases": [
+      "V015",
+      "V042",
+      "V051"
+    ],
+    "majority_gate_counts": {
+      "STOP": 2,
+      "GO": 1
+    },
+    "majority_trajectory_counts": {
+      "ACCEPTABLE": 3
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": []
+  },
+  "Conclusions about candidate causes and next steps after group mean comparisons.": {
+    "cases": [
+      "V016"
+    ],
+    "majority_gate_counts": {
+      "STOP": 1
+    },
+    "majority_trajectory_counts": {
+      "MIXED": 1
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": []
+  },
+  "The second (repeat) attribute agreement study and subsequent actions.": {
+    "cases": [
+      "V021"
+    ],
+    "majority_gate_counts": {
+      "STOP": 1
+    },
+    "majority_trajectory_counts": {
+      "ACCEPTABLE": 1
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": []
+  },
+  "Factor-screening results and the analyses and conclusions that may follow.": {
+    "cases": [
+      "V031",
+      "V048",
+      "V049"
+    ],
+    "majority_gate_counts": {
+      "GO": 1,
+      "STOP": 2
+    },
+    "majority_trajectory_counts": {
+      "ACCEPTABLE": 2,
+      "MIXED": 1
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": []
+  },
+  "Whether classifications can support substantive analysis after the attribute agreement study.": {
+    "cases": [
+      "V035",
+      "V045"
+    ],
+    "majority_gate_counts": {
+      "STOP": 1,
+      "GO": 1
+    },
+    "majority_trajectory_counts": {
+      "MIXED": 1,
+      "ACCEPTABLE": 1
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": []
+  },
+  "Optimization results and the basis for subsequent confirmation or implementation.": {
+    "cases": [
+      "V050"
+    ],
+    "majority_gate_counts": {
+      "STOP": 1
+    },
+    "majority_trajectory_counts": {
+      "ACCEPTABLE": 1
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": []
+  },
+  "Conclusions about candidate causes and next steps after group rank comparisons.": {
+    "cases": [
+      "V060"
+    ],
+    "majority_gate_counts": {
+      "STOP": 1
+    },
+    "majority_trajectory_counts": {
+      "UNACCEPTABLE": 1
+    },
+    "gate_disagreements": [],
+    "trajectory_disagreements": []
+  }
+}

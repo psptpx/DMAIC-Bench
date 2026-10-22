@@ -1,0 +1,176 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "qcPass": true,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All libraries met both usability criteria; both arms exceeded the minimum replication rule."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "usableLibraries": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designColumns": 3,
+        "designRank": 3,
+        "controlBatchOne": 5,
+        "controlBatchTwo": 1,
+        "treatedBatchOne": 1,
+        "treatedBatchTwo": 5
+      },
+      "status": "success",
+      "decision": "The intercept, treatment, and batch design was full rank, so the contrast is estimable with batch included."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 38,
+        "modelsConverged": 397,
+        "modelsFailed": 3,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "sizeFactorMin": 0.7897542439141303,
+        "sizeFactorMax": 1.242142681753157
+      },
+      "status": "success",
+      "decision": "Initial median-ratio normalized negative-binomial regression included preparation batch and used BH correction."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "candidates": 10,
+        "groups": 2,
+        "replicatesPerGroup": 4
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "alpha": 0.05,
+        "minConcordance": 0.75,
+        "validationPass": true
+      },
+      "status": "success",
+      "decision": "Welch tests confirmed every qPCR nominee at the required significance and direction."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 31
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis used library-normalized log counts and an intercept, batch, and treatment linear model with BH correction."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 38,
+        "modelsConverged": 399,
+        "modelsFailed": 1,
+        "repairedModels": 2,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Alternate optimization repaired two initial failures; one gene remained without a reliable fitted result and was not called."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sets": 12,
+        "universe": 400,
+        "responseGenes": 38
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "setsTested": 12,
+        "topSetSize": 30,
+        "topSetOverlap": 17,
+        "topSetOddsRatio": 21.732600732600734,
+        "topSetPValue": 4.9965632788050055e-12,
+        "topSetAdjustedPValue": 5.995875934566007e-11,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "One-sided Fisher over-representation tests followed by BH correction identified SET03."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_model",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "issue_supported_list",
+      "observed": {
+        "concordance": 1.0,
+        "nConfirmed": 10
+      }
+    },
+    {
+      "point": "fit_repair",
+      "chosen_branch": "exclude_unresolved_gene",
+      "observed": {
+        "repairedModels": 2,
+        "modelsFailed": 1
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

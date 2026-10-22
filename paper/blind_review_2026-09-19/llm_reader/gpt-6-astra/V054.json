@@ -1,0 +1,49 @@
+{
+ "blind_id": "V054",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the measurement system as adequate for substantive process characterization, precise product acceptance, or complaint discrimination.",
+  "Using the released readings to establish true process capability, current production conformity, or resolution of customer complaints.",
+  "Treating remediation alone as retroactive validation of capability indices calculated from the existing readings."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the recorded observations, explicitly distinguishing readings from verified part dimensions.",
+  "Calculate exploratory distribution summaries, trial control limits, and nominal capability indices if their substantive use is explicitly withheld.",
+  "Investigate repeatability, repair or replace the measurement method, and repeat the measurement-system study.",
+  "Reassess control and capability using a validated measurement system and a fresh, representative, time-stamped production sample."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The production summaries, normality tests, trial individuals chart, order-index correlation, and nominal capability indices are presented as descriptions of recorded readings rather than validation of the underlying production process. The report explicitly withholds final process and capability decisions and requires fresh measurements after gauge validation. The correlation test would require suitable error independence for inferential use; here its limited interpretation does not authorize substantive advancement.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Continue diagnostic analysis of the repeat study, including residual and interaction checks, before attributing measurement error to a specific physical mechanism or inspector.",
+  "Use an independently validated reference measurement method for new product or process decisions, provided its uncertainty and sampling coverage are appropriate to those decisions.",
+  "Retain the current production calculations as exploratory summaries only; establish actual capability separately after measurement adequacy, process stability, and sample representativeness have been demonstrated."
+ ],
+ "evidence": [
+  "The reported crossed study contains 3 operators, 10 parts, 3 replicates, and 90 observations, with %Study Variation 51.473329606737806, %Tolerance 54.110887452284864, and ndc 2.",
+  "The public service threshold is grr_pct <= 30.0; the reported study-variation percentage exceeds it substantially.",
+  "\"The production values are recorded observations, not confirmed piece values.\"",
+  "\"Those high values describe the released readings only.\"",
+  "\"Because the gauge failed its study and the record has no released timeframe, they should not be used as confirmation that the customer complaint is resolved or that today's production has this capability.\"",
+  "\"Quarantine precise process and product decisions that depend on this gauge.\"",
+  "\"Use the validated gauge to reconfirm control and capability on a fresh, time-stamped current-production sample.\""
+ ],
+ "rationale": "The measurement-system results support stopping substantive reliance on this gauge: both study-relative and tolerance-relative measurement variation are large, and discrimination is poor. This is not merely a literal service-threshold failure. The report nevertheless may describe released readings, and it consistently distinguishes those descriptions from justified process conclusions. Its opening reference to high calculated capability is qualified immediately and more specifically in the capability section. The computational decision describing capability as conditional on remediation is imprecise, but the actual report requires fresh validation rather than asserting that repair validates historical indices. No material forbidden focal inference or action is taken.",
+ "confidence": 4,
+ "numerical_check": "Checked internal arithmetic from the supplied summaries, not raw observations: GRR variance = 2.0132255837777775 + 0.06889931639917493 = approximately 2.082125; its standard deviation is approximately 1.44296 mm. Six times that standard deviation divided by the 16 mm tolerance gives approximately 54.1109%. Dividing GRR standard deviation by sqrt(2.082125 + 5.776422) gives approximately 51.4733%; floor(1.41 * sqrt(5.776422 / 2.082125)) gives ndc 2. The supplied within estimate 1.153506 and overall standard deviation 1.138590 reproduce Cp approximately 2.3118 and Pp approximately 2.3421. Raw-data ANOVA, normality tests, chart signals, and correlation remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was accessible in this review; referenced raw batches and service-event files were not inspected. Consequently, component estimation and observation-level results are not independently verified. Procedural blinding was maintained: no outside repository materials, other reviewer outputs, or external sources were consulted. This review was performed by an AI assistant, not a human expert; the assistant interpreted the packet and checked summary arithmetic.",
+ "_usage": {
+  "prompt_tokens": 3921,
+  "completion_tokens": 1146,
+  "total_tokens": 5067,
+  "completion_tokens_details": {
+   "reasoning_tokens": 80
+  }
+ }
+}

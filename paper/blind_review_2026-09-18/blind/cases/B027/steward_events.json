@@ -1,0 +1,89 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and the two accepted ranges for both characteristics",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same pieces on the instrument, operator study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=15.235984686487713",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 15.235984686487713
+    }
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "ndc=9.146362384622524",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 15.235984686487713,
+      "ndc": 9.146362384622524
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Outer diameter in sampling order, five to a point",
+    "stage_id": "run_diameter",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 15.235984686487713,
+      "ndc": 9.146362384622524
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Wall thickness in sampling order, five to a point",
+    "stage_id": "run_thickness",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 15.235984686487713,
+      "ndc": 9.146362384622524
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Diameter sampled separately for each turning fixture",
+    "stage_id": "fixtures",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 15.235984686487713,
+      "ndc": 9.146362384622524
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "Paired coolant delivery pressure and wall thickness",
+    "stage_id": "setting",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 15.235984686487713,
+      "ndc": 9.146362384622524
+    }
+  }
+]

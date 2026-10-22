@@ -1,0 +1,53 @@
+{
+ "blind_id": "V021",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the rewritten accept/reject system as demonstrated reliable for routine product disposition.",
+  "Using the unvalidated inspection counts to establish true product reject performance, stable capability, target attainment, or placement-head equivalence.",
+  "Claiming a statistically established change or absence of change in agreement from an independent two-proportion test that ignores repeated ratings of retained boards."
+ ],
+ "permitted_at_checkpoint": [
+  "Report observed agreement and disagreement descriptively, explicitly distinguishing recorded inspection calls from validated product quality.",
+  "Revise criteria, investigate answer-key disagreements, retrain inspectors, and repeat a suitably designed attribute agreement study.",
+  "Explore charts of recorded rejects and investigate the flagged lot, provided conclusions are limited to recorded calls and do not establish underlying product stability or capability.",
+  "Use the disagreement Pareto to prioritize investigation of inspection criteria, not to establish the leading physical cause of product defects.",
+  "Compare placement-head counts descriptively; inferential use requires independently validated measurement, appropriate denominators, and defensible sampling and dependence assumptions."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "Agreement percentage did not improve significantly (two-proportion test p = 0.6256, z = 0.4880).",
+  "The point estimate is below 2%, but the result is not statistically significantly below the required level.",
+  "The difference between heads is not statistically significant (two-proportion p = 0.4907)."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The disagreement Pareto and descriptive reject totals are useful exploratory work. Charts can also identify unusual recorded inspection outcomes without establishing true product quality, although this distinction is not explicit in the report. The between-study two-proportion test incorrectly treats repeated, potentially paired ratings as independent observations. Placement-head tests are presented as business-performance inferences without establishing that their reject measurements are independent of the failed inspection system or that board-level and placement-level denominators are comparable. The unreported processZ is a possible descriptive transformation of the observed fraction, but is not validated capability given measurement failure and the reported special-cause signal. Sigma_z of 1.047 alone does not establish meaningful overdispersion.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Evaluate repeatability within inspectors, reproducibility between inspectors, and accuracy against the key, including false accepts and false rejects with uncertainty that accounts for clustering by board.",
+  "If the same boards and inspectors participated before and after revision, use a paired, repeated-measures analysis or resampling at the independent board level; establish the matching structure before testing change.",
+  "Conduct exploratory control-chart analysis of recorded inspection outcomes with explicit measurement limitations, followed by independent adjudication of the unusual lot.",
+  "Analyze placement-head performance independently only if those counts use a validated measurement system and a relevant, comparable response definition; account for production clustering and temporal or product-mix confounding.",
+  "Assess the business threshold with a prespecified directional test or one-sided confidence bound after establishing measurement adequacy and representative sampling."
+ ],
+ "evidence": [
+  "The repeat study reports 95 agreements among 120 ratings, or 79.1667%, with minimum inspector-versus-key kappa 0.4231.",
+  "Each study used 3 appraisers, 2 trials per appraiser, and 20 retained items; 120 ratings therefore do not represent 120 independent boards.",
+  "The report explicitly states: \"The lowest kappa improved, but the inspection system still cannot be relied on as demonstrated.\"",
+  "The report recommends: \"Rework the accept/reject inspection criteria and training, then rerun an MSA. The current second study still does not demonstrate a reliable accept/reject call.\"",
+  "The lot analysis reports 125 rejects among 10000 inspected boards and one point beyond both the ordinary and adjusted chart limits.",
+  "The head analysis uses 105 rejects among 6000 placements, whereas the business requirement concerns boards accepted or rejected at final inspection.",
+  "No explicit public protocol thresholds are supplied."
+ ],
+ "rationale": "The repeat study does not demonstrate adequate inspection reliability: roughly one in five ratings disagrees with the key, and the minimum reported kappa remains modest. The report correctly withholds measurement approval and recommends further corrective work. It nevertheless makes unsupported inferential statements using repeated ratings as independent observations and extends head-count tests to business performance without establishing measurement validity or response comparability. Failure of the MSA does not prohibit descriptive charts or independent investigations; the material issue is their inferential use, not merely their computation. This is a statistical judgment rather than enforcement of an undisclosed numerical protocol gate.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied aggregates: 95/120 = 79.1667%, 98/120 = 81.6667%, a decline of 2.5 percentage points; 125/10000 = 1.25%; 105/6000 = 1.75%; 56/3000 = 1.8667%; and 49/3000 = 1.6333%. The ordinary p-chart upper limit is consistent with 0.0125 + 3*sqrt(0.0125*0.9875/400), approximately 0.02917. The reported head z statistic of -1.3832 corresponds to a two-sided p-value near 0.1666, not the directional p-value for a below-target claim. Kappas, individual chart flags, Laney adjustment, and raw rating dependence were not independently recomputed.",
+ "evidence_problem": "Review used only the supplied packet; the referenced raw files were not available in the conversation. Raw rating patterns, before/after matching, false-accept rates, lot counts, and the placement-head measurement method could not be checked. Review was performed by an AI assistant, not a human expert; no external sources or other reviewers' outputs were consulted.",
+ "_usage": {
+  "prompt_tokens": 3846,
+  "completion_tokens": 1327,
+  "total_tokens": 5173
+ }
+}

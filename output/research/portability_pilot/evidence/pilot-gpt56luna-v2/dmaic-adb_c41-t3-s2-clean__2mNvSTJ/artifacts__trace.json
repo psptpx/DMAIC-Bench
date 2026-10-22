@@ -1,0 +1,151 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s2-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "minSampleCallRate": 0.9466666666666667,
+        "platePass": true,
+        "participantsAnalyzed": 240,
+        "participantsRetained": 238
+      },
+      "status": "success",
+      "decision": "Plate passes participant QC; re-genotyping is not triggered."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150,
+        "controlParticipants": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 116,
+        "snpsRetained": 34,
+        "minVariantCallRate": 0.8333333333333334,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 115,
+        "panelVariants": 150
+      },
+      "status": "success",
+      "decision": "Retain 34 variants under call-rate, MAF, and control-HWE rules."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "retainedVariants": 34,
+        "leadingAxis": 1
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.2027663265920956e-14,
+        "pc1TStatistic": 8.0420120464221
+      },
+      "status": "success",
+      "decision": "Structure is present on PC1; association testing requires PC1/corresponding leading axes as covariates if the cohorts overlap."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "retainedVariants": 34,
+        "test": "allele-count Fisher association"
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 10,
+        "lambdaGC": 2.0533636430747255,
+        "bonferroniThreshold": 0.0014705882352941176
+      },
+      "status": "success",
+      "decision": "Ten provisional discovery hits meet the Bonferroni threshold; these are not final reportable associations until structure-adjusted analysis and replication."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "candidateVariants": 1,
+        "candidate": "rs020008"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "candidateBatchSampleFailures": 0,
+        "candidateMinCallRate": 0.9916666666666667
+      },
+      "status": "success",
+      "decision": "The released replication batch supports rs020008, but rs020008 is not one of the ten nominated discovery hits; replication of the nominated hits is unavailable."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidate": "rs020008",
+        "groups": 2
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.531324725011956,
+        "pValue": 0.0006786817183904285,
+        "sameDirection": true
+      },
+      "status": "success",
+      "decision": "rs020008 has positive same-direction evidence in the supplied replication batch, but it was not nominated from discovery."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "pass",
+      "observed": {
+        "sampleFailed": 2,
+        "sampleFailFraction": 0.008333333333333333
+      }
+    },
+    {
+      "point": "variant_qc",
+      "chosen_branch": "retain_protocol_passing_variants",
+      "observed": {
+        "snpsRetained": 34
+      }
+    },
+    {
+      "point": "structure",
+      "chosen_branch": "structure_present_covariate_required",
+      "observed": {
+        "pc1PValue": 4.2027663265920956e-14
+      }
+    },
+    {
+      "point": "replication_batch",
+      "chosen_branch": "report_gap_for_nominated_hits",
+      "observed": {
+        "nominatedDiscoveryHits": 10,
+        "releasedCandidates": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+ "blind_id": "V041",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the fitted quadratic as an adequate predictive surface or its constrained maximum as an established process optimum.",
+  "Using the nominal model prediction interval as a calibrated statement of uncertainty without addressing significant model discrepancy.",
+  "Implementing a standard operating condition solely because it maximizes this inadequate model."
+ ],
+ "permitted_at_checkpoint": [
+  "Compute canonical and constrained optima as exploratory model features, explicitly withholding claims of validated optimality and predictive coverage.",
+  "Use the surface to nominate a candidate for an independently evaluated confirmation experiment, subject to engineering feasibility and safety checks.",
+  "Investigate lack of fit, measurement repeatability, run order, and nonconstant error variance; augment the design and validate any revised model.",
+  "Assess confirmation observations independently of the surface, distinguishing demonstrated performance at one setting from optimality and long-term capability."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "Constrained to the region the design actually covers, the recommended operating point is bond angle +1.27 and bead spacing +0.61 in coded units, predicting **63.92 N** (95% prediction interval 60.72 to 67.13 N), 8.92 N above the requirement."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Canonical analysis and constrained optimization are defensible candidate-generation calculations, and an independent confirmation experiment is a valid alternative to accepting the surface's prediction. However, the report gives a nominal 95% prediction interval without withholding its coverage interpretation despite significant lack of fit. Step 21 also tests the fitted prediction as if it were a fixed known mean: its reported t statistic equals the prediction discrepancy divided by the confirmation standard error, omitting uncertainty and discrepancy in the fitted surface. Comparing a confirmation mean with an individual-response prediction interval is not a calibrated test of mean prediction accuracy. Baseline-versus-confirmation comparisons may describe a temporal difference under independence assumptions; multiple tests on the same batches are not independent corroboration or protection against temporal confounding.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Treat the optimized coordinates only as a candidate and evaluate new observations there using an independently specified acceptance criterion. Successful confirmation can support provisional use at that setting, but not optimality over the region.",
+  "Replicate additional noncentre settings, inspect residuals and run order, and augment the design to distinguish functional misspecification from heterogeneous variance. Use a revised predictive model only after checking its adequacy.",
+  "Compare nearby candidate settings in a randomized, replicated experiment, with selection-aware uncertainty or independent validation, to establish a local operating recommendation without relying on this quadratic's optimum.",
+  "For prediction validation, compare the confirmation mean with a prediction for a batch mean that includes fitted-model uncertainty and a defensible treatment of discrepancy; otherwise report the observed prediction miss descriptively."
+ ],
+ "evidence": [
+  "Step 8 reports lack-of-fit F = 40.3416 and p = 0.0018986 despite R-squared = 98.0174%.",
+  "The report explicitly acknowledges: \"Predictions from it carry more error than the fit statistics alone suggest.\"",
+  "Steps 9\u201311 proceed from an exterior stationary point at radius 2.08189 to a boundary candidate at radius approximately 1.41421 and a nominal prediction interval of 60.7194 to 67.1270 N.",
+  "The report states: \"This is exactly what the significant lack of fit warned about, and it is why the confirmation run, not the model, is the basis for the verdict.\"",
+  "The confirmation mean is 59.275 N versus a model prediction of 63.9232 N, a discrepancy of -4.6482 N.",
+  "The report refuses project closure on the 55 N margin and explicitly warns against using the exterior stationary point."
+ ],
+ "rationale": "Significant lack of fit blocks routine acceptance of the quadratic for quantitative optimization; high explained variance and a radius constraint do not repair it. It does not prohibit exploratory optimization followed by genuine independent confirmation. The report substantially follows that defensible alternative and does not ultimately base implementation solely on the surface. Nevertheless, it presents a precise model-based prediction interval as usable and calls the radial constraint the region actually covered, without establishing interpolation support. The subsequent model-validation p-value is also miscalibrated. These are material focal weaknesses alongside real restraint, warranting MIXED rather than rejecting all downstream computation. The supplied public service rule concerns screening significance only; service release does not establish response-surface adequacy.",
+ "confidence": 4,
+ "numerical_check": "Checked from supplied summary values: 59.275 - 63.9232136 = -4.6482136 N; confirmation standard error is 1.9797302/sqrt(20), approximately 0.44268 N; dividing the discrepancy by this gives approximately -10.5001, reproducing step 21 and showing that fitted-prediction uncertainty was omitted. No raw-data refit was performed; other statistics remain self-report-only.",
+ "evidence_problem": "Raw batches and service-event files were referenced but not available for inspection in this exchange. Randomization, exact design support, residual diagnostics, and independence of confirmation observations could not be verified. Review used only the supplied blind packet; no external sources, other reviewers, or repository materials were accessed. This assessment was produced by an AI assistant, not a human expert.",
+ "_usage": {
+  "prompt_tokens": 8633,
+  "completion_tokens": 1219,
+  "total_tokens": 9852
+ }
+}

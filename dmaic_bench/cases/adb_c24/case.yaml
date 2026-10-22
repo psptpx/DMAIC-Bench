@@ -1,0 +1,311 @@
+schema_version: 1
+case_id: adb_c24
+title: Automatic assembly line first-attempt pass rate — charter to closure
+tier: T3
+industry: electronics
+provenance: SIMULATED
+y_type: attribute_proportion
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off a source project
+# record, never estimated. See docs/archive/difficulty-effort-axis-2026-09-04.md.
+#
+# Left null ON PURPOSE, and the reason is not "no record exists". This case's STRUCTURE is
+# reused from a project whose effort is already observed and already recorded against another
+# case. Entering the figure here too would put one observed project into the corpus effort
+# distribution twice and inflate the axis by exactly one case. An inherited number is not an
+# observed one, so no figure is entered.
+#
+# The originating project's dates, team composition and hours are deliberately NOT repeated
+# here. They were, in an earlier revision: a public file stating a real project's exact date
+# range and org-chart size narrows the candidate set for anyone trying to identify it, which
+# is precisely the residual risk docs/HELD_OUT.md names. The reasoning above needs none of it.
+expert_hours: null
+junior_hours: null
+effort_source: >-
+  none entered — this case's structure is reused from a project whose observed effort is
+  already recorded against a different case (held out of the public release; see
+  docs/HELD_OUT.md). adb_c24's data is regenerated from a seed and shares that one human
+  project record, so its hours would be
+  inherited rather than observed, and an inherited figure entered here would put a single
+  project into the corpus effort distribution twice.
+
+context: |
+  Our plant runs an automatic assembly line that builds electronics-bay units for two
+  long-standing customers. Each unit either passes the end-of-line functional and fit check on
+  its first attempt or it is sent to the rework bench; the share that passes first time is the
+  one number both customers carry on their quarterly scorecard, and across the last six months
+  it has sat near ninety per cent while the annual build plan has grown past two hundred
+  thousand units. At the last scorecard review the customers asked us to commit to a level and
+  a date, and a corrective plan was opened.
+
+  We hold, from the plant's own records: the charter pack, which carries the six-month build
+  and first-attempt-failure ledger together with the equipment group's own proposal to judge
+  the line instead on a carrier-pallet bore dimension, and a single check of twelve pallets
+  against that drawing tolerance; the rework bench's teardown log, which classifies every unit
+  that failed first time; the bench inspectors' repeat judgements on a retained set of units
+  whose true condition the process owner had established beforehand; the day-by-day build
+  records over the baseline window; bore readings on pallets drawn from three pallet suppliers;
+  a station-by-station tally of first-attempt outcomes; a trial matrix in which press force,
+  pallet clearance and dwell time were each run at a low and a high level, the whole matrix run
+  twice; the pilot production run that followed; the daily records of the line after the change
+  was released; and a twelve-week record of the released line.
+
+goal: |
+  Take the project end to end and report it as one account. Settle which output characteristic
+  the project is accountable for, then quantify from the records where it stands today and
+  which fault classes carry most of it. Establish, before anything is allowed to rest on it,
+  whether the pass/fail judgement at the bench can be trusted, and whether the baseline record
+  is homogeneous from period to period or carries a real run-to-run component that its limits
+  have to absorb. Find what separates a unit that passes first time from one that fails, across
+  the pallet sources and across the stations. Settle the line settings that raise first-attempt
+  success and confirm the gain on the pilot run. Put the released line under ongoing
+  surveillance with limits fit for how the record is actually built, and report whether the
+  level the customers were committed to has in fact been reached. Every figure must be
+  traceable to the record it came from.
+
+stages:
+  # ------------------------------------------------------------------ DEFINE
+  - stage_id: D_Charter
+    phase: define
+    label: Charter pack — six-month build ledger, the customer commitment, and a rival candidate
+    topics: [charter, build ledger, scorecard, mandate, candidate, six-month record]
+    summary_fact: >-
+      The project is accountable for the share of units passing the end-of-line check first
+      time; over the six-month baseline window roughly one unit in ten failed at the first
+      attempt, and the customers were committed to 96% passing with 98% as a stretch.
+    methods:
+      - method_id: capability.binomial
+        required: true
+  - stage_id: D_Scope
+    phase: define
+    label: Teardown log of every unit that failed at the first attempt
+    topics: [teardown, fault class, classified, breakdown of failures, rework bench log]
+    summary_fact: >-
+      One fault class carries by far the largest share of the classified failures, and the four
+      largest classes together cover most of them.
+    methods:
+      - method_id: quality.pareto
+        required: true
+
+  # ------------------------------------------------------------------ MEASURE
+  - stage_id: M_Judgement
+    phase: measure
+    label: Repeat bench judgements on a retained set against a known condition
+    topics: [inspector, retained set, known condition, repeat judgement, bench judgement]
+    summary_fact: >-
+      The bench judgement was established as trustworthy against the known condition before any
+      conclusion was allowed to rest on it.
+    methods:
+      - method_id: msa.attribute_agreement
+        required: true
+  - stage_id: M_Baseline
+    phase: measure
+    label: Day-by-day build records over the baseline window
+    topics: [baseline window, daily build records, day-by-day, thirty build days]
+    summary_fact: >-
+      The baseline record carries a real period-to-period component on top of the unit-to-unit
+      one, so limits built from unit-to-unit variation alone are too tight for it.
+    methods:
+      - method_id: control_chart.laney_p
+        required: true
+
+  # ------------------------------------------------------------------ ANALYZE
+  - stage_id: A_Sources
+    phase: analyze
+    label: Carrier-pallet bore readings from the three pallet suppliers
+    topics: [pallet supplier, bore reading, three suppliers, supplier]
+    summary_fact: >-
+      The three pallet suppliers deliver bores of the same shape and the same spread but not the
+      same level.
+    methods:
+      - method_id: basic.normality
+        required: true
+      - method_id: anova.equal_variances
+        required: true
+      - method_id: anova.oneway
+        required: true
+  - stage_id: A_Stations
+    phase: analyze
+    label: Station-by-station tally of first-attempt outcomes
+    topics: [station, by station, station tally]
+    summary_fact: >-
+      First-attempt outcomes are not the same across the three assembly stations.
+    methods:
+      - method_id: tables.chisquare_assoc
+        required: true
+
+  # ------------------------------------------------------------------ IMPROVE
+  - stage_id: I_Matrix
+    phase: improve
+    label: Trial matrix — press force, pallet clearance and dwell time, each at two levels
+    topics: [trial matrix, press force, pallet clearance, dwell time, two levels]
+    summary_fact: >-
+      Press force and pallet clearance dominate seating depth and act on each other; dwell time
+      matters least of the three.
+    methods:
+      - method_id: doe.factorial_analysis
+        required: true
+  - stage_id: I_Pilot
+    phase: improve
+    label: The pilot production run that followed
+    topics: [pilot, production run that followed, run at the new settings]
+    summary_fact: >-
+      The pilot run at the new settings showed a large drop in first-attempt failures against
+      the last run at the old settings.
+    methods:
+      - method_id: basic.two_proportions
+        required: true
+
+  # ------------------------------------------------------------------ CONTROL
+  - stage_id: C_Released
+    phase: control
+    label: Daily records of the line after the change was released
+    topics: [released line, after the change was released, post-release, ongoing surveillance]
+    summary_fact: >-
+      The released line's daily record is homogeneous and holds no period outside its own
+      limits.
+    methods:
+      - method_id: control_chart.p
+        required: true
+  - stage_id: C_Confirmation
+    phase: control
+    label: Twelve-week record of the released line, against the level the charter committed to
+    topics: [twelve week, weekly record, confirmation window, against the level committed]
+    summary_fact: >-
+      The twelve-week record after release is the evidence the chartered commitment is judged
+      against.
+    methods:
+      - method_id: capability.binomial
+        required: true
+
+decision_points:
+  # ----------------------------------------------------------------- DEFINE
+  # The two candidates route to DIFFERENT method families on DIFFERENT payload keys inside the
+  # same charter pack, which is what makes this visible to a trace at all: an agent that adopts
+  # the bore dimension as the project metric produces a capability index on a continuous
+  # characteristic, an agent that adopts the customer's metric produces one on a pass/fail
+  # record. Two branches that ran the same method would be invisible to branch_evidence.
+  - point_id: project_y_selection
+    phase: define
+    rule: >-
+      The project's output characteristic is the one the customer names, holds a record for over
+      the declared baseline window, and can be measured without standing up a new measurement
+      system: the share of units passing the end-of-line check at the first attempt. The
+      carrier-pallet bore is an input carried on a drawing tolerance, checked once on twelve
+      pallets with no earlier record and no place on the customer scorecard; adopting it as the
+      project's metric — or indexing it alongside as though it were one — answers a question
+      nobody asked and leaves the committed level unquantified.
+    source: >-
+      Pyzdek & Keller, The Six Sigma Handbook 3e ch.5 (selecting the project Y from the voice of
+      the customer); George, Lean Six Sigma Pocket Toolbook (Y selection: the customer's
+      measured output, not a convenient input)
+    correct_branch: customer_pass_rate_y
+    acceptable_branches: []
+    branch_evidence:
+      customer_pass_rate_y: [capability.binomial]
+      pallet_bore_dimension_y: [capability.normal]
+
+  # ----------------------------------------------------------------- MEASURE
+  - point_id: measurement_study_route
+    phase: measure
+    rule: >-
+      What has to be trusted before anything rests on it is a human pass/fail call against a
+      known condition — there is no continuous reading of the project's output characteristic to
+      repeat. The study is therefore the agreement of each inspector's repeated calls with the
+      established condition and with each other; a repeatability-and-reproducibility study of a
+      variable gauge has nothing here to act on and answers a different question.
+    source: >-
+      AIAG MSA-4 ch.3 §C (attribute measurement systems: agreement against a known standard) vs
+      ch.3 §B (variable gauge studies); Montgomery ISQC 6e §8.7
+    correct_branch: attribute_agreement_study
+    acceptable_branches: []
+    branch_evidence:
+      attribute_agreement_study: [msa.attribute_agreement]
+      variable_gauge_study: [msa.gage_rr_crossed]
+
+  # ----------------------------------------------------------------- ANALYZE
+  - point_id: pallet_source_comparison_route
+    phase: analyze
+    rule: >-
+      The bore readings are continuous, the three sources are of equal size, the pooled readings
+      pass the shape check comfortably and the three spreads are homogeneous — every
+      precondition of the parametric comparison of three means is met and visibly so. Falling
+      back to ranks here discards information the data actually supports using, and the payload
+      declares the equal-variance reading the stored result was computed under.
+    source: >-
+      Montgomery ISQC 6e §3.4 and Montgomery, Design and Analysis of Experiments 8e §3.4
+      (assumption checks preceding, and licensing, the parametric k-sample comparison)
+    correct_branch: parametric_k_sample
+    acceptable_branches: []
+    branch_evidence:
+      parametric_k_sample: [anova.oneway]
+      rank_k_sample: [nonparametric.kruskal_wallis]
+
+  # ----------------------------------------------------------------- IMPROVE
+  - point_id: pilot_confirmation_route
+    phase: improve
+    rule: >-
+      The pilot compares two independent production runs of different size whose outcome is a
+      per-unit pass or fail, and no unit appears in both. There is no unit-to-unit
+      correspondence to pair on, so the confirmation is a comparison of two independent shares
+      against the null-consistent pooled standard error the payload declares; treating the two
+      runs as matched observations invents a correspondence the records do not contain.
+    source: >-
+      Fleiss, Levin & Paik, Statistical Methods for Rates and Proportions 3e §2.3 (comparison of
+      two independent proportions, pooled standard error under the null); Montgomery & Runger 7e
+      §10.4 (pairing requires a matched design)
+    correct_branch: independent_share_comparison
+    acceptable_branches: []
+    branch_evidence:
+      independent_share_comparison: [basic.two_proportions]
+      matched_pair_comparison: [basic.paired_t]
+
+  # ----------------------------------------------------------------- CONTROL
+  - point_id: sustaining_chart_route
+    phase: control
+    rule: >-
+      One plotted observation on the released line is a build day in which each unit is a pass
+      or a fail, and the day's build quantity varies by more than a factor of 1.4 across the
+      window, so the limits have to be recomputed from each day's own quantity. The record is
+      homogeneous — no extra period-to-period component survives once the day's quantity is
+      accounted for — so no inflation of those limits is warranted either. A constant-quantity
+      count chart is undefined for a varying build quantity, and an individuals chart treats a
+      share built from a denominator as if it were a single measurement on a continuous scale.
+    source: >-
+      AIAG SPC-2 2e Ch. II Sec. C (chart selection by what one plotted observation is);
+      Montgomery ISQC 6e §7.2.1 (varying subgroup size) and §7.2.2 (constant subgroup size);
+      Laney (2002) Quality Engineering 14(4) 531-537 (when inflated limits are and are not
+      warranted)
+    correct_branch: varying_size_share_chart
+    acceptable_branches: []
+    branch_evidence:
+      varying_size_share_chart: [control_chart.p]
+      constant_size_count_chart: [control_chart.np]
+      individuals_chart: [control_chart.imr]
+
+order_constraints:
+  - before: basic.normality
+    after: anova.oneway
+    source: >-
+      Montgomery ISQC 6e §3.4 — the distributional check licenses the parametric comparison; a
+      comparison that assumes a shape it never looked at established nothing
+  - before: anova.equal_variances
+    after: anova.oneway
+    source: >-
+      Montgomery, Design and Analysis of Experiments 8e §3.4 — the equal-spread assumption is
+      checked before the comparison that pools on it, not after
+  - before: doe.factorial_analysis
+    after: basic.two_proportions
+    source: >-
+      Montgomery, Design and Analysis of Experiments 8e §6.7 — a confirmation run confirms the
+      settings the analysed design pointed to; run first, it confirms nothing in particular
+
+faults:
+  - stage_id: M_Judgement
+    method_id: msa.attribute_agreement
+  - stage_id: I_Matrix
+    method_id: doe.factorial_analysis

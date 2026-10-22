@@ -1,0 +1,121 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "samples": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA attempt failed before computation because the sklearn dependency was unavailable."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "samples": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesRetained": 239,
+        "plateViable": true,
+        "minCallRate": 0.9466666666666667,
+        "maxCallRate": 1.0,
+        "minSampleCallRateThreshold": 0.95,
+        "maxSampleFailFractionThreshold": 0.1,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119
+      },
+      "status": "success",
+      "decision": "Plate can carry analysis: the participant failure fraction did not exceed the re-genotyping trigger; P129 was excluded."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "samples": 239,
+        "variants": 150,
+        "batch": "genotypes",
+        "controlGroupSize": 119
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 4,
+        "minObservedCallRate": 0.803347280334728,
+        "minObservedMaf": 0.002109704641350211,
+        "minObservedHwePControls": 4.388203030819897e-09,
+        "minVariantCallRateThreshold": 0.95,
+        "minMafThreshold": 0.01,
+        "minHwePControlsThreshold": 1e-06,
+        "bonferroniThreshold": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "Retained variants passing call rate, pooled MAF, and unaffected-participant HWE rules."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "samples": 239,
+        "variants": 137,
+        "groups": 2,
+        "leadingAxesTested": 10,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 2,
+        "pc1PValue": 0.5031215641305578,
+        "separationAxisPValue": 1.5825823445808949e-139,
+        "separationAxisTStatistic": 60.88768020784996,
+        "separationAxisVarianceFraction": 0.08136027771197267,
+        "separationAxisRangeOverlapFraction": 0.0,
+        "caseMeanAxis2": 3.223466514231162,
+        "controlMeanAxis2": -3.250554468132264
+      },
+      "status": "success",
+      "decision": "Affected and unaffected groups are completely separated on PC2 and cannot be compared under the protocol; stop before association testing."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_viability",
+      "chosen_branch": "continue_qc",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667,
+        "plateViable": true
+      }
+    },
+    {
+      "point": "cohort_comparability",
+      "chosen_branch": "stop_no_association_testing",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 2,
+        "rangeOverlapFraction": 0.0,
+        "pValue": 1.5825823445808949e-139
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "not_applicable_no_discovery_candidates",
+      "observed": {
+        "associationTestingPerformed": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

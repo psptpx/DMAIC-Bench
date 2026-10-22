@@ -1,0 +1,119 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "I need the inspector judgements of the retained units against the agreed answer key, for the attribute agreement study",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "I need the reject categories tallied for the charter, including the committed defective level",
+    "stage_id": "candidates",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "I need the candidate failure modes with their risk ratings",
+    "stage_id": "failure_modes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "kappa_min=0.3478260869565216",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "declare",
+    "text": "msa_acceptable=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "declare",
+    "text": "agreement_pct=30.0",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "I need the per-lot record: inspected units and defective units for each of the twenty-five consecutive lots, in lot order",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "I need the machine-by-machine tally of defective and sound units over the common window",
+    "stage_id": "machines",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "I need the inspected and defective counts for the one machine either side of the change that was made to it",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 12,
+    "action": "request",
+    "text": "I need the before and after a change data for the change trial on that one machine",
+    "stage_id": "after_change",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 13,
+    "action": "request",
+    "text": "I need the monitoring record kept since the change",
+    "stage_id": "sustaining",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 14,
+    "action": "provision",
+    "text": "What exactly was the change made to that machine, and which machine was it made to?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 15,
+    "action": "provision",
+    "text": "Do the appearance inspectors work to a written standard with boundary or limit samples, and have they been trained and qualified against it?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

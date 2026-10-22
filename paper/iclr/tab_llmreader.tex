@@ -1,0 +1,25 @@
+\setlength{\tabcolsep}{3pt}
+\tablepanel{(a) Agreement with the expert majority}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrr@{}}
+\toprule
+\thead{Reader} & \thead{Contestant} & \multicolumn{1}{c}{\thead{Acted\\agreement ($\kappa$)}} & \multicolumn{1}{c}{\thead{Gate\\agreement ($\kappa$)}} & \multicolumn{1}{c@{}}{\thead{Conduct\\agreement ($\kappa$)}} \\
+\midrule
+Human majority & --- & $\kappa$ 0.72$^\dagger$ & $\kappa$ 0.76$^\dagger$ & $\kappa$ 0.68$^\dagger$ \\
+\midrule
+GPT-6-astra & yes & 0.75 (0.53) & 0.88 (0.67) & 0.65 (0.42) \\
+DeepSeek-v4-pro & yes & 0.80 (0.60) & 0.67 (0.26) & 0.70 (0.47) \\
+Gemini-3.1-pro & no & 0.65 (0.26) & 0.72 (0.34) & 0.53 (0.19) \\
+\bottomrule
+\end{tabular*}
+\tablepanel{(b) Reported rates, diagnostic accuracy and own-report agreement}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+\toprule
+\thead{Reader} & \multicolumn{1}{c}{\thead{No-go\\acted (\%)}} & \multicolumn{1}{c}{\thead{Go\\acted (\%)}} & \multicolumn{1}{c}{\thead{Sensitivity}} & \multicolumn{1}{c}{\thead{Specificity}} & \multicolumn{1}{c}{\thead{Own\\agree ($n$)}} & \multicolumn{1}{c@{}}{\thead{Others\\agree ($n$)}} \\
+\midrule
+Human majority & 45\% & 30\% & --- & --- & --- & --- \\
+\midrule
+GPT-6-astra & 72\% & 50\% & 1.00 & 0.50 & 1.00 (4) & 0.73 (56) \\
+DeepSeek-v4-pro & 52\% & 45\% & 0.83 & 0.73 & 0.43 (7) & 0.85 (53) \\
+Gemini-3.1-pro & 30\% & 45\% & 0.39 & 0.77 & --- & --- \\
+\bottomrule
+\end{tabular*}

@@ -1,0 +1,248 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage_id": "define"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 6.8,
+        "target": 7.15,
+        "usl": 7.5
+      },
+      "status": "success",
+      "decision": "Accepted range and target extracted"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 7.1604833333333335,
+        "median": 7.1765,
+        "stdDev": 0.13950742543467862,
+        "skewness": -0.2457671514609367,
+        "adPValue": 0.535813052387367,
+        "sampleSize": 60,
+        "minimum": 6.807,
+        "maximum": 7.414,
+        "outsideSpecCount": 0
+      },
+      "status": "success",
+      "decision": "Baseline summarized; no values outside specification"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.502615839043691,
+        "statistic": 0.9816590963636967,
+        "adPValue": 0.535813052387367,
+        "adStatistic": 0.31442770376673224
+      },
+      "status": "success",
+      "decision": "No evidence of non-normality in baseline"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 0.5627349992385431,
+        "tStatistic": 0.5820733238568926
+      },
+      "status": "success",
+      "decision": "No significant baseline mean offset from target"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.8536998350742169,
+        "cpk": 0.8281294923950885,
+        "pp": 0.8433329809339088,
+        "ppk": 0.8180731502192687
+      },
+      "status": "success",
+      "decision": "Capability below a capable-process level"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 7.570463499218656,
+        "individualsLCL": 6.750503167448011,
+        "centerLine": 7.1604833333333335,
+        "flaggedCount": 0,
+        "mrBar": 0.15415254237288134,
+        "sigmaEstimate": 0.13666005529510758
+      },
+      "status": "success",
+      "decision": "No I-MR signals detected"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "stage_id": "logged_variables",
+        "sampleSize": 48,
+        "predictors": [
+          "v1",
+          "v2",
+          "v3"
+        ]
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.8931051172421621,
+        "rSquaredPct": 1.3715685037972047,
+        "rSquaredAdjPct": -5.353097280034791,
+        "v1PValue": 0.6102380201868818,
+        "v2PValue": 0.7654909241233167,
+        "v3PValue": 0.7317844121532142,
+        "sampleSize": 48
+      },
+      "status": "success",
+      "decision": "Logged variables do not account for fillet height"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "stage_id": "design",
+        "numRuns": 16,
+        "numFactors": 3,
+        "numReplicates": 2
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 7.688688499771875e-05,
+        "rSquaredPct": 95.65009623416219,
+        "rSquaredAdjPct": 91.8439304390541,
+        "chain_speedPValue": 5.781140867010388e-06,
+        "rail_anglePValue": 0.00014181781816853994,
+        "air_pressurePValue": 0.06523312049063429,
+        "chain_speed_rail_anglePValue": 0.008076770702043238,
+        "chain_speed_effect": 0.28866250000000093,
+        "rail_angle_effect": 0.18571250000000106,
+        "air_pressure_effect": 0.05856250000000074,
+        "numFactors": 3,
+        "numRuns": 16,
+        "numReplicates": 2
+      },
+      "status": "success",
+      "decision": "Significant factorial model; chain speed, rail angle, and their interaction significant"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "n1": 30,
+        "n2": 30
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.021441224975583952,
+        "statistic": 5.5891768509483875
+      },
+      "status": "success",
+      "decision": "Unequal variances between before and after windows"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "n1": 30,
+        "n2": 30
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.2399191446414538,
+        "tStatistic": -1.1888193048157785,
+        "mean1": 7.156666666666669,
+        "mean2": 7.1957,
+        "stdDev1": 0.10315182427167587,
+        "stdDev2": 0.14731344719385914,
+        "meanDiff": 0.03903333333333148,
+        "n1": 30,
+        "n2": 30
+      },
+      "status": "success",
+      "decision": "No statistically significant mean difference in fillet height before versus after the change"
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "window": "before",
+        "sampleSize": 30
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.1264462809917362,
+        "cpk": 1.1049901613537907,
+        "pp": 1.15035399491451,
+        "ppk": 1.128442490249464,
+        "outsideSpecCount": 0
+      },
+      "status": "success",
+      "decision": "Before-change window capability summarized"
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "window": "after",
+        "sampleSize": 30
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.7350539291217261,
+        "cpk": 0.6390768875192596,
+        "pp": 0.8055008921044944,
+        "ppk": 0.7003254899068492,
+        "outsideSpecCount": 0
+      },
+      "status": "success",
+      "decision": "After-change window capability summarized"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "factorial_significance_gate",
+      "chosen_branch": "significant_factors_declared_true",
+      "observed": {
+        "modelPValue": 7.688688499771875e-05,
+        "chain_speedPValue": 5.781140867010388e-06,
+        "rail_anglePValue": 0.00014181781816853994,
+        "chain_speed_rail_anglePValue": 0.008076770702043238
+      }
+    },
+    {
+      "point": "before_after_variance_assumption",
+      "chosen_branch": "welch_two_sample_t",
+      "observed": {
+        "levenePValue": 0.021441224975583952
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

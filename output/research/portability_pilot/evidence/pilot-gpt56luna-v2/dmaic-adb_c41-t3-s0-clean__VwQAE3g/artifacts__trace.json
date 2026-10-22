@@ -1,0 +1,214 @@
+{
+  "system_id": "openai-command-line",
+  "task_id": "adb_c41-T3-s0-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "nParticipants": 240,
+        "nVariants": 150
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "panelVariants": 150,
+        "discoveryParticipants": 240,
+        "affected": 120,
+        "unaffected": 120,
+        "replicationParticipants": 120
+      },
+      "status": "success",
+      "decision": "Protocol and cohort sizes established."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "nParticipants": 240,
+        "nVariants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "minSampleCallRate": 0.94,
+        "samplePass": true,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate proceeds; re-genotyping gate is not triggered."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "nParticipants": 240,
+        "nVariants": 150,
+        "controls": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "minVariantCallRate": 0.7708333333333334,
+        "minRetainedMaf": 0.05982905982905983,
+        "minRetainedHweP": 0.009297138636372911
+      },
+      "status": "success",
+      "decision": "Preliminary variant QC before excluding failed participants."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "nParticipants": 237,
+        "nVariants": 137
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 5,
+        "pc1PValue": 0.8666902364429939,
+        "minimumLeadingAxisPValue": 0.10983038816211961,
+        "axesExamined": 5
+      },
+      "status": "success",
+      "decision": "No affected/unaffected ancestry separation requiring covariates was detected in the leading five axes."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "nParticipants": 237,
+        "nVariants": 137
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "participantsRetained": 237
+      },
+      "status": "success",
+      "decision": "Final variant QC after participant exclusion."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "nParticipants": 237,
+        "nVariants": 137
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.1143373639509646,
+        "bonferroniThreshold": 0.00036496350364963507,
+        "testedVariants": 137
+      },
+      "status": "success",
+      "decision": "One discovery association passes Bonferroni correction."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variant": "rs000008"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.7865156483986326,
+        "pValue": 9.974888997073213e-10,
+        "positiveDirection": true
+      },
+      "status": "success",
+      "decision": "rs000008 has a positive discovery effect."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "nParticipants": 237,
+        "nVariants": 137
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.2854178314750344,
+        "bonferroniThreshold": 0.00036496350364963507,
+        "covariateAxes": 5
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis including five PCs also found one significant hit."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "replication",
+        "nParticipants": 120,
+        "candidateVariants": 1
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.016666666666666666,
+        "candidateCallRate": 0.9916666666666667
+      },
+      "status": "success",
+      "decision": "Replication candidate has adequate observed call rate."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "replication",
+        "nParticipants": 120,
+        "candidateVariants": 1
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "replicationPValue": 5.037312231519281e-05,
+        "sameDirection": true,
+        "replicationOddsRatio": 3.2240861372085563
+      },
+      "status": "success",
+      "decision": "rs000008 replicates at p<0.05 with the same positive direction and is reportable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "proceed",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "threshold": 0.1
+      }
+    },
+    {
+      "point": "structure",
+      "chosen_branch": "no_covariates_required",
+      "observed": {
+        "separated": false,
+        "minimumLeadingAxisPValue": 0.10983038816211961
+      }
+    },
+    {
+      "point": "discovery_hits",
+      "chosen_branch": "nominate_rs000008",
+      "observed": {
+        "nSignificant": 1
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "report_rs000008",
+      "observed": {
+        "nReplicated": 1,
+        "nCandidates": 1
+      }
+    }
+  ]
+}

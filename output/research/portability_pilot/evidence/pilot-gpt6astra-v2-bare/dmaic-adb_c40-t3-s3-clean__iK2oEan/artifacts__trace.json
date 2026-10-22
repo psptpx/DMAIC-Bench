@@ -1,0 +1,65 @@
+{
+  "system_id": "analysis-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12
+      },
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "usableControl": 6,
+        "usableTreated": 2,
+        "requiredReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "totalLibraries": 12
+      },
+      "status": "success",
+      "decision": "Insufficient usable treated replication; halt inferential analysis."
+    },
+    {
+      "step_id": 2,
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "lowReadLibraries": 2,
+        "lowMappingLibraries": 2,
+        "treatedReplicateDeficit": 1
+      },
+      "status": "success",
+      "decision": "Separate low assigned-read yield from low mapping; these metrics do not establish technical root causes."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_adequacy",
+      "chosen_branch": "insufficient_replication",
+      "observed": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "usableControl": 6,
+        "usableTreated": 2,
+        "requiredReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "totalLibraries": 12
+      }
+    },
+    {
+      "point": "sample_sheet_access",
+      "chosen_branch": "stop_at_locked_replication_gate",
+      "observed": {
+        "min_replicates": 2
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

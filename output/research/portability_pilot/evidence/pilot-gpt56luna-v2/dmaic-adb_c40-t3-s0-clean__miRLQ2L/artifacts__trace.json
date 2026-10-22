@@ -1,0 +1,126 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c40-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableControl": 6,
+        "usableTreated": 6
+      },
+      "status": "success",
+      "decision": "QC passed for both arms."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "sampleCount": 12
+      },
+      "status": "success",
+      "decision": "Treatment is estimable separately from preparation batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 39,
+        "geneCount": 400,
+        "sampleCount": 12,
+        "log2fcThreshold": 1.0,
+        "padjThreshold": 0.05
+      },
+      "status": "success",
+      "decision": "39 genes met adjusted-p and effect-size criteria."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "validatedCandidates": 10,
+        "replicatesPerArm": 4,
+        "groups": 2
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidatesValidated": 10,
+        "minConcordance": 0.75,
+        "alpha": 0.05,
+        "nUnvalidatedCandidates": 29
+      },
+      "status": "success",
+      "decision": "Validation supports issuing the candidate list for the validated subset."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "universe": 400,
+        "candidateCount": 39,
+        "setCount": 12
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "universe": 400,
+        "candidateCount": 39,
+        "setCount": 12,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "One annotated set was significantly enriched after BH adjustment."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "usable_library_gate",
+      "chosen_branch": "continue",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "continue",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "issue_candidate_list",
+      "observed": {
+        "concordance": 1.0,
+        "minConcordance": 0.75
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

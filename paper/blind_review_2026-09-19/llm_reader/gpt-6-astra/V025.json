@@ -1,0 +1,50 @@
+{
+ "blind_id": "V025",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Treating the baseline as conforming or adequately centered.",
+  "Treating a finite control-chart screen as proof of permanent stability or as assurance about future operating conditions.",
+  "Inferring a specific physical cause from baseline stability or from a nonsignificant applicator comparison."
+ ],
+ "permitted_at_checkpoint": [
+  "Provisionally treating the sampled baseline as statistically controlled under the stated X-bar/R point-limit screen, conditional on correct chronological subgrouping and accurate chart calculations.",
+  "Reporting observed nonconformance and estimating baseline capability with the stated normal model, while distinguishing potential spread from actual centering.",
+  "Continuing diagnostic applicator comparisons, provided independence and sampling comparability are defensible and the results are not interpreted as causal proof or proof of equivalence.",
+  "Describing the subsequent monitoring record separately without attributing its change to an undocumented intervention."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "Baseline capability estimation is a defensible continuation of the reported X-bar/R screen rather than an impermissible bypass. Observed nonconformance is directly descriptive and does not require temporal stability. The applicator analysis appropriately stops short of identifying a cause; its inferential validity remains conditional on independent, comparable samples. The pre/post summaries establish sample differences, not intervention effects. The subsequent capability estimates are explicitly provisional and concern a separate monitoring record; their long-term validation is not established by the baseline gate.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use a prespecified three-sigma X-bar/R point-limit screen for rational subgroups of five; report no detected special-cause signals rather than claiming stability has been proved.",
+  "Examine chronological subgroup means and ranges for sustained shifts, trends, or dependence if the raw ordered record is available. Any detected material temporal structure would require revisiting the pooled capability interpretation.",
+  "Report empirical specification counts regardless of the normality or stability decision, limiting them to the observed sample.",
+  "Use applicator comparisons as exploratory association analyses only if sampling independence and temporal comparability hold; establish a causal applicator effect through an appropriately randomized or blocked experiment."
+ ],
+ "evidence": [
+  "The assignment describes five consecutive pieces at each of twenty-five sampling points, supporting the proposed rational-subgroup chart structure.",
+  "Step 5 reports 25 subgroups of size 5, zero X-bar point-limit flags, and zero range flags.",
+  "The report explicitly qualifies its screen: \"There were **0 X-bar flags** and **0 range flags** under the point-limit screen.\"",
+  "The report distinguishes control from acceptance: \"Stability did not imply conformance.\"",
+  "The reported minimum, 272.04 um, exceeds the 260.00 um upper specification limit, consistent with the reported 125 of 125 readings above specification.",
+  "Step 4 reports an Anderson-Darling p-value of 0.5966564503704606; this does not reject normality but does not independently establish temporal stability.",
+  "The report states: \"The dataset cannot distinguish among those common causes; a causal claim would require process-factor records or a controlled trial.\""
+ ],
+ "rationale": "On the supplied evidence, the chosen subgroup chart is appropriate and reports no special-cause point-limit signals. A point-limit-only chart is a defensible statistical route; supplementary run rules are not universally mandatory, and no contrary chronological pattern is supplied here. The baseline capability conclusion is also consistent with the extreme observed offset: a relatively narrow spread does not rescue a process centered above its upper specification. The report's categorical stability wording would be better expressed as 'no instability detected under the stated screen,' but in context it is scoped to the sampled run and does not materially contradict the available evidence. Later monitoring and intervention-documentation limitations do not retrospectively invalidate this baseline checkpoint.",
+ "confidence": 3,
+ "numerical_check": "Checked arithmetic consistency from the supplied summaries: 291.34136 - 220 = 71.34136 um; 80 / (6 \u00d7 7.535339638865003) is approximately 1.76944; (260 - 291.34136) / (3 \u00d7 7.535339638865003) is approximately -1.38642. These agree with the reported baseline indices. Raw observations, chronological patterns, and chart flag counts were not independently recomputed; those remain self-report-only.",
+ "evidence_problem": "Only the packet reproduced in the prompt was accessible for this response. The referenced raw batches and service-event files were not inspected, so subgroup ordering, supplementary temporal patterns, and applicator independence remain unverified. This is an AI-assisted assessment generated entirely by an AI assistant, not an independent human expert review; no external sources or other reviewers' outputs were consulted.",
+ "_usage": {
+  "prompt_tokens": 5436,
+  "completion_tokens": 1144,
+  "total_tokens": 6580,
+  "completion_tokens_details": {
+   "reasoning_tokens": 48
+  }
+ }
+}

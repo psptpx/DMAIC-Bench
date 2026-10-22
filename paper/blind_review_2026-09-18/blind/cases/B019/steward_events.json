@@ -1,0 +1,122 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the crossed gage repeatability and reproducibility study with repeated pieces and operators.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "repeat readings/operator study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "charter/accepted ranges/both characteristics",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=23.877330782711752",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 23.877330782711752
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "ndc=5",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 23.877330782711752,
+      "ndc": 5.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "outer diameter sampling order",
+    "stage_id": "run_diameter",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 23.877330782711752,
+      "ndc": 5.0
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "wall thickness sampling order",
+    "stage_id": "run_thickness",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 23.877330782711752,
+      "ndc": 5.0
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "delivery pressure/paired record",
+    "stage_id": "setting",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 23.877330782711752,
+      "ndc": 5.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "fixture by fixture/turning fixtures",
+    "stage_id": "fixtures",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 23.877330782711752,
+      "ndc": 5.0
+    }
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "Is coolant delivery pressure independently adjustable, or is it coupled to another process variable during the paired window?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 23.877330782711752,
+      "ndc": 5.0
+    }
+  },
+  {
+    "seq": 12,
+    "action": "request",
+    "text": "Records of implemented improvement and subsequent validation run for wall thickness",
+    "stage_id": "run_thickness",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {
+      "grr_pct": 23.877330782711752,
+      "ndc": 5.0
+    }
+  }
+]

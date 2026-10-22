@@ -1,0 +1,64 @@
+{
+ "reviewer_id": "human_black_belt_037",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical validity of DOE/RSM and process capability",
+ "blinding_compliance": "I read only the assigned blind V037 packet and did not inspect other cases, coordinator files, hidden truth files, scoring code, or other reviewers' outputs. I did not search the benchmark or paper name on the web, did not consult external people, and did not delegate the review.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V037",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the quadratic response-surface model is an adequate approximation of the true seal-strength response surface.",
+    "Treating the predicted maximum of 64.28 N, or the optimizer's coded settings, as a validated optimum.",
+    "Using the response-surface model as the sole statistical basis for implementing production settings or claiming that the true optimum has been found.",
+    "Claiming that the composite design work has resolved the exact shape of the response surface despite the significant lack-of-fit result."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the fitted response-surface R-squared and the significant lack-of-fit test as diagnostic evidence, without using the model as a validated optimization basis.",
+    "Using the screening DOE result to identify bead spacing and bond angle as important factors.",
+    "Using the flawed response-surface model only to generate candidate settings for independent confirmation, clearly labeled as an unvalidated candidate rather than an optimum.",
+    "Interpreting the 20-run confirmation sample as provisional empirical evidence at the tested candidate settings, provided the claim is limited to those fixed settings and temporal/operational stability is not assumed.",
+    "Planning follow-up DOE or model repair to resolve the lack-of-fit uncertainty, and planning SPC as a protective monitoring action."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Step 9 (doe.rsm_optimizer) is formally unsupported as a validated optimization because it is based on a quadratic model with significant lack-of-fit (p = 0.0019). It is acceptable only as candidate generation because the report explicitly demotes the result to a starting point rather than a validated optimum. Steps 10-15 (confirmation descriptive statistics, one-sample t-tests, capability indices, two-sample comparisons) are an acceptable independent empirical check of the candidate settings, provided those settings are treated as provisional and not as the true optimum.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Independent confirmation at the candidate settings can support a provisional improvement claim if the confirmation run is representative, temporal confounding is acknowledged, and the claim is limited to the tested settings rather than to a global response-surface optimum.",
+    "A revised or augmented response-surface design, such as adding terms or expanding the design region, could resolve the significant lack-of-fit before the model is used for optimization.",
+    "Descriptive and nonparametric comparison of baseline versus confirmation data can support a shift at the tested settings if independence and temporal stability are addressed."
+   ],
+   "evidence": [
+    "Step 8 reports rSquaredPct = 98.01737641449876 and lackOfFitPValue = 0.00189864546184813.",
+    "Step 9 reports predictedResponse = 64.28314306260685 at coded_x1 = 0.9077535443400787 and coded_x2 = 1.41421356.",
+    "Report states: 'the lack-of-fit test for the quadratic response surface is significant (p = 0.0019)'.",
+    "Report states: 'the current recommended settings should be treated as a strong starting point rather than a fully validated optimum'.",
+    "Confirmation run: n = 20, mean = 59.275 N, sd = 1.9797, min = 56.41, max = 63.24, with 0 below 45 N and 0 below 55 N."
+   ],
+   "rationale": "The response-surface model has significant lack of fit, so the evidence forbids treating it as a validated optimization basis. The correct gate decision is therefore STOP. The submitted report does not overclaim the model: it reports the lack-of-fit result, explicitly cautions that the model should be used with caution, and labels the settings only as a strong starting point. The confirmation run is an acceptable independent empirical check of the candidate settings, but it does not repair the response-surface model itself.",
+   "confidence": 4,
+   "numerical_check": "Recomputed the one-sample t-tests and Welch two-sample t from the reported means, standard deviations, and sample sizes; they are internally consistent. The response-surface lack-of-fit p-value and predicted optimum were not recomputed from raw data and are accepted as self-reported values from the submitted quantitative steps.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4876,
+  "completion_tokens": 11641,
+  "total_tokens": 16517,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 10498
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3212
+ }
+}

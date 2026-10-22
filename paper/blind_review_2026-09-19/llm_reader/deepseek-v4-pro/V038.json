@@ -1,0 +1,70 @@
+{
+ "reviewer_id": "V038_reviewer",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical Black Belt review",
+ "blinding_compliance": "I reviewed only the provided V038 packet and did not inspect the repository outside this blind item, coordinator, truth files, scoring code, or other reviewers' outputs.",
+ "ai_assistance": "AI assistant used: ChatGPT, for reasoning and drafting this JSON review from the provided packet; no external retrieval.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V038",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that the observed baseline-to-post-change reduction was caused by the machine change or that the change achieved a real durable drop.",
+    "Treating the post-change monitoring period as credible evidence of impact without a concurrent control, a sustained same-machine pre-change baseline, or adjustment for temporal confounding.",
+    "Concluding that the baseline gap is systemic and not due to any single machine from the non-significant chi-square; only 'no statistically distinguishable difference' is supported.",
+    "Closing the project or standardizing/implementing the change as validated on the basis of these data.",
+    "Interpreting the p=0.396 one-proportion test against 1500 DPMO as proof that the charter is met."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive reporting of observed rates: baseline 2912 DPMO, post-change 1395 DPMO, before/after trial 0.075% vs 0.15%, and stability with no out-of-control signals.",
+    "Stating that the post-change rate is statistically indistinguishable from the 1500 DPMO requirement and that the evidence is consistent with but not proof of meeting it.",
+    "Hypothesis generation that the change may be associated with the observed post-change improvement and that loose end/seam split are priorities for further investigation.",
+    "Continuing p-chart monitoring and MSA calibration refresh as diagnostic or corrective actions.",
+    "Running a defensible quasi-experimental comparison before causal conclusions: interrupted time-series or phase comparison with pre/post data on the same machine, concurrent control machines, or similar adjustment for temporal trends."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "no single machine among the four sampled shows a statistically distinguishable defect rate, so the baseline gap looks like a systemic process issue rather than one bad machine.",
+    "But the larger, longer sustained monitoring record after the change shows a real and durable drop to a rate consistent with the charter.",
+    "We treat the sustained record, not the small trial, as the credible evidence of impact, since it draws on far more data."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Acceptable descriptive computations: baseline and post-change p-charts; baseline one-proportion test vs 1500 DPMO; immediate before/after two-proportions test reported as inconclusive; Pareto and FMEA prioritization. Unacceptable causal use: the post-change monitoring p-chart and one-proportion test are interpreted as 'credible evidence of impact' without a direct baseline comparison for the same machine or concurrent controls; this is a single-arm observational pre/post comparison and cannot support causal attribution.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "Interrupted time-series or phase comparison of the affected machine's defect rate before and after the change, with enough baseline and post-change subgroups to estimate trend and autocorrelation.",
+    "Use the other three machines as concurrent comparators during the same post-change window to adjust for common temporal causes.",
+    "A randomized or alternating change schedule across machines with pre-specified stopping rules if causal attribution is required.",
+    "Direct before/after comparison of the affected machine's sustained rate, not the whole-line baseline, with a two-proportion test plus confidence interval, clearly labeled as descriptive unless a control design supports causality."
+   ],
+   "evidence": [
+    "Baseline: 364/125000 = 0.002912, z vs 1500 DPMO = 12.9, p<0.001.",
+    "Machines: chi-square statistic 3.646, p=0.302; total defective 44, sound 15956.",
+    "Before/after trial: 3/4000 vs 6/4000, z = 1.00, p = 0.317.",
+    "Post-change monitoring: 136/97500 = 0.00139487; z vs 1500 DPMO = -0.848, p = 0.396; 95% CI approximately 0.00116 to 0.00163, including 0.0015.",
+    "Report quotes: 'real and durable drop', 'credible evidence of impact', 'baseline gap looks like a systemic process issue rather than one bad machine'."
+   ],
+   "rationale": "The machine-difference chi-square is an association test and with only 44 defectives is underpowered; non-significance does not establish that no machine is responsible. The immediate before/after trial is correctly reported as inconclusive. The later post-change monitoring record is a single-arm observational pre/post comparison: no concurrent control, no sustained same-machine pre-change baseline, and no adjustment for temporal confounders. These data can describe the post-change period and justify continued monitoring, but they cannot establish that the change caused the observed reduction. The report crosses that line by calling the sustained record credible evidence of impact and a real durable drop.",
+   "confidence": 4,
+   "numerical_check": "Recomputed baseline proportion, one-proportion z/p vs 1500 DPMO; post-change proportion, one-proportion z/p vs 1500 DPMO and approximate 95% CI; before/after two-proportion z/p. Chi-square, kappa, p-chart limits, and sigmaZ are self-report-only from the packet.",
+   "evidence_problem": "Missing: sustained pre-change baseline for the affected machine, concurrent control/comparator series, and explicit linkage of denominators in the post-change monitoring record to the same machine. Internally conflicting MSA kappa values are reported: min 0.733 vs appraiser 2 kappa 0.867."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5273,
+  "completion_tokens": 13288,
+  "total_tokens": 18561,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 11881
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3609
+ }
+}

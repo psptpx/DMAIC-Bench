@@ -1,0 +1,159 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes participant-QC gate; exclude failed participants and continue."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 237,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 2,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain variants passing call rate, pooled MAF, and exact control-HWE criteria."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 237,
+        "retainedVariants": 139
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation could not run because scikit-learn was unavailable; no result was inferred from this attempt."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 237,
+        "retainedVariants": 139,
+        "axesAssessed": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 4.4356006605713844e-16,
+        "pc1Statistic": -8.74314141983081,
+        "pc1VarianceFraction": 0.08143503530188842,
+        "pc1RangesOverlap": true
+      },
+      "status": "success",
+      "decision": "PC1 differs by affection status but score ranges overlap; comparison is permitted with PC1 adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 237,
+        "testedVariants": 139,
+        "covariatePcCount": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1762264978964136,
+        "nTested": 139,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "modelsConverged": 0
+      },
+      "status": "failed",
+      "decision": "The initial BFGS scan returned finite estimates but no model met the optimizer success criterion; it was not used for inference and was rerun with IRLS."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 237,
+        "testedVariants": 139,
+        "covariatePcCount": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1762264979203334,
+        "nTested": 139,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "modelsConverged": 139
+      },
+      "status": "success",
+      "decision": "No retained variant passes the multiplicity-corrected discovery threshold."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariants": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "There are no discovery candidates to replicate; no association can be reported."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_gate",
+      "chosen_branch": "continue_after_sample_qc",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "overlapping_structure_adjust_pc1",
+      "observed": {
+        "pc1PValue": 4.4356006605713844e-16,
+        "pc1RangesOverlap": true
+      }
+    },
+    {
+      "point": "discovery_to_replication",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

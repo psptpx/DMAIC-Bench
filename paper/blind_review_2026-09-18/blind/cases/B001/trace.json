@@ -1,0 +1,328 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "n": 60,
+        "batchesReleased": 5
+      },
+      "status": "success",
+      "decision": "Charter: accepted fillet height 6.80-7.50 mm, target 7.15 mm",
+      "inputs_digest": {
+        "batch": "define,baseline"
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 7.035916666666665,
+        "median": 7.026,
+        "stdDev": 0.062016479949371005,
+        "skewness": 0.844764160718794,
+        "adPValue": 0.005921129699322023
+      },
+      "status": "success",
+      "decision": "Baseline mean 7.0359 mm, below the 7.15 target; mild right skew",
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.0026391899811365263,
+        "statistic": 0.9328892748587617
+      },
+      "status": "success",
+      "decision": "Shapiro-Wilk rejects normality at 5% (p=0.0026); capability read with caution",
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.7945434963754623
+      },
+      "status": "success",
+      "decision": "No non-random pattern in run order; process sequence stable",
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 7.035916666666665,
+        "individualsUCL": 7.220178022598869,
+        "individualsLCL": 6.851655310734461,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "I-MR chart in control: 0 of 60 individuals beyond limits",
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60
+      }
+    },
+    {
+      "step_id": 6,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.899779789576706,
+        "cpk": 1.2805420438789583,
+        "pp": 1.8812203911268586,
+        "ppk": 1.2680321255428828
+      },
+      "status": "success",
+      "decision": "Capable but off-center low: Ppk=1.27, Cpk=1.28 (Cp=1.90 potential if centered)",
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60
+      }
+    },
+    {
+      "step_id": 7,
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 9.253705872074116e-21,
+        "tStatistic": -14.249207644179346
+      },
+      "status": "success",
+      "decision": "Baseline mean is significantly below the 7.15 mm target (t=-14.25, p=9.3e-21)",
+      "inputs_digest": {
+        "batch": "baseline",
+        "n": 60
+      }
+    },
+    {
+      "step_id": 8,
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.17772362788571228,
+        "fStatistic": 1.9898627636292494,
+        "rSquaredPct": 63.518693755837475,
+        "rSquaredAdjPct": 31.59755079219526,
+        "airPressureEffect": 0.08419999999999908,
+        "airPressurePValue": 0.013129840093206058,
+        "chainSpeedEffect": -0.012450000000001073,
+        "chainSpeedPValue": 0.6514436041169724,
+        "railAngleEffect": 0.021824999999998755,
+        "railAnglePValue": 0.43460771727705905
+      },
+      "status": "success",
+      "decision": "Only air_pressure significant (effect +0.084 mm, p=0.013); chain_speed and rail_angle and all interactions not significant; declared any_factor_significant=true",
+      "inputs_digest": {
+        "batch": "design",
+        "n": 16,
+        "factors": 3,
+        "replicates": 2
+      }
+    },
+    {
+      "step_id": 9,
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.5598332203481302,
+        "statistic": 0.970747748355051
+      },
+      "status": "success",
+      "decision": "Before-change window consistent with normal (p=0.560)",
+      "inputs_digest": {
+        "batch": "after_change",
+        "group": "before",
+        "n": 30
+      }
+    },
+    {
+      "step_id": 10,
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.08205096676993036,
+        "statistic": 0.9383369234310293
+      },
+      "status": "success",
+      "decision": "After-change window does not reject normality at 5% (p=0.082)",
+      "inputs_digest": {
+        "batch": "after_change",
+        "group": "after",
+        "n": 30
+      }
+    },
+    {
+      "step_id": 11,
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.0017098417611987186,
+        "statistic": 10.820615744009956
+      },
+      "status": "success",
+      "decision": "Levene: variances differ before vs after (p=0.0017); spread reduced after the change; Welch t used",
+      "inputs_digest": {
+        "batch": "after_change",
+        "groups": 2
+      }
+    },
+    {
+      "step_id": 12,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 1.285922568299741e-07,
+        "tStatistic": -6.269208008384428,
+        "meanBefore": 7.0898666666666665,
+        "meanAfter": 7.286533333333333,
+        "meanDiff": 0.19666666666666632
+      },
+      "status": "success",
+      "decision": "After-change mean 7.2865 vs before 7.0899 mm: +0.1967 mm, Welch t=-6.27, p=1.3e-7. The change raised fillet height.",
+      "inputs_digest": {
+        "batch": "after_change",
+        "n1": 30,
+        "n2": 30
+      }
+    },
+    {
+      "step_id": 13,
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 7.037984568636006e-07
+      },
+      "status": "success",
+      "decision": "Mann-Whitney confirms the shift (p=7.0e-7)",
+      "inputs_digest": {
+        "batch": "after_change",
+        "n1": 30,
+        "n2": 30
+      }
+    },
+    {
+      "step_id": 14,
+      "method_id": "capability.grouped",
+      "outputs": {
+        "cpk": 0.5488289865138629,
+        "ppk": 0.6391902796223753,
+        "pp": 0.7717913909883787,
+        "cp": 0.6626844938357361,
+        "outOfSpecCount": 1
+      },
+      "status": "success",
+      "decision": "Before-change window: Ppk=0.64, Cpk=0.55, 1 of 30 out of spec",
+      "inputs_digest": {
+        "batch": "after_change",
+        "group": "before",
+        "n": 30
+      }
+    },
+    {
+      "step_id": 15,
+      "method_id": "capability.grouped",
+      "outputs": {
+        "cpk": 0.8698208271051331,
+        "ppk": 0.8710998252008152,
+        "pp": 1.4282554910381857,
+        "cp": 1.4261584454409555,
+        "outOfSpecCount": 0
+      },
+      "status": "success",
+      "decision": "After-change window: Ppk=0.87, Cpk=0.87, 0 of 30 out of spec; better but still below 1.33, and mean now sits above target (7.287 vs 7.15, one-sample t p=4.7e-10)",
+      "inputs_digest": {
+        "batch": "after_change",
+        "group": "after",
+        "n": 30
+      }
+    },
+    {
+      "step_id": 16,
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.12741591084589643,
+        "fStatistic": 2.0029762139392018,
+        "rSquaredPct": 12.01571160393331,
+        "rSquaredAdjPct": 6.016782849656044,
+        "v1TermPValue": 0.04264219764099364,
+        "v2TermPValue": 0.24621483645311737,
+        "v3TermPValue": 0.8256483860126198
+      },
+      "status": "success",
+      "decision": "Logged (unmanipulated) variables explain little: overall model p=0.127, R2=12.0%; only preheat temperature marginally associated (p=0.043)",
+      "inputs_digest": {
+        "batch": "logged_variables",
+        "n": 48,
+        "predictors": 3
+      }
+    },
+    {
+      "step_id": 17,
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.3040384709932189,
+        "pValue": 0.035646680001192886
+      },
+      "status": "success",
+      "decision": "Correlation of v1_preheat_temp with fillet height",
+      "inputs_digest": {
+        "batch": "logged_variables",
+        "n": 48
+      }
+    },
+    {
+      "step_id": 18,
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.181647235975123,
+        "pValue": 0.21659767260001725
+      },
+      "status": "success",
+      "decision": "Correlation of v2_conveyor_width with fillet height",
+      "inputs_digest": {
+        "batch": "logged_variables",
+        "n": 48
+      }
+    },
+    {
+      "step_id": 19,
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": -0.04715793174099275,
+        "pValue": 0.7502690374247698
+      },
+      "status": "success",
+      "decision": "Correlation of v3_dwell with fillet height",
+      "inputs_digest": {
+        "batch": "logged_variables",
+        "n": 48
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "any_factor_significant",
+      "chosen_branch": "true",
+      "observed": {
+        "air_pressure_pValue": 0.013129840093206058,
+        "air_pressure_effect": 0.08419999999999908,
+        "chain_speed_pValue": 0.6514436041169724,
+        "rail_angle_pValue": 0.43460771727705905
+      }
+    },
+    {
+      "point": "two_sample_test_choice",
+      "chosen_branch": "welch_two_sample_t",
+      "observed": {
+        "levene_pValue": 0.0017098417611987186,
+        "shapiro_before": 0.5598332203481302,
+        "shapiro_after": 0.08205096676993036
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 0
+}

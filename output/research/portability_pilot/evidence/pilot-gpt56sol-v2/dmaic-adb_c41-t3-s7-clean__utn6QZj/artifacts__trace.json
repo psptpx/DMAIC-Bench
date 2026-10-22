@@ -1,0 +1,177 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "participants": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "platePass": true,
+        "samplesRetained": 237,
+        "affectedRetained": 118,
+        "unaffectedRetained": 119,
+        "minimumSampleCallRate": 0.94
+      },
+      "status": "success",
+      "decision": "Plate passes because the computed participant failure fraction does not exceed the protocol stop limit; remove the failed participants."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 2
+      },
+      "status": "success",
+      "decision": "Retain variants passing call rate, MAF, and unaffected-participant exact HWE criteria."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation failed before computation because the optional sklearn package was unavailable."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.23164020907154623,
+        "axesExamined": 10,
+        "cvAuc": 0.5262783079333428,
+        "pc9PValue": 0.029969887133867223,
+        "pc9RangeOverlapFraction": 0.8886841060272633,
+        "covariateAxis": 9
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants overlap on all examined axes, so comparison is allowed; PC9 enters association models because overlapping structure is present."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "covariates": 1,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.840369544245204,
+        "nTested": 139,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "hitPValue": 5.094420581075932e-05,
+        "hitOddsRatio": 2.279618941071796,
+        "hitCalled": 231
+      },
+      "status": "success",
+      "decision": "rs070008 is the sole discovery association after PC9 adjustment and Bonferroni correction."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "participants": 237,
+        "variantCount": 1,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.279618941071796,
+        "pValue": 5.094420581075932e-05,
+        "beta": 0.824008297889528,
+        "standardError": 0.20339593943495893
+      },
+      "status": "success",
+      "decision": "Estimated discovery effect for the nominated hit."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "participants": 120,
+        "candidates": 1,
+        "batch": "replication"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 1,
+        "pValue": 0.5443029478701621,
+        "oddsRatio": 1.1834997123474893,
+        "sameDirection": true,
+        "replicationAlpha": 0.05,
+        "nCalled": 119,
+        "affectedCalled": 60,
+        "unaffectedCalled": 59
+      },
+      "status": "success",
+      "decision": "The nominated hit has the same direction but does not meet the replication p-value criterion; it must not be reported and the discovery scan must be reconsidered."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_sample_exclusions",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_precondition",
+      "chosen_branch": "compare_with_pc9_adjustment",
+      "observed": {
+        "separated": false,
+        "pc9PValue": 0.029969887133867223,
+        "covariateAxis": 9
+      }
+    },
+    {
+      "point": "discovery_multiplicity",
+      "chosen_branch": "nominate_rs070008",
+      "observed": {
+        "nSignificant": 1,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "hitPValue": 5.094420581075932e-05
+      }
+    },
+    {
+      "point": "reporting_gate",
+      "chosen_branch": "do_not_report_reconsider_discovery_scan",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 0,
+        "sameDirection": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

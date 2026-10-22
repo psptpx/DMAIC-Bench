@@ -1,0 +1,65 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "I reviewed only the provided blind packet and general statistical knowledge; I did not access repository internals, hidden truth files, scoring code, other reviewer outputs, paper drafts, or reviews; I did not search the benchmark/paper name on the web.",
+ "ai_assistance": "AI assistant used to parse the packet and draft this review; no external computation or browsing was performed.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V001",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Concluding that the 60-joint baseline is a single stable process or reporting overall capability indices (Pp/Ppk) as valid process capability without conditioning on the detected level shift.",
+    "Interpreting the baseline temporal shift or before/after association as evidence that a specific named line setting or the operational change caused the shift.",
+    "Adopting the factorial corner (high chain speed, low rail angle, low air pressure) as an optimized production setting without a confirmatory controlled trial.",
+    "Treating the after-window Johnson-SU capability indices as definitive given n=30 and rejected normal fit."
+   ],
+   "permitted_at_checkpoint": [
+    "Characterizing the baseline as nonstationary/level-shifted using phase-specific charts, CUSUM, and order regression.",
+    "Reporting descriptive baseline statistics and capability indicators with explicit caveats about instability/nonnormality.",
+    "Proceeding to the designed factorial analysis to identify controlled factor effects.",
+    "Proceeding to a before/after comparison as associational only, with the change identity expressly marked unavailable.",
+    "Running distributional sensitivity analyses for capability provided they are labeled non-definitive."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The baseline phase/CUSUM analysis is a valid nonstationarity route. The downstream factorial DOE is a valid controlled-factor analysis. The before/after comparison is valid for association only, accompanied by a rank sensitivity test and unequal-variance check. After-window capability is appropriately presented as non-definitive sensitivity (Johnson SU) after Shapiro-Wilk rejection; Box-Cox was computed but correctly excluded as implausible.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Phase-based I-MR charting and CUSUM instead of a single overall I-MR chart for a shifted baseline.",
+    "Factorial DOE with replication and full-model F-test for designed factor effects, with candidate settings treated as confirmation candidates only.",
+    "Before/after Welch t-test or rank test as association-only evidence when the change identity is missing.",
+    "Nonnormal capability sensitivity using Johnson SU or other fitted quantile models, explicitly not confirmed with n=30."
+   ],
+   "evidence": [
+    "Reported baseline mean 7.263783 mm vs target 7.15 mm; one-sample p=1.1126e-7.",
+    "Reported baseline first-half mean 7.1394 mm, second-half mean 7.388167 mm, difference 0.248767 mm, p=1.56e-18; CUSUM first flag at index 22; separate phase I-MR charts show no within-half signals.",
+    "Reported DOE full factorial p=0.000239552, R2=94.176%; chain-speed coefficient p=2.94896e-5; rail-angle p=4.61398e-4; chain-speed*rail-angle p=0.002580.",
+    "Reported before/after mean increase 0.092367 mm, 95% CI 0.035839-0.148894, p=0.001933; Mann-Whitney p=0.001721; change identity refused.",
+    "Reported after-window Shapiro-Wilk p=0.008420; Johnson SU KS p=0.385697, Pp=0.992189, Ppk=0.840650; report states this is not a definitive capability claim."
+   ],
+   "rationale": "The baseline evidence robustly supports a real level shift rather than a stable baseline: large order effect, half-to-half mean difference, CUSUM signal, and absence of within-phase control-chart signals. The report correctly withholds stable-process capability, correctly stops causal identification of the operational change, and handles downstream DOE/capability analyses as preliminary or sensitivity results. Thus the focal baseline stability advancement should proceed.",
+   "confidence": 4,
+   "numerical_check": "Self-report-only for raw data; spot-checked aggregate arithmetic including baseline half difference 7.388167-7.1394=0.248767 and before/after mean difference 7.284033-7.191667=0.092367, with CI 0.035839-0.148894 spanning the reported difference.",
+   "evidence_problem": "Route declaration for factor_significance_gate reports observed p=0.019762 with sampleSize=48, which appears to be from the logged-variable model rather than the 16-run designed factorial; not material because the factorial analysis independently supplies lower p-values for chain speed, rail angle, and interaction."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 10437,
+  "completion_tokens": 11357,
+  "total_tokens": 21794,
+  "prompt_tokens_details": {
+   "cached_tokens": 10368
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 10152
+  },
+  "prompt_cache_hit_tokens": 10368,
+  "prompt_cache_miss_tokens": 69
+ }
+}

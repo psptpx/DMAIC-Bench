@@ -1,0 +1,53 @@
+{
+ "blind_id": "V022",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that machine identity itself causes the excess defects from an observational machine tally.",
+  "Concluding that loose-end defects account for the high-rate machine's excess without a machine-by-defect-type breakdown or other linking evidence.",
+  "Prescribing a specific loose-end correction on the high-rate machine as an established remedy before confirming that defect mode and its mechanism there.",
+  "Attributing subsequent performance to a particular machine change when the changed machine and mechanism are unidentified."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the machine-rate differences and prioritize the high-rate machine for diagnostic investigation.",
+  "Treat loose end as a separate investigation priority based on its overall frequency and FMEA ranking, not as an established machine-specific cause.",
+  "Audit defect classifications, machine exposures, product mix, operating conditions, and dependence within production runs.",
+  "Analyze the supplied before/after counts descriptively while withholding causal attribution.",
+  "Plan a prospective controlled comparison after identifying the machine, intervention, outcome, and relevant operating conditions."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "- Audit and correct loose-end generation on the high-rate machine; loose end has the largest Pareto share and the maximum RPN."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The before/after proportions comparison is acceptable as a limited comparison of two recorded windows, not as an estimate of a demonstrated causal effect. The report explicitly withholds demonstrated improvement and acknowledges that the changed machine and mechanism are unidentified. Subsequent monitoring can describe its own window but cannot validate the proposed machine-specific loose-end cause. Its stability and capability calculations were not independently checked from raw observations.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Use the omnibus machine association test as an exploratory screen if inspections are sufficiently independent and classifications comparable across machines. Investigate the selected high-rate machine without treating selection as causal confirmation.",
+  "Collect a machine-by-defect-type table with appropriate inspected denominators and comparable exposure windows to determine whether loose-end defects are disproportionately associated with the high-rate machine.",
+  "Confirm a physically plausible mechanism through process observation and then test a specified intervention using randomization, blocking, or a contemporaneous control with documented comparability. Address production clustering and relevant product, operator, and material differences.",
+  "If formal selected-machine contrasts are needed, account for data-driven selection and multiple comparisons or confirm the contrast using independent data."
+ ],
+ "evidence": [
+  "The submitted machine tally contains 26, 6, 6, and 4 defects, each from 4000 inspected units.",
+  "The report states: \"The priority is the machine with the 6500 DPMO rate and the loose-end defect mode.\" This supports investigation priorities but does not establish their causal connection.",
+  "The overall category count is 142 loose-end rejections out of 240; no machine-specific defect-category breakdown is supplied in the packet.",
+  "The report states: \"The process owner could not supply a matching process fact, so the changed machine and change mechanism are not identifiable from the released data.\"",
+  "The report states: \"The proportions test gave z = 0.9 and p = 0.368, so the improvement is not statistically demonstrated.\"",
+  "The public data-service thresholds supplied in the packet are empty; no explicit narrower protocol gate is available."
+ ],
+ "rationale": "The machine tally supports a strong association and a reasonable diagnostic priority, not an established cause. Overall Pareto frequency and FMEA ranking do not identify which defect mode produces the high-rate machine's excess. The instruction to audit is justified, but pairing it with an unconditional instruction to correct loose-end generation on that machine presupposes an unverified linkage. This misleading corrective recommendation coexists with substantial restraint: the report does not explicitly claim a proven machine cause, withholds a demonstrated before/after improvement, and acknowledges the unidentified intervention. STOP therefore applies to causal attribution and mechanism-specific correction, not to investigation or independently scoped monitoring.",
+ "confidence": 4,
+ "numerical_check": "Recomputed from packet counts: total machine defects = 42 across 16000 inspections; pooled defective fraction = 0.002625; expected defective counts under equal rates = 10.5 per machine. Pearson chi-square including sound cells is approximately 30.843, consistent with the reported statistic and approximately 9.17e-7 p-value for three degrees of freedom under independent sampling. The high-rate machine's fraction is 26/4000 = 0.0065. Loose-end share is 142/240 = 59.167%. The pooled before/after standard error is approximately 0.001389, giving z approximately 0.900 and a two-sided p-value approximately 0.368. Other results are self-report-only.",
+ "evidence_problem": "Only the supplied packet was reviewed; the referenced raw batches and service-event files were not available in this interaction. Missing evidence includes a machine-by-defect-type linkage, sampling dependence and comparability details, and an identified intervention. No external sources or other reviewers were consulted. This assessment was produced by an AI assistant, not an independent human expert; no professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 3767,
+  "completion_tokens": 1207,
+  "total_tokens": 4974,
+  "completion_tokens_details": {
+   "reasoning_tokens": 35
+  }
+ }
+}

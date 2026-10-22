@@ -1,0 +1,161 @@
+{
+  "system_id": "openai-cli",
+  "task_id": "adb_c41-T3-s2-clean",
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0.0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "nParticipants": 240,
+        "nVariants": 150,
+        "sampleFailThreshold": 0.1,
+        "plateCanCarryConclusion": true,
+        "plateRegenRequired": false
+      },
+      "status": "success",
+      "decision": "plate passes the re-genotyping gate"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "retainedSamples": 238,
+        "retainedAffected": 118,
+        "retainedUnaffected": 120
+      },
+      "status": "success",
+      "decision": "retain variants meeting call-rate, MAF, and control-HWE rules"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 238,
+        "retainedVariants": 139
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 34,
+        "lambdaGC": 1.8628024353056938,
+        "bonferroniThreshold": 0.00035971223021582735
+      },
+      "status": "success",
+      "decision": "unadjusted discovery scan yields candidates but is inflated"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 238,
+        "retainedVariants": 139
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.5567663274986146e-18,
+        "genomicInflation": 1.8628024353056938
+      },
+      "status": "success",
+      "decision": "affected and unaffected groups are separated on PC1"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 1
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "replicationPValue": 0.0006620796019655648,
+        "sameDirection": true,
+        "replicationOddsRatio": 2.510819978944906
+      },
+      "status": "success",
+      "decision": "nominated candidate meets replication p-value and direction rule"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variant": "rs020008",
+        "retainedParticipants": 238
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.3142678024855257,
+        "discoveryOddsRatio": 3.3142678024855257
+      },
+      "status": "success",
+      "decision": "discovery effect estimate for nominated candidate"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "variant": "rs020008"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.510819978944906
+      },
+      "status": "success",
+      "decision": "replication effect estimate agrees in direction"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_reanalysis_gate",
+      "chosen_branch": "continue_without_plate_regenotyping",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333
+      }
+    },
+    {
+      "point": "discovery_qc",
+      "chosen_branch": "retain_qc_passing_samples_and_variants",
+      "observed": {
+        "samplesFailed": 2,
+        "snpsFailed": 11
+      }
+    },
+    {
+      "point": "stratification",
+      "chosen_branch": "do_not_report_unadjusted_discovery_hits_as_final",
+      "observed": {
+        "separated": true,
+        "pc1PValue": 4.5567663274986146e-18,
+        "lambdaGC": 1.8628024353056938
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "support_nominated_candidate",
+      "observed": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "sameDirection": true
+      }
+    }
+  ]
+}

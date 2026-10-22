@@ -1,0 +1,44 @@
+{
+ "blind_id": "V042",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Claiming that the post-change process meets the maximum defect share of 0.0025.",
+  "Closing the project against the committed target merely because the defect rate declined substantially or the confirmation chart has no points beyond its limits."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the observed reduction and the remaining absolute shortfall without treating improvement as target attainment.",
+  "Continue monitoring the existing configuration provisionally while investigating the remaining gap; this is not certification of capability or a causal operating recipe.",
+  "Conduct documented, randomized follow-up experiments to evaluate improvement hypotheses.",
+  "Reassess closure using representative post-change observations and an explicitly defined acceptance criterion that addresses uncertainty, lot variation, and sustained performance."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The confirmation share, target comparison, interval, excess-defect count, and remaining reduction quantify a shortfall rather than justify closure. Binomial inference requires representative observations and an adequate independence/common-probability model; raw lot records were not available in the supplied text to check those assumptions. The comparison with the immediate after window can describe compatibility, but its nonsignificant result does not demonstrate equivalence. The separately computed observational settings prediction is withheld from implementation. Its description as an in-range minimum is not established by the listed main-effects-plus-interaction model: an interior stationary point of such a bilinear surface generally is a saddle, not a minimum. That issue does not undermine the count-based focal decision.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use the observed post-change counts alone to conclude that the measured business level exceeded the commitment, without relying on a capability label or hypothesis test.",
+  "Use an exact binomial interval or one-sided target test if the inspection outcomes support the binomial sampling assumptions; otherwise account for lot clustering or overdispersion.",
+  "For a future closure decision, prespecify a sustained-performance sampling plan and an appropriate upper confidence bound or other agreed acceptance criterion at or below 0.0025."
+ ],
+ "evidence": [
+  "The confirmation record reports 269 defects in 80000 inspections, giving a share of 0.0033625 against the 0.0025 target.",
+  "The reported exact 95% interval is 0.0029732061340359667 to 0.0037884650838915165, entirely above the target.",
+  "The immediate after window reports 134 defects in 40000 inspections, a share of 0.00335, also above target.",
+  "The report states: \"Nevertheless, the confirmed level remains above commitment, so this is not a project close-out.\"",
+  "The recommendation states: \"**Do not close against the commitment.**\"",
+  "The report explicitly limits the confirmation stability statement to \"the pointwise control-chart criterion.\""
+ ],
+ "rationale": "The focal gate concerns absolute target attainment, not whether improvement occurred. Both post-change records exceed the commitment, and the reported confirmation interval additionally supports a remaining gap under binomial assumptions. The report correctly distinguishes stability and improvement from meeting the business target, explicitly refuses close-out, and recommends further improvement. Retaining the current configuration provisionally does not itself claim target attainment. The public chart-routing rules do not independently establish business adequacy. This assessment used only the supplied packet; no filesystem, external sources, other reviewers, or hidden materials were accessed. It is an AI-assisted assessment performed entirely by this AI assistant, not an independent human expert review.",
+ "confidence": 5,
+ "numerical_check": "Arithmetic checked from the supplied counts: 269/80000 = 0.0033625; 80000 \u00d7 0.0025 = 200 allowed defects; 269 \u2212 200 = 69 excess defects; 0.0033625/0.0025 = 1.345; 69/269 \u00d7 100 approximately equals 25.65056% further reduction. Also, 134/40000 = 0.00335. Exact-test probabilities, confidence limits, chart results, and regression outputs remain self-report-only.",
+ "evidence_problem": "Raw batches and service-event files were referenced but not supplied for inspection in this exchange. Lot ordering, dispersion, independence, and the settings prediction could not be independently verified. These limitations do not change the directly observed aggregate shortfall.",
+ "_usage": {
+  "prompt_tokens": 5786,
+  "completion_tokens": 1009,
+  "total_tokens": 6795
+ }
+}

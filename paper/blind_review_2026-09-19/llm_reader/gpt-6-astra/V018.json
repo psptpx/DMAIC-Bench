@@ -1,0 +1,45 @@
+{
+ "blind_id": "V018",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Claiming demonstrated improvement, target attainment, or readiness for project closure from these before/after windows.",
+  "Implementing a purportedly confirmed optimal chain-speed/rail-angle setting: no confirmation trial or validated optimal setting is reported.",
+  "Attributing the observed spread difference causally to the unidentified intervention, or treating the window capability estimates as established stable long-term capability."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the observed window means, standard deviations, nonconformance counts, and provisional capability summaries without interpreting them as proof of sustained performance.",
+  "Use Welch's comparison as a conditional comparison of window means if observations are sufficiently independent; failure to reject does not establish equivalence or target attainment.",
+  "Investigate the larger observed after-window spread, recover the intervention history, and evaluate temporal stability and measurement adequacy.",
+  "Plan replicated, preferably randomized confirmation trials involving chain speed, rail angle, and their interaction, with predefined mean, spread, and acceptance criteria before implementation."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The window capability calculations support a provisional warning rather than an implementation or closure decision. The report calls degradation possible, requests investigation, and explicitly requires subsequent stability confirmation. Welch's test is an appropriate unequal-variance alternative for comparing independent window means, but neither it nor Levene's test establishes intervention causality. Window independence, distributional adequacy, and time-order diagnostics remain unverified.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Evaluate improvement through a prospectively specified replicated confirmation design with documented intervention, adequate measurement performance, and randomization or suitable concurrent controls.",
+  "Assess target proximity using a confidence interval or equivalence test with an engineering-defined tolerance around 7.15 mm; a nonsignificant test of exact equality is insufficient.",
+  "Assess sustained capability after confirming stability in location and spread, using an appropriate distributional model and uncertainty intervals."
+ ],
+ "evidence": [
+  "The report states: \"Do not credit the process change as an improvement. Investigate and eliminate the increased spread in the after-change window.\"",
+  "The report states: \"Therefore the change is not demonstrated to have improved fillet height; the evidence points to a possible degradation in spread and capability that should be investigated.\"",
+  "The report states: \"Reassess capability after corrective action and confirm that the process is stable in both location and spread.\"",
+  "The reported before/after standard deviations are 0.103152 and 0.147313 mm; Levene's reported p-value is 0.0214412.",
+  "The reported mean difference is 0.0390333 mm with Welch p = 0.239919.",
+  "The report acknowledges that the physical intervention cannot be named and recommends confirmation trials rather than implementing a selected setting."
+ ],
+ "rationale": "The evidence does not justify improvement credit, target attainment, implementation of an optimized setting, or closure. The submitted report respects those restrictions and recommends investigation and further confirmation. Its capability terminology and significant-variance wording require caution because window stability and independence are not demonstrated, but its focal business conclusion is explicitly provisional and appropriately restrained. The public screening-significance rule does not independently validate a later improvement claim. This review used only the supplied packet; no external files, other reviewers, or web sources were accessed. This is an AI-assisted assessment generated entirely by an AI assistant, not an independent human expert review.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from the supplied summaries: after-minus-before mean is approximately 0.03903 mm; the after/before variance ratio is approximately 2.04; the Welch standard error is approximately 0.03284 mm, consistent with absolute t approximately 1.189. These checks support the reported direction and test statistic but do not independently validate the data. Other results are self-report-only; raw batches were not available in the supplied conversation.",
+ "evidence_problem": "No raw observations or service records were inspected. Independence, window stability, measurement adequacy, and the physical intervention are unverified. No completed confirmation experiment establishing an implementable setting is reported.",
+ "_usage": {
+  "prompt_tokens": 4847,
+  "completion_tokens": 969,
+  "total_tokens": 5816
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "reviewer_id": "reviewer_1",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical validity reviewer using Black Belt methods",
+ "blinding_compliance": "Reviewed only the V023 packet in the blind/ directory. Did not inspect repository contents outside blind/, coordinator/ directory, earlier study files, hidden truth files, scoring code, model identities, or other reviewer outputs. Did not search the benchmark or paper name. No consensus discussion occurred.",
+ "ai_assistance": "AI assistant used for statistical recomputation and drafting this review; no external information retrieval was performed.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V023",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the 5,000-ticket sample cannot rule out a true 5% breach rate based on the reported z=-0.96, p=0.337. The test incorrectly used N=200 instead of N=5,000; the correct z is approximately -4.80, p approximately 0.0000016, so the data support a below-5% conclusion.",
+    "Recommending continued monitoring 'rather than declaring victory' on the basis of that incorrect p-value; monitoring may continue, but the statistical conclusion that the average is below 5% should not be withheld for that reason.",
+    "Concluding that team identity has been 'ruled out' or that the baseline cause is common to both teams from a non-significant two-proportion test; non-significance only fails to detect a difference and does not demonstrate equivalence.",
+    "Asserting full process stability or absence of special-cause signals solely from zero points outside the 3-sigma p-chart limits; run-rule/trend checks were not reported.",
+    "Characterizing the binomial capability Z=1.14 as a comfortable margin without noting that the p-chart UCL of 7.43% exceeds the 5% requirement, so common-cause variation can still produce periods above the requirement."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptively using the MSA results with the stated caveat: kappa=0.833 and 80% overall agreement support 'usable with caution,' not full reliability.",
+    "Computing and reporting p-bar=3.52%, UCL=7.43%, LCL=0%, and zero points outside the 3-sigma limits as a descriptive p-chart summary; any full stability claim requires additional run-rule checks.",
+    "Using a correctly specified one-proportion or exact binomial test with N=5,000 to conclude that the average breach rate is significantly below 5%.",
+    "Reporting the two-team rates and the two-proportion test as showing no detected significant difference, with a power caveat; further equivalence testing is needed before ruling out team identity.",
+    "Recommending calibration/training for the breach-classification process, continued charting, and investigation of candidate causes other than team identity."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "Statistical test of whether 3.52% is actually different from 5% (one-proportion test): z = -0.96, p = 0.337. This is not statistically significant - with the volume observed (5,000 tickets), we cannot rule out that the true underlying rate is at or near 5%.",
+    "The team-to-team comparison ruled out one candidate (which team handled the ticket) as a significant driver.",
+    "whatever is driving the roughly 3.5% baseline breach rate appears to be common to both teams, not isolated to one.",
+    "Keep collecting periods on the p-chart; current data supports stable, but 25 periods at 200 tickets is not enough volume to statistically confirm the average is below 5% (p = 0.337 on that test). Continue monitoring rather than declaring victory."
+   ],
+   "report_withholds_warranted_conclusion": "YES",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "The MSA and p-chart summaries are acceptable descriptive computations. The one-proportion test is unacceptable because it uses the subgroup size N=200 rather than total N=5,000. The two-proportion calculation is arithmetically acceptable, but its interpretation as 'ruling out' a team cause is unacceptable.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Exact binomial test or one-proportion z-test with N=5,000 for comparing 176/5,000 to the 5% requirement.",
+    "P-chart with Western Electric or similar run rules applied to the 25 period counts before claiming stability.",
+    "Equivalence testing or confidence interval for the team-rate difference if the goal is to rule out a team effect.",
+    "Attribute agreement analysis using per-rater kappa and exact binomial confidence intervals for agreement."
+   ],
+   "evidence": [
+    "Reported total N=5,000 and 176 breaches gives p-hat=0.0352.",
+    "Recomputed one-proportion z against 5%: (0.0352-0.05)/sqrt(0.05*0.95/5000) = -4.80, not -0.96.",
+    "Reported p-chart UCL: 0.0352 + 3*sqrt(0.0352*0.9648/200) = 0.0743; LCL truncated at 0.",
+    "Reported team comparison: 22/600 vs 16/600; z=0.989, p=0.323; this is only evidence of absence of a detected difference."
+   ],
+   "rationale": "The main p-chart arithmetic is plausible, but the central business-performance statistical test is mis-specified and reverses the strength of evidence: with 5,000 tickets, the observed 3.52% is strongly below 5%. In addition, the team comparison is interpreted as excluding a cause when it only failed to detect a difference. The focal conclusions therefore need repair. The conduct is mixed because the report also shows appropriate restraint about measurement reliability and root causes.",
+   "confidence": 4,
+   "numerical_check": "Recomputed p-bar, p-chart UCL, and the one-proportion z-test against 5%. The UCL calculation matches the report, but the reported z-value does not. Raw period counts and MSA confusion matrix were not independently recomputed from released_data.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4017,
+  "completion_tokens": 15395,
+  "total_tokens": 19412,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 13954
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2353
+ }
+}

@@ -1,0 +1,305 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batches": 3,
+        "stages": "define, msa, process_run"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "msaReadings": 108,
+        "runReadings": 50,
+        "usl": 25.0,
+        "lsl": 0.0,
+        "tolerance": 25.0
+      },
+      "status": "success",
+      "decision": "Three batches exist: charter (percent void area, LSL 0.0, USL 25.0), crossed repeatability study (108 readings), 50-joint build-order run. No improve-phase or control-phase batch is offered by the steward. Note the task narrative speaks of bore roughness in um Ra with a 0.40-1.60 band, but every batch the steward holds is percent void area against a 25.0 upper limit; all analysis below is on the data that actually exists."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleSize": 108,
+        "groups": 3,
+        "parts": 12,
+        "replicates": 3,
+        "batch": "msa"
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 19.969676013932318,
+        "percentTolerance": 18.276525341686146,
+        "ndc": 6.91848692008182,
+        "percentStudyRepeatability": 16.36708377939808,
+        "percentStudyReproducibility": 11.441439099151287,
+        "interactionPValue": 0.5752918525715551,
+        "operatorPValue": 1.5722908663917678e-07,
+        "partPValue": 1.1102230246251565e-16,
+        "varGRR": 0.5799155877869718,
+        "varPart": 13.962037675784025,
+        "varTotal": 14.541953263570997,
+        "acceptable": true
+      },
+      "status": "success",
+      "decision": "ANOVA crossed gage R&R, 3 operators x 12 parts x 3 replicates. Operator*part interaction not significant so it was pooled into repeatability. %study variation 19.97 and %tolerance 18.28 are both under 30, ndc 6.9 exceeds 5: the measurement system is adequate to judge this process, so downstream conclusions can be carried. Operator main effect is statistically significant but small in magnitude (reproducibility 11.4% of study variation)."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 8.3648,
+        "median": 7.6899999999999995,
+        "stdDev": 2.7749030062107667,
+        "skewness": 0.715459086593583,
+        "adPValue": 0.028572851060577234,
+        "min": 4.17,
+        "max": 15.28
+      },
+      "status": "success",
+      "decision": "Run averages 8.36 percent void area against a 25.0 limit, right-skewed (skewness 0.72). Anderson-Darling p 0.029 rejects normality, so a normal-theory capability index is not the correct basis."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.018508119204955535,
+        "statistic": 0.943461456269957,
+        "adPValue": 0.028572851060577234,
+        "adStatistic": 0.8383933741037524
+      },
+      "status": "success",
+      "decision": "Shapiro-Wilk p 0.019 agrees with Anderson-Darling: not normal. Data are bounded at zero and right-skewed, which is expected for a void fraction. Route to a nonnormal capability fit."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 17.213041424229267,
+        "individualsLCL": -0.48344142422926595,
+        "centerLine": 8.3648,
+        "flaggedCount": 1,
+        "pointsBeyondIndividualsLimits": 0,
+        "movingRangeUCL": 10.869108979591836,
+        "pointsBeyondMovingRangeUCL": 0,
+        "sigmaWithin": 2.949413808076422
+      },
+      "status": "success",
+      "decision": "No point breaches the individuals or moving-range limits. One Nelson rule-5 signal (2 of 3 points beyond 2 sigma) near joint 36. The computed lower limit of -0.48 is below the physical floor of zero and is not a usable alarm line. Process is essentially stable, not shifting."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run"
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.39126727928263927,
+        "runsCount": 29,
+        "runsExpected": 26.0,
+        "statistic": 0.8573214099741123
+      },
+      "status": "success",
+      "decision": "Runs about the median p 0.391: no trend, drift or non-random patterning across build order."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run",
+        "lambda": 0.2
+      },
+      "method_id": "control_chart.ewma",
+      "outputs": {
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "EWMA (lambda 0.2, 3 sigma) flags nothing: no small sustained shift in the mean."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run",
+        "k": 0.5,
+        "h": 4
+      },
+      "method_id": "control_chart.cusum",
+      "outputs": {
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "Tabular CUSUM flags nothing, confirming the EWMA result."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run"
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.4127100969206232,
+        "cpk": 0.9453629934977303,
+        "pp": 1.5015539848927568,
+        "ppk": 1.0048159018264746,
+        "cpuOneSided": 1.8800572003435159,
+        "cplOneSided": 0.9453629934977303,
+        "ppmTotal": 1287.23896361185
+      },
+      "status": "success",
+      "decision": "Computed for reference only. Normality was rejected, and Cpk 0.945 is driven entirely by the lower side against a zero limit that is a physical floor for void area rather than a customer requirement. Not the basis for the verdict."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run",
+        "distribution": "lognormal"
+      },
+      "method_id": "capability.nonnormal",
+      "outputs": {
+        "ppk": 1.3199241083134954,
+        "pp": 1.4010695744994526,
+        "ppuOneSided": 1.3199241083134954,
+        "expectedPctAboveUSL": 0.018445554325994748,
+        "expectedPpmAboveUSL": 184.4555432599475,
+        "lognormalKsPValue": 0.7087477157814435,
+        "weibullKsPValue": 0.6765508439268719,
+        "p50": 7.939943288461594,
+        "p99865": 20.864971783726013
+      },
+      "status": "success",
+      "decision": "Lognormal fits well (KS p 0.709, ahead of Weibull 0.677). Against the 25.0 acceptance limit the percentile-method Ppk is 1.320 with 184 ppm expected above the limit. This is the defensible capability statement: capable but short of a 1.33 Ppk target."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run",
+        "testProportion": 0.05
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.07694497527671335,
+        "observedDefects": 0,
+        "observedRate": 0.0,
+        "upper95Rate": 0.05815507911697595
+      },
+      "status": "success",
+      "decision": "Zero of 50 joints exceeded the 25 percent limit. Exact one-proportion test against a 5 percent nonconformance benchmark gives p 0.077, so 50 joints are not quite enough to demonstrate sub-5-percent nonconformance at 95 percent confidence: the upper confidence bound on the true rate is 5.8 percent."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run",
+        "referenceValue": 25.0
+      },
+      "method_id": "nonparametric.one_sample_wilcoxon",
+      "outputs": {
+        "pValue": 8.881784197001252e-16
+      },
+      "status": "success",
+      "decision": "Signed-rank test that the void fraction sits below the 25 percent limit: p < 0.001. The location of the process is unambiguously under the limit."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "batch": "process_run",
+        "referenceValue": 25.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 1.4020208968559224e-40,
+        "tStatistic": -42.390176161353764
+      },
+      "status": "success",
+      "decision": "Parametric counterpart to the Wilcoxon, reported as a cross-check only since normality was rejected. Same conclusion."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "sampleSize": 0,
+        "groups": 0,
+        "batch": null
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Attempted a before-versus-after comparison of an improvement. The steward enumerates only three data topics for this project (charter, repeat readings, void fraction in build order) and refused a request for improvement-trial or post-change data as not available. No improvement was trialled and no post-change data exists, so no change effect can be quantified. The closest table entry is a two-sample comparison of means; nothing was computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_adequacy",
+      "chosen_branch": "msa_acceptable_proceed_to_process_analysis",
+      "observed": {
+        "percentStudyVariation": 19.969676013932318,
+        "percentTolerance": 18.276525341686146,
+        "ndc": 6.91848692008182
+      }
+    },
+    {
+      "point": "grr_interaction_term",
+      "chosen_branch": "pool_interaction_into_repeatability",
+      "observed": {
+        "interactionPValue": 0.5752918525715551
+      }
+    },
+    {
+      "point": "distribution_of_process_run",
+      "chosen_branch": "nonnormal_lognormal_capability",
+      "observed": {
+        "adPValue": 0.028572851060577234,
+        "shapiroPValue": 0.018508119204955535,
+        "skewness": 0.715459086593583,
+        "lognormalKsPValue": 0.7087477157814435
+      }
+    },
+    {
+      "point": "stability_before_capability",
+      "chosen_branch": "stable_capability_is_meaningful",
+      "observed": {
+        "imrFlaggedCount": 1,
+        "pointsBeyondLimits": 0,
+        "runsPValue": 0.39126727928263927,
+        "ewmaFlaggedCount": 0,
+        "cusumFlaggedCount": 0
+      }
+    },
+    {
+      "point": "capability_sidedness",
+      "chosen_branch": "one_sided_against_usl_zero_is_physical_floor",
+      "observed": {
+        "normalCpk": 0.9453629934977303,
+        "normalCpuOneSided": 1.8800572003435159,
+        "nonnormalPpuOneSided": 1.3199241083134954
+      }
+    },
+    {
+      "point": "improve_and_control_phases",
+      "chosen_branch": "no_data_conclusion_stops_here",
+      "observed": {
+        "improvementBatchesAvailable": 0,
+        "processFactsAvailable": 0
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

@@ -1,0 +1,155 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "requiredMinReplicates": 3
+      },
+      "status": "success",
+      "decision": "All libraries met both QC criteria; both arms retained sufficient replication."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableLibraries": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "usableLibraries": 12,
+        "rankWithoutTreatment": 1,
+        "rankWithTreatment": 2
+      },
+      "status": "success",
+      "decision": "Treatment increased design rank and is estimable separately from preparation batch; only one batch was present."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {},
+      "status": "failed",
+      "decision": "The first run completed model fitting but failed while serializing a NumPy boolean; no result from this attempt was used."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40,
+        "nGenes": 400,
+        "nSamples": 12,
+        "controlSamples": 6,
+        "treatedSamples": 6,
+        "nFitSuccess": 397,
+        "nFitFailed": 3,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "nUp": 24,
+        "nDown": 16
+      },
+      "status": "success",
+      "decision": "Gene-wise NB2 regression with median-ratio size-factor offsets, Wald tests, and BH adjustment; calls required both stipulated thresholds."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidates": 10,
+        "groups": 2
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "replicatesPerArm": 4,
+        "validationAlpha": 0.05,
+        "minimumConcordance": 0.75,
+        "meetsMinimum": true
+      },
+      "status": "success",
+      "decision": "Two-sided Welch tests confirmed every nominated candidate at the required p-value and panel-called direction."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "universe": 400,
+        "queryGenes": 40,
+        "sets": 12
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "universe": 400,
+        "querySize": 40,
+        "nSets": 12,
+        "alpha": 0.05,
+        "topSetSize": 30,
+        "topSetOverlap": 20,
+        "topSetPValue": 8.830511253284353e-16,
+        "topSetAdjustedPValue": 1.0596613503941224e-14
+      },
+      "status": "success",
+      "decision": "One-sided hypergeometric over-representation tests with BH adjustment identified SET03 as the sole significant set."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "simple_unblocked_model",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_release_gate",
+      "chosen_branch": "issue_candidate_list",
+      "observed": {
+        "concordance": 1.0,
+        "nConfirmed": 10
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

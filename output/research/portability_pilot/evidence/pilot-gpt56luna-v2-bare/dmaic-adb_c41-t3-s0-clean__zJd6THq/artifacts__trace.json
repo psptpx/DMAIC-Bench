@@ -1,0 +1,190 @@
+{
+  "system_id": "local-python-scipy-analysis",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "discovery_participants": 240,
+        "discovery_variants": 150,
+        "replication_participants": 120,
+        "batches": [
+          "define",
+          "genotypes",
+          "replication"
+        ]
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "discoveryParticipants": 240,
+        "discoveryAffected": 120,
+        "discoveryUnaffected": 120,
+        "panelVariants": 150,
+        "replicationParticipants": 120,
+        "replicationAffected": 60,
+        "replicationUnaffected": 60,
+        "minSampleCallRate": 0.95,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06,
+        "maxSampleFailFraction": 0.1,
+        "associationAlpha": 0.05,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Protocol and both cohorts were available for analysis."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "cohort": "discovery",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "retainedSamples": 237,
+        "platePass": true,
+        "plateFailThreshold": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes the protocol sample-failure criterion."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "cohort": "discovery",
+        "participants": 240,
+        "variants": 150,
+        "hwePopulation": "unaffected"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "failedCallRateCount": 5,
+        "failedMafCount": 4,
+        "failedHweCount": 4
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call rate, MAF, and unaffected-control HWE thresholds."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "cohort": "discovery",
+        "retainedSamples": 237,
+        "retainedVariants": 138,
+        "test": "2x3 genotype-by-affection chi-square"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.563144496896257,
+        "bonferroniAlpha": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "One retained variant passes Bonferroni correction: rs000008."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "cohort": "discovery",
+        "variant": "rs000008"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.6082673362951516,
+        "pValue": 5.653541578182578e-11,
+        "associationStatistic": 47.19230769230769
+      },
+      "status": "success",
+      "decision": "Discovery association is significant and has odds ratio below 1."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "cohort": "replication",
+        "participants": 120,
+        "variant": "rs000008"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.016666666666666666,
+        "retainedSamples": 118,
+        "sampleCallRateThreshold": 0.95
+      },
+      "status": "success",
+      "decision": "Replication sample QC was computed; the cohort remains usable under the 0.1 failure-fraction rule."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "cohort": "replication",
+        "variant": "rs000008",
+        "candidateCallRate": 0.9916666666666667
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.296070460704607,
+        "pValue": 9.684803104789346e-05,
+        "associationStatistic": 18.48473499646252,
+        "candidateCallRate": 0.9916666666666667
+      },
+      "status": "success",
+      "decision": "Replication association is below 0.05 and has the same below-1 direction as discovery."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "cohort": "replication",
+        "candidates": 1,
+        "testedCandidate": "rs000008"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "replicationAlpha": 0.05,
+        "sameDirection": true
+      },
+      "status": "success",
+      "decision": "The nominated discovery hit replicates and supports reporting."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate viability",
+      "chosen_branch": "continue",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "discovery association",
+      "chosen_branch": "nominate rs000008",
+      "observed": {
+        "nSignificant": 1,
+        "bonferroniAlpha": 0.00036231884057971015
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "report replicated hit",
+      "observed": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "sameDirection": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0.0,
+  "token_cost": null
+}

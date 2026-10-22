@@ -1,0 +1,165 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "minSampleCallRate": 0.94,
+        "maxSampleFailFraction": 0.1,
+        "platePasses": true,
+        "retainedSamples": 237,
+        "nParticipants": 240,
+        "nVariants": 150
+      },
+      "status": "success",
+      "decision": "Plate passes the re-genotyping gate; retain 237 participants."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150,
+        "controls": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "variantCallRateMin": 0.7708333333333334,
+        "minMafRetained": 0.0811965811965812,
+        "minHwePRetained": 0.0022224488325383795,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain 138 variants after call-rate, MAF, and unaffected-control HWE filters."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 138,
+        "leadingAxesTested": 5
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 5,
+        "pc1PValue": 0.7718589642522526,
+        "pc5PValue": 0.04984163325445762,
+        "covariateIncluded": true
+      },
+      "status": "success",
+      "decision": "Groups overlap but show structure; include the fifth leading axis as a covariate."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variantsTested": 138,
+        "covariates": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.0,
+        "nVariantsTested": 138,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "No discovery variant meets the Bonferroni threshold."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "candidates": 1
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "replicationPValue": 1.087584102880892e-05,
+        "replicationAlpha": 0.05,
+        "sameDirection": true,
+        "replicationPasses": true,
+        "replicationParticipants": 120
+      },
+      "status": "success",
+      "decision": "The nominated candidate rs000008 replicates with p<0.05 in the same direction."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 119,
+        "candidate": 1,
+        "nonmissingCandidateCalls": 119
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.2240859980419136,
+        "candidateCallRate": 0.9916666666666667,
+        "candidateMissing": 1,
+        "discoveryDirection": 1,
+        "replicationDirection": 1
+      },
+      "status": "success",
+      "decision": "Replication effect is positive and concordant with discovery direction."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_gate",
+      "chosen_branch": "proceed_without_regenotyping",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "cohort_comparability",
+      "chosen_branch": "adjust_for_structure",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 5,
+        "pc5PValue": 0.04984163325445762
+      }
+    },
+    {
+      "point": "discovery_threshold",
+      "chosen_branch": "no_discovery_hit",
+      "observed": {
+        "nSignificant": 0,
+        "bonferroniThreshold": 0.00036231884057971015
+      }
+    },
+    {
+      "point": "replication_reporting",
+      "chosen_branch": "report_nominated_rs000008",
+      "observed": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "sameDirection": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "samplesRetained": 209,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "sampleFailPercent": 12.916666666666668
+      },
+      "status": "success",
+      "decision": "Regenotype",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "protocol": "define",
+        "missing": "JSON null",
+        "call_rate": "nonmissing calls divided by panel size"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_quality_gate",
+      "chosen_branch": "stop_and_regenotype",
+      "observed": {
+        "sampleFailFraction": 0.12916666666666668,
+        "exceedsProtocolLimit": true
+      }
+    }
+  ],
+  "turns": 0
+}

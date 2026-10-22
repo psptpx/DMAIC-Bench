@@ -1,0 +1,151 @@
+{
+  "system_id": "openai-api",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleSize": 240,
+        "variantCount": 150,
+        "groupCount": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "minimumObservedCallRate": 0.9333333333333333,
+        "sampleCallRateThreshold": 0.95,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes the participant-QC gate; exclude P127, P142, and P195 and continue."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleSize": 237,
+        "variantCount": 150,
+        "controlGroupIncluded": true
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 2,
+        "minimumHwePValue": 3.003514136534961e-13,
+        "bonferroniAlpha": 0.00035971223021582735
+      },
+      "status": "success",
+      "decision": "Retain all panel variants except rs050014, rs050017, rs050019, rs050052, rs050071, rs050082, rs050091, rs050092, rs050096, rs050108, and rs050121."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleSize": 237,
+        "variantCount": 139
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation could not run because the scikit-learn dependency was unavailable; no quantitative result was produced by this attempt."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleSize": 237,
+        "variantCount": 139,
+        "groupCount": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 4.4356006605713844e-16,
+        "pc1ExplainedVarianceFraction": 0.0814350353018884,
+        "pc1RangeOverlapFraction": 0.8847887198278855
+      },
+      "status": "success",
+      "decision": "NumPy-SVD PCA found strong overlapping structure on PC1. The affection groups are comparable only with PC1 entered as a covariate."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleSize": 237,
+        "variantCount": 139,
+        "covariateCount": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1762264979203456,
+        "variantsTested": 139,
+        "failedModels": 0,
+        "bonferroniAlpha": 0.00035971223021582735,
+        "minimumPValue": 0.005541811296274787
+      },
+      "status": "success",
+      "decision": "No retained variant met the Bonferroni criterion; nominate no discovery association."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariantCount": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0
+      },
+      "status": "success",
+      "decision": "The steward supplied no nominated discovery candidates, so no replication test is applicable and no association can be reported."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_gate",
+      "chosen_branch": "continue_after_sample_exclusions",
+      "observed": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "compare_with_pc1_adjustment",
+      "observed": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 4.4356006605713844e-16
+      }
+    },
+    {
+      "point": "discovery_gate",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0,
+        "bonferroniAlpha": 0.00035971223021582735
+      }
+    },
+    {
+      "point": "replication_gate",
+      "chosen_branch": "not_applicable_no_candidates",
+      "observed": {
+        "nCandidates": 0,
+        "nReplicated": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

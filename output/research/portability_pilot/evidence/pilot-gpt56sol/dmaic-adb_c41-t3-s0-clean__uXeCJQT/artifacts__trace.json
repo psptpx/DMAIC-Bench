@@ -1,0 +1,139 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 150,
+        "batchCode": 1
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 5,
+        "sampleFailFraction": 0.020833333333333332,
+        "samplesRetained": 235,
+        "affectedRetained": 117,
+        "unaffectedRetained": 118,
+        "minimumCallRate": 0.94,
+        "maximumCallRate": 1.0,
+        "sampleCallRateThreshold": 0.95,
+        "platePass": true,
+        "maximumAllowedFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes: failed-sample fraction does not exceed the protocol maximum; exclude the failed participants and continue."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleCount": 235,
+        "variantCount": 150,
+        "batchCode": 1
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial combined variant-QC/PCA run failed before producing results because sklearn was unavailable; rerun used NumPy SVD."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sampleCount": 235,
+        "variantCount": 150,
+        "batchCode": 1
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "snpsTotal": 150,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHweControls": 3,
+        "minimumRetainedCallRate": 0.9702127659574468,
+        "minimumRetainedMaf": 0.09829059829059829,
+        "minimumRetainedHweP": 0.015987421129153138,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call-rate, pooled-MAF, and unaffected-participant exact-HWE criteria."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sampleCount": 235,
+        "variantCount": 138,
+        "groupCount": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 0.30395785951012233,
+        "pc1Statistic": 1.0567488951348878,
+        "pc1VarianceFraction": 0.021140451630408785,
+        "pc2VarianceFraction": 0.020809805405400363,
+        "pc1RangeOverlapFraction": 0.940285438451622
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants overlap on PC1 and status is not associated with PC1; proceed without ancestry-axis adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sampleCount": 235,
+        "variantCount": 138,
+        "covariateCount": 0
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.8271897358417436,
+        "nTested": 138,
+        "familyAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "minimumPValue": 4.63980637645063e-07,
+        "bestStatistic": 25.408038791885303,
+        "bestLogOddsPerAllele": 0.9810871956904753,
+        "bestOddsRatio": 2.667354602530193
+      },
+      "status": "success",
+      "decision": "rs000008 is associated with affection status under the protocol Bonferroni rule."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.020833333333333332,
+        "maximumAllowedFailFraction": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_handling",
+      "chosen_branch": "unadjusted_additive_trend_test",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.30395785951012233,
+        "pc1RangeOverlapFraction": 0.940285438451622
+      }
+    },
+    {
+      "point": "multiplicity",
+      "chosen_branch": "bonferroni_over_retained_variants",
+      "observed": {
+        "nTested": 138,
+        "familyAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

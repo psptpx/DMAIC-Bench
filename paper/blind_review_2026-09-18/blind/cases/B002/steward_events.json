@@ -1,0 +1,88 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and the committed defect share",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Per-lot inspected and defective counts, baseline",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "stable=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "stable": true
+    }
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Per-lot line settings alongside that lot's defect share",
+    "stage_id": "settings",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Inspected and defective totals either side of the change",
+    "stage_id": "before_after",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "The size and risk level the trial was run at",
+    "stage_id": "trial_size",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Per-lot inspected and defective counts since the change",
+    "stage_id": "after_lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  }
+]

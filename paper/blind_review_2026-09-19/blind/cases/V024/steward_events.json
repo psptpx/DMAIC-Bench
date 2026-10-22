@@ -1,0 +1,74 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the crossed gage repeatability and reproducibility study for bore roughness.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Project charter and voiding limit",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Repeat X-ray readings of the same joints",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Per-joint void fraction in build order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "provision",
+    "text": "The brief describes bore roughness but the charter and readings describe X-ray joint void area. Which process and acceptance criterion govern this project?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Historical process causes and factor settings linked to void fraction",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Improvement trial and post-change validation readings",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Control plan and ongoing monitoring records",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  }
+]

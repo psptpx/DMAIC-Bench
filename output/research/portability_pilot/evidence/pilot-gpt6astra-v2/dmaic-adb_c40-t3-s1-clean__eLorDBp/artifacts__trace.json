@@ -1,0 +1,71 @@
+{
+  "system_id": "api-assistant",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlReplicates": 6,
+        "treatedReplicates": 6
+      },
+      "status": "success",
+      "decision": "All libraries usable; replication gate passes."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "batchOnlyRank": 2,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      },
+      "status": "success",
+      "decision": "Treatment is completely aliased with batch; no separate treatment effect can be estimated."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "stop_compound_inference_confounded",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "batchOnlyRank": 2,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      }
+    },
+    {
+      "point": "counts_release",
+      "chosen_branch": "locked_stop",
+      "observed": {
+        "design_confounded": true,
+        "refusal": "locked"
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

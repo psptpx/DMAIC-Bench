@@ -1,0 +1,3152 @@
+{
+  "adb_c25:0": {
+    "blocks_digest": "2861238751ad1863",
+    "branch_decisions": {
+      "A_cap_normal": "C_control",
+      "A_route": "A_cap_normal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap_normal"
+      }
+    ],
+    "results_digest": "9032e22260128ce1",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "C_control"
+    ],
+    "shape": "stable\u00b7normal\u00b7capable"
+  },
+  "adb_c25:1": {
+    "blocks_digest": "626a92451747f929",
+    "branch_decisions": {
+      "A_cap_normal": "A_root_cause",
+      "A_route": "A_cap_normal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_root_cause",
+        "point_id": "A_cap_normal"
+      }
+    ],
+    "results_digest": "443db4c8c4aa0071",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_root_cause",
+      "I_doe",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "stable\u00b7normal\u00b7incapable"
+  },
+  "adb_c25:2": {
+    "blocks_digest": "47f46a43cc63efd4",
+    "branch_decisions": {
+      "A_route": "A_cap_nonnormal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_nonnormal",
+        "point_id": "A_route"
+      }
+    ],
+    "results_digest": "7aa0a5df23740bc8",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_nonnormal",
+      "A_root_cause",
+      "I_doe",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "stable\u00b7non-normal"
+  },
+  "adb_c25:3": {
+    "blocks_digest": "e8459ccafe285d7b",
+    "branch_decisions": {
+      "M_msa": "M_stability",
+      "M_stability": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "7d423caa88c6e805",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_special_cause",
+      "C_control"
+    ],
+    "shape": "unstable\u00b7special-cause"
+  },
+  "adb_c25:4": {
+    "blocks_digest": "be9de7b9224916eb",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "c3124a4c087974c1",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable"
+  },
+  "adb_c26:0": {
+    "blocks_digest": "391fe1ea9bc76af2",
+    "branch_decisions": {
+      "A_cap_binomial": "C_control",
+      "M_agree": "M_chart_route",
+      "M_chart_route": "M_pchart",
+      "M_pchart": "A_cap_binomial"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_route",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_chart_route"
+      },
+      {
+        "correct_branch": "A_cap_binomial",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap_binomial"
+      }
+    ],
+    "results_digest": "f760eb354fa5c85e",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_chart_route",
+      "M_pchart",
+      "A_cap_binomial",
+      "C_control"
+    ],
+    "shape": "constant\u00b7in-control\u00b7meets-target"
+  },
+  "adb_c26:1": {
+    "blocks_digest": "d926405cf5839884",
+    "branch_decisions": {
+      "A_cap_binomial": "A_root_cause",
+      "M_agree": "M_chart_route",
+      "M_chart_route": "M_pchart",
+      "M_pchart": "A_cap_binomial"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_route",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_chart_route"
+      },
+      {
+        "correct_branch": "A_cap_binomial",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "A_root_cause",
+        "point_id": "A_cap_binomial"
+      }
+    ],
+    "results_digest": "1158c25665159a14",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_chart_route",
+      "M_pchart",
+      "A_cap_binomial",
+      "A_root_cause",
+      "I_improve",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "constant\u00b7in-control\u00b7misses-target"
+  },
+  "adb_c26:2": {
+    "blocks_digest": "63a64bf6d1b56605",
+    "branch_decisions": {
+      "A_cap_binomial": "A_root_cause",
+      "M_agree": "M_chart_route",
+      "M_chart_route": "M_laney",
+      "M_laney": "A_cap_binomial"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_route",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "M_laney",
+        "point_id": "M_chart_route"
+      },
+      {
+        "correct_branch": "A_cap_binomial",
+        "point_id": "M_laney"
+      },
+      {
+        "correct_branch": "A_root_cause",
+        "point_id": "A_cap_binomial"
+      }
+    ],
+    "results_digest": "237f6c7c9b6a6de1",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_chart_route",
+      "M_laney",
+      "A_cap_binomial",
+      "A_root_cause",
+      "I_improve",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "varying-n\u00b7in-control"
+  },
+  "adb_c26:3": {
+    "blocks_digest": "feabac283e3a57d0",
+    "branch_decisions": {
+      "M_agree": "M_chart_route",
+      "M_chart_route": "M_pchart",
+      "M_pchart": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_route",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_chart_route"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_pchart"
+      }
+    ],
+    "results_digest": "0ba05ba5fc6cef64",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_chart_route",
+      "M_pchart",
+      "A_special_cause",
+      "C_control"
+    ],
+    "shape": "constant\u00b7out-of-control"
+  },
+  "adb_c26:4": {
+    "blocks_digest": "838abcc6c924230b",
+    "branch_decisions": {
+      "M_agree": "M_agree_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_agree_fix",
+        "point_id": "M_agree"
+      }
+    ],
+    "results_digest": "7d1cec964b54e9b4",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_agree_fix"
+    ],
+    "shape": "appraiser-disagreement"
+  },
+  "adb_c26:5": {
+    "blocks_digest": "bd66b097095aa5bc",
+    "branch_decisions": {
+      "M_agree": "M_agree_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_agree_fix",
+        "point_id": "M_agree"
+      }
+    ],
+    "results_digest": "30e6891b0759c457",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_agree_fix"
+    ],
+    "shape": "appraiser-disagreement"
+  },
+  "adb_c27:0": {
+    "blocks_digest": "a3cba5170f11d957",
+    "branch_decisions": {
+      "A_cap_normal": "C_control",
+      "A_route": "A_cap_normal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap_normal"
+      }
+    ],
+    "results_digest": "6fc637a225d62c33",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "C_control"
+    ],
+    "shape": "normal\u00b7capable"
+  },
+  "adb_c27:1": {
+    "blocks_digest": "de4468de91aa66bc",
+    "branch_decisions": {
+      "A_cap_normal": "A_screen",
+      "A_route": "A_cap_normal",
+      "A_screen": "I_doe",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "I_doe",
+        "point_id": "A_screen"
+      }
+    ],
+    "results_digest": "63264e07caa8da9c",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_screen",
+      "I_doe",
+      "I_rsm",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "normal\u00b7incapable\u00b7significant-factor"
+  },
+  "adb_c27:2": {
+    "blocks_digest": "0adfc9915892703c",
+    "branch_decisions": {
+      "A_cap_normal": "A_screen",
+      "A_route": "A_cap_normal",
+      "A_screen": "A_remeasure",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "A_remeasure",
+        "point_id": "A_screen"
+      }
+    ],
+    "results_digest": "753e80ead4f3eac9",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_screen",
+      "A_remeasure",
+      "C_control"
+    ],
+    "shape": "normal\u00b7incapable\u00b7nonsignificant-factor"
+  },
+  "adb_c27:3": {
+    "blocks_digest": "c951526a33f1e891",
+    "branch_decisions": {
+      "A_route": "A_cap_nonnormal",
+      "A_screen": "I_doe",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_nonnormal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "I_doe",
+        "point_id": "A_screen"
+      }
+    ],
+    "results_digest": "1c43e89bb813de44",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_nonnormal",
+      "A_screen",
+      "I_doe",
+      "I_rsm",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "non-normal"
+  },
+  "adb_c27:4": {
+    "blocks_digest": "2ab3074fc7b4e7f7",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "73277e2097153536",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable"
+  },
+  "adb_c27:5": {
+    "blocks_digest": "10e4b3b973180298",
+    "branch_decisions": {
+      "M_msa": "M_stability",
+      "M_stability": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "67329017341a075e",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_special_cause",
+      "C_control"
+    ],
+    "shape": "unstable\u00b7special-cause"
+  },
+  "adb_c28:0": {
+    "blocks_digest": "31aeef9e950ec88a",
+    "branch_decisions": {
+      "A_cap_normal": "C_control",
+      "A_route": "A_cap_normal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap_normal"
+      }
+    ],
+    "results_digest": "39e6fa56013019dd",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "C_control"
+    ],
+    "shape": "normal\u00b7capable"
+  },
+  "adb_c28:1": {
+    "blocks_digest": "e935805a706fa1de",
+    "branch_decisions": {
+      "A_cap_normal": "A_root_cause",
+      "A_route": "A_cap_normal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_root_cause",
+        "point_id": "A_cap_normal"
+      }
+    ],
+    "results_digest": "693dba1a34fefb99",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_root_cause",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "normal\u00b7incapable"
+  },
+  "adb_c28:2": {
+    "blocks_digest": "ae19c7c84efca6aa",
+    "branch_decisions": {
+      "A_route": "A_cap_nonnormal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_nonnormal",
+        "point_id": "A_route"
+      }
+    ],
+    "results_digest": "21cce56d53216672",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_nonnormal",
+      "A_root_cause",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "skewed(backlight-decay)"
+  },
+  "adb_c28:3": {
+    "blocks_digest": "ad91527c916d4a9b",
+    "branch_decisions": {
+      "M_msa": "M_stability",
+      "M_stability": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "1edbf7e63babed80",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_special_cause",
+      "C_control"
+    ],
+    "shape": "unstable(line-switch)"
+  },
+  "adb_c28:4": {
+    "blocks_digest": "862662d3084e3b64",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "b878f3e96890597c",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable"
+  },
+  "adb_c28:5": {
+    "blocks_digest": "295748895606c413",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "0de6145a9bff53f0",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable"
+  },
+  "adb_c29:0": {
+    "blocks_digest": "9ce3f8e2aa2af7ff",
+    "branch_decisions": {
+      "M_stability": "A_capability"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_capability",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "a62ef70f25f39c0d",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_capability",
+      "C_control"
+    ],
+    "shape": "moderate-skew\u00b7trap"
+  },
+  "adb_c29:1": {
+    "blocks_digest": "e980c3e334b70123",
+    "branch_decisions": {
+      "M_stability": "A_capability"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_capability",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "7ea7cff8572bd7eb",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_capability",
+      "C_control"
+    ],
+    "shape": "clean-normal\u00b7control"
+  },
+  "adb_c29:2": {
+    "blocks_digest": "6d4236aaf4a343b7",
+    "branch_decisions": {
+      "M_stability": "A_capability"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_capability",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "0af6002c01a6af54",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_capability",
+      "C_control"
+    ],
+    "shape": "mild-skew\u00b7trap"
+  },
+  "adb_c29:3": {
+    "blocks_digest": "f02c577ae45ee6be",
+    "branch_decisions": {
+      "M_stability": "A_capability"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_capability",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "123fc152392c8a8b",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_capability",
+      "C_control"
+    ],
+    "shape": "wide-normal\u00b7control"
+  },
+  "adb_c29:4": {
+    "blocks_digest": "f453fdf27775b780",
+    "branch_decisions": {
+      "M_stability": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "32d8045df7e340f1",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_special_cause",
+      "C_control"
+    ],
+    "shape": "unstable\u00b7special-cause"
+  },
+  "adb_c30:0": {
+    "blocks_digest": "aff1e392e2ffabc9",
+    "branch_decisions": {
+      "A_cap_normal": "C_control",
+      "A_route": "A_cap_normal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap_normal"
+      }
+    ],
+    "results_digest": "6036b1948623df7c",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "C_control"
+    ],
+    "shape": "normal-capable"
+  },
+  "adb_c30:1": {
+    "blocks_digest": "040cb1ce2df54ebe",
+    "branch_decisions": {
+      "A_cap_normal": "A_root_cause",
+      "A_route": "A_cap_normal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_root_cause",
+        "point_id": "A_cap_normal"
+      }
+    ],
+    "results_digest": "1d94447be22b94f7",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_root_cause",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "normal-incapable"
+  },
+  "adb_c30:2": {
+    "blocks_digest": "4c16ebc57040449a",
+    "branch_decisions": {
+      "M_msa": "M_stability",
+      "M_stability": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "225b59258a79d5c9",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_special_cause",
+      "C_control"
+    ],
+    "shape": "unstable(stone-wear)"
+  },
+  "adb_c30:3": {
+    "blocks_digest": "3ccff67a2f5698a9",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "ac43a104b7abadf3",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable"
+  },
+  "adb_c30:4": {
+    "blocks_digest": "6f2a08643de3d3ab",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "6a414551340c9133",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable(resolution)"
+  },
+  "adb_c30:5": {
+    "blocks_digest": "7f35e0372f3b4af8",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "682e3d9171344907",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable(resolution)"
+  },
+  "adb_c30:6": {
+    "blocks_digest": "e3e7da6aa7cd51fc",
+    "branch_decisions": {
+      "A_route": "A_cap_nonnormal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_nonnormal",
+        "point_id": "A_route"
+      }
+    ],
+    "results_digest": "e47f02c460170ae3",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_nonnormal",
+      "A_root_cause",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "skewed(plateau-honing)"
+  },
+  "adb_c31:0": {
+    "blocks_digest": "dcbc27b87dec2c15",
+    "branch_decisions": {
+      "A_route": "A_cap_nonnormal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_nonnormal",
+        "point_id": "A_route"
+      }
+    ],
+    "results_digest": "4962fb78568bc50b",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_nonnormal",
+      "A_root_cause",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "skewed(void-tail)"
+  },
+  "adb_c31:1": {
+    "blocks_digest": "5bc25907173f1bf1",
+    "branch_decisions": {
+      "M_msa": "M_stability",
+      "M_stability": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "c5c4dbf0705a9b0f",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_special_cause",
+      "C_control"
+    ],
+    "shape": "unstable(reflow-drift)"
+  },
+  "adb_c31:2": {
+    "blocks_digest": "607cd9d4f2b9b87d",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "8dacd63d2e2b2f86",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable"
+  },
+  "adb_c31:3": {
+    "blocks_digest": "2ac86c880727a13f",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "9d8c06047a9f37c4",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable(resolution)"
+  },
+  "adb_c31:4": {
+    "blocks_digest": "2cea892dd4dcedf2",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "4178881153e9d955",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable(resolution)"
+  },
+  "adb_c32:0": {
+    "blocks_digest": "68f22954c4d44b40",
+    "branch_decisions": {
+      "A_cap": "C_route",
+      "C_route": "C_control",
+      "D_scope": "M_agree",
+      "M_agree": "M_pchart",
+      "M_pchart": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_agree",
+        "point_id": "D_scope"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "C_route",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "a42592639e3714c1",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_pchart",
+      "A_cap",
+      "C_route",
+      "C_control"
+    ],
+    "shape": "meets-commitment"
+  },
+  "adb_c32:1": {
+    "blocks_digest": "7d1b45454d42d5ee",
+    "branch_decisions": {
+      "A_cap": "A_machine",
+      "A_machine": "I_improve",
+      "C_route": "C_laney",
+      "D_scope": "M_agree",
+      "M_agree": "M_pchart",
+      "M_pchart": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_agree",
+        "point_id": "D_scope"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "A_machine",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "I_improve",
+        "point_id": "A_machine"
+      },
+      {
+        "correct_branch": "C_laney",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "75456b6ba901154c",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_pchart",
+      "A_cap",
+      "A_machine",
+      "I_improve",
+      "C_route",
+      "C_laney"
+    ],
+    "shape": "misses-commitment/machine-differs"
+  },
+  "adb_c32:2": {
+    "blocks_digest": "700951ce694198de",
+    "branch_decisions": {
+      "A_cap": "A_machine",
+      "A_machine": "A_more_x",
+      "C_route": "C_control",
+      "D_scope": "D_stratify",
+      "M_agree": "M_pchart",
+      "M_pchart": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "D_stratify",
+        "point_id": "D_scope"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "A_machine",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "A_more_x",
+        "point_id": "A_machine"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "87707974ba1ba8fd",
+    "route": [
+      "D_scope",
+      "D_stratify",
+      "M_agree",
+      "M_pchart",
+      "A_cap",
+      "A_machine",
+      "A_more_x",
+      "C_route",
+      "C_control"
+    ],
+    "shape": "misses-commitment/machines-alike"
+  },
+  "adb_c32:3": {
+    "blocks_digest": "b0d1a4544dea8dc4",
+    "branch_decisions": {
+      "C_route": "C_laney",
+      "D_scope": "M_agree",
+      "M_agree": "M_pchart",
+      "M_pchart": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_agree",
+        "point_id": "D_scope"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "C_laney",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "2a087e4a4b0c49ae",
+    "route": [
+      "D_scope",
+      "M_agree",
+      "M_pchart",
+      "A_special_cause",
+      "C_route",
+      "C_laney"
+    ],
+    "shape": "out-of-control"
+  },
+  "adb_c32:4": {
+    "blocks_digest": "2c5095e50a1735cc",
+    "branch_decisions": {
+      "D_scope": "D_stratify",
+      "M_agree": "M_agree_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "D_stratify",
+        "point_id": "D_scope"
+      },
+      {
+        "correct_branch": "M_agree_fix",
+        "point_id": "M_agree"
+      }
+    ],
+    "results_digest": "10e73d51d965bd84",
+    "route": [
+      "D_scope",
+      "D_stratify",
+      "M_agree",
+      "M_agree_fix"
+    ],
+    "shape": "inspector-disagreement"
+  },
+  "adb_c32:5": {
+    "blocks_digest": "0e70d8343806f077",
+    "branch_decisions": {
+      "A_cap": "A_machine",
+      "A_machine": "A_more_x",
+      "C_route": "C_laney",
+      "D_scope": "D_stratify",
+      "M_agree": "M_pchart",
+      "M_pchart": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "D_stratify",
+        "point_id": "D_scope"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree"
+      },
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "A_machine",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "A_more_x",
+        "point_id": "A_machine"
+      },
+      {
+        "correct_branch": "C_laney",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "14f0a747ef059edf",
+    "route": [
+      "D_scope",
+      "D_stratify",
+      "M_agree",
+      "M_pchart",
+      "A_cap",
+      "A_machine",
+      "A_more_x",
+      "C_route",
+      "C_laney"
+    ],
+    "shape": "misses-commitment/machines-alike"
+  },
+  "adb_c33:0": {
+    "blocks_digest": "181c882c5d99a4cd",
+    "branch_decisions": {
+      "A_cap": "C_control",
+      "M_agree1": "M_pchart",
+      "M_pchart": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree1"
+      },
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap"
+      }
+    ],
+    "results_digest": "5312aedcfec5bedd",
+    "route": [
+      "D_scope",
+      "M_agree1",
+      "M_pchart",
+      "A_cap",
+      "C_control"
+    ],
+    "shape": "study-1-ok/meets-level"
+  },
+  "adb_c33:1": {
+    "blocks_digest": "0f4e259378fcaf6f",
+    "branch_decisions": {
+      "A_cap": "A_root_cause",
+      "M_agree1": "M_pchart",
+      "M_pchart": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree1"
+      },
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "A_root_cause",
+        "point_id": "A_cap"
+      }
+    ],
+    "results_digest": "7b54fa9604171402",
+    "route": [
+      "D_scope",
+      "M_agree1",
+      "M_pchart",
+      "A_cap",
+      "A_root_cause",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "study-1-ok/misses-level"
+  },
+  "adb_c33:2": {
+    "blocks_digest": "386c89469475b0be",
+    "branch_decisions": {
+      "A_cap": "A_root_cause",
+      "M_agree1": "M_disagree",
+      "M_agree2": "M_pchart",
+      "M_pchart": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_disagree",
+        "point_id": "M_agree1"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree2"
+      },
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "A_root_cause",
+        "point_id": "A_cap"
+      }
+    ],
+    "results_digest": "b6c32dfcc1eb8202",
+    "route": [
+      "D_scope",
+      "M_agree1",
+      "M_disagree",
+      "M_agree2",
+      "M_pchart",
+      "A_cap",
+      "A_root_cause",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "study-1-fails/repair-holds/misses-level"
+  },
+  "adb_c33:3": {
+    "blocks_digest": "10bcc0076159e8b5",
+    "branch_decisions": {
+      "M_agree1": "M_disagree",
+      "M_agree2": "M_escalate"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_disagree",
+        "point_id": "M_agree1"
+      },
+      {
+        "correct_branch": "M_escalate",
+        "point_id": "M_agree2"
+      }
+    ],
+    "results_digest": "87873106b081bdb9",
+    "route": [
+      "D_scope",
+      "M_agree1",
+      "M_disagree",
+      "M_agree2",
+      "M_escalate"
+    ],
+    "shape": "study-1-fails/repair-fails"
+  },
+  "adb_c33:4": {
+    "blocks_digest": "e278392fe25ea4de",
+    "branch_decisions": {
+      "M_agree1": "M_pchart",
+      "M_pchart": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree1"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_pchart"
+      }
+    ],
+    "results_digest": "cecf447071a7a1b7",
+    "route": [
+      "D_scope",
+      "M_agree1",
+      "M_pchart",
+      "A_special_cause",
+      "C_control"
+    ],
+    "shape": "study-1-ok/out-of-control"
+  },
+  "adb_c33:5": {
+    "blocks_digest": "1ceff371379d88a6",
+    "branch_decisions": {
+      "A_cap": "C_control",
+      "M_agree1": "M_disagree",
+      "M_agree2": "M_pchart",
+      "M_pchart": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_disagree",
+        "point_id": "M_agree1"
+      },
+      {
+        "correct_branch": "M_pchart",
+        "point_id": "M_agree2"
+      },
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap"
+      }
+    ],
+    "results_digest": "ac938e7741148fd3",
+    "route": [
+      "D_scope",
+      "M_agree1",
+      "M_disagree",
+      "M_agree2",
+      "M_pchart",
+      "A_cap",
+      "C_control"
+    ],
+    "shape": "study-1-fails/repair-holds/meets-level"
+  },
+  "adb_c34:0": {
+    "blocks_digest": "0283213d40db496a",
+    "branch_decisions": {
+      "A_cap_normal": "C_route",
+      "A_route": "A_cap_normal",
+      "C_route": "C_control",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "C_route",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "08291eec14071f05",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "C_route",
+      "C_control"
+    ],
+    "shape": "capable"
+  },
+  "adb_c34:1": {
+    "blocks_digest": "9191750662e4f72b",
+    "branch_decisions": {
+      "A_cap_normal": "I_center",
+      "A_route": "A_cap_normal",
+      "C_route": "C_individuals",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "I_center",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "C_individuals",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "0e2ac1bfc8e7902e",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "I_center",
+      "C_route",
+      "C_individuals"
+    ],
+    "shape": "off-centre(spread fits)"
+  },
+  "adb_c34:2": {
+    "blocks_digest": "198f437d3e40157e",
+    "branch_decisions": {
+      "A_cap_normal": "A_variation",
+      "A_route": "A_cap_normal",
+      "C_route": "C_control",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_variation",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "0d8bb9b829791689",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_variation",
+      "I_reduce",
+      "C_route",
+      "C_control"
+    ],
+    "shape": "spread-too-wide"
+  },
+  "adb_c34:3": {
+    "blocks_digest": "56de4c281d9a96d8",
+    "branch_decisions": {
+      "C_route": "C_control",
+      "M_msa": "M_stability",
+      "M_stability": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "c54c3e5199d8664d",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_special_cause",
+      "C_route",
+      "C_control"
+    ],
+    "shape": "unstable"
+  },
+  "adb_c34:4": {
+    "blocks_digest": "77a15e06469a8405",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "91017775f8e159af",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "gauge-unacceptable"
+  },
+  "adb_c34:5": {
+    "blocks_digest": "dd8a411860d5117c",
+    "branch_decisions": {
+      "A_route": "A_cap_nonnormal",
+      "C_route": "C_control",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_nonnormal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "d5ee07932908b57d",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_nonnormal",
+      "A_variation",
+      "I_reduce",
+      "C_route",
+      "C_control"
+    ],
+    "shape": "skewed"
+  },
+  "adb_c34:6": {
+    "blocks_digest": "5914fe34bcb9248b",
+    "branch_decisions": {
+      "A_cap_normal": "I_center",
+      "A_route": "A_cap_normal",
+      "C_route": "C_individuals",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "I_center",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "C_individuals",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "c872e437fefcdcc3",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "I_center",
+      "C_route",
+      "C_individuals"
+    ],
+    "shape": "mean-outside-the-limit(Cpk<0)"
+  },
+  "adb_c34:7": {
+    "blocks_digest": "d1ad8a04a6f5398e",
+    "branch_decisions": {
+      "C_route": "C_control",
+      "M_msa": "M_stability",
+      "M_stability": "A_special_cause"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special_cause",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "C_route"
+      }
+    ],
+    "results_digest": "09ea2b444ff2acb2",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_special_cause",
+      "C_route",
+      "C_control"
+    ],
+    "shape": "ranges-unstable(means-in-control)"
+  },
+  "adb_c35:0": {
+    "blocks_digest": "1499f2afc094ca6d",
+    "branch_decisions": {
+      "A_cap_2": "C_control",
+      "M_chart_1": "M_chart_2",
+      "M_chart_2": "A_cap_1",
+      "M_msa": "M_chart_1"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_1",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "M_chart_2",
+        "point_id": "M_chart_1"
+      },
+      {
+        "correct_branch": "A_cap_1",
+        "point_id": "M_chart_2"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap_2"
+      }
+    ],
+    "results_digest": "debacdbc3bdc3aea",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_chart_1",
+      "M_chart_2",
+      "A_cap_1",
+      "A_cap_2",
+      "C_control"
+    ],
+    "shape": "both-acceptable"
+  },
+  "adb_c35:1": {
+    "blocks_digest": "f63002f80db06745",
+    "branch_decisions": {
+      "A_cap_2": "A_rc_first",
+      "M_chart_1": "M_chart_2",
+      "M_chart_2": "A_cap_1",
+      "M_msa": "M_chart_1"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_1",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "M_chart_2",
+        "point_id": "M_chart_1"
+      },
+      {
+        "correct_branch": "A_cap_1",
+        "point_id": "M_chart_2"
+      },
+      {
+        "correct_branch": "A_rc_first",
+        "point_id": "A_cap_2"
+      }
+    ],
+    "results_digest": "7312bd03e85064e7",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_chart_1",
+      "M_chart_2",
+      "A_cap_1",
+      "A_cap_2",
+      "A_rc_first",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "first-binds"
+  },
+  "adb_c35:2": {
+    "blocks_digest": "15db0e266c11fad2",
+    "branch_decisions": {
+      "A_cap_2": "A_rc_second",
+      "M_chart_1": "M_chart_2",
+      "M_chart_2": "A_cap_1",
+      "M_msa": "M_chart_1"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_1",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "M_chart_2",
+        "point_id": "M_chart_1"
+      },
+      {
+        "correct_branch": "A_cap_1",
+        "point_id": "M_chart_2"
+      },
+      {
+        "correct_branch": "A_rc_second",
+        "point_id": "A_cap_2"
+      }
+    ],
+    "results_digest": "d6d37a48527b60ba",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_chart_1",
+      "M_chart_2",
+      "A_cap_1",
+      "A_cap_2",
+      "A_rc_second",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "second-binds"
+  },
+  "adb_c35:3": {
+    "blocks_digest": "62a7c217d51b1caa",
+    "branch_decisions": {
+      "A_cap_2": "A_rc_first",
+      "M_chart_1": "M_chart_2",
+      "M_chart_2": "A_cap_1",
+      "M_msa": "M_chart_1"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_1",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "M_chart_2",
+        "point_id": "M_chart_1"
+      },
+      {
+        "correct_branch": "A_cap_1",
+        "point_id": "M_chart_2"
+      },
+      {
+        "correct_branch": "A_rc_first",
+        "point_id": "A_cap_2"
+      }
+    ],
+    "results_digest": "01542db5d9d70ba7",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_chart_1",
+      "M_chart_2",
+      "A_cap_1",
+      "A_cap_2",
+      "A_rc_first",
+      "I_improve",
+      "C_control"
+    ],
+    "shape": "both-short/first-binds"
+  },
+  "adb_c35:4": {
+    "blocks_digest": "6d289a9cc1643e91",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "c46ade41f4ccf279",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "instrument-unacceptable"
+  },
+  "adb_c35:5": {
+    "blocks_digest": "61346d86024975a9",
+    "branch_decisions": {
+      "M_chart_1": "A_special_1",
+      "M_msa": "M_chart_1"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_1",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special_1",
+        "point_id": "M_chart_1"
+      }
+    ],
+    "results_digest": "fcdd443c0820af68",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_chart_1",
+      "A_special_1",
+      "C_control"
+    ],
+    "shape": "first-run-unstable"
+  },
+  "adb_c35:6": {
+    "blocks_digest": "b137ce299b4c5feb",
+    "branch_decisions": {
+      "M_chart_1": "M_chart_2",
+      "M_chart_2": "A_special_2",
+      "M_msa": "M_chart_1"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_1",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "M_chart_2",
+        "point_id": "M_chart_1"
+      },
+      {
+        "correct_branch": "A_special_2",
+        "point_id": "M_chart_2"
+      }
+    ],
+    "results_digest": "45cb5203724b96bc",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_chart_1",
+      "M_chart_2",
+      "A_special_2",
+      "C_control"
+    ],
+    "shape": "second-run-unstable"
+  },
+  "adb_c35:7": {
+    "blocks_digest": "a46ed561ee92ff41",
+    "branch_decisions": {
+      "M_chart_1": "M_chart_2",
+      "M_chart_2": "A_special_2",
+      "M_msa": "M_chart_1"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_chart_1",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "M_chart_2",
+        "point_id": "M_chart_1"
+      },
+      {
+        "correct_branch": "A_special_2",
+        "point_id": "M_chart_2"
+      }
+    ],
+    "results_digest": "74a2355b968a0dd2",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_chart_1",
+      "M_chart_2",
+      "A_special_2",
+      "C_control"
+    ],
+    "shape": "second-run-spread-unstable(means-in-control)"
+  },
+  "adb_c36:0": {
+    "blocks_digest": "f7cd92d83fb3ca41",
+    "branch_decisions": {
+      "A_cap_normal": "C_control",
+      "A_route": "A_cap_normal",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap_normal"
+      }
+    ],
+    "results_digest": "83f523cc1ddf05c4",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "C_control"
+    ],
+    "shape": "capable"
+  },
+  "adb_c36:1": {
+    "blocks_digest": "94c8e895b3f3c812",
+    "branch_decisions": {
+      "A_cap_normal": "A_screen",
+      "A_route": "A_cap_normal",
+      "A_screen": "I_optimise",
+      "I_confirm": "C_control",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "I_optimise",
+        "point_id": "A_screen"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "I_confirm"
+      }
+    ],
+    "results_digest": "bfd59a32f5eb6391",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_screen",
+      "I_optimise",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "incapable/experiment-holds/change-confirmed"
+  },
+  "adb_c36:2": {
+    "blocks_digest": "a9c2ea8e70a82070",
+    "branch_decisions": {
+      "A_cap_normal": "A_screen",
+      "A_route": "A_cap_normal",
+      "A_screen": "I_optimise",
+      "I_confirm": "A_reconsider",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "I_optimise",
+        "point_id": "A_screen"
+      },
+      {
+        "correct_branch": "A_reconsider",
+        "point_id": "I_confirm"
+      }
+    ],
+    "results_digest": "338d77b82d4e5611",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_screen",
+      "I_optimise",
+      "I_confirm",
+      "A_reconsider"
+    ],
+    "shape": "incapable/experiment-holds/change-NOT-confirmed"
+  },
+  "adb_c36:3": {
+    "blocks_digest": "6b7bac7964983385",
+    "branch_decisions": {
+      "A_cap_normal": "A_screen",
+      "A_route": "A_cap_normal",
+      "A_screen": "A_more_factors",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_normal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap_normal"
+      },
+      {
+        "correct_branch": "A_more_factors",
+        "point_id": "A_screen"
+      }
+    ],
+    "results_digest": "5d494a91ded049ec",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_route",
+      "A_cap_normal",
+      "A_screen",
+      "A_more_factors"
+    ],
+    "shape": "incapable/experiment-explains-nothing"
+  },
+  "adb_c36:4": {
+    "blocks_digest": "acac4d9423f3616d",
+    "branch_decisions": {
+      "M_stability": "A_special"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_special",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "419d8df7e6a8f114",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_special",
+      "C_control"
+    ],
+    "shape": "unstable"
+  },
+  "adb_c36:5": {
+    "blocks_digest": "d847a89f09800f98",
+    "branch_decisions": {
+      "A_route": "A_cap_nonnormal",
+      "A_screen": "I_optimise",
+      "I_confirm": "C_control",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_nonnormal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "I_optimise",
+        "point_id": "A_screen"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "I_confirm"
+      }
+    ],
+    "results_digest": "1605b5ffc819f5ed",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_route",
+      "A_cap_nonnormal",
+      "A_screen",
+      "I_optimise",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "skewed/experiment-holds/change-confirmed"
+  },
+  "adb_c36:6": {
+    "blocks_digest": "7b4537c973bf278c",
+    "branch_decisions": {
+      "A_route": "A_cap_nonnormal",
+      "A_screen": "A_more_factors",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_cap_nonnormal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_more_factors",
+        "point_id": "A_screen"
+      }
+    ],
+    "results_digest": "b0a32d40f3ca4c31",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_route",
+      "A_cap_nonnormal",
+      "A_screen",
+      "A_more_factors"
+    ],
+    "shape": "skewed/experiment-explains-nothing"
+  },
+  "adb_c37:0": {
+    "blocks_digest": "99a07335d8eb7578",
+    "branch_decisions": {
+      "A_anova": "I_select",
+      "A_route": "A_variances",
+      "A_variances": "A_anova",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_variances",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_anova",
+        "point_id": "A_variances"
+      },
+      {
+        "correct_branch": "I_select",
+        "point_id": "A_anova"
+      }
+    ],
+    "results_digest": "0c55ee29ce74fca9",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_variances",
+      "A_anova",
+      "I_select",
+      "C_control"
+    ],
+    "shape": "normal/equal-spread/recipe-matters"
+  },
+  "adb_c37:1": {
+    "blocks_digest": "e9c0ef83e8f42424",
+    "branch_decisions": {
+      "A_anova": "A_not_a_driver",
+      "A_route": "A_variances",
+      "A_variances": "A_anova",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_variances",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_anova",
+        "point_id": "A_variances"
+      },
+      {
+        "correct_branch": "A_not_a_driver",
+        "point_id": "A_anova"
+      }
+    ],
+    "results_digest": "f1abbb89ec222399",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_variances",
+      "A_anova",
+      "A_not_a_driver"
+    ],
+    "shape": "normal/equal-spread/NOT-a-driver"
+  },
+  "adb_c37:2": {
+    "blocks_digest": "3b6aaf915a174eab",
+    "branch_decisions": {
+      "A_route": "A_variances",
+      "A_variances": "A_spread",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_variances",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_spread",
+        "point_id": "A_variances"
+      }
+    ],
+    "results_digest": "055e5863d17c2324",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_variances",
+      "A_spread",
+      "I_stabilise",
+      "C_control"
+    ],
+    "shape": "normal/unequal-spread"
+  },
+  "adb_c37:3": {
+    "blocks_digest": "77dfccd94a279561",
+    "branch_decisions": {
+      "A_kruskal": "I_select",
+      "A_route": "A_kruskal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_kruskal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "I_select",
+        "point_id": "A_kruskal"
+      }
+    ],
+    "results_digest": "acaa29f9570873bf",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_kruskal",
+      "I_select",
+      "C_control"
+    ],
+    "shape": "not-normal/recipe-matters"
+  },
+  "adb_c37:4": {
+    "blocks_digest": "41188e4070f5c660",
+    "branch_decisions": {
+      "A_kruskal": "A_not_a_driver",
+      "A_route": "A_kruskal",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_kruskal",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_not_a_driver",
+        "point_id": "A_kruskal"
+      }
+    ],
+    "results_digest": "befcc08fe37e1ae3",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_kruskal",
+      "A_not_a_driver"
+    ],
+    "shape": "not-normal/NOT-a-driver"
+  },
+  "adb_c37:5": {
+    "blocks_digest": "d91431abcda12610",
+    "branch_decisions": {
+      "M_msa": "M_msa_fix"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_msa_fix",
+        "point_id": "M_msa"
+      }
+    ],
+    "results_digest": "ad7d8843dadb573e",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_msa_fix"
+    ],
+    "shape": "tester-unacceptable"
+  },
+  "adb_c37:6": {
+    "blocks_digest": "8c298b093c69bed7",
+    "branch_decisions": {
+      "M_msa": "M_stability",
+      "M_stability": "A_special"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_special",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "0e9a52195ac4d68b",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_special",
+      "C_control"
+    ],
+    "shape": "baseline-unstable"
+  },
+  "adb_c37:7": {
+    "blocks_digest": "37d6aa2ba687fa40",
+    "branch_decisions": {
+      "A_anova": "A_not_a_driver",
+      "A_route": "A_variances",
+      "A_variances": "A_anova",
+      "M_msa": "M_stability",
+      "M_stability": "A_route"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "M_stability",
+        "point_id": "M_msa"
+      },
+      {
+        "correct_branch": "A_route",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_variances",
+        "point_id": "A_route"
+      },
+      {
+        "correct_branch": "A_anova",
+        "point_id": "A_variances"
+      },
+      {
+        "correct_branch": "A_not_a_driver",
+        "point_id": "A_anova"
+      }
+    ],
+    "results_digest": "207562d402568cdf",
+    "route": [
+      "D_scope",
+      "M_msa",
+      "M_stability",
+      "A_route",
+      "A_variances",
+      "A_anova",
+      "A_not_a_driver"
+    ],
+    "shape": "normal/equal-spread/visible-gap-that-is-noise"
+  },
+  "adb_c38:0": {
+    "blocks_digest": "3908e2bfc4fb8c9c",
+    "branch_decisions": {
+      "M_pchart": "C_control"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "C_control",
+        "point_id": "M_pchart"
+      }
+    ],
+    "results_digest": "a176e0594f3a2ef8",
+    "route": [
+      "D_scope",
+      "M_pchart",
+      "C_control"
+    ],
+    "shape": "already-at-the-committed-level"
+  },
+  "adb_c38:1": {
+    "blocks_digest": "c79331e80e30a15d",
+    "branch_decisions": {
+      "A_factors": "I_change",
+      "I_change": "I_level",
+      "I_level": "C_control",
+      "M_pchart": "A_factors"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_factors",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "I_change",
+        "point_id": "A_factors"
+      },
+      {
+        "correct_branch": "I_level",
+        "point_id": "I_change"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "I_level"
+      }
+    ],
+    "results_digest": "bd82192b8501144d",
+    "route": [
+      "D_scope",
+      "M_pchart",
+      "A_factors",
+      "I_change",
+      "I_level",
+      "C_control"
+    ],
+    "shape": "reduced-and-committed-level-met"
+  },
+  "adb_c38:2": {
+    "blocks_digest": "3d82d746acbf1e29",
+    "branch_decisions": {
+      "A_factors": "I_change",
+      "I_change": "I_level",
+      "I_level": "A_shortfall",
+      "M_pchart": "A_factors"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_factors",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "I_change",
+        "point_id": "A_factors"
+      },
+      {
+        "correct_branch": "I_level",
+        "point_id": "I_change"
+      },
+      {
+        "correct_branch": "A_shortfall",
+        "point_id": "I_level"
+      }
+    ],
+    "results_digest": "fdcc6437e0a6078d",
+    "route": [
+      "D_scope",
+      "M_pchart",
+      "A_factors",
+      "I_change",
+      "I_level",
+      "A_shortfall"
+    ],
+    "shape": "reduced-but-short-of-the-commitment"
+  },
+  "adb_c38:3": {
+    "blocks_digest": "d542151bc51b55d2",
+    "branch_decisions": {
+      "A_factors": "I_change",
+      "I_change": "A_change_not_shown",
+      "M_pchart": "A_factors"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_factors",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "I_change",
+        "point_id": "A_factors"
+      },
+      {
+        "correct_branch": "A_change_not_shown",
+        "point_id": "I_change"
+      }
+    ],
+    "results_digest": "f706f0157e5bcacc",
+    "route": [
+      "D_scope",
+      "M_pchart",
+      "A_factors",
+      "I_change",
+      "A_change_not_shown"
+    ],
+    "shape": "change-cannot-be-shown"
+  },
+  "adb_c38:4": {
+    "blocks_digest": "134a4eb0efd504b3",
+    "branch_decisions": {
+      "A_factors": "A_more_x",
+      "M_pchart": "A_factors"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_factors",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "A_more_x",
+        "point_id": "A_factors"
+      }
+    ],
+    "results_digest": "4017feda917d8bae",
+    "route": [
+      "D_scope",
+      "M_pchart",
+      "A_factors",
+      "A_more_x"
+    ],
+    "shape": "settings-account-for-nothing"
+  },
+  "adb_c38:5": {
+    "blocks_digest": "ef3b300a7bcd787c",
+    "branch_decisions": {
+      "M_pchart": "A_special"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_special",
+        "point_id": "M_pchart"
+      }
+    ],
+    "results_digest": "cf7659476265b7bf",
+    "route": [
+      "D_scope",
+      "M_pchart",
+      "A_special",
+      "C_control"
+    ],
+    "shape": "baseline-unstable"
+  },
+  "adb_c38:6": {
+    "blocks_digest": "0da442aa20d6e22c",
+    "branch_decisions": {
+      "A_factors": "I_change",
+      "I_change": "I_level",
+      "I_level": "A_shortfall",
+      "M_pchart": "A_factors"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_factors",
+        "point_id": "M_pchart"
+      },
+      {
+        "correct_branch": "I_change",
+        "point_id": "A_factors"
+      },
+      {
+        "correct_branch": "I_level",
+        "point_id": "I_change"
+      },
+      {
+        "correct_branch": "A_shortfall",
+        "point_id": "I_level"
+      }
+    ],
+    "results_digest": "081df9e7d397848c",
+    "route": [
+      "D_scope",
+      "M_pchart",
+      "A_factors",
+      "I_change",
+      "I_level",
+      "A_shortfall"
+    ],
+    "shape": "82%-reduction-still-short"
+  },
+  "adb_c39:0": {
+    "blocks_digest": "b22397c2e52c989c",
+    "branch_decisions": {
+      "A_cap": "C_control",
+      "M_stability": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "A_cap"
+      }
+    ],
+    "results_digest": "fca6c631821b977f",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_cap",
+      "C_control"
+    ],
+    "shape": "already-holds-the-level"
+  },
+  "adb_c39:1": {
+    "blocks_digest": "49fa8431a4f981ad",
+    "branch_decisions": {
+      "A_cap": "A_screen",
+      "A_optimise": "I_confirm",
+      "A_rsm": "A_optimise",
+      "A_screen": "A_rsm",
+      "I_confirm": "C_control",
+      "M_stability": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "A_rsm",
+        "point_id": "A_screen"
+      },
+      {
+        "correct_branch": "A_optimise",
+        "point_id": "A_rsm"
+      },
+      {
+        "correct_branch": "I_confirm",
+        "point_id": "A_optimise"
+      },
+      {
+        "correct_branch": "C_control",
+        "point_id": "I_confirm"
+      }
+    ],
+    "results_digest": "1617f204b939cf97",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_cap",
+      "A_screen",
+      "A_rsm",
+      "A_optimise",
+      "I_confirm",
+      "C_control"
+    ],
+    "shape": "surface-fits/optimum-clears/confirmed"
+  },
+  "adb_c39:2": {
+    "blocks_digest": "02f57f1e13c631b8",
+    "branch_decisions": {
+      "A_cap": "A_screen",
+      "A_rsm": "A_augment",
+      "A_screen": "A_rsm",
+      "M_stability": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "A_rsm",
+        "point_id": "A_screen"
+      },
+      {
+        "correct_branch": "A_augment",
+        "point_id": "A_rsm"
+      }
+    ],
+    "results_digest": "c3955b4f36185f34",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_cap",
+      "A_screen",
+      "A_rsm",
+      "A_augment"
+    ],
+    "shape": "surface-does-NOT-fit"
+  },
+  "adb_c39:3": {
+    "blocks_digest": "1dfea73fd5b57605",
+    "branch_decisions": {
+      "A_cap": "A_screen",
+      "A_optimise": "I_confirm",
+      "A_rsm": "A_optimise",
+      "A_screen": "A_rsm",
+      "I_confirm": "A_widen",
+      "M_stability": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "A_rsm",
+        "point_id": "A_screen"
+      },
+      {
+        "correct_branch": "A_optimise",
+        "point_id": "A_rsm"
+      },
+      {
+        "correct_branch": "I_confirm",
+        "point_id": "A_optimise"
+      },
+      {
+        "correct_branch": "A_widen",
+        "point_id": "I_confirm"
+      }
+    ],
+    "results_digest": "b368dde365dbe283",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_cap",
+      "A_screen",
+      "A_rsm",
+      "A_optimise",
+      "I_confirm",
+      "A_widen"
+    ],
+    "shape": "surface-fits/optimum-clears/NOT-confirmed"
+  },
+  "adb_c39:4": {
+    "blocks_digest": "096b733d0178656f",
+    "branch_decisions": {
+      "A_cap": "A_screen",
+      "A_screen": "A_more_x",
+      "M_stability": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "A_more_x",
+        "point_id": "A_screen"
+      }
+    ],
+    "results_digest": "4b403e02e60eba99",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_cap",
+      "A_screen",
+      "A_more_x"
+    ],
+    "shape": "screening-accounts-for-nothing"
+  },
+  "adb_c39:5": {
+    "blocks_digest": "6b3b6bd36fa96518",
+    "branch_decisions": {
+      "M_stability": "A_special"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_special",
+        "point_id": "M_stability"
+      }
+    ],
+    "results_digest": "3decdcaecf26aac8",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_special",
+      "C_control"
+    ],
+    "shape": "baseline-unstable"
+  },
+  "adb_c39:6": {
+    "blocks_digest": "230612d884da05d4",
+    "branch_decisions": {
+      "A_cap": "A_screen",
+      "A_optimise": "A_widen",
+      "A_rsm": "A_optimise",
+      "A_screen": "A_rsm",
+      "M_stability": "A_cap"
+    },
+    "decision_points": [
+      {
+        "correct_branch": "A_cap",
+        "point_id": "M_stability"
+      },
+      {
+        "correct_branch": "A_screen",
+        "point_id": "A_cap"
+      },
+      {
+        "correct_branch": "A_rsm",
+        "point_id": "A_screen"
+      },
+      {
+        "correct_branch": "A_optimise",
+        "point_id": "A_rsm"
+      },
+      {
+        "correct_branch": "A_widen",
+        "point_id": "A_optimise"
+      }
+    ],
+    "results_digest": "296ab3516a8f5eca",
+    "route": [
+      "D_scope",
+      "M_stability",
+      "A_cap",
+      "A_screen",
+      "A_rsm",
+      "A_optimise",
+      "A_widen"
+    ],
+    "shape": "surface-fits/region-cannot-reach-the-level"
+  }
+}

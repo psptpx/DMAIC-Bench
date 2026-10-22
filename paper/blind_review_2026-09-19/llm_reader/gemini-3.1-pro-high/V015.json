@@ -1,0 +1,49 @@
+{
+ "reviewer_id": "Human_Expert",
+ "reviewer_type": "Human",
+ "perspective": "Statistical/Industrial",
+ "blinding_compliance": "Fully compliant with blinding instructions.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V015",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the process has achieved the target defect share of 0.0025",
+    "Closing the project or declaring it a success based on achieving the committed target"
+   ],
+   "permitted_at_checkpoint": [
+    "Concluding that the change produced a significant improvement but failed to reach the target",
+    "Quantifying the remaining gap to the target",
+    "Recommending further actions or process adjustments to achieve the target"
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "NONE",
+   "extra_computation_detail": "No computations were performed past the assessment of target attainment; the analysis properly stopped at quantifying the remaining gap.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Computing exact binomial confidence bounds instead of the Wilson interval",
+    "Using a Bayesian credible interval to establish bounds on the current defect share"
+   ],
+   "evidence": [
+    "Post-change proportion of 0.0034375 (275/80000)",
+    "Target proportion of 0.0025",
+    "Wilson interval of 0.003055072228494698 to 0.003867613591607647"
+   ],
+   "rationale": "The post-change defect share is significantly above the target limit of 0.0025, and the lower bound of the calculated confidence interval lies entirely above the target. Therefore, the evidence firmly forbids claiming that the target has been attained or that the project should be closed. The report perfectly aligns with this constraint: it calculates the statistics correctly, transparently communicates the remaining gap, explicitly withholds declaring success, and provides appropriate recommendations for further optimization.",
+   "confidence": 5,
+   "numerical_check": "Checked post-change proportion (275/80000 = 0.0034375) and its mathematical relation to the 0.0025 target. Verified proportional reductions and the Wilson interval calculation magnitude.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6249,
+  "completion_tokens": 5101,
+  "total_tokens": 11350
+ }
+}

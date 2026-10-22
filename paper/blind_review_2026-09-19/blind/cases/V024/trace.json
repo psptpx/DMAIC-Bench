@@ -1,0 +1,192 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 20.108053146463117,
+        "percentTolerance": 18.410360402400133,
+        "ndc": 6,
+        "repeatabilityVariance": 0.39736585898148147,
+        "operatorVariance": 0.19107401974466928,
+        "interactionVariance": 0,
+        "partVariance": 13.964879106097085,
+        "interactionPValue": 0.5752918525715551,
+        "n": 108
+      },
+      "status": "success",
+      "decision": "Full crossed random-effects ANOVA; negative variance components truncated at zero.",
+      "inputs_digest": {
+        "batch": "msa",
+        "operators": 3,
+        "parts": 12,
+        "replicates": 3
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 0.0,
+        "usl": 25.0
+      },
+      "status": "success",
+      "decision": "Released charter is percent void area, not roughness.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 8.3648,
+        "median": 7.6899999999999995,
+        "stdDev": 2.7749030062107667,
+        "skewness": 0.715459086593583,
+        "adPValue": 0.028572851060577234,
+        "n": 50,
+        "min": 4.17,
+        "max": 15.28
+      },
+      "status": "success",
+      "decision": "Summary of ordered void area percentages.",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.8383933741037524,
+        "pValue": 0.028572851060577234
+      },
+      "status": "success",
+      "decision": "Anderson-Darling normality test with fitted mean and variance.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 5,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 8.3648,
+        "individualsLCL": -0.48344142422926595,
+        "individualsUCL": 17.213041424229267,
+        "flaggedCount": 0,
+        "movingRangeMean": 3.326938775510204,
+        "movingRangeUCL": 10.869108979591836,
+        "flaggedMovingRanges": 0,
+        "withinSigma": 2.949413808076422
+      },
+      "status": "success",
+      "decision": "Individual values with adjacent moving ranges; flags count beyond three-sigma limits only.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 6,
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.3912672792826394,
+        "zStatistic": 0.8573214099741123
+      },
+      "status": "success",
+      "decision": "Median runs test for sequence randomness.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 7,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.4127100969206232,
+        "cpk": 0.9453629934977303,
+        "pp": 1.5015539848927568,
+        "ppk": 1.0048159018264746,
+        "upperPpk": 1.9982920679590388,
+        "upperCpk": 1.8800572003435159
+      },
+      "status": "success",
+      "decision": "Normal reference indices, not validated if normality is rejected. Lower boundary is physical zero; upper-only indices are operationally relevant.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 8,
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.0,
+        "exceedances": 0,
+        "n": 50,
+        "upper95DefectFraction": 0.05815507911697225
+      },
+      "status": "success",
+      "decision": "Observed upper-limit exceedance fraction and one-sided exact binomial upper confidence bound; independent observations assumed. Continuous void area is not binomial data; only acceptance indicators are used.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 9,
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.29729841646859967,
+        "pValue": 0.576848713747224
+      },
+      "status": "success",
+      "decision": "Anderson-Darling test on log void fraction; check for lognormal model.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 10,
+      "method_id": "capability.nonnormal",
+      "outputs": {
+        "pp": 1.4010695744994526,
+        "ppk": 1.3199241083134954,
+        "upperPpk": 1.3199241083134954,
+        "logMean": 2.071906132722402,
+        "logSigma": 0.3220576795570461,
+        "lowerQuantile": 3.0214610437747003,
+        "median": 7.939943288461594,
+        "upperQuantile": 20.864971783726013,
+        "predictedUpperDefectFraction": 0.00018445554325994748
+      },
+      "status": "success",
+      "decision": "Lognormal MLE with fixed zero location. Percentile-based indices, exploratory tail extrapolation; zero is physical lower bound.",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "scope",
+      "chosen_branch": "Analyze released void-area data only; roughness unresolved"
+    },
+    {
+      "point": "measurement",
+      "chosen_branch": "Conditional usability; improve operator consistency",
+      "observed": {
+        "percentStudyVariation": 20.108053146463117,
+        "percentTolerance": 18.410360402400133,
+        "ndc": 6,
+        "repeatabilityVariance": 0.39736585898148147,
+        "operatorVariance": 0.19107401974466928,
+        "interactionVariance": 0,
+        "partVariance": 13.964879106097085,
+        "interactionPValue": 0.5752918525715551,
+        "n": 108
+      }
+    },
+    {
+      "point": "stability",
+      "chosen_branch": "No detected basic chart signals; provisional stable baseline"
+    },
+    {
+      "point": "distribution",
+      "chosen_branch": "Lognormal rather than normal capability",
+      "observed": {
+        "rawNormalityP": 0.028572851060577234,
+        "logNormalityP": 0.576848713747224
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

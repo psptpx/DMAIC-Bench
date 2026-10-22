@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "agreement",
+        "raters": 3,
+        "samples": 20,
+        "assessments_per_rater": 2
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "agreementPct": 95.83333333333333,
+        "kappaMin": 0.761904761904762,
+        "fleissKappa": 0.8252611585944917
+      },
+      "status": "success",
+      "decision": "Breach judgement can be relied on: reviewer agreement with the answer key is high and all reviewer kappas exceed 0.75."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "subgroups": 25,
+        "subgroup_size": 200
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0352,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "The breach share has been steady across the 25 periods; no point falls outside the 3-sigma p-chart limits."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "sample_size": 25,
+        "centerline": 0.0352
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.6775487301425487
+      },
+      "status": "success",
+      "decision": "No non-random pattern was detected around the period breach-share centerline."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "total_defects": 176,
+        "total_tested": 5000,
+        "target_rate": 0.05
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 2.673880011569112e-07
+      },
+      "status": "success",
+      "decision": "The observed average breach count is significantly below the 5% internal requirement."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "root_cause",
+        "team1_trials": 600,
+        "team2_trials": 600
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "zStatistic": 0.9891155080061562,
+        "pValue": 0.3226066309190324,
+        "p1": 0.03666666666666667,
+        "p2": 0.02666666666666667
+      },
+      "status": "success",
+      "decision": "The available team-level summary shows no statistically significant difference between the two teams in this common window."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "subgroup_size": 200,
+        "target_rate": 0.05
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.0352,
+        "processZ": 0.9603508130941143
+      },
+      "status": "success",
+      "decision": "Today's average breach share is 0.0352, about 0.96 standard errors below the internal requirement."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "reviewer_judgement_reliability",
+      "chosen_branch": "reliable",
+      "observed": {
+        "agreementPct": 95.83333333333333,
+        "kappaMin": 0.761904761904762
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 0
+}

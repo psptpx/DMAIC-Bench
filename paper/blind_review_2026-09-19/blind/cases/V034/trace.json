@@ -1,0 +1,300 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "specifications": 3
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0
+      },
+      "status": "success",
+      "decision": "Accepted range and target recorded."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "msa",
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "readings": 90
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 25.595558960756396,
+        "percentTolerance": 15.862934151190297,
+        "ndc": 5.325263048633628,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "readings": 90
+      },
+      "status": "success",
+      "decision": "Gauge study passed the steward gate and process data were released."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "readings": 125,
+        "groups": 25,
+        "subgroupSize": 5
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 232.2736,
+        "median": 231.12,
+        "stdDev": 15.442387434506989,
+        "skewness": 0.05305583977016018,
+        "readings": 125,
+        "groups": 25,
+        "subgroupSize": 5,
+        "target": 220.0
+      },
+      "status": "success",
+      "decision": "Run is centered high relative to target and has substantial overall variation."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "readings": 125
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 1.4173807372389032e-14
+      },
+      "status": "success",
+      "decision": "Normality test p-value is very small; interpret pooled capability cautiously."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "groups": 25,
+        "subgroupSize": 5
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 232.27360000000002,
+        "flaggedXBarCount": 20,
+        "groups": 25,
+        "subgroupSize": 5,
+        "rChartFlaggedCount": 0
+      },
+      "status": "success",
+      "decision": "X-bar behavior is not stable across the run; R chart had zero flags but is not separately represented in the canonical output."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "readings": 125,
+        "specWidth": 80.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.7509786208973201,
+        "cpk": 1.2137083408611857,
+        "pp": 0.8634243500159282,
+        "ppk": 0.5984912224570405,
+        "readings": 125,
+        "specWidth": 80.0
+      },
+      "status": "success",
+      "decision": "Within-subgroup potential is better than overall performance; stable-process capability cannot be claimed from this run."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groups": 4,
+        "readingsPerGroup": 15,
+        "readings": 60
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 0.20958647030444327,
+        "fStatistic": 1.5586494123823231,
+        "groups": 4,
+        "readingsPerGroup": 15,
+        "readings": 60
+      },
+      "status": "success",
+      "decision": "Nozzle means did not show a detectable difference in this sample."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "readings": 100,
+        "groups": 20,
+        "subgroupSize": 5
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 219.39270000000005,
+        "median": 219.10500000000002,
+        "stdDev": 5.646317805222777,
+        "skewness": 0.21577547161295202,
+        "readings": 100,
+        "groups": 20,
+        "subgroupSize": 5,
+        "target": 220.0
+      },
+      "status": "success",
+      "decision": "Post-change readings are close to target with much lower variation."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "readings": 100
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.5410651521150227
+      },
+      "status": "success",
+      "decision": "No evidence against normality was detected by the computed test."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "groups": 20,
+        "subgroupSize": 5
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 219.39270000000002,
+        "flaggedXBarCount": 0,
+        "groups": 20,
+        "subgroupSize": 5,
+        "rChartFlaggedCount": 0
+      },
+      "status": "success",
+      "decision": "Post-change X-bar chart has zero flags; R chart also had zero flags."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "readings": 100,
+        "specWidth": 80.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.317454386948129,
+        "cpk": 2.2822696357182903,
+        "pp": 2.3614209814757787,
+        "ppk": 2.325568707424524,
+        "readings": 100,
+        "specWidth": 80.0
+      },
+      "status": "success",
+      "decision": "Post-change potential and overall capability are both strong on this sample."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "batches": "process_run_vs_sustaining",
+        "preReadings": 125,
+        "postReadings": 100
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": 8.632373210605964,
+        "pValue": 5.159111477818606e-15,
+        "meanChange": -12.88089999999994,
+        "stdDevChange": -9.796069629284212,
+        "varianceRatioPostToPre": 0.13369086994307292,
+        "preReadings": 125,
+        "postReadings": 100
+      },
+      "status": "success",
+      "decision": "The post-change sample is materially lower in mean and variation than the earlier run."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "readings": 100
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "outOfSpec": 0,
+        "outOfSpecPct": 0.0,
+        "min": 208.67,
+        "max": 234.24,
+        "readings": 100,
+        "lsl": 180.0,
+        "usl": 260.0
+      },
+      "status": "success",
+      "decision": "No post-change readings were outside the recorded specifications."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "batch": "process_run",
+        "readings": 125
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "outOfSpec": 1,
+        "outOfSpecPct": 0.8,
+        "min": 202.2,
+        "max": 261.8,
+        "readings": 125,
+        "lsl": 180.0,
+        "usl": 260.0
+      },
+      "status": "success",
+      "decision": "The earlier run contained one above-limit reading and no below-limit readings."
+    },
+    {
+      "step_id": 15,
+      "inputs_digest": {
+        "attempt": "sustaining calculation",
+        "error": "NumPy ndarray.ptp API removed"
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial calculation failed before producing results; corrected with np.ptp and rerun successfully."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_gate",
+      "chosen_branch": "declare gauge verdict and release process run",
+      "observed": {
+        "percentStudyVariation": 25.595558960756396,
+        "ndc": 5.325263048633628
+      }
+    },
+    {
+      "point": "process_analysis",
+      "chosen_branch": "request applicator and sustaining batches",
+      "observed": {
+        "flaggedXBarCount": 20
+      }
+    },
+    {
+      "point": "post_change",
+      "chosen_branch": "hold the change and strengthen monitoring",
+      "observed": {
+        "flaggedXBarCount": 0,
+        "outOfSpecPct": 0.0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

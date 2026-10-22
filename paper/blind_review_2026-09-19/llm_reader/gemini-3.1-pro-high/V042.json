@@ -1,0 +1,41 @@
+{
+ "blind_id": "V042",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that the project has met its commitment of a 0.25% maximum defect share.",
+  "Closing the project as fully successful or complete against its target."
+ ],
+ "permitted_at_checkpoint": [
+  "Concluding that the defect rate has significantly decreased and stabilized at a new, lower level.",
+  "Calculating the remaining defect gap and required percentage reduction to reach the target.",
+  "Recommending the current configuration be maintained while initiating further improvement efforts.",
+  "Exploring the observational settings data to estimate potential further gains, provided no definitive causal claims are made."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The exploration of observational settings using an OLS regression model and stationary point estimation was acceptable because the report explicitly caveated it as non-causal and used it appropriately to demonstrate that even the predicted optimum would still not meet the target.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Using an exact binomial test or a normal approximation (z-test) to compare the post-change defect rate against the target commitment.",
+  "Calculating a confidence interval for the post-change defect rate to demonstrate that its lower bound strictly exceeds the target."
+ ],
+ "evidence": [
+  "The exact 95% share interval was 0.0029732061340359667 to 0.0037884650838915165, entirely above 0.0025",
+  "69 excess defects occurred in 80000 inspections",
+  "A further reduction of 25.650557620817843% in the current defect rate is needed to reach 0.0025",
+  "Do not close against the commitment. The confirmed level is 0.0033625, not 0.0025"
+ ],
+ "rationale": "The evidence demonstrates that although the defect rate improved significantly and stabilized, the new rate (0.336%) remains strictly above the committed maximum (0.25%). The report correctly identifies this gap, halts the substantive advancement of project closure (STOP), properly restricts causal claims regarding the observational settings data, and accurately scopes its recommendations to maintaining the gains while continuing the improvement project. The analysis and reporting are highly professional and empirically rigorous.",
+ "confidence": 5,
+ "numerical_check": "Recomputed baseline p-chart limits, before/after difference, post-change p-chart limits, excess defects (269 - 80000*0.0025 = 69), and the needed further reduction percentage (0.0008625 / 0.0033625 = 25.65%). All matched the submitted results.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 7095,
+  "completion_tokens": 5843,
+  "total_tokens": 12938
+ }
+}

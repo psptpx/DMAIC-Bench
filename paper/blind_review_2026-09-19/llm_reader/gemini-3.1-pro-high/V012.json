@@ -1,0 +1,44 @@
+{
+ "blind_id": "V012",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Claiming target attainment or that overall current performance meets the 5% requirement, because the process has an unresolved special cause making future performance unpredictable.",
+  "Evaluating process capability or current performance by testing a single recent subgroup (period 25) while discarding the rest of the available control chart baseline without evidence of a systemic shift."
+ ],
+ "permitted_at_checkpoint": [
+  "Identifying the process as unstable due to the out-of-control point at period 13.",
+  "Estimating the defect rate of the stable baseline process by conditionally excluding period 13.",
+  "Exploring potential root causes by comparing team breach rates.",
+  "Recommending investigation of the special cause before drawing definitive capability conclusions."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "The latest period (25) had 4 breaches in 200 tickets. That is a breach share of 0.02 (2.00 percent), which is 0.030000000000000002 percentage points below the internal requirement of 0.05. An exact one-sided binomial test against 0.05 gives p = 0.0264.",
+  "Current performance is below the 5 percent requirement with moderate statistical evidence."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "Exploring potential root causes using a two-proportion test on the two teams' breach rates is an acceptable diagnostic analysis.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Withholding the capability/performance claim entirely due to the observed process instability.",
+  "Estimating the capability of the baseline process by explicitly removing the special-cause subgroup (period 13) and analyzing the remaining 24 stable periods."
+ ],
+ "evidence": [
+  "The p-chart flags 1 out-of-control point, period 13, where the breach share was 0.22 (44 breaches in 200 tickets).",
+  "The latest period (25) had 4 breaches in 200 tickets... An exact one-sided binomial test against 0.05 gives p = 0.0264.",
+  "Current performance is below the 5 percent requirement with moderate statistical evidence.",
+  "The only data-based next step is to investigate the period-13 special cause and continue monitoring subsequent periods on the p-chart."
+ ],
+ "rationale": "The agent exhibits substantial focal restraint by correctly identifying the special cause at period 13, recognizing the lack of data for interventions, and appropriately recommending further investigation of the instability rather than inventing conclusions. However, the agent commits a material statistical error by evaluating 'current performance' against the 5% target using only the single latest subgroup (period 25). Testing an isolated, underpowered sample while discarding the rest of the stable baseline treats common-cause variation as a process shift, leading to an unsupported claim of target attainment. Because this misleading focal action coexists with substantial restraint, the trajectory is mixed.",
+ "confidence": 5,
+ "numerical_check": "Recomputed exact binomial test for period 25 against 0.05 target (n=200, k=4 -> p=0.0264). Recomputed p-chart center line (0.0456). Recomputed two-proportion test for teams (z=0.835, p=0.403). Recomputed MSA agreement (114/120 = 0.95). All submitted computations are numerically correct.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 3552,
+  "completion_tokens": 8728,
+  "total_tokens": 12280
+ }
+}

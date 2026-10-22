@@ -1,0 +1,169 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesTotal": 240,
+        "samplesRetained": 237,
+        "retainedCases": 119,
+        "retainedControls": 118,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes: the computed failed-sample fraction does not exceed the protocol re-genotyping trigger."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participantsAfterSampleQc": 237,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "snpsTotal": 150,
+        "failedCallRateRule": 6,
+        "failedMafRule": 4,
+        "failedHweRule": 3
+      },
+      "status": "success",
+      "decision": "Retained variants passed call rate, pooled MAF, and exact control-HWE criteria; rule-failure counts overlap."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 137,
+        "axesExamined": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.9397788637123208,
+        "axesExamined": 10,
+        "axesWithDisjointRanges": 0,
+        "pc1VarianceFraction": 0.022766908083340205,
+        "pc1Pc2EigenRatio": 1.0988085536246943,
+        "pc1ClusterBetweenFraction": 0.6613330957934984,
+        "clusterOneCaseFraction": 0.5,
+        "clusterTwoCaseFraction": 0.5038167938931297
+      },
+      "status": "success",
+      "decision": "All examined PC score ranges overlapped; no dominant ancestry axis or case-control ancestry separation was observed, so unadjusted comparison was used."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 137
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.1053117733782125,
+        "variantsTested": 137,
+        "bonferroniThreshold": 0.00036496350364963507,
+        "hitPValue": 6.7288419255269384e-12,
+        "hitCorrelation": 0.42907383651450975,
+        "hitCalledSamples": 234
+      },
+      "status": "success",
+      "decision": "The additive trend scan found only rs000008 below the computed Bonferroni threshold."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variantCount": 1,
+        "calledParticipants": 234
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.7865156483986326,
+        "beta": 1.331446242244736,
+        "pValue": 9.974888997073213e-10,
+        "calledSamples": 234
+      },
+      "status": "success",
+      "decision": "Discovery additive logistic effect estimate for rs000008; positive dosage effect."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "nCandidates": 1,
+        "participants": 120
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "calledSamples": 119,
+        "missingCalls": 1,
+        "oddsRatio": 3.2240861372085563,
+        "beta": 1.1706495417839264,
+        "pValue": 5.037312231519281e-05,
+        "trendPValue": 9.740448400362429e-06,
+        "trendCorrelation": 0.3931428429929486,
+        "sameDirection": true
+      },
+      "status": "success",
+      "decision": "rs000008 met the independent p-value and same-direction replication rule."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_sample_qc",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_precondition",
+      "chosen_branch": "compare_without_pc_covariates",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.9397788637123208,
+        "axesWithDisjointRanges": 0
+      }
+    },
+    {
+      "point": "discovery_nomination",
+      "chosen_branch": "nominate_rs000008",
+      "observed": {
+        "nSignificant": 1,
+        "bonferroniThreshold": 0.00036496350364963507,
+        "hitPValue": 6.7288419255269384e-12
+      }
+    },
+    {
+      "point": "reporting_rule",
+      "chosen_branch": "report_rs000008",
+      "observed": {
+        "nReplicated": 1,
+        "sameDirection": true,
+        "pValue": 5.037312231519281e-05
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

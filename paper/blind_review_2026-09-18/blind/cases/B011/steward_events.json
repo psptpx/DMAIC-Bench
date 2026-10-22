@@ -1,0 +1,41 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "the 60 consecutive seal strength assembly measurements in build order",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "the screening run: three assembly settings each at low and high level, run twice",
+    "stage_id": "screening_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "any_factor_significant=false",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "the programme charter and seal strength requirement details",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  }
+]

@@ -1,0 +1,251 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sourceBatchCount": 4,
+        "agreementTickets": 20,
+        "appraisers": 3,
+        "replicates": 2,
+        "totalJudgements": 120,
+        "periods": 25,
+        "teamTrialsEach": 600
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "batchCount": 4,
+        "agreementTicketCount": 20,
+        "appraiserCount": 3,
+        "replicateCount": 2,
+        "judgementCount": 120,
+        "ratingSetCount": 6,
+        "periodCount": 25,
+        "teamTrialCountEach": 600
+      },
+      "status": "success",
+      "decision": "Four supplied batches were profiled; no operational process-fact batch was available."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "agreement",
+        "tickets": 20,
+        "appraisers": 3,
+        "replicates": 2,
+        "judgements": 120
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.8989898989898989,
+        "agreementPct": 96.66666666666667,
+        "repeatabilityMinPct": 90.0,
+        "ticketCount": 20,
+        "appraiserCount": 3,
+        "replicateCount": 2,
+        "judgementCount": 120,
+        "appraiser1AgreementPct": 95.0,
+        "appraiser2AgreementPct": 97.5,
+        "appraiser3AgreementPct": 97.5
+      },
+      "status": "success",
+      "decision": "Breach judgements are sufficiently reproducible and concordant with the answer key to use for project decision support."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25,
+        "tickets": 5620,
+        "breaches": 347
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 4.039512654220945,
+        "avgP": 0.06174377224199288,
+        "targetP": 0.05,
+        "oneSidedPValue": 5.157071390566437e-05,
+        "gapP": 0.011743772241992877,
+        "gapPercentagePoints": 1.1743772241992876,
+        "totalTickets": 5620,
+        "totalBreaches": 347,
+        "targetAllowedBreaches": 281,
+        "excessBreaches": 66,
+        "requiredReductionPct": 19.020172910662826,
+        "latestP": 0.05,
+        "latestTickets": 200,
+        "latestBreaches": 10,
+        "latestGapP": 0.0,
+        "latestPeriodIndex": 25
+      },
+      "status": "success",
+      "decision": "The pooled process is above requirement; the latest period alone is exactly at requirement but does not demonstrate sustained improvement."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25,
+        "totalTickets": 5620,
+        "totalBreaches": 347
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.06174377224199288,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "No period breached the variable-limit p-chart limits."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25,
+        "totalTickets": 5620,
+        "totalBreaches": 347
+      },
+      "method_id": "control_chart.laney_p",
+      "outputs": {
+        "sigmaZ": 0.8651131315864975,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "After the observed 0.86511 Laney dispersion correction, no period was out of control."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "requestedFact": "operational difference between teams"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The process owner returned no matching process fact; therefore no operational root cause was inferred."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25,
+        "totalTickets": 5620,
+        "totalBreaches": 347
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.15435475680586547,
+        "statistic": 10,
+        "nAbove": 13,
+        "nBelow": 12,
+        "expectedRuns": 13.48
+      },
+      "status": "success",
+      "decision": "No evidence of a non-random sequence about the centre line."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25,
+        "totalTickets": 5620,
+        "totalBreaches": 347
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.0862274343491142,
+        "pValue": 0.6819311416466498
+      },
+      "status": "success",
+      "decision": "No evidence of a linear time trend."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "root_cause",
+        "groupCount": 2,
+        "team1Events": 40,
+        "team1Trials": 600,
+        "team2Events": 26,
+        "team2Trials": 600
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "events1": 40,
+        "trials1": 600,
+        "events2": 26,
+        "trials2": 600,
+        "p1": 0.06666666666666667,
+        "p2": 0.043333333333333335,
+        "differenceP": 0.02333333333333333,
+        "zStatistic": 1.7727200782610344,
+        "pValue": 0.07627510236570058
+      },
+      "status": "success",
+      "decision": "The observed team gap is not significant at the 5% level; no operational cause is established."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25,
+        "totalTickets": 5620,
+        "totalBreaches": 347
+      },
+      "method_id": "tables.chisquare_gof",
+      "outputs": {
+        "chiSquare": 14.797622478386167,
+        "pValue": 0.9265407694281627,
+        "df": 24
+      },
+      "status": "success",
+      "decision": "Period counts are consistent with one constant breach share."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 0.06075,
+        "median": 0.0625,
+        "stdDev": 0.013268069440075546,
+        "skewness": -0.25204638614498065,
+        "adPValue": 0.40865512577953766,
+        "minP": 0.03666666666666667,
+        "maxP": 0.08333333333333333
+      },
+      "status": "success",
+      "decision": "Period rates are summarised; no evidence of non-normality was found, but inference in the report is primarily binomial."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_gate",
+      "chosen_branch": "accept_breach_judgements",
+      "observed": {
+        "kappaMin": 0.8989898989898989,
+        "agreementPct": 96.66666666666667,
+        "repeatabilityMinPct": 90.0
+      }
+    },
+    {
+      "point": "dispersion_control",
+      "chosen_branch": "laney_p_chart",
+      "observed": {
+        "sigmaZ": 0.8651131315864975,
+        "outOfControlCount": 0
+      }
+    },
+    {
+      "point": "root_cause_evidence",
+      "chosen_branch": "stop_at_statistical_comparison",
+      "observed": {
+        "teamPValue": 0.07627510236570058,
+        "processFactProvided": false
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

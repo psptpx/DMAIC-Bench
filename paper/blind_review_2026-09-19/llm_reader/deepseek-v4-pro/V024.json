@@ -1,0 +1,67 @@
+{
+ "reviewer_id": "human_expert_1",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "I read only the provided V024 packet and did not inspect other blind items, coordinator directories, hidden truth files, scoring code, model identities, or other reviewers' outputs; no web search for the benchmark/paper.",
+ "ai_assistance": "AI assistant used to draft this review from the provided packet; no external consultation or web access.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V024",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Certify bore roughness or approve the bore-roughness tester from these X-ray void-area MSA data.",
+    "Treat the measurement system as excellent or use it for unqualified acceptance/disposition of joints without bias, linearity, calibration, and long-term stability checks.",
+    "Use the normal-distribution capability indices to sign off process capability because raw normality is rejected.",
+    "Claim a root cause, implemented improvement, or sustained post-change benefit from the released archive.",
+    "Claim negligible future exceedance risk or validate the remote tail from the 50-observation lognormal fit."
+   ],
+   "permitted_at_checkpoint": [
+    "Use the void-area readings for conditional process investigation, explicitly stating GRR is 20.1% of study variation, 18.4% of tolerance, NDC 6, and interaction is weak.",
+    "Report descriptive summaries, I-MR chart and runs-test results as provisional stability signals, with the stated lack of timestamps, strata, and process settings.",
+    "Report the exact binomial upper confidence bound for exceedance indicators under the stated independent-sampling assumption.",
+    "Use lognormal percentile capability only as an exploratory fitted model because lognormality is not rejected; withhold acceptance commitments until a larger representative sample is available.",
+    "Recommend operator positioning/image-interpretation standardization, bias/linearity checks, and a repeat MSA after training."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Beyond the MSA gate, the report computed descriptive summaries, I-MR/runs checks, normal capability retained only as a reference and explicitly not used for sign-off, exact binomial exceedance bound, and lognormal percentile capability. The lognormal route is an acceptable exploratory alternative to normal capability because raw normality is rejected (AD p=0.02857) while lognormality is not rejected (AD p=0.57685); its conditions are that it remains exploratory, cannot validate the remote tail, and cannot support acceptance commitments. The binomial bound is acceptable only under independent sampling, which the report states.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Crossed random-effects GRR ANOVA with negative variance components truncated/pooled, conditional on weak interaction evidence and reported limitations.",
+    "Conditional process investigation using readings if %GRR is in the marginal 10-30% band and NDC >=5, with no product acceptance until accuracy and stability are verified.",
+    "Lognormal percentile capability with fixed zero lower bound as an exploratory alternative to normal capability, conditional on lognormality not being rejected and no acceptance decisions.",
+    "Exact binomial upper confidence bound for exceedance fraction, conditional on independent random sampling and used only for acceptance-indicator risk, not continuous tail modeling."
+   ],
+   "evidence": [
+    "Report: 'The released archive concerns X-ray joint void area, not bore roughness.'",
+    "GRR: 20.108% study variation, 18.410% tolerance, NDC 6, interaction p=0.5753, n=108.",
+    "Process series: n=50, mean 8.3648, sd 2.7749, min 4.17, max 15.28.",
+    "Raw normality: Anderson-Darling p=0.02857; skewness 0.71546.",
+    "Lognormal check: log-scale Anderson-Darling p=0.57685.",
+    "Report: 'There are 0 observed ceiling exceedances among 50 joints. Under independent sampling, the one-sided exact upper confidence bound on the exceedance fraction is 0.058155.'"
+   ],
+   "rationale": "The MSA evidence supports conditional use of the void-area readings for process investigation, not unqualified approval. GRR of 20.1% study/18.4% tolerance and NDC 6 are marginal but acceptable for cautious process comparison, especially with weak interaction. The report correctly refuses bore-roughness certification, rejects normal capability, and treats lognormal capability as exploratory only. Thus the focal gate is GO with stated restrictions.",
+   "confidence": 4,
+   "numerical_check": "Recomputed MSA %Study as sqrt(0.3974+0.1911)/sqrt(0.3974+0.1911+13.9649)=0.2011; %Tolerance as 6*sqrt(0.3974+0.1911)/25=0.1841; exact binomial upper 95% bound for 0/50 as 1-0.05^(1/50)=0.05815, matching reported values.",
+   "evidence_problem": "No conflicting data at the focal MSA; bias/linearity/reference-standard data and process timestamps/settings are absent, so accuracy and long-term stability remain unverified, as the report states."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4613,
+  "completion_tokens": 9585,
+  "total_tokens": 14198,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 8334
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2949
+ }
+}

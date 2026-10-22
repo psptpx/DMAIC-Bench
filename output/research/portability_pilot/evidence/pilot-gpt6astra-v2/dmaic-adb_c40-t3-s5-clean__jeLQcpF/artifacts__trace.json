@@ -1,0 +1,124 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "samples": 12
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlReplicates": 6,
+        "treatedReplicates": 6
+      },
+      "status": "success",
+      "decision": "Proceed to design assessment"
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet"
+      },
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "L1_control": 5,
+        "L1_treated": 1,
+        "L2_control": 1,
+        "L2_treated": 5
+      },
+      "status": "success",
+      "decision": "Estimable; include preparation batch in model"
+    },
+    {
+      "method_id": "expression.batch_assessment",
+      "outputs": {
+        "batchVarianceFraction": 0.37339764556466926
+      },
+      "status": "success",
+      "decision": "Partial batch sum of squares divided by total centered log-expression sum of squares",
+      "step_id": 3
+    },
+    {
+      "method_id": "expression.de_blocked",
+      "inputs_digest": {
+        "batch": "counts",
+        "normalization": "median ratios with pseudocount",
+        "model": "log2(normalized count + 1) ~ batch + treatment; OLS t tests; BH across all genes"
+      },
+      "outputs": {
+        "nSignificant": 0,
+        "genesTested": 400,
+        "residualDF": 9,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Exploratory batch-adjusted calls, subject to independent validation; log-linear approximation rather than negative-binomial model",
+      "step_id": 4
+    },
+    {
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "batch": "validation"
+      },
+      "outputs": {
+        "nCandidates": 0,
+        "nValidationRecords": 0
+      },
+      "status": "success",
+      "decision": "Empty nomination and qPCR inventories; concordance undefined because denominator is empty. No validation test performed.",
+      "step_id": 5
+    },
+    {
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Annotation request locked by validation_concordance gate; not denied. No enrichment computed.",
+      "step_id": 6
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "batch_adjusted",
+      "observed": {
+        "confounded": false
+      }
+    },
+    {
+      "point": "library_qc",
+      "chosen_branch": "retain_all",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlReplicates": 6,
+        "treatedReplicates": 6
+      }
+    },
+    {
+      "point": "candidate_release",
+      "chosen_branch": "no_candidates_no_list",
+      "observed": {
+        "nSignificant": 0,
+        "validationAvailable": false
+      }
+    },
+    {
+      "point": "annotation",
+      "chosen_branch": "stop_at_unmet_validation_gate"
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

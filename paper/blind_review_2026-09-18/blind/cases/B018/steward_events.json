@@ -1,0 +1,52 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "project charter and yield requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "repeat assays of the same samples, analyst study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=23.16",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 23.16
+    }
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "per-batch yield record in charge order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 23.16
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "charges run at a high and a low setting",
+    "stage_id": "screening_doe",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 23.16
+    }
+  }
+]

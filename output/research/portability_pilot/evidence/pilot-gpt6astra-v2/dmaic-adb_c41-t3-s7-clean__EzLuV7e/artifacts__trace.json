@@ -1,0 +1,172 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "affectedRetained": 118,
+        "unaffectedRetained": 119
+      },
+      "status": "success",
+      "decision": "Plate passes"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 2
+      },
+      "status": "success",
+      "decision": "Apply all filters after sample QC"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 0.8997177848018328,
+        "pc1VarianceFraction": 0.022736884648211633,
+        "pc1RangeOverlap": 8.616337701205547,
+        "pc2PValue": 0.1640313831445895,
+        "pc2VarianceFraction": 0.021369830704721978,
+        "pc2RangeOverlap": 7.415307357468738,
+        "pc3PValue": 0.9853553168708515,
+        "pc3VarianceFraction": 0.020778012054456167,
+        "pc3RangeOverlap": 7.925971524017703,
+        "pc4PValue": 0.04606617120048503,
+        "pc4VarianceFraction": 0.020241063053392627,
+        "pc4RangeOverlap": 7.790657466430018,
+        "pc5PValue": 0.30484835166149443,
+        "pc5VarianceFraction": 0.018849193490988052,
+        "pc5RangeOverlap": 8.599503677537223,
+        "pc6PValue": 0.14205816423011833,
+        "pc6VarianceFraction": 0.018372012168831553,
+        "pc6RangeOverlap": 7.726200273929188,
+        "pc7PValue": 0.43425744286988,
+        "pc7VarianceFraction": 0.018297315813486283,
+        "pc7RangeOverlap": 6.795789562568826,
+        "pc8PValue": 0.198336478217842,
+        "pc8VarianceFraction": 0.01756794985195582,
+        "pc8RangeOverlap": 7.25517575752413,
+        "pc9PValue": 0.03436613154314261,
+        "pc9VarianceFraction": 0.017375629981185903,
+        "pc9RangeOverlap": 6.820824869729337,
+        "pc10PValue": 0.5963685486716432,
+        "pc10VarianceFraction": 0.016990124552106533,
+        "pc10RangeOverlap": 7.433711857140292,
+        "separated": false,
+        "separatedAxis": 0
+      },
+      "status": "success",
+      "decision": "Mean-imputed standardized genotype PCA; Welch group comparisons and score range overlap on leading axes"
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.917909013475741,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "rs070008_pValue": 5.871729266932252e-06
+      },
+      "status": "success",
+      "decision": "Additive Cochran-Armitage score test, observed calls; no leading ancestry structure detected"
+    },
+    {
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.395108051754563,
+        "ciLower": 1.6217270099503498,
+        "ciUpper": 3.5373047031850113,
+        "beta": 0.8734283454003436
+      },
+      "status": "success",
+      "decision": "rs070008 per coded allele additive logistic effect",
+      "step_id": 5
+    },
+    {
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "samplesRetained": 120
+      },
+      "status": "success",
+      "decision": "Replication participant call-rate QC",
+      "step_id": 6
+    },
+    {
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nCandidates": 1,
+        "nReplicated": 0,
+        "rs070008_pValue": 0.5438156258297745,
+        "rs070008_oddsRatio": 1.1834997908318183,
+        "rs070008_callRate": 0.9916666666666667,
+        "rs070008_maf": 0.3067226890756303,
+        "rs070008_affectedCalled": 60,
+        "rs070008_unaffectedCalled": 59
+      },
+      "status": "success",
+      "decision": "Independent additive score test and same coded-allele direction requirement",
+      "step_id": 7
+    },
+    {
+      "step_id": 8,
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.2661324134549028,
+        "rs070008_pValue": 0.0006533933466371325,
+        "covariateCount": 10
+      },
+      "status": "success",
+      "decision": "Post-replication sensitivity: additive logistic Wald tests adjusted for leading ten PCs; exploratory, cannot override failed replication"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "pass",
+      "observed": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "affectedRetained": 118,
+        "unaffectedRetained": 119
+      }
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "unadjusted_trend_no_separation",
+      "observed": {
+        "pc1PValue": 0.8997177848018328,
+        "separated": false
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "withhold_and_reconsider",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 0,
+        "rs070008_pValue": 0.5438156258297745,
+        "rs070008_oddsRatio": 1.1834997908318183,
+        "rs070008_callRate": 0.9916666666666667,
+        "rs070008_maf": 0.3067226890756303,
+        "rs070008_affectedCalled": 60,
+        "rs070008_unaffectedCalled": 59
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

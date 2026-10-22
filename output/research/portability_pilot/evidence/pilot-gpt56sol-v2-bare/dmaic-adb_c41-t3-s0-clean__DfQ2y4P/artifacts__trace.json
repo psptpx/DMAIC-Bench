@@ -1,0 +1,190 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "source_batch": "genotypes",
+        "samples": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation did not run because the optional scikit-learn dependency was unavailable; no quantitative output was produced."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "source_batch": "genotypes",
+        "samples": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "affectedRetained": 119,
+        "unaffectedRetained": 118,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true,
+        "P053CallRate": 0.94,
+        "P129CallRate": 0.9466666666666667,
+        "P160CallRate": 0.9466666666666667
+      },
+      "status": "success",
+      "decision": "Plate accepted; participant failure fraction did not exceed the protocol re-genotyping trigger."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "source_batch": "genotypes",
+        "samples_after_sample_qc": 237,
+        "variants": 150,
+        "control_group_size": 118
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Retained variants meeting call-rate, MAF, and exact control-HWE thresholds after participant QC."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "source_batch": "genotypes",
+        "samples": 237,
+        "variants": 137,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.8666902364429903,
+        "pc1Statistic": -0.16804784337181541,
+        "comparisonAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "No significant case-control separation on PC1; used the unadjusted additive trend scan specified by this route."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "source_batch": "genotypes",
+        "samples": 237,
+        "variants": 137,
+        "groups": 2
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.115940928253286,
+        "bonferroniAlpha": 0.00036496350364963507,
+        "familywiseAlpha": 0.05,
+        "hitPValue": 5.253540318605901e-11,
+        "hitStatistic": 43.08041958041958,
+        "hitDirection": 1,
+        "caseMeanDosage": 1.205128205128205,
+        "controlMeanDosage": 0.5726495726495726
+      },
+      "status": "success",
+      "decision": "One retained variant passed the computed Bonferroni threshold."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "source_batch": "genotypes",
+        "variant_count": 1,
+        "effect_scale": "allelic_odds"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.755397108338285
+      },
+      "status": "success",
+      "decision": "Discovery effect estimate for rs000008, with continuity correction used in the allele table."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "source_batch": "replication",
+        "samples": 120,
+        "groups": 2,
+        "candidate_variants": 1
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "pValue": 1.7973641155483908e-05,
+        "statistic": 18.392794104592795,
+        "replicationAlpha": 0.05,
+        "sameDirection": true,
+        "direction": 1,
+        "discoveryDirection": 1,
+        "calledSamples": 119,
+        "callRate": 0.9916666666666667,
+        "affected": 60,
+        "unaffected": 60,
+        "caseMeanDosage": 1.2203389830508475,
+        "controlMeanDosage": 0.6333333333333333
+      },
+      "status": "success",
+      "decision": "rs000008 replicated because its p-value was below the replication alpha and its direction matched discovery."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "source_batch": "replication",
+        "variant_count": 1,
+        "effect_scale": "allelic_odds"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.3410138248847927
+      },
+      "status": "success",
+      "decision": "Independent-cohort effect estimate for rs000008, with continuity correction used in the allele table."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_without_regenotyping",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "association_model",
+      "chosen_branch": "unadjusted_additive_trend",
+      "observed": {
+        "pc1PValue": 0.8666902364429903,
+        "separated": false
+      }
+    },
+    {
+      "point": "replication_disposition",
+      "chosen_branch": "supported_for_reporting",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 1,
+        "sameDirection": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

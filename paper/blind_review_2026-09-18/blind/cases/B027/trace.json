@@ -1,0 +1,208 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "tolerance": 0.4
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 15.235984686487713,
+        "percentTolerance": 12.874929796617943,
+        "ndc": 9.146362384622524
+      },
+      "status": "success",
+      "decision": "measurement system acceptable per AIAG (10-30% StudyVar band, ndc>=5); readings can carry a conclusion"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "run_diameter",
+        "n": 125,
+        "subgroupSize": 5,
+        "k_subgroups": 25
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 25.0030152,
+        "flaggedXBarCount": 0
+      },
+      "status": "success",
+      "decision": "outer diameter run is statistically stable, no Xbar or R violations"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "run_diameter",
+        "n": 125
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.9940518453082903,
+        "pValue": 0.88004743966616
+      },
+      "status": "success",
+      "decision": "Shapiro-Wilk p=0.88, fail to reject normality; parametric capability method used"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "run_diameter",
+        "n": 125,
+        "lsl": 24.8,
+        "usl": 25.2
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.6770524060684361,
+        "cpk": 0.66684516399456,
+        "pp": 0.6847562883521463,
+        "ppk": 0.674432902548961
+      },
+      "status": "success",
+      "decision": "outer diameter is not capable (Cpk/Ppk well below 1.0); this characteristic drives next action"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "run_thickness",
+        "n": 125,
+        "subgroupSize": 5,
+        "k_subgroups": 25
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 1.3957488,
+        "flaggedXBarCount": 0
+      },
+      "status": "success",
+      "decision": "wall thickness run is statistically stable, no Xbar or R violations"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "run_thickness",
+        "n": 125
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.9916514101368858,
+        "pValue": 0.660576741498144
+      },
+      "status": "success",
+      "decision": "Shapiro-Wilk p=0.66, fail to reject normality; parametric capability method used"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "run_thickness",
+        "n": 125,
+        "lsl": 1.2,
+        "usl": 1.6
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.8005883263663107,
+        "cpk": 1.7623150209010665,
+        "pp": 1.7425157322980063,
+        "ppk": 1.705476817892278
+      },
+      "status": "success",
+      "decision": "wall thickness is highly capable (Cpk/Ppk > 1.33); not a priority for action"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "fixtures",
+        "groups": 4,
+        "nPerGroup": 15
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "fStatistic": 18.231902830018857,
+        "factorPValue": 2.2375516890132885e-08
+      },
+      "status": "success",
+      "decision": "turning fixture is a significant driver of outer diameter (explains 49.4% of variance); identified as root cause lead"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "setting",
+        "n": 60,
+        "x": "coolant delivery pressure (bar)",
+        "y": "wall thickness (mm)"
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.10301650189637558,
+        "pValue": 0.4334723152125989
+      },
+      "status": "success",
+      "decision": "no significant correlation between coolant delivery pressure and wall thickness; ruled out as a driver"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "setting",
+        "n": 60
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.43347231521259844,
+        "rSquaredPct": 1.0612399662965968,
+        "rSquaredAdjPct": -0.644600723939659
+      },
+      "status": "success",
+      "decision": "regression confirms pressure explains essentially none of thickness variation (R^2=1.1%, model not significant)"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_gate",
+      "chosen_branch": "measurement system acceptable, proceed to process analysis",
+      "observed": {
+        "percentStudyVariation": 15.235984686487713,
+        "ndc": 9.146362384622524
+      }
+    },
+    {
+      "point": "capability_distribution_method",
+      "chosen_branch": "normal capability (parametric Cp/Cpk/Pp/Ppk)",
+      "observed": {
+        "shapiro_p_diameter": 0.88004743966616,
+        "shapiro_p_thickness": 0.660576741498144
+      }
+    },
+    {
+      "point": "decisive_characteristic",
+      "chosen_branch": "outer diameter",
+      "observed": {
+        "cpk_diameter": 0.66684516399456,
+        "cpk_thickness": 1.7623150209010665
+      }
+    },
+    {
+      "point": "diameter_root_cause_candidate",
+      "chosen_branch": "turning fixture identity",
+      "observed": {
+        "anova_p": 2.2375516890132885e-08,
+        "pct_variance_explained": 49.410866271272226
+      }
+    },
+    {
+      "point": "thickness_pressure_link",
+      "chosen_branch": "ruled out, no significant relationship",
+      "observed": {
+        "correlation_p": 0.4334723152125989,
+        "rSquaredPct": 1.0612399662965968
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

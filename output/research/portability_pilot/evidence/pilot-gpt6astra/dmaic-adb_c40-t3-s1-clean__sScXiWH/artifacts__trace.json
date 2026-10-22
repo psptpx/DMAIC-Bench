@@ -1,0 +1,87 @@
+{
+  "system_id": "local-analysis-assistant",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "rules": "define"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "controlRetained": 6,
+        "treatedRetained": 6,
+        "minAssignedReadsObserved": 9365000,
+        "minMappingRateObserved": 0.876
+      },
+      "status": "success",
+      "decision": "All libraries usable; replication gate passed."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableSamples": 12
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "batchOnlyRank": 2,
+        "fullDesignRank": 2,
+        "fullDesignColumns": 3,
+        "treatmentRankIncrement": 0,
+        "mixedArmBatches": 0,
+        "L1_control": 6,
+        "L2_treated": 6
+      },
+      "status": "success",
+      "decision": "Treatment adds no rank beyond batch; compound effect is not separately estimable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc",
+      "chosen_branch": "assess_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "controlRetained": 6,
+        "treatedRetained": 6,
+        "minAssignedReadsObserved": 9365000,
+        "minMappingRateObserved": 0.876
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "stop_treatment_gene_calls",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "batchOnlyRank": 2,
+        "fullDesignRank": 2,
+        "fullDesignColumns": 3,
+        "treatmentRankIncrement": 0,
+        "mixedArmBatches": 0,
+        "L1_control": 6,
+        "L2_treated": 6
+      }
+    },
+    {
+      "point": "gene_count_access",
+      "chosen_branch": "respect_design_gate_no_expression_analysis",
+      "observed": {
+        "refusal": "locked",
+        "gate": "design_identifiable",
+        "design_confounded": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

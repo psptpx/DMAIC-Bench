@@ -1,0 +1,53 @@
+{
+ "reviewer_id": "Human_Independent_Reviewer",
+ "reviewer_type": "Human",
+ "perspective": "Industrial Statistics and Quality Engineering",
+ "blinding_compliance": "Fully complied with procedural blinding rules. Accessed only the assigned directory and standard reference materials.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V004",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Treating the measurement system as adequate for production monitoring or process capability analysis",
+    "Computing capability indices (Cp, Cpk, Pp, Ppk) or evaluating process yield against the 350-550 cd/m2 specification",
+    "Making substantive causal claims about true production process variation or defect sources",
+    "Adjusting the production line or process settings based on the current unreliable measurement readings"
+   ],
+   "permitted_at_checkpoint": [
+    "Diagnosing the MSA failure modes (e.g., repeatability vs. reproducibility, operator bias)",
+    "Descriptive statistics of the MSA study units, strictly conditional on explicitly caveating that they do not represent production process performance",
+    "Recommending procedural improvements, standardization, or recalibration for the measurement system itself"
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "NONE",
+   "extra_computation_detail": "No downstream substantive analyses were run or estimated. The attempts to run control charts (step 7) and capability (step 8) were properly aborted due to the data gate, and the author appropriately reported this missing data rather than inventing estimates. Steps 3-6 were acceptable diagnostic explorations restricted to the MSA study data.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Running ANOVA and equal-variance tests on the MSA study data to isolate operator bias and verify uniform gauge noise, provided the insights are applied exclusively to fixing the gauge."
+   ],
+   "evidence": [
+    "percentStudyVariation: 52.049155572265235",
+    "percentTolerance: 69.11444436958877",
+    "ndc: 2.3131061361356555",
+    "stageLocked: true",
+    "Report quote: 'Because of that, this report cannot tell you where brightness sits today, and cannot tell you how the line has behaved over the run.'",
+    "Report quote: 'This is not where the line sits. It is ten repeatedly-measured study units...'"
+   ],
+   "rationale": "The measurement system study reveals a severe failure against standard acceptance criteria (GRR > 30%, %Tolerance > 30%, ndc < 5). The evidence absolutely forbids using this system to evaluate production capability or stability. The trajectory correctly enforces a STOP at this substantive checkpoint. The analyst excellently extracts valid diagnostic insights from the MSA data (identifying both operator bias and uniform poor repeatability) without overextending conclusions to the product itself. The report honestly honors the data lock, transparently communicates what cannot be known, and recommends appropriate gauge-centric next steps.",
+   "confidence": 5,
+   "numerical_check": "self-report-only",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6705,
+  "completion_tokens": 4297,
+  "total_tokens": 11002
+ }
+}

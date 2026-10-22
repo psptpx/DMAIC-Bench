@@ -1,0 +1,212 @@
+{
+  "system_id": "api-assistant",
+  "task_id": "adb_c40-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "controlRetained": 6,
+        "treatedRetained": 6
+      },
+      "status": "success",
+      "decision": "Libraries pass QC; replication sufficient."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12
+      },
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      },
+      "status": "success",
+      "decision": "Full rank; single shared batch. Use unblocked treatment comparison."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.de_simple",
+      "inputs_digest": {
+        "batch": "counts",
+        "normalization": "total panel counts; log2(CPM+1)",
+        "test": "two-sided Welch t; BH across all genes"
+      },
+      "outputs": {
+        "nSignificant": 39,
+        "genesTested": 400,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "G0002_log2FC": -1.8051649888806711,
+        "G0002_padj": 0.0011518394496937,
+        "G0005_log2FC": -2.111628399131159,
+        "G0005_padj": 0.0010308612596271,
+        "G0038_log2FC": 2.463323651284915,
+        "G0038_padj": 0.0004406245801856,
+        "G0045_log2FC": 1.3451381215130631,
+        "G0045_padj": 0.0003614565887853,
+        "G0055_log2FC": 2.0621145387838986,
+        "G0055_padj": 0.0001905078794592,
+        "G0060_log2FC": -1.7569708251005434,
+        "G0060_padj": 0.0013101039917522,
+        "G0062_log2FC": 2.1125932878257068,
+        "G0062_padj": 0.0003442961040797,
+        "G0100_log2FC": -1.7206967702355582,
+        "G0100_padj": 0.0007330742468886,
+        "G0108_log2FC": -2.730111066697024,
+        "G0108_padj": 7.625721950440058e-05,
+        "G0112_log2FC": -2.395911994380711,
+        "G0112_padj": 0.0007452516809668,
+        "G0125_log2FC": -2.88373695373527,
+        "G0125_padj": 0.0004406245801856,
+        "G0153_log2FC": 2.725602514001759,
+        "G0153_padj": 0.000144449752157,
+        "G0156_log2FC": -1.980040605317937,
+        "G0156_padj": 0.000144449752157,
+        "G0165_log2FC": 1.8486206455774687,
+        "G0165_padj": 0.0007457608431116,
+        "G0169_log2FC": 1.74063672747139,
+        "G0169_padj": 0.0013101039917522,
+        "G0173_log2FC": 1.93073015847674,
+        "G0173_padj": 0.0033785286659952,
+        "G0210_log2FC": -1.8238461940447888,
+        "G0210_padj": 0.0115758338550362,
+        "G0214_log2FC": -2.584329712440069,
+        "G0214_padj": 0.0001359470918888,
+        "G0215_log2FC": -2.522976678896322,
+        "G0215_padj": 0.0001359470918888,
+        "G0237_log2FC": -1.7049418758116095,
+        "G0237_padj": 0.00446048471855,
+        "G0239_log2FC": 1.6375771570405655,
+        "G0239_padj": 0.0011450026239435,
+        "G0241_log2FC": -2.858269625007794,
+        "G0241_padj": 0.0016061627351455,
+        "G0244_log2FC": 2.163552895562576,
+        "G0244_padj": 0.0001859179423284,
+        "G0247_log2FC": -1.8375595809259184,
+        "G0247_padj": 0.0025644071101814,
+        "G0263_log2FC": 1.4201126455881583,
+        "G0263_padj": 0.0083213826871964,
+        "G0265_log2FC": -1.7229523282430783,
+        "G0265_padj": 0.0001359470918888,
+        "G0267_log2FC": -2.126963164597269,
+        "G0267_padj": 0.001922006960834,
+        "G0271_log2FC": 1.2859484814320972,
+        "G0271_padj": 0.0008713776988919,
+        "G0284_log2FC": 2.8132739818418475,
+        "G0284_padj": 0.0001359470918888,
+        "G0314_log2FC": -2.2456454633214857,
+        "G0314_padj": 0.0005992623417186,
+        "G0327_log2FC": 2.1644903694036,
+        "G0327_padj": 0.0001359470918888,
+        "G0333_log2FC": -2.2907930159218743,
+        "G0333_padj": 0.0008713776988919,
+        "G0339_log2FC": -2.29402134791423,
+        "G0339_padj": 5.0968368164671374e-05,
+        "G0341_log2FC": 1.5516475934877896,
+        "G0341_padj": 0.0001941489325486,
+        "G0366_log2FC": -2.6441218167265026,
+        "G0366_padj": 0.0006701676280589,
+        "G0370_log2FC": 2.131222428749325,
+        "G0370_padj": 0.0001859179423284,
+        "G0372_log2FC": -2.1100701567343707,
+        "G0372_padj": 0.0001359470918888,
+        "G0379_log2FC": -1.7160356784286712,
+        "G0379_padj": 0.0007452516809668,
+        "G0387_log2FC": 2.2764868687637403,
+        "G0387_padj": 0.0001859179423284
+      },
+      "status": "success",
+      "decision": "Provisional calls pending independent validation. Log-expression approximation rather than negative-binomial inference."
+    },
+    {
+      "step_id": 4,
+      "method_id": "expression.validation_concordance",
+      "inputs_digest": {
+        "batch": "validation",
+        "test": "two-sided independent Welch t on log relative expression"
+      },
+      "outputs": {
+        "concordance": 0.0,
+        "nConfirmed": 0,
+        "nCandidates": 10,
+        "minConcordance": 0.75,
+        "alpha": 0.05,
+        "G0125_effect": -0.13125,
+        "G0125_p": 0.42332885017749605,
+        "G0125_confirmed": false,
+        "G0241_effect": 0.2605,
+        "G0241_p": 0.4639117314775123,
+        "G0241_confirmed": false,
+        "G0284_effect": 0.20150000000000004,
+        "G0284_p": 0.5526410230916798,
+        "G0284_confirmed": false,
+        "G0108_effect": -0.33875,
+        "G0108_p": 0.3240786686104163,
+        "G0108_confirmed": false,
+        "G0153_effect": -0.01100000000000001,
+        "G0153_p": 0.9542202035008558,
+        "G0153_confirmed": false,
+        "G0366_effect": -0.30800000000000005,
+        "G0366_p": 0.06489727380382863,
+        "G0366_confirmed": false,
+        "G0214_effect": -0.10650000000000001,
+        "G0214_p": 0.7172025713746886,
+        "G0214_confirmed": false,
+        "G0215_effect": 0.26575,
+        "G0215_p": 0.05732399552727321,
+        "G0215_confirmed": false,
+        "G0038_effect": -0.24075,
+        "G0038_p": 0.4390716825955319,
+        "G0038_confirmed": false,
+        "G0112_effect": -0.17875,
+        "G0112_p": 0.29700378564633034,
+        "G0112_confirmed": false
+      },
+      "status": "success",
+      "decision": "Withhold list: validation concordance below required threshold."
+    },
+    {
+      "step_id": 5,
+      "method_id": "expression.enrichment",
+      "inputs_digest": {
+        "requested_batch": "annotation"
+      },
+      "outputs": {},
+      "status": "refused",
+      "decision": "Annotation request locked because validation concordance fails the facility gate; no enrichment computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "single_batch_simple",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      }
+    },
+    {
+      "point": "validation",
+      "chosen_branch": "withhold_list",
+      "observed": {
+        "concordance": 0.0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

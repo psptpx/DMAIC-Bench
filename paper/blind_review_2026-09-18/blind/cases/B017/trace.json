@@ -1,0 +1,466 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.gage_rr_crossed",
+      "inputs_digest": {
+        "batch": "msa",
+        "sampleSize": 90,
+        "numGroups": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "tolerance": 1.2000000000000002
+      },
+      "outputs": {
+        "percentStudyVariation": 15.60424773702267,
+        "percentTolerance": 33.31868376090741,
+        "ndc": 8.925313227424608,
+        "pctContributionGageRR": 2.434925474383771,
+        "pctStudyVarRepeatability": 11.980249638214563,
+        "pctStudyVarReproducibility": 9.998308159105564,
+        "varGageRR": 0.0044405387502374225,
+        "varPart": 0.1779280305120818,
+        "sdGageRR": 0.06663736752181483
+      },
+      "status": "success",
+      "decision": "Crossed ANOVA Gage R&R, interaction pooled (p=0.675>0.25). %StudyVar 15.60% <30% and ndc 8.93 >=5, so the measurement system can support conclusions; %Tolerance 33.32% exceeds the 30% guideline, a caveat for spec-based sorting."
+    },
+    {
+      "step_id": 2,
+      "method_id": "anova.oneway",
+      "inputs_digest": {
+        "batch": "msa",
+        "sampleSize": 90,
+        "numGroups": 3
+      },
+      "outputs": {
+        "factorPValue": 2.8368312920967753e-08,
+        "fStatistic": 0.8156215168982714,
+        "partPValue": 1.1102230246251565e-16,
+        "interactionPValue": 0.6750320379405397
+      },
+      "status": "success",
+      "decision": "ANOVA underlying the Gage R&R: operator effect significant, part effect significant, operator x part interaction not significant so it was pooled into repeatability."
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.descriptive_summary",
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "outputs": {
+        "mean": 1.11236,
+        "median": 1.0825,
+        "stdDev": 0.19193927185866017,
+        "skewness": -0.1125434663213487,
+        "adPValue": 0.02939576882587034,
+        "minimum": 0.741,
+        "maximum": 1.502
+      },
+      "status": "success",
+      "decision": "Whole-run summary. AD p=0.029 rejects normality for the pooled run; this reflects two superimposed levels, not a skewed single population."
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "outputs": {
+        "pValue": 0.07855470700464376,
+        "statistic": 0.9587183961824861,
+        "adPValue": 0.02939576882587034,
+        "adStatistic": 0.8334704684261851
+      },
+      "status": "success",
+      "decision": "Pooled-run normality is ambiguous (Shapiro p=0.079, AD p=0.029) - resolved once the run is split at the change point."
+    },
+    {
+      "step_id": 5,
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "outputs": {
+        "individualsUCL": 1.4137060703430309,
+        "individualsLCL": 0.8110139296569692,
+        "centerLine": 1.11236,
+        "flaggedCount": 36,
+        "beyondLimitsCount": 4,
+        "sigmaWithin": 0.1004486901143436,
+        "test2Count": 25,
+        "test5Count": 13,
+        "test6Count": 32
+      },
+      "status": "success",
+      "decision": "Process is NOT in statistical control: 36 of 50 bores raise special-cause flags, 4 beyond the individuals limits. Capability on the pooled run is therefore not interpretable."
+    },
+    {
+      "step_id": 6,
+      "method_id": "nonparametric.runs_test",
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "outputs": {
+        "pValue": 1.9580439492017376e-09,
+        "zStatistic": -6.001249869818786,
+        "runs": 5,
+        "expectedRuns": 26.0
+      },
+      "status": "success",
+      "decision": "Only 5 runs about the median against 26 expected (p=2.0e-9): the sequence is non-random, consistent with a sustained level shift rather than noise."
+    },
+    {
+      "step_id": 7,
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "process_run",
+        "nBefore": 25,
+        "nAfter": 25,
+        "changePointIndex": 25
+      },
+      "outputs": {
+        "pValue": 1.119436295041613e-16,
+        "tStatistic": -12.541646696259136,
+        "meanBefore": 0.94604,
+        "meanAfter": 1.27868,
+        "shift": 0.33264000000000005,
+        "sdBefore": 0.09862068748492882,
+        "sdAfter": 0.08865932927034055,
+        "changePointIndex": 25
+      },
+      "status": "success",
+      "decision": "Change point located at bore 26 (index 25) by maximising the split t-statistic. Level rose 0.333 um Ra, from 0.946 to 1.279 (p=1.1e-16)."
+    },
+    {
+      "step_id": 8,
+      "method_id": "anova.equal_variances",
+      "inputs_digest": {
+        "batch": "process_run",
+        "numGroups": 2,
+        "sampleSize": 50
+      },
+      "outputs": {
+        "pValue": 0.5262712470395754,
+        "statistic": 0.4075079619556113
+      },
+      "status": "success",
+      "decision": "Levene p=0.526: spread is unchanged across the shift. Only the mean moved, which points to a setpoint/consumable change rather than added variability."
+    },
+    {
+      "step_id": 9,
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "before",
+        "sampleSize": 25
+      },
+      "outputs": {
+        "individualsUCL": 1.2431366312056737,
+        "individualsLCL": 0.6489433687943262,
+        "centerLine": 0.94604,
+        "flaggedCount": 0,
+        "sigmaWithin": 0.09903221040189124
+      },
+      "status": "success",
+      "decision": "Segment before the change point is itself in control (0 special-cause flags) - two stable regimes, not one chaotic process."
+    },
+    {
+      "step_id": 10,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "before",
+        "sampleSize": 25
+      },
+      "outputs": {
+        "pValue": 0.11145520329001612,
+        "statistic": 0.9346722616164327,
+        "adPValue": 0.10790387205279153,
+        "adStatistic": 0.5977666600170508
+      },
+      "status": "success",
+      "decision": "Segment before the change point is normal (AD p=0.108), so normal-theory capability is valid within the segment."
+    },
+    {
+      "step_id": 11,
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "after",
+        "sampleSize": 25
+      },
+      "outputs": {
+        "individualsUCL": 1.5731170567375887,
+        "individualsLCL": 0.9842429432624114,
+        "centerLine": 1.27868,
+        "flaggedCount": 0,
+        "sigmaWithin": 0.09814568557919623
+      },
+      "status": "success",
+      "decision": "Segment after the change point is itself in control (0 special-cause flags) - two stable regimes, not one chaotic process."
+    },
+    {
+      "step_id": 12,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "after",
+        "sampleSize": 25
+      },
+      "outputs": {
+        "pValue": 0.7536751847510905,
+        "statistic": 0.9742723223380818,
+        "adPValue": 0.5136130811772953,
+        "adStatistic": 0.3198214087561446
+      },
+      "status": "success",
+      "decision": "Segment after the change point is normal (AD p=0.514), so normal-theory capability is valid within the segment."
+    },
+    {
+      "step_id": 13,
+      "method_id": "control_chart.cusum",
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "baselineMean": 0.94604
+      },
+      "outputs": {
+        "flaggedCount": 12,
+        "firstSignalIndex": 26,
+        "decisionInterval": 0.39612884160756495
+      },
+      "status": "success",
+      "decision": "CUSUM against the pre-shift baseline first signals at index 26, one bore after the shift: a CUSUM on the line would have caught this almost immediately."
+    },
+    {
+      "step_id": 14,
+      "method_id": "control_chart.ewma",
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "lambda": 0.2
+      },
+      "outputs": {
+        "flaggedCount": 24,
+        "firstSignalIndex": 26
+      },
+      "status": "success",
+      "decision": "EWMA (lambda=0.2) also first signals at index 26, corroborating the CUSUM detection point."
+    },
+    {
+      "step_id": 15,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "after",
+        "sampleSize": 25,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "outputs": {
+        "cp": 2.037786977794505,
+        "cpk": 1.0913028528415507,
+        "pp": 2.255825773170005,
+        "ppk": 1.2080698957249767,
+        "mean": 1.27868,
+        "sdWithin": 0.09814568557919623,
+        "sdOverall": 0.08865932927034055,
+        "observedOutOfSpecPct": 0.0
+      },
+      "status": "success",
+      "decision": "Capability of the after-shift regime, computed only because that segment is in control and normal."
+    },
+    {
+      "step_id": 16,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "before",
+        "sampleSize": 25,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "outputs": {
+        "cp": 2.0195449459157038,
+        "cpk": 1.8379205371130178,
+        "pp": 2.0279720725995136,
+        "ppk": 1.8455897842037303,
+        "mean": 0.94604,
+        "sdWithin": 0.09903221040189124,
+        "sdOverall": 0.09862068748492882,
+        "observedOutOfSpecPct": 0.0
+      },
+      "status": "success",
+      "decision": "Capability of the before-shift regime, computed only because that segment is in control and normal."
+    },
+    {
+      "step_id": 17,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "pooled",
+        "sampleSize": 50,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "outputs": {
+        "cp": 1.99106628242075,
+        "cpk": 1.6182059365994241,
+        "pp": 1.0419962421618207,
+        "ppk": 0.8468650792129838,
+        "mean": 1.11236,
+        "sdWithin": 0.1004486901143436,
+        "sdOverall": 0.19193927185866017,
+        "observedOutOfSpecPct": 0.0
+      },
+      "status": "success",
+      "decision": "Pooled capability reported ONLY to show what mixing regimes does: Ppk collapses to 0.847 versus Cpk 1.618 within-subgroup. Not a valid statement of process capability because the run is out of control."
+    },
+    {
+      "step_id": 18,
+      "method_id": "basic.one_sample_t",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "after",
+        "sampleSize": 25,
+        "target": 1.0
+      },
+      "outputs": {
+        "pValue": 3.9145211059776686e-14,
+        "tStatistic": 15.716338161675424,
+        "mean": 1.27868,
+        "offTarget": 0.27868000000000004
+      },
+      "status": "success",
+      "decision": "Current regime sits 0.279 um Ra above the 1.00 target (p=3.9e-14): inside the band but significantly off target toward the upper limit."
+    },
+    {
+      "step_id": 19,
+      "method_id": "basic.one_sample_t",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "before",
+        "sampleSize": 25,
+        "target": 1.0
+      },
+      "outputs": {
+        "pValue": 0.011520621958871175,
+        "tStatistic": -2.7357343259367437,
+        "mean": 0.94604,
+        "offTarget": -0.05396000000000001
+      },
+      "status": "success",
+      "decision": "Pre-shift regime was only 0.054 um Ra below target (p=0.012) - close to nominal, and the better of the two states."
+    },
+    {
+      "step_id": 20,
+      "method_id": "regression.ols",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "after",
+        "sampleSize": 25
+      },
+      "outputs": {
+        "modelPValue": 0.3610948628364108,
+        "rSquaredPct": 3.638035799290435,
+        "rSquaredAdjPct": -0.5516148181317293,
+        "slope": -0.0022976923076923057
+      },
+      "status": "success",
+      "decision": "No trend within the current regime (p=0.361): the process is sitting at a new fixed level, not drifting further. A one-off step, so a setpoint correction should recover it."
+    },
+    {
+      "step_id": 21,
+      "method_id": "basic.correlation",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "after",
+        "sampleSize": 25
+      },
+      "outputs": {
+        "correlationCoefficient": -0.19073635729169292,
+        "pValue": 0.3610948628364107
+      },
+      "status": "success",
+      "decision": "Roughness vs finishing order within the current regime: no association (r=-0.191, p=0.361)."
+    },
+    {
+      "step_id": 22,
+      "method_id": "basic.correlation",
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "pooled",
+        "sampleSize": 50
+      },
+      "outputs": {
+        "correlationCoefficient": 0.7091653298668337,
+        "pValue": 8.21151743622574e-09
+      },
+      "status": "success",
+      "decision": "Apparent strong correlation with finishing order over the whole run (r=0.709) is an artefact of the single step, not a gradual drift."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_trustworthy",
+      "chosen_branch": "proceed_with_analysis_gage_acceptable_with_tolerance_caveat",
+      "observed": {
+        "percentStudyVariation": 15.60424773702267,
+        "percentTolerance": 33.31868376090741,
+        "ndc": 8.925313227424608,
+        "pctContributionGageRR": 2.434925474383771
+      }
+    },
+    {
+      "point": "gage_rr_interaction_pooling",
+      "chosen_branch": "pool_interaction_into_repeatability",
+      "observed": {
+        "interactionPValue": 0.6750320379405397,
+        "alpha": 0.25
+      }
+    },
+    {
+      "point": "process_stability",
+      "chosen_branch": "not_stable_investigate_shift_before_capability",
+      "observed": {
+        "flaggedCount": 36,
+        "beyondLimitsCount": 4,
+        "runsPValue": 1.9580439492017376e-09
+      }
+    },
+    {
+      "point": "capability_basis",
+      "chosen_branch": "report_capability_per_regime_not_pooled",
+      "observed": {
+        "pooledPpk": 0.8468650792129838,
+        "currentCpk": 1.0913028528415507,
+        "currentPpk": 1.2080698957249767,
+        "segmentFlaggedCount": 0
+      }
+    },
+    {
+      "point": "shift_shape",
+      "chosen_branch": "step_change_not_drift",
+      "observed": {
+        "trendPValue": 0.3610948628364108,
+        "segmentShift": 0.33264000000000005,
+        "levenePValue": 0.5262712470395754
+      }
+    },
+    {
+      "point": "improve_and_control_evidence",
+      "chosen_branch": "unavailable_no_post_action_batch_exists",
+      "observed": {
+        "provisionTurnsUsed": 1,
+        "processFactsAvailable": 0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

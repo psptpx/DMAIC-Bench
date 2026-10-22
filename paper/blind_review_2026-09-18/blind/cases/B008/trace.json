@@ -1,0 +1,150 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "process_run",
+        "subsequence": "all_60"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 82.66521666666667,
+        "median": 81.68100000000001,
+        "stdDev": 13.521997411740152,
+        "skewness": -0.0023790938480819234,
+        "adPValue": 5.434480956817945e-07
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "process_run"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 5.434480956817945e-07,
+        "statistic": 28.850663270142135,
+        "andersonStatistic": 1.2827276668885474
+      },
+      "status": "success",
+      "decision": "Normality rejected by the omnibus test; Anderson-Darling statistic also exceeded its tabulated critical values."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "process_run",
+        "ordering": "production_order",
+        "split_rule": "overall median"
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 4.532976170252393e-08,
+        "runs": 10,
+        "median": 81.68100000000001
+      },
+      "status": "success",
+      "decision": "Reject steadiness: the ordered sequence has too few runs around its median."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "process_run",
+        "subgrouping": "individuals with moving ranges"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 105.38889138718596,
+        "individualsLCL": 59.94154194614737,
+        "centerLine": 82.66521666666667,
+        "flaggedCount": 2,
+        "movingRangeMean": 8.544101694915256,
+        "sigmaWithin": 7.5745582401731
+      },
+      "status": "success",
+      "decision": "Not stable: two individuals breach the calculated IMR limits."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sample_size": 30,
+        "batch": "process_run",
+        "subsequence": "first_30"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 71.21683333333333,
+        "median": 70.8875,
+        "stdDev": 7.019471303813235,
+        "skewness": 0.47277665691331966,
+        "adPValue": 0.43784471922710555
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "sample_size": 30,
+        "batch": "process_run",
+        "subsequence": "last_30"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 94.1136,
+        "median": 95.69550000000001,
+        "stdDev": 7.179893441722013,
+        "skewness": -0.7017447094254458,
+        "adPValue": 0.2536407747255206
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "process_run",
+        "limits_source": "released descriptive fields"
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.7395357132162841,
+        "cpk": 0.42732304519554737,
+        "pp": 0.7395357132162841,
+        "ppk": 0.42732304519554737,
+        "lsl": 40.0,
+        "usl": 100.0,
+        "aboveUSL": 7,
+        "belowLSL": 0,
+        "oosTotal": 7
+      },
+      "status": "success",
+      "decision": "The overall normal capability estimate is inadequate and observed output includes upper-limit violations."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "data_shape",
+      "chosen_branch": "ordered individual observations; use IMR and runs test",
+      "observed": {
+        "sampleSize": 60
+      }
+    },
+    {
+      "point": "distribution",
+      "chosen_branch": "report nonnormal overall behavior and avoid treating the pooled run as one stable normal population",
+      "observed": {
+        "normalityPValue": 5.434480956817945e-07,
+        "runsPValue": 4.532976170252393e-08
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

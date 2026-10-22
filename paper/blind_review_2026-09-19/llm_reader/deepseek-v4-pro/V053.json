@@ -1,0 +1,73 @@
+{
+ "reviewer_id": "human_reviewer",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical validity",
+ "blinding_compliance": "I reviewed only the supplied blind packet and public technical knowledge; I did not inspect the repository outside this item, coordinator directory, hidden truth files, scoring code, other reviewer outputs, or search the benchmark/paper name.",
+ "ai_assistance": "AI assistant used to draft this review output from the supplied packet.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V053",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Treating the roughness readings as adequate for specification-conformance or pass/fail decisions: %Tolerance=43.92% (>30%) and ndc=5 mean the gage cannot reliably classify borderline parts against 0.40-1.60 um Ra.",
+    "Asserting Cp/Cpk/Pp/Ppk and the out-of-spec count as valid process-capability/conformance conclusions without first improving the gage or correcting for measurement variance.",
+    "Concluding that the single 1.64 um Ra bore is definitely out of spec given the gage error relative to the 0.04 um excess above the 1.60 upper limit.",
+    "Concluding that the true process mean is 0.109 um Ra above target or that a 0.11 um Ra recentering shift is a validated required adjustment, since no gage accuracy/bias/linearity study was reported.",
+    "Calling the statistically significant operator effect an 'operator bias' and recommending operator-alignment correction as an established improvement: the ANOVA operator effect is a reproducibility effect, not bias against a reference standard."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the gage R&R estimates themselves and stating that the system is marginal for monitoring but unacceptable for tolerance-based conformance decisions.",
+    "Descriptive summaries of the 50-bore run, including mean, median, standard deviation, and normality, clearly labelled as observed readings that include measurement error.",
+    "An I-MR chart and runs test in finishing order as exploratory screening only, with limits understood to be widened by measurement error and not proof of true process stability.",
+    "Planning a gage improvement, calibration, or accuracy/bias study before any pass/fail, capability, or recentering decision.",
+    "Forming a recentering hypothesis for later testing after the measurement system is improved or measurement variance is explicitly corrected."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "Readings can carry the conclusions below; a later gage improvement (operator bias, p \u2248 5.0e-6) would tighten borderline calls.",
+    "The process was in statistical control for the whole run. Its behaviour is a steady, common-cause system sitting above target.",
+    "Cp = 1.042, Cpk = 0.853; Pp = 1.023, Ppk = 0.837.",
+    "1 of 50 bores was out of spec: 1.64 um Ra vs the 1.60 upper limit.",
+    "Recenter the process to the 1.00 target. The required shift is about 0.11 um Ra of mean."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "The descriptive summary, normality check, I-MR chart, and runs test are acceptable only as exploratory screening of observed readings. The capability analysis and out-of-spec classification are unacceptable because the measurement system has %Tolerance=43.92% and no accuracy/bias study, so conformance/capability conclusions are not supported; the report relied on them rather than merely describing them with use withheld.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Use the I-MR chart and runs test only as exploratory monitoring of observed readings, with widened limits and no specification-conformance or capability conclusions.",
+    "Before capability analysis, improve the gage to %Tolerance<=30% and ndc>=5 and then recompute Cp/Cpk/Pp/Ppk.",
+    "Alternatively, use the MSA variance components to report measurement-corrected capability with explicit assumptions, and avoid reporting raw out-of-spec counts as definitive.",
+    "For pass/fail use, perform a gage accuracy/bias/linearity study first, then use guard-banding or re-measure borderline units with a better system.",
+    "Run an accuracy/bias study before concluding the process mean is above target and before recommending a quantitative recentering shift."
+   ],
+   "evidence": [
+    "Gage R&R outputs: %StudyVariation=25.69%, %Tolerance=43.92%, ndc=5, operator p\u22485.0e-6, interaction p=0.679.",
+    "Capability outputs: Cp=1.042, Cpk=0.853, Pp=1.023, Ppk=0.837, out-of-spec count=1.",
+    "Report caveat: 'The high %Tolerance (43.92%) reflects that the 10 study bores spanned almost the whole band; for pass/fail decisions near a limit the measurement error is not negligible.'",
+    "Report assertion: 'Readings can carry the conclusions below; a later gage improvement (operator bias, p \u2248 5.0e-6) would tighten borderline calls.'",
+    "Report assertion: '1 of 50 bores was out of spec: 1.64 um Ra vs the 1.60 upper limit.'"
+   ],
+   "rationale": "The gage R&R results do not support tolerance-based conformance or capability conclusions: %Tolerance is above the usual 30% limit, ndc is only 5, and only precision was studied, not accuracy/bias. The report's own caveat admits the measurement error is not negligible near limits, but then it asserts capability indices, an out-of-spec bore, and a quantitative recentering recommendation. Descriptive and exploratory monitoring can continue, but the focal substantive advancement should be paused until the gage is improved or measurement variance is explicitly corrected.",
+   "confidence": 4,
+   "numerical_check": "Self-report-only for raw data; checked internal arithmetic from reported stdDev and MRbar: Pp=1.2/(6*0.19548)=1.023; Cp=1.2/(6*(0.21653/1.128))=1.042; Cpk/Ppk match the reported mean and limits.",
+   "evidence_problem": "No raw MSA or process-run data were supplied in this packet; self-report-only. No gage accuracy, bias, linearity, or calibration study was reported."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4465,
+  "completion_tokens": 13296,
+  "total_tokens": 17761,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 11800
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2801
+ }
+}

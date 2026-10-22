@@ -1,0 +1,95 @@
+schema_version: 1
+case_id: adb_c21
+title: Bringing down solder defects per board on PCB assembly
+
+tier: T1
+industry: electronics
+provenance: SIMULATED
+y_type: attribute_count_rate
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the team on a PCB soldering defect reduction project at an electronics plant. The key
+  measure is the number of defects on a board, and the management target is an average of 0.05
+  defects per board; we are clearly running above it. We have pulled together several batches of
+  shop-floor data: the main shop's twenty-day totals of daily defect counts alongside the number
+  of boards inspected; the second shop's day-by-day defect record over twenty-five days; the
+  outsourced line's daily defect record, whose swing from one day to the next looks far larger
+  than is normal for lines of that kind, so that applying the usual steady-state reading
+  directly could raise false alarms; twenty-four batches in which the reflow oven temperature
+  and the batch defect count were logged together, the suspicion being that a hot oven brings
+  more defects; and a tally sheet on which defects are registered by class. We want to use these
+  to judge where we stand, to test whether the oven temperature really is doing anything, and to
+  pin down which class of defect dominates.
+
+goal: |
+  Carry out the appropriate quantitative work on each batch given to you, and report the gap
+  between the defect level as it stands and the target, the state of each of the two shops and
+  of the outsourced line, whether the connection between oven temperature and the number of
+  defects is real, and whether defects are significantly concentrated in particular classes.
+  Produce an analysis report whose figures are faithful to what you actually computed.
+
+stages:
+  - stage_id: P_PoissonCapability
+    phase: measure
+    label: "Main shop, twenty days — daily defect counts with the number of boards inspected"
+    topics: ["main shop", "twenty day totals", "boards inspected", "gap to the target"]
+    methods:
+      - method_id: capability.poisson
+        required: true
+  - stage_id: P_UChart
+    phase: measure
+    label: "Second shop, twenty-five days — day-by-day defect record"
+    topics: ["second shop", "twenty five day record", "day by day defects"]
+    methods:
+      - method_id: control_chart.u
+        required: true
+  - stage_id: P_LaneyU
+    phase: analyze
+    label: "Outsourced line's daily defect record (swing from day to day unusually large)"
+    topics: ["outsourced line", "unusually large swing", "day to day variation"]
+    methods:
+      - method_id: control_chart.laney_u
+        required: true
+  - stage_id: P_PoissonRegression
+    phase: analyze
+    label: "Reflow oven temperature logged together with the batch defect count, twenty-four batches"
+    topics: ["oven temperature", "twenty four batches", "reflow setting"]
+    methods:
+      - method_id: regression.poisson
+        required: true
+  - stage_id: P_GOF
+    phase: analyze
+    label: "Tally sheet of defects registered by class"
+    topics: ["defect class", "tally sheet", "defect categories", "which class dominates"]
+    methods:
+      - method_id: tables.chisquare_gof
+        required: true
+
+decision_points:
+  - point_id: overdispersion_gate
+    phase: analyze
+    rule: "Between-day variation on the subcontract line far exceeds the Poisson assumption (sigma_Z significantly above 1, overdispersion): count-rate monitoring must use the Laney-adjusted branch rather than a conventional U chart."
+    source: "Laney, D.B. (2002) Improved Control Charts for Attributes, Quality Engineering 14(4); Minitab help: Laney U′ Chart"
+    correct_branch: laney_u_chart
+    acceptable_branches: []
+    # Do not use control_chart.u as wrong-branch evidence for plain_u_chart: P_UChart also requires it.
+    # A compliant run uses both; that evidence would misclassify a correct trace. Keep positive-branch evidence only.
+    branch_evidence:
+      laney_u_chart: [control_chart.laney_u]
+
+faults:
+  - stage_id: P_GOF
+    method_id: tables.chisquare_gof

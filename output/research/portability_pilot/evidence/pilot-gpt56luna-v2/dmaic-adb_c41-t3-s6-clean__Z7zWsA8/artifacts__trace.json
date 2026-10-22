@@ -1,0 +1,107 @@
+{
+  "system_id": "openai-command-line",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667
+      },
+      "status": "success",
+      "decision": "plate passes participant QC"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137
+      },
+      "status": "success",
+      "decision": "retain variants meeting call rate, MAF, and control HWE rules"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "retainedVariants": 137
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 0.38345330708450176
+      },
+      "status": "success",
+      "decision": "groups are not separated on PC1"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 239,
+        "retainedVariants": 137
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 36,
+        "lambdaGC": 1.9292174578599788
+      },
+      "status": "success",
+      "decision": "discovery candidates found; reporting requires replication"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0
+      },
+      "status": "failed",
+      "decision": "replication test not computable because the released candidate list is empty"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "participant_qc",
+      "chosen_branch": "proceed",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667
+      }
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "compare_groups",
+      "observed": {
+        "pc1PValue": 0.38345330708450176
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "stop_no_candidates",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0.15265822410583496,
+  "token_cost": null
+}

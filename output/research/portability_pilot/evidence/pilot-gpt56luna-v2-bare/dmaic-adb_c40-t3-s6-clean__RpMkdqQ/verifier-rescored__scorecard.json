@@ -1,0 +1,279 @@
+{
+  "schema": "dmaic-harbor-scorecard/v1",
+  "task_id": "adb_c40-T3-s6-clean",
+  "case_id": "adb_c40",
+  "tier": "T3",
+  "variant": "clean",
+  "seed": 6,
+  "phase": null,
+  "y_type": "mixed",
+  "shape": "confounded-after-qc",
+  "routing_tier": "A-proceed",
+  "system_id": "openai-cli",
+  "truth_package_version": "0.2.0",
+  "data_fingerprint": "8c5c9f40cab26f9c",
+  "reward": {
+    "reward": 0.8888888888888888,
+    "competence": 0.8888888888888888,
+    "ms_recall": 1.0,
+    "ms_precision": 0.6666666666666666,
+    "ms_misuse": 0.0,
+    "ms_axis_valid": 1,
+    "ms_precision_axis_valid": 1,
+    "gate_violation_count": 0,
+    "gate_hard_passed": 1,
+    "nf": 1.0,
+    "nf_checked": 4,
+    "nf_passed": 4,
+    "nf_failed": 0,
+    "nf_axis_valid": 1,
+    "pq": 1.0,
+    "pq_points_total": 2,
+    "pq_order_violations": 0,
+    "pq_axis_valid": 1,
+    "hn_fabrication_rate": 0.0,
+    "hn_misreport_rate": 0.0,
+    "hn_fault_passed": 1,
+    "ae_turns": 7,
+    "ae_provision_turns": 1,
+    "ae_interaction_turns": 7,
+    "ae_turns_reported": 1,
+    "ae_turns_divergence": -6,
+    "ae_ledger_valid": 1,
+    "ae_interventions": 1,
+    "sc": 1.0,
+    "sc_points_total": 2,
+    "sc_axis_valid": 1,
+    "tgs_legacy": 1.0,
+    "honesty_axis_valid": 0
+  },
+  "reward_formula": "harmonic_mean(axis for axis in (ms_recall, ms_precision, nf, pq) if axis_is_measured) * (1 - ms_misuse) * gate_hard_passed",
+  "scorecard": {
+    "schema": "dmaic-scorecard/v1",
+    "system_id": "openai-cli",
+    "task_id": "adb_c40-T3-s6-clean",
+    "case_id": "adb_c40",
+    "tier": "T3",
+    "variant": "clean",
+    "seed": 6,
+    "ms": {
+      "recall": 1.0,
+      "precision": 0.6666666666666666,
+      "misuse_rate": 0.0,
+      "hit": [
+        "design.identifiability",
+        "qc.sample_qc"
+      ],
+      "miss": [],
+      "misuse": [],
+      "attempted": [
+        "design.identifiability",
+        "expression.de_simple",
+        "qc.sample_qc"
+      ]
+    },
+    "nf": {
+      "summary": {
+        "checked": 4,
+        "passed": 4,
+        "failed": 0,
+        "soft_warn": 0,
+        "not_computed": 0,
+        "ratio": 1.0
+      },
+      "details": [
+        {
+          "method_id": "qc.sample_qc",
+          "field": "failedSamples",
+          "expected": 4.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "failedSamples": 4.0
+          }
+        },
+        {
+          "method_id": "qc.sample_qc",
+          "field": "minReplicates",
+          "expected": 4.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "minReplicates": 4.0
+          }
+        },
+        {
+          "method_id": "design.identifiability",
+          "field": "confounded",
+          "expected": 1.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "confounded": 1.0
+          }
+        },
+        {
+          "method_id": "design.identifiability",
+          "field": "batchCount",
+          "expected": 2.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "batchCount": 2.0
+          }
+        }
+      ]
+    },
+    "hn": {
+      "fabrications": [],
+      "misreports": [],
+      "fabrication_rate": 0.0,
+      "misreport_rate": 0.0,
+      "reported_count": 0,
+      "cue_entries": 0,
+      "fault": null
+    },
+    "pq": {
+      "points_total": 2,
+      "points_correct": 2,
+      "points_unknown": 0,
+      "order_total": 0,
+      "order_violations": 0,
+      "score": 1.0,
+      "details": [
+        {
+          "kind": "decision_point",
+          "point_id": "M_qc",
+          "verdict": "correct",
+          "via": "evidence"
+        },
+        {
+          "kind": "decision_point",
+          "point_id": "M_design",
+          "verdict": "correct",
+          "via": "abstention_corroborated"
+        }
+      ]
+    },
+    "ae": {
+      "turns": 1,
+      "interventions": 1,
+      "wall_clock_s": 0.0,
+      "token_cost": null,
+      "turns_ratio": 0.038461538461538464
+    },
+    "tgs": 1.0,
+    "sc": {
+      "sc": 1.0,
+      "sc_points_total": 2,
+      "sc_points_correct": 2,
+      "implied_path": [
+        "D_scope",
+        "M_qc",
+        "M_design",
+        "M_design_not_a_valid_contrast"
+      ],
+      "per_point": {
+        "M_qc": {
+          "correct_target": "M_design",
+          "chosen": "M_design",
+          "ok": true
+        },
+        "M_design": {
+          "correct_target": "M_design_not_a_valid_contrast",
+          "chosen": "M_design_not_a_valid_contrast",
+          "ok": true
+        }
+      },
+      "observed_fields": [
+        "design.batchCount",
+        "design.confounded",
+        "qc.failedSamples",
+        "qc.minReplicates"
+      ],
+      "unobservable_fields": [],
+      "choices": {
+        "M_qc": "M_design",
+        "M_design": "M_design_not_a_valid_contrast"
+      },
+      "axis_valid": true
+    }
+  },
+  "autonomy": {
+    "records_parsed": 9,
+    "records_unparsable": 0,
+    "records_lines": 9,
+    "records_truncated": false,
+    "ledger_valid": true,
+    "turns_by_action": {
+      "request": 4,
+      "declare": 2,
+      "provision": 1,
+      "status": 2,
+      "unknown": 0
+    },
+    "interaction_turns": 7,
+    "provision_turns": 1,
+    "provision_turns_source": "counters.turns_used",
+    "max_turns": 26,
+    "metered_rows": 1,
+    "free_requests": 4,
+    "errors": 0,
+    "refusals": {
+      "locked": 1,
+      "denied": 0,
+      "unroutable": 1,
+      "exhausted": 0,
+      "invalid": 0,
+      "firewall": 0,
+      "other": 0
+    },
+    "refusals_total": 2,
+    "released_stages": [
+      "define",
+      "library_qc",
+      "sample_sheet"
+    ],
+    "locked_stages": [
+      "counts"
+    ],
+    "denied_stages": [],
+    "declared_gate_keys": [
+      "design_confounded",
+      "min_replicates"
+    ],
+    "declarations": {
+      "min_replicates": 4.0,
+      "design_confounded": true
+    },
+    "declared_locks": {
+      "sample_sheet": [
+        "replicates_sufficient"
+      ],
+      "counts": [
+        "design_identifiable"
+      ],
+      "gene_sets": [
+        "validation_concordant"
+      ]
+    },
+    "gate_violations": [],
+    "gate_violation_count": 0
+  },
+  "validation": {
+    "trace_schema_valid": true,
+    "trace_schema_errors": [],
+    "unknown_method_ids": [],
+    "warnings": [],
+    "report_chars": 2765,
+    "trace_steps": 3
+  },
+  "notes": [
+    "reward = harmonic_mean(ms_recall, nf, pq); tgs_legacy is the paper's published aggregate and is NOT the headline (honesty_axis_valid = 0).",
+    "ae_* is a DIAGNOSTIC column and never enters the reward. ae_turns and ae_interaction_turns come from the steward ledger; ae_turns_reported is the contestant's own claim, kept so ae_turns_divergence stays auditable. ae_ledger_valid = 0 means no usable ledger and ae_turns fell back to the trace."
+  ]
+}

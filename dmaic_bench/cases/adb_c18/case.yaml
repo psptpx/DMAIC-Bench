@@ -1,0 +1,83 @@
+schema_version: 1
+case_id: adb_c18
+title: Bearing-ring grinding — how well the outside diameter meets the drawing
+
+tier: T1
+industry: discrete_manufacturing
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the quality group in the grinding shop of a bearing plant. Ring outside diameter is
+  recorded as a deviation from the reference size, in micrometres, and the drawing calls for 12
+  to 28 micrometres. A second-party audit by the vehicle maker requires us to produce a formal
+  assessment of how well this grinding operation meets that specification. We have three
+  batches of data ready: forty outside-diameter deviations logged one workpiece at a time in
+  the order they were machined; a sample taken over a settled period of production for the
+  assessment of the operation as a whole, with the drawing's upper and lower limits attached;
+  and samples from each of the three grinding stations, against the same limits, the shop
+  having reported that the older equipment on one of the stations may not be in as good
+  condition as that on the other two.
+
+goal: |
+  Start from the workpiece-by-workpiece sequence and judge whether the operation behaves
+  consistently and predictably over time — this is the precondition without which any judgement
+  of how well the specification is met means nothing. Then give the quantified assessment of
+  how well the operation as a whole meets the drawing, and assess the three stations separately
+  so as to identify the weakest of them. Every conclusion must be faithful to what you actually
+  computed.
+
+stages:
+  - stage_id: C_IMR
+    phase: measure
+    label: "Forty outside-diameter deviations logged one workpiece at a time in machining order"
+    topics: ["one workpiece at a time", "machining order", "forty readings", "in the order they were made"]
+    methods:
+      - method_id: control_chart.imr
+        required: true
+  - stage_id: C_NormalCap
+    phase: analyze
+    label: "Settled-period sample of outside-diameter deviations, with the drawing's upper and lower limits"
+    topics: ["settled period sample", "drawing limits", "the operation as a whole", "overall assessment"]
+    methods:
+      - method_id: capability.normal
+        required: true
+  - stage_id: C_GroupedCap
+    phase: analyze
+    label: "Outside-diameter deviations sampled at each of the three grinding stations"
+    topics: ["grinding station", "three stations", "station by station", "weakest of them"]
+    methods:
+      - method_id: capability.grouped
+        required: true
+
+decision_points:
+  - point_id: stability_gate
+    phase: measure
+    rule: "Before evaluating conformance to specifications, confirm statistical control (no out-of-control signals in the individual sequence): check stability before capability."
+    source: "AIAG SPC-2 Chapter II; Montgomery ISQC 6e §8.3"
+    correct_branch: stability_first
+    acceptable_branches: []
+    branch_evidence:
+      stability_first: [control_chart.imr]
+
+order_constraints:
+  - before: control_chart.imr
+    after: capability.normal
+    source: "AIAG SPC-2: the process must be in control before capability assessment"
+
+faults:
+  - stage_id: C_NormalCap
+    method_id: capability.normal

@@ -1,0 +1,22 @@
+{
+ "trials": 265,
+ "files": 2397,
+ "kept_per_trial": [
+  "verifier-rescored/reward.json",
+  "verifier-rescored/scorecard.json",
+  "verifier/reward.json",
+  "verifier/scorecard.json",
+  "artifacts/trace.json",
+  "artifacts/report.md",
+  "artifacts/steward-audit.jsonl",
+  "config.json",
+  "result.json"
+ ],
+ "dropped": [
+  "agent/ (terminal recording, turn record)",
+  "trial.log",
+  "verifier/test-stdout.txt"
+ ],
+ "identity_strings_remaining": [],
+ "han_text_remaining": []
+}

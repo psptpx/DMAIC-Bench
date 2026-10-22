@@ -1,0 +1,184 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "study_1",
+        "appraisers": 3,
+        "trials_per_appraiser": 2,
+        "retained_boards": 20,
+        "calls": 120
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "agreementPct": 95.83333333333334,
+        "kappaMin": 0.8989898989898989,
+        "correctCalls": 115,
+        "totalCalls": 120,
+        "appraiser1AgreementPct": 95.0,
+        "appraiser2AgreementPct": 95.0,
+        "appraiser3AgreementPct": 97.5,
+        "minimumRepeatabilityPct": 90.0
+      },
+      "status": "success",
+      "decision": "Initial retained-board calls showed high agreement with the answer key, but discrepancies justified clarifying the criteria before relying on inspection for improvement decisions."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "disagreements",
+        "categories": 5,
+        "tallied_disagreements": 90
+      },
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryPct": 51.111111111111114,
+        "topCategoryCount": 46,
+        "totalTallied": 90,
+        "categoryCount": 5
+      },
+      "status": "success",
+      "decision": "Insufficient solder was the leading category among calls that differed from the key, making that criterion the first clarification priority; this is not evidence that it caused most production rejects."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "study_2",
+        "appraisers": 3,
+        "trials_per_appraiser": 2,
+        "retained_boards": 20,
+        "calls": 120
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "agreementPct": 97.5,
+        "kappaMin": 0.8749999999999999,
+        "correctCalls": 117,
+        "totalCalls": 120,
+        "agreementGainPctPoints": 1.6666666666666572,
+        "appraiser1AgreementPct": 97.5,
+        "appraiser2AgreementPct": 100.0,
+        "appraiser3AgreementPct": 95.0,
+        "minimumRepeatabilityPct": 90.0
+      },
+      "status": "success",
+      "decision": "After criteria were rewritten, pooled agreement with the key increased, supporting use of the calls with continued verification; minimum kappa did not increase."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "lots",
+        "groups": 25,
+        "subgroup_size": 400
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0179,
+        "outOfControlCount": 1,
+        "lowerControlLimit": 0,
+        "upperControlLimit": 0.03778820693275289,
+        "flaggedLot": 13,
+        "flaggedLotShare": 0.095,
+        "latestLotShare": 0.025,
+        "requiredRejectShare": 0.02,
+        "totalInspected": 10000,
+        "totalRejected": 179
+      },
+      "status": "success",
+      "decision": "The reject share was not steady across lots because one lot exceeded the three-sigma upper control limit."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "lots",
+        "rejected": 179,
+        "inspected": 10000
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.14291818833749834,
+        "observedShare": 0.0179,
+        "requiredRejectShare": 0.02,
+        "difference": -0.002100000000000001,
+        "confidenceIntervalLower": 0.015392459771213096,
+        "confidenceIntervalUpper": 0.020693613394785426,
+        "significanceLevel": 0.05
+      },
+      "status": "success",
+      "decision": "The aggregate share was numerically below the requirement, but the two-sided exact test did not establish a difference and instability prevents treating the aggregate as a stable current capability."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "lots",
+        "rejected": 179,
+        "inspected": 10000
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.0179,
+        "processZ": 2.099191761058102
+      },
+      "status": "success",
+      "decision": "A descriptive binomial process Z was computed from the aggregate reject share, but it is not a demonstration of stable capability because the p chart signaled special-cause variation."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "heads",
+        "head1_placed": 3000,
+        "head2_placed": 3000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.490705562532215,
+        "zStatistic": 0.6891870541365993,
+        "head1RejectShare": 0.018666666666666668,
+        "head2RejectShare": 0.01633333333333333,
+        "shareDifference": 0.0023333333333333366,
+        "differenceCILower": -0.004302241555378544,
+        "differenceCIUpper": 0.008968908222045217,
+        "head1Rejected": 56,
+        "head2Rejected": 49,
+        "head1Placed": 3000,
+        "head2Placed": 3000,
+        "significanceLevel": 0.05
+      },
+      "status": "success",
+      "decision": "The available window does not provide evidence that the two placement heads have different reject shares."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_before_process_analysis",
+      "chosen_branch": "assess initial inspector agreement before interpreting reject data",
+      "observed": {
+        "agreementPct": 95.83333333333334,
+        "kappaMin": 0.8989898989898989
+      }
+    },
+    {
+      "point": "criteria_response",
+      "chosen_branch": "prioritize criterion clarification and evaluate the rewritten criteria",
+      "observed": {
+        "topCategoryPct": 51.111111111111114
+      }
+    },
+    {
+      "point": "stability_before_capability_claim",
+      "chosen_branch": "treat process as unstable and avoid a capability claim",
+      "observed": {
+        "outOfControlCount": 1
+      }
+    },
+    {
+      "point": "placement_head_followup",
+      "chosen_branch": "do not single out a head from this window",
+      "observed": {
+        "pValue": 0.490705562532215
+      }
+    }
+  ],
+  "turns": 3,
+  "interventions": 3
+}

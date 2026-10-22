@@ -1,0 +1,76 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "samplesRetained": 239,
+        "alpha": 0.05,
+        "maxSampleFailFraction": 0.1,
+        "minHwePControls": 1e-06,
+        "minMaf": 0.01,
+        "minSampleCallRate": 0.95,
+        "minVariantCallRate": 0.95
+      },
+      "status": "success",
+      "decision": "Call-rate filter; plate passes only if failure fraction is within protocol limit."
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 3,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "QC on retained participants; exact two-sided HWE among controls."
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "pc1PValue": 3.3491194783865236e-135,
+        "pc1VarianceFraction": 0.09941361305958868,
+        "controlPc1Min": 0.38794628752205057,
+        "controlPc1Max": 7.173129379437073,
+        "casePc1Min": -5.854108831118341,
+        "casePc1Max": -1.7454640482762065
+      },
+      "status": "success",
+      "decision": "PCA of mean-imputed allele-frequency-standardized retained genotypes; Welch comparison and empirical PC-axis overlap."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "proceed",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "stop",
+      "observed": {
+        "separated": true,
+        "pc1PValue": 3.3491194783865236e-135
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

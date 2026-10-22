@@ -1,0 +1,79 @@
+{
+  "system_id": "openai-api",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleCount": 12,
+        "groupCount": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "sampleCount": 12,
+        "usableControl": 6,
+        "usableTreated": 6
+      },
+      "status": "success",
+      "decision": "All libraries met both prespecified sequencing-quality rules, and each arm retained sufficient usable replication."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleCount": 12,
+        "groupCount": 2,
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designColumns": 3,
+        "designRank": 2,
+        "controlL1": 6,
+        "controlL2": 0,
+        "treatedL1": 0,
+        "treatedL2": 6
+      },
+      "status": "success",
+      "decision": "The batch-adjusted model matrix is rank deficient because condition and preparation batch encode the same partition; the treatment contrast is not separately estimable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "gate": "design_identifiable"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-level counts remained locked after the computed confounded-design verdict; no differential-expression result or significant-gene count was computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "proceed_to_design_assessment",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "stop_before_differential_expression",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "designColumns": 3,
+        "designRank": 2
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

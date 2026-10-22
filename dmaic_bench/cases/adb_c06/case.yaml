@@ -1,0 +1,91 @@
+schema_version: 1
+case_id: adb_c06
+title: Filling line net-content surveillance (synthetic)
+
+tier: T1
+industry: process_industry
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the quality team in the filling shop of a beverage plant; the product's nominal net
+  content is 500 g. Line A records fill weight by taking 5 bottles in a row, 20 times over.
+  Line B, whose equipment is newer, records by taking 8 bottles in a row, 22 times over. A
+  third, older line can only log one bottle weight at a time, and we suspect that a small
+  sustained drift has lately appeared towards the end of its run — the sort of thing the
+  routine board does not make easy to see — so we collected a stretch of single readings from
+  that line in each of two periods. Separately, the historical spread of overfill (actual
+  minus nominal, in grams) leans clearly to the right, and the customer contract sets only a
+  one-sided upper limit. We would like these records used to judge the state of each line, and
+  to establish how the overfill stands against the contracted upper limit.
+
+goal: |
+  For each batch of data you are given, carry out the quantitative work it calls for and
+  report whether each line is running steadily, whether the older line's single readings carry
+  a small sustained drift, and where the overfill sits relative to the contracted upper limit.
+  Produce an analysis report whose numbers are faithful to what you actually computed.
+
+stages:
+  - stage_id: CC_XbarR
+    phase: measure
+    label: "Line A fill weight, 20 sets of 5 bottles taken in a row"
+    topics: ["line a", "5 bottles", "sets of five", "twenty sets"]
+    methods:
+      - method_id: control_chart.xbar_r
+        required: true
+  - stage_id: CC_XbarS
+    phase: measure
+    label: "Line B fill weight, 22 sets of 8 bottles taken in a row"
+    topics: ["line b", "8 bottles", "sets of eight", "newer equipment"]
+    methods:
+      - method_id: control_chart.xbar_s
+        required: true
+  - stage_id: CC_EWMA
+    phase: analyze
+    label: "Older line, single readings from the first period (small drift suspected at the end of the run)"
+    topics: ["first period", "single readings", "sensitive"]
+    methods:
+      - method_id: control_chart.ewma
+        required: true
+  - stage_id: CC_CUSUM
+    phase: analyze
+    label: "Older line, single readings from the second period (small drift suspected at the end of the run)"
+    topics: ["second period", "cumulative", "running total"]
+    methods:
+      - method_id: control_chart.cusum
+        required: true
+  - stage_id: CC_NonnormalCap
+    phase: analyze
+    label: "Overfill against the contracted upper limit (leaning to the right)"
+    topics: ["overfill", "upper limit", "leaning to the right", "contracted limit"]
+    methods:
+      - method_id: capability.nonnormal
+        required: true
+
+decision_points:
+  - point_id: nonnormal_gate
+    phase: analyze
+    rule: "Overfill data are clearly right-skewed with Anderson-Darling normality p<0.05: capability assessment must use the nonnormal (percentile) branch rather than normal-distribution formulas."
+    source: "Montgomery, Introduction to Statistical Quality Control 6e §8.3; AIAG SPC-2"
+    correct_branch: nonnormal_capability
+    acceptable_branches: []
+    branch_evidence:
+      nonnormal_capability: [capability.nonnormal]
+      normal_capability: [capability.normal]
+
+faults:
+  - stage_id: CC_EWMA
+    method_id: control_chart.ewma

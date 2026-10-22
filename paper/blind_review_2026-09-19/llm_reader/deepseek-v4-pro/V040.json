@@ -1,0 +1,70 @@
+{
+ "reviewer_id": "V040",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical validity review",
+ "blinding_compliance": "I read only the assigned V040 packet and did not inspect repository, coordinator, other reviewer outputs, hidden truth files, or web sources for the benchmark/paper. No procedural violations known.",
+ "ai_assistance": "AI assistant used to draft this review from the supplied packet; no external retrieval or delegation to another reviewer.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V040",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that the heat-treat recipe is the cause of hardness differences from the available observational per-recipe sample and the recipe-untagged unstable baseline. The data support an association, not a causal effect, because no randomization, no process facts, and no control over temporal/other confounders are shown.",
+    "Recommending immediate standardisation on recipe C or stopping the other recipes as an established improvement before a controlled confirmation run and without process facts or product specifications.",
+    "Interpreting the baseline step as a confirmed recipe change; it can only be reported as an unexplained special cause with a plausible hypothesis."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the baseline as unstable using the I-MR chart, run rules, runs test, and first-half/second-half shift.",
+    "Using the MSA results (GRR 12.70%, ndc 11) to say the hardness tester is adequate for these comparisons.",
+    "Running ANOVA, Kruskal-Wallis, Tukey, and two-sample tests on the separate per-recipe sample as descriptive/observational associations, provided they are explicitly labelled as not causal.",
+    "Using the pooled within-recipe SD 0.901 HRC for planning a future control chart after a single recipe is implemented and the process is stable.",
+    "Planning a confirmatory controlled experiment with one recipe change at a time, post-change charting, and collection of process facts and specification limits."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "What does the comparison say about the recipe? It is the cause",
+    "Recipe is the cause of the hardness differences, at **71.4%** of the variation, with recipe C the strongest at **61.33 HRC**.",
+    "What is causing it. The heat-treat recipe.",
+    "The gain from moving B to C is real and its size is bounded: at worst about **0.9 HRC**, at best about **2.3 HRC**.",
+    "**Standardise on one recipe and stop running three.**"
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "MSA and baseline steps are acceptable diagnostic/descriptive computations. The recipe-group ANOVA, Kruskal-Wallis, Tukey, two-sample t, and Mann-Whitney are acceptable only as restricted observational association; they become unacceptable when used to assert causality or to justify implementation. They are not a valid causal alternative because no randomization or control of confounding is shown, and the baseline lacks recipe labels/process facts.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Observational-association route: present the per-recipe ANOVA/Tukey/two-sample results as descriptive differences, explicitly state that causal attribution is not established, and recommend a randomized or controlled confirmation batch.",
+    "Baseline special-cause investigation: obtain process facts/recipe labels for the 60-shaft run order and model hardness against time/order and recipe before claiming that recipe explains the baseline step.",
+    "Capability route: compute capability only after product specification limits are supplied and after a single recipe has been shown to be stable."
+   ],
+   "evidence": [
+    "MSA: GRR 12.70% of study variation, ndc 11, operator p=0.017; reported as gate pass.",
+    "Baseline: first 30 mean 58.66 HRC, last 30 mean 62.61 HRC, shift 3.944 HRC; I-MR limits 56.76-64.51 HRC; runs test p=4.5e-08.",
+    "Recipe ANOVA: F=52.426988, p=3.834e-12, R-squared=71.400161%; Tukey differences A vs B 1.784, B vs C 1.584, A vs C 3.368.",
+    "Residual normality AD p=0.066959; Levene median p=0.975556.",
+    "Capability step refused because no specification limits were released.",
+    "Improvement batch element-wise identical to recipe C and recipe B columns of the analysis sample."
+   ],
+   "rationale": "The baseline instability finding is well supported: the control chart, runs test, and 3.94 HRC step justify treating the 60-shaft record as a mixture and not using it for capability. The report correctly refuses capability and independent improvement claims. However, the report then moves from the unstable baseline and a separate observational sample to causal language ('Recipe is the cause', 'What is causing it. The heat-treat recipe') and to an implementation recommendation. That causal step is not supported by the available evidence because the per-recipe sample has no shown randomization/control, the baseline has no recipe labels or process facts, and the head-to-head sample is only a re-cut of the same data. Therefore the causal and implementation conclusions should be paused; descriptive association and confirmatory experimental planning may continue.",
+   "confidence": 4,
+   "numerical_check": "Recomputed ANOVA R-squared from reported sums of squares: 85.17568 / 119.2934 = 0.71400161; pooled SD = sqrt(0.812327) = 0.901292; I-MR UCL = 60.634333 + 2.66*1.45661 = 64.5083. Other values are self-report-only because raw batches were not recomputed.",
+   "evidence_problem": "Missing process facts/recipe labels for the 60-shaft baseline; no randomization or confounder control information for the separate per-recipe sample; no product specification limits; no independent post-change or control data."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 7747,
+  "completion_tokens": 12254,
+  "total_tokens": 20001,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 10845
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 6083
+ }
+}

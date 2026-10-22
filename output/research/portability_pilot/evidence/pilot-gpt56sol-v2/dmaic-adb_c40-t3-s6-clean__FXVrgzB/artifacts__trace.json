@@ -1,0 +1,90 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_count": 12,
+        "group_count": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "usableSamples": 8,
+        "usableControlSamples": 4,
+        "usableTreatedSamples": 4,
+        "readDepthFailures": 2,
+        "mappingRateFailures": 2
+      },
+      "status": "success",
+      "decision": "Eight libraries were usable; four remained in each arm, so the minimum-replicate requirement was satisfied."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usable_sample_count": 8,
+        "group_count": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "usableSamples": 8,
+        "controlL1": 4,
+        "controlL2": 0,
+        "treatedL1": 0,
+        "treatedL2": 4
+      },
+      "status": "success",
+      "decision": "Condition is perfectly aliased with preparation batch among usable libraries; the treatment contrast is not separately estimable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "requested_batch": "counts",
+        "gate": "design_identifiable"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-level counts were locked after design_confounded=true; no valid differential-expression result or significant-gene count was computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability_gate",
+      "chosen_branch": "proceed_to_design_assessment",
+      "observed": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "usableSamples": 8
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "stop_before_differential_expression",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3
+      }
+    },
+    {
+      "point": "candidate_release_gate",
+      "chosen_branch": "withhold_no_estimable_candidate_list",
+      "observed": {
+        "confounded": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

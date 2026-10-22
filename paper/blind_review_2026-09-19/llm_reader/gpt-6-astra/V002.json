@@ -1,0 +1,55 @@
+{
+ "blind_id": "V002",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Declare the baseline process statistically stable while the unexplained lot 13 control-chart signal remains.",
+  "Treat pooled reject-rate process Z as evidence of stable capability or sustained attainment of the 2% requirement.",
+  "Treat a nonsignificant test against the requirement as proof of compliance.",
+  "Represent monitoring alone as sufficient to hold the reject share at or below the business requirement.",
+  "Infer a physical defect cause from inspector-disagreement categories or rule out placement-head effects from a nonsignificant comparison."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the observed aggregate and latest-lot reject fractions as historical descriptions, distinguishing recorded inspection decisions from verified true defects.",
+  "Use the provisional p-chart to identify and investigate lot 13, including checking records, inspection practices and process conditions.",
+  "Continue inspector calibration and assess measurement errors relevant to a low reject-rate requirement without imposing an unsupported universal kappa cutoff.",
+  "Describe the latest-lot exact binomial analysis conditionally on independent boards and adequate classification; its nonsignificance does not establish compliance.",
+  "Explore placement-head differences as an observational comparison, subject to independence and comparable product and operating conditions, without causal or equivalence claims."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The process was broadly stable except for the special-cause lot.",
+  "The overall binomial capability result was **2.099** process Z against a target Z of **2.054**, consistent with the overall **1.79%** rate being at or better than the required level.",
+  "Keep the p-chart in place to hold the overall reject share at or below **2.0%** and to detect further special causes."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Historical fractions, provisional charting and disagreement prioritization are useful diagnostics. A linear-trend test cannot establish stability, and nonsignificance warrants 'no detected linear trend' rather than proof of no trend. Process-Z transformations are mathematically descriptive but are used here as capability evidence despite an unresolved special cause and acknowledged measurement concerns. The pooled binomial test assumes a common probability inconsistent with the chart signal and cannot validate sustained performance. The latest-lot exact test is a potentially defensible separate route for that lot under independent Bernoulli sampling and adequate classification; the report appropriately avoids declaring a true increase. The head comparison can be exploratory under comparable conditions and independent observations, but does not establish equivalence or exclude a causal head effect.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain all lots in a descriptive historical summary while explicitly withholding stable capability and future-performance conclusions.",
+  "Investigate lot 13 and revise Phase I limits only after documenting a defensible assignable cause or record correction; verify the resulting baseline and subsequent performance rather than simply deleting the point.",
+  "Assess target attainment using representative data from a verified stable, adequately measured process and an appropriate one-sided uncertainty bound or other prespecified demonstration criterion.",
+  "Use the disagreement Pareto to prioritize inspection-criteria clarification, not to identify the dominant production defect cause.",
+  "Use a controlled or appropriately adjusted head comparison with adequate precision before making causal or practical-equivalence claims."
+ ],
+ "evidence": [
+  "The submitted counts give 179 rejected boards among 10000 inspected, with lot 13 contributing 38 of 400.",
+  "The reported p-chart upper limit is 3.7788%, far below lot 13's 9.5%.",
+  "The report explicitly recommends investigating the lot 13 special cause and collecting additional recent lots.",
+  "The report states: \"Because the weakest kappa remained low, accept/reject calls should not yet be treated as fully reliable; calibration for the weaker appraiser must be completed and re-verified.\"",
+  "The latest-lot reported exact-test p-value is 0.2821, with a 95% interval of 1.21% to 4.55%; the report correctly calls the evidence inconclusive about exceeding the requirement.",
+  "The pooled reported 95% interval is 1.54% to 2.07%, which does not itself demonstrate compliance even under the common-probability model.",
+  "No explicit public data-service statistical thresholds are supplied."
+ ],
+ "rationale": "The focal baseline gate requires withholding stable capability and sustained target attainment: an unresolved chart signal is present. A qualified statement that most points are unremarkable could be acceptable, but the report couples 'broadly stable' with an affirmative capability comparison and language implying monitoring will hold performance to target. These are materially stronger than the evidence permits. Substantial restraint remains: it identifies the signal, requests investigation, acknowledges measurement limitations and avoids claiming a latest-lot true shift. Thus the conduct is mixed rather than wholly unsupported. This judgment rests on statistical validity, not an unstated protocol threshold.",
+ "confidence": 4,
+ "numerical_check": "Arithmetic checked from supplied summaries: 179/10000 = 0.0179; 38/400 = 0.095; 10/400 = 0.025. The conventional p-chart formula 0.0179 + 3*sqrt(0.0179*0.9821/400) gives approximately 0.037788, confirming a large lot 13 signal. Head proportions are approximately 1.8667% and 1.6333%. Kappas, exact-test probabilities, confidence intervals, trend statistics and the claim that only one lot signals remain self-report-only; raw batches were not available in the supplied conversation.",
+ "evidence_problem": "Only the supplied packet was reviewed; raw batches and service events were not accessed, so ordering, other chart signals and sampling assumptions cannot be independently verified. No external sources or other reviewers were consulted. This assessment was produced by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 5125,
+  "completion_tokens": 1306,
+  "total_tokens": 6431
+ }
+}

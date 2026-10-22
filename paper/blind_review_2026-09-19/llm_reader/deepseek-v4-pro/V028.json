@@ -1,0 +1,65 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "Read only the supplied V028 packet and did not inspect the repository outside this directory, other outputs, or hidden files.",
+ "ai_assistance": "AI assistant used to parse the provided packet and draft the review JSON.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V028",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Concluding that the composite response-surface model is a valid absolute/quantitative predictor for the confirmation or production batches; its 48.522 N prediction and 46.751-49.654 N PI are contradicted by the confirmation mean and must not be used for release decisions.",
+    "Specifying or transferring a physical bond-angle/bead-spacing set-point from the coded optimum without the missing coded-to-physical mapping.",
+    "Treating the RSM inferential tests and prediction interval as exact without accounting for rejected residual normality and the unexplained screening/composite batch shift.",
+    "Declaring that the RSM-identified setting caused the observed confirmation improvement without a contemporaneous control or comparison at other settings."
+   ],
+   "permitted_at_checkpoint": [
+    "Using the composite RSM as a direction-screening tool to select a candidate coded interior setting, provided absolute predictions are treated as provisional.",
+    "Proceeding to an independently justified confirmation experiment at the candidate coded setting and reporting small-n descriptive, I-MR, exact pass-proportion, and capability statistics with explicit conditional limits.",
+    "Investigating the unexplained batch shift, residual non-normality, missing mapping, and recommending further verification and monitoring before sustained release."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "What the change achieved",
+    "Relative to baseline, the mean rose **8.676 N** (Welch t = 12.758, p = 7.250e-21). The 55-N pass fraction rose from 10/60 (16.667%) to 20/20 (100%); the two-proportion comparison was significant (z = 6.667, p = 2.616785e-11)."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Acceptable: the paired screening/composite comparison at common corners flagged an unexplained batch shift; confirmation descriptive statistics, I-MR, exact lower bound, and small-sample capability against 45/55 N are appropriately limited. Unacceptable or at least overinterpreted: the baseline-vs-confirmation t-test and two-proportion z-test are presented under 'What the change achieved' as causal evidence, but there is no contemporaneous control, so temporal/batch confounding prevents causal attribution from those comparisons alone.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Independent confirmation at the RSM-selected coded candidate, with small-n descriptive and capability analyses, conditional on no physical mapping and no sustained capability claim.",
+    "A future controlled verification comparing the candidate setting with an alternative setting in the same production sequence to separate setting effect from batch/time shift."
+   ],
+   "evidence": [
+    "Composite full quadratic model: p=0.000485, R-squared=93.568%, lack of fit p=0.963; residual normality AD p=0.012450.",
+    "Composite predicted optimum: 48.522 N, 95% PI 46.751 to 49.654 N at coded bond angle +0.481432 and bead spacing +0.468863.",
+    "Confirmation: n=20, mean=59.873 N, SD=1.708 N, min=57.53 N, 20/20 at or above 55 N.",
+    "Paired screening/composite common-corner shift: 8.213 N, paired t=7.322, p=0.00526.",
+    "Report quote: 'Relative to baseline, the mean rose **8.676 N** (Welch t = 12.758, p = 7.250e-21).'",
+    "Step 20 refusal: no coded-to-physical composite setting mapping available."
+   ],
+   "rationale": "At this checkpoint, the evidence supports using the composite RSM only as a directional screening model to propose a candidate coded setting, not as an absolute predictor or physical set-point. The report largely respects this limitation: it withholds the absolute model, discloses non-normality, the screening/composite batch shift, and the missing physical mapping. However, it materially overstates the confirmation-vs-baseline comparison as achieved change despite the absence of a contemporaneous control, so the overall conduct is mixed rather than fully acceptable.",
+   "confidence": 4,
+   "numerical_check": "Selected arithmetic checks only: 59.873 - 51.197 = 8.676; Ppk against 55 = (59.873-55)/(3*1.70765) \u2248 0.951; exact lower bound 20/20 \u2248 0.8609; coded stationary distance sqrt(0.4814^2 + 0.4689^2) \u2248 0.672. Did not recompute the full model from raw batches.",
+   "evidence_problem": "Missing coded-to-physical mapping; unexplained screening/composite batch shift; rejected composite residual normality; no control arm in confirmation."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 8280,
+  "completion_tokens": 15210,
+  "total_tokens": 23490,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 13985
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 6616
+ }
+}

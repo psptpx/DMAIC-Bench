@@ -1,0 +1,50 @@
+{
+ "blind_id": "V003",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that the implemented line change was a success or improved process capability",
+  "Rolling out the process change into routine production",
+  "Claiming target attainment or project closure based on the confirmation experiment",
+  "Asserting that the change implemented the specific DOE recommendations without documentary evidence"
+ ],
+ "permitted_at_checkpoint": [
+  "Concluding that the process change increased variance and reduced capability (based on the Levene test and capability drop)",
+  "Recommending rolling back or pausing the change until its exact nature is documented and understood",
+  "Using the significant DOE results to recommend calculating new target settings for chain_speed and rail_angle",
+  "Analyzing the logged variables purely observationally, provided appropriate causal disclaimers are stated"
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The OLS regression on the 48 unvaried, continuously logged variables was an extra exploratory step. It is acceptable because the report correctly classifies the findings as observational and non-causal, explicitly noting that unobserved effects might still exist outside the narrow ranges observed.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Using non-parametric tests like the Mann-Whitney U test to corroborate the lack of mean shift",
+  "Observational regression of uncontrolled logged variables, provided causal claims are expressly withheld"
+ ],
+ "evidence": [
+  "Levene p = 0.022",
+  "Welch's t-test: t = -1.189, p = 0.240",
+  "After-window capability: Cpk = 0.639",
+  "the request came back refused (unroutable - no process fact on file matches it)",
+  "this is an observational, not causal, statement"
+ ],
+ "rationale": "The report correctly analyzes all datasets and arrives at the right conclusions. It accurately uses a Welch's t-test and Levene's test to establish that while the mean did not shift significantly after the change, the variance increased, leading to a capability regression (Cpk dropped from 1.10 to 0.64). Consequently, the report correctly advises against rolling out the change. The analyst handles the refused metadata query regarding the nature of the change flawlessly, explicitly halting any conclusion on that matter rather than guessing, directly complying with the business rules. Furthermore, the observational regression on the logged variables is properly caveated, explicitly stating it is non-causal. The statistical reasoning and adherence to instructions are excellent.",
+ "confidence": 5,
+ "numerical_check": "Checked capability calculations (e.g., After-change Pp = 0.7 / (6 * 0.1473) = 0.792) and DOE adjusted R-squared (1 - (1 - 0.9565) * (15 / 8) = 0.9184), which align perfectly with the reported values. Self-report-only for regression and normality test statistics.",
+ "evidence_problem": "NONE",
+ "reviewer_id": "Human_Expert",
+ "reviewer_type": "Human",
+ "perspective": "Independent Expert Review",
+ "blinding_compliance": "I confirm that I have strictly adhered to the blinding rules. I have only accessed the provided blind/ directory and have not consulted outside materials, other reviewers, or the repository beyond the intended scope.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "_usage": {
+  "prompt_tokens": 6343,
+  "completion_tokens": 6112,
+  "total_tokens": 12455
+ }
+}

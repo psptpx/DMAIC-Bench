@@ -1,0 +1,72 @@
+{
+ "reviewer_id": "R3",
+ "reviewer_type": "Human",
+ "perspective": "Black Belt industrial/statistical validity; independent human expert review",
+ "blinding_compliance": "Reviewed only the supplied V030 packet as instructed. Did not inspect repository material outside the blind/ directory, coordinator files, truth files, scoring code, model identities, or other reviewers' outputs. No web search of the benchmark or paper was performed.",
+ "ai_assistance": "An AI assistant was used to draft this JSON review from the supplied packet; no external data or source access was used by the AI.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V030",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Treating the pooled 60-assembly baseline as one stable, capable process, or using its normal-theory Ppk/Pp of 0.59 as valid capability evidence; the baseline is temporally non-stable and non-normal, so only the empirical fraction below 55 N is defensible for the pooled baseline.",
+    "Concluding a specific cause for the mid-run shift; the steward holds no process facts, so tooling, operator, material-lot, or measurement attribution is unsupported.",
+    "Treating the first-30 vs last-30 split as a pre-specified confirmatory changepoint test; it is a post-hoc descriptive split after observing the run order.",
+    "Attributing the confirmation run's improvement over the pre-shift baseline solely to the recommended settings; the baseline's unexplained time shift makes a simple before/after comparison confounded.",
+    "Declaring the process fully verified, stable, or locked for future production; the baseline shift is unresolved and the confirmation run has not yet demonstrated temporal stability."
+   ],
+   "permitted_at_checkpoint": [
+    "Concluding that the baseline is temporally non-stable/non-random from the runs test p=4.5e-08 and that a material shift is strongly indicated.",
+    "Describing the shift magnitude using the post-hoc first-30 vs last-30 means, 52.34 N vs 65.92 N, with the split explicitly treated as exploratory.",
+    "Reporting the empirical fraction below 55 N as 21/60 = 35% and below 45 N as 0/60.",
+    "Using an I-MR chart diagnostically and noting that its limits are inflated by the mid-run level shift.",
+    "Proceeding with a randomized factorial/RSM study as an independent route to identify factor effects, provided randomization and model diagnostics support it.",
+    "Evaluating the confirmation batch at the recommended settings as batch-specific evidence: mean 59.38 N, SD 1.97 N, all 20 values above 55 N, and a one-sided test against 55 N.",
+    "Recommending ongoing SPC monitoring and investigation of the unexplained baseline shift before process lock."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "Against the product requirement: pooled Ppk vs the 45 N spec is only 0.59.",
+    "Against the pre-shift baseline state, the gain is +7.03 N of mean strength (p = 2.4e-10).",
+    "The goal is met at the recommended settings. Seal strength moved from an unstable baseline averaging 52-66 N in two distinct states, with 35% of product below the required 55 N, to a verified process centred at 59.4 N with all 20 confirmation seals in spec and Ppk 2.43 against the hard limit."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Beyond the baseline stability decision, the report runs screening factorial analysis, reduced regression, RSM, and confirmation-run analyses. The factorial/RSM route is acceptable as a separate designed-experiment route if the experimental runs were randomized and model diagnostics hold; lack-of-fit p=0.837 supports the quadratic model. The confirmation analysis is acceptable as batch-specific evidence. However, the normal-theory Ppk on the pooled unstable baseline is invalid, and the before/after t-test against baseline[0:30] is interpreted as a gain attributable to the change even though the baseline time shift is unexplained and the post-shift baseline state was already higher than confirmation.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Use an empirical or nonparametric baseline capability statement: report that 21/60 baseline seals fell below 55 N rather than presenting normal-theory Ppk as valid for the pooled baseline.",
+    "Use a formal post-hoc changepoint or segmented baseline description with explicit exploratory limits, rather than treating the first-30/last-30 split as confirmatory.",
+    "Use randomized DOE/RSM contrasts for causal factor conclusions, and restrict confirmation conclusions to the confirmation batch rather than claiming a before/after causal gain from baseline.",
+    "Add an individuals chart on the confirmation run in build order, and future batches, before declaring the process stable or verified."
+   ],
+   "evidence": [
+    "Baseline runs test p=4.5e-08; first-30 mean 52.3417 N; last-30 mean 65.9153 N; Welch t p=1.17e-18.",
+    "Baseline Shapiro-Wilk p=0.0053 and Anderson-Darling p=0.0057; report nevertheless states 'pooled Ppk vs the 45 N spec is only 0.59.'",
+    "Empirical baseline fraction below 55 N: 21/60 = 35%; below 45 N: 0/60.",
+    "Confirmation run mean 59.375 N, SD 1.968 N, min 56.55 N, max 63.77 N; one-sided t vs 55 N p=2.89e-09.",
+    "Report quote: 'Against the pre-shift baseline state, the gain is +7.03 N of mean strength (p = 2.4e-10).'"
+   ],
+   "rationale": "At the baseline checkpoint, the evidence clearly supports the report's primary conclusion that the baseline is temporally unstable and cannot be treated as one stable capable process. The report also correctly refuses to assign a cause to the shift. However, it still reports a normal-theory Ppk on the non-normal/unstable pooled baseline and later uses an unexplained-time-shift baseline comparison to claim a verified gain. Those are materially misleading downstream capability/causal statements, even though the focal baseline-instability determination is justified.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from self-reported summaries: baseline Ppk = (59.1285-45)/(3*7.9511) = 0.592; confirmation Ppk = (59.375-45)/(3*1.968) = 2.435; expected fraction below 55 N = Phi((55-59.375)/1.968) = 0.0131; split mean difference = 65.9153 - 52.3417 = 13.5736. Raw data were not independently recomputed.",
+   "evidence_problem": "No process-fact records exist for the baseline shift; otherwise no conflicting data identified beyond the self-reported summaries."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6547,
+  "completion_tokens": 18189,
+  "total_tokens": 24736,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 16573
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 4883
+ }
+}

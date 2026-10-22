@@ -1,0 +1,168 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Discovery sample QC passed; the sample failure fraction was below the protocol limit."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participantsRetained": 237,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "variantCallPassCount": 145,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Discovery variant QC retained the protocol-passing variants."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "affected": 120,
+        "unaffected": 120,
+        "retainedVariants": 138
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "affectedCount": 120,
+        "unaffectedCount": 120,
+        "groupsComparable": true
+      },
+      "status": "success",
+      "decision": "Affected and unaffected groups were present and comparable for the planned case-control comparison."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedVariants": 138
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "bonferroniCutoff": 0.00036231884057971015,
+        "nominalBelowAlphaCount": 4,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "No protocol-declared discovery association survived Bonferroni correction; four nominal signals did not meet the corrected cutoff."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 119,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Replication sample QC passed."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "participantsRetained": 119,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 9,
+        "snpsRetained": 141,
+        "variantCallPassCount": 145,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Replication variant QC retained the protocol-passing variants."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 4
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 4,
+        "replicationAlpha": 0.05,
+        "stewardNominatedCount": 0,
+        "rs040007_pValue": 0.4624655194532763,
+        "rs040123_pValue": 0.7132224629711441,
+        "rs040131_pValue": 0.15123975969049577,
+        "rs040143_pValue": 0.7303646767223837,
+        "rs040007_sameDirection": true,
+        "rs040123_sameDirection": true,
+        "rs040131_sameDirection": false,
+        "rs040143_sameDirection": true
+      },
+      "status": "success",
+      "decision": "No evaluated nominal candidate replicated under the protocol."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "discovery_QC_gate",
+      "chosen_branch": "proceed_to_protocol_and_replication_assessment",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "discovery_association_gate",
+      "chosen_branch": "do_not_declare_association",
+      "observed": {
+        "nSignificant": 0,
+        "bonferroniCutoff": 0.00036231884057971015
+      }
+    },
+    {
+      "point": "replication_gate",
+      "chosen_branch": "no_replication_support",
+      "observed": {
+        "nReplicated": 0,
+        "nCandidates": 4
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

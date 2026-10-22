@@ -1,0 +1,67 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "I read only the supplied blind item packet and did not inspect the repository outside this item or other reviewers' outputs; I did not search the benchmark or paper name on the web.",
+ "ai_assistance": "AI assistant used to draft this review from the supplied packet; no external tools or searches were used.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V003",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the line change caused the increased spread or reduced capability in the after window; the before/after comparison is observational, the change is undocumented, and there is no control group or covariate adjustment for temporal confounders.",
+    "Interpreting the non-significant Welch t-test as proof that the change had no effect on the mean; absence of a detected mean difference is not equivalence.",
+    "Treating the DOE mean model as a confirmed variance-reduction or target-attainment solution, or implementing a DOE-optimized setting as validated without a follow-up confirmation run.",
+    "Closing the project or declaring target attainment/capability improvement based on the current before/after and DOE evidence."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive comparison of before/after windows: means, SDs, Levene test, Welch t-test, Mann-Whitney test, and capability point estimates, reported as observed/sample differences and significance tests only.",
+    "Using the 2^3 factorial DOE to identify candidate levers, specifically chain_speed and rail_angle and their interaction, and to form a re-targeting hypothesis, provided any proposed setting is confirmed in a follow-up run before implementation.",
+    "Recommending that the undocumented line change be identified and that roll-out be paused until a controlled or documented explanation for the variance/capability change is available.",
+    "Reporting logged-variable regression as observational and non-causal background information."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "The change did not move the mean, but the spread widened (Levene p = 0.022) and capability fell from a Cpk near 1.1 to a Cpk near 0.64.",
+    "On the numbers alone, whatever was changed made the process less consistent, not more, even though nobody would see it by looking at the average.",
+    "The line change that was actually made cannot be shown to have improved the mean, and the data suggest it made the process more variable, not less."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "DOE factorial OLS is an acceptable designed-experiment screening analysis for mean fillet height. The before/after Welch t-test, Mann-Whitney test, and capability calculations are acceptable descriptive comparisons, but they are not sufficient for causal attribution to the undocumented line change. The report computed and then relied on the before/after difference as evidence that the change worsened spread; that causal leap is not supported by the design. Capability indices from n=30 windows are point estimates without confidence intervals and should be labeled descriptive.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "A controlled, documented before/after comparison or interrupted time series with the logged variables measured as potential confounders could support a causal claim about the change.",
+    "A follow-up confirmation run at a proposed DOE setting, with a variance model or explicit confirmation of reduced spread, could support target-attainment and variance-reduction conclusions.",
+    "An equivalence test or confidence interval for the before/after mean difference could support a bounded claim about the mean effect."
+   ],
+   "evidence": [
+    "Reported before/after means: before = 7.1567 mm, after = 7.1957 mm; Welch t = -1.189, p = 0.240.",
+    "Reported Levene p = 0.022; before sd = 0.1032, after sd = 0.1473.",
+    "Capability reported as before Cpk = 1.105, after Cpk = 0.639; after Cp = 0.735.",
+    "Report states change identity could not be established: 'What the change actually was, and whether it was based on the DOE findings, could not be established.'",
+    "DOE model reports chain_speed p = 5.8e-06, rail_angle p = 1.4e-04, chain_speed x rail_angle p = 0.008, R^2 = 95.65%."
+   ],
+   "rationale": "The DOE is a valid screening experiment and supports identifying chain_speed and rail_angle as candidate levers, but it models mean response and does not confirm a variance-reducing target setting. The before/after study is observational with an undocumented intervention and no control, so it cannot establish that the change caused the observed spread widening or capability drop. The report mostly shows appropriate restraint by flagging the missing change identity and recommending documentation and a hold on rollout, but it then uses causal language ('whatever was changed made the process less consistent') that exceeds the design. Therefore the focal gate should STOP for causal target-attainment/implementation conclusions while permitting descriptive and follow-up experimental work.",
+   "confidence": 4,
+   "numerical_check": "Self-report-only. I checked internal consistency of the reported capability and t-test values from the stated summary statistics: Welch t approximates -1.19 with p about 0.24, and Pp/capability values are consistent with the stated standard deviations and spec limits. No raw data were recomputed.",
+   "evidence_problem": "Identity/rationale of the line change is missing; before/after comparison lacks a control group and temporal confounder/covariate adjustment."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5741,
+  "completion_tokens": 13907,
+  "total_tokens": 19648,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 12581
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 4077
+ }
+}

@@ -1,0 +1,91 @@
+schema_version: 1
+case_id: adb_c02
+title: Dairy filling line running over on net content — investigation and confirmation of the adjustment
+
+tier: T1
+industry: process_industry
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the process group in the filling shop of a dairy plant. The product label declares a
+  net content of 250 ml, and the regulation requires the actual fill never to fall below the
+  declared value, but a recent costing exercise found that we are generally filling over, and
+  the waste adds up considerably over a year. We have collected four batches of data: the
+  line's recent net-content baseline record; a sampling record for judging where the fill
+  currently sits relative to the declared value; samples filled by Machine 1 and by Machine 2
+  respectively, the two being suspected of running to different settings; and matched records
+  from one batch, before and after the metering setting of Machine 1's nozzle was adjusted.
+
+goal: |
+  Settle, in turn: whether the shape of the baseline record supports the way the rest of the
+  work is done; whether the fill really does sit above the declared value; whether there is a
+  real difference between the two filling machines; and whether the nozzle adjustment brought
+  a solid reduction in fill. Every conclusion must be faithful to the corresponding computed
+  result.
+
+stages:
+  - stage_id: T_Normality
+    phase: measure
+    label: "Recent net-content baseline record from the line"
+    topics: ["baseline", "net content record", "shape of the record", "recent readings"]
+    methods:
+      - method_id: basic.normality
+        required: true
+        alternatives: [basic.descriptive_summary]
+  - stage_id: T_OneSample
+    phase: analyze
+    label: "Sampling record against the 250 ml declared on the label"
+    topics: ["declared value", "running over", "sampling record", "against the target"]
+    methods:
+      - method_id: basic.one_sample_t
+        required: true
+  - stage_id: T_TwoSample
+    phase: analyze
+    label: "Samples filled by Machine 1 and by Machine 2"
+    topics: ["machine 1", "machine 2", "two fillers", "both machines"]
+    methods:
+      - method_id: basic.two_sample_t
+        required: true
+  - stage_id: T_Paired
+    phase: improve
+    label: "Matched records from one batch, before and after the nozzle adjustment"
+    topics: ["nozzle", "before and after", "matched records", "after the adjustment"]
+    methods:
+      - method_id: basic.paired_t
+        required: true
+
+decision_points:
+  - point_id: normality_gate
+    phase: analyze
+    rule: "Baseline net content has Anderson-Darling normality p>0.10 (normality supported): use parametric t-family methods for location comparisons rather than rank-based methods."
+    source: "Montgomery ISQC 6e §3.4"
+    correct_branch: parametric_analysis
+    acceptable_branches: []
+    branch_evidence:
+      parametric_analysis: [basic.two_sample_t, basic.one_sample_t]
+      nonparametric_analysis: ["family:nonparametric"]
+
+order_constraints:
+  - before: basic.normality
+    after: basic.two_sample_t
+    source: "Confirm distribution shape before choosing a location-comparison method (Montgomery ISQC 6e §3.4)"
+
+faults:
+  - stage_id: T_TwoSample
+    method_id: basic.two_sample_t
+  - stage_id: T_Paired
+    method_id: basic.paired_t

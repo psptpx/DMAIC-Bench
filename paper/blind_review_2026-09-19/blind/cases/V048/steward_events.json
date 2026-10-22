@@ -1,0 +1,92 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please provide the baseline record of sixty consecutive fillet-height measurements in production order.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please provide the project charter and accepted fillet-height limits and target.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Please provide the three additional process variables logged throughout the baseline run, aligned joint by joint with fillet height.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Please provide the designed factorial run in which each of the three deliberately varied line settings was tested at low and high levels twice.",
+    "stage_id": "design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Please provide the designed factorial run in which each of the three deliberately varied line settings was tested at low and high levels twice.",
+    "stage_id": "design",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "declare",
+    "text": "any_factor_significant=false",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Please provide the separate process-log batch: the three further process variables that were recorded throughout but were not deliberately varied in an experiment, aligned with the baseline fillet-height observations. Do not re-serve the baseline response alone.",
+    "stage_id": "logged_variables",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Please provide both windows of fillet-height observations, one before the line change and one after the change.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "Fillet height in the window before the change and the window after it",
+    "stage_id": "after_change",
+    "outcome": "refused",
+    "refusal": "locked",
+    "gate": "screening_significant",
+    "detail": "your declared any_factor_significant=false does not satisfy any_factor_significant == true [screening_significant; source: Montgomery DAOE 6e 11.2]",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  }
+]

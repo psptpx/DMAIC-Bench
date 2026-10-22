@@ -1,0 +1,197 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c41-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "participants": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedInput": 120,
+        "unaffectedInput": 120,
+        "sampleCallRateThreshold": 0.95,
+        "plateFailFractionThreshold": 0.1,
+        "platePass": true,
+        "failedSampleCallRate": 0.9466666666666667
+      },
+      "status": "success",
+      "decision": "Plate passes; exclude P017 and P111 and continue."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 2,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain 139 variants; exclude the 11 listed in the report."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 139,
+        "groups": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 5.6230475128719165e-18,
+        "pc1Statistic": -9.383072793420999,
+        "pc1VarianceFraction": 0.09147947611331783,
+        "affectedRetained": 118,
+        "unaffectedRetained": 120,
+        "comparisonAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "PC1 separates affected and unaffected participants; do not use an unadjusted association scan."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 139,
+        "covariates": 5,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.7891563355643092,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "variantsTested": 139,
+        "nonconvergedFits": 8,
+        "nCovariates": 5
+      },
+      "status": "failed",
+      "decision": "Preliminary five-PC likelihood-ratio scan found the same sole hit, but 8 non-hit fits had strict convergence flags; verify with a score scan."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "participants": 235,
+        "variant": "rs020008",
+        "covariates": 5,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.646297913481197,
+        "pValue": 3.3119420146814745e-05,
+        "chiSquare": 17.22983453532882,
+        "direction": 1,
+        "participantsAnalyzed": 235
+      },
+      "status": "success",
+      "decision": "The converged adjusted alternative fit estimates a positive per-dosage effect for rs020008."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "participants": 120,
+        "groups": 2,
+        "candidates": 1,
+        "batch": "replication"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "pValue": 0.0003156987889761041,
+        "oddsRatio": 2.729997715123794,
+        "chiSquare": 12.974875872143087,
+        "sameDirection": true,
+        "participantsAnalyzed": 119,
+        "affectedAnalyzed": 59,
+        "unaffectedAnalyzed": 60,
+        "missingCalls": 1,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "rs020008 meets the independent-cohort p-value and same-direction replication rule."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 139,
+        "covariates": 5,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.7949917264150559,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "variantsTested": 139,
+        "topPValue": 3.337330263864369e-05,
+        "topChiSquare": 17.21532656779079,
+        "topDirection": 1,
+        "nullConverged": true,
+        "nCovariates": 5
+      },
+      "status": "success",
+      "decision": "Stable five-PC-adjusted score scan confirms rs020008 as the sole Bonferroni-significant discovery variant."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_viability",
+      "chosen_branch": "continue_after_sample_exclusions",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333,
+        "threshold": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "association_model",
+      "chosen_branch": "five_pc_adjusted",
+      "observed": {
+        "separated": true,
+        "pc1PValue": 5.6230475128719165e-18
+      }
+    },
+    {
+      "point": "discovery_verification",
+      "chosen_branch": "score_test_after_optimizer_flags",
+      "observed": {
+        "nonconvergedFits": 8,
+        "verifiedSignificant": 1
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "supported",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 1,
+        "sameDirection": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

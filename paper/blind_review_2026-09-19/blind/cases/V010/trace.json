@@ -1,0 +1,483 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "sampleSize": 60,
+        "lsl": 6.8,
+        "target": 7.15,
+        "usl": 7.5,
+        "minimum": 6.936,
+        "maximum": 7.186,
+        "belowLSLCount": 0,
+        "aboveUSLCount": 0,
+        "outsideSpecCount": 0,
+        "mean": 7.031700000000001,
+        "median": 7.023,
+        "stdDev": 0.052559022512387185,
+        "skewness": 0.6704686199061928,
+        "adPValue": 0.01610376135563992
+      },
+      "status": "success",
+      "decision": "AD p below 0.05, so normal-theory results are approximate"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60,
+        "testValue": 7.15
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 5.968741917358511e-25,
+        "tStatistic": -17.43464425154988
+      },
+      "status": "success",
+      "decision": "Mean is significantly below target"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60,
+        "subgroups": 1
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.2414549653579714,
+        "cpk": 1.4838431870669826,
+        "pp": 2.2197267203584414,
+        "ppk": 1.4694590888772938
+      },
+      "status": "success",
+      "decision": "All in specification but capability is lower-side limited"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 7.187873559322035,
+        "individualsLCL": 6.875526440677967,
+        "centerLine": 7.031700000000001,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "No I-chart signal"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.41665402303050125
+      },
+      "status": "success",
+      "decision": "No significant runs signal"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.01610376135563992,
+        "statistic": 0.9404135035399861
+      },
+      "status": "success",
+      "decision": "Reject normality at 0.05"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "design",
+        "sampleSize": 16,
+        "groups": 8
+      },
+      "method_id": "doe.create_factorial",
+      "outputs": {
+        "sampleSize": 16,
+        "replicates": 2,
+        "factors": 3,
+        "corners": 8
+      },
+      "status": "success",
+      "decision": "Parsed replicated two-level three-factor design"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "design",
+        "sampleSize": 16,
+        "groups": 8,
+        "terms": 7
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 2.3531027294535988e-05,
+        "rSquaredPct": 96.78342184041637,
+        "chainSpeedPValue": 2.827674675362125e-06,
+        "railAnglePValue": 1.8713555801813074e-05,
+        "airPressurePValue": 0.4207391716099466,
+        "airPressureCoefficient": -0.010418749999999723,
+        "chainSpeedCoefficient": 0.1420562499999992,
+        "railAngleCoefficient": 0.1103437500000003,
+        "chainSpeedRailAngleCoefficient": 0.058693750000000745,
+        "chainSpeedRailAnglePValue": 0.001389101665015206
+      },
+      "status": "success",
+      "decision": "Chain speed and rail angle significant; air pressure not significant"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "after_change",
+        "window": "before",
+        "sampleSize": 30
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 30,
+        "mean": 7.117733333333333,
+        "median": 7.1085,
+        "stdDev": 0.12949342503168557,
+        "skewness": 0.13394571838100316,
+        "adPValue": 0.7592793617428065,
+        "minimum": 6.889,
+        "maximum": 7.385,
+        "outsideSpecCount": 0
+      },
+      "status": "success",
+      "decision": "Window passes AD normality at 0.05"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "after_change",
+        "window": "after",
+        "sampleSize": 30
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 30,
+        "mean": 7.312099999999999,
+        "median": 7.323,
+        "stdDev": 0.0684268297854194,
+        "skewness": -0.7692477215587495,
+        "adPValue": 0.26365288514385155,
+        "minimum": 7.132,
+        "maximum": 7.426,
+        "outsideSpecCount": 0
+      },
+      "status": "success",
+      "decision": "Window passes AD normality at 0.05"
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "after_change",
+        "window": "before",
+        "sampleSize": 30,
+        "testValue": 7.15
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 0.18281438559960708,
+        "tStatistic": -1.3647937093724578
+      },
+      "status": "success",
+      "decision": "Mean is not distinguishable from target"
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "batch": "after_change",
+        "window": "after",
+        "sampleSize": 30,
+        "testValue": 7.15
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 1.3264605275206694e-13,
+        "tStatistic": 12.975294464176024
+      },
+      "status": "success",
+      "decision": "Mean differs from target"
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "batch": "after_change",
+        "sampleSize": 30,
+        "groups": 2
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 4.609774531645387e-09,
+        "tStatistic": 7.26876935167702,
+        "meanDifference": 0.19436666666666635,
+        "differenceSE": 0.026739968935982662,
+        "ci95Lower": 0.14047662301939495,
+        "ci95Upper": 0.24825671031393776,
+        "confidenceLevel": 95
+      },
+      "status": "success",
+      "decision": "Welch test shows a statistically significant increase"
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "batch": "after_change",
+        "sampleSize": 30,
+        "groups": 2
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.0003948918782794302,
+        "statistic": 14.151574505169547,
+        "varianceRatio": 0.2792269955875247
+      },
+      "status": "success",
+      "decision": "Brown-Forsythe test shows lower after-window variance"
+    },
+    {
+      "step_id": 15,
+      "inputs_digest": {
+        "batch": "after_change",
+        "sampleSize": 30,
+        "groups": 2
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 7.69177606207725e-08
+      },
+      "status": "success",
+      "decision": "Robust check agrees with the location-shift result"
+    },
+    {
+      "step_id": 16,
+      "inputs_digest": {
+        "batch": "after_change",
+        "window": "before",
+        "sampleSize": 30
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.9400000000000003,
+        "cpk": 0.8533409523809514,
+        "pp": 0.9009466437243412,
+        "ppk": 0.8178879436171818,
+        "outsideSpecCount": 0
+      },
+      "status": "success",
+      "decision": "No observed out-of-specification joints; after-window Ppk is constrained"
+    },
+    {
+      "step_id": 17,
+      "inputs_digest": {
+        "batch": "after_change",
+        "window": "after",
+        "sampleSize": 30
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.7386788154897503,
+        "cpk": 0.9334221412300727,
+        "pp": 1.7049842442288097,
+        "ppk": 0.9153329699731276,
+        "outsideSpecCount": 0
+      },
+      "status": "success",
+      "decision": "No observed out-of-specification joints; after-window Ppk is constrained"
+    },
+    {
+      "step_id": 18,
+      "inputs_digest": {
+        "batch": "logged_variables",
+        "sampleSize": 48,
+        "variables": 3
+      },
+      "method_id": "meta.data_profile",
+      "outputs": {
+        "n": 48,
+        "variableCount": 3,
+        "missingCountV1": 0,
+        "missingCountV2": 0,
+        "missingCountV3": 0
+      },
+      "status": "success",
+      "decision": "Complete numeric log with no missing values"
+    },
+    {
+      "step_id": 19,
+      "inputs_digest": {
+        "batch": "logged_variables",
+        "sampleSize": 48
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.1543230858303125,
+        "pValue": 0.29496660459904256,
+        "correlationCoefficientV2": 0.11487938441436067,
+        "pValueV2": 0.4368596466107428,
+        "correlationCoefficientV3": -0.0703936940223783,
+        "pValueV3": 0.634475762777655
+      },
+      "status": "success",
+      "decision": "No logged variable has a significant marginal correlation with fillet height"
+    },
+    {
+      "step_id": 20,
+      "inputs_digest": {
+        "batch": "logged_variables",
+        "sampleSize": 48,
+        "variables": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.45611361687925966,
+        "rSquaredPct": 5.692826724986244,
+        "rSquaredAdjPct": -0.7372078164919582,
+        "v1PValue": 0.17117691828067422,
+        "v2PValue": 0.3280327981812492,
+        "v3PValue": 0.5594791703092648,
+        "residualAdPValue": 0.6661643390513077,
+        "durbinWatson": 2.1277645962421654
+      },
+      "status": "success",
+      "decision": "Joint observational model is not significant"
+    },
+    {
+      "step_id": 21,
+      "inputs_digest": {
+        "batch": "design",
+        "sampleSize": 16,
+        "terms": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 2.37078272770071e-08,
+        "rSquaredPct": 95.50536030310116,
+        "rSquaredAdjPct": 94.38170037887643
+      },
+      "status": "success",
+      "decision": "Parsimonious model retains both main effects and their interaction"
+    },
+    {
+      "step_id": 22,
+      "inputs_digest": {
+        "batch": "design",
+        "sampleSize": 16,
+        "terms": 3
+      },
+      "method_id": "doe.factorial_prediction",
+      "outputs": {
+        "predictedValue": 7.125400000000002,
+        "piLower": 7.009942143613164,
+        "piUpper": 7.24085785638684,
+        "chainSpeedCoded": 1.0,
+        "railAngleCoded": -1.0,
+        "airPressureCoded": -1.0
+      },
+      "status": "success",
+      "decision": "Coded corner +1/-1 is nearest target among observed design corners"
+    },
+    {
+      "step_id": 23,
+      "inputs_digest": {
+        "batch": "after_change",
+        "window": "before",
+        "sampleSize": 30
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 7.490133333333333,
+        "individualsLCL": 6.745333333333333,
+        "centerLine": 7.117733333333333,
+        "flaggedCount": 0,
+        "movingRangeUCL": 0.45737999999999995,
+        "movingRangeFlaggedCount": 0
+      },
+      "status": "success",
+      "decision": "No individual-point I-chart signals"
+    },
+    {
+      "step_id": 24,
+      "inputs_digest": {
+        "batch": "after_change",
+        "window": "after",
+        "sampleSize": 30
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 7.51343448275862,
+        "individualsLCL": 7.110765517241378,
+        "centerLine": 7.312099999999999,
+        "flaggedCount": 0,
+        "movingRangeUCL": 0.24727810344827578,
+        "movingRangeFlaggedCount": 1
+      },
+      "status": "success",
+      "decision": "No individual-point I-chart signals"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "stager_sequence",
+      "chosen_branch": "analyze baseline before requesting designed run",
+      "observed": {
+        "baselineSampleSize": 60,
+        "outsideSpecCount": 0
+      }
+    },
+    {
+      "point": "screening_gate",
+      "chosen_branch": "declare any_factor_significant=true",
+      "observed": {
+        "chainSpeedPValue": 2.827674675362125e-06,
+        "railAnglePValue": 1.8713555801813074e-05
+      }
+    },
+    {
+      "point": "change_comparison_variance",
+      "chosen_branch": "Welch two-sample t test",
+      "observed": {
+        "equalVariancesPValue": 0.0003948918782794302
+      }
+    },
+    {
+      "point": "doe_model_selection",
+      "chosen_branch": "significant main effects plus chain-speed-by-rail-angle interaction",
+      "observed": {
+        "fullModelPValue": 2.3531027294535988e-05,
+        "interactionPValue": 0.001389101665015206,
+        "airPressurePValue": 0.4207391716099466,
+        "airPressureCoefficient": -0.010418749999999723
+      }
+    },
+    {
+      "point": "logged_variables_interpretation",
+      "chosen_branch": "association only; no causal claim",
+      "observed": {
+        "modelPValue": 0.45611361687925966,
+        "rSquaredPct": 5.692826724986244
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

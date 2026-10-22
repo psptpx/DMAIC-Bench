@@ -1,0 +1,92 @@
+{
+  "system_id": "local-analysis-assistant",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "samples": 12
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "retainedControl": 6,
+        "retainedTreated": 6,
+        "minAssignedReads": 9365000,
+        "minMappingRate": 0.876
+      },
+      "status": "success",
+      "decision": "All libraries pass the assigned-read and mapping thresholds; replication gate passes."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12,
+        "design": "intercept + preparation batch + treatment"
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "batchOnlyRank": 2,
+        "fullDesignRank": 2,
+        "fullDesignColumns": 3,
+        "mixedBatchCount": 0,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      },
+      "status": "success",
+      "decision": "Treatment is perfectly aliased with preparation batch; no separately estimable compound contrast."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.de_blocked",
+      "inputs_digest": {
+        "requested_batch": "gene-level read counts",
+        "available": false
+      },
+      "outputs": {},
+      "status": "refused",
+      "decision": "Counts request was locked by design_identifiable after the computed design_confounded=true declaration. No DE model, fold changes, adjusted p-values or gene-call count computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "proceed_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "retainedControl": 6,
+        "retainedTreated": 6,
+        "minAssignedReads": 9365000,
+        "minMappingRate": 0.876
+      }
+    },
+    {
+      "point": "treatment_estimability",
+      "chosen_branch": "stop_compound_gene_calls",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "batchOnlyRank": 2,
+        "fullDesignRank": 2,
+        "fullDesignColumns": 3,
+        "mixedBatchCount": 0,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

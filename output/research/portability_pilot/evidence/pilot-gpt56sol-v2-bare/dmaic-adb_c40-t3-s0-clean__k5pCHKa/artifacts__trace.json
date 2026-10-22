@@ -1,0 +1,174 @@
+{
+  "system_id": "openai-cli-assistant",
+  "task_id": "adb_c40-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "libraries": 12,
+        "groups": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "requiredMinReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "qcPass": true
+      },
+      "status": "success",
+      "decision": "All libraries met both usability criteria; minimum usable replication per arm exceeds the requirement."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "libraries": 12,
+        "groups": 2,
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "conditionCount": 2
+      },
+      "status": "success",
+      "decision": "Treatment is not confounded with preparation batch because the sole batch contains both arms; a separate batch effect cannot be estimated."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "genes": 400,
+        "samples": 12,
+        "groups": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "nTested": 400,
+        "fitFailures": 400
+      },
+      "status": "failed",
+      "decision": "Ordinary geometric-mean normalization was invalid in the presence of zero counts, making all size factors non-finite; no result from this attempt was used."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "genes": 400,
+        "samples": 12,
+        "groups": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40,
+        "nTested": 400,
+        "fitFailures": 0,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "upregulatedCount": 24,
+        "downregulatedCount": 16
+      },
+      "status": "success",
+      "decision": "Negative-binomial likelihood-ratio models with positive-count median-ratio size factors and BH adjustment produced the release candidate list."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "genes": 400,
+        "samples": 12,
+        "groups": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 38
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis used Welch tests on log-normalized counts; it was supportive only and did not define the release list."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "candidates": 10,
+        "groups": 2,
+        "batch": "validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "alpha": 0.05,
+        "minConcordance": 0.75,
+        "validationPass": true
+      },
+      "status": "success",
+      "decision": "Welch tests confirmed every nominated candidate at the supplied alpha in the panel-called direction; concordance passed the facility rule."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sets": 12,
+        "queryGenes": 40,
+        "universeGenes": 400,
+        "batch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "nSetsTested": 12,
+        "universeSize": 400,
+        "querySize": 40,
+        "topSetOverlap": 20,
+        "topSetSize": 30,
+        "topSetPValue": 8.830511253284353e-16,
+        "topSetPadj": 1.0596613503941223e-14,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "One-sided hypergeometric over-representation tests with BH adjustment identified SET03."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "requiredMinReplicates": 3
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "simple_unblocked_contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "normalization_repair",
+      "chosen_branch": "positive_count_median_ratio",
+      "observed": {
+        "initialFitFailures": 400,
+        "repairedFitFailures": 0
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "release_supported",
+      "observed": {
+        "concordance": 1.0,
+        "minConcordance": 0.75
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

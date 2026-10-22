@@ -1,0 +1,74 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the project charter and breach requirement batch now.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the reviewer judgements against the answer key batch now.",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Please release the twenty-five-period ticket volume and breach count batch now.",
+    "stage_id": "subgroups",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Please release the team-by-team intake and breach summary over the common window now.",
+    "stage_id": "root_cause",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "provision",
+    "text": "What process fact differs between team 1 and team 2 that could explain their breach-rate difference in this common window?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "declare",
+    "text": "msa_acceptable=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "declare",
+    "text": "breach_share_stable=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "declare",
+    "text": "baseline_above_target=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  }
+]

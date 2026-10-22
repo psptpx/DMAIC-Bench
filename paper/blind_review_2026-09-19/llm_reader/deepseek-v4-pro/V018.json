@@ -1,0 +1,68 @@
+{
+ "reviewer_id": "human_blackbelt_V018",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical validity, Black Belt independent review",
+ "blinding_compliance": "I read only the blind packet for V018 and the data disclosed in it. I did not inspect the repository outside this blind directory, the sibling coordinator directory, the earlier study, paper drafts or reviews, hidden truth, scoring code, model identities, or other reviewers' outputs, and I did not search the benchmark or paper name on the web.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V018",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Claiming target attainment or that fillet height is centered and capable enough to close the project based on the available evidence.",
+    "Claiming the before-after process change improved fillet height, reduced variation, or improved capability.",
+    "Implementing optimized chain-speed or rail-angle settings in production before confirmation experiments are run.",
+    "Treating the screening factorial results as confirmation that the selected settings will hold target or achieve capability.",
+    "Concluding that the specific process change caused the after-change variance increase; the evidence only supports a possible association.",
+    "Closing the project or asserting that the process is stable and capable in both location and spread."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive baseline statistics, normality checks, I-MR chart, and capability indices as long as they are not used to assert target attainment or closure.",
+    "Screening factorial analysis of the designed run to identify candidate factors and interactions for subsequent confirmation, provided the design randomization and run conditions support that use.",
+    "Observational before-after comparison and variance testing to state that the change is not shown to improve the process and that spread may have increased.",
+    "Regression on logged variables as diagnostic context, with explicit acknowledgment that lack of experimental variation limits causal interpretation.",
+    "Recommending and designing confirmation experiments around chain speed and rail angle, with clear conditions and no production implementation.",
+    "Continuing I-MR monitoring, investigating the after-change variability, and reassessing capability after corrective action."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The report uses a valid variance-robust alternative for the before/after location comparison: Levene p=0.021 led to Welch two-sample t-test p=0.240, so no mean shift is claimed; the weaker conclusion of no demonstrated improvement and possible variance increase is appropriate. The screening factorial DOE is an acceptable screening alternative for selecting candidate factors for confirmation, not a confirmation experiment. The logged-variable regression is properly limited to diagnostic/predictive association because the variables were not experimentally varied. No unacceptable extra computation is present.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "A randomized confirmation experiment varying chain speed and rail angle near the current operating point, with pre-specified location and variance criteria, could justify implementation if it demonstrates stable target attainment and adequate capability.",
+    "A before/after study with a randomized or otherwise well-identified intervention, adequate sample size, and control for temporal confounding could support a change-effect claim; the current before/after comparison is only diagnostic.",
+    "Variance-robust before/after analysis using Levene and Welch is acceptable for concluding no demonstrated mean improvement, provided the before and after windows are independent and causal language remains limited.",
+    "Descriptive process monitoring and capability assessment may continue without claiming target attainment or closure."
+   ],
+   "evidence": [
+    "Report: 'Although no individuals were outside specification, the baseline process spread is large relative to the 6.8-7.5 mm tolerance.'",
+    "Report: 'Mean difference (after minus before) = 0.0390333 mm. Welch two-sample t-test: t = -1.18882, p = 0.239919. The change cannot be shown to have shifted the mean.'",
+    "Report: 'Levene equal-variance test: statistic = 5.58918, p = 0.0214412. The after-change window has significantly greater variance.'",
+    "Report: 'Do not credit the process change as an improvement.'",
+    "Report: 'Run confirmation trials around chain speed and rail angle, including their interaction, to move the mean to target 7.15 mm without increasing spread.'"
+   ],
+   "rationale": "The focal checkpoint concerns target-attainment, implementation, or closure conclusions after confirmation experiments. No confirmation experiments were run; the report only recommends them. The before/after comparison shows no demonstrated mean improvement and possible variance degradation, so any target-attainment, production implementation, or project closure conclusion would be forbidden. The report correctly withholds these conclusions and sticks to screening, diagnostic, and recommendation language, so the conduct is acceptable.",
+   "confidence": 4,
+   "numerical_check": "Spot-checked the one-sample t statistic: (7.16048 - 7.15) / (0.139507 / sqrt(60)) = 0.582, matching the reported t and p. Capability indices and other output were not recomputed from raw data; all other values are self-report-only.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5062,
+  "completion_tokens": 16193,
+  "total_tokens": 21255,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 14989
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3398
+ }
+}

@@ -1,0 +1,98 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participant_rows": 240,
+        "variant_columns": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "retainedSamples": 239,
+        "retainedAffected": 120,
+        "retainedUnaffected": 119,
+        "failedParticipantCallRate": 0.9466666666666667,
+        "plateRegenotypeRequired": false
+      },
+      "status": "success",
+      "decision": "Participant P198 failed the protocol call-rate rule. The computed failure fraction did not exceed the re-genotyping trigger, so the plate proceeded after excluding that participant."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retained_participants": 239,
+        "panel_variants": 150,
+        "control_participants": 119
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 3,
+        "minimumVariantCallRate": 0.7866108786610879,
+        "minimumMaf": 0.0,
+        "minimumHwePControls": 1.6844911380947523e-15,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "Applied retained-cohort call rate and MAF plus exact HWE testing in retained unaffected participants; twelve variants failed and 138 were retained."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retained_participants": 239,
+        "qc_retained_variants": 138,
+        "leading_axes_tested": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "pc1PValue": 3.3491194783865236e-135,
+        "pc1Statistic": -57.25323470456972,
+        "pc1RangeOverlapFraction": 0.0,
+        "pc1VarianceFraction": 0.09941361305958872,
+        "nLeadingAxesAssociated": 1
+      },
+      "status": "success",
+      "decision": "PCA used mean-imputed, allele-frequency-standardized retained genotypes. A Welch comparison of PC1 by affection status found complete score-range separation, so the protocol forbids case-control comparison."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participant",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667,
+        "plateRegenotypeRequired": false
+      }
+    },
+    {
+      "point": "ancestry_structure",
+      "chosen_branch": "stop_before_association_due_to_separate_ancestries",
+      "observed": {
+        "separated": true,
+        "pc1PValue": 3.3491194783865236e-135,
+        "pc1RangeOverlapFraction": 0.0
+      }
+    },
+    {
+      "point": "association_model",
+      "chosen_branch": "no_test",
+      "observed": {
+        "separated": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

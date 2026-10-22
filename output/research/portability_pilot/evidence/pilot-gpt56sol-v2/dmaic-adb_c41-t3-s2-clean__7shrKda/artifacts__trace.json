@@ -1,0 +1,175 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s2-clean",
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "affectedTotal": 120,
+        "unaffectedTotal": 120,
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 118,
+        "unaffectedRetained": 120,
+        "minimumCallRate": 0.9466666666666667,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes; remove P017 and P111."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 2
+      },
+      "status": "success",
+      "decision": "Retain all supplied variants except the eleven listed failures."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 1,
+        "pc1PValue": 4.195269044230135e-18,
+        "pc1ExplainedFraction": 0.10170125571851292,
+        "affectedInOverlap": 111,
+        "unaffectedInOverlap": 117
+      },
+      "status": "success",
+      "decision": "PC1 structure is present but score ranges overlap; compare with PC1 adjustment."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "test": "two-sided coefficient Wald test"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.9939606416195177,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "variantsTested": 139,
+        "covariateAxes": 1
+      },
+      "status": "success",
+      "decision": "Only rs020008 crosses the adjusted discovery threshold."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variant": "rs020008"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.626313844354682,
+        "pValue": 4.374607422729442e-05,
+        "nCalled": 235
+      },
+      "status": "success",
+      "decision": "Positive discovery association."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variant": "rs020065"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.40406039638668273,
+        "pValue": 0.0004180873430676656,
+        "nCalled": 236
+      },
+      "status": "success",
+      "decision": "Does not cross the Bonferroni threshold and is not a discovery association."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "variant": "rs020008"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "pValue": 0.0006966849454034404,
+        "oddsRatio": 2.729997712702792,
+        "sameDirection": true,
+        "nCalled": 119,
+        "nMissing": 1
+      },
+      "status": "success",
+      "decision": "rs020008 replicates and may be reported."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "request": "prespecified number of ancestry axes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "refused",
+      "decision": "No matching study-lead fact was available; used the detected structured leading axis."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_samples",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333
+      }
+    },
+    {
+      "point": "ancestry_precondition",
+      "chosen_branch": "overlapping_structure_adjust_pc1",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 4.195269044230135e-18
+      }
+    },
+    {
+      "point": "discovery_threshold",
+      "chosen_branch": "bonferroni_wald",
+      "observed": {
+        "variantsTested": 139,
+        "threshold": 0.00035971223021582735,
+        "nSignificant": 1
+      }
+    },
+    {
+      "point": "reporting",
+      "chosen_branch": "report_rs020008",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 1
+      }
+    }
+  ]
+}

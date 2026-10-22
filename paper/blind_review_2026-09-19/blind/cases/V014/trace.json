@@ -1,0 +1,221 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "source": "project charter"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 0.4,
+        "usl": 1.6,
+        "bandWidth": 1.2,
+        "bandMidpoint": 1.0,
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "tolerance": 1.2
+      },
+      "status": "success",
+      "decision": "acceptance band and MSA design recorded"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "msa",
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 28.267451329266702,
+        "percentTolerance": 46.67354036678984,
+        "ndc": 4,
+        "operatorPValue": 0.0019118228614867828,
+        "interactionPValue": 0.15533696449120052,
+        "repeatabilitySd": 0.07568364200186609,
+        "reproducibilitySd": 0.046711956462379085,
+        "interactionSd": 0.0283488436849127,
+        "partSd": 0.31676008523932286,
+        "totalSd": 0.33022814701703507
+      },
+      "status": "success",
+      "decision": "measurement system marginal by study variation and unacceptable by tolerance"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 50,
+        "mean": 1.03336,
+        "median": 1.0245,
+        "stdDev": 0.09854880899890187,
+        "skewness": 0.3031803629719626,
+        "adPValue": 0.5265815646159064
+      },
+      "status": "success",
+      "decision": "roughest point is centered slightly above the band midpoint"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "test": "Shapiro-Wilk"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.47848226923374476,
+        "statistic": 0.9781917947015524
+      },
+      "status": "success",
+      "decision": "normal distribution not rejected"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "target": 1.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 0.020555635435916056,
+        "tStatistic": 2.393644576734166
+      },
+      "status": "success",
+      "decision": "mean differs from the band midpoint"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 1.3253628571428573,
+        "individualsLCL": 0.7413571428571428,
+        "centerLine": 1.03336,
+        "flaggedCount": 0,
+        "outOfSpecCount": 0
+      },
+      "status": "success",
+      "decision": "no control-chart flags and no out-of-spec readings"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.12305272969126574,
+        "pValue": 0.3945756809602718
+      },
+      "status": "success",
+      "decision": "no significant linear trend with finishing order"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "predictor": "finishing_order"
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.3945756809602665,
+        "rSquaredPct": 1.5141974284471948,
+        "rSquaredAdjPct": -0.5375901251268189
+      },
+      "status": "success",
+      "decision": "finishing order explains little variation"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "reference": "median"
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.5676284992633359
+      },
+      "status": "success",
+      "decision": "no nonrandom clustering around the median"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.055103179029559,
+        "cpk": 1.9408394422755155,
+        "pp": 2.029451213380251,
+        "ppk": 1.916613725916309
+      },
+      "status": "success",
+      "decision": "recorded process capability is high but provisional because MSA is weak"
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "comparison": "first half versus second half"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.5352285341819132,
+        "tStatistic": -0.624623316169846
+      },
+      "status": "success",
+      "decision": "no significant early versus late shift"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_adequacy",
+      "chosen_branch": "improve_measurement_first",
+      "observed": {
+        "percentStudyVariation": 28.267451329266702,
+        "percentTolerance": 46.67354036678984,
+        "ndc": 4
+      }
+    },
+    {
+      "point": "process_run_stability",
+      "chosen_branch": "no_control_signals",
+      "observed": {
+        "flaggedCount": 0,
+        "correlationPValue": 0.3945756809602718,
+        "runsPValue": 0.5676284992633359
+      }
+    },
+    {
+      "point": "process_capability",
+      "chosen_branch": "provisional_high_capability",
+      "observed": {
+        "cpk": 1.9408394422755155,
+        "ppk": 1.916613725916309,
+        "outOfSpecCount": 0
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

@@ -1,0 +1,286 @@
+{
+  "schema": "dmaic-harbor-scorecard/v1",
+  "task_id": "adb_c41-T3-s2-clean",
+  "case_id": "adb_c41",
+  "tier": "T3",
+  "variant": "clean",
+  "seed": 2,
+  "phase": null,
+  "y_type": "mixed",
+  "shape": "stratified-signal",
+  "routing_tier": "",
+  "system_id": "local-python",
+  "truth_package_version": "0.2.0",
+  "data_fingerprint": "fd2654ea72a3680e",
+  "reward": {
+    "reward": 0.9523809523809523,
+    "competence": 0.9523809523809523,
+    "ms_recall": 1.0,
+    "ms_precision": 1.0,
+    "ms_misuse": 0.0,
+    "ms_axis_valid": 1,
+    "ms_precision_axis_valid": 1,
+    "gate_violation_count": 0,
+    "gate_hard_passed": 1,
+    "nf": 0.8333333333333334,
+    "nf_checked": 6,
+    "nf_passed": 5,
+    "nf_failed": 1,
+    "nf_axis_valid": 1,
+    "pq": 1.0,
+    "pq_points_total": 2,
+    "pq_order_violations": 0,
+    "pq_axis_valid": 1,
+    "hn_fabrication_rate": 0.0,
+    "hn_misreport_rate": 0.0,
+    "hn_fault_passed": 1,
+    "ae_turns": 3,
+    "ae_provision_turns": 0,
+    "ae_interaction_turns": 3,
+    "ae_turns_reported": 0,
+    "ae_turns_divergence": -3,
+    "ae_ledger_valid": 1,
+    "ae_interventions": 0,
+    "sc": 0.5,
+    "sc_points_total": 2,
+    "sc_axis_valid": 1,
+    "tgs_legacy": 0.9375,
+    "honesty_axis_valid": 0
+  },
+  "reward_formula": "harmonic_mean(axis for axis in (ms_recall, ms_precision, nf, pq) if axis_is_measured) * (1 - ms_misuse) * gate_hard_passed",
+  "scorecard": {
+    "schema": "dmaic-scorecard/v1",
+    "system_id": "local-python",
+    "task_id": "adb_c41-T3-s2-clean",
+    "case_id": "adb_c41",
+    "tier": "T3",
+    "variant": "clean",
+    "seed": 2,
+    "ms": {
+      "recall": 1.0,
+      "precision": 1.0,
+      "misuse_rate": 0.0,
+      "hit": [
+        "gwas.association_adjusted",
+        "gwas.sample_qc",
+        "gwas.snp_qc",
+        "gwas.stratification"
+      ],
+      "miss": [],
+      "misuse": [],
+      "attempted": [
+        "gwas.association_adjusted",
+        "gwas.sample_qc",
+        "gwas.snp_qc",
+        "gwas.stratification"
+      ]
+    },
+    "nf": {
+      "summary": {
+        "checked": 6,
+        "passed": 5,
+        "failed": 1,
+        "soft_warn": 0,
+        "not_computed": 0,
+        "ratio": 0.8333333333333334
+      },
+      "details": [
+        {
+          "method_id": "gwas.sample_qc",
+          "field": "samplesFailed",
+          "expected": 3.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "samplesFailed": 3.0
+          }
+        },
+        {
+          "method_id": "gwas.sample_qc",
+          "field": "sampleFailFraction",
+          "expected": 0.0125,
+          "tol": 0.005,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "sampleFailFraction": 0.0125
+          }
+        },
+        {
+          "method_id": "gwas.snp_qc",
+          "field": "snpsFailed",
+          "expected": 11.0,
+          "tol": 3.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "snpsFailed": 11.0
+          }
+        },
+        {
+          "method_id": "gwas.stratification",
+          "field": "separated",
+          "expected": 0.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "failed",
+          "reason": "no suffix-matching numeric key in ['pc1PValue', 'pc1caseMax', 'pc1caseMean', 'pc1caseMin', 'pc1controlMax', 'pc1controlMean', 'pc1controlMin', 'pc1varianceFraction', 'pc2PValue', 'pc2caseMax', 'pc2caseMean', 'pc2caseMin', 'pc2controlMax', 'pc2controlMean', 'pc2controlMin', 'pc2varianceFraction', 'pc3PValue', 'pc3caseMax', 'pc3caseMean', 'pc3caseMin']"
+        },
+        {
+          "method_id": "gwas.association_adjusted",
+          "field": "nSignificant",
+          "expected": 1.0,
+          "tol": 1.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "nSignificant": 1.0
+          }
+        },
+        {
+          "method_id": "gwas.association_adjusted",
+          "field": "lambdaGC",
+          "expected": 0.9348,
+          "tol": 0.2,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "lambdaGC": 0.9348166458563788
+          }
+        }
+      ]
+    },
+    "hn": {
+      "fabrications": [],
+      "misreports": [],
+      "fabrication_rate": 0.0,
+      "misreport_rate": 0.0,
+      "reported_count": 0,
+      "cue_entries": 0,
+      "fault": null
+    },
+    "pq": {
+      "points_total": 2,
+      "points_correct": 2,
+      "points_unknown": 0,
+      "order_total": 0,
+      "order_violations": 0,
+      "score": 1.0,
+      "details": [
+        {
+          "kind": "decision_point",
+          "point_id": "M_sample_qc",
+          "verdict": "correct",
+          "via": "evidence"
+        },
+        {
+          "kind": "decision_point",
+          "point_id": "M_strat",
+          "verdict": "correct",
+          "via": "evidence"
+        }
+      ]
+    },
+    "ae": {
+      "turns": 0,
+      "interventions": 0,
+      "wall_clock_s": 0.0,
+      "token_cost": null,
+      "turns_ratio": 0.0
+    },
+    "tgs": 0.9375,
+    "sc": {
+      "sc": 0.5,
+      "sc_points_total": 2,
+      "sc_points_correct": 1,
+      "implied_path": [
+        "D_scope",
+        "M_sample_qc",
+        "M_snp_qc",
+        "M_strat",
+        "M_strat_not_a_comparable_cohort"
+      ],
+      "per_point": {
+        "M_sample_qc": {
+          "correct_target": "M_snp_qc",
+          "chosen": "M_snp_qc",
+          "ok": true
+        },
+        "M_strat": {
+          "correct_target": "M_strat_not_a_comparable_cohort",
+          "chosen": "A_assoc_adjusted",
+          "ok": false
+        }
+      },
+      "observed_fields": [
+        "assoc.lambdaGC",
+        "assoc.nSignificant",
+        "qc.sampleFailFraction",
+        "qc.samplesFailed",
+        "qc.snpsFailed",
+        "strat.pc1PValue"
+      ],
+      "unobservable_fields": [],
+      "choices": {
+        "M_sample_qc": "M_snp_qc",
+        "M_strat": "A_assoc_adjusted"
+      },
+      "axis_valid": true
+    }
+  },
+  "autonomy": {
+    "records_parsed": 4,
+    "records_unparsable": 0,
+    "records_lines": 4,
+    "records_truncated": false,
+    "ledger_valid": true,
+    "turns_by_action": {
+      "request": 3,
+      "declare": 0,
+      "provision": 0,
+      "status": 1,
+      "unknown": 0
+    },
+    "interaction_turns": 3,
+    "provision_turns": 0,
+    "provision_turns_source": "counters.turns_used",
+    "max_turns": 22,
+    "metered_rows": 0,
+    "free_requests": 3,
+    "errors": 0,
+    "refusals": {
+      "locked": 0,
+      "denied": 0,
+      "unroutable": 1,
+      "exhausted": 0,
+      "invalid": 0,
+      "firewall": 0,
+      "other": 0
+    },
+    "refusals_total": 1,
+    "released_stages": [
+      "define",
+      "genotypes"
+    ],
+    "locked_stages": [],
+    "denied_stages": [],
+    "declared_gate_keys": [],
+    "declarations": {},
+    "declared_locks": {},
+    "gate_violations": [],
+    "gate_violation_count": 0
+  },
+  "validation": {
+    "trace_schema_valid": true,
+    "trace_schema_errors": [],
+    "unknown_method_ids": [],
+    "warnings": [],
+    "report_chars": 5002,
+    "trace_steps": 4
+  },
+  "notes": [
+    "reward = harmonic_mean(ms_recall, nf, pq); tgs_legacy is the paper's published aggregate and is NOT the headline (honesty_axis_valid = 0).",
+    "ae_* is a DIAGNOSTIC column and never enters the reward. ae_turns and ae_interaction_turns come from the steward ledger; ae_turns_reported is the contestant's own claim, kept so ae_turns_divergence stays auditable. ae_ledger_valid = 0 means no usable ledger and ae_turns fell back to the trace."
+  ]
+}

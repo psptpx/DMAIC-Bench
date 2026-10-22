@@ -1,0 +1,20 @@
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+\thead{Condition} & \multicolumn{1}{c}{\thead{Trials}} & \multicolumn{1}{c}{\thead{NO-GO right\\change; 95\% CI}} & \multicolumn{1}{c}{\thead{GO right\\change; 95\% CI}} & \multicolumn{1}{c}{\thead{Both sides\\of 16 / attempt}} & \multicolumn{1}{c@{}}{\thead{Within-task\\disagreement}} \\
+\midrule
+\multicolumn{6}{@{}l}{\textbf{GPT-6-astra}} \\
+plain & 96 & 21\% & 81\% & 2/2/3 & 4\% \\
+permit-stop & 96 & \tcellr{70\%\\(+49; +29 to +78)} & \tcellr{70\%\\(-12; -24 to -4)} & 9/11/10 & 12\% \\
+permit-paraphrase & 96 & \tcellr{70\%\\(+49; +32 to +76)} & \tcellr{73\%\\(-8; -22 to +0)} & 10/10/10 & 12\% \\
+normative & 96 & \tcellr{33\%\\(+12; -11 to +44)} & \tcellr{40\%\\(-42; -65 to -14)} & 6/6/6 & 3\% \\
+remind & 96 & \tcellr{47\%\\(+26; -5 to +64)} & \tcellr{50\%\\(-32; -57 to -1)} & 8/8/8 & 2\% \\
+\midrule
+\multicolumn{6}{@{}l}{\textbf{DeepSeek-v4-pro}} \\
+plain & 96 & 19\% & 78\% & 3/1/2 & 14\% \\
+permit-stop & 96 & \tcellr{19\%\\(+0; -8 to +7)} & \tcellr{79\%\\(+0; -3 to +3)} & 1/2/2 & 16\% \\
+permit-paraphrase & 96 & \tcellr{28\%\\(+9; -6 to +26)} & \tcellr{82\%\\(+3; -2 to +8)} & 5/4/5 & 13\% \\
+normative & 96 & \tcellr{44\%\\(+25; +11 to +42)} & \tcellr{77\%\\(-2; -12 to +7)} & 6/6/7 & 23\% \\
+remind & 96 & \tcellr{49\%\\(+30; +8 to +52)} & \tcellr{81\%\\(+3; -1 to +7)} & 7/8/6 & 19\% \\
+\bottomrule
+\end{tabular*}

@@ -1,0 +1,63 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical Black Belt validity review",
+ "blinding_compliance": "I read only the blind packet for V014, did not inspect the coordinator/repository/other reviewers, and recorded this independently.",
+ "ai_assistance": "AI assistant used to parse the packet and draft the JSON output from the supplied information.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V014",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the measurement system is adequate for fine conformance/release decisions or for accepting individual bore readings against the 0.40-1.60 um Ra limits.",
+    "Treating the computed capability indices (Cp=2.055, Cpk=1.941, Pp=2.029, Ppk=1.917) or the I-MR control chart as definitive proof of process capability/stability.",
+    "Using individual readings to certify bores or to set final release rules before measurement improvement and a new MSA."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive use of the recorded readings to characterize broad process location, such as mean 1.033 um and median 1.0245 um, with explicit measurement-error caveat.",
+    "Recommending measurement improvement, reduced repeatability/operator effects, and a new MSA before release decisions.",
+    "Exploratory/provisional stability and capability outputs if explicitly labeled provisional and not used for release.",
+    "Exploratory trend checks as 'no evidence' statements with acknowledgment of low discrimination/power."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "Process location, normality, one-sample t, I-MR, correlation/regression, runs test, two-sample t, and capability indices were computed past the MSA adequacy gate. These are acceptable as restricted descriptive/provisional analysis because the report explicitly withholds release/conformance use and labels the capability result as provisional. The normality tests support the normal capability calculation; the multiple trend checks are used only as no-evidence rather than proof of stability, so multiplicity is not materially misleading.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Crossed Gage R&R with AIAG criteria, using the balanced 3 operators x 10 parts x 3 replicates design, reporting percent study variation, percent tolerance, and ndc; conditions: no missing data and interaction/model checks as performed.",
+    "Descriptive process-location analysis with no release use; condition: explicit statement that gauge error limits fine classification.",
+    "Provisional capability indices as conservative/observed lower-bound if measurement error is random and no bias; condition: must not be used for individual acceptance decisions.",
+    "Exploratory trend/stability checks such as correlation, runs test, and first-half vs second-half comparison as no-evidence only; condition: acknowledge low power due to ndc=4."
+   ],
+   "evidence": [
+    "Reported MSA values: percent study variation 28.27%, percent tolerance 46.67%, ndc 4; repeatability SD 0.0757, reproducibility SD 0.0467, interaction SD 0.0283, total SD 0.3302.",
+    "Report statement: 'Recorded readings can indicate broad process location, but they cannot support a confident fine conformance decision.'",
+    "Report statement: 'Measurement improvement and a new MSA are required before using individual readings for release decisions.'",
+    "Report statement: 'Because the MSA is weak, this capability result is provisional rather than a release conclusion.'",
+    "Process run: n=50, mean 1.03336, sd 0.0985488; one-sample t p=0.0206; Cp=2.055, Cpk=1.941, Pp=2.029, Ppk=1.917; no out-of-spec readings, no control-chart flags."
+   ],
+   "rationale": "The gauge R&R consumes 46.67% of the tolerance and ndc=4, so the measurement system is not adequate for fine conformance/release decisions. This forbids definitive capability/control conclusions and individual acceptance decisions. However, broad process location can still be estimated from the 50 readings, and exploratory/provisional analyses may continue if clearly limited. The submitted report makes that distinction, withholds release conclusions, and recommends MSA improvement, so the conduct at this checkpoint is acceptable.",
+   "confidence": 4,
+   "numerical_check": "Recomputed percent tolerance from reported SDs: sqrt(0.0757^2 + 0.0467^2 + 0.0283^2) = 0.0933; 6*0.0933/1.2 = 46.67%. Rechecked one-sample t: (1.03336-1)/(0.0985488/sqrt(50)) = 2.394, p about 0.0206. Rechecked Pp = (1.6-0.4)/(6*0.0985488) = 2.029 and Ppk = (1.6-1.03336)/(3*0.0985488) = 1.917. MSA ANOVA and I-MR control limits are self-report-only.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4265,
+  "completion_tokens": 15745,
+  "total_tokens": 20010,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 14499
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2601
+ }
+}

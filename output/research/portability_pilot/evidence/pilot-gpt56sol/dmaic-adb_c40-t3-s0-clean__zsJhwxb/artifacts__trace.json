@@ -1,0 +1,104 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "passedSamples": 12,
+        "controlRetained": 6,
+        "treatedRetained": 6,
+        "minAssignedReadsThreshold": 5000000,
+        "minMappingRateThreshold": 0.7,
+        "requiredReplicatesPerArm": 3
+      },
+      "status": "success",
+      "decision": "All libraries met both inclusive usability cutoffs; both arms exceeded the required retained-replicate minimum."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage": "sample_sheet",
+        "usableSamples": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2,
+        "usableSamplesInDesign": 12,
+        "conditionCount": 2,
+        "controlInBatch": 6,
+        "treatedInBatch": 6
+      },
+      "status": "success",
+      "decision": "The intercept-plus-treatment design was full rank. Both arms occur in the sole preparation batch, so the treatment contrast is estimable and no batch coefficient is applicable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage": "counts",
+        "genes": 400,
+        "samples": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40,
+        "genesTested": 400,
+        "fitFailures": 0,
+        "upregulatedCount": 24,
+        "downregulatedCount": 16,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "sizeFactorMin": 0.7358996855730512,
+        "sizeFactorMax": 1.2415643256753288,
+        "globalDispersion": 0.0764875235857389
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization and per-gene negative-binomial GLMs were used; Benjamini-Hochberg adjustment was applied across the full panel. Calls passed adjusted p-value and absolute log2-fold-change criteria."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "simple_treatment_model",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      }
+    },
+    {
+      "point": "gene_calling",
+      "chosen_branch": "report_joint_threshold_calls",
+      "observed": {
+        "nSignificant": 40,
+        "fitFailures": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

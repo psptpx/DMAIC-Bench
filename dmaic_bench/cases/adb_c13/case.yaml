@@ -1,0 +1,99 @@
+schema_version: 1
+case_id: adb_c13
+title: Plating thickness process investigation (right-skewed baseline)
+
+tier: T1
+industry: electronics
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the process team at a precision-connector plating shop. A customer has recently
+  complained that our plating thickness is inconsistent. The line's thickness record is
+  visibly lopsided — a few workpieces come out far thicker than the typical part, with
+  nothing correspondingly thin to balance them. We have collected the baseline thickness
+  record, the thickness of the lots run on chemistry from each of our two suppliers, the
+  thickness from each of our three plating lines, and a set of thickness readings logged
+  alongside the bath temperature at the time.
+
+goal: |
+  For each batch of data you are given, carry out the quantitative work it calls for and
+  report the conclusion: where the process stands today, whether the differences between the
+  two chemistry suppliers and between the three lines are real, whether thickness reaches the
+  level the customer was promised, and how closely thickness tracks bath temperature. Produce
+  an analysis report whose conclusions are faithful to what you actually computed.
+
+stages:
+  - stage_id: N_Summary
+    phase: measure
+    label: "Baseline thickness record"
+    topics: ["baseline", "thickness record", "where it stands", "current level"]
+    methods:
+      - method_id: basic.descriptive_summary
+        required: true
+        alternatives: [basic.normality]
+  - stage_id: N_MannWhitney
+    phase: analyze
+    label: "Thickness from the two chemistry suppliers"
+    topics: ["chemistry supplier", "two suppliers", "supplier lots"]
+    methods:
+      - method_id: nonparametric.mann_whitney
+        required: true
+        alternatives: [nonparametric.moods_median]
+  - stage_id: N_KruskalWallis
+    phase: analyze
+    label: "Thickness from the three plating lines"
+    topics: ["plating line", "three lines", "line by line"]
+    methods:
+      - method_id: nonparametric.kruskal_wallis
+        required: true
+        alternatives: [nonparametric.moods_median]
+  - stage_id: N_Wilcoxon
+    phase: analyze
+    label: "Thickness against the level promised to the customer"
+    topics: ["promised level", "against target", "level committed"]
+    methods:
+      - method_id: nonparametric.one_sample_wilcoxon
+        required: true
+  - stage_id: N_Correlation
+    phase: analyze
+    label: "Thickness alongside the bath temperature logged at the time"
+    topics: ["bath temperature", "alongside temperature", "logged temperature"]
+    methods:
+      - method_id: basic.correlation
+        required: true
+
+decision_points:
+  - point_id: normality_gate
+    phase: analyze
+    rule: "Baseline thickness has Anderson-Darling normality p<0.05 (right-skewed distribution): use the rank-based (nonparametric) branch for between-group location comparisons rather than t/ANOVA."
+    source: "Montgomery, Introduction to Statistical Quality Control 6e §3.4; NIST/SEMATECH e-Handbook §1.3.5.14"
+    correct_branch: nonparametric_analysis
+    acceptable_branches: []
+    branch_evidence:
+      nonparametric_analysis: ["family:nonparametric"]
+      parametric_analysis: [basic.two_sample_t, anova.oneway]
+
+order_constraints:
+  - before: basic.descriptive_summary
+    after: nonparametric.mann_whitney
+    source: "Confirm distribution shape before choosing a location-comparison method (Montgomery ISQC 6e §3.4)"
+
+faults:
+  - stage_id: N_MannWhitney
+    method_id: nonparametric.mann_whitney
+  - stage_id: N_Correlation
+    method_id: basic.correlation

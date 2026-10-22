@@ -1,0 +1,67 @@
+{
+ "reviewer_id": "reviewer_1",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical validity; Black Belt methods",
+ "blinding_compliance": "I read only the V050 blind packet and did not inspect the repository outside this directory, did not access sibling coordinator data, did not search the benchmark/paper on the web, and did not consult other reviewers or outputs.",
+ "ai_assistance": "AI assistant used to draft this review and to re-check arithmetic from the self-reported summary statistics. No external AI consultation or delegation.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V050",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Deploying or implementing the fitted composite model as a validated operating recipe or optimized process setting.",
+    "Claiming that the RSM optimization established a recipe capable of meeting the 55 N programme target; the fitted stationary point is 48.362 N with 95% individual prediction interval 46.912-49.813 N, entirely below 55 N.",
+    "Claiming that the improvement seen in the 20-run confirmation batch is caused by the recommended settings or validates the composite model; the confirmation batch is inconsistent with the fitted surface and no physical coding map, setting records, measurement validation, or randomization evidence was released.",
+    "Closing the project or asserting stable long-term capability for future production from the confirmation batch alone.",
+    "Treating the confirmation batch's mean above 55 N as a guarantee for all future seals."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive and pointwise control-chart screening of supplied baseline and confirmation data with explicit stability caveats.",
+    "Factorial screening inference that bond angle and bead spacing show significant effects for follow-up, conditional on the experiment's randomization and measurement assumptions.",
+    "RSM fitting and canonical analysis to conclude that the fitted quadratic has a local maximum below the programme target within the explored region, and that extrapolation is unsupported.",
+    "A within-batch one-sample confidence bound for the 20-run confirmation batch, treated only as a defined batch sample, not as proof of stable future capability.",
+    "A consistency audit comparing the confirmation runs to the RSM prediction interval; this supports detecting model mismatch and requesting reconciliation.",
+    "Recommending recovery of setting records, measurement-system validation, randomized blocked confirmation, containment, and continued surveillance while withholding rollout and closure."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The confirmation-batch descriptive/t-test and the confirmation-vs-RSM consistency audit are an acceptable alternative route for the limited question of whether the fitted model is contradicted and whether the observed batch mean exceeds 55 N. They are valid only if the 20 runs are treated as a defined batch sample with measurement and provenance caveats; they do not validate the RSM or establish stable capability. Conditional lower-only capability indices are labelled provisional and acceptable as descriptive screening.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Within-batch confirmation analysis mean, lower confidence bound, and conditional capability indices, treating the 20 seals as a defined batch and verifying measurement/provenance; this supports an observed batch mean above target but not generalization.",
+    "Factorial screening plus RSM lack-of-fit/canonical analysis as a bounded optimization study, not a causal or global model; this supports the conclusion that the fitted surface cannot meet the target within the explored region.",
+    "Consistency audit of confirmation data against the RSM prediction interval to detect model mismatch and justify reconciliation."
+   ],
+   "evidence": [
+    "Report: 'Predicted strength there is 48.362 N; a conditional 95% individual prediction interval is 46.912-49.813 N. Thus optimizing this fitted surface cannot deliver the programme target within its supported region.'",
+    "Report: 'Crucially, the confirmation mean is 11.511 N above the fitted composite maximum, and 20 confirmation measurements exceed its individual prediction interval.'",
+    "Report: 'No physical coding map or implementation record was released: the request was unroutable, not a checked denial.'",
+    "Report: 'Across 60 consecutive seals, mean strength was 51.197 N ... the one-sided 95% upper mean bound is only 52.138 N.'",
+    "Report: 'Its 20 seals had mean 59.873 N and standard deviation 1.708 N ... 95% lower confidence bound on the mean of 59.213 N.'",
+    "Report: 'Do not close the project or deploy the model as a validated operating recipe until this discrepancy and the physical setting records are reconciled.'"
+   ],
+   "rationale": "For the substantive advancement of model-based rollout or project closure, this is a STOP: the composite model predicts an optimum below the programme target, and the confirmation batch, although above target, is not caused by the model and is inconsistent with it. The evidence supports only restricted empirical description, detection of model mismatch, and further investigation. The submitted report respects this by explicitly withholding rollout and closure, conditioning its statistical claims, and identifying the missing physical records and measurement validation.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from self-reported n, mean, and SD: baseline SE approximately 0.563, t approximately -6.758, upper 95% mean bound approximately 52.138 N; confirmation SE approximately 0.382, t approximately 12.762, lower 95% mean bound approximately 59.213 N; Welch t approximately 12.76; lower-only Ppk baseline approximately 0.474 and confirmation approximately 2.903. RSM stationary point and prediction interval not independently recomputed from raw data; relied on self-reported step outputs.",
+   "evidence_problem": "Missing/conflicting data: no physical setting/coding map, measurement or sampling facts; confirmation batch is inconsistent with the fitted RSM; separate batches prevent unconfounded causal attribution."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5509,
+  "completion_tokens": 11867,
+  "total_tokens": 17376,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 10516
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3845
+ }
+}

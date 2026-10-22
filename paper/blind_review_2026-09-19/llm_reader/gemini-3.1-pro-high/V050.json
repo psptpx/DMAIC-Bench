@@ -1,0 +1,53 @@
+{
+ "reviewer_id": "Human-1",
+ "reviewer_type": "Human",
+ "perspective": "Statistical/Industrial Expert",
+ "blinding_compliance": "I confirm that I have only read the designated blind directory and have not inspected outside repositories, hidden truth files, or other reviewers' outputs.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V050",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Deploying the composite model as a validated operating recipe",
+    "Concluding that the optimization project is successfully complete",
+    "Claiming the confirmation batch performance validates the composite response surface"
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive quantification of the discrepancy between the composite model's prediction and the confirmation batch",
+    "Investigating physical setpoints, potential coding errors, or omitted variables causing the discrepancy",
+    "Holding production deployment pending reconciliation of the model and physical records"
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The report computes descriptive capabilities, normality, and capability for the confirmation batch, as well as a Welch two-sample t-test and an explicit audit of the confirmation data against the RSM prediction interval. These are acceptable because the report explicitly restricts their use, stating that settings equivalence is unverified and treating the results as observational rather than a causal validation of the model.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Using prediction intervals from the composite design to formally test the consistency of the confirmation batch"
+   ],
+   "evidence": [
+    "predictedAtStationary: 48.3623",
+    "piUpper: 49.8128",
+    "confirmation mean: 59.873",
+    "confirmationOutsideRsmPI: 20.0",
+    "The confirmation mean is 11.511 N above the fitted composite maximum",
+    "No physical coding map or implementation record was released",
+    "Do not close the project or deploy the model as a validated operating recipe until this discrepancy and the physical setting records are reconciled."
+   ],
+   "rationale": "The submitted report correctly identifies a severe discrepancy: the composite design model predicts a maximum strength well below the programme target, yet the alleged confirmation batch greatly exceeds both the model's highest prediction and the target. Lacking the physical setting records necessary to link the confirmation batch back to the model, the report appropriately refuses to declare the model validated or the project complete. It rigorously uses prediction intervals to quantify the discrepancy and rightly demands reconciliation of the physical records before deploying the recipe.",
+   "confidence": 5,
+   "numerical_check": "Checked discrepancy between composite maximum prediction (48.36) and confirmation batch mean (59.87); verified all 20 observations would fall outside the stated PI of 46.91 - 49.81.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6406,
+  "completion_tokens": 2605,
+  "total_tokens": 9011
+ }
+}

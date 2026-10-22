@@ -1,0 +1,145 @@
+{
+  "system_id": "openai",
+  "task_id": "adb_c41-T3-s1-clean",
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "sampleCallRateMin": 0.94,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true,
+        "participantsInput": 240,
+        "variantsInput": 150
+      },
+      "status": "success",
+      "decision": "plate passes participant QC; do not re-genotype"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participantsRetained": 238,
+        "variants": 150,
+        "controls": 118
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "minRetainedVariantCallRate": 0.8025210084033614,
+        "minControlMaf": 0.0,
+        "minControlHweP": 6.066956933063183e-18,
+        "participantsRetained": 238,
+        "controlsRetained": 118,
+        "variantsInput": 150,
+        "variantsFailed": 11,
+        "variantsRetained": 139
+      },
+      "status": "success",
+      "decision": "retain variants meeting all three variant QC rules"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participantsRetained": 238,
+        "groups": 2,
+        "axes": 3
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.280198111581079e-133,
+        "axis1Statistic": -55.336171713858846,
+        "participantsRetained": 238,
+        "groups": 2,
+        "axesTested": 3
+      },
+      "status": "success",
+      "decision": "affected and unaffected groups are ancestry-separated; comparison prohibited"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participantsRetained": 238,
+        "variantsRetained": 139,
+        "covariateAxes": 3
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "bonferroniAlpha": 0.00035971223021582735,
+        "participantsRetained": 238,
+        "variantsRetained": 139,
+        "covariateAxes": 3
+      },
+      "status": "refused",
+      "decision": "association conclusion refused because protocol forbids comparison of separate ancestries; the exploratory scan yielded no candidates but is not reportable"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "candidateVariants": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "participantsInput": 120
+      },
+      "status": "success",
+      "decision": "no replication test was possible because the steward supplied no nominated discovery candidates"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_quality",
+      "chosen_branch": "pass",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "cohort_comparability",
+      "chosen_branch": "separate_ancestries_stop",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.280198111581079e-133
+      }
+    },
+    {
+      "point": "association",
+      "chosen_branch": "refuse_interpretation",
+      "observed": {
+        "nSignificant": 0,
+        "bonferroniAlpha": 0.00035971223021582735
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_candidates_no_replication",
+      "observed": {
+        "nCandidates": 0,
+        "nReplicated": 0
+      }
+    }
+  ]
+}

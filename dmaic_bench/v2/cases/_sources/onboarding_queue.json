@@ -1,0 +1,346 @@
+{
+  "_meta": {
+    "purpose": "Source records for cases being onboarded from public CC BY literature. These are NOT runnable cases: no graph, no generator, no truth package. A record here has been license-verified and structurally extracted; it becomes a case only after a graph and generator are authored and G3 passes on it.",
+    "license_policy": "Every record must be CC BY (no NC, no SA), with the licence notice copied verbatim from the article's own <permissions> block. Attribution is mandatory and lives in docs/CASE_SOURCES.md.",
+    "what_is_taken": "Scenario, decision structure and reported numeric values. Data for any case built from these is GENERATED from a seed, as for every other case in this corpus; no source data file is redistributed.",
+    "verification_status": "license and structure verified by extraction; NOT yet G3-verified",
+    "created": "2026-09-09"
+  },
+  "ready_for_authoring": [
+    {
+      "pmcid": "PMC12842731",
+      "title": "Process Capability Assessment and Surface Quality Monitoring in Cathodic Electrodeposition of S235JRC+N Electric-Charging Station",
+      "journal": "Materials (MDPI), 2026",
+      "license_verbatim": "© 2026 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license .",
+      "domain": "surface coating / e-mobility component manufacturing (cathodic electrodeposition on S235JRC+N steel housings for EV charging stations)",
+      "y_type": "continuous",
+      "n_nodes": 5,
+      "n_tables": 11,
+      "ctq": {
+        "name": "dry film thickness (DFT) of cataphoretic coating",
+        "unit": "µm",
+        "source_sentence": "DFT of the cataphoretic coating applied to the S235JRC+N steel housings of the electric charging stations was measured using a digital Elcometer 456C thickness gauge (Elcometer Ltd., Manchester, UK)-serial number XH22928 with a probe specifically designed for steel substrates according to EN 2808:2019 [ 27 ]."
+      },
+      "spec": {
+        "lsl": 15.0,
+        "usl": 30.0,
+        "target": 22.5,
+        "unit": "µm",
+        "source_sentence": "Based on the same dataset and specification limits (LSL = 15 µm, USL = 30 µm, target = 22.5 µm), PalstatCAQ calculated capability and performance indices using several ISO 22514 [ 25 , 44 ]-compliant estimators of standard deviation (levels L1–L4)."
+      },
+      "baseline": {
+        "n": 1250,
+        "mean": 21.84,
+        "sd": 3.14,
+        "min": 13.4,
+        "max": 31.4,
+        "source_sentence": "SUM of Station Valid N Mean Thickness [µm] Min [µm] Max [µm] Variance [µm 2 ] Std.Dev [µm] Standard Uncertainty [µm] Kurtosis [-] 50 1250 21.84 13.40 31.40 8.97 3.14 0.59 –0.04"
+      },
+      "decision_points": [
+        {
+          "phase": "Measure",
+          "question": "Is the measurement device traceable/calibrated (MSA)?",
+          "observed": {
+            "metric": "calibration etalon",
+            "value": 24.1
+          },
+          "verdict": "measurement traceability established; NO quantitative Gage R&R was run",
+          "source_sentence": "Calibration was verified using a standard calibration plate (Part number 4910, Serial number XJ06167 and an etalon thickness of 24.1 μm (Tracking number TXG90344 ), ensuring traceability and measurement accuracy."
+        },
+        {
+          "phase": "Measure/Analyze",
+          "question": "Is the process in statistical control (Shewhart Xbar-R-S)?",
+          "observed": {
+            "metric": "points beyond control limits",
+            "value": 0
+          },
+          "verdict": "in control — common-cause only",
+          "source_sentence": "From the SPC perspective, the absence of points beyond the control limits and the lack of pronounced trends or cycles confirm that no dominant special cause affected the process."
+        },
+        {
+          "phase": "Analyze",
+          "question": "Is the data normal?",
+          "observed": {
+            "metric": "Shapiro-Wilk p",
+            "value": 3.1e-09
+          },
+          "verdict": "normality rejected at 5% by all four tests (tails)",
+          "source_sentence": "All of them rejected the hypothesis of normality at the 5% significance level: χ 2 test ( p = 0.0209), Kolmogorov–Smirnov test ( p = 0.00156), Shapiro–Wilk test ( p ≈ 3.1 × 10 −9 ) and Anderson–Darling test ( p ≈ 2.8 × 10 −9 )."
+        },
+        {
+          "phase": "Analyze",
+          "question": "Do the 50 deposition stations differ (one-way ANOVA)?",
+          "observed": {
+            "metric": "F(49,1200)",
+            "value": 3.49,
+            "p": "<0.001",
+            "eta2": 0.125
+          },
+          "verdict": "statistically significant but technologically small",
+          "source_sentence": "However, all means fell within the specification limits (15–30 µm), and the confidence intervals exhibited substantial overlap, confirming that these deviations are statistically but not technologically significant."
+        },
+        {
+          "phase": "Analyze",
+          "question": "Is the process capable against Cpk>=1.33?",
+          "observed": {
+            "metric": "Cpk",
+            "value": 0.8084,
+            "Cp": 0.878,
+            "Pp": 0.7968,
+            "Ppk": 0.7263,
+            "Cpm": 0.7796,
+            "Zbench": 2.06,
+            "ppm": 19305.96
+          },
+          "verdict": "conditionally capable (0.67 < Cpk < 1.00) — NOT capable",
+          "source_sentence": "The present process, with Cpk = 0.81 and Ppk = 0.73, therefore falls within the conditionally capable category—statistically stable but with potential for improvement."
+        },
+        {
+          "phase": "Improve",
+          "question": "Which failure modes carry highest risk (AIAG-VDA FMEA)?",
+          "observed": {
+            "metric": "max RPN before",
+            "value": 336
+          },
+          "verdict": "FM2 incorrect bath chemistry and FM4 insufficient inspection tie at RPN 336; corrective actions projected to cut RPN 50-62.5%",
+          "source_sentence": "Failure Mode (FM) Description S O D RPN Before Expected Reduction (%) RPN After FM1 Inadequate degreasing/surface contamination 9 6 5 270 55% 122 FM2 Incorrect bath chemistry (pH, conductivity) 8 7 6 336 62.5% 126 FM3 Incorrect hanging/uneven paint layer 7 6 6 252 60% 101 FM4 Insufficient inspection/incomplete documentation 8 6 7 336 50% 168 FM5 Low degreasing bath temperature 7 5 6 210 55% 95 FM6 Incorrect curing parameters 8 5 5 200 50% 100 FM7 Damage during loading/human uncertainty 7 6 5 210 55% 95 FM8 Visual non-conformities after cataphoresis 7 5 6 210 55% 95"
+        }
+      ],
+      "improvement": {
+        "before": null,
+        "after": null,
+        "confirmed": false,
+        "source_sentence": "Table 9 summarizes the initial RPN values, expected reduction percentages, and the projected post-optimization RPN for each failure mode."
+      },
+      "numeric_audit": "VERIFIED CONSISTENT. Pp=15/(6*3.14)=0.7962 (reported 0.797); Ppk=min(30-21.84,21.84-15)/(3*3.14)=0.7261 (reported 0.7263); Cpm=15/(6*sqrt(3.14^2+0.66^2))=0.7791 (reported 0.7796); K=0.66/7.5=0.088 (reported 0.0884); normal-model out-of-spec = 1.937% = 19,370 ppm (reported 19,305.96); Zbench=-Phi^-1(0.019306)=2.068 (reported 2.06). All eight RPN products S*O*D recompute exactly.",
+      "notes_uncertain": [
+        "REVIEW_REQUIRED (prose, not numbers): the paper writes 'Nevertheless, all measured values remain well within the functional range of 15–30 µm' while its own Table 5 reports Min = 13.40 µm and Max = 31.40 µm, and its own capability table reports PPM Total = 19,305.96 ppm non-conforming. The numeric layer is right; the narrative overclaims.",
+        "REVIEW_REQUIRED (SPC concept): control limits are equated with specification limits — 'The control limits were established between the lower specification limit Lower tolerance boundary (LSL) of 15 µm and the Upper tolerance boundary (USL) of 30 µm' and 'All subgroup means lie well inside the control limits, which essentially coincide with the technological specification window of 15–30 µm.' Control limits must be computed from within-subgroup variation, not from the tolerance.",
+        "MSA node is only qualitative ('Visual inspection was performed as part of Measurement System Analysis (MSA)') — no %GRR / ndc reported. Do NOT use this paper as an MSA oracle.",
+        "Capability indices are computed although the same paper rejects normality; the ISO 22514 percentile (L1–L4) tables partly compensate, but a strict oracle should note the assumption violation."
+      ],
+      "quality_flags": null
+    },
+    {
+      "pmcid": "PMC7361965",
+      "title": "System Performance and Process Capability in Additive Manufacturing: Quality Control for Polymer Jetting",
+      "journal": "Polymers (MDPI), 2020",
+      "license_verbatim": "© 2020 by the authors. 2020 https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).",
+      "domain": "additive manufacturing (PolyJet / photopolymer jetting, Objet EDEN 350)",
+      "y_type": "continuous",
+      "n_nodes": 5,
+      "n_tables": 9,
+      "ctq": {
+        "name": "two geometric features of a circular specimen: height H and diameter D",
+        "unit": "mm",
+        "source_sentence": "A large sample of small specimens of circular shape was manufactured of photopolymer resins using polymer jetting (PolyJet) technology. Two critical geometrical features of the specimen were investigated."
+      },
+      "spec": {
+        "H": {
+          "lsl": 11.9,
+          "usl": 12.1,
+          "target": 12.0
+        },
+        "D": {
+          "lsl": 14.4,
+          "usl": 14.6,
+          "target": 14.5
+        },
+        "tolerance_mm": 0.2,
+        "source_sentence": "A fine tolerance class of ±0.1 mm was selected, taking into account the ranges of nominal lengths between 6–30 mm according to the ISO 2768-1 standard [ 34 ]."
+      },
+      "baseline": {
+        "H_process": {
+          "n": 150,
+          "mean": 11.939,
+          "sd": 0.0118
+        },
+        "D_process": {
+          "n": 150,
+          "mean": 14.54,
+          "sd": 0.00994
+        },
+        "source_sentence": "Table 7 Process capability analysis for the H dimension. Drawing Values Collected Values Statistics Tm 12 n 150 StDev 0.0118 LSL 11.9 x min 11.910 X 0.135% 11.90335 USL 12.1 x max 11.969 X 99.865% 11.97406 T 0.2 x mean 11.939 X 50% 11.93871"
+      },
+      "decision_points": [
+        {
+          "phase": "Measure (MSA)",
+          "question": "Is the measurement system acceptable (ANOVA Gage R&R)?",
+          "observed": {
+            "metric": "%Contribution total Gage R&R",
+            "value": "0.88% (D) / 0.54% (H)"
+          },
+          "verdict": "accept — part-to-part dominates",
+          "source_sentence": "In these results, the %Contribution column ( Table 2 ) shows that the variation from Part-To-Part for H and D dimension was 99.46%/99.12%, which is much larger than the total Gage R&R, which was 0.54%/0.88%."
+        },
+        {
+          "phase": "Measure (MSA)",
+          "question": "Is %Study Var below 10%?",
+          "observed": {
+            "metric": "%Study Var total Gage R&R",
+            "value": "7.33% (H) / 9.37% (D)"
+          },
+          "verdict": "acceptable measurement system",
+          "source_sentence": "The total Gage R&R equaled 7.33%/9.37% of the study variation for the H and D dimensions."
+        },
+        {
+          "phase": "Measure (MSA)",
+          "question": "Are there enough distinct categories?",
+          "observed": {
+            "metric": "ndc",
+            "value": "14 (D) / 16 (H)"
+          },
+          "verdict": "ndc > 5 → acceptable",
+          "source_sentence": "The number of distinct categories was greater than five ( Table 3 and Table 4 ), resulting in an acceptable measurement system [ 46 ]."
+        },
+        {
+          "phase": "Analyze",
+          "question": "Is the process capable against Ctarget = 1.67 on the ±0.1 mm tolerance?",
+          "observed": {
+            "metric": "Cpk",
+            "value": "H ≈ 1.10 (below target); D ≈ 2.06 (above target)"
+          },
+          "verdict": "height FAILS, diameter PASSES",
+          "source_sentence": "The requirements for indices C pm and C pk were met for the diameter dimension ( Figure 14 ), but were not met for the height dimension."
+        },
+        {
+          "phase": "Improve",
+          "question": "What tolerance WOULD the process be capable of at Ctarget = 1.67?",
+          "observed": {
+            "metric": "capable tolerance Tc",
+            "value": 0.22,
+            "unit": "mm"
+          },
+          "verdict": "widen tolerance to 0.22 mm → all four indices exceed 1.67",
+          "source_sentence": "The values of the system and process capability indices (C m , C mk , C p , and C pk ) of the circular parts produced with Objet VeroBlue RGD840 material by PolyJet technology were greater than 1.67 within the capable tolerance interval of 0.22 mm."
+        }
+      ],
+      "improvement": {
+        "before": null,
+        "after": null,
+        "confirmed": false,
+        "source_sentence": "Rather than estimating the process capability for a particular tolerance, a capable tolerance and its limit deviations were calculated based on a target capability index."
+      },
+      "numeric_audit": "VERIFIED CONSISTENT with ISO 22514-2 M1,6 percentile method. H process: Cp = 0.2/(11.97406-11.90335) = 2.83; Cpk = (11.93871-11.9)/(11.93871-11.90335) = 1.09 → matches the stated FAIL vs 1.67 and vs 1.33. D process: Cp = 0.2/(14.56854-14.50893) = 3.36; Cpk = (14.6-14.53873)/(14.56854-14.53873) = 2.06 → matches the stated PASS.",
+      "notes_uncertain": [
+        "Typo in Table 6 (machine capability, D dimension): 'x max 11.561' — must be 14.561; every other D value is ~14.5.",
+        "Table 5–8 legend defines 'x mean is the median of all values' — mean/median mislabelled.",
+        "'The dimensional values lay within the LSL and USL, indicating that the process is in statistical control for both dimensions.' — conformance to specification is not evidence of statistical control. Minor conceptual slip; it does not affect any reported number.",
+        "No before/after improvement node — this paper is Measure+Analyze only. Use it as an MSA + capability oracle, not as an end-to-end DMAIC."
+      ],
+      "quality_flags": null
+    },
+    {
+      "pmcid": "PMC11858851",
+      "title": "Multivariate Data Analysis to Assess Process Evolution and Systematic Root Causes Investigation in Tablet Manufacturing at an Industrial Scale—A Case Study Focused on Improving Tablet Hardness",
+      "journal": "Pharmaceutics (MDPI), 2025",
+      "license_verbatim": "© 2025 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license ( https://creativecommons.org/licenses/by/4.0/ ).",
+      "domain": "pharmaceutical solid-dose manufacturing (industrial-scale high-shear wet granulation → tableting → film coating)",
+      "y_type": "continuous",
+      "n_nodes": 5,
+      "n_tables": 3,
+      "ctq": {
+        "name": "average core tablet hardness per batch",
+        "unit": "N",
+        "source_sentence": "The objective of this work was to identify the root causes leading to low and variable hardness of core tablets by applying a systematic approach based on batch statistical modeling and to verify the effectiveness of the implemented improvement actions in the short and long term."
+      },
+      "spec": {
+        "lsl": null,
+        "usl": null,
+        "target": null,
+        "source_sentence": "During 18 months of manufacturing, the product presented variable core tablet hardness for both strengths, in the entire range allowed, with some results also below the applicable in-process control range for this parameter.",
+        "note": "FETCH_FAILED for numeric limits — the actual LSL/USL are never printed in the full text (confidential commercial product). Only the SQL formula referencing them is given."
+      },
+      "baseline": {
+        "n_batches": 114,
+        "window_months": 18,
+        "source_sentence": "A wide data set was used for modeling and root cause investigation purposes and was composed of active ingredient properties, processing conditions, and intermediate product characteristics from 114 batches manufactured at the industrial scale over the course of 18 months."
+      },
+      "decision_points": [
+        {
+          "phase": "Define/Measure",
+          "question": "How is process quality scored?",
+          "observed": {
+            "metric": "SQL formula",
+            "value": "Min[x̄-LSL, USL-x̄] / SD"
+          },
+          "verdict": "sigma quality level defined as short-term Z_min (equivalently 3*Cpk), no 1.5-sigma shift",
+          "source_sentence": "The sigma quality level (SQL) was calculated for each group using the formula below: (1) S Q L = M i n [ S a m p l e A v e r a g e − L S L , U S L − S a m p l e A v e r a g e ] S D , LSL —lower specification limit; USL —upper specification limit; SD —sample standard deviation."
+        },
+        {
+          "phase": "Measure",
+          "question": "Is the wet-granulation torque trajectory stable across batches?",
+          "observed": {
+            "metric": "BEM control chart",
+            "value": "batch-evolution control chart built"
+          },
+          "verdict": "torque alone does not explain hardness — downstream steps matter",
+          "source_sentence": "For similar end-torque values, variability was observed in the hardness of core tablets; hence, the granulate properties are further influenced by subsequent process steps."
+        },
+        {
+          "phase": "Analyze",
+          "question": "Does position within a manufacturing campaign affect hardness?",
+          "observed": {
+            "metric": "p",
+            "value": 1.15e-05
+          },
+          "verdict": "significant — early-campaign batches run lower",
+          "source_sentence": "Batches from the beginning of one manufacturing campaign generally presented lower hardness values ( p = 1.15 × 10 −5 )."
+        },
+        {
+          "phase": "Analyze",
+          "question": "Which four variables drive hardness (PLS/PCA batch-level models)?",
+          "observed": {
+            "metric": "variables",
+            "value": "API d0.5, nozzle type, wet discharge index, drying index"
+          },
+          "verdict": "worst combination identified",
+          "source_sentence": "The lowest hardness values for both tablet types were obtained for batches granulated with nozzle 1, having API d0.5 > 45 microns, a wet discharge index below 18% (intense transfer), and a drying index above 2600 m 3 /h (intense drying)."
+        },
+        {
+          "phase": "Improve/Control",
+          "question": "Did the new control strategy raise hardness and cut variability?",
+          "observed": {
+            "metric": "average hardness increase",
+            "value": "15-20%",
+            "SQL_after": 2.5,
+            "confirmation_batches": 46
+          },
+          "verdict": "confirmed on 46 subsequent batches",
+          "source_sentence": "The effectiveness of the new control strategy was confirmed through the significant average hardness increase (15–20%) and between-batch variability decrease, leading to decent sigma quality levels for the control phase batches (SQL = 2.5)."
+        }
+      ],
+      "improvement": {
+        "before": null,
+        "after": 2.5,
+        "before_after_metric": "SQL (sigma quality level)",
+        "confirmed": true,
+        "source_sentence": "Both strengths reached the same sigma level in the control stage (SQL = 2.5), a value that is currently typical for the pharmaceutical industry [ 18 ]."
+      },
+      "numeric_audit": "No arithmetic contradiction found. The one auditable relation — SQL = Min[x̄-LSL, USL-x̄]/SD = 3*Cpk — is stated correctly. Absolute hardness values, LSL/USL and the baseline SQL are not printed in the text (Figure 8 only), so most quantities cannot be independently recomputed.",
+      "notes_uncertain": [
+        "The BASELINE SQL value exists only inside Figure 8 ('Figure 8 Hardness and sigma level values for tablet H ( a ) and tablet L ( b ) batches before and after new control strategy implementation.') — FETCH_FAILED as text. Only the post value SQL = 2.5 is in prose.",
+        "SQL here is short-term Z_min WITHOUT the conventional 1.5-sigma shift. A benchmark that assumes the Motorola long-term convention will disagree by 1.5. Convention difference, not an error.",
+        "The sentence 'with values of 6 corresponding to top performance and with only 3.4 quality deviations per million opportunities' mixes the two conventions in the same paragraph as the shift-free formula — 3.4 ppm at 6 sigma is the SHIFTED convention. UNCERTAIN / mildly inconsistent.",
+        "No MSA node. Hardness tester capability is never assessed."
+      ],
+      "quality_flags": null
+    }
+  ],
+  "candidate_needs_extraction": [
+    {
+      "pmcid": "PMC6977137",
+      "title": "Practical application of Six Sigma management in analytical biochemistry processes in clinical settings",
+      "license": "CC BY 4.0 (Wiley/JCLA) - PASS",
+      "country": "CN (Hunan Provincial People's Hospital)",
+      "n_nodes": 3,
+      "n_tables": 6,
+      "why_not_ready": "Scored below the n_nodes>=4 threshold and was never put through structured extraction; it has no decision_points yet. Flagged for manual promotion because its arithmetic verified clean throughout.",
+      "why_rejected_original": "n_nodes = 3 (MSA via QGI precision verdict, control rules, capability). No hypothesis test, no DOE, no confirmed before/after.",
+      "value_note": "STRUCTURALLY THE RICHEST DECISION GRAPH OF THE WHOLE POOL and fully arithmetically verified: Sigma = (TEa - Bias)/CV reproduces every one of 35 published sigma values (CK L1 (30-1.92)/3.02 = 9.30 published 9.30; TC (10-1.11)/2.15 = 4.13 published 4.13; Cl (5-1.50)/1.48 = 2.36 published 2.36), and QGI = Bias/(1.5*CV) reproduces the verdicts (ALB 2.91/(1.5*2.31) = 0.84 -> 'Imprecision and inaccuracy', consistent with the stated 0.8-1.2 band). No statistical error found. Recommend admitting it by exception.",
+      "quality_flags": [
+        "The sigma formula renders as 'Sigma = TEa - Bias / CV' in the XML because MathML parentheses are stripped; this is a rendering artefact, not an error in the paper."
+      ]
+    }
+  ]
+}

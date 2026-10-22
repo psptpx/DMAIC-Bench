@@ -1,0 +1,90 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "source": "agreement.json",
+        "sample_size": 120,
+        "number_of_groups": 3
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "agreementPct": 95.0,
+        "kappaMin": 0.7647058823529412,
+        "totalComparisons": 120,
+        "matches": 114
+      },
+      "status": "success",
+      "decision": "Overall agreement is high, and the minimum reviewer kappa is above 0.75; breach judgement can be relied on with caution."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "source": "root_cause.json",
+        "group_count": 2,
+        "group1_count": 30,
+        "group1_trials": 600,
+        "group2_count": 24,
+        "group2_trials": 600
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.40342950102782804,
+        "zStatistic": 0.8355119862887138,
+        "group1Rate": 0.05,
+        "group2Rate": 0.04,
+        "group1Count": 30,
+        "group1Trials": 600,
+        "group2Count": 24,
+        "group2Trials": 600
+      },
+      "status": "success",
+      "decision": "The two teams do not differ significantly in breach share over the common comparison window."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "source": "subgroups.json",
+        "period_count": 25,
+        "subgroup_size": 200
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0456,
+        "outOfControlCount": 1,
+        "upperControlLimit": 0.08985413878949629,
+        "lowerControlLimit": 0.0013458612105037154,
+        "periodCount": 25,
+        "subgroupSize": 200,
+        "flaggedSubgroupIndex": 13,
+        "flaggedDefectCount": 44,
+        "flaggedProportion": 0.22
+      },
+      "status": "success",
+      "decision": "The breach share is not perfectly steady; one period is outside the p-chart control limits."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "source": "subgroups.json",
+        "period": 25,
+        "defect_count": 4,
+        "sample_size": 200,
+        "target_rate": 0.05
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.026446800009119878,
+        "proportion": 0.02,
+        "gapToTarget": 0.030000000000000002,
+        "defectCount": 4,
+        "sampleSize": 200,
+        "targetRate": 0.05
+      },
+      "status": "success",
+      "decision": "The latest period is below the 5 percent requirement; exact one-sided test gives p=0.0264."
+    }
+  ],
+  "turns": 2,
+  "interventions": 0
+}

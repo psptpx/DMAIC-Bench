@@ -1,0 +1,161 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "agreement",
+        "n_referents": 20,
+        "n_appraisers": 3,
+        "n_trials": 2
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.6808510638297872,
+        "agreementPct": 93.33333333333333,
+        "withinKappaMin": 0.6590909090909091,
+        "overallKappaVsStandard": 0.855072463768116,
+        "correct": 112,
+        "comparisons": 120
+      },
+      "status": "success",
+      "decision": "The sound/defective judgement has moderate reliability: high overall agreement but minimum appraiser-vs-standard kappa is below the usual 0.75 threshold."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "lots",
+        "n_lots": 25,
+        "lot_size": 5000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.002576,
+        "outOfControlCount": 0,
+        "individualsUCL": 0.004726547744924535,
+        "individualsLCL": 0.00042545225507546573,
+        "pBarDpmo": 2576.0,
+        "totalInspected": 125000,
+        "totalDefects": 322,
+        "nLots": 25
+      },
+      "status": "success",
+      "decision": "No lot is outside the 3-sigma p-chart limits; the defective share is stable across the 25 lots."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "lots",
+        "comparison": "1500 DPMO charter target"
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.0,
+        "zStatistic": 9.829866364424648,
+        "pBarDpmo": 2576.0,
+        "targetDpmo": 1500,
+        "totalDefects": 322,
+        "totalInspected": 125000
+      },
+      "status": "success",
+      "decision": "The overall lot defective share is above the charter target, with p < 0.0001 against 1500 DPMO."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "candidates",
+        "n_categories": 5
+      },
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryPct": 30.416666666666668,
+        "topCategoryCount": 73,
+        "totalCategoryCount": 240
+      },
+      "status": "success",
+      "decision": "The top reject category is loose end at about 30.4% of the recorded reject count."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "failure_modes",
+        "n_modes": 5
+      },
+      "method_id": "quality.fmea_rpn",
+      "outputs": {
+        "maxRpn": 360
+      },
+      "status": "success",
+      "decision": "Seam split has the highest RPN (360), driven by severity 9 and detection 8."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "machines",
+        "n_machines": 4,
+        "n_outcome_categories": 2
+      },
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 2.578196336812705,
+        "pValue": 0.4613248388721344,
+        "degreesOfFreedom": 3
+      },
+      "status": "success",
+      "decision": "No statistically significant machine-to-defect association was found; machine differences alone do not explain the defect pattern."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "after_change",
+        "n_before": 4000,
+        "n_after": 4000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.22475969475491575,
+        "zStatistic": 1.2139686528327227,
+        "pBefore": 0.0015,
+        "pAfter": 0.00275,
+        "dBefore": 6,
+        "dAfter": 11,
+        "nBefore": 4000,
+        "nAfter": 4000
+      },
+      "status": "success",
+      "decision": "Before-vs-after on the changed machine is not statistically significant, and the after period is numerically higher in defect share."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n_records": 20,
+        "record_size": 5000,
+        "comparison": "1500 DPMO charter target"
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.00017079550662235654,
+        "zStatistic": -3.758704358465586,
+        "pBarDpmo": 1040.0,
+        "targetDpmo": 1500,
+        "totalDefects": 104,
+        "totalInspected": 100000,
+        "nRecords": 20
+      },
+      "status": "success",
+      "decision": "The current sustaining record is below the charter target and the difference against 1500 DPMO is statistically significant."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "proceed_after_measurement_system_assessment",
+      "chosen_branch": "proceed_with_available_data",
+      "observed": {
+        "kappaMin": 0.6808510638297872,
+        "agreementPct": 93.33333333333333
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

@@ -1,0 +1,103 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "panel_variants": 150,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 119,
+        "unaffectedRetained": 119,
+        "platePass": true,
+        "p039CallRate": 0.9466666666666667,
+        "p197CallRate": 0.94
+      },
+      "status": "success",
+      "decision": "The plate passes participant QC; exclude P039 and P197 and continue with retained participants."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retained_participants": 238,
+        "panel_variants": 150,
+        "control_group_used_for_hwe": true
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 3,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "Retain variants passing call rate, MAF, and exact control-only HWE rules; the computed discovery cutoff would apply only if the ancestry gate passed."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retained_participants": 238,
+        "retained_variants": 138,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 3.654069761192594e-129,
+        "pc1VarianceFraction": 0.09427730354730539,
+        "pc1StandardizedDifference": 7.14228496850765,
+        "casePc1Min": -5.899208337332883,
+        "casePc1Max": -1.484927464351246,
+        "controlPc1Min": 0.30468856316516874,
+        "controlPc1Max": 6.737616767616936,
+        "rangesOverlap": false
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants occupy non-overlapping PC1 ranges and are separate ancestries; protocol prohibits association testing."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_technical_gate",
+      "chosen_branch": "continue_after_excluding_failed_participants",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_precondition",
+      "chosen_branch": "stop_before_association",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 3.654069761192594e-129,
+        "rangesOverlap": false
+      }
+    },
+    {
+      "point": "replication_eligibility",
+      "chosen_branch": "do_not_test_replication_without_valid_discovery_candidates",
+      "observed": {
+        "validDiscoveryCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

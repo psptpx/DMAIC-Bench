@@ -1,0 +1,307 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "study_1",
+        "appraisers": 3,
+        "boards": 20,
+        "ratings": 120,
+        "trials_per_appraiser": 2
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "agreementPct": 95.83333333333333,
+        "agreementPctRounded": 95.83,
+        "agreementCount": 115,
+        "ratingsCount": 120,
+        "kappaMin": 0.797979797979798,
+        "kappaMinRounded": 0.798,
+        "fleissKappa": 0.8310335116868487,
+        "fleissKappaRounded": 0.831,
+        "minTrialVsStdKappa": 0.797979797979798,
+        "minTrialVsStdKappaRounded": 0.798,
+        "minWithinAppraiserKappa": 0.797979797979798,
+        "minWithinAppraiserKappaRounded": 0.798,
+        "minAppraiserVsStdKappa": 0.8989898989898989,
+        "minAppraiserVsStdKappaRounded": 0.899
+      },
+      "status": "success",
+      "decision": "Initial overall agreement was imperfect, and the weakest kappa was below 0.8; criteria needed rewriting and calibration before calls could be relied on."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "study_2",
+        "appraisers": 3,
+        "boards": 20,
+        "ratings": 120,
+        "trials_per_appraiser": 2
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "agreementPct": 97.5,
+        "agreementPctRounded": 97.5,
+        "agreementCount": 117,
+        "ratingsCount": 120,
+        "kappaMin": 0.7368421052631581,
+        "kappaMinRounded": 0.737,
+        "fleissKappa": 0.8746081504702193,
+        "fleissKappaRounded": 0.875,
+        "minTrialVsStdKappa": 0.7368421052631581,
+        "minTrialVsStdKappaRounded": 0.737,
+        "minWithinAppraiserKappa": 0.7368421052631581,
+        "minWithinAppraiserKappaRounded": 0.737,
+        "minAppraiserVsStdKappa": 0.8749999999999999,
+        "minAppraiserVsStdKappaRounded": 0.875
+      },
+      "status": "success",
+      "decision": "Overall agreement improved after the rewrite, but the weakest repeatability kappa fell to 0.737, so calls were not yet fully reliable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "disagreements",
+        "categories": 5
+      },
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryCount": 46,
+        "topCategoryPct": 51.111111111111114,
+        "topCategoryPctRounded": 51.11,
+        "disagreementTotal": 90,
+        "topTwoPct": 66.66666666666667,
+        "topTwoPctRounded": 66.67,
+        "insufficientSolderCount": 46,
+        "componentOffsetCount": 14,
+        "tombstoneCount": 12,
+        "solderBridgeCount": 9,
+        "wrongPolarityCount": 9
+      },
+      "status": "success",
+      "decision": "Insufficient solder was the largest disagreement category."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25,
+        "subgroup_size": 400
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0179,
+        "centerLinePct": 1.79,
+        "centerLinePctRounded": 1.79,
+        "outOfControlCount": 1,
+        "upperControlLimit": 0.03778820693275289,
+        "upperControlLimitPct": 3.778820693275289,
+        "upperControlLimitPctRounded": 3.78,
+        "lowerControlLimit": 0,
+        "subgroupSize": 400,
+        "lots": 25,
+        "totalDefects": 179,
+        "totalInspected": 10000,
+        "worstLotIndex": 13,
+        "worstDefectCount": 38,
+        "worstPct": 0.095,
+        "worstPctRounded": 9.5,
+        "latestDefectCount": 10,
+        "latestPct": 0.025,
+        "latestPctRounded": 2.5,
+        "meanLotPct": 0.0179,
+        "medianLotPct": 0.015
+      },
+      "status": "success",
+      "decision": "The reject share was stable except for one special-cause lot, lot 13."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.07613014787153632,
+        "correlationCoefficientRounded": 0.0761,
+        "pValue": 0.7175848757242015,
+        "pValueRounded": 0.7176
+      },
+      "status": "success",
+      "decision": "No linear trend in lot reject share."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "lots_all",
+        "n": 10000,
+        "defects": 179
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.0179,
+        "processZ": 2.099191761058102,
+        "processZRounded": 2.099,
+        "targetPct": 2.0,
+        "targetZ": 2.0537489106318225,
+        "targetZRounded": 2.054,
+        "sampleSize": 10000,
+        "defectCount": 179,
+        "observedPct": 1.79
+      },
+      "status": "success",
+      "decision": "Overall binomial capability index was slightly above target."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "lots_latest",
+        "n": 400,
+        "defects": 10
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.025,
+        "processZ": 1.959963984540054,
+        "processZRounded": 1.96,
+        "targetPct": 2.0,
+        "targetZ": 2.0537489106318225,
+        "targetZRounded": 2.054,
+        "sampleSize": 400,
+        "defectCount": 10,
+        "observedPct": 2.5
+      },
+      "status": "success",
+      "decision": "Latest-lot binomial capability index was below target."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "lots_all",
+        "count": 179,
+        "n": 10000
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.9397044687382266,
+        "pValueRounded": 0.9397,
+        "count": 179,
+        "n": 10000,
+        "observedPct": 1.79,
+        "targetPct": 2.0,
+        "ci95LowerPct": 1.539245977121318,
+        "ci95LowerPctRounded": 1.54,
+        "ci95UpperPct": 2.069361339471406,
+        "ci95UpperPctRounded": 2.07,
+        "confidenceLevelPct": 95
+      },
+      "status": "success",
+      "decision": "Overall reject share was not statistically above the required level."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "lots_latest",
+        "count": 10,
+        "n": 400
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.2821118300154998,
+        "pValueRounded": 0.2821,
+        "count": 10,
+        "n": 400,
+        "observedPct": 2.5,
+        "targetPct": 2.0,
+        "ci95LowerPct": 1.205212011318594,
+        "ci95LowerPctRounded": 1.21,
+        "ci95UpperPct": 4.549427929878001,
+        "ci95UpperPctRounded": 4.55,
+        "confidenceLevelPct": 95
+      },
+      "status": "success",
+      "decision": "Latest lot was above target in point estimate but statistically inconclusive."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "heads",
+        "events1": 56,
+        "trials1": 3000,
+        "events2": 49,
+        "trials2": 3000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.490705562532215,
+        "pValueRounded": 0.491,
+        "zStatistic": 0.6891870541365993,
+        "zStatisticRounded": 0.689,
+        "p1": 0.018666666666666668,
+        "p1Pct": 1.866666666666667,
+        "p1PctRounded": 1.87,
+        "p2": 0.01633333333333333,
+        "p2Pct": 1.633333333333333,
+        "p2PctRounded": 1.63,
+        "pooledP": 0.0175,
+        "pooledPct": 1.7500000000000002,
+        "events1": 56,
+        "trials1": 3000,
+        "events2": 49,
+        "trials2": 3000
+      },
+      "status": "success",
+      "decision": "No significant difference between the two placement heads."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "accept_reject_reliability",
+      "chosen_branch": "rewrite_criteria_then_retest",
+      "observed": {
+        "agreementPct": 95.83333333333333,
+        "kappaMin": 0.797979797979798,
+        "minWithinAppraiserKappa": 0.797979797979798,
+        "minAppraiserVsStdKappa": 0.8989898989898989
+      }
+    },
+    {
+      "point": "disagreement_priority",
+      "chosen_branch": "insufficient_solder",
+      "observed": {
+        "topCategoryPct": 51.111111111111114,
+        "topCategoryCount": 46,
+        "disagreementTotal": 90
+      }
+    },
+    {
+      "point": "lot_stability",
+      "chosen_branch": "special_cause_lot_13",
+      "observed": {
+        "outOfControlCount": 1,
+        "worstLotIndex": 13,
+        "worstPct": 0.095
+      }
+    },
+    {
+      "point": "target_comparison",
+      "chosen_branch": "overall_at_target_latest_inconclusive",
+      "observed": {
+        "overallPct": 1.79,
+        "latestPct": 2.5,
+        "latestPValue": 0.2821118300154998
+      }
+    },
+    {
+      "point": "head_comparison",
+      "chosen_branch": "no_significant_difference",
+      "observed": {
+        "zStatistic": 0.6891870541365993,
+        "pValue": 0.490705562532215
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

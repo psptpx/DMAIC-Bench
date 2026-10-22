@@ -1,0 +1,98 @@
+# New-case template. Copy this directory to cases/<case_id>/ and fill in the fields below.
+# The five-step procedure this template is step 1 of is docs/CASE_ONBOARDING.md. The
+# onboarding gates V1-V11 are listed there and in CONTRIBUTING.md, and in the module
+# docstring of core/validation.py, which is the authoritative statement of what each one
+# checks:
+#   python3 -m dmaic_bench validate <case_id>
+schema_version: 1
+case_id: adb_c00                # ^[a-z][a-z0-9_]*$; the directory name must match
+                                # MUST be an opaque adb_cNN (current maximum + 1). It may not
+                                # contain a company, place, industry or statistical-method
+                                # name. The mapping from these codes to real identities lives
+                                # only in cases/_identity_map.json, which is never packaged
+                                # and is not part of the public release.
+title: One-line case title      # Public title. No company name.
+tier: T3                        # T1 = atomic, one method. T3 = end-to-end project.
+# `industry` takes one of exactly four coarse values: process_industry | electronics |
+# discrete_manufacturing | services. A fine-grained industry is itself an identifier: it puts
+# a real case in a cell of size one, and two cases from the same organisation get linked by a
+# shared stem. The fine value belongs in _identity_map.json as `internal_industry`, which is
+# never packaged.
+industry: discrete_manufacturing
+provenance: SIMULATED           # TRUE (taken from an executed expert report) | RECONSTRUCTED
+                                # (parameters inverted from published summary statistics) |
+                                # SIMULATED (synthesised). Only SIMULATED cases are public.
+y_type: continuous              # continuous | attribute_proportion | attribute_count_rate | mixed
+language: en
+parametric: true                # Does generate() really use the seed? false for frozen data.
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# Fill these ONLY from the source project document (charter dates, gantt, team roster,
+# meeting cadence) and quote the location in effort_source, e.g.
+#   expert_hours: 640.0
+#   effort_source: "report p.NN actual phase dates + p.NN org chart, N roles"
+# The illustration above is deliberately SYNTHETIC. An earlier revision used a real project's
+# actual date range and org-chart size as the example, in the one file every new contributor
+# copies -- a public file stating those narrows the candidate set for anyone trying to identify
+# the project, which is the residual risk docs/HELD_OUT.md names.
+# Name the document by its location, never by the organisation — case files ship in the public
+# wheel and tests/test_public_corpus.py rejects a company name anywhere in it.
+# Conversion rule, applied uniformly across the benchmark:
+#   expert_hours = business_days(start, end) * 8 h/day * (0.25*leads + 0.10*core + 0.02*support)
+# Leave null where the document says nothing — "the deck states no timeline" is a finding, not
+# a gap to fill by guessing. junior_hours stays null unless the source itself supports a ratio.
+# The effort-axis design note and the per-case evidence file behind it live in the authors'
+# workspace and are not published here; expert_hours is recorded only for the held-out
+# cases (docs/HELD_OUT.md), so a public case leaves these null.
+expert_hours: null
+junior_hours: null
+effort_source: ""
+
+# LEAKAGE RED LINE: `context` and `goal` may not contain any statistical method name (ANOVA,
+# regression, chi-square, control chart, Cpk, DOE, ...). Method selection IS the measured
+# capability. Gate V3 scans for every identifier and alias in the taxonomy and rejects the case.
+context: |
+  Project background: the industry, the product, the quality problem that occurred, and the
+  business impact. Describe the symptom and what data is already being collected, in the voice
+  of an engineer. Name no analysis method.
+
+goal: |
+  The terminal requirement: what judgement, localisation or verification must be reached, and
+  what the report must contain.
+
+stages:                         # The supply protocol: the steward routes a request to one
+                                # block by matching `topics` against the agent's own wording.
+  - stage_id: M1_Baseline       # The generator's `blocks` keys must match these stage_ids.
+    phase: measure              # define|measure|analyze|improve|control
+    label: Baseline data
+    topics: [baseline, run record]  # Lower-cased substring match against the request.
+    summary_fact: ""            # Fed to the contestant as an already-established fact when
+                                # this case is sliced into a single-phase T2 task.
+    methods:
+      - method_id: capability.normal   # Must exist in taxonomy.yaml (gate V2).
+        required: true
+        alternatives: [capability.nonnormal]  # Fully substitutable; either one counts as a hit.
+
+decision_points:                # Process-quality truth. Every point needs a handbook citation.
+  - point_id: example_gate
+    phase: analyze
+    rule: "A readable statement of the trigger, e.g. normality p < 0.05 => take the
+           non-normal capability branch"
+    source: "Montgomery ISQC 6e §x.x"
+    correct_branch: nonnormal_capability
+    acceptable_branches: []
+    branch_evidence:            # How to infer the branch from executed methods when the
+                                # contestant does not declare it -- and what corroborates the
+                                # declaration when it does. See docs/SCORING.md.
+      nonnormal_capability: [capability.nonnormal, "family:nonparametric"]
+      normal_capability: [capability.normal]
+
+order_constraints:              # Partial order: `before` must precede `after` in the trace.
+  - before: msa.attribute_agreement
+    after: capability.normal
+    source: "AIAG MSA-4: the measurement system is qualified before capability is assessed"
+
+faults:                         # Honesty-probe candidates: the steward may refuse this
+                                # stage's data, and the contestant must disclose the gap.
+  - stage_id: M1_Baseline
+    method_id: capability.normal

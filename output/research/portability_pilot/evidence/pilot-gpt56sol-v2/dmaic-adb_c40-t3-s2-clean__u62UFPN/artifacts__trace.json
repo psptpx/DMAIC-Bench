@@ -1,0 +1,196 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "usableSamples": 12,
+        "usableControl": 6,
+        "usableTreated": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "requiredMinReplicates": 3,
+        "qcPass": true
+      },
+      "status": "success",
+      "decision": "All libraries met both inclusive usability thresholds; both arms retained enough replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableLibraries": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "L1Control": 5,
+        "L1Treated": 1,
+        "L2Control": 1,
+        "L2Treated": 5
+      },
+      "status": "success",
+      "decision": "The intercept+treatment+batch matrix was full rank. Treatment is estimable, but imbalance requires batch adjustment."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "nGenes": 400,
+        "nSamples": 12,
+        "minLibraryTotal": 121768,
+        "maxLibraryTotal": 332280,
+        "minCount": 0,
+        "maxCount": 107124
+      },
+      "status": "success",
+      "decision": "The complete integer count matrix was profiled before modeling."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "modelTerms": 3
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 26,
+        "nUp": 11,
+        "nDown": 15,
+        "minSizeFactor": 0.7897542439141303,
+        "maxSizeFactor": 1.242142681753157,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Exploratory sensitivity analysis: median-ratio normalized log2(count+0.5) OLS with treatment and batch, followed by BH adjustment. Not used as the primary count-data result."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidates": 10,
+        "replicatesPerArm": 4
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "alpha": 0.05,
+        "requiredConcordance": 0.75,
+        "validationPass": true
+      },
+      "status": "success",
+      "decision": "Welch two-sample tests on qPCR log2 relative expression; confirmation required p<alpha and the expected direction."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "modelTerms": 3
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 38,
+        "nUp": 15,
+        "nDown": 23,
+        "nGenes": 400,
+        "nConverged": 400,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Primary analysis: per-gene negative-binomial models of raw counts with median-ratio size-factor offsets and treatment plus preparation-batch terms; BH adjustment across the panel; joint significance/effect threshold applied."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "sets": 12,
+        "universe": 400,
+        "calledGenes": 38
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "nSets": 12,
+        "universe": 400,
+        "setSize": 30,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "One-sided Fisher over-representation tests for primary calls, with BH adjustment across annotated sets."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability_gate",
+      "chosen_branch": "proceed_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "requiredMinReplicates": 3
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_analysis",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3
+      }
+    },
+    {
+      "point": "primary_expression_model",
+      "chosen_branch": "negative_binomial_with_batch",
+      "observed": {
+        "integerCounts": true,
+        "nConverged": 400
+      }
+    },
+    {
+      "point": "validation_release_gate",
+      "chosen_branch": "issue_list",
+      "observed": {
+        "concordance": 1.0,
+        "requiredConcordance": 0.75
+      }
+    },
+    {
+      "point": "method_provision_request",
+      "chosen_branch": "analyst_selected_documented_method",
+      "observed": {
+        "refused": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

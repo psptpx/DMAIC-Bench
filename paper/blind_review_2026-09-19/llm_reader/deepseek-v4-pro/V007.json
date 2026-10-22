@@ -1,0 +1,73 @@
+{
+ "reviewer_id": "R?",
+ "reviewer_type": "Human",
+ "perspective": "Independent human expert Black Belt review, industrial/statistical validity",
+ "blinding_compliance": "I read only the blind/ directory packet for V007 and did not inspect the repository outside this directory, hidden truth files, scoring code, other reviewers' outputs, or the earlier study. I did not search the benchmark/paper name online.",
+ "ai_assistance": "AI assistant used to draft and format this JSON review from the provided packet; substantive judgments are the reviewer's.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V007",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the production roughness readings are adequate for judging conformance to the 0.40-1.60 um Ra band, because the crossed Gage R&R %tolerance is 46.67% (>30%) and ndc is 4.78 (<5).",
+    "Asserting actual process stability or actual process capability from the 50-bore production record, because gage variance is 89.72% of observed variance and the gage sigma is nearly as large as the production record sigma.",
+    "Claiming true conformance from the observed 0/50 out-of-spec count or from the expected ppm value; these are reading-level descriptions only.",
+    "Recommending to leave the honing process mean unchanged, or ruling out process special causes, as if the current readings can resolve those questions.",
+    "Using the gage-corrected Ppk of 5.98 or residual sigma of 0.0316 um as an established process capability estimate; this is an unconfirmed upper-bound arithmetic projection.",
+    "Treating the projected %tolerance improvements from averaging traces or removing operator offset as validated without a fresh Gage R&R."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive analysis of the raw readings clearly labeled as readings, not process truth: mean, standard deviation, range, normality checks, and observed count inside limits.",
+    "Measurement system diagnosis: crossed Gage R&R, variance components, repeatability/reproducibility, and operator bias contrasts.",
+    "Recommendations to repair the measurement system: standardize operator method and retrain operator1, record each bore as the average of multiple traces, and re-qualify the gage.",
+    "Reporting the absence of process facts, after-change data, control-phase data, and designed experiments, and stating that the corresponding conclusions stop there.",
+    "Stating that the current record cannot resolve the assembly returns because of measurement error.",
+    "Arithmetic projections from the measured variance components, explicitly labeled as projections requiring confirmation by a fresh Gage R&R."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "The honing process is stable and every bore in the run measured inside the accepted band.",
+    "The honing process is therefore *better* than the record makes it look, not worse.",
+    "Recommendation: leave the mean alone.",
+    "Do not touch the honing parameters yet."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Descriptive summary, normality checks, raw I-MR/runs/correlation, and the variance-component arithmetic are acceptable only as restricted descriptive or exploratory calculations if they are explicitly denied process interpretation. However, the capability indices, observed out-of-spec count/ppm, gage-corrected Ppk, and the resulting statements that the process is stable and better than the record suggests are unacceptable substantive uses after the MSA failed. The projection calculations for average traces and operator-offset removal are acceptable as labeled projections requiring confirmation.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "After the failed MSA, restrict the report to MSA diagnosis plus reading-level descriptive statistics, and stop at measurement-system corrective recommendations.",
+    "If process behavior is explored, label all I-MR, capability, and t-test outputs as 'apparent' or 'reading-level' only, with no stability, conformance, or true centering conclusions.",
+    "A variance-subtracted capability estimate could be reported as a sensitivity bound if the MSA and production datasets are shown to be compatible and all assumptions are explicit, but it must not be used for decisions without confirmation.",
+    "After operator method repair and multi-trace averaging, run a fresh Gage R&R; if %tolerance falls below 30% and ndc reaches at least 5, then re-baseline the control chart and capability analysis on post-fix readings."
+   ],
+   "evidence": [
+    "Crossed Gage R&R: percentTolerance = 46.6735, percentStudyVariation = 28.2675, ndc = 4.7846, percentContributionGRR = 7.9905, sdGRR = 0.093347 (step 2).",
+    "Interaction p = 0.1553 retained; operator p = 0.0019; paired operator1 vs operator2 p = 0.0038; operator1 vs operator3 p = 0.0055; operator2 vs operator3 p = 0.911 (steps 2 and 5).",
+    "Production run observed sd = 0.09855, range 0.825 to 1.264, n = 50; gage share of observed variance = 89.72%; residual true-process sd = 0.0316 (steps 6 and 13).",
+    "I-MR: center line 1.0334, limits 0.7414 to 1.3253, 0 points beyond control limits; Nelson test 5 fires on bores 37-39 (step 8).",
+    "Capability: Cp = 2.055, Cpk = 1.941, Pp = 2.029, Ppk = 1.917, observed out of spec = 0/50 (step 12)."
+   ],
+   "rationale": "The measurement system study is decisive against using the production readings for substantive process conclusions: %tolerance = 46.67% and ndc = 4.78 fail the usual MSA gates, and the production record is dominated by gage noise. Therefore stability, conformance, and real capability are not established. The report appropriately identifies the MSA failure, refuses to claim achieved improvement, and withholds the gage-corrected Ppk as a claim, but it then makes process-level stability and capability statements in the headline and process sections. That is materially misleading despite the caveats, so the trajectory is mixed.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from self-reported values: varGage/varTotal = 0.008713677/0.009711868 = 89.72%; ndc roughly sqrt(2*0.100336952/0.008713677) = 4.78; 6*sdGRR/tol = 6*0.093347/1.20 = 46.67%. Did not recompute the raw batch.",
+   "evidence_problem": "Missing process facts such as production reading protocol, operator method, and calibration state; no fresh Gage R&R after the proposed corrections; no independent data to confirm the variance-subtraction estimate."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 8343,
+  "completion_tokens": 13185,
+  "total_tokens": 21528,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 11542
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 6679
+ }
+}

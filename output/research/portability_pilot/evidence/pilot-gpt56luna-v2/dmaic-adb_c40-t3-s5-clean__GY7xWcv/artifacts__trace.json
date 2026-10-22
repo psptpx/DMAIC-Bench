@@ -1,0 +1,147 @@
+{
+  "system_id": "sequencing_core_analysis",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "nLibraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "nLibraries": 12,
+        "usableControl": 6,
+        "usableTreated": 6
+      },
+      "status": "success",
+      "decision": "All libraries passed sequencing QC and both arms retain the required usable replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "nLibraries": 12,
+        "groups": 2,
+        "batches": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "armCount": 2,
+        "usableLibraries": 12
+      },
+      "status": "success",
+      "decision": "Treatment is estimable separately from preparation batch; batch is included in the model."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "nGenes": 400,
+        "nSamples": 12,
+        "model": "treatment plus preparation batch"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "nGenes": 400,
+        "nSamples": 12,
+        "dfResidual": 9
+      },
+      "status": "success",
+      "decision": "No gene meets both the adjusted-p and absolute-log2-fold-change calling thresholds."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "nCandidates": 0,
+        "nConfirmed": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 0,
+        "nCandidates": 0
+      },
+      "status": "success",
+      "decision": "No candidates were nominated; the concordance fraction is vacuously one, but there is no candidate list to validate or issue."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "universe": 400,
+        "nCandidates": 0
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 0,
+        "universe": 400,
+        "nCandidates": 0
+      },
+      "status": "success",
+      "decision": "No enrichment can be attributed to an empty nominated list."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "counts",
+        "nGenes": 400,
+        "nSamples": 12,
+        "model": "independent statsmodels verification of treatment plus batch"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "nGenes": 400,
+        "nSamples": 12,
+        "dfResidual": 9
+      },
+      "status": "success",
+      "decision": "Independent statsmodels verification agrees: no gene meets the prespecified adjusted-p and absolute-log2-fold-change thresholds."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "usable_replicates",
+      "chosen_branch": "proceed_to_sample_sheet",
+      "observed": {
+        "minReplicates": 6,
+        "failedSamples": 0
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "batch_adjusted_contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2
+      }
+    },
+    {
+      "point": "differential_expression",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "validation",
+      "chosen_branch": "no_candidates_to_validate",
+      "observed": {
+        "nCandidates": 0,
+        "concordance": 1.0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

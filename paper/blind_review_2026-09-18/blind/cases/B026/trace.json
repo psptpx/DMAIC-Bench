@@ -1,0 +1,153 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "sampleSize": 90,
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 13.336418528430315,
+        "percentTolerance": 14.447970756038174,
+        "ndc": 10,
+        "grandMean": 442.3404122222222,
+        "varianceRepeatability": 21.49864487399998,
+        "varianceReproducibility": 1.695117233481606,
+        "varianceGageRR": 23.193762107481586,
+        "variancePartToPart": 1280.8518013714402,
+        "varianceTotal": 1304.0455634789218
+      },
+      "status": "success",
+      "decision": "Crossed random-effects ANOVA Gage R&R is conditionally acceptable for this study, but should be improved."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "sampleSize": 50,
+        "lsl": 350.0,
+        "usl": 550.0,
+        "acceptedMidpoint": 450.0,
+        "meanBelowMidpoint": 38.56600000000003,
+        "latestReading": 401.6,
+        "belowLslCount": 4,
+        "aboveUslCount": 0,
+        "conformingCount": 46,
+        "conformingPct": 92.0
+      },
+      "status": "success",
+      "decision": "The latest observation is in range, but the full run contains lower-side nonconformance."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 411.43399999999997,
+        "median": 416.85,
+        "stdDev": 48.61663698608466,
+        "skewness": -0.15438472485919366,
+        "adPValue": 0.40837171385540083,
+        "adStatistic": 0.371831493875149
+      },
+      "status": "success",
+      "decision": "Anderson-Darling does not provide evidence against a normal model for these observations."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "ordered": true
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 551.3873217542337,
+        "individualsLCL": 271.48067824576634,
+        "centerLine": 411.43399999999997,
+        "flaggedCount": 0,
+        "movingRangeMean": 52.62244897959184,
+        "movingRangeUCL": 171.91754081632652,
+        "movingRangeFlaggedCount": 0,
+        "withinSigma": 46.651107251411204
+      },
+      "status": "success",
+      "decision": "No observations or moving ranges exceed the classical I-MR limits; the run appears stable at its current high variation."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "ordered": true
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.7750513736700824,
+        "statistic": 0.2857738033247041,
+        "runsCount": 27
+      },
+      "status": "success",
+      "decision": "The median runs test does not detect nonrandom ordering."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "sampleSize": 50,
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.7145239480318013,
+        "cpk": 0.4389606422338566,
+        "pp": 0.6856363459050899,
+        "ppk": 0.42121383274333274
+      },
+      "status": "success",
+      "decision": "The stable process is not capable against the accepted range and is shifted toward the lower limit."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_gate",
+      "chosen_branch": "proceed_with_caution",
+      "observed": {
+        "grrPct": 13.336418528430315,
+        "percentTolerance": 14.447970756038174,
+        "ndc": 10
+      }
+    },
+    {
+      "point": "stability_before_capability",
+      "chosen_branch": "stable_run_normal_capability",
+      "observed": {
+        "imrFlaggedCount": 0,
+        "runsPValue": 0.7750513736700824,
+        "adPValue": 0.40837171385540083
+      }
+    },
+    {
+      "point": "causal_and_post_change_evidence",
+      "chosen_branch": "stop_without_attribution",
+      "observed": {
+        "processFactsAvailable": false,
+        "postChangeDataAvailable": false
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

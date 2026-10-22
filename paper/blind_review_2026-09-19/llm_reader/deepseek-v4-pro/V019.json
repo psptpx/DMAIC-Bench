@@ -1,0 +1,66 @@
+{
+ "reviewer_id": "HUMAN_REVIEWER_V019",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical validity of the blind V019 packet",
+ "blinding_compliance": "I read only the provided V019 packet and did not inspect coordinator/, other reviewers' outputs, hidden truth files, scoring code, or search for the benchmark/paper name. I used only the supplied report, quantitative steps, route declarations, and public technical reasoning.",
+ "ai_assistance": "AI assistant used to draft this review and verify arithmetic in the supplied packet; no web search or external tools were used.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V019",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Declaring the full 25-lot reject-rate series steady or homogeneous because lot 13 is a clear special-cause signal.",
+    "Declaring long-term capability with margin or target attainment from the current all-lot or today window because the upper confidence bounds include 2%.",
+    "Assigning a physical or process cause to lot 13 because no process fact was released.",
+    "Recommending head-specific corrective action or claiming one placement head is worse because the head difference is not statistically significant.",
+    "Asserting the criteria rewrite statistically improved MSA accuracy based on the available pre/post data."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the visual call as usable with qualification based on 115/120 agreement, minimum kappa 0.899, while explicitly noting residual false accepts/rejects and marginal worst-trial kappa.",
+    "Reporting that the full 25-lot p-chart is not steady because lot 13 exceeded the upper control limit.",
+    "Reporting an exploratory conditional analysis excluding lot 13, provided both all-lot and excluded views are retained and no physical cause is assigned.",
+    "Reporting today as favorable current performance on the point estimate, while withholding long-term capability because the confidence interval crosses 2%.",
+    "Recommending corrective next steps: trace lot 13, use routine p-charting, prioritize false-accept calibration, retain MSA monitoring, and collect more head data before taking head-specific action."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Most analyses are acceptable as descriptive or conditional alternatives. The p-chart UCL, lot 13 exact tail, binomial confidence intervals, and two-proportion head/current-vs-archive checks are reasonable. The main caveat is the pre/post MSA significance test: the submitted step used an independent two-proportion test, but if study_1 and study_2 use the same retained boards/appraisers, a paired McNemar test would be more appropriate; the conclusion of no significant improvement is likely robust but the method should be paired if the data are paired. The disagreement tally total of 90 is not clearly reconciled with the 5 accept/reject mismatches in study_1; if the 90 are category-level disagreements rather than accept/reject mismatches, the report should have stated that distinction explicitly.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Paired McNemar test for pre/post MSA if the same boards/appraisers were used; independent two-proportion test only if the studies are independent batches.",
+    "Exact binomial confidence intervals such as Clopper-Pearson or Wilson for small proportions.",
+    "SPC control chart with pre-specified rules and verified special-cause removal before permanent exclusion.",
+    "Runs test excluding the identified special cause if additional pattern testing is intended for the stable baseline."
+   ],
+   "evidence": [
+    "Study 1: 115/120 agreement (95.8333%), minimum kappa 0.899, false accepts 3/120, false rejects 2/120.",
+    "Study 2: 117/120 agreement (97.5%), minimum kappa 0.875, false accepts 3/120, false rejects 0/120; pre/post agreement p = 0.4720.",
+    "25-lot series: 179/10,000 = 1.79%, UCL 3.77882% for n=400; lot 13 38/400 = 9.5%, upper-tail p approx 1.66e-16.",
+    "Excluding lot 13: 141/9,600 = 1.46875%, 95% CI 1.23771% to 1.72988%, lower-tail p at 2% = 5.96e-05.",
+    "Today's window: 105/6,000 = 1.75%, 95% CI 1.43350% to 2.11457%; head 1 vs head 2 p = 0.4907; today vs archive p = 0.8528."
+   ],
+   "rationale": "The focal advancement is justified with appropriate qualification. The report correctly treats the visual call as usable only with qualification, identifies lot 13 as a special-cause signal rather than steady-state variation, and withholds long-term capability because the CI crosses 2%. The conditional excluded-lot baseline is a defensible exploratory SPC route as long as the missing physical cause for lot 13 is not ignored. The report does not assert forbidden conclusions or actions. The main statistical caveat is the potential paired-data issue for the pre/post MSA comparison, but it does not materially change the focal GO decision.",
+   "confidence": 4,
+   "numerical_check": "Recomputed proportions, p-chart UCL for p=0.0179 and n=400, lot 13 upper-tail plausibility, exact binomial lower-tail approximation, two-proportion p-values for heads and today-vs-archive, and CI plausibility from the provided self-reported data.",
+   "evidence_problem": "Self-report-only for raw data; the pre/post MSA comparison may require paired analysis if studies share boards; the disagreement total of 90 is not explicitly reconciled with the 5 accept/reject mismatches in study_1."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6913,
+  "completion_tokens": 15057,
+  "total_tokens": 21970,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 13684
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 5249
+ }
+}

@@ -1,0 +1,46 @@
+{
+  "system_id": "openai-command-line-agent",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleCount": 240,
+        "variantCount": 150,
+        "groupCount": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 34,
+        "sampleFailFraction": 0.14166666666666666,
+        "samplesPassingIndividualRule": 206,
+        "affectedFailed": 18,
+        "unaffectedFailed": 16,
+        "affectedPassingIndividualRule": 102,
+        "unaffectedPassingIndividualRule": 104,
+        "sampleCallRateCutoff": 0.95,
+        "plateFailFractionLimit": 0.1,
+        "plateMustBeRegenotyped": true,
+        "totalSamples": 240,
+        "totalVariants": 150
+      },
+      "status": "success",
+      "decision": "Plate fails the protocol stop rule and must be re-genotyped before any downstream analysis."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "post_sample_qc_plate_gate",
+      "chosen_branch": "stop_and_regenotype",
+      "observed": {
+        "sampleFailFraction": 0.14166666666666666,
+        "plateFailFractionLimit": 0.1,
+        "plateMustBeRegenotyped": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

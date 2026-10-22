@@ -1,0 +1,178 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "participants": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "sampleCallRateThreshold": 0.95,
+        "plateStopThreshold": 0.1,
+        "plateCanProceed": true,
+        "samplesRetained": 237,
+        "minimumSampleCallRate": 0.94,
+        "maximumSampleCallRate": 1.0,
+        "participants": 240,
+        "variants": 150
+      },
+      "status": "success",
+      "decision": "Plate passes the participant-level stop rule; exclude P016, P077, and P139."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweControlPThreshold": 1e-06,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 2,
+        "minimumVariantCallRate": 0.8270042194092827,
+        "minimumMaf": 0.0021645021645021645,
+        "minimumHweControlP": 4.5557095046581133e-17
+      },
+      "status": "success",
+      "decision": "Retain all variants except rs070013, rs070023, rs070025, rs070047, rs070049, rs070069, rs070099, rs070114, rs070131, rs070133, and rs070148."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "groups": 2,
+        "leadingAxesExamined": 10,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.8997177848018328,
+        "axesExamined": 10,
+        "axesWithNonoverlappingRanges": 0,
+        "covariateAxisCount": 0,
+        "affectedRetained": 118,
+        "unaffectedRetained": 119
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants overlap on every examined leading axis and can be compared; no axis met the analysis selection rule for covariate entry."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "groups": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.9164672788396385,
+        "bonferroniAlpha": 0.00035971223021582735,
+        "nTested": 139,
+        "minimumPValue": 1.1326253251000435e-05
+      },
+      "status": "success",
+      "decision": "One discovery candidate, rs070008, passes the retained-variant Bonferroni threshold."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "participantsWithCalls": 231,
+        "variants": 1,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.395108051754563,
+        "beta": 0.8734283454003436,
+        "pValue": 1.1326253251000435e-05,
+        "chiSquare": 19.27358498786738
+      },
+      "status": "success",
+      "decision": "Discovery effect for rs070008 is positive."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "participantsWithCalls": 119,
+        "variants": 1,
+        "groups": 2,
+        "batch": "replication"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 1,
+        "alpha": 0.05,
+        "pValue": 0.5443027906408363,
+        "oddsRatio": 1.1834997908318183,
+        "beta": 0.16847597323493485,
+        "sameDirection": true,
+        "replicated": false,
+        "participantsWithCalls": 119,
+        "affectedWithCalls": 60,
+        "unaffectedWithCalls": 59
+      },
+      "status": "success",
+      "decision": "rs070008 has the same direction but is not significant in replication, so it is not reportable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_sample_qc",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maximumAllowed": 0.1,
+        "plateCanProceed": true
+      }
+    },
+    {
+      "point": "cohort_comparability",
+      "chosen_branch": "compare_groups_without_pc_covariates",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.8997177848018328,
+        "covariateAxisCount": 0
+      }
+    },
+    {
+      "point": "discovery_followup",
+      "chosen_branch": "test_single_candidate_in_replication",
+      "observed": {
+        "nSignificant": 1,
+        "bonferroniAlpha": 0.00035971223021582735
+      }
+    },
+    {
+      "point": "reporting_decision",
+      "chosen_branch": "do_not_report_association",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 0,
+        "sameDirection": true,
+        "replicationPValue": 0.5443027906408363
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

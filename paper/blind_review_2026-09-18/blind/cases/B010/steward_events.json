@@ -1,0 +1,74 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Reviewer attribute agreement study against the known answer key",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Project charter and breach requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Per-period ticket volume and breach counts",
+    "stage_id": "subgroups",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Team-by-team intake and breach summary",
+    "stage_id": "root_cause",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Investigation records for the special cause in the unusually high breach period",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "provision",
+    "text": "What documented process event explains the flagged period's breach spike?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Implemented improvement change records and post-change validation breach counts",
+    "stage_id": "subgroups",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Control plan and follow-up monitoring records",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  }
+]

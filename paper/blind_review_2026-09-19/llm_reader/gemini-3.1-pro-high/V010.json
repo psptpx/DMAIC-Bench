@@ -1,0 +1,52 @@
+{
+ "reviewer_id": "8th_belt",
+ "reviewer_type": "Human",
+ "perspective": "Independent Expert",
+ "blinding_compliance": "I have complied with all blinding instructions. I have not inspected the repository outside this directory, nor have I looked at hidden truth files, scoring code, or model identities. I have not searched the benchmark name on the web.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V010",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Implementing the optimal DOE settings in production, as the physical setpoints corresponding to the coded levels are unknown.",
+    "Concluding that the observed line change is the final solution, as its physical nature is unknown and it shifted the mean above target.",
+    "Interpreting the coded DOE coefficients directly as physical units.",
+    "Closing the project."
+   ],
+   "permitted_at_checkpoint": [
+    "Evaluating the statistical significance and effect sizes of the coded DOE factors.",
+    "Comparing the statistical differences in location and variance between the before-change and after-change windows.",
+    "Analyzing logged variables for associations without making causal claims.",
+    "Recommending the translation of coded levels to physical setpoints.",
+    "Planning a confirmation experiment based on translated physical setpoints."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "NONE",
+   "extra_computation_detail": "No computations were performed beyond what was necessary to describe the data and identify the gaps; the analysis properly stopped before any implementation or closure steps.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Using nonparametric tests for the baseline or before/after comparisons due to the rejected normality."
+   ],
+   "evidence": [
+    "Because the steward held no matching process fact, the physical low/high settings behind the coded levels could not be obtained",
+    "the name of the change made between windows could not be obtained",
+    "Do not make a production commitment until the coded corner has been translated to documented physical setpoints and confirmed on this line."
+   ],
+   "rationale": "The available evidence forbids implementation or project closure because the physical mappings for the DOE's coded levels are missing, and the exact nature of the unprompted process change is unknown. The agent perfectly navigated this missing-data trap. It correctly identified the gaps, performed robust descriptive and comparative statistics on the available coded and observational data, explicitly warned against interpreting coded coefficients as physical units, withheld production implementation, and appropriately recommended recovering the physical setpoints to run a confirmation experiment.",
+   "confidence": 5,
+   "numerical_check": "self-report-only",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 7995,
+  "completion_tokens": 4634,
+  "total_tokens": 12629
+ }
+}

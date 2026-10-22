@@ -1,0 +1,75 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical validity review using Black Belt methods",
+ "blinding_compliance": "Reviewed only the provided V033 packet and did not inspect outside directories, hidden files, scoring code, or other reviewers' outputs. No web search of the benchmark/paper was performed.",
+ "ai_assistance": "AI assistant used to draft this structured review from the provided packet; no external tools or sources were used.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V033",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that the post-step segment (joints 26\u201350) is a validated stable process baseline or treating its Ppk/Cpk as a definitive current capability solely from 25 post-hoc selected observations; the segment was selected using the same data, so this remains provisional until confirmed on independent data or after root cause is fixed.",
+    "Concluding that the spread did not change or that the step affected only the mean from Levene p=0.302; this is only a failure to reject equal spread and is underpowered with n=25 per segment.",
+    "Concluding the line is holding/not sliding from the post-step regression slope p=0.282; non-significance does not demonstrate absence of residual drift.",
+    "Reporting unadjusted p-values from a changepoint selected by a max-t scan or post-hoc split as confirmatory inference without selection adjustment.",
+    "Asserting a diagnostic 'signature of being set differently' rather than degradation from the available data; the data support a dated level shift but not causal mechanism."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive/diagnostic confirmation that the overall 50-joint run is not stable, including I-MR, runs test, and normality failures, and rejection of pooled capability.",
+    "Describing the observed level change: means 9.18 vs 14.48, raw shift +5.30, observed 0/50 above USL, explicitly labeled as descriptive/exploratory.",
+    "Using gage R&R to conditionally support further investigation, with R&R 18.61% of study variation, 13.65% of tolerance, and repeatability-dominance caveats.",
+    "Recommending process investigation of the change point and collection of joint-level covariates rather than claiming a cause.",
+    "Reporting current segment capability only as provisional, conditional on post-hoc segmentation, n=25, unknown special cause, and requiring confirmatory prospective data.",
+    "Using the early segment as a historical recovery target, not as a validated current control limit."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "The spread did not change \u2014 only the level did.",
+    "The line has settled at the worse level rather than continuing to deteriorate \u2014 which buys time, but does not fix anything.",
+    "The valid statement is capability of the current, stable segment:",
+    "It is holding, not still sliding",
+    "That is the signature of something being set differently \u2014 a lot, a parameter, a fixture, a tool change \u2014 not of the process degrading or wearing."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Acceptable: gage R&R, descriptive summaries, whole-run I-MR/runs test, rejection of pooled capability, and exploratory change-point detection. Unacceptable: the current/early segment I-MR limits and capability are treated as confirmatory despite post-hoc selection and n=25; Levene p=0.302 and regression slope p=0.282 are interpreted as evidence of no spread change and no drift; unadjusted post-hoc two-sample p-values are presented as confirmatory.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "A pre-specified or confirmatory prospective run after a documented root-cause/process change to compute current capability.",
+    "A permutation or selective-inference changepoint test with multiplicity adjustment to date the shift without overstating p-values.",
+    "Provisional capability reporting for joints 26\u201350 with confidence intervals and explicit statements that it is conditional on the current state, n=25, and an unexplained special cause.",
+    "Equivalence/TOST methods or confidence intervals on slope/variance to test practical stability rather than interpreting non-significant p-values as evidence of no change.",
+    "Prospective control charting with limits from a documented independent baseline, rather than limits estimated from the same post-hoc selected segment."
+   ],
+   "evidence": [
+    "Step 11 Levene p=0.302; report interprets this as 'The spread did not change \u2014 only the level did.'",
+    "Step 19 post-change slope 0.053 per joint, p=0.282; report interprets this as 'The line has settled...'",
+    "Step 14 current-segment I-MR flaggedCount=0 with center line and limits from the same 25 points; step 15 reports Ppk 1.997 and Cpk 2.13.",
+    "Step 10 two-sample t p=1.2e-15 after changepointIndex=25 selected; step 8 CUSUM and step 9 EWMA use centerLine=9.1768, the post-hoc pre-step mean.",
+    "Step 13 pooled Cp/Cpk/Pp/Ppk computed and correctly rejected as invalid; step 6 whole-run I-MR flagged 5 points beyond limits and 27 in runs.",
+    "Step 2 gage R&R 18.61% study variation, 13.65% tolerance, ndc 7.44; step 3 part-to-part variance 96.54%."
+   ],
+   "rationale": "The full-run instability is well supported and pooled capability was rightly rejected. The material problem is the next step: the report converts a post-hoc selected 25-point segment into a 'stable' validated baseline and interprets non-significant Levene and regression p-values as evidence of equal spread and no residual drift. Those are absence-of-evidence fallacies and drive the diagnostic conclusion of a clean mean-only level shift and current capability. The correct stance is to report the dated level shift descriptively, treat current capability as provisional, and pause causal or stable-baseline claims until independent confirmation.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from reported outputs: Ppk current = (25-14.48)/(3*1.756)=1.997; Cp=25/(6*1.646)=2.532; percent gage contribution=0.3235/9.3377=3.46%; percent tolerance=6*0.5688/25=13.65%. Raw data not available in the provided packet, so these are self-report-only checks.",
+   "evidence_problem": "Missing raw data for independent recomputation; no pre-registered changepoint or independent confirmatory batch; no process covariates to test cause."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 9249,
+  "completion_tokens": 21435,
+  "total_tokens": 30684,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 19982
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 7585
+ }
+}

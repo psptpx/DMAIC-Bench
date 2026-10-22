@@ -1,0 +1,357 @@
+{
+  "after_change": {
+    "events1": 3,
+    "events2": 6,
+    "groupLabels": [
+      "before the change",
+      "after the change"
+    ],
+    "trials1": 4000,
+    "trials2": 4000
+  },
+  "agreement": {
+    "ratings": {
+      "appraiser1": [
+        [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "fail",
+          "fail",
+          "fail",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "fail",
+          "fail",
+          "fail",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "pass"
+        ]
+      ],
+      "appraiser2": [
+        [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "fail",
+          "fail",
+          "fail",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "fail",
+          "pass",
+          "fail",
+          "pass",
+          "pass",
+          "fail",
+          "pass",
+          "fail",
+          "pass"
+        ]
+      ],
+      "appraiser3": [
+        [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "fail",
+          "fail",
+          "fail",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "pass"
+        ],
+        [
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "fail",
+          "fail",
+          "fail",
+          "fail",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass",
+          "pass"
+        ]
+      ]
+    },
+    "standard": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "fail",
+      "fail",
+      "fail",
+      "fail",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "fail",
+      "pass"
+    ]
+  },
+  "candidates": {
+    "counts": {
+      "loose end": 82,
+      "off-weight": 43,
+      "seam split": 41,
+      "soft spot": 37,
+      "stain": 37
+    },
+    "goal": "hold appearance defects at or below the committed level",
+    "requirement_dpmo": 1500,
+    "unit": "defective units per million inspected"
+  },
+  "failure_modes": {
+    "items": [
+      {
+        "detection": 8,
+        "mode": "loose end",
+        "occurrence": 5,
+        "severity": 7
+      },
+      {
+        "detection": 5,
+        "mode": "soft spot",
+        "occurrence": 3,
+        "severity": 4
+      },
+      {
+        "detection": 3,
+        "mode": "off-weight",
+        "occurrence": 2,
+        "severity": 5
+      },
+      {
+        "detection": 8,
+        "mode": "seam split",
+        "occurrence": 7,
+        "severity": 6
+      },
+      {
+        "detection": 5,
+        "mode": "stain",
+        "occurrence": 3,
+        "severity": 7
+      }
+    ],
+    "note": "severity, occurrence and detection ratings recorded for each candidate failure mode"
+  },
+  "lots": {
+    "defectCounts": [
+      12,
+      14,
+      23,
+      15,
+      17,
+      21,
+      17,
+      12,
+      11,
+      16,
+      13,
+      25,
+      21,
+      11,
+      6,
+      9,
+      12,
+      13,
+      11,
+      16,
+      13,
+      10,
+      12,
+      14,
+      20
+    ],
+    "requirement_dpmo": 1500,
+    "subgroupSizes": [
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000,
+      5000
+    ]
+  },
+  "machines": {
+    "columnLabels": [
+      "defective",
+      "sound"
+    ],
+    "rowLabels": [
+      "machine 1",
+      "machine 2",
+      "machine 3",
+      "machine 4"
+    ],
+    "table": [
+      [
+        15,
+        3985
+      ],
+      [
+        13,
+        3987
+      ],
+      [
+        9,
+        3991
+      ],
+      [
+        7,
+        3993
+      ]
+    ]
+  },
+  "sustaining": {
+    "defectCounts": [
+      7,
+      8,
+      3,
+      5,
+      9,
+      8,
+      2,
+      11,
+      6,
+      6,
+      3,
+      6,
+      8,
+      11,
+      8,
+      11,
+      5,
+      5,
+      5,
+      9
+    ],
+    "note": "the monitoring record kept since the change",
+    "subgroupSizes": [
+      5800,
+      5000,
+      5800,
+      5000,
+      4100,
+      6400,
+      6400,
+      5800,
+      4100,
+      3200,
+      5000,
+      4100,
+      4100,
+      5800,
+      3200,
+      6400,
+      4100,
+      3200,
+      5000,
+      5000
+    ]
+  }
+}

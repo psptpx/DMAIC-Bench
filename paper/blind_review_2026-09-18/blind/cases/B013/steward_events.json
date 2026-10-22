@@ -1,0 +1,113 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and the two accepted ranges",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same pieces on the instrument, operator study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=17.676789695918146",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 17.676789695918146
+    }
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "ndc=7.8509511044268905",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 17.676789695918146,
+      "ndc": 7.8509511044268905
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Outer diameter in sampling order, five to a point",
+    "stage_id": "run_diameter",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 17.676789695918146,
+      "ndc": 7.8509511044268905
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Wall thickness in sampling order, five to a point",
+    "stage_id": "run_thickness",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 17.676789695918146,
+      "ndc": 7.8509511044268905
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Diameter sampled separately for each turning fixture",
+    "stage_id": "fixtures",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 17.676789695918146,
+      "ndc": 7.8509511044268905
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "Paired coolant delivery pressure and wall thickness",
+    "stage_id": "setting",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 17.676789695918146,
+      "ndc": 7.8509511044268905
+    }
+  },
+  {
+    "seq": 13,
+    "action": "provision",
+    "text": "What process event or change occurred around wall-thickness sampling points 100 through 125 (the last few sampling groups of that run) that could explain the sudden increase in within-subgroup range/variability there?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 17.676789695918146,
+      "ndc": 7.8509511044268905
+    }
+  },
+  {
+    "seq": 14,
+    "action": "provision",
+    "text": "wall thickness variability increase end of run",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 17.676789695918146,
+      "ndc": 7.8509511044268905
+    }
+  }
+]

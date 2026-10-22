@@ -1,0 +1,160 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s7-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "analysis": "PCA"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "the initial scikit-learn PCA attempt failed because the module was unavailable; the analysis was rerun successfully with NumPy SVD"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "retainedSamples": 237,
+        "sampleCallRateThreshold": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "plate passes participant QC and is not re-genotyped"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "variantCallRateThreshold": 0.95,
+        "minimumMaf": 0.01,
+        "minimumControlHweP": 1e-06
+      },
+      "status": "success",
+      "decision": "retain variants meeting all three variant QC rules"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 139
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 4,
+        "pc1PValue": 0.231006994556052,
+        "axis4PValue": 0.06641178511883034
+      },
+      "status": "success",
+      "decision": "affected and unaffected participants are sufficiently overlapping for comparison; no ancestry covariate was added"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedVariants": 139
+      },
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 21.648532204861315,
+        "pValue": 3.2746049160304157e-06,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "nSignificant": 1
+      },
+      "status": "success",
+      "decision": "one discovery association passes the Bonferroni threshold"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "candidateVariants": 1
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "candidateCallRate": 0.9916666666666667
+      },
+      "status": "success",
+      "decision": "replication participant QC has no failed samples"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariants": 1,
+        "caseCount": 60,
+        "controlCount": 60
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 1,
+        "pValue": 0.5374794553122435,
+        "statistic": 0.38023133588027946,
+        "sameDirection": true,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "the nominated discovery hit is not replicated and cannot be reported"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "continue_without_regenotyping",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "ancestry_structure",
+      "chosen_branch": "compare_groups_without_covariates",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.231006994556052
+      }
+    },
+    {
+      "point": "discovery_threshold",
+      "chosen_branch": "nominate_rs070008",
+      "observed": {
+        "nSignificant": 1,
+        "bonferroniThreshold": 0.00035971223021582735
+      }
+    },
+    {
+      "point": "replication_reporting",
+      "chosen_branch": "do_not_report_discovery_hit",
+      "observed": {
+        "nReplicated": 0,
+        "pValue": 0.5374794553122435,
+        "sameDirection": true
+      }
+    }
+  ]
+}

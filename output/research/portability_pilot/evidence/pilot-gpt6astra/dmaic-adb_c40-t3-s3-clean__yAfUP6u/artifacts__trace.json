@@ -1,0 +1,65 @@
+{
+  "system_id": "local-analysis-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "usableSamples": [
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06",
+          "S08",
+          "S11"
+        ]
+      },
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "controlRetained": 6,
+        "treatedRetained": 2,
+        "totalLibraries": 12,
+        "lowReads": 2,
+        "lowMapping": 2,
+        "requiredReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "Insufficient usable treated replicates; stop gene inference and re-sequence first."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replication_gate",
+      "chosen_branch": "resequence_before_inference",
+      "observed": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "controlRetained": 6,
+        "treatedRetained": 2,
+        "totalLibraries": 12,
+        "lowReads": 2,
+        "lowMapping": 2,
+        "requiredReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      }
+    },
+    {
+      "point": "sample_sheet_access",
+      "chosen_branch": "stop_at_locked_replication_gate",
+      "observed": {
+        "min_replicates": 2
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

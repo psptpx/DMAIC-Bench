@@ -1,0 +1,157 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "agreement",
+        "appraisers": 3,
+        "trials": 2,
+        "parts": 20
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.7647058823529412,
+        "agreementPct": 70.0
+      },
+      "status": "success",
+      "decision": "Overall multi-rater exact agreement is only 70%; appraiser1 kappa (0.765) is markedly weaker than appraiser2/3 (~0.93). Measurement system reliability is marginal."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25,
+        "subgroupSize": 200
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0456,
+        "outOfControlCount": 1
+      },
+      "status": "success",
+      "decision": "Period 13 (rate 0.22) exceeds UCL 0.0899; flagged as a special cause."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 24,
+        "subgroupSize": 200,
+        "excluded": "period 13 (special cause)"
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.038333333333333,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "With the special cause removed, the process is stable across the remaining 24 periods."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 25,
+        "totalDefects": 114,
+        "totalN": 5000
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.0456,
+        "processZ": 1.6891013980043694
+      },
+      "status": "success",
+      "decision": "Includes the special-cause period."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "periods": 24,
+        "totalDefects": 92,
+        "totalN": 4800,
+        "excluded": "period 13"
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.038333333333333,
+        "processZ": 1.770363135931163
+      },
+      "status": "success",
+      "decision": "Stable-process capability estimate, special cause excluded."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "totalDefects": 114,
+        "totalN": 5000,
+        "target": 0.05
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.16284141295456717
+      },
+      "status": "success",
+      "decision": "With special cause included, overall rate 4.56% is not statistically distinguishable from the 5% target."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "totalDefects": 92,
+        "totalN": 4800,
+        "target": 0.05,
+        "excluded": "period 13"
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.00013772597290223704
+      },
+      "status": "success",
+      "decision": "Excluding the special cause, the stable process rate 3.83% is significantly below the 5% target."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "root_cause",
+        "team1": {
+          "events": 30,
+          "trials": 600
+        },
+        "team2": {
+          "events": 24,
+          "trials": 600
+        }
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "zStatistic": 0.8355119862887138,
+        "pValue": 0.40342950102782804
+      },
+      "status": "success",
+      "decision": "No statistically significant difference between team1 (5.0%) and team2 (4.0%) breach rates."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "outlier_treatment",
+      "chosen_branch": "exclude_special_cause_period13",
+      "observed": {
+        "period": 13,
+        "rate": 0.22,
+        "UCL": 0.0899
+      }
+    },
+    {
+      "point": "measurement_system_reliability",
+      "chosen_branch": "marginal_reliance",
+      "observed": {
+        "kappaMin": 0.7647058823529412,
+        "overall_agreementPct": 70.0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

@@ -1,0 +1,173 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "sampleCallRateThreshold": 0.95,
+        "plateFailFractionThreshold": 0.1,
+        "plateCanProceed": true,
+        "samplesRetained": 237,
+        "affectedRetained": 119,
+        "unaffectedRetained": 118,
+        "affectedFailed": 1,
+        "unaffectedFailed": 2,
+        "P085CallRate": 0.9466666666666667,
+        "P136CallRate": 0.94,
+        "P193CallRate": 0.94
+      },
+      "status": "success",
+      "decision": "Plate may proceed because the computed participant failure fraction does not exceed the protocol stop threshold."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 2,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hwePThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain variants passing call rate, overall MAF, and exact control-only HWE criteria."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 139
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation failed because the sklearn module was unavailable; no result was used."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 139
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.5175080156482313,
+        "axesAssessed": 10,
+        "mostAssociatedAxis": 5,
+        "minimumAxisPValue": 0.012780035217122461,
+        "pc5RangeOverlapFraction": 0.7758686254811826,
+        "tenPcAuc": 0.6066799601196411,
+        "tenPcClassificationAccuracy": 0.5780590717299579
+      },
+      "status": "success",
+      "decision": "Case and control ranges overlap on every assessed axis; comparison is permitted, with PC5 included as a covariate because it showed overlapping structure associated with affection status."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 139
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.112116290448235,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "topPValue": 0.012809979550188921,
+        "oddsRatio": 1.8177002540327587,
+        "allConverged": true
+      },
+      "status": "success",
+      "decision": "Unadjusted additive sensitivity scan found no Bonferroni-significant variant."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 237,
+        "variants": 139,
+        "covariateAxes": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.8395109657830087,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "covariateAxis": 5,
+        "topPValue": 0.009764236067045505,
+        "oddsRatio": 1.8738886627352376,
+        "allConverged": true
+      },
+      "status": "success",
+      "decision": "Definitive PC5-adjusted additive scan found no Bonferroni-significant variant."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateCount": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationAlpha": 0.05,
+        "sameDirectionRequired": true
+      },
+      "status": "success",
+      "decision": "No discovery candidate was nominated, so no replication test was applicable and no association can be reported."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_sample_qc",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maximumAllowed": 0.1
+      }
+    },
+    {
+      "point": "cohort_comparability",
+      "chosen_branch": "compare_with_pc5_adjustment",
+      "observed": {
+        "separated": false,
+        "associatedAxis": 5,
+        "axisPValue": 0.012780035217122461
+      }
+    },
+    {
+      "point": "replication_nomination",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0,
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

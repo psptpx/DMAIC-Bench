@@ -1,0 +1,129 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "nSamples": 240,
+        "nVariants": 150
+      },
+      "status": "success",
+      "decision": "Participant call-rate filter; plate proceeds only below protocol failure ceiling."
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "callRateFailed": 6,
+        "mafFailed": 4,
+        "hweFailed": 3,
+        "bonferroni": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "Exact conditional two-sided HWE in retained controls; all three filters applied."
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.939778863712323,
+        "axis1PValue": 0.939778863712323,
+        "axis2PValue": 0.32951000314407763,
+        "axis3PValue": 0.4596422667923362,
+        "axis4PValue": 0.3171412622582263,
+        "axis5PValue": 0.02659641854927202,
+        "axis6PValue": 0.02698148029659702,
+        "axis7PValue": 0.9411956508556956,
+        "axis8PValue": 0.6888227106728744,
+        "axis9PValue": 0.04604850125857919,
+        "axis10PValue": 0.4221705205886451,
+        "axesChecked": 10
+      },
+      "status": "success",
+      "decision": "Mean-imputed allele-standardized PCA; Welch comparisons across ten leading axes; none survives correction across axes. Broad overlapping ranges, no evidence of ancestry separation. Proceed with trend scan."
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.1159409282532857,
+        "threshold": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "Additive dosage score (Cochran-Armitage asymptotic trend); variant-wise complete calls; Bonferroni retained panel."
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.7865156483986326,
+        "pValue": 5.25354031860592e-11,
+        "ciLower": 2.470281556658113,
+        "ciUpper": 5.8040755382411895
+      },
+      "status": "success",
+      "decision": "rs000008 additive logistic odds ratio, coded allele; p from trend test."
+    },
+    {
+      "step_id": 6,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.016666666666666666,
+        "samplesRetained": 118
+      },
+      "status": "success",
+      "decision": "Independent replication sample QC"
+    },
+    {
+      "step_id": 7,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 10,
+        "snpsRetained": 140
+      },
+      "status": "success",
+      "decision": "Independent replication variant QC; only discovery-nominated hits tested."
+    },
+    {
+      "step_id": 8,
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "pValue": 4.0313183598558935e-05,
+        "oddsRatio": 3.0972325857441465,
+        "sameDirection": true,
+        "candidatePassQC": true,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Independent trend test, same coded-allele direction required."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "proceed_after_sample_filter"
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "overlapping_no_robust_structure"
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "report_replicated_hit"
+    }
+  ],
+  "turns": 0
+}

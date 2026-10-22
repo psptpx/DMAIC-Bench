@@ -1,0 +1,381 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "usableSamples": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minAssignedReadsObserved": 9235000,
+        "minMappingRateObserved": 0.865,
+        "replicateRequirementMet": true
+      },
+      "status": "success",
+      "decision": "Library QC passed; every library met both inclusive usability rules.",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "conditionCount": 2,
+        "usableLibraries": 12,
+        "contrastEstimable": true,
+        "controlInL1": 6,
+        "treatedInL1": 6
+      },
+      "status": "success",
+      "decision": "Treatment is estimable because both arms occur within the sole preparation batch.",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "libraries": 12,
+        "groups": 2
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 39,
+        "genesTested": 398,
+        "modelFailures": 2,
+        "nonconvergedFits": 0,
+        "nUp": 17,
+        "nDown": 22,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Primary count analysis: median-ratio-normalized gene-wise negative-binomial regression with Benjamini-Hochberg adjustment called 39 genes; two low-count genes lacked finite model p-values.",
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2,
+        "batchCount": 1
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40,
+        "nUp": 17,
+        "nDown": 23,
+        "genesTested": 400,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "overlapWithNB": 39,
+        "nbOnly": 0,
+        "sensitivityOnly": 1,
+        "validationNomineesCalled": 10
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis on log2 median-ratio-normalized counts called 40 genes, reproducing all 39 primary calls and adding only G0019.",
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2,
+        "batchCount": 1
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.42332885017749605,
+        "tStatistic": -0.8825291197421816,
+        "controlMean": 0.01699999999999999,
+        "treatedMean": -0.11425,
+        "effect": -0.13125,
+        "directionAgrees": true,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0125: expected down, observed down.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0125",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 6,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.4639117314775123,
+        "tStatistic": 0.7845189004368314,
+        "controlMean": -0.03325000000000001,
+        "treatedMean": 0.22724999999999998,
+        "effect": 0.2605,
+        "directionAgrees": false,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0241: expected down, observed up.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0241",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 7,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.5526410230916798,
+        "tStatistic": 0.6288453303301722,
+        "controlMean": 0.12275,
+        "treatedMean": 0.32425000000000004,
+        "effect": 0.20150000000000004,
+        "directionAgrees": true,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0284: expected up, observed up.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0284",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 8,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.3240786686104163,
+        "tStatistic": -1.1036955466836862,
+        "controlMean": 0.23525,
+        "treatedMean": -0.10350000000000001,
+        "effect": -0.33875,
+        "directionAgrees": true,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0108: expected down, observed down.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0108",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 9,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.9542202035008558,
+        "tStatistic": -0.05994650551094758,
+        "controlMean": 0.12125,
+        "treatedMean": 0.11024999999999999,
+        "effect": -0.01100000000000001,
+        "directionAgrees": false,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0153: expected up, observed down.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0153",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 10,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.06489727380382863,
+        "tStatistic": -2.4350711157797944,
+        "controlMean": -0.01725,
+        "treatedMean": -0.32525000000000004,
+        "effect": -0.30800000000000005,
+        "directionAgrees": true,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0366: expected down, observed down.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0366",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 11,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.7172025713746886,
+        "tStatistic": -0.38731978468370115,
+        "controlMean": -0.08474999999999999,
+        "treatedMean": -0.19125,
+        "effect": -0.10650000000000001,
+        "directionAgrees": true,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0214: expected down, observed down.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0214",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 12,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.05732399552727321,
+        "tStatistic": 2.3649273777228585,
+        "controlMean": 0.0014999999999999944,
+        "treatedMean": 0.26725,
+        "effect": 0.26575,
+        "directionAgrees": false,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0215: expected down, observed up.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0215",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 13,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.4390716825955319,
+        "tStatistic": -0.8368094837347564,
+        "controlMean": 0.19475,
+        "treatedMean": -0.04599999999999999,
+        "effect": -0.24075,
+        "directionAgrees": false,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0038: expected up, observed down.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0038",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 14,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.29700378564633034,
+        "tStatistic": -1.198630630582865,
+        "controlMean": 0.056499999999999995,
+        "treatedMean": -0.12225,
+        "effect": -0.17875,
+        "directionAgrees": true,
+        "confirmed": false
+      },
+      "status": "success",
+      "decision": "qPCR validation for G0112: expected down, observed down.",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0112",
+        "controlReplicates": 4,
+        "treatedReplicates": 4
+      }
+    },
+    {
+      "step_id": 15,
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 0.0,
+        "nConfirmed": 0,
+        "nCandidates": 10,
+        "minConcordance": 0.75,
+        "validationPassed": false,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Validation failed; the facility rule requires withholding the candidate list.",
+      "inputs_digest": {
+        "batch": "validation",
+        "candidates": 10,
+        "replicatesPerArm": 4
+      }
+    },
+    {
+      "step_id": 16,
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked because declared validation concordance did not meet the facility gate.",
+      "inputs_digest": {
+        "batch": "gene_sets"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "continue_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_estimability",
+      "chosen_branch": "estimate_treatment_contrast_without_batch_term",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "expression_model",
+      "chosen_branch": "negative_binomial_primary_with_transformed_count_sensitivity",
+      "observed": {
+        "primaryCalls": 39,
+        "sensitivityCalls": 40,
+        "overlap": 39,
+        "primaryModelFailures": 2
+      }
+    },
+    {
+      "point": "validation_release",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "concordance": 0.0,
+        "requiredConcordance": 0.75
+      }
+    },
+    {
+      "point": "enrichment",
+      "chosen_branch": "stop_at_locked_gate",
+      "observed": {
+        "validationPassed": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

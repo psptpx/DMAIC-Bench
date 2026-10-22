@@ -1,0 +1,90 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesTotal": 240,
+        "samplesRetained": 237,
+        "affectedRetained": 119,
+        "unaffectedRetained": 118,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "variantsTotal": 150,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 2,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Exact two-sided HWE in retained controls; all criteria applied jointly"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 1.800877623368265e-14,
+        "pc1VarianceFraction": 0.09352354350804108,
+        "pc1OverlapWidth": 10.2567119043659,
+        "casePc1Min": -5.392048424974633,
+        "casePc1Max": 4.864663479391268,
+        "controlPc1Min": -6.867148735279426,
+        "controlPc1Max": 5.192347098983373
+      },
+      "status": "success",
+      "decision": "Mean-imputed allele-frequency standardized PCA; Welch test of leading axis; empirical group ranges assess overlap"
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.0921350328085209,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "alpha": 0.05,
+        "nCovariatePCs": 5,
+        "minimumPValue": 5.4030950249296e-05,
+        "rs020008_pValue": 5.4030950249296e-05,
+        "rs020008_oddsRatio": 2.625871462476593,
+        "rs020008_nObserved": 230
+      },
+      "status": "success",
+      "decision": "Additive logistic likelihood-ratio tests adjusted for leading five genotype PCs; per-variant complete calls. No unadjusted screen."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "retain passing participants",
+      "observed": {
+        "sampleFailFraction": 0.0125
+      }
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "overlapping structure: adjusted association",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 1.800877623368265e-14
+      }
+    }
+  ],
+  "turns": 0
+}

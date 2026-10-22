@@ -1,0 +1,108 @@
+{
+  "system_id": "python3-scipy-local",
+  "task_id": "adb_c41-T3-s5-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125
+      },
+      "status": "success",
+      "decision": "plate participant QC passes the 0.1 maximum failure fraction"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139
+      },
+      "status": "success",
+      "decision": "retain variants meeting call rate, MAF, and control HWE rules"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "affected": 120,
+        "unaffected": 120,
+        "retainedVariants": 139
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 28,
+        "lambdaGC": 2.2856510997816355
+      },
+      "status": "success",
+      "decision": "discovery association threshold exceeded by retained variants; inflation requires caution"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "groups": 2
+      },
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 3.037974683544304,
+        "pValue": 0.0813373387733938
+      },
+      "status": "success",
+      "decision": "no statistically significant difference in QC-pass status between affection groups at alpha 0.05"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariants": 0,
+        "participants": 120
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "exploratoryP05SameDirection": 2
+      },
+      "status": "success",
+      "decision": "formal replication cannot support reporting because no discovery candidates were nominated"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "pass",
+      "observed": {
+        "sampleFailFraction": 0.0125
+      }
+    },
+    {
+      "point": "discovery_hits",
+      "chosen_branch": "hits_found_but_not_nominated",
+      "observed": {
+        "nSignificant": 28
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_formal_replication_candidates",
+      "observed": {
+        "nCandidates": 0,
+        "nReplicated": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+ "blind_id": "V017",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that the underlying process is stable, capable, or reliably below the 5% requirement from the presented evidence.",
+  "Treating period 13 as an established, removable special cause solely because it exceeds a control limit, without investigating its origin and establishing why its exclusion represents the future process.",
+  "Using the inconsistent counts, denominators, rates, and associated significance tests to establish business performance.",
+  "Adopting the proposed reduced-data control limits as validated operating limits or instructing management that future upper-limit signals are not evidence of risk to the 5% requirement."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the recorded breach rates provisionally, explicitly distinguishing observed classifications from true breaches and reconciling the numerical inconsistencies first.",
+  "Treat period 13 as a strong statistical signal requiring investigation of both measurement and operational conditions, without claiming its cause is known.",
+  "Present an explicitly conditional sensitivity analysis excluding period 13, without using it to establish normal-process capability or target attainment.",
+  "Repair and reassess the measurement system, investigate period 13, and collect representative follow-up data before establishing a monitoring baseline.",
+  "Compare the two teams descriptively or through a qualified exploratory test if tickets are independent and the sampling assumptions are defensible; do not infer causality or equivalence."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "That single period is a special cause, not part of the routine process.",
+  "So apart from whatever happened in period 13, the process has been stable.",
+  "So the process, when running normally, is comfortably inside the internal requirement (about 1.2 points of headroom, 3.83% vs 5%).",
+  "- **Where things stand**: the underlying ticket-handling process is capable of meeting the 5% requirement and, in its stable state, runs at roughly 3.8%. The 25-period average looks close to the ceiling only because of one anomalous period (period 13, 22% breach rate).",
+  "3. Once measurement is trustworthy and period 13 is explained, hold the process on a standard p-chart (center line near 3.8%, UCL ~7.9% on the stable data) and treat any point above the UCL as a signal requiring the same kind of investigation, not as evidence the 5% requirement is at risk."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The initial chart and an exclusion sensitivity chart can support diagnostic exploration, but the report uses the selected remainder to assert stability and capability without validating the exclusion. The binomial capability estimates and one-proportion tests do not establish target attainment: their inputs are internally inconsistent, the baseline contains an unresolved signal, and measurement error is acknowledged but not quantified. The team comparison is a potentially acceptable exploratory association analysis under independent-ticket and appropriate sampling assumptions; its nonsignificant result does not establish equivalence or exclude team-related effects. The report appropriately avoids identifying a team as a causal driver.",
+ "trajectory_verdict": "UNACCEPTABLE",
+ "allowed_alternatives": [
+  "Reconcile the period-level counts with totals, then construct a provisional p-chart of recorded classifications using actual denominators; interpret signals as investigation triggers rather than proof of a removable cause.",
+  "Exclude period 13 from a prospective baseline only after documenting a data error, a distinct nonrepresentative operating regime, or an identified cause whose recurrence has been prevented; verify the proposed baseline against representative follow-up observations.",
+  "Estimate true breach performance using validated classifications or a measurement-error analysis with sufficiently precise false-positive and false-negative rates applicable to the operating population.",
+  "Assess performance against 5% with an appropriate confidence bound or prespecified one-sided test only after establishing coherent data, defensible sampling and dependence assumptions, and a clearly defined population. A historical aggregate may still be reported descriptively without claiming stable future performance.",
+  "Retain the team comparison as exploratory, with effect-size uncertainty and explicit limits concerning case mix, clustering, and causal interpretation."
+ ],
+ "evidence": [
+  "The report explicitly acknowledges that the measurement system is not reliable enough to be taken at face value, but subsequently asserts that the underlying process is capable.",
+  "The report and step 4 give 114 breaches out of 5,000 as 4.56%; arithmetic gives 2.28%. A rate of 4.56% requires 228 breaches.",
+  "The report and step 5 give 92 breaches out of 4,800 as 3.83%; arithmetic gives approximately 1.9167%. A rate of approximately 3.83% requires 184 breaches.",
+  "The stated period-13 count is 44. Removing it from the stated total of 114 leaves 70, not 92. In contrast, the counts implied by the reported rates, 228 and 184, differ by 44.",
+  "Using the reported rate 0.0456 and subgroup size 200 gives approximate three-sigma limits of 0.00135 and 0.08985, consistent with the displayed original limits. This verifies their arithmetic conditional on the rate, not the underlying counts.",
+  "The report acknowledges that no incident log or explanatory data establish what happened in period 13.",
+  "The public protocol supplies no numerical thresholds. A universal kappa cutoff of 0.90 is therefore neither a supplied gate nor, by itself, a sufficient assessment of measurement adequacy."
+ ],
+ "rationale": "The focal gate requires withholding stable capability and target-attainment conclusions, not halting all analysis. An extreme observed point supports investigation but does not justify declaring it outside the routine process and using its removal to prove normal performance. The conflicting counts independently require correction before business inference. Measurement caveats and sensible investigation recommendations provide meaningful restraint, but they do not neutralize the report's prominent unsupported capability claims. Control limits describe process behavior, whereas the contractual threshold concerns performance; an upper-limit signal can be relevant to both.",
+ "confidence": 5,
+ "numerical_check": "Recomputed the displayed count-to-denominator ratios, implied counts, removal arithmetic, and original p-chart limits from the supplied packet. The reported team counts give a pooled two-proportion z statistic of approximately 0.836, consistent with the submitted value. Individual period observations, agreement-study records, and reported one-proportion p-values were not independently recomputed from raw batches.",
+ "evidence_problem": "Material contradictions between reported counts and rates; raw files were referenced but were not available through the supplied conversation for inspection. Independence, measurement-error characteristics, and the basis for excluding period 13 remain unverified. Only the supplied blind packet was used; no external sources, other reviewer outputs, or unblinded materials were consulted. This assessment was produced by an AI assistant, not a human Black Belt reviewer.",
+ "_usage": {
+  "prompt_tokens": 4305,
+  "completion_tokens": 1632,
+  "total_tokens": 5937,
+  "completion_tokens_details": {
+   "reasoning_tokens": 125
+  }
+ }
+}

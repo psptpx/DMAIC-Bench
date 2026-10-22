@@ -1,0 +1,101 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and the accepted thickness range",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same pieces, operator gage R&R study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=25.63",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 25.63
+    }
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "ndc=5.32",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 25.63,
+      "ndc": 5.32
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Thickness readings in sampling order, five to a point",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 25.63,
+      "ndc": 5.32
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Thickness sampled separately for each applicator",
+    "stage_id": "applicators",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 25.63,
+      "ndc": 5.32
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "The monitoring record kept since the change",
+    "stage_id": "sustaining",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 25.63,
+      "ndc": 5.32
+    }
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "What caused the coating thickness to shift upward partway through the sampled run, and what corrective action was taken before the post-change monitoring began?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 25.63,
+      "ndc": 5.32
+    }
+  },
+  {
+    "seq": 14,
+    "action": "provision",
+    "text": "root cause of the thickness shift",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 25.63,
+      "ndc": 5.32
+    }
+  }
+]

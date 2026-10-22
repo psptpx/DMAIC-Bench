@@ -1,0 +1,175 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "libraries": 12,
+        "groups": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "criterionMet": true,
+        "totalLibraries": 12
+      },
+      "status": "success",
+      "decision": "All libraries met both inclusive usability limits; each arm retained enough usable replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "usableLibraries": 12,
+        "groups": 2,
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      },
+      "status": "success",
+      "decision": "Treatment is estimable: both arms occur in the sole preparation batch and the treatment design is full rank."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "modelFits": 397,
+        "modelFailures": 3,
+        "nonconvergedFits": 4
+      },
+      "status": "failed",
+      "decision": "Preliminary gene-wise dispersion model was not used for the conclusion because some fits failed or did not converge."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "maxAbsLog2Ratio": 0.868826
+      },
+      "status": "success",
+      "decision": "Normalized arm-mean diagnostic found no observed absolute log2 ratio reaching the effect-size rule."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "modelFits": 400,
+        "modelFailures": 0,
+        "nonconvergedFits": 0,
+        "maxAbsLog2FoldChange": 0.8832830373496442,
+        "commonDispersion": 0.061638700202367794,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "nUp": 0,
+        "nDown": 0
+      },
+      "status": "success",
+      "decision": "Complete common-dispersion negative-binomial GLMs with median-of-ratios offsets and BH correction called no genes."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "candidates": 0,
+        "batch": "validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "computable": false,
+        "minConcordance": 0.75,
+        "validationAlpha": 0.05
+      },
+      "status": "failed",
+      "decision": "Concordance is undefined because no candidates were nominated and the denominator is zero; no numeric gate value was declared."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "candidateGenes": 0,
+        "batch": "gene_set_annotation"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked because validation concordance could not be computed from an empty validation batch."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "continue",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "unblocked_single_batch_model",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2
+      }
+    },
+    {
+      "point": "de_model_completion",
+      "chosen_branch": "shared_common_dispersion_negative_binomial",
+      "observed": {
+        "preliminaryModelFailures": 3,
+        "preliminaryNonconvergedFits": 4
+      }
+    },
+    {
+      "point": "candidate_call",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0,
+        "maxAbsLog2FoldChange": 0.8832830373496442
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "do_not_invent_numeric_concordance",
+      "observed": {
+        "nCandidates": 0,
+        "nConfirmed": 0,
+        "computable": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

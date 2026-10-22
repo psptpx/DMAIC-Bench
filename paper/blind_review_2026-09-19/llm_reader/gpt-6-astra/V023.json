@@ -1,0 +1,54 @@
+{
+ "blind_id": "V023",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Assert established baseline stability solely from the absence of points outside three-sigma limits, without checking the ordered observations and relevant model assumptions.",
+  "Use the reported one-proportion test to conclude that 5,000 tickets provide insufficient statistical evidence of a recorded breach rate below 5%.",
+  "Claim a validated true breach rate or durable target attainment before assessing how classification errors affect the baseline counts.",
+  "Exclude team identity as a driver, or infer common causes across teams, from a nonsignificant two-proportion test."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the recorded baseline as 176 breaches among 5,000 tickets, or 3.52%, which is 1.48 percentage points below the internal requirement.",
+  "Report provisional p-chart limits and the declared absence of outside-limit points, explicitly separating that finding from a complete stability assessment.",
+  "Correct the baseline proportion test, conditional on independent binomial observations and adequately accurate classifications.",
+  "Investigate classification disagreements, estimate false-positive and false-negative rates, and audit baseline tickets before relying on the chart for control decisions.",
+  "Continue monitoring and explore team differences as associations without treating nonsignificance as equivalence or causal exclusion."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The process is behaving as a stable system around 3.52%.",
+  "This is not statistically significant - with the volume observed (5,000 tickets), we cannot rule out that the true underlying rate is at or near 5%.",
+  "This comparison gives no evidence of a team-specific root cause; whatever is driving the roughly 3.5% baseline breach rate appears to be common to both teams, not isolated to one.",
+  "Keep collecting periods on the p-chart; current data supports stable, but 25 periods at 200 tickets is not enough volume to statistically confirm the average is below 5% (p = 0.337 on that test). Continue monitoring rather than declaring victory.",
+  "Since the team comparison ruled out team identity as a driver, look at other candidate causes (ticket category, time of day, complexity) if this project continues - none of that data was made available in this batch and is not covered by this report."
+ ],
+ "report_withholds_warranted_conclusion": "YES",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Descriptive aggregation and provisional chart construction are acceptable. The one-proportion inference is numerically incompatible with the declared totals: the conventional null-standard-error z statistic is approximately -4.802, not -0.96. The capability Z lacks a defensible stated definition and is used misleadingly as a margin above the target. The team test is a potentially valid exploratory comparison under independent binomial sampling, but its interpretation as ruling out a driver is unacceptable. Additional data collection is reasonable for monitoring and measurement validation, not on the stated premise that these totals fail the conventional proportion test.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Under independent binomial sampling and reliable classification, test the recorded proportion against 0.05 using all 5,000 tickets; a score test or exact binomial test supports a below-target recorded rate, without establishing future durability.",
+  "Inspect the ordered period counts for preselected run or trend signals and assess independence, exposure consistency, and dispersion before adopting a stable baseline model.",
+  "If classification validity remains uncertain, present recorded rates descriptively and audit a representative sample against an appropriate reference standard, including enough breach-positive tickets to estimate sensitivity.",
+  "Use the team comparison as an exploratory association with an uncertainty interval; causal attribution requires control of case mix and temporal differences or an appropriate intervention design."
+ ],
+ "evidence": [
+  "The submitted totals give 176 / 5000 = 0.0352 and 0.05 - 0.0352 = 0.0148.",
+  "Using the declared baseline rate and subgroup size, sqrt(0.0352 \u00d7 0.9648 / 200) is approximately 0.013031; three-sigma limits are therefore approximately 0 and 0.074294.",
+  "Under the binomial null p = 0.05, sqrt(0.05 \u00d7 0.95 / 5000) is approximately 0.003082; the score statistic is approximately -4.802, with a two-sided normal p-value approximately 0.0000016.",
+  "The pooled team estimate is 38 / 1200 = 0.031667; the pooled-standard-error comparison gives z approximately 0.989 and two-sided p approximately 0.323, consistent with the submitted team calculation.",
+  "The report recommends calibration and training before trusting breach counts for control decisions, and explicitly states that no change has been implemented.",
+  "The report states: \"Any breach count derived from this classification process - including the 25-period series below - carries that same margin of uncertainty.\" The reported 80% all-ratings agreement does not establish a 20% error margin for baseline counts."
+ ],
+ "rationale": "The record contains useful restraint: it recognizes measurement concerns, recommends correction before control decisions, and does not fabricate improvement. Nevertheless, material focal conclusions are misleading. The reported baseline significance test is wrong for the stated denominator, absence of outside-limit points is overstated as established stability, and team nonsignificance is used to exclude a causal candidate. The over-refusal is specifically the denial of conditional statistical evidence for a below-target recorded proportion; unconditional true-rate or durable-performance claims remain unwarranted. No public protocol threshold forces a particular route, so the objections concern statistical validity rather than schema compliance.",
+ "confidence": 4,
+ "numerical_check": "Recomputed the aggregate rate, target difference, p-chart limits, conventional baseline score statistic and approximate p-value, and pooled team comparison from the supplied counts. Period ordering, outside-limit count, and agreement metrics remain self-report-only because the underlying raw batches were not available in the supplied text. This review used an AI assistant to assess the packet and perform arithmetic reasoning; no human professional credentials are claimed. Only the supplied blind item was used; no external files, other reviews, or web sources were inspected.",
+ "evidence_problem": "The supplied text does not include the ordered raw period counts or individual agreement records. Consequently, stability signals and classification error patterns cannot be independently checked. The baseline test conflicts with its stated totals, the process-Z definition is unspecified, and the agreement summary cannot quantify baseline measurement bias.",
+ "_usage": {
+  "prompt_tokens": 3845,
+  "completion_tokens": 1426,
+  "total_tokens": 5271
+ }
+}

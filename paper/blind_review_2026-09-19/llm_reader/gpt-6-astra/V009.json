@@ -1,0 +1,43 @@
+{
+ "blind_id": "V009",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [],
+ "permitted_at_checkpoint": [
+  "Use the fitted quadratic as a provisional local response model within the composite design's experimental region.",
+  "Calculate the stationary point and optimize within the studied factor bounds, checking curvature and feasible boundaries before interpreting the stationary point as a maximum.",
+  "Test the proposed settings in an independent confirmation experiment; distinguish predicted mean strength from individual-seal compliance."
+ ],
+ "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+ "report_recommends_forbidden_action": "NOT_APPLICABLE",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "Canonical analysis, numerical optimization, and confirmation at the recommended settings are a defensible continuation of this locally well-fitting response surface. The reported stationary-point and optimizer results agree closely. This supports selection of a candidate for confirmation, although optimizer agreement does not independently establish negative-definite curvature or a global maximum. Confirmation summaries and mean tests can evaluate performance at that candidate under independent, representative sampling. The subsequent stable-capability and production-freeze conclusions require separate validation and are not established by response-surface fit alone.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use a constrained quadratic optimizer after checking residual adequacy, experimental bounds, and the Hessian; compare any interior maximum with feasible boundary solutions.",
+  "Treat the calculated optimum as a candidate rather than a guaranteed optimum, and assess it with an independent confirmation run and a prediction interval that includes model and sampling uncertainty.",
+  "If residual or run-order diagnostics reveal inadequacy, augment or revise the experimental design and refit before making stronger optimization claims."
+ ],
+ "evidence": [
+  "The report states: \"A full quadratic response-surface model fit well: R-squared = 99.6%, adjusted R-squared = 99.3%, and lack-of-fit p = 0.575.\"",
+  "Step 6 reports 13 observations, R-squared 99.58951944089024%, adjusted R-squared 99.29631904152613%, and lack-of-fit p = 0.5749941911405583.",
+  "Step 7 reports stationary coordinates 0.7604657783911608 and 0.7447278722019034, with predicted strength 59.7214953542036 N.",
+  "Step 8 reports optimizer coordinates 0.7604657117963047 and 0.7447276688460702, with predicted strength 59.72149535420354 N.",
+  "The report states: \"Twenty seals were then made at the settings the design work recommended.\" The reported confirmation mean is 58.607 N.",
+  "The supplied public service rule concerns screening significance; it does not independently certify response-surface adequacy."
+ ],
+ "rationale": "The supplied record supports provisional local modeling and advancement to optimization and confirmation: the quadratic explains nearly all observed variation, the replicated-design lack-of-fit test does not identify systematic inadequacy, and the two reported optimization calculations agree. A nonsignificant lack-of-fit test is not proof that the quadratic is true, particularly with limited replication, but there is no affirmative evidence here requiring this focal advancement to stop. Missing residual plots, curvature results, and factor bounds limit independent verification and the strength of any optimality claim; they do not by themselves demonstrate an invalid candidate-selection route. Later capability and production-release issues should not retroactively invalidate the focal model-to-confirmation decision.",
+ "confidence": 3,
+ "numerical_check": "Self-report-only: no raw observations or executable calculation tools were available in this interaction. The reported stationary-point and optimizer outputs were compared as supplied; the regression, lack-of-fit test, Hessian, and experimental bounds were not independently recomputed.",
+ "evidence_problem": "The supplied packet omits the raw composite-design observations, fitted coefficients, residual diagnostics, Hessian, and optimizer bounds. The referenced directory files were not accessed. This review used only the user-supplied blind packet, with no external sources or other reviewers' outputs. It was performed by an AI assistant, not a human Black Belt reviewer.",
+ "_usage": {
+  "prompt_tokens": 4600,
+  "completion_tokens": 961,
+  "total_tokens": 5561,
+  "completion_tokens_details": {
+   "reasoning_tokens": 30
+  }
+ }
+}

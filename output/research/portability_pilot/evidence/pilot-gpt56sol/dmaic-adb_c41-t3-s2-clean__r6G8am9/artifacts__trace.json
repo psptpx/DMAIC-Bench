@@ -1,0 +1,185 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "participants": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "affectedRetained": 119,
+        "unaffectedRetained": 118,
+        "minimumObservedCallRate": 0.9466666666666667,
+        "sampleCallRateThreshold": 0.95,
+        "plateFailFractionThreshold": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes the re-genotyping gate; exclude P031, P153, and P236."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Discarded: the first exact-HWE recurrence generated divide-by-zero warnings and invalid zero p-values; none of its retention results were used."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "participants": 237,
+        "unaffectedParticipants": 118,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedByCallRate": 5,
+        "failedByMaf": 4,
+        "failedByHwe": 2,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hwePThreshold": 1e-06,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "familywiseAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Retain variants satisfying all three protocol criteria using corrected exact HWE tests in unaffected participants."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "componentsTested": 1
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 1.0163852371988689e-13,
+        "pc1LRStatistic": 55.33507790221336,
+        "pc1VarianceFraction": 0.09352354350804105,
+        "cluster0Cases": 89,
+        "cluster0Controls": 30,
+        "cluster1Cases": 30,
+        "cluster1Controls": 88
+      },
+      "status": "success",
+      "decision": "Strong but overlapping structure: both unsupervised clusters contain both outcomes, so comparison is permitted with PC1 adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "componentsExamined": 5
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 1.0163852371988689e-13,
+        "pc2PValue": 0.5175172392472315,
+        "pc3PValue": 0.2248197449917631,
+        "pc4PValue": 0.5841484815706919,
+        "pc5PValue": 0.7865132339100778,
+        "positivePc1Cases": 89,
+        "positivePc1Controls": 30,
+        "nonpositivePc1Cases": 30,
+        "nonpositivePc1Controls": 88
+      },
+      "status": "success",
+      "decision": "Only PC1 among the first five components showed outcome association; use PC1 as the ancestry covariate."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "covariates": 0
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 24,
+        "lambdaGC": 2.524244878694837
+      },
+      "status": "success",
+      "decision": "Diagnostic only: unadjusted tests were inflated and were not used for the study conclusion."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 139,
+        "ancestryCovariates": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.9841026021725029,
+        "nTested": 139,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "significantVariantCalledParticipants": 230,
+        "significantVariantPValue": 4.054916166609094e-05,
+        "significantVariantChiSquare": 16.845509291815546,
+        "significantVariantOddsRatio": 2.3857989016664805,
+        "significantVariantBeta": 0.8695340375028229
+      },
+      "status": "success",
+      "decision": "rs020008 is associated after PC1 adjustment and Bonferroni correction."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_gate",
+      "chosen_branch": "proceed_after_sample_exclusions",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maximumAllowed": 0.1
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "overlapping_structure_adjust_pc1",
+      "observed": {
+        "pc1PValue": 1.0163852371988689e-13,
+        "cluster0Cases": 89,
+        "cluster0Controls": 30,
+        "cluster1Cases": 30,
+        "cluster1Controls": 88
+      }
+    },
+    {
+      "point": "association_model",
+      "chosen_branch": "additive_logistic_with_pc1",
+      "observed": {
+        "unadjustedLambdaGC": 2.524244878694837,
+        "adjustedLambdaGC": 0.9841026021725029
+      }
+    },
+    {
+      "point": "multiplicity",
+      "chosen_branch": "bonferroni_over_retained_variants",
+      "observed": {
+        "retainedVariants": 139,
+        "threshold": 0.00035971223021582735
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

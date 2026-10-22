@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------- generated tasks
+# `dmaic-harbor-build` writes one Harbor task directory per generated instance
+# into the dataset directory. They are reproducible from the builder + a seed, so
+# they are build output, not source.
+datasets/dmaic-bench/dmaic-*/
+datasets/*/dmaic-*/
+
+# ---------------------------------------------------------------- build output
+build/
+dist/
+*.egg-info/
+.eggs/
+*.whl
+*.tar.gz
+
+# ---------------------------------------------------------------- harbor run output
+jobs/
+trials/
+runs/
+*.jsonl.tmp
+
+# ---------------------------------------------------------------- caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# ---------------------------------------------------------------- local credentials
+# Never commit an operator's endpoint URLs, accounts, or model keys.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+# Operator-local job configs (see the adapter directory's README) -- never committed.
+*.local.yaml
+*.local.yml
+*.local.json

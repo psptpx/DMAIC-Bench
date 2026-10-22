@@ -1,0 +1,180 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "participants": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "plateCanProceed": true
+      },
+      "status": "success",
+      "decision": "Exclude P053, P129, and P160; the plate can proceed because the computed failure fraction does not exceed the protocol limit."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "The first PCA implementation did not run because the sklearn module was unavailable; no results were taken from that attempt."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 150,
+        "unaffected": 118,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "failedCallRate": 6,
+        "failedMaf": 4,
+        "failedHwe": 3,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Exclude rs000003, rs000025, rs000061, rs000079, rs000086, rs000091, rs000107, rs000108, rs000122, rs000130, rs000138, rs000149, and rs000150; retain all other panel variants."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "participants": 237,
+        "affected": 119,
+        "unaffected": 118,
+        "variants": 137,
+        "leadingAxesExamined": 10,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.8666902364429908,
+        "pc1RangeOverlapFraction": 0.9351482635508023
+      },
+      "status": "success",
+      "decision": "Case and control score ranges overlap on the leading axes and PC1 does not differ; the groups are not separate ancestries and may be compared without ancestry covariates in the primary scan."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "participants": 237,
+        "variants": 137,
+        "covariateAxes": 1,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.1413481092075426,
+        "bonferroniThreshold": 0.00036496350364963507,
+        "candidatePValue": 6.560661954811907e-10,
+        "oddsRatio": 3.937692219576805
+      },
+      "status": "success",
+      "decision": "Exploratory PC6-adjusted sensitivity scan also nominated rs000008; this was not used as the primary route because selecting a nominally phenotype-associated axis from multiple axes would overfit."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "participants": 237,
+        "affected": 119,
+        "unaffected": 118,
+        "variants": 137,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.1143373639509648,
+        "bonferroniThreshold": 0.00036496350364963507,
+        "candidatePValue": 9.974888997073252e-10,
+        "oddsRatio": 3.7865156483986326,
+        "candidateCalledParticipants": 234
+      },
+      "status": "success",
+      "decision": "The primary additive logistic trend scan nominated rs000008."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "participants": 120,
+        "nCandidates": 1,
+        "batch": "replication"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "pValue": 5.037312231519292e-05,
+        "oddsRatio": 3.2240861372085563,
+        "sameDirection": true,
+        "replicationAlpha": 0.05,
+        "candidateCalledParticipants": 119,
+        "affectedWithCalls": 59,
+        "unaffectedWithCalls": 60
+      },
+      "status": "success",
+      "decision": "rs000008 replicated below the protocol threshold in the same positive direction and therefore qualifies for reporting."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_viability",
+      "chosen_branch": "proceed_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "ancestry_precondition",
+      "chosen_branch": "comparable_unadjusted_primary",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.8666902364429908,
+        "pc1RangeOverlapFraction": 0.9351482635508023
+      }
+    },
+    {
+      "point": "discovery_multiplicity",
+      "chosen_branch": "bonferroni_over_retained_variants",
+      "observed": {
+        "snpsRetained": 137,
+        "bonferroniThreshold": 0.00036496350364963507
+      }
+    },
+    {
+      "point": "reporting_gate",
+      "chosen_branch": "report_replicated_hit",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 1,
+        "sameDirection": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

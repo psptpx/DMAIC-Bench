@@ -1,0 +1,673 @@
+{
+  "B001": {
+    "point_id": "A_screen",
+    "phase": "analyze",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_more_factors",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "doe.factorial_analysis"
+    ],
+    "divergent_evidence": [
+      "basic.two_sample_t"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "I_optimise"
+    ]
+  },
+  "B002": {
+    "point_id": "I_level",
+    "phase": "improve",
+    "rule": "after.avgP <= 0.0025",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "C_control",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "capability.binomial"
+    ],
+    "divergent_evidence": [
+      "power.two_proportions"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_shortfall"
+    ]
+  },
+  "B003": {
+    "point_id": "M_agree2",
+    "phase": "measure",
+    "rule": "agree2.kappaMin >= 0.60",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "M_pchart",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "msa.attribute_agreement"
+    ],
+    "divergent_evidence": [],
+    "convergent_evidence": [
+      "basic.two_proportions",
+      "capability.binomial",
+      "control_chart.p"
+    ],
+    "alternatives": [
+      "M_escalate"
+    ]
+  },
+  "B004": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "imr.outOfControl == 0",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_route",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [],
+    "convergent_evidence": [
+      "basic.two_sample_t",
+      "capability.nonnormal",
+      "capability.normal",
+      "doe.factorial_analysis",
+      "regression.ols"
+    ],
+    "alternatives": [
+      "A_special"
+    ]
+  },
+  "B005": {
+    "point_id": "M_msa",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "M_msa_fix",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "msa.gage_rr_crossed"
+    ],
+    "divergent_evidence": [
+      "anova.oneway",
+      "capability.nonnormal",
+      "capability.normal",
+      "control_chart.imr",
+      "doe.factorial_analysis",
+      "regression.ols"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "M_stability"
+    ]
+  },
+  "B006": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [
+      "anova.oneway",
+      "anova.sov",
+      "basic.two_sample_t",
+      "nonparametric.kruskal_wallis"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_route"
+    ]
+  },
+  "B007": {
+    "point_id": "I_level",
+    "phase": "improve",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_shortfall",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "capability.binomial"
+    ],
+    "divergent_evidence": [],
+    "convergent_evidence": [
+      "power.two_proportions"
+    ],
+    "alternatives": [
+      "C_control"
+    ]
+  },
+  "B008": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {
+      "A_capability": [
+        "capability.nonnormal"
+      ]
+    },
+    "source_evidence": [
+      "basic.normality",
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [
+      "capability.nonnormal",
+      "capability.normal"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_capability"
+    ]
+  },
+  "B009": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [
+      "capability.nonnormal",
+      "capability.normal"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_route"
+    ]
+  },
+  "B010": {
+    "point_id": "M_pchart",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {
+      "A_cap_binomial": [
+        "capability.binomial"
+      ]
+    },
+    "source_evidence": [
+      "control_chart.p"
+    ],
+    "divergent_evidence": [
+      "basic.two_proportions",
+      "capability.binomial"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_cap_binomial"
+    ]
+  },
+  "B011": {
+    "point_id": "A_screen",
+    "phase": "analyze",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_more_x",
+    "acceptable_branches": [],
+    "branch_evidence": {
+      "A_rsm": [
+        "doe.rsm_analysis"
+      ]
+    },
+    "source_evidence": [
+      "doe.factorial_analysis"
+    ],
+    "divergent_evidence": [
+      "basic.one_sample_t",
+      "doe.rsm_analysis",
+      "doe.rsm_canonical",
+      "doe.rsm_optimizer"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_rsm"
+    ]
+  },
+  "B012": {
+    "point_id": "M_msa",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "M_msa_fix",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "msa.gage_rr_crossed"
+    ],
+    "divergent_evidence": [
+      "anova.sov",
+      "basic.one_sample_t",
+      "capability.nonnormal",
+      "capability.normal",
+      "control_chart.imr",
+      "control_chart.xbar_r"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "M_stability"
+    ]
+  },
+  "B013": {
+    "point_id": "M_chart_2",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_2",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.xbar_s"
+    ],
+    "divergent_evidence": [
+      "anova.oneway",
+      "capability.normal"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_cap_1"
+    ]
+  },
+  "B014": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [
+      "capability.nonnormal",
+      "capability.normal"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_route"
+    ]
+  },
+  "B015": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [
+      "capability.nonnormal",
+      "capability.normal"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_route"
+    ]
+  },
+  "B016": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [
+      "capability.nonnormal",
+      "capability.normal"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_route"
+    ]
+  },
+  "B017": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [
+      "capability.nonnormal",
+      "capability.normal"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_route"
+    ]
+  },
+  "B018": {
+    "point_id": "A_screen",
+    "phase": "analyze",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_remeasure",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "regression.ols"
+    ],
+    "divergent_evidence": [
+      "capability.normal",
+      "doe.factorial_analysis",
+      "doe.rsm_optimizer"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "I_doe"
+    ]
+  },
+  "B019": {
+    "point_id": "M_chart_1",
+    "phase": "measure",
+    "rule": "chart1.outOfControl == 0 and chart1.sOutOfControl == 0",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "M_chart_2",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.xbar_s"
+    ],
+    "divergent_evidence": [],
+    "convergent_evidence": [
+      "anova.oneway",
+      "basic.correlation",
+      "capability.normal"
+    ],
+    "alternatives": [
+      "A_special_1"
+    ]
+  },
+  "B020": {
+    "point_id": "M_pchart",
+    "phase": "measure",
+    "rule": "pchart.centerLine <= 0.0025",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "C_control",
+    "acceptable_branches": [],
+    "branch_evidence": {
+      "A_special": [
+        "control_chart.laney_p"
+      ],
+      "A_factors": [
+        "regression.ols"
+      ]
+    },
+    "source_evidence": [
+      "control_chart.p"
+    ],
+    "divergent_evidence": [
+      "basic.two_proportions",
+      "capability.binomial",
+      "control_chart.laney_p",
+      "power.two_proportions",
+      "regression.ols"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_factors",
+      "A_special"
+    ]
+  },
+  "B021": {
+    "point_id": "I_confirm",
+    "phase": "improve",
+    "rule": "confirm.pValue < 0.05",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "C_control",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "basic.one_sample_t"
+    ],
+    "divergent_evidence": [
+      "doe.rsm_canonical"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_widen"
+    ]
+  },
+  "B022": {
+    "point_id": "A_variances",
+    "phase": "analyze",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_spread",
+    "acceptable_branches": [],
+    "branch_evidence": {
+      "A_anova": [
+        "anova.oneway"
+      ],
+      "A_spread": [
+        "anova.sov"
+      ]
+    },
+    "source_evidence": [
+      "anova.equal_variances"
+    ],
+    "divergent_evidence": [
+      "anova.oneway",
+      "basic.two_sample_t"
+    ],
+    "convergent_evidence": [
+      "anova.sov"
+    ],
+    "alternatives": [
+      "A_anova"
+    ]
+  },
+  "B023": {
+    "point_id": "M_agree",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "M_agree_fix",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "msa.attribute_agreement"
+    ],
+    "divergent_evidence": [
+      "basic.two_proportions",
+      "capability.binomial",
+      "control_chart.laney_p",
+      "control_chart.p",
+      "tables.chisquare_assoc"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "M_pchart"
+    ]
+  },
+  "B024": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "imr.outOfControl == 0",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_route",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [],
+    "convergent_evidence": [
+      "capability.nonnormal",
+      "capability.normal"
+    ],
+    "alternatives": [
+      "A_special_cause"
+    ]
+  },
+  "B025": {
+    "point_id": "M_pchart",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {
+      "A_cap": [
+        "capability.binomial"
+      ]
+    },
+    "source_evidence": [
+      "control_chart.p"
+    ],
+    "divergent_evidence": [
+      "basic.two_proportions",
+      "capability.binomial"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_cap"
+    ]
+  },
+  "B026": {
+    "point_id": "A_cap_normal",
+    "phase": "analyze",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_root_cause",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "capability.normal"
+    ],
+    "divergent_evidence": [],
+    "convergent_evidence": [],
+    "alternatives": [
+      "C_control"
+    ]
+  },
+  "B027": {
+    "point_id": "M_msa",
+    "phase": "measure",
+    "rule": "msa.pctSV <= 0.30 and msa.ndc >= 5",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "M_chart_1",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "msa.gage_rr_crossed"
+    ],
+    "divergent_evidence": [],
+    "convergent_evidence": [
+      "anova.oneway",
+      "basic.correlation",
+      "capability.normal",
+      "control_chart.xbar_s"
+    ],
+    "alternatives": [
+      "M_msa_fix"
+    ]
+  },
+  "B028": {
+    "point_id": "M_stability",
+    "phase": "measure",
+    "rule": "(default branch)",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_special",
+    "acceptable_branches": [],
+    "branch_evidence": {},
+    "source_evidence": [
+      "control_chart.imr"
+    ],
+    "divergent_evidence": [
+      "anova.oneway",
+      "anova.sov",
+      "basic.two_sample_t",
+      "nonparametric.kruskal_wallis"
+    ],
+    "convergent_evidence": [],
+    "alternatives": [
+      "A_route"
+    ]
+  },
+  "B029": {
+    "point_id": "A_route",
+    "phase": "analyze",
+    "rule": "normality.pValue >= 0.05",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_cap_normal",
+    "acceptable_branches": [],
+    "branch_evidence": {
+      "A_cap_normal": [
+        "capability.normal"
+      ],
+      "A_cap_nonnormal": [
+        "capability.nonnormal"
+      ]
+    },
+    "source_evidence": [
+      "basic.normality"
+    ],
+    "divergent_evidence": [
+      "capability.nonnormal"
+    ],
+    "convergent_evidence": [
+      "capability.normal"
+    ],
+    "alternatives": [
+      "A_cap_nonnormal"
+    ]
+  },
+  "B030": {
+    "point_id": "A_route",
+    "phase": "analyze",
+    "rule": "normality.pValue >= 0.05",
+    "source": "decision graph guard, evaluated on this seed's oracle results",
+    "correct_branch": "A_cap_normal",
+    "acceptable_branches": [],
+    "branch_evidence": {
+      "A_cap_normal": [
+        "capability.normal"
+      ],
+      "A_cap_nonnormal": [
+        "capability.nonnormal"
+      ]
+    },
+    "source_evidence": [
+      "basic.normality"
+    ],
+    "divergent_evidence": [
+      "capability.nonnormal"
+    ],
+    "convergent_evidence": [
+      "capability.normal"
+    ],
+    "alternatives": [
+      "A_cap_nonnormal"
+    ]
+  }
+}

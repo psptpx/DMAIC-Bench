@@ -1,0 +1,134 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s6-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "nParticipants": 240,
+        "nVariants": 150,
+        "affected": 120,
+        "unaffected": 120
+      },
+      "status": "success",
+      "decision": "plate passes the re-genotyping gate"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "nParticipants": 240,
+        "nVariants": 150
+      },
+      "status": "success",
+      "decision": "variant QC completed with retained variants"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 137,
+        "affected": 120,
+        "unaffected": 120
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 36,
+        "lambdaGC": 2.7473438941862263,
+        "bonferroniThreshold": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "preliminary discovery associations identified; ancestry prerequisite not established"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.008333333333333333,
+        "nParticipants": 120,
+        "nVariants": 150,
+        "affected": 60,
+        "unaffected": 60
+      },
+      "status": "success",
+      "decision": "replication participant QC computed"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 36
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 36
+      },
+      "status": "success",
+      "decision": "exploratory comparison of locally nominated candidates produced no replicating candidates"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0
+      },
+      "status": "refused",
+      "decision": "formal replication conclusion stops because the steward supplied no nominated discovery candidates"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "continue_to_variant_qc",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667
+      }
+    },
+    {
+      "point": "variant_qc",
+      "chosen_branch": "continue_to_discovery_scan",
+      "observed": {
+        "snpsRetained": 137
+      }
+    },
+    {
+      "point": "replication_handoff",
+      "chosen_branch": "no_formal_candidates_available",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "wall_clock_s": 0.0
+}

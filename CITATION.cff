@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+title: 'DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical
+  Tasks'
+message: If you use this benchmark, please cite it.
+type: dataset
+abstract: 'A benchmark of self-restraint in multi-stage analytical tasks: whether an agent uses
+  the diagnostics it has computed to decide to continue, divert or stop (GO, DIVERT, or NO-GO).
+  97 seeded tasks over 15 Lean Six Sigma (DMAIC) cases in four industrial sectors, with paired
+  counterfactual variants at the same workflow position, plus a sixteen-task life-sciences extension
+  (bulk RNA-seq and case-control GWAS) on the same task contract. Data is released batch by
+  batch by a steward that enforces methodological preconditions; the correct route is re-derived
+  from seeded data; scoring covers method selection, numeric fidelity and route conformance,
+  with blind expert reading of the reports.'
+authors:
+- family-names: Peng
+  given-names: Shan
+  affiliation: Xiwei Technology (Guangzhou) Co., Ltd.; The Hong Kong University of Science and
+    Technology (Guangzhou)
+  website: https://openreview.net/profile?id=~Shan_Peng2
+- family-names: Cheng
+  given-names: Shuaiqi
+  affiliation: The Hong Kong University of Science and Technology (Guangzhou)
+  website: https://openreview.net/profile?id=~Shuaiqi_Cheng1
+- family-names: Peng
+  given-names: Miao
+  affiliation: The Hong Kong University of Science and Technology (Guangzhou)
+  website: https://openreview.net/profile?id=~Miao_Peng1
+- family-names: Zi
+  given-names: Chenyi
+  affiliation: The Hong Kong University of Science and Technology (Guangzhou)
+  website: https://openreview.net/profile?id=~Chenyi_Zi2
+- family-names: Li
+  given-names: Jia
+  affiliation: The Hong Kong University of Science and Technology (Guangzhou)
+  website: https://openreview.net/profile?id=~Jia_Li4
+license:
+- MIT
+- CC-BY-4.0
+version: 0.2.0
+date-released: '2026-10-22'
+keywords:
+- agent evaluation
+- benchmark
+- statistical process control
+- quality engineering
+- multi-stage analytical tasks
+- self-restraint
+- lean six sigma
+repository-code: https://github.com/psptpx/DMAIC-Bench-public
+url: https://github.com/psptpx/DMAIC-Bench-public

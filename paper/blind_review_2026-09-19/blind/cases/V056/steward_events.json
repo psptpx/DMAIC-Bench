@@ -1,0 +1,92 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "I need the project charter, the voiding acceptance limit and the improvement target",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "I need the repeat X-ray readings of the same joints from the operator measurement study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "I need the per-joint void fraction readings in build order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "I need the data from the improvement trial or after the process change was made",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "declare",
+    "text": "msa_acceptable=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "declare",
+    "text": "percentStudyVariation=19.9697",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "declare",
+    "text": "percentTolerance=18.2765",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "declare",
+    "text": "ndc=6.9185",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "Is zero percent void area a natural physical bound for this joint, so that only the 25 percent upper acceptance limit is a real requirement, or is there a genuine lower requirement too?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 13,
+    "action": "provision",
+    "text": "During the 50 joints in this build order run, was any process change, setup adjustment, material lot change or operator change made? If so, at which joint number?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

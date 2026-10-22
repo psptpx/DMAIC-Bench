@@ -1,0 +1,66 @@
+{
+ "reviewer_id": "reviewer_1",
+ "reviewer_type": "Human",
+ "perspective": "independent industrial/statistical validity",
+ "blinding_compliance": "I read only the V059 blind packet and did not inspect coordinator directories, hidden truth files, scoring code, model identities, or other reviewers' outputs; no web search for the benchmark was performed.",
+ "ai_assistance": "AI assistant used to draft and format this JSON output; substantive review judgment was performed by the human reviewer.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V059",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Treating the current thickness gauge as suitable for individual-product release or reliable disposition near the 180.0--260.0 um specification boundaries, because the estimated 6-sigma gauge spread consumes 64.85% of the 80.0 um tolerance.",
+    "Using the reported capability indices as final, unqualified evidence of specification capability or target attainment without the measurement-error caveat.",
+    "Concluding that the measurement system is adequate for all purposes solely from the passing %study variation and ndc values.",
+    "Claiming that a specific physical process change caused the observed variability reduction, because no routed process-fact identifies the change.",
+    "Concluding applicator equivalence or a nozzle-D special cause from the descriptive standard-deviation differences."
+   ],
+   "permitted_at_checkpoint": [
+    "Using the readings for process description, control-chart monitoring, stability and trend checks, and exploratory process analysis because %study variation is 15.54% and ndc is 8.",
+    "Computing conditional capability estimates clearly labeled as gauge-inflated and not valid for boundary release or product acceptance decisions.",
+    "Running exploratory applicator and before/after contrasts as observational analyses, provided they are not interpreted as causal and any pairwise tests are recognized as unplanned.",
+    "Recommending gauge repeatability improvement, quarantine of near-limit dispositions, preservation of process records, and no applicator action based on the global comparisons."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The post-MSA computations are a valid alternative process-analysis route because the gauge meets the process-analysis precondition (%study variation 15.54%, ndc 8) while the report withholds specification-use conclusions. Control charts, descriptive summaries, corrected capability after rejecting the invalid step 7 run, regression trend checks, ANOVA/Kruskal-Wallis, and pre/post Welch/Brown-Forsythe contrasts are either descriptive or appropriately qualified. The six pairwise Welch tests are unadjusted exploratory computations; they are not reported or relied on for a confirmatory conclusion.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Use the MSA as a process-analysis pass rather than a product-acceptance pass: %study variation and ndc support monitoring, while %tolerance requires withholding boundary disposition.",
+    "Use control charts and trend checks to assess process stability, with the caveat that gauge repeatability remains a limitation.",
+    "Use corrected normal capability indices only as conditional, gauge-inflated point estimates after normality/stability checks.",
+    "Use global applicator comparisons such as ANOVA with rank-based confirmation and do not interpret unadjusted pairwise tests as confirmatory.",
+    "Use pre/post observational dispersion contrasts with explicit acknowledgment that temporal or other confounders prevent causal attribution."
+   ],
+   "evidence": [
+    "MSA step 3 reported percentStudyVariation = 15.54173435636568, ndc = 8, percentTolerance = 64.84568955932677, sigmaGRR = 8.64609194124357 um, and repeatabilityPercentOfGRR = 97.09138889151014.",
+    "Report bottom line: 'The recorded coating readings are good enough to describe and monitor the run, but not good enough for reliable dispositions near a specification boundary.'",
+    "Report states: 'Gauge improvement is therefore the first intervention priority.'",
+    "Step 9 corrected capability reported Cp = 1.6461429582448692 and Cpk = 1.6378957820240625 after discarding the invalid step 7 run.",
+    "Step 32 Brown-Forsythe p = 0.003566664649132216; step 31 Welch p = 0.4220454503723907; step 35 recorded 2 process-fact requests and 0 routable process-fact topics."
+   ],
+   "rationale": "The MSA evidence is sufficient to decide the focal gate: the readings support monitoring and exploratory process analysis, but not specification-boundary disposition. The submitted report makes exactly this distinction and repeatedly qualifies the capability and before/after statements. It does not assert a forbidden boundary disposition or causal conclusion, and it appropriately stops before naming the physical process change. The computations past the gateway are conditionally valid process analyses; the exploratory pairwise tests are not used to support a confirmatory conclusion.",
+   "confidence": 4,
+   "numerical_check": "Recomputed MSA ratios: 8.646091941 / 55.631448479 = 0.155417, and 6 * 8.646091941 / 80 = 0.648457. Checked that step 7 used an incorrect specification setup and step 9 corrected it. Remaining reported SPC and capability values were checked for internal consistency only.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 9920,
+  "completion_tokens": 12307,
+  "total_tokens": 22227,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 11065
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 8256
+ }
+}

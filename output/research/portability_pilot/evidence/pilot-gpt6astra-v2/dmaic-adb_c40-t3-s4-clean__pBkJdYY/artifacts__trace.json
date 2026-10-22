@@ -1,0 +1,107 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlReplicates": 6,
+        "treatedReplicates": 6,
+        "minAssignedReadsObserved": 9325000,
+        "minMappingRateObserved": 0.861
+      },
+      "status": "success",
+      "decision": "Library QC passes; replication sufficient."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12
+      },
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      },
+      "status": "success",
+      "decision": "Single shared batch; treatment identifiable. Use unblocked comparison."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.de_simple",
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12
+      },
+      "outputs": {
+        "nSignificant": 0,
+        "genesTested": 400,
+        "nUp": 0,
+        "nDown": 0,
+        "sizeFactorMin": 0.8198063825762534,
+        "sizeFactorMax": 1.2689197971307398
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization; log2(normalized count + 1), two-sided Welch tests, BH correction across panel; absolute mean log-expression difference threshold. Exploratory log-scale analysis, not negative-binomial DESeq2."
+    },
+    {
+      "step_id": 4,
+      "method_id": "expression.validation_concordance",
+      "inputs_digest": {
+        "batch": "validation",
+        "note": "no candidates were nominated for validation"
+      },
+      "outputs": {
+        "nCandidates": 0,
+        "nConfirmed": 0
+      },
+      "status": "failed",
+      "decision": "Empty nominee set and no qPCR observations: confirmed count is empty-set count, but concordance is undefined (zero denominator). No validation verdict can be computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "simple",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "expression_calls",
+      "chosen_branch": "no_qualifying_genes",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "validation",
+      "chosen_branch": "not_applicable_empty_nominees",
+      "observed": {
+        "nCandidates": 0
+      }
+    },
+    {
+      "point": "annotation",
+      "chosen_branch": "stop_locked_no_concordance",
+      "observed": {
+        "gateSatisfied": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

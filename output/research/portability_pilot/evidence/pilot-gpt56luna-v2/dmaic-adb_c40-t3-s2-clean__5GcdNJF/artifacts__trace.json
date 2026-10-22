@@ -1,0 +1,130 @@
+{
+  "system_id": "openai-codex",
+  "task_id": "adb_c40-T3-s2-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "samples": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "sampleCount": 12,
+        "usableLibraries": 12,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "requiredMinReplicates": 3
+      },
+      "status": "success",
+      "decision": "All 12 libraries usable; both arms exceed the minimum replicate requirement."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12,
+        "groups": 2,
+        "batches": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "sampleCount": 12,
+        "armCount": 2
+      },
+      "status": "success",
+      "decision": "Treatment is estimable separately from preparation batch; batch is included in the expression model."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "batches": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 31,
+        "sampleCount": 12,
+        "geneCount": 400,
+        "residualDegreesFreedom": 9,
+        "rawPValueBelow05": 96,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "31 genes meet adjusted p < 0.05 and absolute log2 fold change >= 1 in the batch-adjusted model."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidates": 10,
+        "replicatesPerArm": 4
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "replicatesPerArm": 4,
+        "alpha": 0.05,
+        "minConcordance": 0.75
+      },
+      "status": "success",
+      "decision": "Validation supports issuing the nominated list."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "calledGenes": 31,
+        "universe": 400,
+        "sets": 12
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "universeSize": 400,
+        "setCount": 12,
+        "adjustedAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Gene-set enrichment was computed as supplementary interpretation of the called list."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "retain all libraries",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "proceed with batch-adjusted model",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "issue candidate list",
+      "observed": {
+        "concordance": 1.0,
+        "nConfirmed": 10
+      }
+    }
+  ]
+}

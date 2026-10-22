@@ -1,0 +1,182 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "requiredMinReplicates": 3
+      },
+      "status": "success",
+      "decision": "All libraries met both usability rules and both arms retained sufficient replication."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableLibraries": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "l1Control": 5,
+        "l1Treated": 1,
+        "l2Control": 1,
+        "l2Treated": 5
+      },
+      "status": "success",
+      "decision": "The intercept+treatment+batch design is full rank, so treatment is estimable, but the allocation is strongly imbalanced and batch must be adjusted."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial gene-wise maximum-likelihood negative-binomial run aborted while assigning calls because invalid fits had missing adjusted p-values; no result from this attempt was used."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "successfulFits": 397,
+        "failedFits": 3
+      },
+      "status": "success",
+      "decision": "Repaired gene-wise maximum-likelihood negative-binomial run included batch and produced no calls, but several invalid fits motivated the later stable GLM rerun."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 57,
+        "successfulFits": 399,
+        "failedFits": 1
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis omitted batch and produced many apparent calls; it is not the valid study result and demonstrates the consequence of the imbalanced allocation."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "validation",
+        "nominatedCandidates": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "estimable": false,
+        "validationAlpha": 0.05,
+        "requiredConcordance": 0.75
+      },
+      "status": "success",
+      "decision": "No candidates or qPCR measurements were supplied, so the confirmation fraction has a zero denominator and is not estimable; the numeric zero declaration was administrative routing only."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "testedGenes": 400,
+        "successfulFits": 400,
+        "failedFits": 0,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Median-ratio-normalized negative-binomial GLMs included preparation batch; BH-adjusted p and absolute log2-fold-change criteria produced no calls."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked because the validation-concordance gate was not satisfied; enrichment was not computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_model",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "withhold_list",
+      "observed": {
+        "nCandidates": 0,
+        "nConfirmed": 0,
+        "estimable": false
+      }
+    },
+    {
+      "point": "annotation_gate",
+      "chosen_branch": "stop_locked",
+      "observed": {
+        "validationConcordanceDeclared": 0,
+        "requiredConcordance": 0.75
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

@@ -1,0 +1,51 @@
+{
+ "blind_id": "V024",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Certifying bore roughness or the roughness tester using the released void-area measurement study.",
+  "Granting unconditional measurement-system approval or claiming demonstrated accuracy, calibration, bias control, or long-term measurement stability from this R&R study alone.",
+  "Treating conditional measurement usability as sufficient authorization for final product acceptance commitments, causal conclusions, or project closure."
+ ],
+ "permitted_at_checkpoint": [
+  "Proceed with provisional investigation and process comparisons for the released void-area project, provided the crossed study represents the measurement method, operators, parts, and operating range relevant to those comparisons.",
+  "Describe and monitor the recorded void-area readings while distinguishing measurement variation from manufacturing variation and retaining uncertainty about measurement bias and stability.",
+  "Improve operator positioning and interpretation, check reference-joint bias and calibration, and repeat the measurement study.",
+  "Withhold honing-related conclusions until project identity is reconciled and actual honing measurement records are available."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The downstream analyses combine permissible provisional monitoring, restricted reference calculations, and a conditional alternative distributional route. The I-MR chart and runs test describe the ordered readings without claiming that nonsignificant tests establish stability. Normal capability calculations are explicitly withheld from sign-off. The exact binomial bound is appropriate for threshold-exceedance indicators under independent representative sampling, not for the continuous measurements themselves. The lognormal fit is acceptable as exploratory distributional modeling, conditional on representative observations and adequate model fit; passing a log-scale normality test does not validate its remote tail. The report expressly withholds acceptance commitments based on that extrapolation. No unsupported causal comparison or implemented improvement analysis is presented.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use the void-area measurements for provisional process investigation if the study design and sampled part range are representative; assess the resolution needed for each proposed comparison rather than treating an R&R percentage as universal approval.",
+  "Use observed exceedance counts with binomial uncertainty if sampling independence and representativeness are defensible, while separately addressing measurement uncertainty near the acceptance ceiling.",
+  "Explore a positive continuous distribution for void area, but validate predictive behavior with a larger representative run and measurement checks before using tail estimates for acceptance commitments.",
+  "Obtain a separate representative honing measurement study before drawing conclusions about bore roughness."
+ ],
+ "evidence": [
+  "The report states: \"Consequently, this report supports only a conditional voiding assessment: it cannot certify bore finish or the roughness tester.\"",
+  "The report states: \"These results support conditional process comparisons, not an unqualified measurement-system approval.\"",
+  "Reported crossed-study results are 20.1081% study variation, 18.4104% tolerance, six distinct categories, and interaction p = 0.5753.",
+  "The reported repeatability and operator variance components sum to 0.5884398787; the reported interaction variance is truncated to zero.",
+  "The report states: \"R&R alone does not establish accuracy or long-term measurement stability.\"",
+  "The report states: \"Normal capability calculations were retained in the trace only as reference calculations and should not be used to sign off this process.\"",
+  "The report states: \"The small baseline cannot establish the remote tail; collect a larger representative run before using this projection for acceptance commitments.\"",
+  "The supplied public protocol thresholds are an empty object, so no explicit numerical service rule requires rejection of conditional measurement usability."
+ ],
+ "rationale": "The focal decision is conditional usability, not unconditional measurement approval. Approximately 20% study-variation R&R and six distinct categories can support appropriately scoped process investigation; they do not require automatically stopping all substantive analysis. Suitability remains application-dependent, particularly because study-part representativeness and measurement bias are not established here. The report acknowledges those limitations, recommends corrective measurement work, and explicitly prevents the unrelated void-area archive from certifying honing performance. Its downstream calculations do not overturn that restraint. Professional validity therefore supports a scoped GO for void-area investigation, while honing-related conclusions remain withheld.",
+ "confidence": 4,
+ "numerical_check": "Checked internal consistency from the supplied variance components: total gage variance = 0.39736585898 + 0.19107401974 = 0.58843987873; gage standard deviation is approximately 0.76710. Dividing this by the square root of gage plus part variance gives approximately 20.108% study variation; six times the gage standard deviation divided by 25 gives approximately 18.410% tolerance. The conventional truncated distinct-category calculation gives six. The zero-exceedance upper bound is consistent with 1 - 0.05^(1/50) = approximately 0.058155. Raw-data ANOVA, chart statistics, and distribution fits were not independently recomputed; those remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was available for this review; the referenced raw batches and service-event files were not inspected. Study randomization, part representativeness, and the reported archive identity could not be independently verified. Review used only this packet, with no outside sources or other reviewer outputs. This assessment was generated by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 4427,
+  "completion_tokens": 1258,
+  "total_tokens": 5685,
+  "completion_tokens_details": {
+   "reasoning_tokens": 69
+  }
+ }
+}

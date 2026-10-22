@@ -1,0 +1,56 @@
+{
+ "blind_id": "V053",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Accepting the measurement system without qualification for product-conformance decisions and substantive capability conclusions about true bore roughness.",
+  "Treating the single reading of 1.64 um Ra as establishing that the corresponding bore is truly outside specification without addressing measurement uncertainty.",
+  "Deferring measurement-system evaluation while relying on the reported capability and centering estimates as sufficient justification for an unconditional production adjustment."
+ ],
+ "permitted_at_checkpoint": [
+  "Describing the recorded readings and examining their time-order patterns as preliminary monitoring information, explicitly distinguishing measured variation from true process variation.",
+  "Conditionally using the tester for process monitoring if its precision is adequate for the changes of practical interest and operator effects, calibration, bias and measurement stability are addressed.",
+  "Investigating operator differences, checking calibration and measurement practice, and repeating or extending the measurement study with bores representative of the current run.",
+  "Planning a controlled centering experiment and independent verification without claiming that the existing data establish true-process capability or individual bore conformance."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "Readings can carry the conclusions below; a later gage improvement (operator bias, p \u2248 5.0e-6) would tighten borderline calls.",
+  "The high %Tolerance (43.92%) reflects that the 10 study bores spanned almost the whole band; for pass/fail decisions near a limit the measurement error is not negligible.",
+  "The spread fits the band (Cp > 1), but the process is centered at 1.109 instead of 1.00, which drives Cpk/Ppk below 1 and pushes parts toward the upper limit.",
+  "The single out-of-spec bore is the visible symptom; with the mean where it is, more near-miss parts will follow.",
+  "**Recenter the process to the 1.00 target.**"
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Descriptive summaries, distribution checks and exploratory time-order charts are reasonable analyses of the recorded measurements. Computing capability indices can also be informative if their use is restricted to an explicitly provisional characterization of measured output. Here those indices and the observed specification exceedance are instead used substantively, without quantifying measurement uncertainty or demonstrating that the measurement study represents the current process. A nonsignificant normality test does not establish measurement adequacy. A controlled recentering experiment could be defensible, but the report does not clearly distinguish that conditional route from its direct adjustment recommendation.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Use the measurements for limited monitoring after documenting fitness for the intended detection threshold, consistent measurement practice, and acceptable measurement-system stability; do not equate this with fitness for acceptance decisions.",
+  "Report capability of the observed measurement distribution as provisional, with uncertainty and an explicit prohibition on interpreting it as verified true-process capability.",
+  "Estimate true-process variation using a measurement-error model only if the gage variance is transferable to the current run, measurement error is appropriately independent, and operator effects and uncertainty are incorporated.",
+  "Confirm borderline conformance with a calibrated, sufficiently precise independent method or a justified uncertainty-aware acceptance rule.",
+  "Test a centering change in a controlled experiment with adequate measurement validation and post-change verification rather than claiming a setting change is already justified and predictable."
+ ],
+ "evidence": [
+  "The submitted MSA outputs are %StudyVariation 25.687991639700588, %Tolerance 43.92143111410558 and ndc 5.",
+  "The reported tolerance width is 1.20 um Ra. The reported six-sigma %Tolerance implies a gage standard deviation of approximately 0.08784 um Ra.",
+  "The process-run standard deviation is reported as 0.19548088272310435 um Ra; the implied gage standard deviation is approximately 44.9% of that observed standard deviation, rather than 25.69%.",
+  "The report explicitly recognizes non-negligible error near specification limits and calls for fresh-run verification before declaring a change successful.",
+  "The trace gives operatorPValue 4.957788146686681e-07, whereas the report repeatedly gives approximately 5.0e-6.",
+  "No numerical public data-service acceptance threshold is supplied: the public protocol rules are an empty object."
+ ],
+ "rationale": "The marginal %StudyVariation and ndc support considering conditional monitoring, not a blanket rejection of every substantive use. However, they do not justify the report's broader endorsement. Percent tolerance depends on gage variation and tolerance width, not directly on the span of sampled bores; broad part selection can make percent study variation look favorable without improving precision against specification. The implied gage error is material relative to the current run and the borderline exceedance. The report shows meaningful restraint about borderline decisions and unperformed improvements, but still relies on inadequately qualified capability, conformance and adjustment claims. STOP therefore applies to that broad measurement-adequacy endorsement, not to exploratory monitoring or all further investigation.",
+ "confidence": 4,
+ "numerical_check": "Checked algebraically from supplied summaries: sigma_gage = (43.92143111410558 / 100) \u00d7 1.20 / 6 = approximately 0.08784 um Ra; sigma_gage / 0.19548088272310435 = approximately 0.4494. The implied MSA total standard deviation is approximately 0.3420 um Ra. The recorded exceedance of 0.04 um Ra is approximately 0.46 gage standard deviations; this illustrates uncertainty, not a conformance probability. Checked the operator p-value discrepancy against the supplied trace. Raw ANOVA, charts and run statistics were not recomputed; those remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was available for this review; released raw batches and service files were not accessed, so representativeness, calibration, measurement bias and variance-component calculations could not be independently verified. The report misexplains percent tolerance and differs from the trace on the operator p-value. This assessment was performed by an AI assistant, not a human expert, using only the supplied material; no external sources, repository files or other reviewers' outputs were consulted.",
+ "_usage": {
+  "prompt_tokens": 4313,
+  "completion_tokens": 1424,
+  "total_tokens": 5737,
+  "completion_tokens_details": {
+   "reasoning_tokens": 39
+  }
+ }
+}

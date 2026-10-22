@@ -1,0 +1,67 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "I read only the provided V048 packet and did not inspect the repository outside the blind directory, coordinator files, other reviewers' outputs, hidden truth files, scoring code, or model identities.",
+ "ai_assistance": "AI assistant used: ChatGPT, for drafting this review and checking selected arithmetic from the provided summary values.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V048",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that any deliberately varied factor (chain speed, rail angle, air pressure) or their interactions is a demonstrated explanatory driver of fillet height.",
+    "Concluding that the line change improved, worsened, or left fillet height unchanged; the before/after comparison is unavailable because the screening gate is negative.",
+    "Concluding that the logged process variables are proven causes of fillet height or acting on them as established process drivers.",
+    "Standardizing or crediting the change based on the present negative screening result."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the factorial screen as negative: no significant main effect or interaction was detected at the tested levels, expressed as lack of demonstrated effect rather than proof of no effect.",
+    "Reporting residual diagnostics and variance checks for the factorial model, with appropriate caveats about the small replication per cell.",
+    "Reporting the logged-variable regressions and correlations as weak, undetected observational associations explicitly not establishing causality.",
+    "Reporting descriptive baseline summaries, stability charts, and capability estimates with their stated assumptions.",
+    "Recommending further randomized experiments with more replication, blocking, and wider factor ranges.",
+    "Stating that before/after data were not released under the screening_significant gate and that the change-effect conclusion stops there."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The factorial residual normality test, Bartlett variance check, degenerate Levene check, and observational logged-variable regressions/correlations are descriptive or exploratory and were not used to claim causality or change effects. The before/after comparison was not run because the screening gate was negative.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "A randomized factorial design with more replication per treatment, wider factor ranges or center points, and nuisance blocking; use effect estimates with confidence intervals and pre-specified multiplicity control.",
+    "An independent time-ordered before/after comparison with control or blocking if management still needs a causal change-effect claim, rather than relying on the current screening gate release.",
+    "Observational logged-variable modeling only for hypothesis generation, with non-causal language and adjustment for temporal confounding if used further.",
+    "Equivalence testing for factor effects only if a practical absence-of-effect claim is needed, with pre-specified margins."
+   ],
+   "evidence": [
+    "any_factor_significant=false; full factorial model p=0.903450, R-squared=23.8302%, adjusted R-squared=-42.8184%.",
+    "Main-effect p-values: chain speed p=0.71560, rail angle p=0.73454, air pressure p=0.72246; largest interaction p=0.19309.",
+    "Observational logged-variable regression p=0.85713, R-squared=1.71098%.",
+    "Report quote: 'The designed experiment did not identify any of the deliberately varied settings\u2014or their interactions\u2014as an explanatory driver.'",
+    "Report quote: 'Because the experimental screen was negative, the steward locked the before/after batch. There is therefore no available computation showing what the line change achieved.'",
+    "Step 16 status refused for before/after comparison because screening_significant was false."
+   ],
+   "rationale": "The negative factor screen (any_factor_significant=false) supports only a conclusion of no detected factor effect, not a demonstrated cause or change effect. The report uses appropriately guarded language and correctly treats the locked before/after data as unavailable. The exploratory logged-variable analyses are labeled observational and non-causal. No forbidden conclusion or action is asserted.",
+   "confidence": 4,
+   "numerical_check": "I checked Cp/Cpk/Pp/Ppk and the one-sample t-statistic from the reported mean, standard deviation, and sample size: Cp=0.8608, Cpk=0.7992, t=-1.431. Factorial and regression p-values were not independently recomputed from raw data and are treated as self-reported.",
+   "evidence_problem": "Before/after batch is locked by protocol; raw DOE and logged-variable values were not independently reanalyzed. No conflicting evidence was identified."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5791,
+  "completion_tokens": 8638,
+  "total_tokens": 14429,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 7534
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 4127
+ }
+}

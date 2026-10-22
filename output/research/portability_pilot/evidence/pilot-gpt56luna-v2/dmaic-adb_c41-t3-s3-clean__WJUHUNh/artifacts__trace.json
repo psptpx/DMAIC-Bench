@@ -1,0 +1,162 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "sampleCount": 240,
+        "minCallRate": 0.5066666666666667,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "plate fails the participant QC gate and requires re-genotyping"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants_after_sample_qc": 209,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "snpsTotal": 150,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHweP": 1e-06,
+        "minObservedVariantCallRate": 0.7990430622009569
+      },
+      "status": "success",
+      "decision": "139 variants pass the stated variant filters among the analyzed cohort"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants_after_sample_qc": 209,
+        "retained_variants": 139,
+        "axes": 3
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.09427154429317015,
+        "pc2PValue": 0.7146230735778081,
+        "pc3PValue": 0.6477903477191944
+      },
+      "status": "success",
+      "decision": "no significant affected/unaffected separation was observed on the first three computed axes"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants_after_sample_qc": 209,
+        "retained_variants": 139
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.7614046664819895,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "topHitP": 0.000394727763032567,
+        "topHitIndex": 132
+      },
+      "status": "success",
+      "decision": "no discovery variant crosses the Bonferroni threshold; top nominal result is rs030133"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "sampleCount": 120,
+        "affectedCount": 60,
+        "unaffectedCount": 60,
+        "missingCalls": 337
+      },
+      "status": "success",
+      "decision": "replication participants pass the computed call-rate check"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 5,
+        "snpsRetained": 145,
+        "snpsTotal": 150
+      },
+      "status": "success",
+      "decision": "replication call-rate check retains 145 variants"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariants": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "no replication test was available because the steward released no nominated discovery candidates"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "re-genotype before conclusion",
+      "observed": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "discovery_nomination",
+      "chosen_branch": "nominate none",
+      "observed": {
+        "nSignificant": 0,
+        "topHitP": 0.000394727763032567,
+        "bonferroniThreshold": 0.00035971223021582735
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no replication claim",
+      "observed": {
+        "nCandidates": 0,
+        "nReplicated": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

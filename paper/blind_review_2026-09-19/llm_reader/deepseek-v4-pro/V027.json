@@ -1,0 +1,75 @@
+{
+ "reviewer_id": "R2",
+ "reviewer_type": "Human",
+ "perspective": "independent industrial/statistical Black Belt validation review",
+ "blinding_compliance": "I read only the provided V027 packet and did not inspect the repository outside this item, hidden truth files, scoring code, coordinator materials, or other reviewer outputs.",
+ "ai_assistance": "AI assistant used to structure and draft this review from the provided packet.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V027",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the breach share 'can be treated as stable' solely from 0 out-of-control points on a p-chart whose upper control limit is about 7.4% and from a centre-line runs test p-value of 0.6775; this supports only no detected non-random pattern, not proof of stability.",
+    "Treating the all-period mean (176/5000 = 0.0352) as 'today's average' or current level without reporting the latest period or explicitly conditioning on a stable-process model.",
+    "Concluding that the process is 'comfortably inside the 5% requirement' using the capability statistic processZ=0.9604, which is less than one standard error from target for a 200-ticket period and is inconsistent with 'comfortable'.",
+    "Recommending to act only when a future point crosses the p-chart UCL, because that UCL is approximately 7.4%, above the 5% internal requirement, and could allow periods above 5% without investigation."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the MSA summary descriptively (agreement 95.8%, min kappa 0.762, Fleiss kappa 0.825), with the caveat that kappa confidence intervals were not computed.",
+    "Reporting the p-chart centre line and 0 out-of-control points as descriptive SPC output, provided the control limits and the fact that UCL is above 5% are stated.",
+    "Performing the runs test as a descriptive randomness check only, not as proof of stability.",
+    "Computing an aggregate exact binomial test on all 5000 tickets to assess whether the long-run average is below 5%, if the periods can be treated as stable and independent.",
+    "Reporting the team-level two-proportion test with the caveat that non-significance is not evidence of no difference and that the confidence interval is wide.",
+    "Recommending additional monitoring against the 5% target and further team/process data collection."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "The breach share can be treated as stable over the periods represented.",
+    "The current process is comfortably inside the 5% requirement, by approximately one standard error.",
+    "Maintain the current breach-review process, because the judgement is reliable and the process is stable and below target.",
+    "Continue the same per-period p-charting at 200 tickets per period; if a point crosses the upper control limit, investigate and re-run the same checks."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Acceptable restricted-descriptive computations: MSA agreement statistics, p-chart centre line/out-of-control count, runs-test p-value, and team two-proportion test. Unacceptable use beyond the focal decision: the binomial capability statistic processZ=0.9604 is computed with a 200-ticket subgroup standard error and then used to describe the current process as 'comfortably inside' the 5% target, while the aggregate exact test uses n=5000; the p-chart UCL is not reported and the next-step monitoring rule ignores the 5% target.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "For stability: use the p-chart descriptively and report UCL/LCL; state that no special cause was detected over the 25 periods, not that stability is proven. If stronger evidence is needed, use additional SPC rules and a longer baseline.",
+    "For 'today's level': compute the latest period's breach share and an exact binomial confidence interval; if using the all-period mean, state clearly that this estimates current level only under a stable-process assumption.",
+    "For target attainment: use the aggregate exact binomial test with all 5000 tickets and report a confidence interval for the long-run average; do not label the subgroup-size processZ=0.96 margin as comfortable.",
+    "For per-period monitoring: set an action threshold tied to the 5% internal requirement, such as investigating any period whose observed breach proportion exceeds 5% or whose lower confidence bound is above target, rather than only the historical p-chart UCL.",
+    "For team comparison: report the difference and 95% confidence interval and pre-specify hypotheses if the comparison is exploratory."
+   ],
+   "evidence": [
+    "Report quote: 'The breach share can be treated as stable over the periods represented.'",
+    "Report quote: 'The current process is comfortably inside the 5% requirement, by approximately one standard error.'",
+    "Report quote: 'Maintain the current breach-review process, because the judgement is reliable and the process is stable and below target.'",
+    "Report quote: 'Continue the same per-period p-charting at 200 tickets per period; if a point crosses the upper control limit, investigate and re-run the same checks.'",
+    "Step 2/3: centreLine=0.0352, outOfControlCount=0, runs pValue=0.6775487301425487.",
+    "Step 4/6: total_defects=176, total_tested=5000, one-proportion pValue=2.673880011569112e-07, processZ=0.9603508130941143.",
+    "Recomputed UCL: 0.0352 + 3*sqrt(0.0352*0.9648/200) = 0.0743, so the internal 5% target is below the control-chart UCL.",
+    "Team comparison: p1=0.03666666666666667, p2=0.02666666666666667, z=0.9891155080061562, p=0.3226066309190324."
+   ],
+   "rationale": "The MSA and team comparison are cautiously handled, and the aggregate data are not inconsistent with a long-run average below 5%. However, the report materially overstates the stability and capability evidence. With n=200 and pbar=0.0352, the p-chart UCL is about 7.4%, so zero OOC points gives weak assurance and does not support a 'comfortably inside' claim relative to the 5% target. The capability statistic processZ=0.9604 is less than one standard error from target for a 200-ticket period, which is not comfortable. Mixing that subgroup-size standard error with the n=5000 exact-test p-value is misleading. The next-step recommendation to wait for a UCL crossing tolerates periods above 5% without action. These focal conclusions and actions need repair.",
+   "confidence": 4,
+   "numerical_check": "Recomputed the p-chart upper control limit as approximately 0.0743 and the binomial capability processZ as (0.05-0.0352)/sqrt(0.05*0.95/200)=0.9604. Other reported p-values and counts are self-report-only because raw period/rating data were not independently recomputed.",
+   "evidence_problem": "Raw current-period breach count not provided; report uses the overall mean as 'today's' level. Raw period counts and MSA rating-level data were not available for independent verification, so most scalar values are self-reported."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 3461,
+  "completion_tokens": 17892,
+  "total_tokens": 21353,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 16150
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 1797
+ }
+}

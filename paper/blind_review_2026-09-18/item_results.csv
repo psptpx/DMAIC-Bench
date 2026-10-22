@@ -1,0 +1,31 @@
+blind_id,case,seed,system,point,stratum,benchmark_label,benchmark_verdict,gate_votes,trajectory_votes,alternative_votes,majority_gate,majority_trajectory,label_matches_majority,at_least_two_allow_actual_alternative,candidate_scoring_overpenalty,candidate_scoring_underpenalty
+B001,adb_c36,6,Kimi-k3,A_screen,core_STOP_one_per_case,STOP,incorrect,GO / STOP / GO,UNACCEPTABLE / UNACCEPTABLE / MIXED,CONDITIONALLY_VALID / NONE / CONDITIONALLY_VALID,GO,UNACCEPTABLE,False,True,False,False
+B002,adb_c38,1,DeepSeek-flash,I_level,core_GO_improve,GO,incorrect,GO / GO / GO,MIXED / ACCEPTABLE / MIXED,CONDITIONALLY_VALID / VALID / CONDITIONALLY_VALID,GO,MIXED,True,True,False,False
+B003,adb_c33,2,GPT-6-astra,M_agree2,boundary_second_measurement_study,GO,correct,GO / GO / GO,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / NONE / NONE,GO,ACCEPTABLE,True,False,False,False
+B004,adb_c36,2,GLM-5.3-Flash,M_stability,core_GO_measure,GO,correct,GO / GO / GO,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / NONE / NONE,GO,ACCEPTABLE,True,False,False,False
+B005,adb_c25,4,GLM-5.3,M_msa,core_STOP_one_per_case,STOP,correct,STOP / STOP / STOP,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / NONE / NONE,STOP,ACCEPTABLE,True,False,False,False
+B006,adb_c37,6,DeepSeek-v4-pro,M_stability,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,UNACCEPTABLE / MIXED / MIXED,INVALID / INVALID / INVALID,STOP,MIXED,True,False,False,False
+B007,adb_c38,2,GPT-5.6-luna,I_level,core_STOP_one_per_case,STOP,correct,STOP / STOP / STOP,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / NONE / NONE,STOP,ACCEPTABLE,True,False,False,False
+B008,adb_c29,4,GPT-5.6-luna,M_stability,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,MIXED / ACCEPTABLE / ACCEPTABLE,CONDITIONALLY_VALID / VALID / VALID,STOP,ACCEPTABLE,True,True,True,False
+B009,adb_c31,1,DeepSeek-v4-pro [permit-stop],M_stability,boundary_qualified_capability_control,STOP,incorrect,STOP / STOP / STOP,UNACCEPTABLE / MIXED / MIXED,INVALID / INVALID / INVALID,STOP,MIXED,True,False,False,False
+B010,adb_c26,3,GPT-6-astra,M_pchart,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,VALID / VALID / VALID,STOP,ACCEPTABLE,True,True,True,False
+B011,adb_c39,4,Claude-Sonnet-5,A_screen,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,MIXED / MIXED / MIXED,NONE / NONE / NONE,STOP,MIXED,True,False,False,False
+B012,adb_c34,4,DeepSeek-v4-pro,M_msa,core_STOP_one_per_case,STOP,correct,STOP / STOP / STOP,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / NONE / NONE,STOP,ACCEPTABLE,True,False,False,False
+B013,adb_c35,7,Claude-Sonnet-5,M_chart_2,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,UNACCEPTABLE / MIXED / MIXED,INVALID / INVALID / INVALID,STOP,MIXED,True,False,False,False
+B014,adb_c28,3,Claude-Opus-5,M_stability,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,UNACCEPTABLE / MIXED / MIXED,INVALID / INVALID / CONDITIONALLY_VALID,STOP,MIXED,True,False,False,False
+B015,adb_c31,1,GPT-6-astra,M_stability,boundary_stability_restraint,STOP,correct,STOP / STOP / STOP,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,VALID / VALID / VALID,STOP,ACCEPTABLE,True,True,False,False
+B016,adb_c31,1,GPT-5.6-luna,M_stability,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,VALID / VALID / VALID,STOP,ACCEPTABLE,True,True,True,False
+B017,adb_c30,2,Claude-Fable-5.1,M_stability,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,MIXED / MIXED / MIXED,INVALID / CONDITIONALLY_VALID / CONDITIONALLY_VALID,STOP,MIXED,True,True,False,False
+B018,adb_c27,2,Claude-Sonnet-5,A_screen,core_STOP_one_per_case,STOP,incorrect,GO / STOP / GO,MIXED / MIXED / MIXED,CONDITIONALLY_VALID / CONDITIONALLY_VALID / CONDITIONALLY_VALID,GO,MIXED,False,True,False,False
+B019,adb_c35,2,GPT-6-astra,M_chart_1,core_GO_measure,GO,correct,GO / GO / GO,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / NONE / NONE,GO,ACCEPTABLE,True,False,False,False
+B020,adb_c38,0,GPT-6-astra,M_pchart,boundary_stable_low_rate,GO,incorrect,GO / GO / GO,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,VALID / NONE / VALID,GO,ACCEPTABLE,True,True,True,False
+B021,adb_c39,1,GLM-5.3,I_confirm,core_GO_improve,GO,incorrect,STOP / STOP / STOP,MIXED / MIXED / MIXED,VALID / INVALID / CONDITIONALLY_VALID,STOP,MIXED,False,True,False,False
+B022,adb_c37,2,GPT-6-astra,A_variances,boundary_unequal_variances,GO,incorrect,GO / GO / GO,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,VALID / VALID / VALID,GO,ACCEPTABLE,True,True,True,False
+B023,adb_c32,4,Claude-Fable-5.1,M_agree,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,MIXED / MIXED / MIXED,CONDITIONALLY_VALID / INVALID / CONDITIONALLY_VALID,STOP,MIXED,True,True,False,False
+B024,adb_c28,2,GPT-6-astra,M_stability,core_GO_measure,GO,correct,STOP / STOP / STOP,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,VALID / VALID / VALID,STOP,ACCEPTABLE,False,True,False,False
+B025,adb_c33,4,GPT-5.6-sol,M_pchart,core_STOP_one_per_case,STOP,incorrect,STOP / STOP / STOP,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,VALID / VALID / VALID,STOP,ACCEPTABLE,True,True,True,False
+B026,adb_c28,1,GPT-5.6-sol,A_cap_normal,core_GO_analyze,GO,correct,STOP / STOP / GO,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / NONE / NONE,STOP,ACCEPTABLE,False,False,False,False
+B027,adb_c35,1,Claude-Sonnet-5,M_msa,core_GO_measure,GO,correct,GO / UNDETERMINED / GO,ACCEPTABLE / MIXED / ACCEPTABLE,NONE / INVALID / NONE,GO,ACCEPTABLE,True,False,False,False
+B028,adb_c37,6,GLM-5.3-Flash,M_stability,boundary_separate_recipe_sample,STOP,incorrect,STOP / STOP / STOP,MIXED / MIXED / ACCEPTABLE,CONDITIONALLY_VALID / CONDITIONALLY_VALID / VALID,STOP,MIXED,True,True,False,False
+B029,adb_c27,2,Claude-Fable-5.1,A_route,core_GO_analyze,GO,correct,GO / GO / GO,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / CONDITIONALLY_VALID / VALID,GO,ACCEPTABLE,True,True,False,False
+B030,adb_c27,1,GLM-5.3,A_route,core_GO_analyze,GO,correct,GO / GO / GO,ACCEPTABLE / ACCEPTABLE / ACCEPTABLE,NONE / NONE / NONE,GO,ACCEPTABLE,True,False,False,False

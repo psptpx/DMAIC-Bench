@@ -1,0 +1,26 @@
+# Study decision: technically usable plate, unresolved comparison bias
+
+## Executive conclusion
+The plate passes the protocol's participant-failure gate, but it cannot currently support a defensible disease-association conclusion. Strong genotype structure completely separates affected and unaffected participants. The apparent unadjusted associations must not be reported as validated disease variants. This is not evidence that the panel has no biological effects.
+
+## Quality and retained analysis set
+Participant call-rate eligibility was applied to the original panel, followed by variant filtering in eligible participants. There were 240 participants and 150 variants. The call-rate requirement was 0.95; 1 participant failed, a fraction of 0.00416667, below the plate threshold of 0.1. Exclude P129; all other participant identifiers in `participant_qc.csv` are retained. The remaining 239 participants comprise 120 affected and 119 unaffected participants.
+
+Variant requirements were call rate at least 0.95, minor-allele frequency at least 0.01, and control Hardy–Weinberg exact-test p at least 1e-06. There were 5 call-rate failures, 4 frequency failures and 4 Hardy–Weinberg failures. Joint filtering excludes 13 variants and retains 137. Excluded identifiers: rs060002, rs060010, rs060024, rs060037, rs060043, rs060055, rs060083, rs060093, rs060104, rs060111, rs060114, rs060139, rs060144. All other variants listed in `variant_qc.csv` are retained; that file contains the full metric-by-metric audit. Hardy–Weinberg testing used a conditional, two-sided exact test in unaffected retained participants.
+
+## Comparability and association
+PCA used mean-imputed, allele-frequency-standardized retained genotypes. The first component did not distinguish the groups (p = 0.46719), but the second did (p = 1.07733e-140). The groups have no overlap on that separating component. Screening leading axes rather than inspecting only the first axis was essential. The source could be ancestry, recruitment, laboratory allocation, or genuine correlated signal; this candidate panel alone cannot distinguish these explanations. Metadata were requested from the study lead, but no matching fact was available. This was an unroutable fact request, not a denied data batch.
+
+A diagnostic additive trend/score scan on nonmissing calls yields 36 nominal Bonferroni discoveries at 0.0003649635, with genomic inflation factor 2.296118. These are **unadjusted diagnostic hits, not reportable associations**. `discovery_scan.csv` identifies every tested variant and its p-value and coded-allele odds ratio. Individual hit effects and p-values are also logged in the trace. Allelic odds ratios are not covariate-adjusted per-copy logistic effects.
+
+An attempted logistic null model including the leading components encountered perfect separation and a singular fit. Consequently an adjusted scan, calibrated adjusted p-values, and adjusted disease effects could not be computed. Adding covariates mechanically does not create overlap. The large raw hit count cannot substitute for an identifiable comparison.
+
+## Replication and reporting
+The replication batch is available but explicitly nominates no discovery candidates. The computed nominated candidate count is 0 and the count supported for reporting is 0. No replication association tests were performed: this is an empty evaluation set, not a failed replication experiment. The protocol requires independent-cohort p below 0.05 and concordant direction; these requirements have not been demonstrated for any valid discovery nomination. Replication data do not repair the discovery comparison merely by existing.
+
+## What changed, what it achieved, and next actions
+We removed the protocol-ineligible participant and variants, creating an auditable technical analysis set; no physical re-genotyping or recruitment intervention was performed. Filtering improved technical eligibility but did not remove the decisive comparability problem. The analysis therefore changed from a potential discovery scan to a hold on association reporting.
+
+Before resuming, obtain ancestry, recruitment-site, relatedness and laboratory allocation records; audit phenotype and sample identity; inspect genotype clusters and allele coding. Use genome-wide ancestry markers or independent ancestry measurements to distinguish population structure from panel-specific biology. Recruit or select affected and unaffected participants with overlapping ancestry and balanced laboratory processing. Re-genotype suspect calls selectively if the audit supports doing so; wholesale plate replacement is not triggered by the present participant failure rate.
+
+Freeze eligibility and model rules before reanalysis, document all exclusions, and verify overlap before adjusted inference. Nominate only defensible discovery signals, harmonize alleles, independently QC replication samples, then apply the prespecified directional replication rule. Hold release under investigator review until comparability, model estimability and independent confirmation are documented. Preserve raw released JSON, scripts, QC tables and trace as the reproducibility record. No causal or clinical claim is warranted now.

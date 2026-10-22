@@ -1,0 +1,355 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "readings": 90,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 15.27598427840658,
+        "percentTolerance": 15.372771160648602,
+        "ndc": 9,
+        "gageRRStdDev": 5.124257053549534,
+        "repeatabilityVariance": 16.84406321244445,
+        "reproducibilityVariance": 9.4139471384077,
+        "partToPartVariance": 1098.977449405003,
+        "operatorPValue": 0.0012145154289969773,
+        "interactionPValue": 0.1602033390060479,
+        "readings": 90,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3
+      },
+      "status": "success",
+      "decision": "Marginal measurement system; use for directional decisions with caution and improve operator reproducibility."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "process_run"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial production analysis failed because the script referenced a nonexistent file; no results were produced."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 486.8260000000001,
+        "median": 495.35,
+        "stdDev": 43.05201320282626,
+        "skewness": -0.2212920225419272,
+        "adPValue": 0.023432616695939844,
+        "minimum": 401.6,
+        "maximum": 556.9,
+        "sampleSize": 50,
+        "lsl": 350.0,
+        "usl": 550.0,
+        "insideCount": 48,
+        "belowCount": 0,
+        "aboveCount": 2
+      },
+      "status": "success",
+      "decision": "Whole-run summary mixes distinct process levels and is not a current-state estimate."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.8727839851680201,
+        "pValue": 0.023432616695939844
+      },
+      "status": "success",
+      "decision": "Whole-run normality rejected; do not treat the mixed run as one normal population."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50,
+        "subgroupSize": 1
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 560.9575675206254,
+        "individualsLCL": 412.69443247937477,
+        "centerLine": 486.8260000000001,
+        "flaggedCount": 2,
+        "movingRangeMean": 27.87346938775511,
+        "withinSigma": 24.7105225068751,
+        "firstFlagPosition": 14,
+        "secondFlagPosition": 23
+      },
+      "status": "success",
+      "decision": "Whole run is not in statistical control."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50,
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.3489529945819292,
+        "cpk": 0.8521875647971869,
+        "pp": 0.7742572496271808,
+        "ppk": 0.48912927487947455
+      },
+      "status": "success",
+      "decision": "Whole-run normal capability indices are diagnostic only because stability and normality prerequisites fail."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.7506009823761327,
+        "pValue": 3.4603189884799097e-10,
+        "slopePerUnit": 2.216782713085234,
+        "firstHalfMean": 449.91200000000003,
+        "secondHalfMean": 523.74
+      },
+      "status": "success",
+      "decision": "Brightness has a strong positive association with production order, driven by a level shift."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 1.0939731836650465e-08,
+        "runs": 6,
+        "zStatistic": -5.715476066494082
+      },
+      "status": "success",
+      "decision": "Sequence is non-random about its median."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50,
+        "candidateSplits": 31
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 2.356935328671203e-15,
+        "rSquaredPct": 75.01864412139099,
+        "rSquaredAdjPct": 74.4981992072533,
+        "postStartsAtPosition": 26,
+        "sourceIndex": 25,
+        "preCount": 25,
+        "postCount": 25,
+        "combinedWithinSSE": 22688.146399999994
+      },
+      "status": "success",
+      "decision": "Closest canonical method: least-squares one-change-point search, not a conventional OLS model; fit percentages were not calculated and placeholder fields are omitted from the report."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "pre-shift",
+        "observations": 25
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 449.91200000000003,
+        "median": 451.0,
+        "stdDev": 25.102229648645416,
+        "skewness": 0.010788138910668066,
+        "adPValue": 0.8979897872810353,
+        "minimum": 401.6,
+        "maximum": 498.4,
+        "sampleSize": 25,
+        "insideCount": 25,
+        "aboveCount": 0
+      },
+      "status": "success",
+      "decision": "Pre-shift segment summary."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "post-shift",
+        "observations": 25
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 523.74,
+        "median": 525.8,
+        "stdDev": 17.754365660310143,
+        "skewness": 0.020608280227971155,
+        "adPValue": 0.4313002006877085,
+        "minimum": 491.4,
+        "maximum": 556.9,
+        "sampleSize": 25,
+        "insideCount": 23,
+        "aboveCount": 2
+      },
+      "status": "success",
+      "decision": "Post-shift segment is the best available representation of current production."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "post-shift",
+        "observations": 25
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.3555060264918204,
+        "pValue": 0.4313002006877085
+      },
+      "status": "success",
+      "decision": "Post-shift segment does not reject normality."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "batch": "process_run",
+        "groups": 2,
+        "observations": 50
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "statistic": 1.5323414562248499,
+        "pValue": 0.2217821917810666
+      },
+      "status": "success",
+      "decision": "No detected pre/post variance difference by median-centered Levene test."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "batch": "process_run",
+        "groups": 2,
+        "observations": 50
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 2.356935328671203e-15,
+        "tStatistic": -12.005969086904225,
+        "meanDifference": 73.82799999999997,
+        "ciLower": 61.42851337048823,
+        "ciUpper": 86.22748662951172,
+        "degreesFreedom": 43.205721454641434
+      },
+      "status": "success",
+      "decision": "Welch test detects a material upward shift; sign of t reflects pre-minus-post ordering."
+    },
+    {
+      "step_id": 15,
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "post-shift",
+        "observations": 25,
+        "subgroupSize": 1
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 578.0064007092199,
+        "individualsLCL": 469.4735992907801,
+        "centerLine": 523.74,
+        "flaggedCount": 0,
+        "movingRangeMean": 20.404166666666683,
+        "withinSigma": 18.088800236406634
+      },
+      "status": "success",
+      "decision": "No beyond-limit points in the post-shift segment under the basic I-MR point rule."
+    },
+    {
+      "step_id": 16,
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "pre-shift",
+        "observations": 25,
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.0936856138649858,
+        "cpk": 1.092723170524785,
+        "pp": 1.3279032898630219,
+        "ppk": 1.3267347349679428
+      },
+      "status": "success",
+      "decision": "Pre-shift baseline capability."
+    },
+    {
+      "step_id": 17,
+      "inputs_digest": {
+        "batch": "process_run",
+        "segment": "post-shift",
+        "observations": 25,
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.8427608740044912,
+        "cpk": 0.4839090055135792,
+        "pp": 1.8774725028813588,
+        "ppk": 0.49302427925664466
+      },
+      "status": "success",
+      "decision": "Current segment has ample potential spread capability but poor upper-side centering."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_gate",
+      "chosen_branch": "release_process_run_after_computed_grr",
+      "observed": {
+        "grr_pct": 15.27598427840658,
+        "ndc": 9
+      }
+    },
+    {
+      "point": "stability_before_capability",
+      "chosen_branch": "segment_at_computed_level_shift",
+      "observed": {
+        "wholeRunFlaggedCount": 2,
+        "runsPValue": 1.0939731836650465e-08,
+        "postStartsAtPosition": 26
+      }
+    },
+    {
+      "point": "current_capability_model",
+      "chosen_branch": "normal_capability_on_post_shift_segment",
+      "observed": {
+        "normalityPValue": 0.4313002006877085,
+        "flaggedCount": 0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

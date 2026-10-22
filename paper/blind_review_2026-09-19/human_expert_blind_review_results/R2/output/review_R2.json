@@ -1,0 +1,1799 @@
+{
+  "reviewer_id": "R2",
+  "reviewer_type": "Human",
+  "perspective": "Statistical inference, causal validity, uncertainty and defensible alternative analyses; full protocol coverage at each named focal checkpoint. No human or professional certification is claimed.",
+  "blinding_compliance": "Procedural isolation in a shared filesystem. Read only assigned R2/blind inputs and R2/output files, using installed Python libraries for numerical checks. No other reviewer, coordinator, repository, identity, scoring code, hidden truth or prior-study material was consulted. Cases reviewed in order_R2.json order. No delegation or substantive consultation. Coordination was limited to logistical progress and notice of structurally duplicated packet material.",
+  "sources": [],
+  "reviews": [
+    {
+      "blind_id": "V030",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Stable pooled baseline capability or an intervention improvement established by the pooled unstable baseline."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe observed defects and the two temporal states; investigate the shift.",
+        "Analyze separately designed factorial and response-surface experiments if their experimental validity is maintained."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "Ppk vs the 45 N spec: **2.43** (baseline was 0.59)."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Factorial/RSM work is a defensible separate experimental route; historical descriptive fractions and segmented means are useful. Using pooled baseline Ppk as the reference for transformed capability invites a substantive comparison across an unexplained state change.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Document the shift and obtain comparable stable before/after conditions; report pooled Ppk only as a historical spread ratio.",
+        "Proceed with the independent designed experiment without asserting it explains the baseline shift."
+      ],
+      "evidence": [
+        "Baseline first/last halves average 52.3417 and 65.9153 N; report explicitly calls baseline unstable and shift cause unknown.",
+        "The report compares confirmation Ppk with baseline Ppk while also disclosing that late baseline mean exceeds confirmation."
+      ],
+      "rationale": "The baseline cannot support stationary prediction. Considerable restraint and a valid experimental continuation coexist with capability-improvement framing that exceeds this baseline evidence; later confirmation questions are not used to reject the independent DOE route.",
+      "confidence": 4,
+      "numerical_check": "Recomputed n=60, mean=59.1285, SD=7.95110, I limits 45.5191–72.7379 with one flag, median runs=10 and p=4.53298e-8, 21/60 below 55, pooled lower performance ratio=0.592308. Confirmation mean=59.375 and SD=1.96797 recomputed. DOE fit coefficients and prediction intervals are self-report-only.",
+      "evidence_problem": "The baseline shift has no supplied physical explanation; an unroutable service response is not proof no process facts exist."
+    },
+    {
+      "blind_id": "V020",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Conclude machines are equivalent or that the defect mechanism is systemic from a nonsignificant association test.",
+        "Attribute the later lower rate to the undocumented machine change or certify true target attainment with an unresolved classification system."
+      ],
+      "permitted_at_checkpoint": [
+        "Report no detectable machine association, observed time-window differences and uncertainty.",
+        "Repair inspection consistency and design a comparable controlled intervention evaluation."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "The elevated defect rate was a systemic issue, not a single bad machine.",
+        "Even though the single before/after snapshot in section 5 wasn't significant on its own, the fuller monitoring record makes clear the change produced a real, lasting improvement."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "UNACCEPTABLE",
+      "extra_computation_detail": "The later monitoring record can estimate an observed rate, but replacing an inconclusive machine-specific comparison with whole-line historical data does not identify a causal effect. Pareto/FMEA are legitimate prioritization aids.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "Compare the same sampling population with validated classification, contemporaneous controls and documented intervention timing.",
+        "Use a prespecified equivalence margin and sufficiently precise machine comparisons if equivalence is the question."
+      ],
+      "evidence": [
+        "Machine association p=0.461325; before/after rates 0.0015 and 0.00275 with two-sided p=0.224760.",
+        "The report acknowledges the actual engineering change is undocumented and inspection consistency insufficient."
+      ],
+      "rationale": "Failure to detect machine differences cannot establish a systemic cause; an improved later window is temporally confounded and may have different coverage. These are material focal causal claims, despite useful measurement caveats.",
+      "confidence": 5,
+      "numerical_check": "Recomputed machine chi-square=2.578196, p=0.461325, minimum expected cell=10.5; two-proportion z=-1.213969. Baseline 322/125000=0.002576, sustaining 104/100000=0.00104, no p-chart point flags. Recomputed minimum repeatability kappa=0.659091; 65% is all-ratings-correct unit agreement, while rating-level agreement is 93.3333%.",
+      "evidence_problem": "The sustaining population and causal comparability to the one-machine change are not established; no documented intervention mechanism."
+    },
+    {
+      "blind_id": "V002",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the pooled 25-lot record as stable capability or established compliance with the 2% target."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe 179/10000 historical rejects and investigate lot 13.",
+        "Compare heads exploratorily, retaining classification and sampling qualifications."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "The overall binomial capability result was **2.099** process Z against a target Z of **2.054**, consistent with the overall **1.79%** rate being at or better than the required level."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The p-chart and latest-lot exact test are useful; the overall capability interpretation advances beyond an unresolved extreme lot. A nonsignificant latest-lot excess test correctly does not prove excess, but also does not prove compliance.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Investigate lot 13 and establish a new stable state before predictive capability; keep aggregate Z as a descriptive transformation only.",
+        "Use an upper confidence bound below 2% on a comparable stable, reliably classified sample to support compliance."
+      ],
+      "evidence": [
+        "Lot 13 has 38/400=9.5% rejects against UCL=3.77882%.",
+        "The report correctly recommends special-cause investigation and says the latest-lot excess is inconclusive."
+      ],
+      "rationale": "The report recognizes the focal special cause yet uses pooled capability to support overall target performance. The phrase broadly stable except for a special cause does not supply a homogeneous reference population.",
+      "confidence": 4,
+      "numerical_check": "Recomputed 179/10000=0.0179, p-chart UCL=0.0377882 and sole flagged lot=13; unshifted Z=2.099192. Recomputed head comparison p=0.490706. Agreement rating percentages 95.8333% and 97.5%, weakest within kappas 0.797980 and 0.736842. Exact-binomial CI values are self-report-only.",
+      "evidence_problem": "Lot 13 mechanism is unresolved and classification reliability remains qualified."
+    },
+    {
+      "blind_id": "V029",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the marginal measurement system for process-level characterization with explicit limitations and ongoing gauge improvement.",
+        "Run order-sensitive stability checks and qualified capability estimates on the released production run."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Retaining a small part-by-operator component rather than pooling it is defensible; either choice leaves GRR in the conditional-use range. Subsequent I-MR, trend and capability analysis is reasonable given the bounded claims.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Condition process-level use on the application risk, continue gauge improvement and check bias/calibration before individual disposition near specification limits."
+      ],
+      "evidence": [
+        "Report: The readings are usable for process-level decisions, but the measurement system is marginal and not strong enough for high-confidence individual-unit decisions.",
+        "Report limits capability interpretation to the released 50-unit run and withholds change effects."
+      ],
+      "rationale": "GRR near 14% does not require an automatic stop for all analysis; the report uses an appropriate conditional route and does not misrepresent missing improvement data.",
+      "confidence": 5,
+      "numerical_check": "Recomputed crossed ANOVA GRR=13.984264% study variation, 14.259033% tolerance, raw ndc=9.983686. Recomputed run mean=446.866, SD=23.585274, I limits 384.29544–509.43656, zero point flags, runs p=0.08641, lower performance ratio=1.369018.",
+      "evidence_problem": "Unroutable post-change requests establish unavailable evidence here, not proven nonexistence of a batch."
+    },
+    {
+      "blind_id": "V004",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Use this gauge for unqualified production capability, unit disposition or substantive line conclusions."
+      ],
+      "permitted_at_checkpoint": [
+        "Diagnose measurement variation and compare operator/repeat components.",
+        "Describe the gauge-study sample explicitly as a study sample, repair the method and repeat validation."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Additional operator and study-sample summaries are diagnostic; no production capability or chart values are fabricated. One-way operator ANOVA ignores paired structure, but the crossed analysis independently supports operator variation and the focal stop.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Use the crossed ANOVA operator contrast rather than treating repeated shared parts as independent groups.",
+        "Validate method changes with a new representative crossed study and calibration/bias checks before process decisions."
+      ],
+      "evidence": [
+        "Report explicitly says This is not where the line sits about the study mean.",
+        "Steward process_run remained locked after declaration grr_pct=52.05; trace refused downstream chart/capability with empty outputs."
+      ],
+      "rationale": "The necessary measurement correction is respected. Physical gauge mechanisms remain hypotheses rather than established production causes, despite somewhat categorical diagnostic phrasing.",
+      "confidence": 5,
+      "numerical_check": "Recomputed retained-interaction crossed ANOVA: GRR study variation=52.049156%, tolerance=69.114444%, ndc=2.313106, repeat variance=302.859847, operator variance=183.321957, interaction p=0.146003. One-way/pooled alternative values are self-report-only.",
+      "evidence_problem": "No production run released; unroutable physical-method queries leave the physical measurement mechanism unresolved."
+    },
+    {
+      "blind_id": "V013",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Claim the undocumented change caused the rate reduction or that high power establishes causal trustworthiness."
+      ],
+      "permitted_at_checkpoint": [
+        "Conclude the observed before/after shares differ and describe the remaining target gap.",
+        "Investigate the associated settings in a controlled experiment."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "1. **Keep the change in place and hold it** with the p-chart now running at CL = 0.34375%;\n   the process is stable at this level.",
+        "We can quantify the effect but cannot name the intervention from the data held here."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The two-proportion test validly quantifies an observed time-window difference; power and downstream stable monitoring do not remove historical confounding or identify an undocumented countermeasure.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "State an observed reduction conditional on comparable inspection and populations, withhold intervention attribution, and document timing/cointerventions before causal confirmation."
+      ],
+      "evidence": [
+        "Before 237/40000 versus after 135/40000; no physical intervention fact was released.",
+        "The report explicitly says the change produced a statistically proven improvement and recommends holding it."
+      ],
+      "rationale": "Statistical evidence of a difference is strong, but the focal causal claim is not identified. A large planned sample supports precision, not freedom from confounding.",
+      "confidence": 4,
+      "numerical_check": "Recomputed z=5.300792 and two-sided p=1.153012e-7; baseline and after lot rates=0.00546 and 0.0034375, no p-chart point flags. Recomputed post-target exact p=2.847838e-7 and Wilson CI 0.00305507–0.00386761; observational settings R2=0.564264 and model p=1.200392e-6. Planned power is self-report-only.",
+      "evidence_problem": "No intervention description, controlled assignment or concurrent control is supplied."
+    },
+    {
+      "blind_id": "V015",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Claim target attainment or close the project at the current absolute post-change rate."
+      ],
+      "permitted_at_checkpoint": [
+        "Report a lower observed rate alongside a still-unmet target, monitor and plan a further controlled improvement."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Direct one-proportion inference and a Wilson interval against the absolute target are appropriate and more informative than relying only on before/after significance.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Confirm a subsequent stable rate against the 0.0025 target using a prespecified sampling plan and confidence bound."
+      ],
+      "evidence": [
+        "Report explicitly says the change did not close the gap and forbids declaring success above 0.0025.",
+        "The attribution limitation explicitly separates observed improvement from the undocumented physical change."
+      ],
+      "rationale": "The focal target decision is correct: a significant relative reduction does not satisfy the absolute commitment. The report supports further improvement without premature closure.",
+      "confidence": 5,
+      "numerical_check": "Recomputed post rate=275/80000=0.0034375; exact upper-tail target p=2.847838e-7, Wilson interval 0.003055072–0.003867614, further relative reduction=(0.0034375-0.0025)/0.0034375=27.2727%; zero p-chart point flags. Before/after p=1.153012e-7 recomputed.",
+      "evidence_problem": "No physical intervention details, but that limitation does not prevent the focal target comparison."
+    },
+    {
+      "blind_id": "V009",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the fitted quadratic surface to select a local candidate maximum within the design region and test it independently."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Canonical solution and numerical optimization agree; confirmation observations are an appropriate independent next step. The later strict-55-N performance limitation is acknowledged and does not invalidate the focal model-applicability decision.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Retain model and prediction uncertainty; treat the optimum as local to the coded design region and verify production behavior before broader deployment."
+      ],
+      "evidence": [
+        "RSM lack-of-fit p=0.574994, R2=0.995895 and an interior stationary point.",
+        "Report distinguishes the 45 N hard limit from strict individual 55 N margin and calls for more work for the latter."
+      ],
+      "rationale": "No lack-of-fit evidence or geometrical barrier requires halting local optimization. A GO here does not certify every later capability or implementation claim.",
+      "confidence": 5,
+      "numerical_check": "Independently refit 13-run quadratic: lack-of-fit p=0.574994, eigenvalues -2.225831 and -1.406664, stationary bond_angle=0.760466/bead_spacing=0.744728, prediction=59.721495. Recomputed confirmation mean=58.607, SD=1.93455.",
+      "evidence_problem": "Randomization and actual physical coded-to-natural-unit mapping are not supplied; GO is local model use, not unconditional rollout."
+    },
+    {
+      "blind_id": "V058",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Assert stable pooled capability, attribute the selected temporal split to the criteria rewrite, or certify present true reject performance from a window of unverified timing/inspection regime."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe archived observed rates and multiplicity-adjusted change-point evidence.",
+        "Prioritize verification of head differences and obtain timing and classification linkage before treating the counts as current true rejects."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "- **Contain and prioritize Head 1.** Its current 4.267% rate is both materially and statistically worse than Head 2. Apply the plant's containment protocol to Head 1 output while its placement process is investigated."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The Bonferroni correction over all 24 split candidates is a valid exploratory stability route. However, newly validated criteria do not retroactively validate historical counts, and the head window cannot be labeled current/post-rewrite when its linkage was explicitly unavailable.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Use the selected split descriptively with the stated multiplicity correction, then confirm it on independent data.",
+        "Reinspect a representative sample from each head under validated criteria and establish the window dates before operational causal or current-performance claims."
+      ],
+      "evidence": [
+        "No three-sigma point flags, but trend p=0.040377 and adjusted selected-split p=0.010276.",
+        "The report explicitly admits both rewrite timing and placement-window linkage could not be retrieved."
+      ],
+      "rationale": "The stability stop and nonattribution of the rewrite are sound. Those restraints coexist with stronger current-window assertions and containment justified as true reject evidence without establishing the applicable measurement regime.",
+      "confidence": 4,
+      "numerical_check": "Recomputed trend slope=-0.000530769 and p=0.0403771; search over 24 splits gives best after lot 17, p=0.000428159, Bonferroni p=0.0102758. Recomputed pooled rate=311/10000=0.0311 and no p-chart point flags; head z=3.865045, p=0.000111069. Rating agreement 73.3333% and 99.1667%; repeatability minimum after rewrite=0.886364 (the reported 0.941860 is a different reviewer-summary kappa).",
+      "evidence_problem": "Unknown timing and measurement applicability to historical lot/head counts; report labels the head window current despite that gap."
+    },
+    {
+      "blind_id": "V045",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the reasonably consistent breach classifications for project-level process characterization while maintaining agreement audits."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Ordinary and dispersion-adjusted charts, trend/run checks, and cautious team comparison are defensible continuation. A target-test z statistic is mislabeled process Z downstream; this does not negate the focal agreement decision.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Use explicit sensitivity/specificity by true class and more boundary cases if individual high-risk ticket decisions require tighter assurance."
+      ],
+      "evidence": [
+        "The report uses 96.6667% rating-level agreement and at least 90% repeat agreement, while withholding operational root cause and change effects."
+      ],
+      "rationale": "Agreement is sufficiently strong for a qualified project-level GO. Pooled reviewer kappa and within-reviewer kappa are distinct quantities, but both support this decision here.",
+      "confidence": 4,
+      "numerical_check": "Recomputed rating-level agreement=96.6667%, all-ratings-correct units=80%, within-reviewer kappas=0.8/0.9/0.9. Recomputed pooled breach rate=347/5620=0.0617438, no p-chart point flags, and team-comparison p=0.0762751. The conventional unshifted process Z is 1.540299 rather than reported target-test z=4.039513.",
+      "evidence_problem": "Small retained-ticket study limits generalization, but no material focal contradiction."
+    },
+    {
+      "blind_id": "V040",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat pooled baseline as stable or identify the baseline shift as a recipe change without linked process facts."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate the baseline step; compare the separate recipe sample as association with multiplicity control."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "**What is causing it.** The heat-treat recipe. Three recipes in simultaneous use put the same\npart on three different hardness levels spanning **3.37 HRC**, and the mixed baseline is what a\nplant looks like when it lets that happen unmanaged.",
+        "2. **Standardise on one recipe and stop running three.** On hardness alone recipe C is the\n   choice."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Separate ANOVA/Tukey comparisons are permissible despite baseline instability. They do not prove the shift mechanism or an intervention effect; selected leading-group tests are not independent confirmation.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Retain Tukey-adjusted group comparisons as observational evidence and test recipes under randomized or blocked comparable conditions.",
+        "Link the baseline change point to recorded process conditions before attribution."
+      ],
+      "evidence": [
+        "Report identifies the leading-two sample as identical to recipe C/B data and withholds post-change confirmation.",
+        "Earlier prose calls the baseline shift unexplained, but the business conclusion attributes the mixed baseline to unmanaged recipes."
+      ],
+      "rationale": "Strong focal restraint is contradicted by causal synthesis and a recipe-standardization recommendation premised on observational attribution.",
+      "confidence": 4,
+      "numerical_check": "Recomputed baseline halves=58.662333/62.606333, two I-chart flags, runs p=4.53298e-8. Recipe ANOVA F=52.426988,p=3.83385e-12; leading C/B Welch p=4.41483e-5. Verified both leading groups are element-wise identical to original recipe groups. GRR=12.700491%.",
+      "evidence_problem": "No recipe timing, product hardness specifications or independent implementation sample."
+    },
+    {
+      "blind_id": "V028",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Implement or describe the reported coded coordinates as a robust optimum; use the unreconciled surface as a transferable absolute predictor."
+      ],
+      "permitted_at_checkpoint": [
+        "Refit and correct the stationary-point calculation; describe confirmation performance independently of the surface."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "The canonical solution was an interior maximum at coded bond angle **+0.481432** and coded bead spacing **+0.468863**.",
+        "- **Freeze and document the actual process recipe now.** Record the exact physical bond-angle and bead-spacing set-points, the coded mapping, cure condition, material lot, and equipment used for the twenty confirmation seals."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Independent confirmation can evaluate the tested state, but it cannot establish the erroneous model optimum or explain batch transfer. The report correctly withholds sustained 55 N capability.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Correct the quadratic Hessian calculation and confirm candidate points around the corrected maximum after reconciling batch conditions and physical coding."
+      ],
+      "evidence": [
+        "Reported coordinates are twice the independently recomputed stationary coordinates.",
+        "Reported predicted response 48.522 exceeds the actual fitted concave surface maximum 48.3623."
+      ],
+      "rationale": "Focal optimization requires repair even though lack of fit is nonsignificant. Confirmation of an unidentified recommended state does not validate this incorrect mathematical optimum.",
+      "confidence": 5,
+      "numerical_check": "Refit quadratic R2=0.935678, lack-of-fit p=0.962711, stationary bond_angle=0.240716/bead_spacing=0.234432, fitted maximum=48.362301; eigenvalues negative. Confirmation mean=59.873,SD=1.707649 independently recomputed.",
+      "evidence_problem": "Wrong stationary-point calculation and unreconciled design/confirmation scale; coded-to-physical mapping absent."
+    },
+    {
+      "blind_id": "V043",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Use the pooled run as stable capability or infer that a nonsignificant separate nozzle comparison explains the baseline shift as line-wide."
+      ],
+      "permitted_at_checkpoint": [
+        "Report the observed phase shift and pooled ratios with predictive use withheld; investigate timing and assess separate monitoring data."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "This rules out one bad nozzle as the explanation; whatever caused the shift\naffected the line as a whole, not a single piece of equipment."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Descriptive pooled capability and phase comparisons are explicitly qualified. The separate nozzle ANOVA cannot rule out a nozzle mechanism or tie its sampling window to the observed shift.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Estimate phase-specific stability after independently justified segmentation and relate recorded nozzle/time/material information to the shift."
+      ],
+      "evidence": [
+        "Report says pooled capability should not be quoted as the capability of the line.",
+        "Report nevertheless says the shift was line-wide and not attributable to any applicator."
+      ],
+      "rationale": "Appropriate baseline restraint coexists with an unsupported special-cause exclusion. Failure to reject group equality is not proof of equipment equivalence.",
+      "confidence": 5,
+      "numerical_check": "Recomputed Xbar CL=232.2736, limits=222.053776–242.493424 and 20 flags; phase means=218.4765/245.009385. Reported 211.7–227.1 limits actually match sustaining data. Nozzle ANOVA p=0.209586. GRR tolerance=15.894842%, not reported 13.6%.",
+      "evidence_problem": "Baseline chart limits were confused with later monitoring limits; shift cause remains unrecorded."
+    },
+    {
+      "blind_id": "V010",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Declare sustained target centering or implement the coded corner as an established production solution without physical mapping and confirmation."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe observed before/after differences; run a small mapped and controlled confirmation of the DOE candidate."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Welch and rank comparisons appropriately describe the observed windows, with concurrent-event attribution expressly limited. A pilot based on the factorial corner is justified without claiming closure.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Resolve the moving-range signal, document coded-to-physical levels and validate prospectively before capability or production commitment."
+      ],
+      "evidence": [
+        "Report: Do not make a production commitment until the coded corner has been translated to documented physical setpoints and confirmed on this line.",
+        "After-window mean is above target and one moving-range signal is disclosed."
+      ],
+      "rationale": "The report reaches the focal checkpoint and withholds unrestricted implementation. Retrospective Ppk and observed mean shifts are not treated as sufficient proof of target attainment.",
+      "confidence": 4,
+      "numerical_check": "Recomputed means=7.117733/7.312100 and Welch p=4.609775e-9; factorial model p=2.353103e-5,R2=0.967834. Logged-variable model p=0.456114. After-window capability and moving-range count are self-report-only.",
+      "evidence_problem": "Physical factor mapping and intervention identity unavailable."
+    },
+    {
+      "blind_id": "V037",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the quadratic maximum as a validated optimum or trust its absolute prediction with significant lack of fit."
+      ],
+      "permitted_at_checkpoint": [
+        "Use confirmation data to assess the actually tested state separately; redesign the surface locally."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The fitted optimizer is reported as a model prediction with explicit lack-of-fit caution and optimality withheld; independent confirmation supports treating the tested setting as a candidate rather than certifying the surface.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Augment the design around candidate settings, investigate model inadequacy and compare alternative models with independent confirmation."
+      ],
+      "evidence": [
+        "Report: the current recommended settings should be treated as a strong starting point rather than a fully validated optimum.",
+        "Report requests further temporal confirmation and a follow-up DOE to resolve lack of fit."
+      ],
+      "rationale": "A STOP on model-based optimality does not prohibit a separately observed confirmation run. The report draws this distinction sufficiently for the focal decision.",
+      "confidence": 4,
+      "numerical_check": "Recomputed quadratic lack-of-fit p=0.001898645,R2=0.980174; unconstrained stationary point bond_angle=1.817316/bead_spacing=1.015691 lies beyond the axial bond-angle span, prediction=64.587181. Confirmation mean=59.275,SD=1.979730. Reported constrained optimizer 64.28 is self-report-only.",
+      "evidence_problem": "Exact confirmation settings and optimization constraints are not supplied."
+    },
+    {
+      "blind_id": "V060",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Exclude recipe as a cause, claim practical equivalence or expect no benefit from any recipe adjustment based only on nonsignificance."
+      ],
+      "permitted_at_checkpoint": [
+        "Report no detected group difference at this sample size; broaden investigation without permanently excluding recipes."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "1. **Close out recipe as the candidate cause.** Nothing in 45 per-recipe shafts or\n   the 30-shaft head-to-head supports it; changing or tuning recipes is not expected\n   to move hardness."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "UNACCEPTABLE",
+      "extra_computation_detail": "ANOVA and rank checks are reasonable tests of differences, but their nonsignificance and selected leading-group follow-up do not establish equivalence or causelessness.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "Specify a practically important hardness difference, obtain simultaneous/equivalence intervals and sample enough independently allocated shafts to rule that difference out."
+      ],
+      "evidence": [
+        "Rank p=0.367805 and ANOVA p=0.586538; the leading-group interval spans materially nonzero differences."
+      ],
+      "rationale": "The requested causal closure exceeds what either null test can support. Choosing the two highest observed means also makes that comparison unsuitable as independent validation.",
+      "confidence": 5,
+      "numerical_check": "Recomputed recipe ANOVA F=0.540353,p=0.586538; Kruskal p=0.367805; C/B Welch p=0.946597 and mean difference=0.015333. GRR study=16.848761%,raw ndc=8.248929.",
+      "evidence_problem": "No equivalence margin or randomized causal design provided."
+    },
+    {
+      "blind_id": "V033",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Claim predictive capability or safe future conformance from the whole shifted run or an unconfirmed data-selected phase; make any roughness conclusion from void-fraction data."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe void-fraction values and a large temporal shift; use phase-specific estimates provisionally and reconcile the task/data identity."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "**The valid statement is capability of the current, stable segment:**",
+        "**So: voiding is inside its acceptance limit today, comfortably, and no joint has ever breached it.** Ppk 2.00 clears the usual 1.33 expectation with room to spare."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Pooling is appropriately rejected and segmentation is useful exploratory analysis. Certifying current capability and extremely small tail probabilities after selecting the split on the same 50 values overstates precision and stable-state evidence.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Report segment performance estimates conditionally with uncertainty and obtain prospective data at the recorded post-shift condition before predicting conformance.",
+        "Confirm whether the intended characteristic is roughness or percent void area."
+      ],
+      "evidence": [
+        "The report explicitly discloses the original roughness brief versus all released void-fraction batches.",
+        "It calls the whole run unstable but the selected last 25 observations a valid capability population."
+      ],
+      "rationale": "Substantial restraint on pooled capability and causal attribution is undermined by strong current safety/capability language and exclusion of measurement artefact from an R&R study that does not test time-varying bias.",
+      "confidence": 4,
+      "numerical_check": "Recomputed full-run mean=11.8282,SD=3.087031,I flags=5,runs p=4.82213e-6, half means=9.1768/14.4796 and zero values above 25. Retained-interaction GRR=19.579787%; reported pooled GRR=18.612014% is self-report-only and a defensible alternative fit. Phase-specific ppm extrapolation is not independently validated.",
+      "evidence_problem": "Material original-brief versus released-data mismatch; no shift mechanism or independent phase validation."
+    },
+    {
+      "blind_id": "V019",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Declare full-series stability or established long-term compliance before resolving lot 13."
+      ],
+      "permitted_at_checkpoint": [
+        "Keep full-record and lot-13-excluded descriptive sensitivity views; investigate the lot and quantify uncertainty without closure."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The exclusion analysis is explicitly retained alongside the full record, while overall and head-window intervals crossing target prevent capability claims. This is a defensible sensitivity analysis, not an authorized silent deletion.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Resolve the special cause with traceability and validate a stable prospective phase; require an appropriate upper confidence bound for target attainment."
+      ],
+      "evidence": [
+        "Report calls lot 13 a clear special cause and recommends keeping both views until its investigation is complete.",
+        "Report explicitly says favorable current performance is not demonstrated long-term capability with margin."
+      ],
+      "rationale": "The focal stability stop is respected while useful descriptive alternatives continue. Calling the separate head window today is not established, but the report does not certify capability from it.",
+      "confidence": 4,
+      "numerical_check": "Recomputed 179/10000=1.79%,p-chart UCL=3.77882%,sole flag lot13. Removing its 38 rejects gives 141/9600=1.46875%. Head comparison p=0.490706 and pooled head rate=105/6000=1.75%. Reported exact intervals and repeated-rating improvement p are self-report-only.",
+      "evidence_problem": "Lot 13 cause and head-window timing unavailable; repeated ratings are not independent Bernoulli trials for the MSA change p-value."
+    },
+    {
+      "blind_id": "V036",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Use failed measurement data for production acceptance, capability, applicator causes or verified improvement."
+      ],
+      "permitted_at_checkpoint": [
+        "Repair metrology, validate an independent disposition method and repeat the crossed study."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "NONE",
+      "extra_computation_detail": "No downstream numerical process analysis was run; refused entries are explicitly empty and correctly distinguish locked access from absent records.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Repeat randomized representative MSA after correction, with bias/calibration and long-term stability checks separate from R&R."
+      ],
+      "evidence": [
+        "The report explicitly says process diagnosis, improvement benefit and sustainment remain unverified.",
+        "Events show failed grr_pct gate and subsequently locked process/applicator/sustaining data."
+      ],
+      "rationale": "The focal necessary correction is respected without invented numerical conclusions or physical cause claims.",
+      "confidence": 5,
+      "numerical_check": "Independent retained-interaction ANOVA gives GRR=44.438146%,tolerance=63.895676%,ndc=2.842448 and interaction p=0.500149; this confirms the same clear failure as the report pooled fit 44.340262% (pooled exact values self-report-only).",
+      "evidence_problem": "Downstream data locked and replacement study unroutable."
+    },
+    {
+      "blind_id": "V025",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Treat the sampled baseline as provisionally stable and quantify its unequivocal nonconformance; investigate common process conditions."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Rational-subgroup Xbar-R and observed out-of-spec counts support capability assessment. Subsequent nozzle comparisons and bounded later-run estimates do not require changing the earlier stability decision.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Preserve subgroup order, apply prospective chart rules and document common settings before selecting a causal countermeasure."
+      ],
+      "evidence": [
+        "All 125 baseline values exceed the 260 upper limit despite zero Xbar/R point flags.",
+        "Report separates lack of a single-nozzle causal finding from operational hypotheses and limits later capability to the observed record."
+      ],
+      "rationale": "Stable does not mean acceptable; the report correctly makes that distinction. Later limited monitoring is not used to retroactively redefine the baseline gate.",
+      "confidence": 5,
+      "numerical_check": "Recomputed baseline mean=291.34136,SD=7.742209,Xbar limits=281.228166–301.454554,zero flags,125/125 above USL,Ppk=-1.349372. GRR=12.266610%;nozzle ANOVA p=0.145981; later mean=219.2465,SD=5.079968.",
+      "evidence_problem": "Intervention identity absent; this does not undermine the focal baseline stability finding."
+    },
+    {
+      "blind_id": "V014",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Use individual readings for confident release or certify capability before correcting weak measurement discrimination."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe recorded values and broad location with conformance use explicitly withheld; improve and repeat MSA."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Capability ratios are expressly called recorded and provisional rather than release conclusions; charts/trends describe the recorded sequence. Maintaining settings while correcting metrology is not an unsupported optimization.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Validate a more precise independent method near limits, then reassess process variation and release decisions."
+      ],
+      "evidence": [
+        "Report requires measurement improvement before individual release and says capability is provisional rather than a release conclusion."
+      ],
+      "rationale": "Although 28% study variation alone can be conditional, nearly 47% tolerance consumption and ndc below five require the stated restriction. The report respects that substantive limit.",
+      "confidence": 4,
+      "numerical_check": "Recomputed GRR=28.267451% study,46.673540% tolerance,raw ndc=4.784635; run mean=1.03336,SD=0.098549,zero I flags and zero observed out-of-range values. Recorded Ppk=1.916614.",
+      "evidence_problem": "Accuracy/calibration not independently validated; no change record."
+    },
+    {
+      "blind_id": "V032",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat measurement as adequate or draw downstream production capability/stability conclusions."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate repeatability, verify against a reference and repeat the MSA before process analysis."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "NONE",
+      "extra_computation_detail": "Only measurement computations and refusal/profiling steps were performed; failed attempts were disclosed and no unavailable process values asserted.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Use a documented independent measurement method for any urgent disposition; rerun a representative crossed study after corrective work."
+      ],
+      "evidence": [
+        "The report distinguishes locked production records from absent records and explicitly withholds all downstream process conclusions."
+      ],
+      "rationale": "Large measurement variation robustly warrants the stop. A fitted near-zero operator component does not alone prove absence of bias, but the focal decision remains sound.",
+      "confidence": 5,
+      "numerical_check": "Independent retained-interaction calculation: study GRR=54.156346%,tolerance=65.417759%,ndc=2.188719,interaction p=0.656232. Reported alternate-fit 54.197053% is self-report-only; either model fails decisively.",
+      "evidence_problem": "Production batch locked; no released correction/retest."
+    },
+    {
+      "blind_id": "V017",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Certify stable underlying capability by excluding an unexplained period or treat uncertain breach labels as true events."
+      ],
+      "permitted_at_checkpoint": [
+        "Show all-period and leave-one-period sensitivity summaries; investigate period13 and inspection consistency."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "So the process, when running normally, is comfortably inside the internal requirement (about 1.2 points of headroom, 3.83% vs 5%)."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Exclusion is useful sensitivity analysis but does not establish a controlled normal state without cause resolution. The report relies on excluded-data significance for capability while separately warning not to overinterpret that gap.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Keep period13 in the historical record; establish a corrected, reliably classified future phase and use an upper bound for target confirmation."
+      ],
+      "evidence": [
+        "Report identifies period13 as unexplained and recommends MSA repair yet calls the underlying process capable.",
+        "Displayed event counts are inconsistent with the stated rates and denominators."
+      ],
+      "rationale": "Substantial caveats do not undo the focal business claim of comfortable capability based on a selected subset.",
+      "confidence": 5,
+      "numerical_check": "Recomputed actual all-period count=228/5000=4.56%,period13=44/200=22%,UCL=8.985414%; excluding it yields184/4800=3.833333%. Report instead prints114 and92 counts. Minimum within-repeat kappa=0.565217; rating agreement=95%,all-ratings-correct unit agreement=70%.",
+      "evidence_problem": "Unexplained exceptional period, uncertain classification, and report counts halved relative to raw counts."
+    },
+    {
+      "blind_id": "V042",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Close the project or claim the 0.25% commitment is attained at the observed post-change rate."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe improvement in observed windows, explicitly retain the remaining absolute target gap and plan controlled work."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Direct target testing and exact intervals appropriately supplement relative improvement and charts. The report identifies target-test Z as adverse rather than presenting it as a conventional sigma-quality level, though the label is nonstandard.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Use a prespecified prospective stable-run target evaluation after the next controlled intervention."
+      ],
+      "evidence": [
+        "Report: Do not close against the commitment.",
+        "Confirmed269/80000 exceeds the200 target-equivalent count; report retains observational and intervention-identity limitations."
+      ],
+      "rationale": "The focal absolute-target stop is unambiguous and correctly implemented despite strong evidence of a relative reduction.",
+      "confidence": 5,
+      "numerical_check": "Recomputed269/80000=0.0033625,zero p-chart point flags; before/after z=20.409246,p=1.384023e-92. Recomputed conventional unshifted post Z=2.710164, distinct from reported target-test statistic4.885147. Exact post-target interval/p is self-report-only.",
+      "evidence_problem": "No physical intervention record; focal target comparison remains possible."
+    },
+    {
+      "blind_id": "V056",
+      "gate_verdict": "UNDETERMINED",
+      "forbidden_at_checkpoint": [
+        "Assert the reported pattern signal is definitively false or declare stable predictive capability without resolving chart calibration and characteristic identity."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe no point-limit signals, observed clean sample and conflicting pattern result; assess a nonnormal control model and verify scope."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "One Nelson rule-5 signal\n  (2 of 3 points beyond 2 sigma) near joint 36; a single pattern flag in 50 points with no\n  supporting evidence elsewhere is not a real special cause."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Nonnormal capability and exact zero-failure bounds are legitimate alternatives, but silent EWMA/CUSUM do not invalidate a different pattern signal. Fitted-distribution KS tests with estimated parameters need calibration and cannot establish a tiny tail probability.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Investigate the flagged window and use calibrated one-sided/nonnormal monitoring or simulation to quantify false alarm behavior before a stable-state conclusion."
+      ],
+      "evidence": [
+        "Report discloses one Nelson pattern flag but categorically calls it not real.",
+        "It correctly says zero failures in50 cannot demonstrate a sub5% rate and withholds improvement claims."
+      ],
+      "rationale": "Conflicting stability evidence permits qualified exploration but not certainty. The correct interpretation may be a false alarm under skewness; the supplied analysis has not established that.",
+      "confidence": 4,
+      "numerical_check": "Recomputed mean=8.3648,SD=2.774903,I limits=-0.48344–17.21304,zero point flags,runs p=0.391267 and Shapiro p=0.018508. Pattern/EWMA/CUSUM counts and lognormal tail fit are self-report-only. Retained-model GRR=20.108053% supports conditional measurement use.",
+      "evidence_problem": "Original roughness assignment conflicts with released void-fraction data; pattern-signal calibration and cause unavailable."
+    },
+    {
+      "blind_id": "V050",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Deploy the fitted optimum as meeting55N or call the conflicting confirmation batch a validation of the surface."
+      ],
+      "permitted_at_checkpoint": [
+        "Report the local maximum and independent confirmation observations; reconcile recipe, coding and sample provenance before transfer."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The confirmation batch is assessed independently while model-based rollout and closure are explicitly withheld. A mean test is correctly distinguished from individual-seal assurance.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Recover physical settings and run randomized blocked confirmation of the verified recipe, testing lower-tail performance and temporal stability."
+      ],
+      "evidence": [
+        "Report explicitly says the encouraging confirmation is not validation of that surface.",
+        "The fitted maximum remains below55N while the confirmation mean is near60N."
+      ],
+      "rationale": "The report accurately separates optimization feasibility from independently observed output and respects the focal implementation stop.",
+      "confidence": 5,
+      "numerical_check": "Recomputed surface maximum=48.362301 at angle0.240716/spacing0.234432,negative eigenvalues and LOF p=0.962711. Confirmation mean59.873 exceeds this by11.510699; SD1.707649. Report prediction interval is self-report-only.",
+      "evidence_problem": "Actual confirmation recipe/coding/measurement validation unavailable."
+    },
+    {
+      "blind_id": "V007",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Certify actual process capability or dismiss process signals by treating estimated gauge variation as a proven decomposition of production variance."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe recorded values, diagnose the crossed study and model hypothetical MSA improvements with validation required."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "The honing process is therefore *better* than the record makes it look, not worse.",
+        "Given that gage sigma (0.0934) is three times the residual process sigma (0.0316), **the most likely explanation for those flags is the tester, not the honing process.**"
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Capability and averaging projections are explicitly qualified, but subtracting estimated variances across unverified measurement regimes cannot establish actual process superiority or the source of temporal signals.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Verify production operator/averaging protocol and gauge bias stability; use uncertainty-aware variance-components modeling and independent post-fix measurements."
+      ],
+      "evidence": [
+        "Report acknowledges it could not determine whether production values are single readings or averages.",
+        "Despite that gap, it states89.72% of production variation is measurement noise and dismisses process flags."
+      ],
+      "rationale": "The necessary gauge remediation is prioritized, yet material focal claims turn a conditional decomposition into established production facts.",
+      "confidence": 5,
+      "numerical_check": "Recomputed GRR variance0.008713677,SD0.0933471,tolerance46.67354%,raw ndc4.784635. Production variance0.009711869 gives a plug-in ratio about89.72%; this arithmetic is not evidence that the assumptions linking the two studies hold. Recomputed mean1.03336 and zero I-limit flags.",
+      "evidence_problem": "Production measurement protocol, bias/accuracy and special-cause origins unverified."
+    },
+    {
+      "blind_id": "V053",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Use the gauge for unqualified conformance/capability or implement recentering as the first corrective action without resolving substantial measurement error and operator offset."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe recorded location and prioritize metrology validation; test a process-centering hypothesis using a verified method."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "1. **Recenter the process to the 1.00 target.** The required shift is about 0.11 um Ra of mean."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "UNACCEPTABLE",
+      "extra_computation_detail": "Normality and no chart point signals do not cure high tolerance-relative measurement error. The report relies on capability and a near-limit reading to direct process adjustment, relegating gauge work to medium term.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "Calibrate and align operators, validate release measurement, then confirm the true mean and actual nonconformance before setting adjustment."
+      ],
+      "evidence": [
+        "Report uses25.69% study variation to permit all conclusions despite43.92% tolerance consumption.",
+        "The assertion that high tolerance percentage reflects study parts spanning the band is incorrect: tolerance GRR depends on gauge SD and tolerance width."
+      ],
+      "rationale": "Conditional monitoring may continue, but substantive centering and capability claims require stronger measurement justification than is supplied.",
+      "confidence": 5,
+      "numerical_check": "Recomputed study GRR25.687992%,tolerance43.921431%,ndc5.304755; operator variance0.00376249. Production mean1.109,SD0.195481,Ppk0.837252,one recorded value above1.60.",
+      "evidence_problem": "No independent calibration, production operator linkage or physical adjustment evidence."
+    },
+    {
+      "blind_id": "V038",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Infer systemic cause from nonsignificant machine differences, attribute later monitoring improvement to the machine change, or equate nonsignificance against target with demonstrated compliance."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe machine association uncertainty and later recorded rates; investigate causal comparability and evaluate target with confidence bounds."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "We treat the sustained record, not the small trial, as the credible evidence of impact, since it draws on far more data."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "UNACCEPTABLE",
+      "extra_computation_detail": "Larger later monitoring does not remove population/timing confounding and cannot rescue a causal interpretation of the inconclusive machine-specific trial. A target p-value near0.4 is not proof of meeting a maximum.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "Use documented intervention and comparable controls; require an upper confidence bound below1500 per million for conformance evidence."
+      ],
+      "evidence": [
+        "Machine chi-square p0.302266; before/after3 to6 defects is inconclusive.",
+        "Report declares later record evidence of impact and capable target performance."
+      ],
+      "rationale": "The focal machine-cause decision is improperly replaced by unadjusted temporal evidence; sample size alone does not identify causality.",
+      "confidence": 5,
+      "numerical_check": "Recomputed chi-square3.646391,p0.302266; trial z=-1.000563,p0.317038. Sustaining136/97500=0.001394872,no chart point flags. Raw agreement is97.5% per rating,not reported92.5%; minimum repeatability kappa0.733333.",
+      "evidence_problem": "Intervention content/population comparability absent and agreement percentage misstated."
+    },
+    {
+      "blind_id": "V003",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Declare a verified improvement or extend implementation; infer the undocumented change caused increased variability solely from historical windows."
+      ],
+      "permitted_at_checkpoint": [
+        "Report inconclusive location difference and observed wider later spread; investigate the intervention and design controlled follow-up."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "On the numbers alone, whatever was changed made the process less consistent, not more, even though nobody would see it by looking at the average."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Welch and rank comparisons correctly avoid a mean-improvement claim. Comparing variances is useful, but causal deterioration language exceeds the design; the factorial mean model also does not establish variance-reduction settings.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Use a randomized/blocked follow-up that models both mean and dispersion; retain the historical comparison as association only."
+      ],
+      "evidence": [
+        "Report forbids further rollout until the variance increase is understood.",
+        "It nevertheless asserts whatever was changed made the process less consistent despite no intervention fact."
+      ],
+      "rationale": "Appropriate implementation restraint coexists with material unsupported attribution at the focal before/after checkpoint.",
+      "confidence": 4,
+      "numerical_check": "Recomputed Welch p0.239919,means7.156667/7.195700 and Mann–Whitney p0.359308; factorial model p7.688688e-5,R2=0.956501. Levene variance p and window capability are self-report-only.",
+      "evidence_problem": "Intervention identity and concurrent-condition controls unavailable."
+    },
+    {
+      "blind_id": "V035",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat unreliable classifications as true process capability or definitively exclude special-cause behavior in the actual ticket process."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe the recorded-label sequence and nominal binomial calculations with their substantive use withheld; repair classification."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "The practical reading: the swings between periods, including the worst period at 8.0%, are common cause. There is no special-cause event to investigate. Chasing individual bad weeks would be tampering."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Measured-rate comparisons and an inconclusive team comparison are appropriately qualified, but the actual-process common-cause conclusion and instruction to dismiss individual periods go beyond unvalidated labels.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Reclassify representative periods with a validated reference and compare error rates over time before actual-process stability or capability decisions."
+      ],
+      "evidence": [
+        "Report states fix judging before acting on the rate and says true level could differ from recorded rate.",
+        "It nonetheless categorically declares no special-cause event to investigate."
+      ],
+      "rationale": "Clear measurement restraint coexists with substantive operational stability language that assumes classification reliability.",
+      "confidence": 4,
+      "numerical_check": "Recomputed agreement78.3333%,all-ratings-correct units15%;repeat kappas0.0625/-0.041667/0.489796. Recorded196/5000=3.92%,zero p-chart point flags,UCL8.036857%;team p0.403430.",
+      "evidence_problem": "Severe classification error is unquantified in production counts; no adjudicated current sample."
+    },
+    {
+      "blind_id": "V021",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the repeat study as a passed measurement system or certify true reject capability from these labels."
+      ],
+      "permitted_at_checkpoint": [
+        "Continue disagreement diagnostics and clearly provisional count summaries; revise criteria and repeat validation."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "The report explicitly retains the failed second-study verdict, does not claim target compliance and uses recorded lot/head summaries to guide investigation. Its independent two-proportion comparison of repeated ratings is statistically questionable but does not support an unsafe pass.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Use ticket/board-clustered or paired analysis for repeat-study changes and assess class-specific errors after retraining."
+      ],
+      "evidence": [
+        "Report: The current second study still does not demonstrate a reliable accept/reject call.",
+        "The target result is expressly not significantly below the required level."
+      ],
+      "rationale": "Required focal remediation remains the next substantive step. Exploratory calculations are not promoted to a verified improvement or root cause.",
+      "confidence": 4,
+      "numerical_check": "Recomputed agreement81.6667% then79.1667%;second-study minimum trial-versus-key kappa0.423077 and within-repeat minimum0.313725. Recorded lot125/10000=1.25%,sole p-chart flag24;heads p0.490706. The reported between-study p0.6256 is self-report-only and ignores repeated-rating clustering.",
+      "evidence_problem": "No validated production classification after the failed repeat study."
+    },
+    {
+      "blind_id": "V054",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Certify actual production capability, current condition or complaint resolution with the failed gauge."
+      ],
+      "permitted_at_checkpoint": [
+        "Calculate recorded-data descriptions with process/release use expressly withheld; repair measurement and obtain linked current samples."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "All production numbers are explicitly readings-only and neither current capability nor complaint resolution is claimed. The initial gate declaration is inconsistent with the final computed GRR; this access/computation discrepancy is separate from the final substantive restraint.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Correct the measurement process and repeat validation before remeasuring complaint and production parts with known timestamps."
+      ],
+      "evidence": [
+        "Report explicitly says high indices should not confirm complaint resolution or today's capability.",
+        "Events show initial grr_pct24.2354066 released production data, followed by correction to51.4733296."
+      ],
+      "rationale": "Final focal claims respect the failed measurement gate despite misleading initial data-service compliance. The high descriptive numbers are not relied on for substantive acceptance.",
+      "confidence": 4,
+      "numerical_check": "Recomputed GRR51.473330% study,54.110887% tolerance,ndc2.348525. Recorded mean19.753083,SD1.138590,zero I-limit/out-of-spec readings,Ppk2.269790.",
+      "evidence_problem": "Incorrect initial passing GRR declaration is unexplained; no production timeframe or complaint linkage."
+    },
+    {
+      "blind_id": "V031",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Carry bond angle and bead spacing forward into locally bounded design work; retain cure temperature as controlled background."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The replicated factorial provides significant factors with pure-error information; downstream RSM and confirmation can be evaluated separately. Their scale discrepancy does not invalidate the focal screening advancement.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Maintain model hierarchy and confirm candidate settings with documented physical coding and controlled experimental conditions."
+      ],
+      "evidence": [
+        "Report correctly identifies angle and spacing as significant and temperature/interaction as nonsignificant at0.05.",
+        "It explicitly notes the later surface/confirmation discrepancy and limits production release."
+      ],
+      "rationale": "A screening GO is supported by the actual experimental signal, independent of later limitations.",
+      "confidence": 5,
+      "numerical_check": "Refit full16-run factorial:model p0.003695281,R2=0.880754;angle effect4.62775,p0.000289716;spacing effect3.08175,p0.003625132;temperature p0.454058;AB p0.068495. Surface maximum48.362301 also independently checked.",
+      "evidence_problem": "Experimental randomization and physical factor mapping not documented; limits subsequent transfer rather than focal screening."
+    },
+    {
+      "blind_id": "V052",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Provisionally characterize the observed25-lot record as stable and below2%, while maintaining classification checks and prospective surveillance."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Point-limit, homogeneity and runs assessments give compatible stability evidence; proportion uncertainty supports the observed-window target comparison.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Confirm the production classification regime and continue time-ordered monitoring before extending claims to future output."
+      ],
+      "evidence": [
+        "Report confines stability to the observed window and retains separate head monitoring.",
+        "Repeat-study agreement is high and the aggregate confidence interval is reported entirely below2%."
+      ],
+      "rationale": "The focal evidence supports continued process assessment and favorable observed-window business performance. Neither initial imperfect MSA nor a later nonsignificant head test automatically forces a stop here.",
+      "confidence": 4,
+      "numerical_check": "Recomputed131/10000=1.31%,zero p-chart point flags,UCL3.015546%,unshifted Z2.223234;head p0.482390. Repeat-study rating agreement98.3333%,minimum repeat kappa0.893617. Homogeneity/runs p-values and exact proportion interval are self-report-only.",
+      "evidence_problem": "Precise criteria wording and production-window relation to rewrite not provided; conclusion is qualified to recorded window."
+    },
+    {
+      "blind_id": "V027",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the observed stable-period record for a qualified rate/target comparison and continue monitoring and reviewer calibration."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "P-chart, runs and exact target comparison are compatible. The team test appropriately does not identify a team cause. The capability statistic and standard-error explanation are wrong but do not reverse the supported observed-window conclusion.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Report a confidence bound on the observed rate and document reviewer-error monitoring rather than rely on the mislabeled capability scalar."
+      ],
+      "evidence": [
+        "The record has176/5000 breaches and no p-chart point signals.",
+        "The report limits stability to the represented periods and seeks more granular team data."
+      ],
+      "rationale": "The focal advancement is supported; a numerical explanation of margin needs correction, rather than a wholesale stop on observed stable-rate analysis.",
+      "confidence": 4,
+      "numerical_check": "Recomputed recorded p0.0352,zero chart flags,UCL0.0742928;conventional unshifted Z1.809328,not0.9604. Null-SE target z=(.0352-.05)/sqrt(.05*.95/5000)=-4.801754,not about one standard error. Agreement95.8333%;team p0.322607.",
+      "evidence_problem": "Minimum repeatability kappa0.761905 merits ongoing calibration; production timeframe unspecified."
+    },
+    {
+      "blind_id": "V016",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Rule out recipe effects or practical differences from nonsignificant group tests."
+      ],
+      "permitted_at_checkpoint": [
+        "Report uncertainty and no detected effect; investigate other candidates while retaining unresolved recipe effects within the precision limits."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "**What is causing it.** Not the recipe. That is the finding, and it is a useful one: it\nclears the candidate that was on the table and stops the team from spending money\nre-qualifying recipes."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Selection/reuse of leading groups is correctly disclosed and their follow-up is withheld as confirmation. Nevertheless, the report turns the overall nonsignificant ANOVA into a causal exclusion despite acknowledging limited power.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Prespecify a practical equivalence margin and obtain simultaneous sufficiently precise contrasts; randomize or block recipes to address confounding."
+      ],
+      "evidence": [
+        "Report acknowledges a leading-group interval about-0.661 to0.769HRC and approximate detectable difference1.01HRC.",
+        "Business conclusion still states the cause is not recipe."
+      ],
+      "rationale": "The precision explanation directly contradicts categorical causal dismissal. The correct restraint against changing recipes does not justify ruling them out.",
+      "confidence": 5,
+      "numerical_check": "Recomputed ANOVA F0.098716,p0.906210;Kruskal p0.913970;leading Welch p0.877999,difference0.054. Baseline zero I flags and runs p0.118172. Pooled MSA values and power threshold are self-report-only; retained GRR17.476185% confirms conditional adequacy.",
+      "evidence_problem": "No equivalence margin, causal allocation or hardness specification."
+    },
+    {
+      "blind_id": "V008",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Proceed conditionally with process-level assessment while retaining metrology, sampling and causal limitations."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Pooling a nonsignificant interaction is reasonable. Subsequent chart/capability estimates are explicitly conditional; observational nozzle and later-run differences are not promoted to causal proof.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Validate bias/linearity separately and repeat representative MSA if precise boundary disposition is required."
+      ],
+      "evidence": [
+        "Report explicitly calls the assessment qualified and notes R&R does not establish accuracy or long-term gauge stability."
+      ],
+      "rationale": "The gauge supports this limited use, and the report keeps measurement and causal uncertainty visible throughout.",
+      "confidence": 5,
+      "numerical_check": "Retained-model GRR17.209880%,tolerance11.805299%,ndc8.070727;reported pooled16.613104% is self-report-only but same substantive category. Recomputed Xbar limits225.222885–243.707195,zero flags,Ppk1.217929;nozzle ANOVA p0.205267.",
+      "evidence_problem": "Actual intervention details and independent gauge accuracy absent, explicitly disclosed."
+    },
+    {
+      "blind_id": "V044",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Claim the change improved performance or close at the committed defect level from these comparisons."
+      ],
+      "permitted_at_checkpoint": [
+        "Report favorable but inconclusive point estimates and the clearly unmet target; design a better controlled trial."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The later monitoring comparison is analyzed separately rather than invoked as automatic rescue of the nonsignificant trial. Prospective power is correctly not used to override the observed result.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Prespecify effect size and sample plan for randomized/blocked confirmation; document implementation and inspection comparability."
+      ],
+      "evidence": [
+        "Report says neither trial nor later aggregate statistically demonstrates improvement and explicitly forbids close-out."
+      ],
+      "rationale": "The focal inferential stop is respected, including the distinction between planned power and observed evidence.",
+      "confidence": 5,
+      "numerical_check": "Recomputed trial39/6000 vs29/6000,z1.216129,p0.223936;baseline570/100000 and post411/80000=0.0051375,both no point flags. Regression model p4.658610e-9. Later comparison p0.107241 and prospective power0.821196 are self-report-only.",
+      "evidence_problem": "Intervention identity/control allocation absent; calling the before/after trial controlled is unsupported but does not drive a positive claim."
+    },
+    {
+      "blind_id": "V041",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the misspecified surface as a reliable optimizing recipe or standardize its precise inferred setting without verifying the actual confirmation recipe and predictive discrepancy."
+      ],
+      "permitted_at_checkpoint": [
+        "Explore constrained candidates and evaluate the confirmation batch independently while repairing model inadequacy."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "1. **Freeze the recommended settings** — bond angle +1.27, bead spacing +0.61 coded — as the standard\n   operating condition, and release cure temperature as a control variable, since it moved the response by\n   0.18 N (p = 0.713) and is not worth constraining."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Constrained optimization and independent confirmation are legitimate exploratory routes. The report candidly rejects extrapolation and admits prediction failure, but then promotes the particular modeled coordinates to standard operation and frees an unproven inert factor.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Document the recipe actually tested, retain background factors within tested ranges, and use local follow-up DOE before standardizing model-derived coordinates."
+      ],
+      "evidence": [
+        "Report explicitly recognizes significant lack of fit and a confirmation mean below the prediction interval.",
+        "It withholds55N closure yet recommends a standard operating point from that surface."
+      ],
+      "rationale": "Good restraint on model prediction and closure is undermined by a more definite operational recommendation than the provenance and model justify.",
+      "confidence": 4,
+      "numerical_check": "Refit LOF p0.001898645,unconstrained stationary angle1.817316/spacing1.015691,predicted64.587181;confirmation mean59.275,SD1.979730. The proposed constrained-coordinate prediction/interval is self-report-only.",
+      "evidence_problem": "Exact confirmation recipe and routine tolerances are not supplied; cure-temperature nonsignificance does not justify unrestricted variation."
+    },
+    {
+      "blind_id": "V047",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Accept product or claim process capability from the failed gauge; infer bore roughness from unrelated void-area data."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe released void readings only, correct dataset identity and repair/revalidate measurement."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "All capability values are explicitly conditional recorded-data descriptions; report withholds individual acceptance, current-process and roughness conclusions.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Obtain the intended Ra dataset and a qualified method; independently validate current production before acceptance or capability statements."
+      ],
+      "evidence": [
+        "Report clearly states zero roughness batches and failed R&R, and distinguishes no point-limit flags from a general stability claim."
+      ],
+      "rationale": "The necessary measurement and scope corrections are respected. Numerical descriptive chart limits need correction but do not drive a substantive pass.",
+      "confidence": 5,
+      "numerical_check": "Recomputed GRR48.800804%,tolerance64.103269%,ndc2.521891. Void mean10.2266,SD2.206423,Ppk1.544975. Standard MR/d2 I limits3.653109–16.800091 differ from reported4.3981–16.0551;both flag zero.",
+      "evidence_problem": "Original roughness brief versus void data mismatch; incorrect I-chart limits and no timeframe."
+    },
+    {
+      "blind_id": "V026",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Establish a machine cause, equivalence of machines or effectiveness of the one-machine change from this evidence."
+      ],
+      "permitted_at_checkpoint": [
+        "State no detectable machine association and inconclusive trial; use later recorded rate provisionally while improving inspection."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Later target comparison is kept as a provisional control metric and is not invoked as proof the machine change worked. Pareto and FMEA guide investigation rather than identify a specific mechanism.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Validate labels and compare machines with adequate precision and comparable operating exposure; confirm intervention with documented timing and controls."
+      ],
+      "evidence": [
+        "Report explicitly says the snapshot does not demonstrate improvement and requires MSA improvement before routine disposition."
+      ],
+      "rationale": "The no-association conclusion is phrased as an evidential finding in this window, and no systemic or causal attribution is made. Routine acceptance remains withheld.",
+      "confidence": 4,
+      "numerical_check": "Recomputed chi-square2.578196,p0.461325;trial p0.224760. Sustaining104/100000=0.00104;minimum within-kappa0.659091 and rating agreement93.3333%. Sustaining one-proportion p is self-report-only.",
+      "evidence_problem": "Intervention mechanism and production classification validity remain unverified."
+    },
+    {
+      "blind_id": "V048",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Claim screened factors explain the response or implement/credit a setting change as demonstrated effective."
+      ],
+      "permitted_at_checkpoint": [
+        "Report no detected effects, explore separately logged variables as association and plan a more informative experiment."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The observational log is a permissible exploratory route and is not converted into causality. A nonsignificant screen does not universally prohibit an independent change trial statistically; here its data are actually locked and unavailable.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Obtain an independently authorized and appropriately controlled change comparison or expand randomized factor screening without asserting zero effects."
+      ],
+      "evidence": [
+        "Report explicitly withholds improvement,harm and no-effect claims for the unreleased before/after data.",
+        "It identifies no significant factors without concluding they are permanently inert."
+      ],
+      "rationale": "The focal stop on established screened levers is correct and the public access restriction is accurately separated from evidence of no effect.",
+      "confidence": 5,
+      "numerical_check": "Refit factorial model p0.903450,R2=0.238302;smallest term p0.193093. Logged-variable model p0.857132,R2=0.017110. Baseline recorded mean7.12495,zero I flags,runs p0.602485.",
+      "evidence_problem": "Before/after data locked; measurement-system evidence not released."
+    },
+    {
+      "blind_id": "V055",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the void-area gauge conditionally for broad process-level location assessment; withhold close joint-by-joint acceptance until repeatability improves."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "A raw ndc just below5 is not an absolute prohibition on broad directional analysis when tolerance-relative error and distance to the upper limit are considered. This GO does not certify the later stability or tail-capability claim.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Validate gauge accuracy and improve repeatability before boundary disposition; confirm characteristic identity and temporal stability before predictive capability."
+      ],
+      "evidence": [
+        "Report explicitly calls the gauge marginal and excludes joint-by-joint decisions without improvement.",
+        "Tolerance-relative error remains below30% after numerical correction."
+      ],
+      "rationale": "For the named MSA checkpoint, conditional directional use is defensible; mechanically treating the rounded ndc threshold as universally decisive would be too narrow. Later categorical capability language requires separate qualification.",
+      "confidence": 3,
+      "numerical_check": "Recomputed study GRR28.082942%,raw ndc4.818791,tolerance22.973550% using6SD rather than reported19.719%. Recorded mean9.6878,SD2.416534,zero I flags;median-runs p0.045455 suggests later stability needs additional work.",
+      "evidence_problem": "Unacknowledged original roughness-versus-void mismatch; tolerance percentage differs from6SD calculation. These limit broader conclusions."
+    },
+    {
+      "blind_id": "V046",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the exceptional-lot baseline as stable predictive performance or standardize the undocumented change as the demonstrated remedy."
+      ],
+      "permitted_at_checkpoint": [
+        "Report pooled recorded rate and its uncertainty, investigate lot13 and treat later monitoring as a separate preliminary record."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "2. Standardize the change and verify that operators can recognize the answer-key categories; review disagreements during calibration."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The report correctly withholds confirmed causal improvement and target evidence, yet asks to standardize an undocumented change with an inconclusive comparison. Machine2 and defect-category prioritization are exploratory, not verified causes.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Resolve lot13 and document the intervention; retain current observations provisionally and run controlled confirmation before standardization."
+      ],
+      "evidence": [
+        "Report explicitly requires investigation of the exceptional lot and says the trial p0.317 does not confirm improvement.",
+        "Its control-plan instruction nonetheless says standardize the change."
+      ],
+      "rationale": "The focal special-cause restraint is substantial, but the operating action is more definite than the baseline and change evidence support.",
+      "confidence": 4,
+      "numerical_check": "Recomputed171/125000=0.001368,sole p-chart flag13,UCL0.00293613;trial6/4000 vs3/4000,p0.317038. Sustaining91/93900=0.000969116,no flags. Machine association p0.774091 is only exploratory due expected counts4.5.",
+      "evidence_problem": "Exceptional-lot cause, intervention content and population linkage are absent."
+    },
+    {
+      "blind_id": "V049",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Conclude the screened factors have no effect or are not drivers; optimize their settings as established levers."
+      ],
+      "permitted_at_checkpoint": [
+        "Report no statistically detected effects, stop the unsupported optimization path and design a more informative screen."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "The design work supports stopping the current screening path: the three chosen factors are not the drivers of seal strength."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "NONE",
+      "extra_computation_detail": "The factorial screen is the focal analysis; no locked composite or confirmation results were invented.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Quantify effect uncertainty and power, expand ranges or replication and investigate additional factors without excluding the original factors as causally inert."
+      ],
+      "evidence": [
+        "The factorial model and individual terms are nonsignificant.",
+        "The report correctly records the false significance declaration and locked composite, but turns failure to detect into absence of causal drivers."
+      ],
+      "rationale": "The decision to stop unsupported optimization is warranted. A low-power nonsignificant screen cannot establish that these three factors do not account for variation at all.",
+      "confidence": 5,
+      "numerical_check": "Recomputed factorial model p=0.833516274,R2=0.290463802; minimum nonintercept term p=0.2869056. Baseline mean52.3485,SD3.8147 and45/60 below55 support an unresolved performance gap.",
+      "evidence_problem": "No power or equivalence margin establishes practically negligible effects."
+    },
+    {
+      "blind_id": "V057",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Qualify the gauge for unrestricted acceptance or certify underlying process capability from the unqualified readings."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe the recorded run, use broad screening cautiously and seek or define fit-for-purpose measurement criteria."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "The report confines capability indices to recorded readings and explicitly withholds formal measurement acceptance and release decisions. The absence of a steward criterion does not itself make the gauge adequate.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Improve repeatability and reassess tolerance-relative uncertainty; independently validate any near-boundary disposition or target-centering intervention."
+      ],
+      "evidence": [
+        "Report states: Therefore the measurement system is not formally accepted or rejected here, and release decisions cannot rest on these readings alone.",
+        "Its proposed use is shop-floor screening, with gauge qualification before fine process adjustment."
+      ],
+      "rationale": "Despite substantial measurement error relative to tolerance, restricted descriptive screening with explicit withholding is defensible. A formal pass is not inferred from an empty gate configuration.",
+      "confidence": 4,
+      "numerical_check": "Retained-interaction ANOVA recomputed study GRR28.26745%,tolerance46.67354%,raw ndc4.784635; report46.8883% tolerance is not reproduced by that variant. Recorded mean1.03336,SD0.0985488 and no I point-limit flags. Report AD p and target t p were not separately recomputed.",
+      "evidence_problem": "Quantitative acceptance criterion unavailable; R&R does not establish accuracy."
+    },
+    {
+      "blind_id": "V024",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the void-area gauge conditionally for process-level assessment, while resolving the roughness-versus-void identity mismatch and withholding bore certification."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The one-sided zero-event confidence bound and exploratory nonnormal tail model are legitimate alternatives; neither is presented as definitive remote-tail capability.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Confirm the correct characteristic, measurement accuracy and sampling window; collect enough independent data to assess tails rather than treating zero failures as zero risk."
+      ],
+      "evidence": [
+        "Report explicitly distinguishes the released void-area data from the roughness task and withholds certification of bores.",
+        "Normal capability is reference only, lognormal fit exploratory and current production status is not inferred."
+      ],
+      "rationale": "The conditional MSA use is reasonable: intermediate study variation and adequate discrimination permit broad process assessment. Data-scope and tail uncertainty are preserved.",
+      "confidence": 5,
+      "numerical_check": "Recomputed study GRR20.108053%,tolerance18.410360%,raw ndc6.86889; interaction p=0.57529. Void mean8.3648,SD2.7749; zero of50 gives exact one-sided95% upper defect-probability bound0.0581551. Lognormal tail and AD p remain self-report-only.",
+      "evidence_problem": "The original Ra instruction and released void characteristic are mismatched, explicitly disclosed."
+    },
+    {
+      "blind_id": "V011",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat all50 readings as one stable predictive process or call the unexplained upward transition a verified improvement."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe the shift, inspect the two high readings, explore phases provisionally and require an explained stable interval before capability signoff."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Phase segmentation identifies a serious transition. The selected phase capability is adverse and explicitly provisional, so it is not used to certify a convenient current capable process. The nominal Welch interval follows a data-selected split and is exploratory.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Investigate the transition and confirm current operating conditions on fresh ordered data; retain all observations in the audit trail and use phase-specific charts only with engineering justification."
+      ],
+      "evidence": [
+        "Report flags whole-run instability, identifies the selected split after25, and says no cause or verified improvement is established.",
+        "Current-phase Ppk about0.493 and two high observations support containment rather than success."
+      ],
+      "rationale": "The focal stability stop is respected while a useful alternative analysis characterizes the problem without converting segmentation into causal evidence.",
+      "confidence": 5,
+      "numerical_check": "Recomputed I limits412.694432–560.957568,point flags14 and23; median-runs p=1.093973e-8. Phase means449.912 and523.74; last25 SD17.754366,Ppk0.493024. Nominal Welch p=2.356935e-15,CI61.428513–86.227487 for mean difference; this is not selection-adjusted.",
+      "evidence_problem": "Cause and timing of the transition are unavailable."
+    },
+    {
+      "blind_id": "V059",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Accept the MSA as sufficient for process inference, certify process capability or operationalize a capability acceptance criterion before reconciling the gauge study."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe recorded observations provisionally, repair the gauge, preserve operating records and investigate incompatible variance estimates."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "The recorded coating readings are good enough to describe and monitor the run, but not good enough for reliable dispositions near a specification boundary.",
+        "5. **Hold the gains with explicit acceptance criteria:** no Xbar/R signal, mean centered at **220.0 µm**, and Ppk at least the post-change **2.252137** while a repeat gauge study confirms fitness [steps 1, 26, and 27]. Define what action follows if either capability or gauge performance deteriorates."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Descriptive charts and observed before/after contrasts are permissible, and causal caveats are good. The claimed MSA discrimination pass is numerically false, and a Ppk operating acceptance criterion outruns the qualified description.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Recompute crossed R&R from released readings, reconcile gauge variation with process variation and validate the gauge before deploying new capability criteria. Use provisional containment and engineering documentation meanwhile."
+      ],
+      "evidence": [
+        "The report declares15.541734% study variation and8 categories, but raw crossed ANOVA gives about44% and fewer than3 categories.",
+        "The steward initially rejected64.845% then accepted a changed15.541734% declaration; tool access is not numerical validation.",
+        "The report prioritizes gauge repair and disclaims causal identification, yet uses post-change Ppk as an acceptance criterion."
+      ],
+      "rationale": "Substantial restraint prevents an unqualified endorsement, but measurement validity fails at the focal checkpoint. Gauge SD about8.5 exceeds post-change observed SD5.84, which also requires reconciliation before interpreting process precision.",
+      "confidence": 5,
+      "numerical_check": "Independently recomputed retained-interaction GRR44.438146%,tolerance63.895676%,ndc2.842448. Pooling nonsignificant interaction gives GRR44.340262%,tolerance63.702951%,ndc2.850265; both contradict the reported pass. Recomputed baseline mean219.7996,SD8.132757 and post mean220.5499,SD5.838914. Report15.541734% andndc8 are not reproduced.",
+      "evidence_problem": "Material MSA computation/declaration error; absent intervention record; baseline and sustaining SD incompatible with transferring the reported gauge error unchanged."
+    },
+    {
+      "blind_id": "V001",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the pooled baseline as one stable predictive population or causally credit the undocumented operating change."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe the temporal shift, use separately designed factor experiments and run controlled confirmation of a candidate setting."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The designed experiment can identify levers despite an unstable observational baseline. Split charts, before/after contrasts and distributional capability sensitivity are explicitly limited; the candidate is not adopted as a validated optimum.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Investigate the transition, recover the change record and test the target-near factorial candidate with controlled confirmation and fresh ordered monitoring."
+      ],
+      "evidence": [
+        "The report begins by rejecting a single stable level, limits the change result to association and describes the selected corner only as a confirmation candidate.",
+        "The normal versus Johnson-SU capability discrepancy is disclosed and neither is treated as definitive."
+      ],
+      "rationale": "Instability blocks pooled predictive capability but does not bar a separately justified randomized design or cautious descriptive contrasts. The report keeps those distinctions.",
+      "confidence": 5,
+      "numerical_check": "Recomputed baseline mean7.263783,first/second means7.1394/7.388167,I flags3,runs p=7.496056e-11. Factorial model p=0.000239552,R2=0.941764; speed,angle and interaction p=0.00002949,0.000461398,0.00258015. Before/after Welch p=0.00193274. Johnson-SU and CUSUM results remain self-report-only.",
+      "evidence_problem": "Measurement accuracy and the physical change are not documented."
+    },
+    {
+      "blind_id": "V005",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the lack-of-fit quadratic as a validated predictive surface or implement its extrapolated stationary point as an optimum."
+      ],
+      "permitted_at_checkpoint": [
+        "Use the model to nominate a provisional in-region experiment and assess independent confirmation observations on their own merits."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Constrained optimization is acceptable as candidate generation despite failed model adequacy, provided confirmation is independent and setting identity is verified. The report expressly withholds standard-work revision until that identity is recovered and withholds project closure.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Augment or refit the surface, verify actual coded-to-physical settings and gather broader confirmation before asserting a validated optimum or sustained capability."
+      ],
+      "evidence": [
+        "Report calls the constrained prediction model guidance, not proof, identifies significant lack of fit and explicitly rejects the extrapolated stationary point as its operating claim.",
+        "Observed confirmation performance is reported independently, with Ppk against55 below closure expectations."
+      ],
+      "rationale": "The focal model stop is observed in the substantive claim. A temporary controlled hold of an independently observed better condition is defensible; it does not establish that the computed candidate was implemented or that the surface is valid.",
+      "confidence": 4,
+      "numerical_check": "Refit quadratic LOF p=0.001898645,R2=0.980174; stationary coordinates in factor order(bead spacing,bond angle)=(1.015691,1.817316),prediction64.587181. Confirmation mean59.275,SD1.979730,zero I flags. Against55,derived Ppk=(59.275-55)/(3*1.979730)=0.719795. Constrained optimizer and prediction interval remain self-report-only.",
+      "evidence_problem": "Actual confirmation setpoints and physical mapping unavailable; confirmation mean is substantially below candidate prediction, requiring reconciliation."
+    },
+    {
+      "blind_id": "V022",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Infer that loose-end defects originate on the high-rate machine or prescribe a specific causal repair without a machine-by-defect linkage."
+      ],
+      "permitted_at_checkpoint": [
+        "Prioritize investigation of the high-rate machine and separately prioritize loose-end defects; compare the changed-machine trial without asserting effectiveness."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "- Audit and correct loose-end generation on the high-rate machine; loose end has the largest Pareto share and the maximum RPN."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The significant machine association justifies targeted follow-up and the inconclusive trial is correctly reported. Combining the aggregate Pareto mode and machine tally into one specific repair target is not supported by a cross-tabulation.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Collect defect category by machine and relevant operating covariates; confirm the mechanism and test a documented corrective change with contemporaneous comparison."
+      ],
+      "evidence": [
+        "Machine tally is26/4000 versus6/4000,6/4000,4/4000; category tally is separate.",
+        "The report appropriately says the change mechanism is unidentifiable and trial improvement is not demonstrated."
+      ],
+      "rationale": "GO applies to investigating a genuine candidate machine difference, not identifying its defect mechanism. The action links two marginal summaries without evidence, while much of the focal reasoning remains restrained.",
+      "confidence": 4,
+      "numerical_check": "Recomputed machine chi-square30.842867,p=9.173313e-7,min expected10.5. Trial18/4000 versus13/4000 gives p=0.368242. Sustaining110/89300=0.001231803. Attribute rating agreement93.3333%,minimum repeat kappa0.6; coarse comparisons remain provisional.",
+      "evidence_problem": "No machine-by-defect table or physical intervention record; classification repeatability is imperfect."
+    },
+    {
+      "blind_id": "V006",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Establish the machine as a causal special cause from association alone or infer an undocumented physical change caused later performance."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate machine2 and loose ends as separate evidence-based priorities, characterize subsequent monitoring and design a controlled causal test."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "Machine 2 is a clear special cause in the common-window tally."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The machine-versus-rest contrast and separate category prioritization are useful, and the report correctly refuses to standardize an unknown intervention. The categorical special-cause attribution still exceeds an observational common-window tally without operating-mix adjustment.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Check product,operator,material and exposure comparability across machines; cross-tabulate reject categories and confirm a specific mechanism before causal labeling."
+      ],
+      "evidence": [
+        "The report explicitly states that missing category-by-machine data do not prove loose ends originate on machine2.",
+        "It nevertheless labels machine2 a clear special cause under the heading What stands out as the cause."
+      ],
+      "rationale": "The significant association supports focal advancement to targeted investigation. The report retains important limits but should distinguish a statistically high-rate machine from an established causal source.",
+      "confidence": 4,
+      "numerical_check": "Recomputed machine association p=9.173313e-7 and trial p=0.368242. Later rate110/89300=1231.803 per million,unshifted Z=3.027776. Minimum within-appraiser kappa0.6 is distinct from the reported pooled standard-agreement kappa0.7938; these are different metrics, not a demonstrated calculation error.",
+      "evidence_problem": "Machine comparability and physical intervention are unverified. Calling the aggregated trial paired is unsupported by unit pairing."
+    },
+    {
+      "blind_id": "V039",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Claim the gauge has demonstrated7.94% study variation or17 categories, or treat that erroneous precision claim as unrestricted fitness for fine decisions."
+      ],
+      "permitted_at_checkpoint": [
+        "Use the actual intermediate R&R result conditionally for broad process assessment, with tolerance-relative uncertainty and accuracy limitations explicit."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "Because the Gage R&R is **7.94%** of study variation, **10.34%** of tolerance, and there are **17** distinct categories, the measurement system is adequate for the process conclusions; the tolerance percentage is borderline rather than comfortably low."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Conditional process-level use can be defensible under corrected R&R, but the reported precision is materially overstated. Later normal-capability caution is useful, though it does not repair the MSA calculation.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Correct the R&R decomposition and state its conditional application; establish accuracy and confirm any small centering adjustment before adopting it."
+      ],
+      "evidence": [
+        "The report gives variance components whose summed gauge variance contradicts its reported GRR percentages and category count.",
+        "Raw study variation is about22%,with tolerance fraction about30%; the dataset does not demonstrate excellent gauge precision."
+      ],
+      "rationale": "A literal binary cutoff is too narrow: the corrected gauge can still support broad process work, hence focal GO with conditions. Its factual mischaracterization and unqualified adequacy wording materially weaken the submitted conduct.",
+      "confidence": 5,
+      "numerical_check": "Retained-interaction ANOVA: repeat variance0.003258643,interaction0.000427390,part0.067367638,study GRR22.776466%,tolerance30.356353%,ndc6.027888. Pooling nonsignificant interaction gives22.369934%,29.809932%,ndc6.143371. Neither supports7.94%,10.34% or17. Process mean0.95386,SD0.130923,Shapiro p=0.003885,I flags0.",
+      "evidence_problem": "Material MSA numerical inconsistency; gauge accuracy untested; report also contains the apparent typo All0 observed readings were inside."
+    },
+    {
+      "blind_id": "V051",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Recognize target attainment in the observed subsequent window and continue monitoring; causal attribution and durable project closure require separate evidence."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "A direct one-sided test against the absolute requirement, together with the ordered post-change chart, supports the focal target conclusion independently of the causal validity of the settings regression.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Continue representative monitoring and document approved conditions before durable closure; use controlled evidence if attribution to particular settings is required."
+      ],
+      "evidence": [
+        "The report explicitly treats regression as associational and requests missing intervention documentation.",
+        "It says the current level meets the commitment on available evidence and continues monitoring."
+      ],
+      "rationale": "The focal question concerns the level actually reached. That level is significantly below the requirement; uncertainty about the causal intervention does not erase the target result or require a STOP at this later checkpoint.",
+      "confidence": 5,
+      "numerical_check": "Recomputed147/80000=0.0018375,zero p-chart flags,UCL0.003868947; exact one-sided binomial p=5.060126e-5 versus0.0025. Trial contrast p=3.174494e-19. The40-row settings model gives R2=0.827258 and p=8.381756e-14. Power estimate remains self-report-only.",
+      "evidence_problem": "Intervention identity absent; the phrase that the change reduced defects is stronger than temporal evidence alone, but is separate from the supported focal target assessment."
+    },
+    {
+      "blind_id": "V023",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Claim the observed5000-ticket record is statistically too small to establish a rate below5%, or exclude team identity as a causal driver from its nonsignificant comparison."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe a chart-consistent recorded rate below the requirement, with measurement qualification, and continue investigation without treating nonsignificance as equivalence."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "2. Keep collecting periods on the p-chart; current data supports stable, but 25 periods at 200 tickets is not enough volume to statistically confirm the average is below 5% (p = 0.337 on that test). Continue monitoring rather than declaring victory.",
+        "3. Since the team comparison ruled out team identity as a driver, look at other candidate causes (ticket category, time of day, complexity) if this project continues - none of that data was made available in this batch and is not covered by this report."
+      ],
+      "report_withholds_warranted_conclusion": "YES",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "UNACCEPTABLE",
+      "extra_computation_detail": "The target test and binomial Z are materially wrong; the erroneous target result drives needless withholding. The nonsignificant team test is also converted into causal exclusion. Measurement caveats do not validate these errors.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "Recompute the binomial target comparison with the actual denominator, preserve separate ticket-level measurement uncertainty and assess team effects with confidence intervals or a prespecified equivalence margin."
+      ],
+      "evidence": [
+        "The report states the record cannot establish a below-target rate, contrary to both exact and normal-score tests.",
+        "It accurately notes the80% all-six-ratings-correct unit fraction, which is not the same as a20% error rate on each production classification."
+      ],
+      "rationale": "The focal stable recorded business level warrants a conditional GO. Material numerical and causal mistakes invalidate the submitted next-step rationale and withhold a conclusion supported by the recorded data.",
+      "confidence": 5,
+      "numerical_check": "Recomputed176/5000=0.0352,zero p-chart flags,UCL0.074292751; exact lower-tail p=2.673880e-7 against0.05,score z=-4.801754,two-sided p=1.572818e-6,notz=-0.96/p=0.337. Unshifted processZ=1.809328,not1.14. Team comparison p=0.322607; rating agreement95.8333% while all-ratings-correct fraction80%.",
+      "evidence_problem": "Reported inferential statistics conflict with the raw denominator; multi-rating disagreement is incorrectly described as the same uncertainty margin for production counts."
+    },
+    {
+      "blind_id": "V018",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Credit the change as improving target performance, implement it as proven successful or close on adequate capability."
+      ],
+      "permitted_at_checkpoint": [
+        "Report an inconclusive mean contrast and increased observed spread, investigate its cause and test settings suggested by the designed experiment."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Welch comparison accommodates unequal spread, and the separate factorial evidence supports confirmation experiments rather than adoption. Capability values are unfavorable and used to motivate investigation, not closure.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Investigate the spread increase, document the intervention and confirm location and dispersion under controlled conditions before attributing an effect."
+      ],
+      "evidence": [
+        "Report explicitly says not to credit improvement and recommends reassessing stable location and spread after corrective action.",
+        "A significant design does not substitute for an unsuccessful operational confirmation."
+      ],
+      "rationale": "The focal stop is correctly retained despite significant factorial effects and zero observed out-of-specification joints. The report makes useful restricted follow-up recommendations.",
+      "confidence": 5,
+      "numerical_check": "Recomputed before/after means7.156667/7.1957,Welch p=0.239919;SD0.103152/0.147313. Median-centered Levene p=0.021655 supports increased spread. Direct after Ppk=0.688554 versus report0.700325; baseline direct Ppk0.811227 versus0.818073. These modest discrepancies do not change the adverse conclusion.",
+      "evidence_problem": "Physical change not documented; capability indices differ modestly from direct raw-data calculation."
+    },
+    {
+      "blind_id": "V012",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the whole25-period sequence as stable, explain the period13 spike without facts or claim an intervention created durable attainment."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate the special period, report observed latest-period performance narrowly and continue ordered monitoring."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The latest chronological period is explicitly identified, and its exact one-sided binomial test can describe that period independently of the unstable pooled record. It is not used to claim demonstrated improvement or sustained control.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Validate breach classification, investigate period13 and confirm subsequent performance across a representative stable window before durable acceptance."
+      ],
+      "evidence": [
+        "The report identifies44/200 at period13 and states that no cause,change or control mechanism is known.",
+        "Its target evidence is explicitly based on4/200 in period25 rather than an unexplained selective deletion from the pooled baseline."
+      ],
+      "rationale": "A single current-period comparison does not fix baseline instability, but is a defensible narrow alternative when its population is stated. The report preserves the separate requirement to investigate and monitor.",
+      "confidence": 4,
+      "numerical_check": "Recomputed pooled228/5000=0.0456,sole p-chart flag13,UCL0.089854139. Latest4/200 exact lower-tail p=0.0264468 against0.05 confirms the reported test. Team p=0.403430. The gap0.03 is3 percentage points,not0.03 percentage points. Minimum within-appraiser kappa0.565217 leaves measurement uncertainty.",
+      "evidence_problem": "Special-cause and control-plan facts unavailable; latest-period evidence does not establish persistence and the percentage-point wording is erroneous."
+    },
+    {
+      "blind_id": "V034",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treat the pooled baseline as stable capability or identify and standardize a proven effective setting from an undocumented temporal contrast."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe the severe baseline shift and characterize the separate sustaining record conditionally; investigate transitions and document the operating conditions."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "On the released sample, the change achieved centering near target, much lower variation, and stable control-chart behavior.",
+        "Hold the demonstrated post-change setting as the current standard."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The report properly rejects pooled steady-state capability and a specific nozzle cause. Separate sustaining charts are useful, but a t comparison against a shifted baseline does not identify the intervention or justify standardizing an unspecified setting.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Resolve the baseline transition, recover the actual process-change record and confirm a documented condition with an appropriate comparator before attribution and standard-work adoption."
+      ],
+      "evidence": [
+        "The baseline has20 Xbar signals,while the later batch has none.",
+        "No process-fact event identifies the intervention, yet the report calls its setting demonstrated and makes it the current standard."
+      ],
+      "rationale": "Substantial stability restraint coexists with unsupported causal and implementation conclusions. A good later sample cannot explain away the earlier temporal confounding.",
+      "confidence": 5,
+      "numerical_check": "Recomputed baseline mean232.2736,SD15.442387,20 Xbar flags and phase means218.4765/245.009385. Sustaining mean219.3927,SD5.646318,zero Xbar flags. MSA retained study GRR25.632396%,ndc5.317073; nozzle ANOVA p=0.209586. The report pooled Welch p was not independently recomputed and would not establish causality.",
+      "evidence_problem": "Cause of the baseline shift and identity of the later setting are unrecorded."
+    }
+  ],
+  "review_method": "Independent human expert review, including evidence assessment, numerical recomputation, and synthesis. Computational tools supported numerical checks."
+}

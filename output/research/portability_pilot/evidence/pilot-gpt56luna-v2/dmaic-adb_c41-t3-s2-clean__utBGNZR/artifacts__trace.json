@@ -1,0 +1,152 @@
+{
+  "system_id": "openai-command-line-agent",
+  "task_id": "adb_c41-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "participantsTotal": 240,
+        "sampleFailThreshold": 0.1,
+        "participantsRetained": 238
+      },
+      "status": "success",
+      "decision": "PASS: participant failure fraction is below the protocol maximum."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants_retained": 238,
+        "variants_tested": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 116,
+        "snpsRetained": 34,
+        "variantsTotal": 150
+      },
+      "status": "success",
+      "decision": "34 variants passed call rate, MAF, and control HWE filters."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 238,
+        "variants": 34
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 5.861587813431253e-14
+      },
+      "status": "success",
+      "decision": "FAIL for case-control comparison: the leading axis separates the phenotype groups."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 238,
+        "variants": 34,
+        "analysis": "unadjusted exploratory allele-count Fisher tests"
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 10,
+        "alpha": 0.05,
+        "bonferroniThreshold": 0.0014705882352941176
+      },
+      "status": "success",
+      "decision": "Exploratory only; not a protocol-valid association scan because ancestry separation prevents comparison."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "candidate": "rs020008",
+        "participants": 238
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.264150943396227
+      },
+      "status": "success",
+      "decision": "Exploratory effect for the nominated hit; not reportable under the ancestry rule."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 1,
+        "participants": 120
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "participantsTotal": 120,
+        "affectedParticipants": 60,
+        "unaffectedParticipants": 60,
+        "sampleCallRateThreshold": 0.95
+      },
+      "status": "success",
+      "decision": "Replication participant call-rate check computed."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 1,
+        "participants": 120
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "rs020008 meets the computed replication p-value and same-direction checks, but cannot rescue the invalid discovery comparison."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "participant_qc",
+      "chosen_branch": "retain plate",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "stop case-control conclusion",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 5.861587813431253e-14
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "evaluate nominated hit but do not report",
+      "observed": {
+        "nReplicated": 1,
+        "nCandidates": 1
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

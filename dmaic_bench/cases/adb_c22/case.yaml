@@ -1,0 +1,58 @@
+schema_version: 1
+case_id: adb_c22
+title: Bearing-housing bore diameter — the order of the record and the level between lathes
+
+tier: T1
+industry: discrete_manufacturing
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the quality group in a precision machining shop. The product is a bearing housing and
+  the critical dimension is the bore diameter. Assembly has come back to us saying that
+  dimensional consistency has been unsteady lately, and they suspect something has gone wrong
+  in the machining process. The shop has given us two batches of records. The first is a run of
+  bore diameters off a single lathe, written down consecutively in machining order; we want to
+  know whether the readings carry any non-random pattern over time — a drift, a cycle, or a
+  clustering. The second is a sample of bore diameters cut on each of three lathes of the same
+  model; we want to know whether the three sit at the same central level.
+
+goal: |
+  From the two batches, report: (1) whether the diameters collected in machining order
+  fluctuate freely or carry a pattern in time; (2) whether the central level really differs
+  between the three lathes, and which lathe the difference sits with. Every numerical
+  conclusion must be faithful to what you actually computed.
+
+stages:
+  - stage_id: S_Runs
+    phase: measure
+    label: "Bore diameters off one lathe, written down consecutively in machining order"
+    topics: ["machining order", "consecutive readings", "in sequence", "over time"]
+    methods:
+      - method_id: nonparametric.runs_test
+        required: true
+  - stage_id: S_Moods
+    phase: analyze
+    label: "Bore diameters cut on each of three lathes of the same model"
+    topics: ["three lathes", "lathe to lathe", "same model", "central level"]
+    methods:
+      - method_id: nonparametric.moods_median
+        required: true
+        alternatives: [nonparametric.kruskal_wallis]
+
+faults:
+  - stage_id: S_Moods
+    method_id: nonparametric.moods_median

@@ -1,0 +1,66 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "controlRetained": 6,
+        "treatedRetained": 6,
+        "minAssignedReads": 9365000,
+        "minMappingRate": 0.876
+      },
+      "status": "success",
+      "decision": "All libraries usable; replication gate passed."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableSamples": 12
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "batchOnlyRank": 2,
+        "fullDesignRank": 2,
+        "designColumns": 3,
+        "mixedBatchCount": 0,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      },
+      "status": "success",
+      "decision": "Treatment is completely aliased with preparation batch; no separately estimable treatment contrast."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "stop_compound_gene_calls",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "batchOnlyRank": 2,
+        "fullDesignRank": 2,
+        "designColumns": 3,
+        "mixedBatchCount": 0,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

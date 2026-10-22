@@ -1,0 +1,52 @@
+{
+ "reviewer_id": "Human_Expert_1",
+ "reviewer_type": "Human",
+ "perspective": "Statistical Quality Control Expert",
+ "blinding_compliance": "Fully compliant. Read only the blind directory and own review output; did not consult outside materials, the earlier study, hidden files, or search the web for the benchmark.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V022",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the top defect mode (loose end) specifically originates from or defines the defects on the high-rate machine without cross-tabulated data.",
+    "Recommending an intervention that specifically targets loose-end generation on the high-rate machine based on independent process-wide Pareto and machine tally summaries."
+   ],
+   "permitted_at_checkpoint": [
+    "Concluding that Machine 2 has a significantly higher overall defect rate than the other machines based on the tally.",
+    "Recommending an investigation into the causes of Machine 2's higher defect rate.",
+    "Recommending an investigation into the process-wide causes of loose-end defects."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "The priority is the machine with the 6500 DPMO rate and the loose-end defect mode.",
+    "Audit and correct loose-end generation on the high-rate machine; loose end has the largest Pareto share and the maximum RPN."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The agent correctly performs a two-proportion test for the before/after change data and correctly calculates control chart and capability limits for the sustaining phase, accurately and responsibly interpreting the failure to reject the null hypothesis for the process change.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "Testing machine defect rates for differences using chi-square without conflating the overall defect composition with the high-rate machine's specific (and unknown) defect composition."
+   ],
+   "evidence": [
+    "Business instructions specify 'a machine-by-machine tally of defective and sound units' (no cross-tabulation by defect mode)",
+    "Overall Pareto analyzed 240 rejects, whereas the machine tally represents 42 defects in a 'common window'",
+    "The priority is the machine with the 6500 DPMO rate and the loose-end defect mode.",
+    "Audit and correct loose-end generation on the high-rate machine"
+   ],
+   "rationale": "The agent commits an ecological fallacy by conflating two independent summaries: the overall process-wide defect mode Pareto and the overall machine-by-machine defect tally. Because the evidence does not cross-tabulate defect mode by machine, there is no statistical basis to claim that the high-rate machine is experiencing the 'loose-end' defect mode. Recommending a specific intervention targeting loose ends on that machine is a materially unsupported causal leap.",
+   "confidence": 5,
+   "numerical_check": "Recomputed chi-square for machine tally (30.843, p=9.17e-7), two-proportion z-test (z=0.90, p=0.368), and Z scores (2.786, 3.028); all calculations perfectly match reported values.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4123,
+  "completion_tokens": 6241,
+  "total_tokens": 10364
+ }
+}

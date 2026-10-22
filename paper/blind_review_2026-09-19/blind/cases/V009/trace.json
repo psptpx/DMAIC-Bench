@@ -1,0 +1,266 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60,
+        "groups": 1
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "sampleSize": 60,
+        "mean": 52.094833333333334,
+        "median": 51.355000000000004,
+        "stdDev": 4.669088936524463,
+        "skewness": 0.2629089001685771,
+        "adPValue": 0.15,
+        "min": 42.88,
+        "max": 62.92,
+        "countBelow45": 3,
+        "countBelow55": 41
+      },
+      "status": "success",
+      "decision": "Baseline descriptive summary computed"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.45211939336700513,
+        "statistic": 0.980547194474672
+      },
+      "status": "success",
+      "decision": "Baseline normality not rejected"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60,
+        "lsl": 45.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 0.5869104771848702,
+        "ppk": 0.5065109010763119
+      },
+      "status": "success",
+      "decision": "Baseline not capable against 45 N"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 64.18520960451977,
+        "individualsLCL": 40.00445706214689,
+        "centerLine": 52.094833333333334,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "Baseline stable over time"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "screening_run",
+        "sampleSize": 16,
+        "groups": 1
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.0003450875084604319,
+        "rSquaredPct": 93.60065448974846,
+        "bondAnglePValue": 3.7126308417585684e-05,
+        "beadSpacingPValue": 0.0003159527006047807,
+        "cureTemperaturePValue": 0.8534673068258881,
+        "interactionPValue": 0.019504834946750368
+      },
+      "status": "success",
+      "decision": "Factorial model significant; bond angle and bead spacing matter"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "composite_design",
+        "sampleSize": 13,
+        "groups": 5
+      },
+      "method_id": "doe.rsm_analysis",
+      "outputs": {
+        "rSquaredPct": 99.58951944089024,
+        "lackOfFitPValue": 0.5749941911405583,
+        "rSquaredAdjPct": 99.29631904152613
+      },
+      "status": "success",
+      "decision": "Full quadratic response surface is adequate"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "composite_design",
+        "sampleSize": 13
+      },
+      "method_id": "doe.rsm_canonical",
+      "outputs": {
+        "predictedAtStationary": 59.7214953542036,
+        "bondAngleCanonical": 0.7604657783911608,
+        "beadSpacingCanonical": 0.7447278722019034
+      },
+      "status": "success",
+      "decision": "Stationary point identified"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "composite_design",
+        "sampleSize": 13
+      },
+      "method_id": "doe.rsm_optimizer",
+      "outputs": {
+        "predictedResponse": 59.72149535420354,
+        "bondAngleCodedOpt": 0.7604657117963047,
+        "beadSpacingCodedOpt": 0.7447276688460702
+      },
+      "status": "success",
+      "decision": "Recommended coded settings found by optimizer"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20,
+        "groups": 1
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "sampleSize": 20,
+        "mean": 58.60699999999999,
+        "median": 58.68,
+        "stdDev": 1.9345504033645384,
+        "skewness": -0.1888186382950675,
+        "adPValue": 0.15,
+        "min": 54.62,
+        "max": 61.71,
+        "countBelow45": 0,
+        "countBelow55": 1
+      },
+      "status": "success",
+      "decision": "Confirmation run descriptive summary computed"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.8012679290053409,
+        "statistic": 0.9722380469808627
+      },
+      "status": "success",
+      "decision": "Confirmation data approximately normal"
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20,
+        "lsl": 45.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 1.941837954454652,
+        "ppk": 2.344558538654928
+      },
+      "status": "success",
+      "decision": "Confirmation run capable against 45 N"
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20,
+        "target": 45.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": 31.455553617959925,
+        "pValue": 3.741024404656802e-18
+      },
+      "status": "success",
+      "decision": "Mean significantly above 45 N"
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20,
+        "target": 55.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": 8.338368626440896,
+        "pValue": 4.5046555198870935e-08
+      },
+      "status": "success",
+      "decision": "Mean significantly above 55 N"
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20,
+        "lsl": 55.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 0.5147504594486602,
+        "ppk": 0.621505302339113
+      },
+      "status": "success",
+      "decision": "Confirmation run not yet capable against every-seal-above-55 interpretation"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability",
+      "chosen_branch": "continue_to_screening",
+      "observed": {
+        "flaggedCount": 0,
+        "cpk": 0.5869104771848702,
+        "ppk": 0.5065109010763119
+      }
+    },
+    {
+      "point": "screening_significance",
+      "chosen_branch": "declare_any_factor_significant_true",
+      "observed": {
+        "modelPValue": 0.0003450875084604319,
+        "rSquaredPct": 93.60065448974846,
+        "bondAnglePValue": 3.7126308417585684e-05,
+        "beadSpacingPValue": 0.0003159527006047807
+      }
+    },
+    {
+      "point": "composite_optimization",
+      "chosen_branch": "recommended_settings_from_optimizer",
+      "observed": {
+        "bondAngleCodedOpt": 0.7604657117963047,
+        "beadSpacingCodedOpt": 0.7447276688460702,
+        "predictedResponse": 59.72149535420354
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

@@ -1,0 +1,45 @@
+{
+ "blind_id": "V006",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Concluding definitively that Machine 2 inherently causes the defects or is structurally flawed based solely on a single observational common-window tally, which is susceptible to confounding by unmeasured variables (e.g., operators, raw materials, specific product runs).",
+  "Concluding that the most frequent defect category (loose ends) specifically originates on Machine 2 without cross-tabulated evidence linking reject categories to specific machines.",
+  "Asserting that the undocumented change to Machine 2 causally produced the sustained line-wide capability improvement, given that the paired trial on the machine alone was statistically non-significant and mathematically insufficient to explain the magnitude of the whole line's shift."
+ ],
+ "permitted_at_checkpoint": [
+  "Using the statistically significant discrepancy in the machine tally to prioritize Machine 2 for targeted physical investigation and process changes.",
+  "Identifying loose ends as an independent improvement priority based on aggregate Pareto and FMEA analysis.",
+  "Descriptively reporting the observed baseline machine difference and establishing its statistical significance.",
+  "Evaluating the change trial data while openly acknowledging its lack of statistical reliability.",
+  "Using the aggregate post-change monitoring data to establish a new, stable line-wide capability baseline, and updating control charts accordingly, while recognizing the specific causal driver remains partially unverified."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "Analyses beyond the focal checkpoint correctly applied a two-proportions test for the change trial, appropriately used variable-subgroup p-charts and a one-proportion test to evaluate sustaining monitoring data against the charter, and correctly applied Pareto/FMEA analysis. These methods suitably manage the statistical limitations of the data.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Employing a chi-square association test across all machines followed by a focused two-proportions test for the worst-performing machine.",
+  "Using a variable-subgroup p-chart to validly monitor periods with fluctuating inspection counts (3200 to 6400 units)."
+ ],
+ "evidence": [
+  "\"The available data do not cross-tabulate reject category by machine, so they do not prove that loose ends originate on machine 2\"",
+  "\"the trial alone does not establish a statistically reliable effect (z = -0.8997715095, p = 0.3682418591)\"",
+  "\"The physical change cannot be named or standardized from the released data, and the conclusion stops at 'a change was made'\"",
+  "\"The longer monitoring record gives stronger evidence of where the line now stands: 110 defectives in 89,300 inspections\"",
+  "zStatistic: -0.899771509542612",
+  "pValue: 0.3682418590767994"
+ ],
+ "rationale": "The focal checkpoint addresses the causal interpretation of an observed machine-difference analysis. The observational single-window tally forbids asserting definitive causality due to potential confounding, forbids assigning specific defect types to the worst machine without cross-tabulation, and forbids claiming the targeted machine intervention definitively resolved the line's capability gap when its standalone trial lacked statistical significance. The submitted report displays exemplary rigor: it correctly calculates all test statistics, explicitly warns against unwarranted cross-tabulation assumptions, recognizes the non-significant change trial and traceability gap, and correctly separates the unproven causal intervention from the empirically proven aggregate line capability shift. The conclusions are highly protective of validity and pragmatically actionable.",
+ "confidence": 5,
+ "numerical_check": "Recomputed one-proportion z-tests (baseline and sustaining vs charter), p-chart UCL/LCL, chi-square association for machines (including expected value derivations), and two-proportions z-tests (machine 2 vs rest; change trial). All calculations precisely match the submitted outputs.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 7266,
+  "completion_tokens": 13062,
+  "total_tokens": 20328
+ }
+}

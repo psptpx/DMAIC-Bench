@@ -1,0 +1,114 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "sampleCount": 12,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All libraries passed the usability rules and both arms retained at least the required usable replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "batchesWithBothArms": 2
+      },
+      "status": "success",
+      "decision": "Treatment is estimable separately from preparation batch; batch was included in the expression model."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "sample_size": 12,
+        "groups": 2,
+        "genes": 400,
+        "model_terms": 3
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "geneCount": 400,
+        "sampleCount": 12,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "No gene met adjusted p < 0.05 and absolute log2 fold change >= 1 in the batch-adjusted model."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "nominated_candidates": 0,
+        "qpcr_records": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nConfirmed": 0,
+        "nominatedCandidates": 0,
+        "qpcrRecords": 0,
+        "minConcordance": 0.75
+      },
+      "status": "failed",
+      "decision": "Candidate-level concordance is undefined because no candidates were nominated; the steward gate was not met and no candidate list can be issued."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "usable_libraries",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "batch_adjusted_comparison",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2
+      }
+    },
+    {
+      "point": "candidate_list",
+      "chosen_branch": "withhold",
+      "observed": {
+        "nSignificant": 0,
+        "nominatedCandidates": 0
+      }
+    },
+    {
+      "point": "gene_set_annotation",
+      "chosen_branch": "not_released",
+      "observed": {
+        "minConcordance": 0.75,
+        "qpcrRecords": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

@@ -1,0 +1,142 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 150,
+        "groupCount": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "casesInput": 120,
+        "controlsInput": 120,
+        "casesRetained": 120,
+        "controlsRetained": 117,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "plateRegenRequired": false
+      },
+      "status": "success",
+      "decision": "Exclude P127, P142, and P195; plate failure fraction is below the re-genotyping threshold, so continue with retained participants."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleCount": 237,
+        "variantCount": 150,
+        "controlCount": 117,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 2,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain variants passing call rate, overall MAF, and exact HWE in retained unaffected participants; exclude the 11 listed in the report."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sampleCount": 237,
+        "variantCount": 139,
+        "groupCount": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.4356006605713844e-16,
+        "statistic": -8.74314141983081,
+        "comparisonAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants separate on PC1; the cohort is not safely comparable with an unadjusted association scan."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sampleCount": 237,
+        "variantCount": 139,
+        "groupCount": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 27,
+        "lambdaGC": 2.633764464461633,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "familywiseAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "The additive unadjusted scan has 27 mechanical threshold crossings, but marked genomic inflation and PC1 separation make them confounded; nominate none as valid discovery associations."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sampleCount": 120,
+        "variantCount": 150,
+        "candidateCount": 0,
+        "groupCount": 2,
+        "batch": "replication"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationAlpha": 0.05,
+        "replicationSampleCount": 120,
+        "replicationCases": 60,
+        "replicationControls": 60
+      },
+      "status": "success",
+      "decision": "No valid discovery variant was nominated, so no variant-level replication test can be performed and none is replicated."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_viability",
+      "chosen_branch": "continue_after_excluding_failed_samples",
+      "observed": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "plateRegenRequired": false
+      }
+    },
+    {
+      "point": "case_control_comparability",
+      "chosen_branch": "stop_unadjusted_inference_due_to_stratification",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.4356006605713844e-16,
+        "lambdaGC": 2.633764464461633
+      }
+    },
+    {
+      "point": "replication_nomination",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nCandidates": 0,
+        "nReplicated": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

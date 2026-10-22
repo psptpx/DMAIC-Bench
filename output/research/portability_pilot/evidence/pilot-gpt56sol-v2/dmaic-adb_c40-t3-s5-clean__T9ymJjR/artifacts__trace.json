@@ -1,0 +1,190 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "arms": 2
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "panelGenes": 400,
+        "plannedReplicatesPerArm": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "minReplicatesRequired": 3,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "validationAlpha": 0.05,
+        "minValidationConcordance": 0.75
+      },
+      "status": "success",
+      "decision": "Extracted the prespecified QC, calling, and validation criteria from the released brief."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sampleSize": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "qcPassed": true,
+        "nLibraries": 12
+      },
+      "status": "success",
+      "decision": "All libraries met both inclusive QC limits and both arms exceeded the replication gate."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sampleSize": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "overlapBatchCount": 2,
+        "L1Control": 5,
+        "L1Treated": 1,
+        "L2Control": 1,
+        "L2Treated": 5
+      },
+      "status": "success",
+      "decision": "The intercept, treatment, and batch design matrix was full rank; treatment is estimable, although allocation is imbalanced."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "modelTerms": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "failed",
+      "decision": "The first negative-binomial run reached JSON serialization but failed because non-finite failed-fit values were not JSON-compliant; no result from this attempt was used."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "modelTerms": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "nFitSuccess": 398,
+        "nFitFailed": 2,
+        "nGenes": 400
+      },
+      "status": "success",
+      "decision": "Negative-binomial sensitivity analysis with median-of-ratios offsets, treatment and batch terms, Wald tests, and BH adjustment called no genes under both thresholds."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "modelTerms": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "nFitSuccess": 400,
+        "nFitFailed": 0,
+        "nGenes": 400
+      },
+      "status": "success",
+      "decision": "Primary complete analysis: OLS on median-of-ratios-normalized log2 expression with treatment and batch terms, followed by BH adjustment, called no genes under both thresholds."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "validation",
+        "nCandidates": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "computable": false
+      },
+      "status": "failed",
+      "decision": "No candidates were nominated and no qPCR measurements exist; 0/0 concordance is undefined and was not declared."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "nCalledGenes": 0
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked behind a numeric validation-concordance declaration; no enrichment was computed because concordance is undefined."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_replication_gate",
+      "chosen_branch": "continue_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_analysis",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3
+      }
+    },
+    {
+      "point": "gene_call_gate",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0,
+        "nFitSuccess": 400
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "do_not_declare_undefined_concordance",
+      "observed": {
+        "nCandidates": 0,
+        "nConfirmed": 0,
+        "computable": false
+      }
+    },
+    {
+      "point": "annotation_gate",
+      "chosen_branch": "stop_locked",
+      "observed": {
+        "validationConcordanceComputable": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

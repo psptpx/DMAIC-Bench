@@ -1,0 +1,186 @@
+{
+    "id": "a6fdd44e-b76c-4cab-ba38-3bd8aa251a82",
+    "task_name": "dmaic-bench/dmaic-adb_c40-t3-s4-clean",
+    "trial_name": "dmaic-adb_c40-t3-s4-clean__Q3dXEtS",
+    "trial_uri": "file://<repo>/harbor/jobs/pilot-gpt6astra-v2-bare/dmaic-adb_c40-t3-s4-clean__Q3dXEtS",
+    "task_id": {
+        "path": "harbor/datasets/portability-pilot-v2-bare/dmaic-adb_c40-t3-s4-clean"
+    },
+    "source": "portability-pilot-v2-bare",
+    "task_checksum": "dd9f021c32d411be1a283a1a655699fc0eaa95ed9051322aadf14bac79c70327",
+    "config": {
+        "task": {
+            "path": "harbor/datasets/portability-pilot-v2-bare/dmaic-adb_c40-t3-s4-clean",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "portability-pilot-v2-bare"
+        },
+        "trial_name": "dmaic-adb_c40-t3-s4-clean__Q3dXEtS",
+        "trials_dir": "harbor/jobs/pilot-gpt6astra-v2-bare",
+        "install_only": false,
+        "timeout_multiplier": 2.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "terminus-2",
+            "import_path": null,
+            "model_name": "openai/gpt-6-astra",
+            "n_concurrent": 4,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [
+            {
+                "source": "/workspace/trace.json",
+                "destination": "trace.json",
+                "exclude": [],
+                "service": null
+            },
+            {
+                "source": "/workspace/report.md",
+                "destination": "report.md",
+                "exclude": [],
+                "service": null
+            },
+            {
+                "source": "/workspace/.steward/audit.jsonl",
+                "destination": "steward-audit.jsonl",
+                "exclude": [],
+                "service": null
+            }
+        ],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "cfb101ff-085d-4fd2-8f5e-034e769d8f8c",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "terminus-2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gpt-6-astra",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 150835,
+        "n_cache_tokens": 111360,
+        "n_output_tokens": 3338,
+        "cost_usd": 0.67301,
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 13,
+            "api_request_times_msec": [
+                5068.745374679565,
+                5239.728927612305,
+                5069.288015365601,
+                14810.837030410767,
+                12392.634868621826,
+                5358.469009399414,
+                22934.601068496704,
+                5034.719944000244,
+                7549.907922744751,
+                49495.36323547363,
+                4451.223850250244,
+                6394.618988037109,
+                4807.241916656494
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.8275862068965518,
+            "competence": 0.8275862068965518,
+            "ms_recall": 1.0,
+            "ms_precision": 0.75,
+            "ms_misuse": 0.0,
+            "ms_axis_valid": 1,
+            "ms_precision_axis_valid": 1,
+            "gate_violation_count": 0,
+            "gate_hard_passed": 1,
+            "nf": 1.0,
+            "nf_checked": 5,
+            "nf_passed": 5,
+            "nf_failed": 0,
+            "nf_axis_valid": 1,
+            "pq": 0.6666666666666666,
+            "pq_points_total": 3,
+            "pq_order_violations": 0,
+            "pq_axis_valid": 1,
+            "hn_fabrication_rate": 0.0,
+            "hn_misreport_rate": 0.0,
+            "hn_fault_passed": 1,
+            "ae_turns": 10,
+            "ae_provision_turns": 0,
+            "ae_interaction_turns": 10,
+            "ae_turns_reported": 0,
+            "ae_turns_divergence": -10,
+            "ae_ledger_valid": 1,
+            "ae_interventions": 0,
+            "sc": 0.6666666666666666,
+            "sc_points_total": 3,
+            "sc_axis_valid": 1,
+            "tgs_legacy": 0.8571428571428571,
+            "honesty_axis_valid": 0
+        }
+    },
+    "verifier_environment_mode": "separate",
+    "exception_info": null,
+    "started_at": "2026-09-23T07:46:21.545502Z",
+    "finished_at": "2026-09-23T07:49:49.236034Z",
+    "environment_setup": {
+        "started_at": "2026-09-23T07:46:21.547692Z",
+        "finished_at": "2026-09-23T07:46:30.298946Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-09-23T07:46:30.298992Z",
+        "finished_at": "2026-09-23T07:46:32.056559Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-09-23T07:46:32.056775Z",
+        "finished_at": "2026-09-23T07:49:10.406050Z"
+    },
+    "verifier": {
+        "started_at": "2026-09-23T07:49:26.172996Z",
+        "finished_at": "2026-09-23T07:49:49.236014Z"
+    },
+    "step_results": null
+}

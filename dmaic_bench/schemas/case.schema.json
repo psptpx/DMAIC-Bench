@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dmaic-bench/case/v1",
+  "title": "DMAIC-Bench case.yaml contract",
+  "type": "object",
+  "required": ["schema_version", "case_id", "title", "tier", "industry", "provenance",
+               "y_type", "context", "goal", "stages"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "case_id": {
+      "type": "string",
+      "pattern": "^adb_c[0-9]{2,3}$",
+      "description": "Opaque by contract. A case_id may not name a company, a place, an industry or a statistical method — it is a directory name in the public wheel and a component of every task_id, so a descriptive one defeats any amount of text de-identification. The former id and the real identity live in cases/_identity_map.json, which is never packaged."
+    },
+    "title": {"type": "string", "minLength": 4},
+    "tier": {"enum": ["T1", "T3"]},
+    "industry": {
+      "enum": ["process_industry", "electronics", "discrete_manufacturing", "services", "life_sciences"],
+      "description": "Coarse public bucket only. In its fine-grained form every real-organisation case occupied a cell of size 1 — the sector label alone was a unique public handle for it — and two values shared a stem that linked two cases to one organisation. The fine value lives in cases/_identity_map.json as internal_industry."
+    },
+    "provenance": {"enum": ["TRUE", "RECONSTRUCTED", "SIMULATED"]},
+    "y_type": {"enum": ["continuous", "attribute_proportion", "attribute_count_rate", "mixed"]},
+    "language": {"enum": ["en"], "default": "en"},
+    "parametric": {"type": "boolean", "default": true},
+    "context": {"type": "string", "minLength": 20},
+    "goal": {"type": "string", "minLength": 10},
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["stage_id", "phase", "label"],
+        "properties": {
+          "stage_id": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]*$"},
+          "phase": {"enum": ["define", "measure", "analyze", "improve", "control"]},
+          "label": {"type": "string"},
+          "topics": {"type": "array", "items": {"type": "string"}},
+          "summary_fact": {"type": "string"},
+          "methods": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["method_id"],
+              "properties": {
+                "method_id": {"type": "string"},
+                "required": {"type": "boolean", "default": true},
+                "alternatives": {"type": "array", "items": {"type": "string"}}
+              }
+            }
+          }
+        }
+      }
+    },
+    "decision_points": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["point_id", "phase", "rule", "source", "correct_branch"],
+        "properties": {
+          "point_id": {"type": "string"},
+          "phase": {"enum": ["define", "measure", "analyze", "improve", "control"]},
+          "rule": {"type": "string"},
+          "source": {"type": "string", "description": "textbook/handbook citation"},
+          "correct_branch": {"type": "string"},
+          "acceptable_branches": {"type": "array", "items": {"type": "string"}},
+          "branch_evidence": {
+            "type": "object",
+            "additionalProperties": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "order_constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["before", "after"],
+        "properties": {
+          "before": {"type": "string"},
+          "after": {"type": "string"},
+          "source": {"type": "string"}
+        }
+      }
+    },
+    "faults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["stage_id", "method_id"],
+        "properties": {
+          "stage_id": {"type": "string"},
+          "method_id": {"type": "string"}
+        }
+      }
+    }
+  }
+}

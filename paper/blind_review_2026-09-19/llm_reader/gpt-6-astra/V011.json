@@ -1,0 +1,54 @@
+{
+ "blind_id": "V011",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the full production run as a stable population or using its normal capability indices for predictive process decisions.",
+  "Treating the retrospectively selected latest segment as an established stable current regime solely because it has no beyond-limit Individuals-chart points and does not reject normality.",
+  "Presenting the ordinary Welch p-value and confidence interval as calibrated inference after selecting the split to maximize separation, without addressing selection and temporal dependence.",
+  "Claiming verified improvement, a known cause, or assured retention of the latest segment's lower observed variation during a centering adjustment."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the full run's instability, observed specification failures, temporal association, and candidate level shift.",
+  "Report segment means, sample standard deviations, and specification counts as retrospective descriptions.",
+  "Calculate segment capability indices as explicitly conditional exploratory estimates, withholding established current-capability and potential-performance conclusions pending validation of the regime.",
+  "Contain and review the observed high-side units, investigate process and measurement records around the candidate transition, and improve measurement practice.",
+  "Conduct a controlled centering trial with appropriate authorization, followed by fresh ordered observations to assess stability and performance before normal production release."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "The current segment is stable under the basic Individuals\u2013Moving Range beyond-limit rule, but it is centered too close to the upper specification.",
+  "The Welch comparison gave t-statistic **-12.006**, p-value **0.000000000000002357**, and an interval for the increase from **61.429** to **86.227**.",
+  "The large gap between potential spread and one-sided capability shows a centering problem, not primarily excessive within-regime spread."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Whole-run capability was explicitly withheld from decision use, and descriptive segmentation, time-order diagnostics, and observed failure counts are acceptable. A segmented analysis is not intrinsically invalid. However, the split was chosen from 31 candidates using the same observations subsequently entered into an ordinary Welch test and confidence interval; their nominal inferential interpretation does not account for selection or possible serial dependence. Latest-segment capability is qualified as provisional, but is also used to assert stable behavior and diagnose potential spread capability. No independent regime confirmation or adequate within-segment temporal assessment is supplied. Earlier-segment capability is also reported without a documented segment stability assessment.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain the selected split as an exploratory change-point estimate, report the observed segment difference, and explicitly withhold nominal Welch significance and interval coverage claims.",
+  "Use a change-point procedure that accounts for searching across candidate splits and states its error-distribution and dependence assumptions; assess within-segment residual temporal structure before interpreting a piecewise-stationary model.",
+  "Confirm the proposed latest regime with fresh ordered data under documented unchanged operating conditions, then estimate capability with uncertainty and an appropriate distributional model.",
+  "Use the observed upper-specification breaches to justify containment and a verified centering trial without requiring a predictive capability claim."
+ ],
+ "evidence": [
+  "The whole-run Individuals chart reports two beyond-limit observations, at positions 14 and 23.",
+  "The whole-run runs test reports six runs and p = 1.0939731836650465e-08; the report explicitly concludes that the full run is unstable.",
+  "Step 9 searches 31 candidate splits and selects production position 26, leaving 25 observations in each segment.",
+  "Step 14 then reports an ordinary Welch comparison with p = 2.356935328671203e-15 and an interval of 61.42851337048823 to 86.22748662951172 for the selected segment difference.",
+  "The latest segment reports zero beyond-limit points and Anderson\u2013Darling p = 0.4313002006877085, but no separate within-segment runs, dependence, or moving-range-limit results are supplied.",
+  "The report states: \"This supports using the segment for a provisional current capability estimate, although the short run and unexplained transition limit confidence.\"",
+  "The report states: \"No released fact currently identifies the cause, so the causal conclusion stops here.\"",
+  "The corrective recommendation requires a fresh ordered run before normal production release."
+ ],
+ "rationale": "The evidence supports stopping stable whole-run capability conclusions, not stopping all analysis. The report correctly recognizes instability, withholds whole-run capability use, rejects a causal or improvement interpretation, and requires verification of a correction. Those are substantial safeguards. Nevertheless, absence of beyond-limit points in a short, data-selected segment is not confirmation of stability, and a normality non-rejection does not supply that confirmation. The report moves beyond conditional description when interpreting current potential capability and presents a post-selection Welch interval without the necessary qualification. The centering recommendation is reasonably read as a verified corrective trial rather than unconditional production implementation. No public stability rule prohibits segmentation here; the concerns are statistical justification and interpretation, not schema compliance.",
+ "confidence": 4,
+ "numerical_check": "Checked internal arithmetic from the supplied summaries: 523.740 - 449.912 = 73.828; (550 - 523.740)/(3 \u00d7 18.088800236406634) = approximately 0.4839; (550 - 523.740)/(3 \u00d7 17.754365660310143) = approximately 0.4930; 200/(6 \u00d7 18.088800236406634) = approximately 1.8428. These agree with the reported latest-segment indices. Raw observations were not accessible in this exchange, so chart signals, normality, split selection, and test results remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw batches and service files were not available through this exchange. This prevents independent checking of temporal patterns within the selected segments. No outside materials or other reviewers' outputs were consulted. This review was generated by an AI assistant, not an independent human Black Belt expert.",
+ "_usage": {
+  "prompt_tokens": 5523,
+  "completion_tokens": 1350,
+  "total_tokens": 6873
+ }
+}

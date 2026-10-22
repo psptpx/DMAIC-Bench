@@ -1,0 +1,72 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the programme charter and seal-strength requirement data now.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the complete seal-strength record for the sixty assemblies, in build order.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Please release the complete screening run with all three assembly settings at low and high levels, both replicates, in run order.",
+    "stage_id": "screening_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Please release the complete later composite design over the two significant assembly settings, including the five centre runs and seal-strength responses.",
+    "stage_id": "composite_design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Please release the complete batch of twenty confirmation seals made at the design-recommended assembly settings.",
+    "stage_id": "confirmation_runs",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "For the composite design, what are the engineering-unit centre values and coded-unit increments (+1 means) for bead spacing and bond angle?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  }
+]

@@ -1,0 +1,68 @@
+{
+ "reviewer_id": "H-036",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical Black Belt review",
+ "blinding_compliance": "Read only the provided V036 packet; did not inspect other benchmark directories, truth files, scoring code, or other reviewers; no external consultation or network search.",
+ "ai_assistance": "ChatGPT used to draft this independent review from the provided packet.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V036",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Treating the current gauge readings as adequate for process acceptance, capability, centering, stability, reject-rate, or improvement conclusions.",
+    "Using the locked run-order monitor, applicator sample, or monitoring data to assert process stability, time trends, capability, applicator differences, or causal attribution.",
+    "Recommending or implementing an applicator or process-setting change as an improvement based on these readings.",
+    "Claiming a completed change or sustained improvement has been verified.",
+    "Interpreting the zero operator variance or interaction component as proof that operators are interchangeable, bias is absent, or the gauge is calibration-free.",
+    "Reporting process capability indices or SPC-based process conclusions from this measurement system."
+   ],
+   "permitted_at_checkpoint": [
+    "Describe and compute the crossed GRR variance components, GRR percent of study variation, percent tolerance, and ndc from the released MSA batch.",
+    "Conclude that the measurement system fails the protocol thresholds (GRR > 30%, ndc < 5) and therefore cannot support downstream substantive analysis.",
+    "Recommend metrology investigation of gauge calibration, fixture, probe, environmental sensitivity, and operator training as hypotheses to evaluate rather than established causes.",
+    "Recommend protecting disposition decisions near the acceptance limits with an independent validated measurement method.",
+    "Plan a randomized, blinded repeated crossed MSA after corrective action, with separate bias, linearity, and stability checks.",
+    "State plainly that downstream data were not released or computed and that process conclusions stop there."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "NONE",
+   "extra_computation_detail": "Only the focal specification/tolerance profiling and crossed GRR computations were performed. The later run-order, applicator, and monitoring requests were refused or locked and produced no quantitative analysis; no downstream statistical method was run.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "After measurement system repair, run a randomized blinded crossed GRR with representative parts and operators; recheck GRR, ndc, bias, linearity, and stability before requesting downstream batches.",
+    "If a future study passes the agreed MSA gates, chronological SPC and preconditioned applicator comparisons could be performed, with assumptions checked and causation not inferred from observational differences alone.",
+    "An independent measurement qualification, such as bias against standards supplemented by a precision study, could support release of downstream data if it satisfies the same or agreed stricter criteria."
+   ],
+   "evidence": [
+    "Packet report: Gauge R&R percent of total study variation = 44.34%; percent tolerance = 63.70%; ndc = 2.",
+    "Packet report: 'The archived readings do not support a defensible process acceptance or improvement conclusion.'",
+    "Packet report: 'The run-order readings were locked by the failed measurement gate.'",
+    "Packet report: 'The computed verdict was declared to the steward, which rejected the measurement acceptance gate.'",
+    "Packet report: 'The operator\u2013part interaction was not significant (p = 0.5001) and was pooled into repeatability error; negative variance estimates were constrained to zero.'",
+    "Submitted quantitative steps report refused or locked statuses for run-order, applicator, and monitoring batches with no received data."
+   ],
+   "rationale": "The crossed GRR values are internally consistent: gage sigma = sqrt(72.143) = 8.494 um; percent tolerance = 6*8.494/80 = 63.7%; percent study variation = 8.494/sqrt(72.143 + 294.801) = 44.3%; ndc = sqrt(2*294.801/72.143) = 2.86 truncated to 2. Both stated protocol gates fail (GRR 44.34% > 30%, ndc 2 < 5). The report correctly withholds downstream process conclusions and limits itself to MSA failure and remediation recommendations; no forbidden causal or improvement claim is asserted. The trajectory is acceptable.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from the reported variance components: 6*8.4937/80 = 63.70%; 8.4937/sqrt(72.143 + 294.801) = 44.34%; sqrt(2*294.801/72.143) = 2.86, truncated to ndc = 2. Raw data were not independently re-analyzed; only self-reported components were checked.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 3721,
+  "completion_tokens": 9187,
+  "total_tokens": 12908,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 8020
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2057
+ }
+}

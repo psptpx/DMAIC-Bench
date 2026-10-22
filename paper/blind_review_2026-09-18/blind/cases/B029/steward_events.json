@@ -1,0 +1,94 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "the project charter and the yield requirement, including the accepted range and improvement target",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "the laboratory study where the same samples were assayed repeatedly by several analysts",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "repeat assays of the same samples - the analyst study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "the per-batch yield record in charge order",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "gate": "msa_pass",
+    "detail": "you have not declared 'grr_pct' yet; this precondition is grr_pct <= 30 [msa_pass; source: AIAG MSA-4 Ch. II Sec. D]. Compute it from the data you already hold and record it with: steward declare grr_pct <value>",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "grr_pct=23.089468",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 23.089468
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "the per-batch yield record in charge order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 23.089468
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "charges run at a high and a low setting - the setting trial",
+    "stage_id": "screening_doe",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 23.089468
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "the confirmation run after the improvement was implemented",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 23.089468
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "control plan and sustained yields after the change",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 23.089468
+    }
+  }
+]

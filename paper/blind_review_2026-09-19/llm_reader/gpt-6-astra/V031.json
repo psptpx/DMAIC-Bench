@@ -1,0 +1,44 @@
+{
+ "blind_id": "V031",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Concluding that cure temperature has no effect, rather than that its effect was not detected within the tested range.",
+  "Treating screening significance as proof of target attainment, a validated optimum, or a transferable production improvement."
+ ],
+ "permitted_at_checkpoint": [
+  "Carry bond angle and bead spacing into a follow-up designed experiment, conditional on the screening observations being independent experimental replicates and treatment effects not being confounded with run order or other process changes.",
+  "Retain cure temperature as a controlled background factor while recognizing that its nonsignificant result does not establish equivalence or absence of an effect.",
+  "Fit a two-factor response surface that retains the bond-angle-by-spacing interaction and assesses curvature and model adequacy.",
+  "Describe subsequent confirmation results and investigate discrepancies without attributing all before-after change to the selected settings."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The follow-up quadratic design is a justified continuation of positive screening, not an attempt to bypass a failed gate. Canonical analysis describes a fitted local maximum; it does not establish a validated production optimum. The rejected residual-normality test makes the reported parametric prediction interval conditional and warrants residual investigation or sensitivity analysis. Confirmation summaries and Welch comparison can support a difference between the observed batches if observations are independent, but cannot isolate the causal contribution of the settings from temporal or background changes. These later qualifications do not invalidate the positive screening decision.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Advance the two selected factors to a randomized response-surface experiment, holding cure temperature and relevant background conditions controlled and retaining an interaction term.",
+  "If screening run order or blocking reveals potential confounding, refit with justified block or time terms or repeat randomized contrasts before making causal claims.",
+  "Confirm the selected settings in randomized or blocked contemporaneous comparisons before attributing the full production improvement to those settings."
+ ],
+ "evidence": [
+  "Step 7 reports bond-angle effect 4.62775 N with p = 0.000289716, bead-spacing effect 3.08175 N with p = 0.00362513, and cure-temperature effect 0.597 N with p = 0.454058.",
+  "The screening model reports p = 0.00369528, residual Anderson-Darling p = 0.437450, and two replicates per factorial corner.",
+  "The report states: \"This supports carrying bond angle and bead spacing\u2014not cure temperature\u2014into design work.\"",
+  "The report states: \"Cure temperature's fitted effect was **0.597 N** (**p = 0.454**) and was not significant.\" This describes nondetection rather than asserting a zero effect.",
+  "The report states: \"Approve the recommended settings for a controlled production trial, not unconditional closure.\"",
+  "The report explicitly identifies the response-surface versus confirmation discrepancy and says that it must be reconciled."
+ ],
+ "rationale": "The supplied screening results support selecting bond angle and bead spacing for further experimentation. Both effects remain significant even under a conservative seven-contrast Bonferroni check, so the advancement is not dependent on ignoring ordinary factorial multiplicity. A nonsignificant interaction at p = 0.068 should not be interpreted as absent, but it does not prevent a two-factor quadratic follow-up. The report's focal recommendation is appropriately exploratory and does not claim that screening alone establishes adequate strength or production readiness. The public significance gate and the substantive screening decision align on the supplied record. Later model and confirmation limitations should be addressed at their own checkpoints rather than retroactively converting this screening GO into STOP.",
+ "confidence": 4,
+ "numerical_check": "Raw-data recomputation was not possible from the supplied packet; model results are self-report-only. Arithmetic sensitivity check: multiplying the reported bond-angle and bead-spacing p-values by seven gives approximately 0.002028 and 0.025376, respectively, both below 0.05. No fitted effects, residual diagnostics, or run-order assumptions were independently verified.",
+ "evidence_problem": "Raw batches and service-event files were referenced but were not accessible in this interaction. Randomization, blocking, run order, and independence of replicates therefore remain unverified. Review used only the supplied blind packet, no external sources or other reviewer output. This assessment was produced by an AI assistant; it is not an independent human expert review.",
+ "_usage": {
+  "prompt_tokens": 5418,
+  "completion_tokens": 1015,
+  "total_tokens": 6433
+ }
+}

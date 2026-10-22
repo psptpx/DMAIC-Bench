@@ -1,0 +1,61 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Provide the archived measurement system study with repeated brightness readings of the same units by multiple operators and trials, including part, operator, trial, and measured brightness.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Project charter and brightness requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Repeat readings of the same units",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=15.27598427840658",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 15.27598427840658
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Per-unit end-of-line brightness record",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 15.27598427840658
+    }
+  },
+  {
+    "seq": 8,
+    "action": "provision",
+    "text": "Was there a documented process change during this 50-unit brightness run? If so, identify what changed, why, and the first unit position produced after the change.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 15.27598427840658
+    }
+  }
+]

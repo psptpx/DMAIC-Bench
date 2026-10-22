@@ -1,0 +1,329 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "readings": 108,
+        "operators": 3,
+        "parts": 12,
+        "replicates": 3,
+        "source": "msa"
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Parser failed before computation."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "readings": 108,
+        "operators": 3,
+        "parts": 12,
+        "replicates": 3,
+        "source": "msa"
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 48.80080435259494,
+        "percentTolerance": 64.1032688805597,
+        "ndc": 1,
+        "sigmaGage": 2.6709695366899875,
+        "sigmaPart": 4.777230132902961,
+        "sigmaTotal": 5.473208018031287,
+        "measurementAcceptable": false,
+        "varianceRepeatability": 7.134078265925926,
+        "varianceOperator": 0.0,
+        "varianceInteraction": 0.0,
+        "varianceGage": 7.134078265925926,
+        "gageRepeatabilityFraction": 1.0,
+        "ndcContinuous": 1.230703175395858
+      },
+      "status": "success",
+      "decision": "Preliminary successful calculation using total study sigma in the NDC denominator; corrected in the final verification step."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Parser failed before computation."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 10.226600000000001,
+        "median": 10.43,
+        "stdDev": 2.2064225454294992,
+        "skewness": 0.24269397273218477,
+        "adPValue": 0.4437168427495562
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.6493080072846575,
+        "statistic": 0.9822358922018014
+      },
+      "status": "success",
+      "decision": "No evidence against normality."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 16.055095440729485,
+        "individualsLCL": 4.398104559270517,
+        "centerLine": 10.226600000000001,
+        "flaggedCount": 0,
+        "controlStable": true
+      },
+      "status": "success",
+      "decision": "No control-limit flags."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.9015770786887953,
+        "cpk": 1.555733452233507,
+        "pp": 1.8884264373103514,
+        "ppk": 1.5449745443038434,
+        "belowLSL": 0,
+        "aboveUSL": 0,
+        "meetsSpecification": true
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "readings": 108,
+        "operators": 3,
+        "parts": 12,
+        "replicates": 3,
+        "source": "msa"
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 48.80080435259494,
+        "percentTolerance": 64.1032688805597,
+        "ndc": 2,
+        "sigmaGage": 2.6709695366899875,
+        "sigmaPart": 4.777230132902961,
+        "sigmaTotal": 5.473208018031287,
+        "measurementAcceptable": false,
+        "varianceRepeatability": 7.134078265925926,
+        "varianceOperator": 0.0,
+        "varianceInteraction": 0.0,
+        "varianceGage": 7.134078265925926,
+        "gageRepeatabilityFraction": 1.0
+      },
+      "status": "success",
+      "decision": "Final reproducible verification."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 10.226600000000001,
+        "median": 10.43,
+        "stdDev": 2.2064225454294992,
+        "skewness": 0.24269397273218477,
+        "adPValue": 0.4437168427495562
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.6493080072846575,
+        "statistic": 0.9822358922018014
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 16.055095440729485,
+        "individualsLCL": 4.398104559270517,
+        "centerLine": 10.226600000000001,
+        "flaggedCount": 0,
+        "controlStable": true
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "sampleSize": 50,
+        "source": "process_run",
+        "ordering": "build order"
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.9015770786887953,
+        "cpk": 1.555733452233507,
+        "pp": 1.8884264373103514,
+        "ppk": 1.5449745443038434,
+        "belowLSL": 0,
+        "aboveUSL": 0,
+        "meetsSpecification": true
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "sources": [
+          "TASK.md",
+          "define.json",
+          "process_run.json",
+          "msa.json",
+          "steward status"
+        ]
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "roughnessLSLFromTask": 0.4,
+        "roughnessUSLFromTask": 1.6,
+        "roughnessTargetFromTask": 1.0,
+        "voidLSL": 0.0,
+        "voidUSL": 25.0,
+        "measurementReadings": 108,
+        "processObservations": 50,
+        "releasedBatchCount": 3,
+        "roughnessBatchCount": 0,
+        "improvementBatchCount": 0,
+        "provisionCalls": 2,
+        "billedTurnsUsed": 2,
+        "roughnessDataAvailable": false,
+        "processChangeEvidenceAvailable": false,
+        "gageOperators": 3,
+        "gageParts": 12,
+        "gageReplicates": 3,
+        "runTimestampsAvailable": false
+      },
+      "status": "success",
+      "decision": "The released evidence is void fraction, not requested bore roughness; no improvement evidence is available."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "readings": 108,
+        "operators": 3,
+        "parts": 12,
+        "replicates": 3,
+        "source": "msa"
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "varianceRepeatability": 7.134078265925926,
+        "varianceOperator": 0.0,
+        "varianceInteraction": 0.0,
+        "varianceGage": 7.134078265925926,
+        "gageRepeatabilityFraction": 1.0,
+        "measurementAcceptable": false,
+        "gageRepeatabilityPct": 100.0
+      },
+      "status": "success",
+      "decision": "All estimated measurement variance is repeatability; no operator or interaction component remains."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_verdict",
+      "chosen_branch": "not acceptable",
+      "observed": {
+        "percentStudyVariation": 48.80080435259494,
+        "percentTolerance": 64.1032688805597,
+        "ndc": 2,
+        "sigmaGage": 2.6709695366899875,
+        "sigmaPart": 4.777230132902961,
+        "sigmaTotal": 5.473208018031287,
+        "measurementAcceptable": false,
+        "varianceRepeatability": 7.134078265925926,
+        "varianceOperator": 0.0,
+        "varianceInteraction": 0.0,
+        "varianceGage": 7.134078265925926,
+        "gageRepeatabilityFraction": 1.0
+      }
+    },
+    {
+      "point": "baseline_capability",
+      "chosen_branch": "normal capability with I-MR",
+      "observed": {
+        "pValue": 0.6493080072846575,
+        "statistic": 0.9822358922018014,
+        "cp": 1.9015770786887953,
+        "cpk": 1.555733452233507,
+        "pp": 1.8884264373103514,
+        "ppk": 1.5449745443038434,
+        "belowLSL": 0,
+        "aboveUSL": 0
+      }
+    },
+    {
+      "point": "data_availability",
+      "chosen_branch": "stop at released batches",
+      "observed": {
+        "releasedBatchCount": 3,
+        "roughnessBatches": 0,
+        "improvementBatches": 0
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

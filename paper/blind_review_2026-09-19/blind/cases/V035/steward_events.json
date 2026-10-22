@@ -1,0 +1,83 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "I need the project charter and the contractual/internal breach requirement, including the improvement target",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Now I need the reviewer judgement study: each reviewer's calls on the same tickets alongside the known answer key",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "kappa_min=0.3617021276595743",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "msa_acceptable=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "I need the per-period ticket volume and breach counts for the twenty-five consecutive periods",
+    "stage_id": "subgroups",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "I need the team-by-team intake and breach summary for the two teams over the common window",
+    "stage_id": "root_cause",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "I need the post-change verification data: ticket volumes and breach counts after the improvement was implemented",
+    "stage_id": "subgroups",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "I need any designed experiment or piloted improvement results on the response process",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "I need the ongoing control-phase monitoring data used to hold the gain",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  }
+]

@@ -1,0 +1,1058 @@
+[
+ {
+  "bib_key": "agarwal2021precipice",
+  "title": "Deep reinforcement learning at the edge of the statistical precipice",
+  "year": "2021",
+  "venue": "Advances in Neural Information Processing Systems",
+  "pdf": "sources/literature/agarwal2021precipice.pdf",
+  "txt": "sources/literature/txt/agarwal2021precipice.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C053",
+   "C071"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "aiagvda2026spc",
+  "title": "Statistical Process Control (SPC) Manual: Process Management, Performance and Capability, Control Charts",
+  "year": "2026",
+  "venue": "AIAG and VDA, 1st edition",
+  "pdf": "sources/literature/aiagvda2026spc.pdf",
+  "txt": "sources/literature/txt/aiagvda2026spc.txt",
+  "origin": "author-supplied copy of the AIAG-VDA SPC manual, 1st edition 2026 (licensed, do not redistribute)",
+  "cited_by": [
+   "C010"
+  ],
+  "note": "Bib cites AIAG SPC 2nd edition (2005); the primary text read is the AIAG-VDA SPC Manual 1st edition (2026), which states the same stability requirement for capability indices. Consider whether the bib should cite the current AIAG-VDA edition."
+ },
+ {
+  "bib_key": "aiag2010msa",
+  "title": "Measurement Systems Analysis",
+  "year": "2010",
+  "venue": null,
+  "pdf": "sources/literature/aiag2010msa.pdf",
+  "txt": "sources/literature/txt/aiag2010msa.txt",
+  "origin": "author-supplied copy of the AIAG MSA 4th edition manual (licensed, do not redistribute)",
+  "cited_by": [
+   "C009",
+   "C044"
+  ],
+  "note": "MSA-4 Ch. II Sec. D adds: \"The use of the GRR guidelines as threshold criteria alone is NOT an acceptable practice for determining the acceptability of a measurement system.\""
+ },
+ {
+  "bib_key": "alshiekh2018shielding",
+  "title": "Safe reinforcement learning via shielding",
+  "year": "2018",
+  "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+  "pdf": "sources/literature/alshiekh2018shielding.pdf",
+  "txt": "sources/literature/txt/alshiekh2018shielding.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C040"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "anderson2010data",
+  "title": "Data quality control in genetic case-control association studies",
+  "year": "2010",
+  "venue": "Nature Protocols",
+  "pdf": "sources/literature/anderson2010data.pdf",
+  "txt": "sources/literature/txt/anderson2010data.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C086"
+  ],
+  "note": "Published text: \"Typically, individuals with more than 3-7% missing genotypes are removed\"; \"markers with a call rate less than 95% are removed\"; the word \"plate\" does not occur; regenotyping is discussed per SNP only."
+ },
+ {
+  "bib_key": "asif2026blindspot",
+  "title": "{BLINDSPOT}: A benchmark for safety and refusal calibration in long-horizon tool-using agents",
+  "year": "2026",
+  "venue": "arXiv preprint arXiv:2609.16305",
+  "pdf": "sources/literature/asif2026blindspot.pdf",
+  "txt": "sources/literature/txt/asif2026blindspot.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2609.16305",
+  "cited_by": [
+   "C038"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "bustin2009miqe",
+  "title": "The {MIQE} Guidelines: Minimum Information for Publication of Quantitative Real-Time {PCR} Experiments",
+  "year": "2009",
+  "venue": "Oxford University Press",
+  "pdf": "sources/literature/bustin2009miqe.pdf",
+  "txt": "sources/literature/txt/bustin2009miqe.txt",
+  "origin": "open-access download from https://www.gene-quantification.de/miqe-bustin-et-al-clin-chem-2009.pdf",
+  "cited_by": [
+   "C085"
+  ],
+  "note": "Bib entry is type 'misc' with venue 'Oxford University Press'; the source is a journal article: Clinical Chemistry 55(4):611-622, 2009 (copyright American Association for Clinical Chemistry; hosted by OUP)."
+ },
+ {
+  "bib_key": "chan2025mlebench",
+  "title": "{MLE-bench}: Evaluating machine learning agents on machine learning engineering",
+  "year": "2025",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/chan2025mlebench.pdf",
+  "txt": "sources/literature/txt/chan2025mlebench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2410.07095",
+  "cited_by": [
+   "C003",
+   "C013",
+   "C023"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "chanock2007replicating",
+  "title": "Replicating genotype--phenotype associations",
+  "year": "2007",
+  "venue": "Nature",
+  "pdf": "sources/literature/chanock2007replicating.pdf",
+  "txt": "sources/literature/txt/chanock2007replicating.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C088"
+  ],
+  "note": "Published text: \"Replication is essential for establishing the credibility of a genotype-phenotype association\"; the checklist asks that results of replication studies be reported even when not significant. Supports the current wording \"confirmed by replication\"."
+ },
+ {
+  "bib_key": "chen2021codex",
+  "title": "Evaluating large language models trained on code",
+  "year": "2021",
+  "venue": "arXiv preprint arXiv:2107.03374",
+  "pdf": "sources/literature/chen2021codex.pdf",
+  "txt": "sources/literature/txt/chen2021codex.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C050",
+   "C072"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "chen2025scienceagentbench",
+  "title": "{ScienceAgentBench}: Toward rigorous assessment of language agents for data-driven scientific discovery",
+  "year": "2025",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/chen2025scienceagentbench.pdf",
+  "txt": "sources/literature/txt/chen2025scienceagentbench.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C028"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "chen2026chibench",
+  "title": "{CHI-Bench}: Can {AI} agents automate end-to-end, long-horizon, policy-rich healthcare workflows?",
+  "year": "2026",
+  "venue": "arXiv preprint arXiv:2605.16679",
+  "pdf": "sources/literature/chen2026chibench.pdf",
+  "txt": "sources/literature/txt/chen2026chibench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2605.16679",
+  "cited_by": [
+   "C032",
+   "C074"
+  ],
+  "note": "Paper title on arXiv uses the Greek letter: 'χ-Bench: Can AI Agents Automate End-to-End, Long-Horizon, Policy-Rich Healthcare Workflows?'; bib spells it 'CHI-Bench'. Same paper."
+ },
+ {
+  "bib_key": "cohen1960agreement",
+  "title": "A coefficient of agreement for nominal scales",
+  "year": "1960",
+  "venue": "Educational and Psychological Measurement",
+  "pdf": "sources/literature/cohen1960agreement.pdf",
+  "txt": "sources/literature/txt/cohen1960agreement.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C046",
+   "C079"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "conesa2016survey",
+  "title": "A survey of best practices for {RNA-seq} data analysis",
+  "year": "2016",
+  "venue": "Genome biology",
+  "pdf": "sources/literature/conesa2016survey.pdf",
+  "txt": "sources/literature/txt/conesa2016survey.txt",
+  "origin": "author-supplied copy of the Genome Biology review (open access). p. 3: \"three replicates being the minimum for any inferential analysis\"; \"as few as five million mapped reads are sufficient to quantify accurately medium to highly expressed genes\"; the 70-90% mapping-rate guidance is in the QC section.",
+  "cited_by": [
+   "C082"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "field2007clusterbootstrap",
+  "title": "Bootstrapping clustered data",
+  "year": "2007",
+  "venue": "Journal of the Royal Statistical Society Series B: Statistical Methodology",
+  "pdf": "sources/literature/field2007clusterbootstrap.pdf",
+  "txt": "sources/literature/txt/field2007clusterbootstrap.txt",
+  "origin": "open-access download from https://bemlar.ism.ac.jp/zhuang/Refs/Refs/field2007jrssb.pdf",
+  "cited_by": [
+   "C052",
+   "C070",
+   "C076"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "fleiss1971agreement",
+  "title": "Measuring nominal scale agreement among many raters.",
+  "year": "1971",
+  "venue": "Psychological Bulletin",
+  "pdf": "sources/literature/fleiss1971agreement.pdf",
+  "txt": "sources/literature/txt/fleiss1971agreement.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C046",
+   "C075"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "gebru2021datasheets",
+  "title": "Datasheets for datasets",
+  "year": "2021",
+  "venue": "Communications of the ACM",
+  "pdf": "sources/literature/gebru2021datasheets.pdf",
+  "txt": "sources/literature/txt/gebru2021datasheets.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C043",
+   "C063"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "gilad2015reanalysis",
+  "title": "A reanalysis of mouse {ENCODE} comparative gene expression data",
+  "year": "2015",
+  "venue": "F1000Research",
+  "pdf": "sources/literature/gilad2015reanalysis.pdf",
+  "txt": "sources/literature/txt/gilad2015reanalysis.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C080"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "gou2024critic",
+  "title": "{CRITIC}: Large Language Models Can Self-Correct with Tool-Interactive Critiquing",
+  "year": "2024",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/gou2024critic.pdf",
+  "txt": "sources/literature/txt/gou2024critic.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C033"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "greenblatt2024control",
+  "title": "{AI} Control: Improving Safety Despite Intentional Subversion",
+  "year": "2024",
+  "venue": "International Conference on Machine Learning",
+  "pdf": "sources/literature/greenblatt2024control.pdf",
+  "txt": "sources/literature/txt/greenblatt2024control.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C042"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "gu2024blade",
+  "title": "{BLADE}: Benchmarking language model agents for data-driven science",
+  "year": "2024",
+  "venue": "Findings of the Association for Computational Linguistics: EMNLP 2024",
+  "pdf": "sources/literature/gu2024blade.pdf",
+  "txt": "sources/literature/txt/gu2024blade.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C001",
+   "C027"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "hu2024infiagent",
+  "title": "{InfiAgent-DABench}: Evaluating agents on data analysis tasks",
+  "year": "2024",
+  "venue": "International Conference on Machine Learning",
+  "pdf": "sources/literature/hu2024infiagent.pdf",
+  "txt": "sources/literature/txt/hu2024infiagent.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C001",
+   "C026"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "huang2024cannot",
+  "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+  "year": "2024",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/huang2024cannot.pdf",
+  "txt": "sources/literature/txt/huang2024cannot.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C034"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "huang2024dacode",
+  "title": "{DA-Code}: Agent data science code generation benchmark for large language models",
+  "year": "2024",
+  "venue": "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+  "pdf": "sources/literature/huang2024dacode.pdf",
+  "txt": "sources/literature/txt/huang2024dacode.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C026"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "huang2024mlagentbench",
+  "title": "{MLAgentBench}: Evaluating language agents on machine learning experimentation",
+  "year": "2024",
+  "venue": "International Conference on Machine Learning",
+  "pdf": "sources/literature/huang2024mlagentbench.pdf",
+  "txt": "sources/literature/txt/huang2024mlagentbench.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C029"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "huang2026conflictgui",
+  "title": "Do {GUI} agents know when not to act? Enabling conflict-aware termination for multimodal {GUI} agents",
+  "year": "2026",
+  "venue": "arXiv preprint arXiv:2609.03438",
+  "pdf": "sources/literature/huang2026conflictgui.pdf",
+  "txt": "sources/literature/txt/huang2026conflictgui.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C038"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "inan2023llamaguard",
+  "title": "{Llama Guard}: {LLM}-based input-output safeguard for human-{AI} conversations",
+  "year": "2023",
+  "venue": "arXiv preprint arXiv:2312.06674",
+  "pdf": "sources/literature/inan2023llamaguard.pdf",
+  "txt": "sources/literature/txt/inan2023llamaguard.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C041"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "jimenez2024swebench",
+  "title": "{SWE-bench}: Can language models resolve real-world {GitHub} issues?",
+  "year": "2024",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/jimenez2024swebench.pdf",
+  "txt": "sources/literature/txt/jimenez2024swebench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2310.06770",
+  "cited_by": [
+   "C003",
+   "C012",
+   "C023"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "juran1999handbook",
+  "title": "Juran's Quality Handbook",
+  "year": "1999",
+  "venue": "McGraw-Hill",
+  "pdf": "sources/literature/juran1999handbook.pdf",
+  "txt": "sources/literature/txt/juran1999handbook.txt",
+  "origin": "author-supplied copy, 5th edition 1999 (matches the bib; licensed, do not redistribute). Sec. 22: \"Process capability is a measure of variation in a process operating under stable conditions\"; \"The Assumption of Statistical Control and Its Effect on Process Capability\".",
+  "cited_by": [
+   "C007"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "kamath2020selective",
+  "title": "Selective question answering under domain shift",
+  "year": "2020",
+  "venue": "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+  "pdf": "sources/literature/kamath2020selective.pdf",
+  "txt": "sources/literature/txt/kamath2020selective.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C035"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "kamoi2024when",
+  "title": "When can {LLMs} actually correct their own mistakes? {A} critical survey of self-correction of {LLMs}",
+  "year": "2024",
+  "venue": "Transactions of the Association for Computational Linguistics",
+  "pdf": "sources/literature/kamoi2024when.pdf",
+  "txt": "sources/literature/txt/kamoi2024when.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C034"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "kapoor2024agentsmatter",
+  "title": "{AI} agents that matter",
+  "year": "2024",
+  "venue": "arXiv preprint arXiv:2407.01502",
+  "pdf": "sources/literature/kapoor2024agentsmatter.pdf",
+  "txt": "sources/literature/txt/kapoor2024agentsmatter.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C005",
+   "C062"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "kapoor2026hal",
+  "title": "Holistic agent leaderboard: The missing infrastructure for {AI} agent evaluation",
+  "year": "2026",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/kapoor2026hal.pdf",
+  "txt": "sources/literature/txt/kapoor2026hal.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C049",
+   "C065"
+  ],
+  "note": "Local copy is the arXiv preprint (arXiv:2510.11977v1, 13 Oct 2025); the ICLR 2026 venue in the bib entry is not verifiable from this copy but is not contradicted by it."
+ },
+ {
+  "bib_key": "lai2023ds1000",
+  "title": "{DS-1000}: A natural and reliable benchmark for data science code generation",
+  "year": "2023",
+  "venue": "International Conference on Machine Learning",
+  "pdf": "sources/literature/lai2023ds1000.pdf",
+  "txt": "sources/literature/txt/lai2023ds1000.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C026"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "leek2010tackling",
+  "title": "Tackling the widespread and critical impact of batch effects in high-throughput data",
+  "year": "2010",
+  "venue": "Nature Reviews Genetics",
+  "pdf": "sources/literature/leek2010tackling.pdf",
+  "txt": "sources/literature/txt/leek2010tackling.txt",
+  "origin": "author-supplied copy of the Nature Reviews Genetics article (licensed, do not redistribute). \"An example of confounding is when all of the cases are processed on one day and all of the controls are processed on another\"; batch effects confounded with an outcome \"result in misleading biological or clinical conclusions\".",
+  "cited_by": [
+   "C056",
+   "C084"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "liang2022helm",
+  "title": "Holistic evaluation of language models",
+  "year": "2022",
+  "venue": "arXiv preprint arXiv:2211.09110",
+  "pdf": "sources/literature/liang2022helm.pdf",
+  "txt": "sources/literature/txt/liang2022helm.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C068"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "lin2014comparison",
+  "title": "Comparison of the transcriptional landscapes between human and mouse tissues",
+  "year": "2014",
+  "venue": "Proceedings of the National Academy of Sciences",
+  "pdf": "sources/literature/lin2014comparison.pdf",
+  "txt": "sources/literature/txt/lin2014comparison.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C080"
+  ],
+  "note": "Full text contains no discussion of sequencing batch; the confounding claim is attributed in the manuscript to the co-cited Gilad & Mizrahi-Man 2015 reanalysis, and Lin et al. is cited as the study reanalysed."
+ },
+ {
+  "bib_key": "liu2024agentbench",
+  "title": "{AgentBench}: Evaluating {LLMs} as agents",
+  "year": "2024",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/liu2024agentbench.pdf",
+  "txt": "sources/literature/txt/liu2024agentbench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2308.03688",
+  "cited_by": [
+   "C049"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "liu2026agentabstain",
+  "title": "{AgentAbstain}: Do {LLM} agents know when not to act?",
+  "year": "2026",
+  "venue": "arXiv preprint arXiv:2607.10059",
+  "pdf": "sources/literature/liu2026agentabstain.pdf",
+  "txt": "sources/literature/txt/liu2026agentabstain.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2607.10059",
+  "cited_by": [
+   "C021",
+   "C038"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "love2014deseq2",
+  "title": "Moderated estimation of fold change and dispersion for {RNA-seq} data with {DESeq2}",
+  "year": "2014",
+  "venue": "Genome Biology",
+  "pdf": "sources/literature/love2014deseq2.pdf",
+  "txt": "sources/literature/txt/love2014deseq2.txt",
+  "origin": "open-access download from https://www.huber.embl.de/pub/pdf/Love2014.pdf",
+  "cited_by": [
+   "C056",
+   "C084"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "lu2025stateval",
+  "title": "{StatEval}: A comprehensive benchmark for large language models in statistics",
+  "year": "2025",
+  "venue": "arXiv preprint arXiv:2510.09517",
+  "pdf": "sources/literature/lu2025stateval.pdf",
+  "txt": "sources/literature/txt/lu2025stateval.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C025"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "luo2026agenticabstention",
+  "title": "Agentic Abstention: Do Agents Know When to Stop Instead of Act?",
+  "year": "2026",
+  "venue": "arXiv preprint arXiv:2606.28733",
+  "pdf": "sources/literature/luo2026agenticabstention.pdf",
+  "txt": "sources/literature/txt/luo2026agenticabstention.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C022",
+   "C039"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "madaan2023selfrefine",
+  "title": "Self-refine: Iterative refinement with self-feedback",
+  "year": "2023",
+  "venue": "Advances in Neural Information Processing Systems",
+  "pdf": "sources/literature/madaan2023selfrefine.pdf",
+  "txt": "sources/literature/txt/madaan2023selfrefine.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C006",
+   "C033"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "majumder2025discoverybench",
+  "title": "{DiscoveryBench}: Towards data-driven discovery with large language models",
+  "year": "2025",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/majumder2025discoverybench.pdf",
+  "txt": "sources/literature/txt/majumder2025discoverybench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2407.01725",
+  "cited_by": [
+   "C001",
+   "C028"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "marees2018tutorial",
+  "title": "A tutorial on conducting genome-wide association studies: Quality control and statistical analysis",
+  "year": "2018",
+  "venue": "International journal of methods in psychiatric research",
+  "pdf": "sources/literature/marees2018tutorial.pdf",
+  "txt": "sources/literature/txt/marees2018tutorial.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C086"
+  ],
+  "note": "Published text: relaxed missingness filter 0.2 then stringent 0.02 for SNPs and individuals; no 95% individual threshold; the word \"plate\" does not occur."
+ },
+ {
+  "bib_key": "merrill2026terminalbench",
+  "title": "{Terminal-Bench}: Benchmarking agents on hard, realistic tasks in command line interfaces",
+  "year": "2026",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/merrill2026terminalbench.pdf",
+  "txt": "sources/literature/txt/merrill2026terminalbench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2601.11868",
+  "cited_by": [
+   "C014",
+   "C023",
+   "C048",
+   "C067"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "mialon2024gaia",
+  "title": "{GAIA}: A benchmark for general {AI} assistants",
+  "year": "2024",
+  "venue": "International Conference on Learning Representations",
+  "pdf": "sources/literature/mialon2024gaia.pdf",
+  "txt": "sources/literature/txt/mialon2024gaia.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2311.12983",
+  "cited_by": [
+   "C003"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "miao2026fisher",
+  "title": "{Fisher-R1}: Training {LLM} agents for reliable hypothesis testing",
+  "year": "2026",
+  "venue": "arXiv preprint arXiv:2608.07437",
+  "pdf": "sources/literature/miao2026fisher.pdf",
+  "txt": "sources/literature/txt/miao2026fisher.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2608.07437",
+  "cited_by": [
+   "C018",
+   "C025"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "montgomery2013daoe",
+  "title": "Design and Analysis of Experiments",
+  "year": "2013",
+  "venue": "Wiley, 8th edition",
+  "pdf": "sources/literature/montgomery2013daoe.pdf",
+  "txt": "sources/literature/txt/montgomery2013daoe.txt",
+  "origin": "author-supplied copy, 8th edition (copyright 2013), the edition cited since 2026-09-26; licensed, do not redistribute. \"Perform one or more confirmation runs to verify conclusions from the initial experiment\".",
+  "cited_by": [
+   "C011",
+   "C061"
+  ],
+  "note": "Bib entry cites the 2005 (6th) edition; the text verified here is the 8th edition (2012). The passages used (Ch. 1 'Guidelines for Designing Experiments' step 7, Ch. 1 confirmation-experiment type, Ch. 8 'Confirmation Experiments', Ch. 11 RSM) are long-standing chapters but the 6th-edition wording was not itself retrieved."
+ },
+ {
+  "bib_key": "montgomery2020isqc",
+  "title": "Introduction to Statistical Quality Control",
+  "year": "2020",
+  "venue": "Wiley, 8th edition",
+  "pdf": "sources/literature/montgomery2020isqc.pdf",
+  "txt": "sources/literature/txt/montgomery2020isqc.txt",
+  "origin": "author-supplied copy, 8th edition 2020 (the edition cited since 2026-09-26; licensed, do not redistribute). Sec. 8.3 \"the process must be in statistical control for PCRs to have any real meaning\"; Sec. 8.4 \"It is unsafe to estimate process capability in such cases\".",
+  "cited_by": [
+   "C002",
+   "C008",
+   "C054"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "nandi2026sopbench",
+  "title": "{SOP-Bench}: Complex industrial {SOPs} for evaluating {LLM} agents",
+  "year": "2026",
+  "venue": "Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V. 2",
+  "pdf": "sources/literature/nandi2026sopbench.pdf",
+  "txt": "sources/literature/txt/nandi2026sopbench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2506.08119",
+  "cited_by": [
+   "C020",
+   "C032"
+  ],
+  "note": "arXiv comments line reads 'Under review'; the bib venue (KDD 2026 V.2) could not be confirmed from the retrieved text. Retrieved author list also includes many authors not in the bib's truncated list (covered by 'and others')."
+ },
+ {
+  "bib_key": "nist_handbook",
+  "title": "{NIST/SEMATECH} e-Handbook of Statistical Methods",
+  "year": "2012",
+  "venue": null,
+  "pdf": null,
+  "txt": "sources/literature/txt/nist_handbook.txt",
+  "origin": "NIST/SEMATECH e-Handbook sections 1.2.1, 1.2.2, 1.2.5, 1.2.5.1, 6.1.4, 6.1.6, 6.3.2 (public domain), saved as text",
+  "cited_by": [
+   "C002",
+   "C007"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "nori2025sdbench",
+  "title": "Sequential diagnosis with language models",
+  "year": "2025",
+  "venue": "arXiv preprint arXiv:2506.22405",
+  "pdf": "sources/literature/nori2025sdbench.pdf",
+  "txt": "sources/literature/txt/nori2025sdbench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2506.22405",
+  "cited_by": [
+   "C019",
+   "C031"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "pan2022rewardmisspecification",
+  "title": "{The Effects of Reward Misspecification: Mapping and Mitigating Misaligned Models}",
+  "year": "2022",
+  "venue": "arXiv preprint arXiv:2201.03544",
+  "pdf": "sources/literature/pan2022rewardmisspecification.pdf",
+  "txt": "sources/literature/txt/pan2022rewardmisspecification.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C045",
+   "C069"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "pineau2021reproducibility",
+  "title": "Improving reproducibility in machine learning research (a report from the {NeurIPS} 2019 reproducibility program)",
+  "year": "2021",
+  "venue": "Journal of Machine Learning Research",
+  "pdf": "sources/literature/pineau2021reproducibility.pdf",
+  "txt": "sources/literature/txt/pineau2021reproducibility.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2003.12206",
+  "cited_by": [
+   "C066"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "price2006principal",
+  "title": "Principal components analysis corrects for stratification in genome-wide association studies",
+  "year": "2006",
+  "venue": "Nature genetics",
+  "pdf": "sources/literature/price2006principal.pdf",
+  "txt": "sources/literature/txt/price2006principal.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C057",
+   "C087"
+  ],
+  "note": "Full text: EIGENSTRAT infers axes of variation by PCA and corrects association statistics; \"the procedure ... is equivalent to using the axes of variation as covariates in a multilinear regression\"."
+ },
+ {
+  "bib_key": "rabanser2026reliability",
+  "title": "Towards a science of {AI} agent reliability",
+  "year": "2026",
+  "venue": "arXiv preprint arXiv:2602.16666",
+  "pdf": "sources/literature/rabanser2026reliability.pdf",
+  "txt": "sources/literature/txt/rabanser2026reliability.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C004"
+  ],
+  "note": "Bib lists venue as 'arXiv preprint arXiv:2602.16666'; the retrieved v3 (2 Jun 2026) carries the footer 'Proceedings of the 43rd International Conference on Machine Learning, Seoul, South Korea. PMLR 306, 2026', so the paper now has an ICML 2026 venue."
+ },
+ {
+  "bib_key": "rebedea2023nemo",
+  "title": "{NeMo Guardrails}: A toolkit for controllable and safe {LLM} applications with programmable rails",
+  "year": "2023",
+  "venue": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
+  "pdf": "sources/literature/rebedea2023nemo.pdf",
+  "txt": "sources/literature/txt/rebedea2023nemo.txt",
+  "origin": "open-access download from https://aclanthology.org/2023.emnlp-demo.40.pdf",
+  "cited_by": [
+   "C041"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "ribeiro2020checklist",
+  "title": "Beyond accuracy: Behavioral testing of {NLP} models with {CheckList}",
+  "year": "2020",
+  "venue": "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+  "pdf": "sources/literature/ribeiro2020checklist.pdf",
+  "txt": "sources/literature/txt/ribeiro2020checklist.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C060"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "schurch2016many",
+  "title": "How many biological replicates are needed in an {RNA-seq} experiment and which differential expression tool should you use?",
+  "year": "2016",
+  "venue": "Rna",
+  "pdf": "sources/literature/schurch2016many.pdf",
+  "txt": "sources/literature/txt/schurch2016many.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C083"
+  ],
+  "note": "Recommendations section, verbatim: \"At least six replicates per condition for all experiments.\" Erratum 10.1261/rna.058339.116 (RNA, Sept 2016) read on 2026-09-26 from the journal page supplied by the author: it only adds funding acknowledgments (Wellcome Trust, MRC, BBSRC); no scientific content changed."
+ },
+ {
+  "bib_key": "shinn2023reflexion",
+  "title": "Reflexion: Language agents with verbal reinforcement learning",
+  "year": "2023",
+  "venue": "Advances in Neural Information Processing Systems",
+  "pdf": "sources/literature/shinn2023reflexion.pdf",
+  "txt": "sources/literature/txt/shinn2023reflexion.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C006",
+   "C033"
+  ],
+  "note": "arXiv author list includes Edward Berman (third author); the bib entry omits him."
+ },
+ {
+  "bib_key": "siegel2024corebench",
+  "title": "{CORE-Bench}: Fostering the credibility of published research through a computational reproducibility agent benchmark",
+  "year": "2024",
+  "venue": "arXiv preprint arXiv:2409.11363",
+  "pdf": "sources/literature/siegel2024corebench.pdf",
+  "txt": "sources/literature/txt/siegel2024corebench.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C030"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "starace2025paperbench",
+  "title": "{PaperBench}: Evaluating {AI}'s ability to replicate {AI} research",
+  "year": "2025",
+  "venue": "arXiv preprint arXiv:2504.01848",
+  "pdf": "sources/literature/starace2025paperbench.pdf",
+  "txt": "sources/literature/txt/starace2025paperbench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2504.01848",
+  "cited_by": [
+   "C015",
+   "C023"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "trinh2026hilbench",
+  "title": "{HiL-Bench} ({Human-in-Loop} benchmark): Do agents know when to ask for help?",
+  "year": "2026",
+  "venue": "arXiv preprint arXiv:2604.09408",
+  "pdf": "sources/literature/trinh2026hilbench.pdf",
+  "txt": "sources/literature/txt/trinh2026hilbench.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C038"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "valmeekam2023planbench",
+  "title": "{PlanBench}: An extensible benchmark for evaluating large language models on planning and reasoning about change",
+  "year": "2023",
+  "venue": "Advances in Neural Information Processing Systems",
+  "pdf": "sources/literature/valmeekam2023planbench.pdf",
+  "txt": "sources/literature/txt/valmeekam2023planbench.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C059"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "vanderaalst2003workflow",
+  "title": "Workflow patterns",
+  "year": "2003",
+  "venue": "Distributed and Parallel Databases",
+  "pdf": "sources/literature/vanderaalst2003workflow.pdf",
+  "txt": "sources/literature/txt/vanderaalst2003workflow.txt",
+  "origin": "open-access download from http://www.workflowpatterns.com/documentation/documents/wfs-pat-2002.pdf",
+  "cited_by": [
+   "C058"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "welch1947generalization",
+  "title": "The generalization of `{Student}'s' problem when several different population variances are involved",
+  "year": "1947",
+  "venue": "Biometrika",
+  "pdf": "sources/literature/welch1947generalization.pdf",
+  "txt": "sources/literature/txt/welch1947generalization.txt",
+  "origin": "author-supplied copy of the published article (licensed, do not redistribute)",
+  "cited_by": [
+   "C064"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "wen2025knowyourlimits",
+  "title": "Know your limits: A survey of abstention in large language models",
+  "year": "2025",
+  "venue": "Transactions of the Association for Computational Linguistics",
+  "pdf": "sources/literature/wen2025knowyourlimits.pdf",
+  "txt": "sources/literature/txt/wen2025knowyourlimits.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C037"
+  ],
+  "note": "arXiv comment says 'TACL 2024'; ACL Anthology (2025.tacl-1.26) lists TACL vol. 13, pp. 529-556, 2025, which matches the bib year 2025."
+ },
+ {
+  "bib_key": "xie2024osworld",
+  "title": "{OSWorld}: Benchmarking multimodal agents for open-ended tasks in real computer environments",
+  "year": "2024",
+  "venue": "Advances in Neural Information Processing Systems",
+  "pdf": "sources/literature/xie2024osworld.pdf",
+  "txt": "sources/literature/txt/xie2024osworld.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2404.07972",
+  "cited_by": [
+   "C049"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "yao2024taubench",
+  "title": "$\\tau$-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+  "year": "2024",
+  "venue": "arXiv preprint arXiv:2406.12045",
+  "pdf": "sources/literature/yao2024taubench.pdf",
+  "txt": "sources/literature/txt/yao2024taubench.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2406.12045",
+  "cited_by": [
+   "C003",
+   "C016",
+   "C024",
+   "C051",
+   "C073"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "yao2025tau2bench",
+  "title": "$\\tau^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment",
+  "year": "2025",
+  "venue": "arXiv preprint arXiv:2506.07982",
+  "pdf": "sources/literature/yao2025tau2bench.pdf",
+  "txt": "sources/literature/txt/yao2025tau2bench.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C024"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "zhang2020combatseq",
+  "title": "{ComBat-seq}: batch effect adjustment for {RNA-seq} count data",
+  "year": "2020",
+  "venue": "NAR genomics and bioinformatics",
+  "pdf": "sources/literature/zhang2020combatseq.pdf",
+  "txt": "sources/literature/txt/zhang2020combatseq.txt",
+  "origin": "author-supplied copy of the NAR Genomics and Bioinformatics article (open access). p. 4: GFP controls \"present in all batches\" while each treated cell line \"is completely nested within a single batch\"; GEO GSE83083 (batches 1 and 3) and GSE59765 (batch 2).",
+  "cited_by": [
+   "C081"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "zhang2024rtuning",
+  "title": "{R-Tuning}: Instructing large language models to say `{I} don't know'",
+  "year": "2024",
+  "venue": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+  "pdf": "sources/literature/zhang2024rtuning.pdf",
+  "txt": "sources/literature/txt/zhang2024rtuning.txt",
+  "origin": "open-access download (arXiv / ACL Anthology / F1000)",
+  "cited_by": [
+   "C036"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "zheng2023judging",
+  "title": "Judging {LLM}-as-a-judge with {MT-Bench} and {Chatbot Arena}",
+  "year": "2023",
+  "venue": "Advances in Neural Information Processing Systems",
+  "pdf": "sources/literature/zheng2023judging.pdf",
+  "txt": "sources/literature/txt/zheng2023judging.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C055",
+   "C077"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "zhu2024statqa",
+  "title": "Are large language models good statisticians?",
+  "year": "2024",
+  "venue": "Advances in Neural Information Processing Systems",
+  "pdf": "sources/literature/zhu2024statqa.pdf",
+  "txt": "sources/literature/txt/zhu2024statqa.txt",
+  "origin": "open-access download from https://arxiv.org/pdf/2406.07815",
+  "cited_by": [
+   "C017",
+   "C025"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "zhu2025abc",
+  "title": "Establishing best practices in building rigorous agentic benchmarks",
+  "year": "2025",
+  "venue": "Advances in Neural Information Processing Systems",
+  "pdf": "sources/literature/zhu2025abc.pdf",
+  "txt": "sources/literature/txt/zhu2025abc.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C005",
+   "C047"
+  ],
+  "note": "Local text is arXiv:2507.02825v5 (Aug 2025), headed 'Preprint.'; bib venue says NeurIPS 2025. Not verified against the proceedings version."
+ },
+ {
+  "bib_key": "zhuge2024agentjudge",
+  "title": "Agent-as-a-judge: Evaluate agents with agents",
+  "year": "2024",
+  "venue": "arXiv preprint arXiv:2410.10934",
+  "pdf": "sources/literature/zhuge2024agentjudge.pdf",
+  "txt": "sources/literature/txt/zhuge2024agentjudge.txt",
+  "origin": "downloaded 2026-09-21 during the citation expansion",
+  "cited_by": [
+   "C055",
+   "C078"
+  ],
+  "note": null
+ },
+ {
+  "bib_key": "aiag1995spc",
+  "title": "Statistical Process Control (SPC) Reference Manual",
+  "year": "1995",
+  "venue": "Chrysler, Ford, General Motors; issued 1992, second printing 1995",
+  "pdf": "sources/literature/aiag1995spc.pdf",
+  "txt": "sources/literature/txt/aiag1995spc.txt",
+  "origin": "author-supplied archival copy; not cited by the manuscript (the 2005 edition was cited until 2026-09-26, then replaced by the 2026 AIAG-VDA edition)",
+  "cited_by": []
+ }
+]

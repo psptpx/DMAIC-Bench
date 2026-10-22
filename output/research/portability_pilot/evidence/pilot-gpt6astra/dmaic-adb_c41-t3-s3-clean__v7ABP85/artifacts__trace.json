@@ -1,0 +1,57 @@
+{
+  "system_id": "local-python-assistant",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "outputs": {
+        "samplesFailed": 34,
+        "sampleFailFraction": 0.14166666666666666,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "samplesPassing": 206,
+        "affectedTotal": 120,
+        "unaffectedTotal": 120,
+        "affectedFailed": 18,
+        "unaffectedFailed": 16,
+        "minCallRate": 0.52,
+        "maxCallRate": 1.0,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "plateRequiresRegenotyping": true
+      },
+      "status": "success",
+      "decision": "Re-genotype plate before downstream analysis"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_quality",
+      "chosen_branch": "regenotype",
+      "observed": {
+        "samplesFailed": 34,
+        "sampleFailFraction": 0.14166666666666666,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "samplesPassing": 206,
+        "affectedTotal": 120,
+        "unaffectedTotal": 120,
+        "affectedFailed": 18,
+        "unaffectedFailed": 16,
+        "minCallRate": 0.52,
+        "maxCallRate": 1.0,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "plateRequiresRegenotyping": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

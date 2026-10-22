@@ -1,0 +1,75 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "retainedControl": 4,
+        "retainedTreated": 4,
+        "totalLibraries": 12
+      },
+      "status": "success",
+      "decision": "Exclude failing libraries; retained replication passes."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "filter": "usable.json"
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "nuisanceRank": 2,
+        "originalDesignRank": 3,
+        "usableLibraries": 8,
+        "mixedUsableBatches": 0
+      },
+      "status": "success",
+      "decision": "Treatment exactly aliases preparation batch after QC. No treatment-specific gene calls are estimable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replication",
+      "chosen_branch": "pass",
+      "observed": {
+        "min_replicates": 4
+      }
+    },
+    {
+      "point": "design",
+      "chosen_branch": "stop_confounded",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "nuisanceRank": 2,
+        "originalDesignRank": 3,
+        "usableLibraries": 8,
+        "mixedUsableBatches": 0
+      }
+    },
+    {
+      "point": "downstream_access",
+      "chosen_branch": "stop_at_locked_design_gate",
+      "observed": {
+        "counts_locked": true,
+        "validation_locked": true,
+        "annotation_locked": true
+      }
+    }
+  ],
+  "turns": 0
+}

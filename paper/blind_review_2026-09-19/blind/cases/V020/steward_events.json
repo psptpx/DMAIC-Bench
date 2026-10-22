@@ -1,0 +1,92 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Inspector judgements of retained units against the answer key",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "declare",
+    "text": "kappaMin=0.659",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "agreementPct=65.0",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Per-lot inspected and defective counts",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Machine-by-machine defective and sound tally",
+    "stage_id": "machines",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "One machine's inspected and defective counts either side of a change",
+    "stage_id": "after_change",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 12,
+    "action": "request",
+    "text": "The monitoring record kept since the change",
+    "stage_id": "sustaining",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 13,
+    "action": "request",
+    "text": "Reject categories tallied for the charter",
+    "stage_id": "candidates",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 14,
+    "action": "request",
+    "text": "Candidate failure modes with their risk ratings",
+    "stage_id": "failure_modes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 16,
+    "action": "provision",
+    "text": "What change was made to the machine between the before and after periods?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

@@ -1,0 +1,175 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "participants": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "participantsTotal": 240,
+        "samplesRetained": 238,
+        "affectedTotal": 120,
+        "unaffectedTotal": 120,
+        "callRateThreshold": 0.95,
+        "plateFailThreshold": 0.1,
+        "plateStopTriggered": false,
+        "minimumCallRate": 0.9466666666666667,
+        "maximumCallRate": 1.0,
+        "failedAffected": 2,
+        "failedUnaffected": 0
+      },
+      "status": "success",
+      "decision": "Plate passes the participant-level stop rule; exclude P011 and P120."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "participants": 238,
+        "controls": 120,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "variantsTotal": 150,
+        "samplesInput": 238,
+        "controlsInput": 120,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 3,
+        "callRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweThreshold": 1e-06,
+        "minimumObservedCallRate": 0.8025210084033614,
+        "minimumObservedMaf": 0.0,
+        "minimumObservedHwePValue": 2.1108667816179958e-13
+      },
+      "status": "success",
+      "decision": "Retain variants passing call rate, MAF, and unaffected-participant HWE rules."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 138,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation failed because sklearn was unavailable; no result used."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "participants": 238,
+        "groups": 2,
+        "variants": 138,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 3.4080058932620766e-15,
+        "pc1Statistic": -8.431999923658154,
+        "pc1VarianceFraction": 0.0902253366236525,
+        "pc1RangeOverlap": true,
+        "pc1OverlapWidth": 10.238992525458817,
+        "affected": 118,
+        "unaffected": 120,
+        "participants": 238,
+        "variants": 138
+      },
+      "status": "success",
+      "decision": "Ancestry structure is present but affected and unaffected PC1 ranges overlap; compare groups with PC1 adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 138,
+        "covariates": 0,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 22,
+        "lambdaGC": 2.66535720584432,
+        "variantsTested": 138,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "smallestPValue": 2.5933156961660207e-08
+      },
+      "status": "success",
+      "decision": "Unadjusted reference analysis only; protocol requires ancestry adjustment."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "participants": 238,
+        "affected": 118,
+        "unaffected": 120,
+        "variants": 138,
+        "covariates": 1,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.144606112920082,
+        "variantsTested": 138,
+        "modelsFailed": 0,
+        "covariatePcCount": 1,
+        "bonferroniAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "smallestPValue": 0.001659485666633129,
+        "topOddsRatio": 2.3835276724837344,
+        "topZStatistic": 3.1452436363214527,
+        "topModelN": 233,
+        "participants": 238,
+        "affected": 118,
+        "unaffected": 120
+      },
+      "status": "success",
+      "decision": "No retained variant meets the corrected threshold after PC1 adjustment."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333,
+        "maximumAllowed": 0.1
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "overlapping_structure_adjust_pc1",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 3.4080058932620766e-15,
+        "rangeOverlap": true
+      }
+    },
+    {
+      "point": "association_conclusion",
+      "chosen_branch": "no_association_declared",
+      "observed": {
+        "nSignificant": 0,
+        "threshold": 0.00036231884057971015
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

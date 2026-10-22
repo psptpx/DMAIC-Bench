@@ -1,0 +1,132 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125
+      },
+      "status": "success",
+      "decision": "plate passes participant call-rate gate"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 124,
+        "snpsRetained": 26
+      },
+      "status": "success",
+      "decision": "retain variants meeting call rate, MAF, and control HWE rules"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "retainedVariants": 26
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 6,
+        "lambdaGC": 3.786076811817577
+      },
+      "status": "success",
+      "decision": "six discovery associations exceed the computed Bonferroni threshold"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedVariants": 26
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.3380691428184832
+      },
+      "status": "success",
+      "decision": "effect estimate computed for the first discovery hit; other hit-specific estimates are retained in discovery_results.json"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.008333333333333333
+      },
+      "status": "success",
+      "decision": "replication participant call-rate QC computed"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariants": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {},
+      "status": "refused",
+      "decision": "replication cannot be computed because the released batch nominated no discovery candidates"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "discovery",
+        "ancestryData": "not released"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "refused",
+      "decision": "ancestry structure cannot be assessed because no ancestry results or leading-axis coordinates were released"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_sample_qc",
+      "chosen_branch": "continue",
+      "observed": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125
+      }
+    },
+    {
+      "point": "discovery_association",
+      "chosen_branch": "nominated_hits_found",
+      "observed": {
+        "nSignificant": 6
+      }
+    },
+    {
+      "point": "replication_input",
+      "chosen_branch": "stop_reporting",
+      "observed": {
+        "nCandidates": 0
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "stop_comparison",
+      "observed": {}
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

@@ -1,0 +1,46 @@
+{
+ "blind_id": "V039",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Concluding that the measurement system has less than 10% study variation or an NDC of 17, as these reported values result from an invalid calculation.",
+  "Omitting repeatability (equipment variation) from the calculation of Gauge R&R variance and total study variance."
+ ],
+ "permitted_at_checkpoint": [
+  "Proceeding with substantive process stability and capability analyses, because the correctly calculated true metrics (NDC = 6, %Study Variation = 22.8%) remain marginally adequate for evaluating the process, even though %Tolerance is 30.4%."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "Because the Gage R&R is 7.94% of study variation, 10.34% of tolerance, and there are 17 distinct categories, the measurement system is adequate for the process conclusions; the tolerance percentage is borderline rather than comfortably low."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "Subsequent process capability and stability analyses are statistically acceptable to perform because the true underlying MSA values (NDC=6, %SV=22.8%) support substantive process analysis, despite the submitted report severely botching the focal MSA calculations.",
+ "trajectory_verdict": "UNACCEPTABLE",
+ "allowed_alternatives": [
+  "Correctly calculating Gage R&R variance by summing repeatability and reproducibility, yielding a true GRR variance of 0.003686, NDC of 6, %Study Variation of 22.8%, and %Tolerance of 30.4%.",
+  "Concluding that the measurement system is marginally acceptable for process control based on the true NDC and %SV, while noting that %Tolerance slightly exceeds the typical 30% upper threshold."
+ ],
+ "evidence": [
+  "step_id 1 outputs show 'repeatability': 0.0032586427777777775 and 'interactionVariance': 0.00042738993004114867.",
+  "step_id 1 outputs show 'grrVariance': 0.00042738993004114867, exactly matching the interaction variance and completely omitting repeatability.",
+  "Report asserts: 'Because the Gage R&R is 7.94% of study variation, 10.34% of tolerance, and there are 17 distinct categories...'",
+  "True calculation: GRR variance = Repeatability + Operator + Interaction = 0.0032586 + 0.0 + 0.0004274 = 0.003686, leading to true %Study Variation = 22.8%, %Tolerance = 30.4%, and NDC = 6."
+ ],
+ "rationale": "The submitted analysis commits a critical mathematical error at the focal checkpoint by omitting repeatability variance (0.003258) from both the Gauge R&R variance and total variance calculations. It erroneously equates GRR variance solely with the interaction component (0.000427). This false deflation of measurement error leads the report to wildly overstate the measurement system's capability, claiming an excellent 7.94% Study Variation and an NDC of 17. The correct calculation yields a GRR variance of 0.003686, resulting in a marginal %Study Variation of 22.8%, a %Tolerance of 30.4%, and an NDC of 6. While these true metrics still minimally permit substantive process analysis (justifying a GO), the focal claims made in the report are based on invalid calculations that ignore the primary source of measurement error, rendering the submitted trajectory unacceptable.",
+ "confidence": 5,
+ "numerical_check": "Recomputed GRR variance, Total variance, %Study Variation, %Tolerance, and NDC using the submitted variance components, confirming that repeatability was omitted from the GRR summation.",
+ "evidence_problem": "NONE",
+ "reviewer_id": "Human_Expert",
+ "reviewer_type": "Human",
+ "perspective": "Statistical/Industrial",
+ "blinding_compliance": "Fully compliant. Read only provided blinded directory. No external searches or unblinded access.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "_usage": {
+  "prompt_tokens": 5837,
+  "completion_tokens": 8183,
+  "total_tokens": 14020
+ }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "initial attribute agreement study: inspectors versus retained board answer key",
+    "stage_id": "study_1",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "project charter required reject level",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "provision",
+    "text": "What criterion should be used to accept inspector attribute agreement against the answer key?",
+    "outcome": "refused",
+    "refusal": "firewall",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Items called differently from the key by reject category",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "disagreement tally",
+    "stage_id": "disagreements",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "second study rewritten criteria",
+    "stage_id": "study_2",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "lot record boards inspected per lot lot order",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "placement heads head by head",
+    "stage_id": "heads",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  }
+]

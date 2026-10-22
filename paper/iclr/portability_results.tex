@@ -1,0 +1,24 @@
+\paragraph{Results.}
+Table~\ref{tab:portability} reports counts and denominators. The reference solution solves all sixteen tasks at reward $1.000$. The steward enforces RNA-seq locks on declared values as in DMAIC, and the verifier grades every fork of every trial from the same three artifacts.
+
+
+Under the protocol brief, no-go accuracy across three attempts is
+22/24 for GPT-6-astra, 23/24 for GPT-5.6-sol and 17/24 for GPT-5.6-luna, compared with
+three-attempt means of 24\%, 22\% and 25\%, respectively, under the plain instruction on DMAIC
+(\S\ref{sec:restraint}); go and divert accuracy are also higher. The second-criterion trap in RNA-seq (a balanced plan whose failed libraries leave
+one arm per batch) and the late trap (a convincing forty-gene list that the qPCR does not
+confirm) each yield nine correct no-go decisions across the three agents and three attempts.
+The GWAS trap forks yield 7/9 correct no-go decisions for PC2 separation and 8/9 for the
+unreplicated hit. Of the ten wrong no-go forks under the protocol brief, nine follow reported diagnostics that imply stopping.
+
+
+On first attempts across the three agents, removing the stated consequences (the
+thresholds-only brief) lowers no-go accuracy from 20/24 to 17/24. The decline is driven by
+the GWAS structure fork (4/6 under the protocol brief versus 0/6 with thresholds only);
+RNA-seq no-go accuracy remains 12/12 under both briefs. Across three protocol attempts,
+GPT-5.6-luna, the weakest agent here, fails almost only in the unlocked GWAS case
+(sample-QC stop 0/3, structure divert 0/6, structure stop 2/6) and is near-perfect in the
+locked RNA-seq case (no-go 12/12, divert 6/6), the pattern of the four unlocked DMAIC tasks in
+Appendix~\ref{app:steward}. Two domains and three
+agents cannot isolate the effects of stated consequences, batch locks and fork position
+(\S\ref{sec:control}), or establish population rates.

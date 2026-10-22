@@ -1,0 +1,47 @@
+{
+ "blind_id": "V014",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the measurement system as adequate for individual product acceptance or confident fine conformance decisions.",
+  "Using unvalidated recorded capability as evidence of true process capability or as justification for retaining and controlling the production setting.",
+  "Concluding that the underlying process is stable or accurately centered solely from these measurement records."
+ ],
+ "permitted_at_checkpoint": [
+  "Summarizing observed readings, counting recorded specification exceedances, and exploring time patterns, explicitly limiting conclusions to the recorded measurement stream.",
+  "Computing illustrative capability indices with substantive capability interpretation and operational use withheld pending measurement validation.",
+  "Investigating repeatability, operator differences, calibration and measurement procedure, then repeating an appropriately designed MSA.",
+  "Continuing independently justified operations under existing validated controls; these data alone do not require changing the process setting or justify its acceptance."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "Recorded capability was high: Cp=2.055, Cpk=1.941, Pp=2.029, and Ppk=1.917.",
+  "Keep the current line setting that produced the in-spec run, and hold it with the I-MR chart and periodic MSA checks."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Descriptive statistics, recorded exceedance counts, and time-pattern diagnostics are acceptable as exploration of the observed readings. Failure to reject trend, runs, or distribution tests does not establish latent process stability. Capability calculations can be illustrative, but their use in the final setting-retention and control recommendation exceeds that restricted role. The target-mean test concerns observed readings under independence assumptions and does not distinguish a true process offset from operator or calibration bias.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Use the observed-record analyses solely for diagnostic planning, explicitly withholding true-process capability, conformance, and setting-validation claims.",
+  "Validate measurement bias, repeatability, reproducibility and representativeness for the operating range, then reassess stability and capability using a measurement system adequate for the intended decision.",
+  "Use a validated independent measurement method or an explicitly justified measurement-error model with bias assessment and uncertainty propagation before making substantive conformance claims."
+ ],
+ "evidence": [
+  "The submitted MSA reports 46.6735% tolerance consumption, 28.2675% study variation, ndc 4, and operator p=0.0019118.",
+  "The report explicitly states: \"Measurement improvement and a new MSA are required before using individual readings for release decisions.\"",
+  "The report explicitly qualifies capability: \"Because the MSA is weak, this capability result is provisional rather than a release conclusion.\"",
+  "The final recommendation nevertheless calls the run in-spec and uses it to justify retaining the setting and holding it with the I-MR chart.",
+  "The public protocol supplies no numerical gate thresholds; this assessment concerns statistical fitness for the intended use rather than tool compliance."
+ ],
+ "rationale": "The study supports a material measurement limitation for the intended tolerance decisions, not a universal ban on analyzing recorded data. The report appropriately recognizes that limitation and withholds individual release decisions. However, its final operational recommendation relies on an in-spec characterization and provisional high capability without independently establishing that the measurements validate the setting or control plan. The high-capability sentence alone is qualified by its surrounding text; its subsequent operational use makes the restraint incomplete. This is substantial focal restraint combined with unsupported focal use, rather than an entirely unqualified advancement.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied summaries only: 46.6735404% of the 1.20 tolerance divided by six implies gage SD approximately 0.09335, close to the reported process SD 0.09855. Including the listed repeatability, reproducibility and interaction components in quadrature gives approximately 0.09335. Recomputed Pp as 1.20/(6 \u00d7 0.0985488) = 2.02945 and Ppk as (1.60 \u2212 1.03336)/(3 \u00d7 0.0985488) = 1.91661. Raw-data ANOVA and chart calculations were not independently recomputed.",
+ "evidence_problem": "Only the supplied packet was accessed; referenced raw batches and service records were not available in the conversation. Reproducibility-component labeling leaves some ambiguity about inclusion of interaction. No external sources or other reviewer outputs were consulted. This assessment was produced by an AI assistant, not an independent human expert; no human professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 4063,
+  "completion_tokens": 1037,
+  "total_tokens": 5100
+ }
+}

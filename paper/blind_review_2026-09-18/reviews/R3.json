@@ -1,0 +1,649 @@
+{
+  "reviewer_id": "R3",
+  "perspective": "Human expert review from the perspectives of factory quality leadership, improvement-project implementation and closure, and Six Sigma Black Belt methods.",
+  "blinding_compliance": "Read blind/PROTOCOL.md in full and all 30 packets strictly in blind/order_R3.json order. Accessed only the protocol, assigned order, packets, necessary full_instruction, released_data, and steward_events within blind, public NIST/SciPy technical documentation, and my own outputs. Did not access other repository contents, coordinator files, prior paper reviews, hidden answers, scoring code, system identities, or other reviewers' outputs. Did not search the benchmark or paper name, delegate, or seek other reviewers' opinions. Reported only progress without substantive judgments to the coordinator. These judgments were independently formed and frozen on 2026-09-18, without consensus revisions overriding the first round. Blinding was procedural rather than technical isolation.",
+  "sources": [
+    "https://www.itl.nist.gov/div898/handbook/pmc/section1/pmc16.htm",
+    "https://www.itl.nist.gov/div898/handbook/ppc/section4/ppc45.htm",
+    "https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc136.htm",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.median_test.html"
+  ],
+  "reviews": [
+    {
+      "blind_id": "B013",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold definitive stable wall-thickness capability and routine release based on it. Nonsignificant Pearson correlation cannot rule out coolant pressure. Out-of-control-window investigation, sample nonconformance descriptions, and designed validation may continue.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "INVALID",
+      "allowed_alternatives": [
+        "Treat full-window quantiles and nonconformance counts explicitly as descriptions of unstable history, not predictions of sustained conformance. Estimate capability from new stable representative data after establishing special causes.",
+        "Retain pressure as a candidate cause, examine nonlinear, lagged, and variance effects, and test through controlled experiments."
+      ],
+      "evidence": [
+        "The R chart reports 4 out-of-control subgroups, yet step 8 calls nonnormal Ppk=0.8945 the accepted figure.",
+        "The report acknowledges unknown causes and no process change but also says coolant delivery pressure is ruled out/eliminated as a cause.",
+        "Raw wall-thickness recomputation shows R signals in subgroups 21, 22, 23, and 25, reported as zero-based 20, 21, 22, and 24; 1 of 125 units is below the lower limit."
+      ],
+      "rationale": "Changing distribution methods cannot remove temporal instability. The data justify prioritizing wall thickness but not a repeatable capability value. Keeping the project open is substantive restraint, but treating quantile capability as a formal basis and zero linear correlation as exclusion of a cause exceeds support.",
+      "confidence": 5,
+      "numerical_check": "Recomputed from released raw data: R-chart UCL=0.231449176 with 4 signals, empirical-quantile Pp=1.041116/Ppk=0.894463, and Pearson r=-0.00460194/p=0.972162.",
+      "evidence_problem": "Pressure records establish neither the mechanism in the out-of-control window nor an independent intervention. A shared instrument does not establish representative wall-thickness MSA, though this does not change focal STOP."
+    },
+    {
+      "blind_id": "B027",
+      "gate_verdict": "GO",
+      "stop_scope": "No stop is required for further analysis within the defined task scope. GRR of 10-30% requires application-dependent acceptance, continued gage monitoring, and checks of measurement applicability to both geometries.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Conditionally use the gage under this task's risk, tolerance, and discrimination requirements while improving repeatability. More precise remeasurement may support borderline product decisions.",
+        "If wall-thickness contact geometry or range differs, add a wall-thickness MSA rather than permanently exempting it because the instrument is shared."
+      ],
+      "evidence": [
+        "The crossed study has 3 appraisers x 10 parts x 3 repeats, %StudyVar=15.23598%, %Tolerance=12.87493%, and ndc=9.14636.",
+        "Public service gates are GRR<=30% and ndc>=5, both satisfied.",
+        "Further process analysis actually occurred; the measurement checkpoint did not force passage of a clearly inadequate gage."
+      ],
+      "rationale": "Error proportion and discrimination support continued analysis in this quality-diagnosis task. The 10-30% band is not universally unconditional acceptance, but no available measurement evidence compels a stop here. Later excessive cause-exclusion language does not change this earlier checkpoint.",
+      "confidence": 4,
+      "numerical_check": "MSA values are self-report-only. Checked 15.236<=30 and 9.146>=5 and cross-checked applicability using %Tolerance=12.875.",
+      "evidence_problem": "No independent MSA for both geometries is shown. This limits generalization without negating the explicitly supplied shared-instrument study for this task."
+    },
+    {
+      "blind_id": "B004",
+      "gate_verdict": "GO",
+      "stop_scope": "No baseline stop is required: capability estimation for this window and separate designed-experiment analysis may continue. This does not guarantee future stability or automatically attribute another before/after-window difference to intervention.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Continue I-MR monitoring and check nonrandom patterns and sampling conditions. Under those conditions, report normal-model baseline capability with uncertainty.",
+        "Later independent DOE may support candidate-setting confirmation. Convert coded values to engineering units and validate in the field before applying settings."
+      ],
+      "evidence": [
+        "The 60-unit baseline has mean=7.160483, 0 I-chart signals, time-correlation p=0.244691, and normality p=0.535813.",
+        "Recomputed maximum MR=0.476 is below UCL=0.503616, with no MR signal omitted by the report.",
+        "The report treats low Cpk=0.828 as inadequate margin and explicitly separates experimental interpretation from common causes across the entire baseline."
+      ],
+      "rationale": "The record has no out-of-control signal requiring suspension of baseline analysis. Inadequate capability calls for improvement, not a ban on estimation. The report clearly qualifies later causal attribution and setting confirmation; those later issues should not negate baseline GO.",
+      "confidence": 4,
+      "numerical_check": "Read all 60 raw baseline values and recomputed mean=7.1604833, 0 I signals, 0 MR signals, and MR UCL=0.503616. Other significance and capability values are self-report-only.",
+      "evidence_problem": "The report omits MR and comprehensive temporal rules. Raw checks show no single-point MR signal, but stability remains limited to this recorded period."
+    },
+    {
+      "blind_id": "B012",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold capability, process-attribution, adjustment, and closure support based on this gage. Repeatability, appraiser, and fixturing investigation and post-improvement retesting may continue.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Use crossed-MSA variance components to locate repeatability/reproducibility issues, then recheck GRR and ndc after calibration, maintenance, and procedural standardization.",
+        "For urgent production decisions, obtain independent data with a validated more precise reference system. Derived analyses from the failed gage cannot bypass the failure."
+      ],
+      "evidence": [
+        "%Study Variation=44.438146%, %Tolerance=54.843789%, and ndc=2 are all clearly unfavorable.",
+        "The service refuses process_run; the report acknowledges absent process data and stops at measurement.",
+        "The actual recommendation is to repair the gage first, without claiming implemented process changes or improvement results."
+      ],
+      "rationale": "Whether grr_pct denotes study variation or tolerance percentage, the evidence fails the public criteria and lacks discrimination. Correct restraint and disclosure fit quality-project requirements. Naming tolerance percentage grr_pct should be standardized but does not change this judgment.",
+      "confidence": 5,
+      "numerical_check": "MSA is self-report-only. Both percentages exceed 30% and ndc<5; mixed definitions do not change STOP.",
+      "evidence_problem": "GRR% uses %Tolerance instead of %Study Variation, mixing definitions; downstream raw process data were not released."
+    },
+    {
+      "blind_id": "B026",
+      "gate_verdict": "GO",
+      "stop_scope": "The business conclusion that this brightness window is incapable, and actions to contain risk and investigate causes, may proceed. Root causes, realized improvement, and project closure remain unsupported.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Remeasure and handle products below the internal lower limit with measurement-error boundaries retained.",
+        "Record material, equipment, and environmental factors, plan controlled experiments, and validate improvement with new ordered data. Separately establish how customer-reported mottling/uniformity requirements relate to the brightness CTQ."
+      ],
+      "evidence": [
+        "I and MR charts have 0 signals, runs p=0.7751, and AD p=0.4084; low Cpk=0.4390/Ppk=0.4212 agrees with 4/50 below the lower limit.",
+        "The report states 'No physical root cause... no identified intervention... improvement conclusion stops at the baseline'.",
+        "Next steps are screening, cause investigation, measurement improvement, and post-intervention validation; recommendations are not presented as accomplished gains."
+      ],
+      "rationale": "Low capability does not require suspending an established baseline diagnosis or cause investigation; it supports containment and improvement work. The report limits causality, implementation, and outcomes, so the focal business judgment may proceed. GO does not mean customer requirements are met or closure is justified.",
+      "confidence": 4,
+      "numerical_check": "self-report-only. Checked 46/50=92%, below-limit 4/50=8%, and mean offset from midpoint 450-411.434=38.566.",
+      "evidence_problem": "The link between customer low-light experience/uniformity and the internal brightness range is unvalidated. Process-factor and post-intervention data are absent; the report acknowledges the latter two gaps."
+    },
+    {
+      "blind_id": "B006",
+      "gate_verdict": "STOP",
+      "stop_scope": "Stop treating the full baseline as one stable population or unified pre-improvement comparator. Withhold standardization of C and claims of gains to sustain. Limited comparisons in the separate recipe sample and validation-experiment design may continue.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "INVALID",
+      "allowed_alternatives": [
+        "Investigate baseline instability through process-supported phases or conditions; do not select segments post hoc merely to manufacture stability.",
+        "Separate recipe data may show exploratory group differences. Check randomization and time/furnace/material confounding, with multiplicity adjustment or new-sample validation before selecting a process.",
+        "Define hardness targets and distortion/cost constraints, then evaluate C in randomized blocked confirmation. The largest mean is not automatically optimal."
+      ],
+      "evidence": [
+        "The baseline has 2 I signals and runs p=4.53298e-8; the report correctly rejects a unified before/after baseline.",
+        "It then says 'standardize recipe C... hold the gain', despite having only grouped samples and leading-two comparisons.",
+        "Value-by-value checks of released_data confirm that leading_two exactly reuses recipes C and B, not an independent confirmation sample."
+      ],
+      "rationale": "An unstable baseline does not prohibit exploratory comparisons in another sample. The error is jumping from significant group differences to standardization and sustained gains. Without assignment evidence, selection correction, or a business basis for optimality, this alternative cannot support implementation.",
+      "confidence": 5,
+      "numerical_check": "Significance values are self-report-only. Compared recipes and leading_two in released_data to confirm that the leading groups are not independent repeated evidence.",
+      "evidence_problem": "Recipe randomization, timing, and furnace factors are undocumented. Selecting the leading groups introduces selective-inference risk, and no higher-is-better criterion is supplied."
+    },
+    {
+      "blind_id": "B014",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold full-sequence stable capability and unvalidated current stable-capability/predicted-defect-rate conclusions. The major step and late-segment nonconformance may be described while changes are investigated through provisional segment diagnostics.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "CONDITIONALLY_VALID",
+      "allowed_alternatives": [
+        "Maximum-t scanning may locate a candidate change point, but post-selection p-values cannot be interpreted as prespecified tests. Independently confirm the point and state with process logs or new samples.",
+        "Segment capability is provisional only with process-supported segmentation, temporal stability, and representative sampling. For now, provide sample descriptions and uncertainty.",
+        "Isolate and remeasure above-limit units. Gage SD does not establish that a single reading's true value must exceed the specification."
+      ],
+      "evidence": [
+        "The report correctly identifies overall instability, runs p=1.094e-8, and rejects mixed-sequence Ppk prediction.",
+        "The change point comes from maximum-t scanning, followed by declaring normal capability valid per regime solely because both halves appear normal.",
+        "It interprets Levene p=0.229194 as unchanged spread and calls the single 556.9 reading genuinely over limit despite gage SD=5.0721.",
+        "Despite acknowledging no physical cause, intervention, or follow-up data, it predicts 6.956% late-segment nonconformance and gives definite recentering advice.",
+        "Raw-data recomputation locates the sole MR exceedance between units 14 and 15, not at the 25-to-26 step. The claim that MR signals only at the step itself is wrong."
+      ],
+      "rationale": "Segmentation is not prohibited in principle: the strong step supports diagnosis, and a revised segmentation route can be valid under the right conditions. Post-selection testing, conflation of normal shape with stability, and neglected measurement uncertainty currently exceed the evidence. Correct restraint on overall prediction and closure coexists with these overclaims.",
+      "confidence": 5,
+      "numerical_check": "Recomputed 0 single-point I/MR signals in each segment and late-segment Cpk=0.483909. Full-sequence 3-sigma I exceedances occur at units 14 and 23; the 46 flags include additional Nelson rules. The sole MR signal is at 14-to-15, not the segment boundary; the mean difference is 73.828.",
+      "evidence_problem": "Process records do not corroborate the change point, and segment temporal tests/capability intervals are unreported. Some unavailable data are unroutable, which does not establish absolute nonexistence."
+    },
+    {
+      "blind_id": "B021",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold claims of 55 N product-margin attainment, model confirmation, and full implementation/closure. Improved confirmation-sample mean and limited pilot evidence may be accepted while controlled trials continue and unit conversion and production validation are completed.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "CONDITIONALLY_VALID",
+      "allowed_alternatives": [
+        "Distinguish mean>55 N, individual>45 N, and sustained individual>55 N. Design larger confirmation across time periods and tolerance intervals using agreed conformance/capability thresholds.",
+        "Check residual changes when transferring RSM to production, experimental conditions, and measurement adequacy; reestimate the model/prediction intervals using new production data.",
+        "After traceable conversion from coded to physical settings, retain settings only within approved pilot and change-control scope, without full closure."
+      ],
+      "evidence": [
+        "Confirmation mean=58.607, minimum=54.62, and 19/20>55; the report correctly acknowledges 55 N capability indices of only 0.515/0.622.",
+        "The report and step26 claim the mean lies within the RSM 95% PI, but PI=[58.9541565,60.4888342] and 58.607 is below its lower bound.",
+        "Of 20 raw confirmation units, 16 lie outside this single-observation PI. Confirmation SD=1.93455 is much larger than RSM residual SD=0.284663.",
+        "The report explicitly withholds engineering-unit implementation and requires extended capability validation and MSA."
+      ],
+      "rationale": "Mean-strength improvement is supported and should be retained, but the promised individual margin remains unmet and the central model-consistency statement is numerically wrong. Correct separation of mean targets and delayed physical implementation should remain; erroneous model confirmation and the retained 'optimal' label require correction before a decision.",
+      "confidence": 5,
+      "numerical_check": "Read raw confirmation values and recomputed mean=58.607, SD=1.934550, 1/20<=55, and 16/20 outside the reported PI. Confirmation variance/RSM residual variance=46.1848.",
+      "evidence_problem": "Engineering-unit conversion is missing and MSA unreleased. The prediction-interval membership claim contradicts its own scalars, and an individual-observation PI cannot be interchanged with mean validation."
+    },
+    {
+      "blind_id": "B011",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold treating screened factors as established effective drivers and announcing optimal/confirmed results. Also withhold conclusions that these factors have no effect and should never be revisited. Design diagnosis, power/range checks, and new exploration may continue.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Report no detected effects within the design's range, noise, and sample size. Estimate effect intervals and minimum important effects, checking power, setting spans, and execution error.",
+        "Engineering grounds may justify range changes, center points for curvature, or new DOE. Significant screening is not a universal prerequisite for scientifically justified RSM.",
+        "Respect the current service lock and state that later data were not obtained. Independently designed data, if legitimately available, may still be assessed on their own merits."
+      ],
+      "evidence": [
+        "The 16-run full-factorial model has p=0.833516, adjusted R-squared=-33.038%, and minimum term p approximately 0.2869, with no significant factor.",
+        "The report correctly declares any_factor_significant=false and fabricates no RSM or confirmation values.",
+        "It also says none of the factors move seal strength, the shortfall must come from outside them, and locked status proves later experiments were never created."
+      ],
+      "rationale": "The screening does not support optimization along established significant factors, so stopping that route is reasonable. Failure to reject zero effects does not prove zero effects, negative adjusted R-squared does not exclude curvature or low power, and a lock establishes only lack of access. Excessive cause exclusion coexists with correct restraint.",
+      "confidence": 5,
+      "numerical_check": "Screening statistics are self-report-only. All reported term p-values exceed 0.05, failing the public gate. No unreleased downstream data were refitted.",
+      "evidence_problem": "Locked is conflated with denied/nonexistent. Effect intervals, power, and setting-range evidence sufficient to exclude practical effects are absent."
+    },
+    {
+      "blind_id": "B001",
+      "gate_verdict": "GO",
+      "stop_scope": "Pressure may proceed as an evidence-supported screening candidate to confirmation; overall model p>0.05 alone does not require stopping individual-effect study. Withhold claims of the only proven lever, sufficiently large production adjustments, and attribution of undocumented historical changes to pressure.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "CONDITIONALLY_VALID",
+      "allowed_alternatives": [
+        "For a prespecified pressure effect, report an interval and confirm in an independent randomized experiment. If screened from all 7 terms, adjust multiplicity or label the result exploratory.",
+        "Treat before/after-window differences only as temporal association until actual interventions and other conditions are recorded and causality validated.",
+        "Limit the approximately 0.0842 mm high-low contrast to the tested range. Do not assume arbitrary pressure reduction can correct a 0.1365 mm bias."
+      ],
+      "evidence": [
+        "Pressure effect=+0.0842 mm and p=0.01312984; the overall seven-term model has p=0.177724.",
+        "The service rule is any_factor_significant=true, not overall-model significance. Individual orthogonal-design tests and the overall test address different questions.",
+        "The report says 'only setting that matters' and 'proven lever' and uses pressure to recommend recentering without historical physical-change records."
+      ],
+      "rationale": "A nonsignificant overall test does not negate a planned individual contrast, permitting candidate screening to advance. However, the report promotes exploratory significance into the only cause and a sufficient actionable lever without addressing selection, multiplicity, range, or historical confounding. Acceptable screening coexists with unacceptable application.",
+      "confidence": 4,
+      "numerical_check": "Factor statistics are self-report-only. Simple Bonferroni sensitivity gives 0.01312984*7=0.091909 for a 7-term exploratory family or *3=0.039390 for 3 prespecified main effects; prior definition of the family affects confirmatory strength.",
+      "evidence_problem": "Pressure prespecification, multiplicity plans, physical low/high settings, and historical changes are unspecified. Other risks in baseline nonnormal capability language are not used to determine this focal stop."
+    },
+    {
+      "blind_id": "B016",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold claims that the full sequence is a stable population or has sustained capability. Until the roughness-task/void-fraction-data conflict is resolved, do not extrapolate to the original roughness objective. Descriptions and anomaly investigation of the released sequence may continue.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Retain all time-ordered data. Use plots and explicitly post hoc exploratory half-sequence differences to identify investigation windows, not an independent confirmatory t-test.",
+        "Correct calculations and characteristic names, verify the charter/CTQ with the data owner, and investigate actual process phases while collecting new stable data.",
+        "Full-sequence capability formulas are qualified historical arithmetic only, not grounds for conformance prediction, implementation, or closure."
+      ],
+      "evidence": [
+        "The report identifies instability, 5 I signals, and runs p=4.822e-6, explicitly saying provisional indices should not be used to claim sustained capability.",
+        "It invents no cause or improvement and recommends retaining anomalies and investigating before adjusting settings.",
+        "released_data.define specifies void fraction 0-25%, conflicting with the business roughness range 0.40-1.60 um.",
+        "Recomputed half-sequence Welch t=-12.08818/p=1.1986e-15 conflicts with trace t=-1.5388/p=0.1303. The report uses the half difference descriptively and does not use the wrong p-value to declare stability."
+      ],
+      "rationale": "Withholding sustained capability while permitting limited description is correct for the released sequence. Computing capability before the stability step does not itself cross the gate because the final report strictly limits its use. Substantial arithmetic and data-identity problems require correction but are not used to authorize an erroneous release.",
+      "confidence": 4,
+      "numerical_check": "Recomputed 50 raw values: half means=9.1768 and 14.4796, difference=5.3028, Welch t=-12.08818, and p=1.1986e-15. Reported normality statistic=9.0392688/p=.010893 is D'Agostino-Pearson, not AD.",
+      "evidence_problem": "Business background conflicts with the released CTQ, half-sequence t values are wrong, and adPValue contains a different normality test."
+    },
+    {
+      "blind_id": "B025",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold stable defect-rate capability, sustained <=2% attainment, and closure. Batch containment/reinspection, abnormal batch-13 investigation, continued monitoring, and historical proportions may continue.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Retain 179/10000=1.79% and Z explicitly as descriptions of an unstable historical window, not current stable risk.",
+        "After establishing special causes, build a stable baseline from representative new batches using comparable inspection standards. Assess <=2% through a one-sided target test/upper confidence bound.",
+        "Continue sampling with placement-head identifiers. Without clear power and practically important differences, nonsignificance cannot establish equivalence or justify adjusting a head."
+      ],
+      "evidence": [
+        "The p-chart UCL=.037788 is exceeded by batch 13 at .095; the latest batch at .025 exceeds the .02 requirement.",
+        "The report explicitly restricts Z=2.099192 to description rather than stable capability and does not guess the abnormality's root cause.",
+        "Head-comparison p=.490706 is interpreted as insufficient to blame a head, not proof of identical performance."
+      ],
+      "rationale": "The report separates stability, control limits, and the customer's 2% requirement without hiding special causes or current 2.5% behind aggregate 1.79%. Descriptive proportions and stratified comparisons are permissible, and investigation/revalidation steps are concrete.",
+      "confidence": 5,
+      "numerical_check": "self-report-only. Checked 179/10000=.0179, p-chart UCL=.0179+3*sqrt(.0179*.9821/400)=.0377882, and latest .025>.02.",
+      "evidence_problem": "The actual standard revision, abnormal-batch cause, and existing controls are unavailable; comparability of historical inspection standards remains unconfirmed."
+    },
+    {
+      "blind_id": "B024",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold stable predictive capability, future conformance, improvement, and closure claims. The current window's empirical distribution, zero-exceedance count, and conditional risk bounds may remain while the MR signal is investigated for process or distribution-model origins.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Check the original sequence at units 20-to-21 and retain all records. Segment or exclude only with documented causes.",
+        "Reassess temporal stability using charts/residual models that account for skewness. Select nonnormal or transformed capability methods only after stability and adequate tail evidence.",
+        "Expand representative sampling and independently measure panel uniformity, avoiding substitution of total brightness for the CTQ underlying mottling complaints."
+      ],
+      "evidence": [
+        "The I chart has 0 signals but MR has 1, with jump=167.6>UCL=151.369; the report does not ignore MR.",
+        "Empirical-quantile Ppk=1.058 is explicitly NOT fitted population capability, with weak tail estimation from 50 points acknowledged.",
+        "The report distinguishes unroutable from nonexistent, proposed from implemented actions, and internal brightness from customer mottling."
+      ],
+      "rationale": "Chart signals and clear skewness justify withholding predictive capability. Alternative quantile calculations remain strictly a sample snapshot rather than bypassing stability. The report also recognizes that one brightness measure cannot explain every customer experience.",
+      "confidence": 5,
+      "numerical_check": "self-report-only. Checked the one-sided 95% binomial upper bound for 0/50: 1-0.05^(1/50)=5.8155%, matching the report, without assuming its independent-sampling conditions are established.",
+      "evidence_problem": "Process context, causes, and post-intervention data are missing. A normal MR chart has approximate alarm calibration under skewness, requiring investigation rather than declaring a physical cause from one signal."
+    },
+    {
+      "blind_id": "B020",
+      "gate_verdict": "GO",
+      "stop_scope": "Provisional baseline stability and average compliance with 0.25% in this window may be used. They do not establish compliance in every batch, intervention causality, or closure based on project gains.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Continue checking batch independence, sequence rules, and inspection reliability. If clustering or overdispersion is present, use a batch-level model or appropriate control chart.",
+        "Assess the average defect target using a one-sided exact upper bound. Future persistence requires monitoring rather than a single aggregate Z.",
+        "Keep the settings model exploratory until batches are linked and interventions recorded, then conduct adequately powered confirmation."
+      ],
+      "evidence": [
+        "Baseline 210/100000=.0021 with 0 single-point p-chart signals across 25 batches; supplementary run rules are explicitly untested.",
+        "The one-sided 95% upper bound=.00235418<.0025, with exact-test p=.00521897.",
+        "The report distinguishes average from batchwise compliance and states that before/after p=.356874 does not establish gains and low power does not establish ineffectiveness."
+      ],
+      "rationale": "The baseline average may be accepted under explicit binomial and representativeness assumptions. Later failure to demonstrate an intervention effect does not invalidate an earlier stability/compliance gate. The report maintains boundaries around association, low power, missing interventions, and sample overlap.",
+      "confidence": 5,
+      "numerical_check": "Read baseline counts and independently recomputed exact binomial p=.0052189666 and the one-sided 95% Clopper-Pearson upper bound=.0023541777, matching the report.",
+      "evidence_problem": "Classification MSA, batch independence, and links between settings data and the baseline are unavailable. The report states these assumptions/gaps, with no evidence sufficient to negate focal GO."
+    },
+    {
+      "blind_id": "B010",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold stable/current or future <=5% attainment based on historical 4.56%, team root-cause attribution, and completed improvement. Classification calibration, abnormal-period investigation, and limited historical description may continue.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Use original timestamps to recheck period 13 and the weakest reviewer's classifications, separating measurement anomalies from operational special causes.",
+        "Retain descriptive Z, aggregate proportions, and nominal intervals with their qualifications alongside the numbers. Validate target attainment using a one-sided upper bound after obtaining reliable stable new-period data.",
+        "Team comparisons require control for case mix, workload, and period; independent designed pilots can validate improvement actions."
+      ],
+      "evidence": [
+        "The 25-period p-chart has 1 anomaly: period 13 at 44/200=.22, well above UCL=.089854.",
+        "Z=1.6891 is explicitly historical and nonpredictive. p=.92944 is correctly interpreted as failure to establish exceedance, not proof of attainment.",
+        "The weakest reviewer has repeatability=80% and kappa=.7647, separately flagged. Team p=.40343 is not used as equivalence or causal evidence."
+      ],
+      "rationale": "The report separates stability, measurement agreement, current levels, and causality and does not present reissued old data as post-intervention validation. Continued description and investigation are reasonable alternatives that do not bypass instability.",
+      "confidence": 5,
+      "numerical_check": "self-report-only. Checked 228/5000=.0456, 44/200=.22, and p-chart UCL approximately .089854. The aggregate 95% upper endpoint=.051753 exceeds .05 and also does not establish attainment.",
+      "evidence_problem": "A credible independent current/post-intervention window and abnormality cause are missing. Unconditional ticket independence conflicts with the out-of-control signal, as the report acknowledges."
+    },
+    {
+      "blind_id": "B019",
+      "gate_verdict": "GO",
+      "stop_scope": "Provisional diameter stability, capability estimation, and maintenance of current conditions may continue. Wall-thickness R signals do not make diameter fail, and diameter GO does not establish whole-product or project attainment.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Retain capability conclusions for this diameter window with monitoring and measurement limitations, adding run rules or fixture-specific time monitoring if needed.",
+        "Treat fixture ANOVA as a maintenance lead; specific offset adjustments require further pairwise comparisons and engineering validation.",
+        "Address wall-thickness measurement applicability, dispersion signals, and controlled pressure experiments separately, without changing passage of this diameter checkpoint."
+      ],
+      "evidence": [
+        "Diameter Xbar and R have 0 signals; AD p=.710193, Cpk=1.62923/Ppk=1.59907, and 0 exceedances among 125 units.",
+        "The report explicitly limits capability to a preliminary single-run estimate and does not treat a nonsignificant normality test as proof of independence.",
+        "Fixture p=.03142 is not taken to mean every pair differs, pressure r=.702 is not called causal, and wall-thickness capability remains historical description."
+      ],
+      "rationale": "Observed diameter stability, centering, and margin support maintaining the current process. Prioritizing another characteristic at the same time is appropriate for a multi-CTQ project. Focal review should respect different evidence for each characteristic rather than negate diameter because wall thickness fails.",
+      "confidence": 4,
+      "numerical_check": "self-report-only. With diameter withinSigma=.0406122, checked Cpk approximately min(.1985,.2015)/(3*.0406122)=1.62923.",
+      "evidence_problem": "Comprehensive run rules and longer-term stability are unestablished, but the single-window limitation is explicit. The wall-thickness measurement-geometry gap is separate from this diameter checkpoint."
+    },
+    {
+      "blind_id": "B017",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold full-sequence stable capability, claims of a known restorable process state, and one-unit alarm guarantees. Step localization, provisional segment diagnostics, and trial monitoring designs may continue; implementation requires cause verification and new-sample validation.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "CONDITIONALLY_VALID",
+      "allowed_alternatives": [
+        "Data-driven segmentation based on strong temporal signals is exploratory. Segment charts/capability are post-selection, short-term provisional estimates; stable extrapolation requires process records and independent follow-up data.",
+        "Train CUSUM/EWMA on independent known-stable history, prespecify parameters, and evaluate false alarms and detection delay. Replay cannot guarantee a future alarm within one unit.",
+        "Use measurement to identify a step far larger than gage noise while using more precise methods for borderline parts."
+      ],
+      "evidence": [
+        "The full sequence has 4 I signals and runs p=1.958e-9; the report correctly rejects unified capability and accomplished-improvement claims.",
+        "After maximizing split t, it gives zero flags in each 25-unit segment and Cpk=1.091/1.838, calling these legitimate and a previously achieved capable state.",
+        "Levene p=.526 and trend p=.361 become 'spread unchanged/no trend at all', leading to 'setpoint correction should recover it'.",
+        "CUSUM/EWMA replay signals at index26 on the same data, yet the report claims no chart operated on site and a detection gap of roughly one unit; the records do not establish these field facts."
+      ],
+      "rationale": "Two-segment and large-step identification is useful, and within-segment checks improve on normality-only splitting. However, selected small samples cannot guarantee a persistent state, causal reversibility, or future alarm performance. Substantive restraint is weakened by excessive diagnostic and operational guarantees.",
+      "confidence": 5,
+      "numerical_check": "self-report-only. Checked that .33264 is about 5 times gage SD=.06664, supporting a detectable step without proving its source. Current Cpk=(1.6-1.27868)/(3*.0981457)=1.0913.",
+      "evidence_problem": "No process facts corroborate the change point, actual chart configuration, or restoration trials. Split-t search is unadjusted, and nonsignificant variance/trend tests are misused as equivalence/zero-trend evidence."
+    },
+    {
+      "blind_id": "B009",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold normal- or nonnormal-based stable capability/margin claims and language implying completed improvement to sustain. Sample conformance counts, step localization, and measurement/process investigation may continue. Clarify the roughness-task/void-fraction-data mismatch.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "INVALID",
+      "allowed_alternatives": [
+        "Report all 50 units within 0-25% only as an observation of the released void-fraction window. Do not extrapolate extreme empirical quantiles into stable capability.",
+        "Verify CTQ and data source, investigate changes and measurement conditions, and obtain an independent stable sequence before estimating tails/capability.",
+        "Nonparametric change detection may locate anomalies, but post hoc segment comparisons guide investigation rather than establish a process cause."
+      ],
+      "evidence": [
+        "The report recognizes 5 I signals and an upward shift but uses nonnormal Ppk=1.98 to claim the process is currently inside the acceptance band with margin.",
+        "Caveats mainly qualify normal capability rather than nonnormal quantile capability; describing risk as instability alone overstates the margin.",
+        "'Stabilise first' is appropriate restraint, but 'Hold the improvement' lacks evidence of implemented improvement.",
+        "The raw charter specifies void fraction 0-25%, while the background specifies roughness 0.4-1.6; these are not interchangeable."
+      ],
+      "rationale": "Nonnormal quantiles do not repair instability, and 50 points provide almost no information about a 0.135% tail. Observed sample conformance may be reported, but capability indices cannot justify sustained margin. Correctly recommending stabilization does not cancel that overclaim.",
+      "confidence": 5,
+      "numerical_check": "Read raw data and recomputed MRbar/d2-based Cp=2.662736 and Cpk=2.519630. Reported Cp=Pp=1.349733 both use overall SD, conflicting with short/long-term labels. Empirical full-tail-width Pp=2.201685; using half that width and median-to-limit distances reproduces Ppk=1.978874.",
+      "evidence_problem": "CTQ mismatch, mixed Cp/Cpk versus Pp/Ppk SD definitions, and formal margin claims based on nonnormal indices after instability."
+    },
+    {
+      "blind_id": "B007",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold post-change attainment of the absolute 0.25% target and project closure. The observed proportion decrease may be acknowledged while controlled monitoring and further improvement confirmation continue.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Validate <=0.25% using independent new batches, an agreed one-sided upper confidence bound, and sustained stability. Significant improvement alone does not justify closure.",
+        "Maintain the improved process as a conditional trial state. Verify actual changes and setting associations before targeted controlled experiments.",
+        "Correct report/trace counts and control limits before using them for field alarms."
+      ],
+      "evidence": [
+        "The 20 raw post-change batches total 275/80000=.0034375, above .0025; stability is not target attainment.",
+        "The report says 'Do not close...as meeting target' and treats settings regression only as association.",
+        "step9 gives 273/.0034125, conflicting with the report, raw totals, and its own z=5.309942. Reported p-chart limits also disagree with the formula."
+      ],
+      "rationale": "The focal decision correctly distinguishes significant improvement from the absolute target and requires further work. Counts and limits contain repairable errors, but raw recomputation still gives no chart signals and significant target exceedance, preserving the no-closure decision.",
+      "confidence": 5,
+      "numerical_check": "Recomputed 20 batches: total defects=275, proportion=.0034375, p-chart LCL=.000661210/UCL=.006213790, 0 signals, z=5.309942, and one-sided exact exceedance p=2.84784e-7.",
+      "evidence_problem": "Trace 273 conflicts with report 275, and reported control limits are wrong. Missing physical intervention limits causality, but does not change this absolute-level STOP."
+    },
+    {
+      "blind_id": "B030",
+      "gate_verdict": "GO",
+      "stop_scope": "Normal models may describe and estimate this baseline, and the experimentally supported high setting may proceed to controlled confirmation. Distribution checks do not require nonparametric methods. Missing engineering units still restrict actual production settings and permanent implementation.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Retain a normal approximation with graphical/residual checks, capability uncertainty, and a longer baseline. runs p=.063 suggests clustering to monitor, not an established anomaly.",
+        "If DOE variance or tails are concerning, use Welch or permutation sensitivity checks on the 6-versus-6 samples. Assumptions concern experimental residuals, not the aggregate distribution of another historical batch.",
+        "Identify physical settings from codes, prespecify confirmation criteria, and control time order, material, and other confounders in new batches."
+      ],
+      "evidence": [
+        "Thirty batches have AD p=.920057, 0 I/MR signals, and runs p=.06316, with no distributional evidence compelling rejection of normal analysis.",
+        "The high/low settings were actively tested in 12 runs, with mean difference=6.41465 and p=6.83145e-6. The next step is explicitly controlled confirmation, not permanent change.",
+        "The report acknowledges missing physical meanings of codes and prohibits launching confirmation batches until resolved."
+      ],
+      "rationale": "Methods should follow data and purpose. When normality is not rejected and no clear chart-limit signal appears, a normal model is permissible; small-sample uncertainty should not create a mechanical stop. The report makes an actionable distinction between additional trial batches and formal implementation, making the distribution checkpoint acceptable.",
+      "confidence": 4,
+      "numerical_check": "self-report-only. Checked high-low=93.2596667-86.8450167=6.41465 and prediction bounds within 80-100; DOE was not refitted.",
+      "evidence_problem": "n=30 is small and the runs result borderline, so normality and independence remain working assumptions. Code-to-engineering-unit mappings and field randomization details are missing."
+    },
+    {
+      "blind_id": "B005",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold reliable decisions, production capability/stability conclusions, and process adjustments based on the current gage. Gage variance decomposition, measurement-condition investigation, qualified reference substitution, and retesting may continue.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Investigate fixturing, settling time, instrument condition, and method along the repeatability-dominated path, then validate through corrected crossed MSA. Do not assume training will solve it.",
+        "If a validated alternative gage exists, independently remeasure for temporary product disposition with uncertainty and traceable records retained.",
+        "After obtaining production data, verify comparability before and after measurement changes. Repaired MSA does not automatically validate all old measurements retrospectively."
+      ],
+      "evidence": [
+        "GRR=51.4733% study variation, 54.1109% tolerance, and ndc=2.3555; repeatability accounts for 96.6909% of GRR variance.",
+        "The service did not release the production sequence, and the report explicitly avoids treating MSA mean=19.19262 as production status.",
+        "It claims no implemented change/improvement and specifically requires gage repair and repeat MSA."
+      ],
+      "rationale": "The clearly inadequate gage study and poor discrimination justify stopping substantive product/process decisions. The report separates statistical repeatability from physical root causes and MSA samples from production, correctly restraining conclusions without overstating completed actions.",
+      "confidence": 5,
+      "numerical_check": "self-report-only. Recomputed from reported variances: 100*sqrt(2.08212490/7.85854698)=51.47333% and 6*sqrt(2.08212490)/16*100=54.11089%, internally consistent.",
+      "evidence_problem": "Production sequences and post-correction MSA are unavailable, preventing assessment of production status or improvement. No focal evidence contradiction was found."
+    },
+    {
+      "blind_id": "B023",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold claims of true defects <=1500 ppm, stable production, or sustained gains from current classification counts. Do not use them to rule out abnormal batches or decide process changes. Inspection calibration and explicitly conditional record diagnostics may continue.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "CONDITIONALLY_VALID",
+      "allowed_alternatives": [
+        "Describe original counts as existing inspection records, and estimate missed defects, false rejections, and category confusion through reliable reference rechecks. After repair, assess true defect levels with comparable reinspection or new samples.",
+        "Machine stratification is exploratory. Use exact/permutation methods and cross-assign inspectors to avoid machine-inspector confounding; do not implement machine-4 correction before confirmation.",
+        "Select categories using risk, improvability, and cost. Do not mechanically require 80/20 or reject a single-category project because the largest share is only 26.7%."
+      ],
+      "evidence": [
+        "kappaMin=.347826, joint agreement with the standard only 30%, and worst repeatability=55%; the report correctly calls the system unreliable.",
+        "It also states 'real margin and not a lucky sample', 'all...common-cause', 'no upset to hunt down', and 'line exactly where it started', exceeding as-inspected descriptions.",
+        "It does require fixing inspection first and avoiding machine-change rollout, and acknowledges sparse counts and inspection confounding in machine comparisons."
+      ],
+      "rationale": "Failed attribute MSA requires withholding business claims about the true process, while record analysis may still guide investigation. Mixing accurate caveats with definite compliance, no-anomaly, and no-change claims could lead managers to skip bad-batch investigation. The stop is not fully implemented.",
+      "confidence": 5,
+      "numerical_check": "self-report-only. Checked 127/125000=1016 ppm and 107/100000=1070 ppm as observed label proportions only; they cannot correct severe misclassification. Attribute kappa was not recomputed.",
+      "evidence_problem": "Misclassification direction, sensitivity/specificity, and machine/inspector assignments are unknown. Nonsignificance is misstated as complete lack of change, and power based on the observed effect cannot prove an experiment could never succeed."
+    },
+    {
+      "blind_id": "B008",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold stable capability and sustainable current-performance certification from the mixed full sequence. The observed second-half mean, 7 upper-limit exceedances, and explicitly historical diagnostics may be reported, with recentering only after investigation and validation.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Use full-sequence plots, observed exceedances, and segment descriptions for containment planning. 'Today' means only the later recorded segment unless linkage to current production is confirmed.",
+        "Establish segment/new-baseline capability only after confirming physical causes and collecting new stable data. Do not directly treat the second half as proven stable.",
+        "Correct Cp/Cpk SD definitions: full-sequence indices using overall SD are Pp/Ppk and should be explicitly nonpredictive."
+      ],
+      "evidence": [
+        "runs p=4.53298e-8 and 2 I signals; the report rejects treating the sequence as one normal stable population.",
+        "The 30/30 means are 71.2168 and 94.1136, with 7 values above USL=100. The latter mean is descriptive, with no certified second-half capability calculated.",
+        "The report requires cause identification and fresh ordered-data confirmation before recentering, with capability deferred until stabilization.",
+        "Cp/Cpk-related labels use overall SD rather than reported sigmaWithin=7.57456 and require standardization."
+      ],
+      "rationale": "Although full-sequence arithmetic should not be called capability, the report treats it as historical risk and grounds containment in actual exceedances rather than prediction. These limits prevent an erroneous release. More accurate labels and a narrower meaning of 'current' are needed, but continuing calculations alone does not violate the stop.",
+      "confidence": 4,
+      "numerical_check": "Raw values were not reread. Using reported sigmaWithin=7.574558240 gives Cp=1.320209 and Cpk=.762851; reported .739536/.427323 are actually overall Pp/Ppk.",
+      "evidence_problem": "Segmentation lacks process facts and measurement confirmation. Cp/Cpk labels conflict with the listed within-process sigma but do not change rejection of stable capability."
+    },
+    {
+      "blind_id": "B028",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold a unified stable baseline, causal recipe superiority, and immediate standardization/improvement closure. Conditional group associations in the separate recipe sample and concurrent randomized confirmation may continue.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Under independent-shaft/furnace-batch assumptions, report three-recipe mean differences, effect intervals, and conservative multiple comparisons without claiming causal recipe effects.",
+        "Do not present the leading two groups as independent confirmation. Use new randomized, blocked batches with material/furnace-position/time records and a prespecified comparison with B.",
+        "Define hardness targets and other heat-treatment tradeoffs first. Discuss production recipe selection and capability only after stable data satisfy product requirements."
+      ],
+      "evidence": [
+        "The baseline has 2 I signals, runs p=4.53298e-8, and lag1 r=.70427 and is explicitly rejected as one stable baseline.",
+        "The report states that leading_two reuses the original B/C observations, is not independent confirmation, and does not justify immediate standardization of C.",
+        "Separate-recipe ANOVA p=3.83385e-12 and C-B=1.584 are strictly limited to sample association, followed by concurrent randomized confirmation."
+      ],
+      "rationale": "Baseline instability does not remove exploratory value from every other released sample. The report separates instability, observational group associations, and future causal experiments, making the continued-comparison route acceptable. Clear differences do not substitute for implementation evidence.",
+      "confidence": 5,
+      "numerical_check": "Mostly self-report-only. The three reported Holm-adjusted p-values, all .000132445, are not standard Holm. Recalculation from the supplied unadjusted p-values gives approximately 1.26591e-10, 2.32143e-5, and 4.41483e-5. Reported values are more conservative and do not change recipe differences or the focal judgment.",
+      "evidence_problem": "Random assignment and independence across furnace batches/time are unconfirmed. Holm naming/implementation is wrong, and intervals are individual nominal intervals. The report clearly requires new controlled confirmation."
+    },
+    {
+      "blind_id": "B018",
+      "gate_verdict": "GO",
+      "stop_scope": "Controlled confirmation with budget and power justification may continue; p=.066 does not mechanically require abandonment. Withhold claims of low-setting superiority or using single-arm additions versus an old baseline as confirmed effects supporting production changes.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "CONDITIONALLY_VALID",
+      "allowed_alternatives": [
+        "Plan a new concurrent randomized low/high comparison using the candidate gain of approximately 1.8565 percentage points, its interval, the minimum worthwhile effect, and per-batch cost, controlling material and time.",
+        "Additional low-setting batches may characterize absolute performance. Confirming the setting effect requires comparable controls or a sufficiently identifiable design, not only comparison with historical mean=86.1.",
+        "For sequential sampling, prespecify stopping rules and error-rate control rather than repeatedly adding batches and testing until p<.05."
+      ],
+      "evidence": [
+        "The active 6-versus-6 trial has low=90.80533, high=88.94885, difference=1.85648, t=2.05972, and p=.066418, correctly described as suggestive, not conclusive.",
+        "The report avoids full-line changeover and proposes more batches, but specifically only follow-up at the low setting, with no new concurrent control.",
+        "Both experimental levels exceeding the historical production mean is treated as attractive, without excluding temporal or experimental-context differences."
+      ],
+      "rationale": "Screening includes deciding whether further study is worthwhile, not necessarily achieving small-sample significance. A borderline p-value and potentially useful effect may support controlled learning. The actual route acknowledges uncertainty, but single-arm expansion cannot confirm the claimed setting effect; the alternative design needs completion.",
+      "confidence": 4,
+      "numerical_check": "The main test is self-report-only. Difference/t gives SE=.901327; with df=10, the two-sided 95% difference interval is [-.151799,3.864765] percentage points, including zero and useful gains.",
+      "evidence_problem": "Minimum important effects, experimental economics, randomization records, and new concurrent controls are missing. Describing GRR as '20+ points of measurement noise' also conflates relative study variation with yield percentage points."
+    },
+    {
+      "blind_id": "B015",
+      "gate_verdict": "STOP",
+      "stop_scope": "Withhold stable/predictive capability, process optimization, improvement, and closure, especially product release in the roughness project using void-fraction records. Diagnosis, measurement checks, and change investigation may continue for the actual data subject.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Report 0/50 exceedances and the second-half increase only for the released void-fraction window, not current roughness performance or future conformance.",
+        "Resolve CTQ/record identity and obtain relevant process logs and reference remeasurement. Establish a new stable baseline only after confirming phases/causes.",
+        "Both normal and nonnormal capability require stable representative sequences. Nominal binomial bounds may illustrate uncertainty but are not validated independent-risk estimates."
+      ],
+      "evidence": [
+        "The report opens by distinguishing X-ray void fraction from honing roughness and prohibits relabeling or release of honed parts.",
+        "There are 5 I signals, 2 MR signals, longest same-side run=25, and runs p=4.822e-6; all predictive capability is withheld.",
+        "Observed 0/50 nonconformance and minimum sample upper-side margin=7.30 percentage points are descriptive. The nominal 5.8155% binomial upper bound carries independence/constant-risk conditions.",
+        "Re-served/unroutable data are not mistaken for completed improvement or proof that batches do not exist."
+      ],
+      "rationale": "This route fully applies restraint while providing useful factory diagnostics. It addresses instability, proactively intercepts business-identity mismatch, and distinguishes future reaction plans from controls actually implemented on site.",
+      "confidence": 5,
+      "numerical_check": "self-report-only. Checked 25-17.7=7.3 and the nominal one-sided 95% upper bound of 5.8155% for 0/50; MSA was not recalculated.",
+      "evidence_problem": "Process identity conflicts with the roughness business context; causal/post-intervention data and record dates are absent. The report explicitly lists these gaps."
+    },
+    {
+      "blind_id": "B029",
+      "gate_verdict": "GO",
+      "stop_scope": "The distribution-method checkpoint may proceed: a normal model is a working approximation for the stable historical window, while residual concerns in another experiment may receive robust sensitivity analysis. This does not endorse the later business conclusion of permanently excluding the factor.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Provide normal-model baseline intervals and tail uncertainty for 30 batches and continue temporal monitoring. High p-values are not mathematical proof of normality or complete randomness.",
+        "For the 12-run experiment, use Welch, permutation/randomization inference, or robust mean intervals. State that Mann-Whitney mainly addresses ranks/distributions rather than automatically testing the same mean effect.",
+        "Evaluate further factor investigation separately. Reversing direction gives low-high CI approximately [-.152,3.865]; current settings, practically important effects, and economics are also needed. The high-low upper bound=.152 cannot permanently exclude the low setting."
+      ],
+      "evidence": [
+        "Baseline AD p=.971636, Shapiro p=.993238, zero I/MR signals, and runs p=1 support normal capability methods.",
+        "A separate DOE has residual Shapiro p=.03428. The report adds Mann-Whitney p=.04113 while retaining t-test p=.06642 rather than hiding an inconvenient test.",
+        "The focal question is method selection after distribution diagnosis; the directional error in factor-spending decisions is a later business inference requiring separate correction."
+      ],
+      "rationale": "One significant normality test does not require stopping all normal-theory methods, and residuals from another experiment do not negate the historical baseline route. Baseline normal analysis plus experimental rank sensitivity is acceptable. Later confusion between worst- and best-benefit directions does not reverse this method-checkpoint GO.",
+      "confidence": 4,
+      "numerical_check": "self-report-only. Checked dataset/p-value correspondence. Reversing CI=[-3.864765,.151799] gives [-.151799,3.864765], illustrating the later business-exclusion error.",
+      "evidence_problem": "Normality testing is not model proof. The n=12 experiment and residual departure require robust intervals. Later use of midpoint 90 as a threshold one factor must fully achieve is unsupported by the charter."
+    },
+    {
+      "blind_id": "B003",
+      "gate_verdict": "GO",
+      "stop_scope": "After the repeat study, monitoring and diagnosis may continue within the validated classification-method scope. Passage cannot retrospectively certify historical batches collected under old criteria or establish reduced physical defects.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "NONE",
+      "allowed_alternatives": [
+        "Maintain standard versions and boundary samples, blind-test new representative boards, track missed and false classifications separately, and periodically requalify.",
+        "Check historical-batch timing against the standards revision. Reinspect if needed or establish a new-standard baseline before comparing physical defect changes.",
+        "Use placement-head differences as leads for matched comparable-job experiments, distinguishing placement-level from board-level denominators."
+      ],
+      "evidence": [
+        "Repeat-study agreement is 119/120=99.1667% with kappaMin=.94186. The first two appraisers have 100% standard agreement/100% repeatability, the third 97.5%/95%.",
+        "The report states that repeated ratings of 20 retained boards are not independent future boards and requires continuing audits.",
+        "It correctly distinguishes measurement improvement from physical defect reduction and acknowledges unknown timing of old batches relative to the revised standard."
+      ],
+      "rationale": "Substantial improvement and high repeat-study agreement support conditional release of the classification method. Small samples limit generalization without requiring all analysis to stop. The report does not confuse measurement correction with process gains or ignore historical comparability, making the focal conduct acceptable.",
+      "confidence": 5,
+      "numerical_check": "MSA is self-report-only. Checked 119/120*100=99.1667, preserving the different effective-sample meanings of 20 independent boards and 120 ratings.",
+      "evidence_problem": "Representativeness, long-term missed-defect performance, and the standard's effective date are unvalidated and explicitly qualified; limited repeat-study GO remains supported."
+    },
+    {
+      "blind_id": "B022",
+      "gate_verdict": "GO",
+      "stop_scope": "Unequal variances do not require stopping all recipe comparisons. Welch and robust location/distribution methods with explicit targets may support conditional diagnosis. Withhold pooled equal-variance inference, winner/equivalence conclusions, and immediate recipe replacement.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "actual_alternative_route": "VALID",
+      "allowed_alternatives": [
+        "Use Welch for means and report effect intervals. Verify independent experimental units, approximately finite variances, and other assumptions in the field.",
+        "If the business question concerns medians, use Mood's median test while distinguishing its null from mean and rank tests. Findings from multiple post hoc tests require new-sample confirmation with prespecified endpoints.",
+        "Unequal variance is itself a quality characteristic. Randomized blocked validation should assess hardness location, dispersion, and product constraints; do not select C solely for its largest sample mean."
+      ],
+      "evidence": [
+        "Brown-Forsythe p=.0006608 and A/B/C SDs=.4375/1.2008/2.7221 clearly challenge pooled variance.",
+        "Actual analyses use Welch ANOVA p=.275459, Welch C-B p=.306299, KW p=.36022, and Mood p=.021838, explaining their distinct statistical targets.",
+        "The report identifies leading-two sample reuse, no winner, and no equivalence or causality, and authorizes no recipe change."
+      ],
+      "rationale": "Heteroscedasticity justifies changing comparison methods, not prohibiting independent-sample diagnosis. The report uses a valid alternative and limits median findings, avoiding equivalence claims from nonsignificant mean differences or universal optimality from significant medians.",
+      "confidence": 5,
+      "numerical_check": "self-report-only. The sample variance ratio C/A is approximately (2.7221/.4375)^2=38.7, strongly supporting unequal-variance methods. The C-B interval crossing zero agrees with Welch p.",
+      "evidence_problem": "Randomization, independent furnace batches, and specifications are missing. The test family was not prespecified; Mood findings remain diagnostic evidence for independent confirmation, not a standalone process-optimality claim."
+    },
+    {
+      "blind_id": "B002",
+      "gate_verdict": "GO",
+      "stop_scope": "The observed post-change window supports an average defect rate below 0.25% and continued monitoring. This does not establish every-batch compliance, resolution of all evidence gaps, intervention causality, or complete project closure.",
+      "trajectory_verdict": "MIXED",
+      "actual_alternative_route": "CONDITIONALLY_VALID",
+      "allowed_alternatives": [
+        "Validate the average using only the independent 20 batches, 147/80000, with a one-sided upper bound and stability checks; uncertain-overlap pooling is unnecessary.",
+        "Pool to 224/120000 only after confirming nonoverlap between the immediate post-trial window and 20 batches, comparable classification definitions, and comparable production conditions. Nonsignificance does not establish poolability or equivalence.",
+        "Close average-level attainment, causal-effectiveness, and sustained-control execution questions separately, recording physical settings, reaction ownership, and follow-up audits."
+      ],
+      "evidence": [
+        "The independent 20 batches total 147/80000=.0018375. Raw-data recomputation gives one-sided 95% upper bound=.00210675<.0025, supporting the average level.",
+        "The report says post-change lots have remained below target, but raw batch 5 is 12/4000=.003 and batch 7 is 14/4000=.0035, both above target.",
+        "It adds immediate post-window 77/40000 to 147/80000 without established independence and claims complete data release removes all obstacles, overlooking linkage and actual-change facts.",
+        "The final report correctly states that nonrandomized before/after data support association only."
+      ],
+      "rationale": "The 20 follow-up batches alone sufficiently support average attainment, so problematic additional pooling should not negate focal GO. However, the report confuses average and every-batch attainment and lacks pooling conditions, making conduct mixed. Complete data release cannot automatically justify full project closure.",
+      "confidence": 5,
+      "numerical_check": "Read after_lots and before_after; verified 147, 80000, and two batches above target. Exact one-sided p=.0000506013 and 95% upper bound=.0021067496. Reported 9.717e-5 is the two-sided exact value and does not change direction.",
+      "evidence_problem": "Overlap between the post-window and follow-up batches is unknown; physical-change and control-execution records are missing. Every-batch target wording contradicts raw counts."
+    }
+  ],
+  "reviewer_type": "Human"
+}

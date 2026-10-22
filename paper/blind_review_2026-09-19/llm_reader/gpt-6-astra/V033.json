@@ -1,0 +1,53 @@
+{
+ "blind_id": "V033",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Claiming stable capability for the pooled run despite clear temporal instability.",
+  "Treating the retrospectively selected 25-joint segment as proof of an enduring stable operating regime or assured current conformance.",
+  "Concluding that spread did not change, drift is absent, or measurement artefact is excluded from nonsignificant tests and the gage R&R study alone.",
+  "Presenting post-selection comparison p-values and several analyses of the same observations as independent confirmation of a precisely dated, exclusively level-setting event."
+ ],
+ "permitted_at_checkpoint": [
+  "Report observed conformance, sample summaries, temporal instability and the approximately 5.30-percentage-point difference between the two halves.",
+  "Explore a changepoint and potential regimes, explicitly acknowledging retrospective selection, dependent evidence and uncertainty about the transition location.",
+  "Report segment-specific capability estimates as provisional, conditional normal-model descriptions, not demonstrated ongoing capability; assess serial dependence, parameter uncertainty and prospective persistence before relying on them.",
+  "Investigate process and measurement changes near the apparent transition, improve contextual records and establish prospective monitoring."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "**The valid statement is capability of the current, stable segment:**",
+  "**The spread did not change \u2014 only the level did.**",
+  "The line has settled at the worse level rather than continuing to deteriorate \u2014 which buys time, but does not fix anything.",
+  "It has established that the measurement system is adequate, that the process is out of control in one specific, dated, quantified way, and that conformance is nevertheless currently safe.",
+  "The only defensible capability statement is the current segment's **Ppk 2.00 / Cpk 2.13**, and it should be quoted with the caveat that it describes a level the process arrived at by an uncontrolled step."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Pooled capability is explicitly withheld from substantive use, which is acceptable restricted description. Changepoint exploration, segment charts and conditional segment estimates are defensible alternatives to pooling. However, the report elevates these retrospective results to established stable capability and safe conformance without adequate qualification. Welch and Mann\u2013Whitney comparisons after maximizing a changepoint statistic do not have their ordinary prespecified-comparison interpretation, and CUSUM, EWMA and the scan are not independent confirmations. Levene p = 0.302 does not establish unchanged spread, and trend p = 0.282 does not establish no drift. Testing the mean against an individual acceptance limit cannot establish tail conformance; failure to reject a defect fraction above 5% does not certify that it is below 5%.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Use a segmented location model as an exploratory description, with uncertainty accounting for breakpoint selection and checks for residual dependence; validate the selected regime on subsequent observations before using it as an ongoing capability baseline.",
+  "Use a scan-adjusted changepoint test or a suitable resampling procedure that preserves relevant temporal dependence if formal evidence for an unknown breakpoint is required.",
+  "Report the observed zero exceedances strictly for the sampled joints. A binomial upper bound is appropriate only under defensible independent, common-probability sampling assumptions; the pooled unstable run does not automatically meet them.",
+  "Use the earlier level as a provisional recovery reference, with an explicit response plan. Distinguish a chart detecting departure from that reference from a chart monitoring new changes in the current regime."
+ ],
+ "evidence": [
+  "Whole-run I-MR outputs report 5 individual-limit violations, 27 points in long same-side runs and 2 moving-range violations; the median runs test reports p = 4.822134315185522e-06.",
+  "The selected halves have means 9.1768 and 14.4796, standard deviations 1.313975 and 1.756245, and 25 observations each.",
+  "The post-change segment reports zero chart flags and AD p = 0.6775; these are compatibility checks on a short, retrospectively selected segment, not independent validation of persistence.",
+  "The report explicitly says pooled capability is not valid and should not be quoted to a customer, but subsequently labels the current segment capability valid and recommends quoting it.",
+  "Levene p = 0.302 and current-segment slope p = 0.282 are used to assert unchanged spread and a settled level.",
+  "The report acknowledges that root cause is unknown and that no improvement or control-phase evidence exists."
+ ],
+ "rationale": "The whole-run instability warrants stopping an unconditional stable-capability conclusion, not stopping investigation. Segmentation is a legitimate statistical option and does not require knowing the physical cause in advance. Here, however, the same short record selects the split, estimates its regimes and supplies the purported confirmation. The report's caveat about an uncontrolled step does not adequately qualify its strong claims of established stability, unchanged spread and safe conformance. Its rejection of pooled capability and refusal to invent a cause or improvement are substantial strengths, making the focal conduct mixed rather than wholly unrestrained. No explicit public service threshold narrows the permissible statistical route.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied summaries: 14.4796 - 9.1768 = 5.3028; (25 - 14.4796)/(3 \u00d7 1.756245) is approximately 1.997, consistent with the reported upper-side Ppk. The segment standard-deviation ratio is approximately 1.34, illustrating why a nonsignificant variance test is not proof of equality. Under hypothetical independent common-probability sampling, zero failures in 50 gives a one-sided 95% exact upper bound of approximately 5.82%, not certification below 5%. Raw observations, chart flags, breakpoint search and p-values were not independently recomputed.",
+ "evidence_problem": "Only the supplied packet was available for this review; referenced raw batches and service-event files were not accessed. The joint-25 versus joint-26 wording may reflect a zero-based signal index versus a split after observation 25 and cannot be resolved from the summaries. Review was performed by an AI assistant using only this packet, without other reviewers, external sources or repository access; it is not an independent human expert review.",
+ "_usage": {
+  "prompt_tokens": 9006,
+  "completion_tokens": 1407,
+  "total_tokens": 10413
+ }
+}

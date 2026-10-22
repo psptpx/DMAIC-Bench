@@ -1,0 +1,138 @@
+{
+  "system_id": "openai-cli",
+  "task_id": "adb_c40-T3-s5-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "sampleCount": 12,
+        "usableControl": 6,
+        "usableTreated": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All 12 libraries were usable; both arms retained 6 replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "controlInBatchL1": 5,
+        "treatedInBatchL1": 1,
+        "controlInBatchL2": 1,
+        "treatedInBatchL2": 5
+      },
+      "status": "success",
+      "decision": "Treatment is estimable separately from preparation batch; batch must be included in the model."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "gene_count": 400,
+        "sample_size": 12,
+        "groups": 2,
+        "model": "log2(count+1) ~ batch + treatment"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "geneCount": 400,
+        "sampleCount": 12,
+        "padjThreshold": 0.05,
+        "absLog2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "No gene met both the adjusted-p threshold and effect-size threshold."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidate_count": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "validationThreshold": 0.75
+      },
+      "status": "failed",
+      "decision": "Concordance is undefined because the nominated-candidate denominator is zero; no candidate-level validation comparison can be computed."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "candidate_count": 0,
+        "validation_concordance": 0
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The steward would not release gene-set annotation because validation_concordance=0 did not meet the required threshold of 0.75; enrichment was not computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_analysis",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2
+      }
+    },
+    {
+      "point": "expression_call",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "concordance": 0,
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "validationThreshold": 0.75
+      }
+    },
+    {
+      "point": "gene_set_annotation",
+      "chosen_branch": "not_released_locked_by_validation",
+      "observed": {
+        "validation_concordance": 0,
+        "required": 0.75
+      }
+    }
+  ]
+}

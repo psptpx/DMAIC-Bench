@@ -1,0 +1,226 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "tolerance": 80.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 25.6323962568541,
+        "percentTolerance": 13.643072838371854,
+        "ndc": 5.317072964340879
+      },
+      "status": "success",
+      "decision": "Gage system acceptable to trust the readings (%StudyVar<30, ndc>=5); declared grr_pct=25.63 and ndc=5.32 to steward"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 125,
+        "subgroups": 25,
+        "subgroupSize": 5
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 232.27360000000002,
+        "flaggedXBarCount": 20,
+        "individualsUCL": 242.493424,
+        "individualsLCL": 222.05377600000003
+      },
+      "status": "success",
+      "decision": "Process is out of statistical control; 20 of 25 subgroup means fall outside control limits, consistent with a mid-run shift"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 125,
+        "lsl": 180.0,
+        "usl": 260.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.7509786208973201,
+        "cpk": 1.2137083408611857,
+        "pp": 0.8634243500159282,
+        "ppk": 0.5984912224570405
+      },
+      "status": "success",
+      "decision": "Capability computed on the full pooled run but treated as unreliable: the large Cpk-Ppk gap (1.21 vs 0.60) reflects instability, not a valid single-process capability"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 125
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 63.77476136964633,
+        "pValue": 1.4173807372389032e-14
+      },
+      "status": "success",
+      "decision": "Pooled run data rejects normality (p<0.001), consistent with a two-regime mixture rather than one stable normal process"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "phase1_n": 60
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.08148527629254602,
+        "pValue": 0.9600761851418711
+      },
+      "status": "success",
+      "decision": "Phase 1 (subgroups 1-12, before the shift) is consistent with normality"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "phase2_n": 65
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 3.6627766595876556,
+        "pValue": 0.16019101536351493
+      },
+      "status": "success",
+      "decision": "Phase 2 (subgroups 13-25, after the shift) is consistent with normality"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n1": 60,
+        "n2": 65
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": -19.019688489352692,
+        "pValue": 4.431594116879139e-38
+      },
+      "status": "success",
+      "decision": "Mean thickness before the shift (218.48 um) differs from after the shift (245.01 um) with overwhelming statistical significance; this is a genuine process shift, not noise"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groups": 4,
+        "nPerGroup": 15
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "fStatistic": 1.5586494123823231,
+        "factorPValue": 0.20958647030444327
+      },
+      "status": "success",
+      "decision": "No significant difference among the four applicators (p=0.21); the elevated thickness during the shift is not attributable to one specific applicator"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n": 100,
+        "subgroups": 20,
+        "subgroupSize": 5
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 219.39270000000002,
+        "flaggedXBarCount": 0,
+        "individualsUCL": 227.1144025,
+        "individualsLCL": 211.67099750000003
+      },
+      "status": "success",
+      "decision": "Post-change monitoring shows the process back in statistical control, centered near target, with zero flagged subgroups"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n": 100
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 1.2284311566770998,
+        "pValue": 0.5410651521150227
+      },
+      "status": "success",
+      "decision": "Post-change data is consistent with normality, supporting use of normal capability indices"
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n": 100,
+        "lsl": 180.0,
+        "usl": 260.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.317454386948129,
+        "cpk": 2.2822696357182886,
+        "pp": 2.3614209814757787,
+        "ppk": 2.325568707424522
+      },
+      "status": "success",
+      "decision": "Post-change capability is strong (Cpk=2.28, Ppk=2.33) with zero pieces out of spec in the monitored sample"
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "query": "root cause of the mid-run thickness shift and corrective action taken"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "turnsBilled": 1
+      },
+      "status": "refused",
+      "decision": "Steward reported no process facts recorded for this task (unroutable); the mechanical/procedural root cause of the shift could not be obtained and is not reported"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "gage_rr_acceptability",
+      "chosen_branch": "acceptable_proceed",
+      "observed": {
+        "percentStudyVariation": 25.63,
+        "ndc": 5.32
+      }
+    },
+    {
+      "point": "capability_reliability_on_pooled_run",
+      "chosen_branch": "flag_as_unreliable_due_to_instability",
+      "observed": {
+        "cpk": 1.2137083408611857,
+        "ppk": 0.5984912224570405,
+        "flaggedXBarCount": 20
+      }
+    },
+    {
+      "point": "applicator_root_cause",
+      "chosen_branch": "not_equipment_specific",
+      "observed": {
+        "fStatistic": 1.5586494123823231,
+        "factorPValue": 0.20958647030444327
+      }
+    },
+    {
+      "point": "root_cause_process_fact",
+      "chosen_branch": "not_obtainable_report_gap",
+      "observed": {}
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

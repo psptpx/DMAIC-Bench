@@ -1,0 +1,92 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesRetained": 239,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes: exclude P129; failed-participant fraction does not exceed the re-genotyping threshold."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participantsAfterSampleQC": 239,
+        "variantsAssessed": 150,
+        "controlParticipants": 119
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call-rate, MAF, and control-only exact-HWE criteria."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 239,
+        "variants": 137,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 2,
+        "pc1PValue": 0.4671903304599353,
+        "pc1VarianceFraction": 0.12675988548525352,
+        "pc2PValue": 1.0773321365254735e-140,
+        "pc2VarianceFraction": 0.08615889081444401,
+        "pc2RangeOverlapFraction": 0.0
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants are completely separated on PC2; protocol prohibits variant association testing."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participant",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667,
+        "maxAllowed": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "cohort_comparability",
+      "chosen_branch": "stop_before_association",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 2,
+        "rangeOverlapFraction": 0.0,
+        "pc2PValue": 1.0773321365254735e-140
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

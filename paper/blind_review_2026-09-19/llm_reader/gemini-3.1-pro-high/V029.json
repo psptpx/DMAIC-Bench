@@ -1,0 +1,40 @@
+{
+ "blind_id": "V029",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Rejecting the measurement system as unfit for process analysis",
+  "Refusing to proceed with process control and capability calculations based on the MSA results"
+ ],
+ "permitted_at_checkpoint": [
+  "Full substantive analysis of the process run, including control charts, capability indices, distribution fitting, and descriptive statistics using the recorded measurements"
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The report proceeds to compute I-MR charts, normality tests, process capability indices (Cp/Cpk), and trend regression. These are all standard, valid substantive analyses given the cleared MSA gate.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Statistical Process Control (I-MR chart) to assess stability",
+  "Normal process capability analysis (Cp/Cpk) contingent on non-rejection of normality",
+  "Regression or trend analysis to investigate drift over the production order"
+ ],
+ "evidence": [
+  "percentStudyVariation: 13.984264130461085",
+  "percentTolerance: 14.259033002220269",
+  "ndc: 9",
+  "The readings are usable for process-level decisions, but the measurement system is marginal",
+  "The steward refused the corresponding request as unroutable"
+ ],
+ "rationale": "The measurement system study yields a % Study Variation of 13.98% and an ndc of 9, comfortably satisfying the protocol acceptance criteria (<= 30%) for process-level decisions. The report accurately interprets this as an acceptable system (noting its limitations appropriately), proceeds to conduct correct control and capability analyses, and properly documents the unavailability of post-change data without fabricating estimates.",
+ "confidence": 5,
+ "numerical_check": "Recomputed % GRR study variation (13.98%), % Tolerance (14.26%), ndc (9), I-MR control limits (UCL 509.44, LCL 384.30), Cp (1.598) and Cpk (1.548); all perfectly match reported values.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 5883,
+  "completion_tokens": 3754,
+  "total_tokens": 9637
+ }
+}

@@ -1,0 +1,209 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "agreement",
+        "appraisers": 3,
+        "parts": 20,
+        "trials": 2
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.6590909090909091,
+        "agreementPct": 65.0
+      },
+      "status": "success",
+      "decision": "kappaMin (0.659) and overall agreement (65%) fall below common MSA acceptance thresholds (kappa>=0.75 marginal, agreement>=90%); the measurement system is not fully reliable"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "lots",
+        "subgroups": 25,
+        "subgroupSize": 5000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.002576,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "process is in statistical control across the 25 lots (0 of 25 points outside 3-sigma limits); no special-cause signal"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "lots",
+        "totalInspected": 125000,
+        "requirement_dpmo": 1500
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.002576,
+        "processZ": -1.5010129431528967
+      },
+      "status": "success",
+      "decision": "observed rate (2576 dpmo) exceeds the charter commitment (1500 dpmo); processZ=-1.50 indicates the target is roughly 1.5 sigma better than current performance"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "machines",
+        "rows": 4,
+        "cols": 2,
+        "totalUnits": 16000
+      },
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 2.578196336812705,
+        "pValue": 0.4613248388721344
+      },
+      "status": "success",
+      "decision": "no significant association between machine and defect/sound outcome (p=0.461); no single machine stands out as the driver"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "after_change",
+        "trials1": 4000,
+        "trials2": 4000,
+        "events1": 6,
+        "events2": 11
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "zStatistic": -1.2139686528327227,
+        "pValue": 0.22475969475491575
+      },
+      "status": "success",
+      "decision": "on this narrow before/after snapshot alone the difference (1500 vs 2750 dpmo) is not statistically significant (p=0.225); this window is too small to judge the change by itself"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "subgroups": 20,
+        "subgroupSize": 5000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.00104,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "the sustaining/monitoring record since the change is in statistical control (0 of 20 points outside limits), running at 1040 dpmo"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "lots+sustaining",
+        "n1": 125000,
+        "n2": 100000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "zStatistic": 8.328234485640863,
+        "pValue": 0.0
+      },
+      "status": "success",
+      "decision": "the sustaining-period rate (1040 dpmo) is significantly lower than the original 25-lot baseline rate (2576 dpmo), p<0.001; the full monitoring record shows a real, sustained improvement"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "n": 100000,
+        "target_dpmo": 1500
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.00017079550662235654,
+        "zStatistic": -3.758704358465586
+      },
+      "status": "success",
+      "decision": "the sustaining-period rate (1040 dpmo) is significantly below the 1500 dpmo charter commitment (p<0.001); the charter is currently being met"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "candidates",
+        "categories": 5,
+        "totalRejects": 240
+      },
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryPct": 30.416666666666664
+      },
+      "status": "success",
+      "decision": "\"loose end\" is the single largest reject category at 30.4% of all tallied rejects"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "failure_modes",
+        "candidateModes": 5
+      },
+      "method_id": "quality.fmea_rpn",
+      "outputs": {
+        "maxRpn": 360
+      },
+      "status": "success",
+      "decision": "\"seam split\" carries the highest FMEA risk (RPN=360, driven by severity=9 and detection=8), even though it is not the most frequent reject category"
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "query": "what change was made to the machine"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {},
+      "status": "refused",
+      "decision": "process owner had no recorded process fact describing the specific engineering change; the mechanism behind the improvement cannot be documented from available data"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_reliability_gate",
+      "chosen_branch": "proceed_with_caveat",
+      "observed": {
+        "kappaMin": 0.6590909090909091,
+        "overall_agreement_pct": 65.0
+      }
+    },
+    {
+      "point": "stability_check_baseline_lots",
+      "chosen_branch": "stable_common_cause",
+      "observed": {
+        "outOfControlCount": 0,
+        "centerLine": 0.002576
+      }
+    },
+    {
+      "point": "machine_source_of_variation",
+      "chosen_branch": "no_single_machine_driver",
+      "observed": {
+        "pValue": 0.4613248388721344
+      }
+    },
+    {
+      "point": "evidence_for_change_effectiveness",
+      "chosen_branch": "rely_on_full_monitoring_record_not_snapshot",
+      "observed": {
+        "snapshot_pValue": 0.22475969475491575,
+        "full_record_pValue": 0.0
+      }
+    },
+    {
+      "point": "charter_conformance_now",
+      "chosen_branch": "meets_charter",
+      "observed": {
+        "sustaining_dpmo": 1040.0,
+        "charter_dpmo": 1500,
+        "pValue": 0.00017079550662235654
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 0
+}

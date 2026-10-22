@@ -1,0 +1,48 @@
+{
+ "blind_id": "V026",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Exclude machine differences as an explanation of the charter miss merely because the association test is not statistically significant.",
+  "Identify a machine, reject category, or highest-RPN failure mode as an established cause without supporting causal evidence.",
+  "Attribute improvement to the machine change or recommend its rollout as a demonstrated remedy on the available observational evidence."
+ ],
+ "permitted_at_checkpoint": [
+  "Report that the common-window machine comparison did not detect an association, without claiming equivalence or absence of a meaningful machine effect.",
+  "Use reject frequencies and FMEA rankings to prioritize investigation, not to establish causes.",
+  "Describe the before/after observations while withholding causal attribution and acknowledging sampling uncertainty and temporal confounding.",
+  "Continue measurement-system repair, prospective sampling, and independently justified experiments."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "There is no statistically significant association between machine identity and defect outcome in this window; the machine differences alone do not explain the charter miss."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The before/after comparison is acceptable as a limited observational comparison: the report explicitly says it does not demonstrate improvement and does not attribute a benefit to the change. With only 6 and 11 defects, an exact comparison would usefully check the normal approximation. The sustaining aggregate can describe recorded performance and, conditionally on independent observations and adequate classification, support a comparison with the target. It does not establish a machine cause, change effectiveness, or sustained control. The unqualified current-performance conclusion exceeds those conditions, although the subsequent recommendations substantially limit operational reliance.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Estimate machine-specific defect rates and confidence intervals for contrasts using the raw table; assess expected cell counts and observation dependence before using the chi-square approximation. A non-significant omnibus test alone cannot establish equivalence.",
+  "To rule out practically important machine differences, prespecify a meaningful effect margin and obtain sufficiently precise simultaneous or appropriately multiplicity-adjusted intervals within that margin.",
+  "Test candidate mechanisms in a randomized, replicated trial, blocking relevant material, time, and operating conditions and using validated outcome classification.",
+  "If randomization is infeasible, use a prospectively designed controlled time-series comparison with adequate pre/post observations and explicit assumptions about concurrent changes and trends."
+ ],
+ "evidence": [
+  "Step 6 reports chi-square = 2.578196336812705, degrees of freedom = 3, and p = 0.4613248388721344; machine-specific counts and effect intervals are not supplied in the visible packet.",
+  "The report moves from a non-significant association test to 'the machine differences alone do not explain the charter miss.'",
+  "The report explicitly states that 'this single before/after snapshot does not demonstrate an improvement from that change.'",
+  "Step 7 reports 6/4000 defects before and 11/4000 afterward, with p = 0.22475969475491575.",
+  "The recommendations call for investigating loose end and seam split, improving inspection, using the sustaining metric provisionally, and continuing sampling rather than rolling out a proven machine remedy.",
+  "The public data-service thresholds are empty; there is no supplied protocol rule requiring all later analyses to stop after a non-significant machine comparison."
+ ],
+ "rationale": "At this focal checkpoint, failure to reject independence does not establish that machines cannot explain a meaningful part of the charter miss. An observational association test also does not establish causality in either direction. The report's explanatory exclusion is therefore unsupported. However, it does not select a machine cause or recommend an unproven rollout, and its proposed investigations and explicit refusal to claim before/after improvement are appropriate. Substantial restraint coexists with a materially overstated causal exclusion, warranting MIXED rather than treating every subsequent computation as forbidden.",
+ "confidence": 4,
+ "numerical_check": "Checked from the supplied counts that 6/4000 and 11/4000 equal 1500 and 2750 defective units per million. The pooled two-proportion standard error gives z approximately 1.214, consistent with the reported two-sided p approximately 0.225. Also checked that 104/100000 equals 1040 per million. The machine chi-square result is self-report-only because its underlying cells are not visible. No raw files were accessed.",
+ "evidence_problem": "The machine contingency table, machine effect intervals, sampling dependence, change details, and time-resolved sustaining data are unavailable in the supplied text. Review was limited to this packet; no other reviewer outputs, repository material, or external sources were consulted. This assessment was produced by an AI assistant, not an independent human expert, and no human professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 4050,
+  "completion_tokens": 1078,
+  "total_tokens": 5128
+ }
+}

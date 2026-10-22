@@ -1,0 +1,164 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "nSamples": 240,
+        "nRetained": 237,
+        "nAffected": 119,
+        "nUnaffected": 118,
+        "minCallRate": 0.94
+      },
+      "status": "success",
+      "decision": "Plate passes"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "callFailed": 6,
+        "mafFailed": 4,
+        "hweFailed": 3,
+        "bonferroni": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "Retain variants meeting every rule"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.939778863712323,
+        "pc1VarianceFraction": 0.022766908083340198,
+        "pc1Overlap": true,
+        "pc2PValue": 0.32951000314407763,
+        "pc2VarianceFraction": 0.020719631284483408,
+        "pc2Overlap": true,
+        "pc3PValue": 0.4596422667923362,
+        "pc3VarianceFraction": 0.02035171909222808,
+        "pc3Overlap": true,
+        "pc4PValue": 0.3171412622582263,
+        "pc4VarianceFraction": 0.019926165987858374,
+        "pc4Overlap": true,
+        "pc5PValue": 0.02659641854927202,
+        "pc5VarianceFraction": 0.01992121868746882,
+        "pc5Overlap": true,
+        "pc6PValue": 0.02698148029659702,
+        "pc6VarianceFraction": 0.01912549981916844,
+        "pc6Overlap": true,
+        "pc7PValue": 0.9411956508556956,
+        "pc7VarianceFraction": 0.018205104525363835,
+        "pc7Overlap": true,
+        "pc8PValue": 0.6888227106728744,
+        "pc8VarianceFraction": 0.01790184389449453,
+        "pc8Overlap": true,
+        "pc9PValue": 0.04604850125857919,
+        "pc9VarianceFraction": 0.017519483643683137,
+        "pc9Overlap": true,
+        "pc10PValue": 0.4221705205886451,
+        "pc10VarianceFraction": 0.017132758742547903,
+        "pc10Overlap": true
+      },
+      "status": "success",
+      "decision": "Standardized mean-imputed PCA; Welch phenotype comparisons and range overlap on leading axes"
+    },
+    {
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.1112123649979688
+      },
+      "status": "success",
+      "decision": "Cochran-Armitage additive trend with finite-sample null variance; no convincing ancestry structure on leading axes",
+      "step_id": 4
+    },
+    {
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.7865156483986326,
+        "ciLower": 2.470281556658113,
+        "ciUpper": 5.8040755382411895,
+        "pValue": 5.771927183223012e-11
+      },
+      "status": "success",
+      "decision": "rs000008 per coded allele; logistic Wald interval, trend p-value",
+      "step_id": 5
+    },
+    {
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.016666666666666666,
+        "nRetained": 118,
+        "nAffected": 59,
+        "nUnaffected": 59
+      },
+      "status": "success",
+      "decision": "Replication sample QC",
+      "step_id": 6
+    },
+    {
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 0,
+        "snpsRetained": 1,
+        "callRate": 0.9915254237288136,
+        "maf": 0.46153846153846156,
+        "hwePValue": 1.0
+      },
+      "status": "success",
+      "decision": "Replication candidate QC: rs000008",
+      "step_id": 7
+    },
+    {
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.0972325857441465,
+        "pValue": 4.349317819406575e-05,
+        "sameDirection": true,
+        "nCalled": 117
+      },
+      "status": "success",
+      "decision": "Replication rs000008; additive trend p and logistic per-coded-allele OR",
+      "step_id": 8
+    },
+    {
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1
+      },
+      "status": "success",
+      "decision": "Independent replication with candidate QC, nominal protocol p threshold and matching direction",
+      "step_id": 9
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "retain_after_qc"
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "unadjusted_trend",
+      "observed": {
+        "separated": false
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "report_replicated_hit"
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

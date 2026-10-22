@@ -1,0 +1,1795 @@
+{
+  "reviewer_id": "R1",
+  "reviewer_type": "Human",
+  "perspective": "Measurement adequacy, process stability, and evidential discipline; all three protocol questions assessed at the named focal checkpoint.",
+  "blinding_compliance": "Procedural blinding maintained: only the assigned R1 blind directory and own output directory were inspected. No other reviewer, coordinator, repository, source identity, hidden truth, or scoring code was consulted. Shared-filesystem isolation is not OS enforced.",
+  "sources": [],
+  "reviews": [
+    {
+      "blind_id": "V046",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treating the full baseline as stable capability; standardizing the change as an established improvement."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe aggregate defects and investigate lot 13; conduct a bounded monitored trial and separate post-change assessment."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "2. Standardize the change and verify that operators can recognize the answer-key categories; review disagreements during calibration."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Baseline and machine summaries and a separate sustaining chart are legitimate; unqualified standardization goes beyond the inconclusive change comparison.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Retain a reversible trial with predefined confirmation, while investigating the exceptional lot."
+      ],
+      "evidence": [
+        "Baseline has 42/5000 defects in lot 13; pooled 171/125000.",
+        "The report explicitly declines confirmed causal improvement, but recommends standardization."
+      ],
+      "rationale": "The instability is recognized rather than hidden. The action language nevertheless outruns the evidence and the general caution.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_change\": {\"p1\": 0.0015, \"p2\": 0.00075, \"z\": 1.0005629750547598, \"two_sided_p\": 0.3170381375895594}, \"agreement\": {\"accuracy\": 0.9583333333333334, \"min_trial_kappa\": 0.6938775510204082, \"pooled_app_kappas\": [0.9473684210526315, 0.8453608247422681, 0.9473684210526315], \"repeatability\": [0.95, 0.85, 0.95]}, \"lots\": {\"total\": 171, \"n\": 125000, \"rate\": 0.001368, \"flags\": [13], \"target\": 0.0015, \"binom_lower_p\": 0.12014841537612031}, \"sustaining\": {\"total\": 91, \"n\": 93900, \"rate\": 0.0009691160809371672, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 4.639485971814314e-06}, \"machines\": {\"pearson_chi_square\": 1.1123625189449242, \"df\": 3, \"rows\": [4000, 4000, 4000, 4000], \"first_column_counts\": [5, 6, 4, 3], \"chi_square_survival\": 0.7740905917903341}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "The machine process Z is self-reported as 1.2257 despite a defect share of 0.001125; definition unclear and not used in report."
+    },
+    {
+      "blind_id": "V035",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Using failed classifications to establish actual stable breach performance or to rule out investigation of bad periods."
+      ],
+      "permitted_at_checkpoint": [
+        "Label recorded counts as descriptive; repair definitions and repeat blinded agreement before judging actual compliance."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "The practical reading: the swings between periods, including the worst period at 8.0%, are common cause.",
+        "There is no special-cause event to investigate.",
+        "2. **Do not chase individual periods.** The chart is stable, so period-to-period variation is common cause. Reducing the level means changing the system, not reacting to bad weeks."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Descriptive charts can reveal behavior of recorded calls; capability and instructions to ignore periods depend on classifications that failed.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Use adjudicated tickets or validated misclassification correction, with uncertainty, to reassess true rates."
+      ],
+      "evidence": [
+        "The report admits that every downstream count uses the failed system.",
+        "Minimum pooled appraiser kappa and poor repeated calls substantiate the failure."
+      ],
+      "rationale": "Strong measurement restraint coexists with definite common-cause conclusions and actions. A caveat does not validate inference on the true breach process.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"agreement\": {\"accuracy\": 0.7833333333333333, \"min_trial_kappa\": 0.2045454545454545, \"pooled_app_kappas\": [0.5135135135135136, 0.3617021276595743, 0.7382198952879582], \"repeatability\": [0.55, 0.5, 0.75]}, \"root_cause\": {\"p1\": 0.05, \"p2\": 0.04, \"z\": 0.8355119862887138, \"two_sided_p\": 0.40342950102782804}, \"subgroups\": {\"total\": 196, \"n\": 5000, \"rate\": 0.0392, \"flags\": [], \"target\": 0.05, \"binom_lower_p\": 0.00016487097688750387}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Unroutable requests are described as proving that no further data exists; this overstates the service record."
+    },
+    {
+      "blind_id": "V012",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Stable long-run capability or closure based on the full baseline."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate period 13; describe or test the explicitly identified latest period as a limited current-window assessment."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The latest-period exact binomial comparison answers the assignment about today, provided inference is confined to that period and its inspections are independent; it does not establish steady future performance.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Prespecify a new stable period after special-cause investigation before generalizing attainment."
+      ],
+      "evidence": [
+        "Report identifies 44/200 breaches in period 13 and restricts next action to investigation and monitoring.",
+        "The latest period contains 4/200; it is identified before the reported test."
+      ],
+      "rationale": "No stable baseline claim is made. Read current performance in its immediately preceding latest-period context, not as proof of sustained compliance.",
+      "confidence": 3,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"agreement\": {\"accuracy\": 0.95, \"min_trial_kappa\": 0.6666666666666666, \"pooled_app_kappas\": [0.7647058823529412, 0.9354838709677419, 0.9310344827586207], \"repeatability\": [0.8, 0.95, 0.95]}, \"root_cause\": {\"p1\": 0.05, \"p2\": 0.04, \"z\": 0.8355119862887138, \"two_sided_p\": 0.40342950102782804}, \"subgroups\": {\"total\": 228, \"n\": 5000, \"rate\": 0.0456, \"flags\": [13], \"target\": 0.05, \"binom_lower_p\": 0.08002979010921832}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Latest-period counts independently checked as 4/200; exact p is self-report-only. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Whether latest-period selection was prespecified is not documented; the assignment explicitly asks about today."
+    },
+    {
+      "blind_id": "V001",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Interpreting pooled normal capability as valid short-term process potential despite a temporal shift."
+      ],
+      "permitted_at_checkpoint": [
+        "Diagnose level changes; summarize observed nonconformance; analyze separately designed experiments under their own assumptions."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "Against the accepted interval, short-term potential was better than overall performance: Cp = 1.533557, Cpk = 1.035005, Pp = 0.799433, and Ppk = 0.539541.",
+        "The high mean, rather than short-term variation alone, is the principal concern."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Temporal diagnostics and an independent replicated factorial are defensible; pooled Cp/Cpk interpretation is not repaired by detecting two levels. Post-change sensitivity indices are explicitly withheld from definitive use.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Re-establish stable phases using process evidence, then evaluate each phase and validate distributions."
+      ],
+      "evidence": [
+        "The report calls the baseline not a single stable level.",
+        "It nonetheless labels Cp/Cpk as short-term potential."
+      ],
+      "rationale": "The report handles causal and confirmation limits well, but gives substantive capability meaning to an unstable aggregate.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 7.2637833333333335, \"sd\": 0.145936843974983, \"first_half\": 7.1394, \"last_half\": 7.388166666666667, \"imr_flags\": [8, 24, 46], \"within_sigma\": 0.07607585046279595, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.059324295590123, \"observed_above_usl\": 1, \"normal_ppu_descriptive\": 0.5395408503036185}, \"after_change\": {\"mean1\": 7.191666666666666, \"mean2\": 7.284033333333333, \"sd1\": 0.13371800831274158, \"sd2\": 0.07601110777871298, \"welch_t\": -3.289160769761244}, \"design\": {\"factorial_r2\": 0.941763787999862, \"model_F\": 18.481653167917113, \"residual_df\": 8, \"main_effects\": {\"chain_speed\": 0.2399, \"rail_angle\": 0.16152499999999992, \"air_pressure\": 0.03777499999999989}, \"term_t\": [8.446019843029418, 5.686716778429871, 1.3299224659042743, 4.310145807765221, -0.8458342089569882, 0.9488129836166865, 1.9328323859204368]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Raw trace includes a declaration of significance before design release; that declaration itself is not validation."
+    },
+    {
+      "blind_id": "V051",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Conclude the observed post-change level meets the absolute requirement on current evidence and continue monitoring; complete change documentation."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Exact target testing and a separate post-change chart address absolute attainment, rather than relying only on a before/after difference.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Use an upper one-sided binomial bound under stable independent sampling, with ongoing verification."
+      ],
+      "evidence": [
+        "147/80000 = 0.0018375 versus requirement 0.0025; no three-sigma signals in 20 lots.",
+        "The report requires recovering the missing change record rather than claiming unconditional project closure."
+      ],
+      "rationale": "The focal target-attainment inference is supported; earlier causal wording does not invalidate this independently measured absolute level.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_lots\": {\"total\": 147, \"n\": 80000, \"rate\": 0.0018375, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 5.060125915098084e-05}, \"baseline\": {\"total\": 599, \"n\": 100000, \"rate\": 0.00599, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 1}, \"before_after\": {\"p1\": 0.005875, \"p2\": 0.001925, \"z\": 8.962482483814625, \"two_sided_p\": 3.1744942874845486e-19}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Exact intervention record is unavailable, limiting causal attribution and complete administrative closure."
+    },
+    {
+      "blind_id": "V018",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Crediting improvement, target attainment with adequate capability, or project closure from this confirmation."
+      ],
+      "permitted_at_checkpoint": [
+        "Report observed before/after means and spread; investigate greater spread and run controlled confirmation."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Capability estimates describe apparent deterioration; the report explicitly withholds improvement and calls for stable confirmation.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Test a target-relevant mean margin and variability or nonconformance criterion in a prespecified controlled confirmation."
+      ],
+      "evidence": [
+        "After SD 0.147313 exceeds before SD 0.103152; reported Levene p=0.0214412.",
+        "Report says: Do not credit the process change as an improvement."
+      ],
+      "rationale": "The report recognizes that no significant mean shift does not establish success and that increased spread is adverse.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 7.1604833333333335, \"sd\": 0.13950742543467864, \"first_half\": 7.138833333333333, \"last_half\": 7.182133333333334, \"imr_flags\": [], \"within_sigma\": 0.13666005529510758, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 0.861324124767639, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 0.8112272294438737}, \"after_change\": {\"mean1\": 7.156666666666666, \"mean2\": 7.1957, \"sd1\": 0.10315182427167587, \"sd2\": 0.14731344719385916, \"welch_t\": -1.1888193048158597}, \"design\": {\"factorial_r2\": 0.9565009623416219, \"model_F\": 25.130302089598253, \"residual_df\": 8, \"main_effects\": {\"chain_speed\": 0.28866249999999993, \"rail_angle\": 0.18571250000000006, \"air_pressure\": 0.058562500000000184}, \"term_t\": [10.526111309561864, 6.7720277021677875, 2.135488307508661, 3.5001952429794914, -0.8318604399580141, 1.283116240264014, -0.320437199611226]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Raw means checked: before 7.1566666667 and after 7.1957; variance-test p remains self-report-only. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Physical intervention identity and window-specific stability are not established."
+    },
+    {
+      "blind_id": "V019",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treating all lots as stable; treating deletion of an unexplained lot as proof of a controlled compliant process."
+      ],
+      "permitted_at_checkpoint": [
+        "Retain full-chart findings; use exclusion as diagnostic sensitivity only; investigate the physical special cause."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "The retained series is statistically below the 2% requirement (lower-tail p = 0.0000595916)."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Separate contemporary head comparisons and full-data summaries are allowed. The postselected deletion test is reported inferentially without accounting for selection or cause verification.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Evaluate an independently collected stable post-correction period; show excluded-lot calculations solely as conditional sensitivity."
+      ],
+      "evidence": [
+        "Lot 13 is 38/400, and no physical cause or correction was released.",
+        "The report explicitly withholds long-term capability and retains both views, mitigating but not eliminating the selected-subset claim."
+      ],
+      "rationale": "A statistical outlier is a reason to investigate, not sufficient process evidence to exclude that lot from inferential attainment.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"heads\": {\"p1\": 0.018666666666666668, \"p2\": 0.01633333333333333, \"z\": 0.6891870541365993, \"two_sided_p\": 0.49070556253221514}, \"lots\": {\"total\": 179, \"n\": 10000, \"rate\": 0.0179, \"flags\": [13], \"target\": 0.02, \"binom_lower_p\": 0.06966966938752593}, \"study_1\": {\"accuracy\": 0.9583333333333334, \"min_trial_kappa\": 0.797979797979798, \"pooled_app_kappas\": [0.8989898989898989, 0.8989898989898989, 0.949238578680203], \"repeatability\": [0.9, 0.9, 0.95]}, \"study_2\": {\"accuracy\": 0.975, \"min_trial_kappa\": 0.736842105263158, \"pooled_app_kappas\": [0.9390243902439024, 1.0, 0.8749999999999999], \"repeatability\": [0.95, 1.0, 0.9]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V043",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Stable pooled capability; concluding all applicators equivalent or ruling out equipment-specific causes from a nonsignificant test."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate the temporal shift; compare applicators exploratorily; assess the separately sampled post-change period on its own evidence."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "This rules out one bad nozzle as the explanation; whatever caused the shift\naffected the line as a whole, not a single piece of equipment."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The report withholds a single pooled capability and legitimately assesses later monitoring, but converts ANOVA non-significance into causal exclusion.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Use adequately powered equivalence comparisons or targeted equipment diagnostics; obtain chronology and correction records."
+      ],
+      "evidence": [
+        "Raw Xbar limits belong to the baseline, while the report quotes post-change limits in its baseline paragraph.",
+        "Applicator F=1.558649 does not prove equal operation."
+      ],
+      "rationale": "Important stability restraint is present, but the permitted diagnostic route is overinterpreted as identifying a line-wide cause.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 125, \"mean\": 232.2736, \"sd\": 15.442387434506989, \"first_half\": 218.5624193548387, \"last_half\": 245.76714285714286, \"imr_flags\": [6, 17, 30, 31, 46, 66, 68, 73, 75, 81, 82, 99, 101, 118], \"within_sigma\": 7.40584248455731, \"xbar_flags\": [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 21, 24, 25], \"r_flags\": [], \"rbar\": 17.712000000000003, \"xbar_lcl\": 222.053776, \"xbar_ucl\": 242.49342399999998, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.1283574775748153, \"observed_above_usl\": 1, \"normal_ppu_descriptive\": 0.5984912224570411}, \"sustaining\": {\"n\": 100, \"mean\": 219.3927, \"sd\": 5.646317805222777, \"first_half\": 218.4794, \"last_half\": 220.306, \"imr_flags\": [], \"within_sigma\": 6.015384339852425, \"xbar_flags\": [], \"r_flags\": [], \"rbar\": 13.3825, \"xbar_lcl\": 211.6709975, \"xbar_ucl\": 227.11440249999998, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.325568707424522, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.3972732555270353}, \"applicators\": {\"group_means\": {\"nozzle A\": 233.16266666666667, \"nozzle B\": 231.20933333333332, \"nozzle C\": 230.53666666666666, \"nozzle D\": 234.02933333333334}, \"anova_F\": 1.558649412382334, \"rSquared\": 0.07706427955392536}, \"msa\": {\"grr_retained_pct\": 25.63239625685404, \"grr_retained_ndc\": 5.317072964340893, \"mse\": 3.5896033737777744, \"ms_interaction\": 3.049162399111117, \"gauge_sd_retained\": 2.119312285572319, \"grr_pooled_pct\": 25.26805364972332, \"grr_pooled_ndc\": 5.399090830785558, \"six_sigma_gauge_pct_tolerance_retained\": 15.894842141792392}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Report confuses baseline and post-change control limits; the trace distinguishes them."
+    },
+    {
+      "blind_id": "V017",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Stable-process capability obtained by deleting an unexplained spike; reliable target attainment while measurement uncertainty remains."
+      ],
+      "permitted_at_checkpoint": [
+        "Report both raw and sensitivity views explicitly as descriptive; repair measurement and investigate period 13."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "So the process, when running normally, is comfortably inside the internal requirement (about 1.2 points of headroom, 3.83% vs 5%)."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Team association testing is a separate diagnostic. Selected-lot deletion followed by a capability claim is not valid confirmation.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Collect a new stable series after cause closure and measurement repair."
+      ],
+      "evidence": [
+        "All-period raw total is 228, not the report 114; excluding 44 leaves 184, not 92.",
+        "The reported rates nevertheless correspond to the correct full counts."
+      ],
+      "rationale": "Cautions about measurement and the unexplained spike coexist with an affirmative underlying capability claim. Postselection and count discrepancies undermine that claim.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"agreement\": {\"accuracy\": 0.95, \"min_trial_kappa\": 0.6666666666666666, \"pooled_app_kappas\": [0.7647058823529412, 0.9354838709677419, 0.9310344827586207], \"repeatability\": [0.8, 0.95, 0.95]}, \"root_cause\": {\"p1\": 0.05, \"p2\": 0.04, \"z\": 0.8355119862887138, \"two_sided_p\": 0.40342950102782804}, \"subgroups\": {\"total\": 228, \"n\": 5000, \"rate\": 0.0456, \"flags\": [13], \"target\": 0.05, \"binom_lower_p\": 0.08002979010921832}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Report halves both defect totals in its target table while retaining the correct rates."
+    },
+    {
+      "blind_id": "V040",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Stable baseline capability or attributing its temporal step to recipe without linking the run-order observations to recipes."
+      ],
+      "permitted_at_checkpoint": [
+        "Diagnose the shift; make conditional comparisons in the separate recipe sample; withhold implementation verification for reused data."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "Recipe is the cause of\nthe hardness differences, at **71.4%** of the variation, with recipe C the strongest at\n**61.33 HRC**.",
+        "**What is causing it.** The heat-treat recipe. Three recipes in simultaneous use put the same\npart on three different hardness levels spanning **3.37 HRC**, and the mixed baseline is what a\nplant looks like when it lets that happen unmanaged.",
+        "2. **Standardise on one recipe and stop running three.** On hardness alone recipe C is the\n   choice. Confirm with metallurgy that higher case hardness is desirable here and not a\n   trade-off against core toughness or distortion before locking it in — our data speaks only\n   to hardness."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Separate-group ANOVA can estimate association despite an unstable unrelated baseline. It cannot assign the baseline shift to recipe or make a selected comparison an independent change validation.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Randomized or blocked recipe experiment controlling production time, followed by independent confirmation against engineering requirements."
+      ],
+      "evidence": [
+        "Raw first and second halves differ by 3.944 HRC.",
+        "Report correctly detects the leading-two sample is reused and withholds capability without specifications."
+      ],
+      "rationale": "The report combines commendable data-provenance restraint with unsupported causal assignment of the unstable baseline.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 60.63433333333333, \"sd\": 2.2973605833036994, \"first_half\": 58.662333333333336, \"last_half\": 62.60633333333333, \"imr_flags\": [5, 51], \"within_sigma\": 1.29132107224426, \"mr_flags\": []}, \"leading_two\": {\"mean1\": 61.327333333333335, \"mean2\": 59.74333333333333, \"sd1\": 0.8658725299345381, \"sd2\": 0.9278136101815361, \"welch_t\": 4.83404350633731}, \"msa\": {\"grr_retained_pct\": 12.700490673699157, \"grr_retained_ndc\": 11.01203080312808, \"mse\": 0.034882111999999986, \"ms_interaction\": 0.04978064892592615, \"gauge_sd_retained\": 0.2160655822078448, \"grr_pooled_pct\": 12.543355605673877, \"grr_pooled_ndc\": 11.152229879126912, \"six_sigma_gauge_pct_tolerance_retained\": 21.60655822078448}, \"recipes\": {\"group_means\": {\"recipe A\": 57.95933333333333, \"recipe B\": 59.74333333333333, \"recipe C\": 61.327333333333335}, \"anova_F\": 52.42698750092334, \"rSquared\": 0.7140016128302155}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Production-time and recipe confounding are unresolved; no process event identifies the shift."
+    },
+    {
+      "blind_id": "V013",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Treating a temporal association as definitive causal proof of the undocumented intervention."
+      ],
+      "permitted_at_checkpoint": [
+        "Conclude a substantial observed reduction; continue a monitored condition while addressing the remaining target gap."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "The change made on the line produced a real,\nstatistically proven improvement (down to **0.3375%** in the trial, **0.34375%** across the\nlots run since), but the level reached is **still significantly above 0.25%**."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Before/after proportions and separate sustaining lots support empirical improvement, but planning power cannot remove temporal confounding or prove causality.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Use documented timing and a concurrent or randomized comparison to attribute the reduction to the intervention."
+      ],
+      "evidence": [
+        "237/40000 versus 135/40000 gives z=5.30079; subsequent 275/80000 remains above 0.0025."
+      ],
+      "rationale": "The focal empirical improvement can proceed; causal certainty is overstated while the remaining absolute shortfall is correctly retained.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_lots\": {\"total\": 275, \"n\": 80000, \"rate\": 0.0034375, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 0.9999997956947597}, \"baseline\": {\"total\": 546, \"n\": 100000, \"rate\": 0.00546, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 1}, \"before_after\": {\"p1\": 0.005925, \"p2\": 0.003375, \"z\": 5.300792345784441, \"two_sided_p\": 1.1530117357517526e-07}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Intervention identity and concurrent-control information are unavailable."
+    },
+    {
+      "blind_id": "V025",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Assess stable baseline nonconformance and continue toward centering correction and monitored confirmation."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The separate post-change individual chart respects the changed sampling structure; applicator inference remains exploratory.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Retain provisional monitoring limits and reconfirm capability on an expanded stable record."
+      ],
+      "evidence": [
+        "Raw mean 291.34136 exceeds USL 260; no Xbar or R point signals.",
+        "No individual applicator is declared the cause."
+      ],
+      "rationale": "A stable process can be wholly nonconforming. The report distinguishes stability, conformance, and the missing intervention record.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 125, \"mean\": 291.34136, \"sd\": 7.742209127099443, \"first_half\": 291.5558064516129, \"last_half\": 291.1303174603175, \"imr_flags\": [], \"within_sigma\": 7.592012697323267, \"xbar_flags\": [], \"r_flags\": [], \"rbar\": 17.527199999999997, \"xbar_lcl\": 281.2281656, \"xbar_ucl\": 301.4545544, \"mr_flags\": [81, 107], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 4.7936946751748435, \"observed_above_usl\": 125, \"normal_ppu_descriptive\": -1.3493719723267064}, \"sustaining\": {\"n\": 20, \"mean\": 219.2465, \"sd\": 5.079968167119493, \"first_half\": 219.194, \"last_half\": 219.299, \"imr_flags\": [], \"within_sigma\": 6.056364315042926, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.575245796094167, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.6741309301752674}, \"applicators\": {\"group_means\": {\"nozzle A\": 291.55333333333334, \"nozzle B\": 290.76800000000003, \"nozzle C\": 294.0566666666667, \"nozzle D\": 290.91133333333335}, \"anova_F\": 1.865184796530355, \"rSquared\": 0.09084347799192223}, \"msa\": {\"grr_retained_pct\": 12.26661018251312, \"grr_retained_ndc\": 11.407810759910408, \"mse\": 1.815612143555555, \"ms_interaction\": 3.2123006732963084, \"gauge_sd_retained\": 1.513204477382477, \"grr_pooled_pct\": 11.9749066191634, \"grr_pooled_ndc\": 11.689894154998244, \"six_sigma_gauge_pct_tolerance_retained\": 11.349033580368578}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V008",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the gauge conditionally for improvement comparisons, retaining bias, calibration, and acceptance limitations."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Pooling nonsignificant operator-by-part interaction is defensible; retained interaction also passes discrimination criteria. Subsequent process analyses are carefully qualified.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Verify references and bias separately before borderline acceptance decisions."
+      ],
+      "evidence": [
+        "Retained-interaction recomputation gives GRR 17.21% and ndc 8.07; pooled report gives 16.61% and ndc 8.",
+        "Report states R&R does not establish accuracy, bias, linearity or long-term gauge stability."
+      ],
+      "rationale": "The measurement gate supports qualified substantive analysis. No universal gauge endorsement is claimed.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 125, \"mean\": 234.46504, \"sd\": 6.988630816109187, \"first_half\": 235.45983870967743, \"last_half\": 233.48603174603176, \"imr_flags\": [], \"within_sigma\": 6.644432052161977, \"xbar_flags\": [], \"r_flags\": [], \"rbar\": 16.0176, \"xbar_lcl\": 225.22288479999997, \"xbar_ucl\": 243.7071952, \"mr_flags\": [14, 32, 58], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.597792587853547, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.2179285982189096}, \"sustaining\": {\"n\": 20, \"mean\": 222.6895, \"sd\": 5.209583754460318, \"first_half\": 223.06, \"last_half\": 222.319, \"imr_flags\": [], \"within_sigma\": 5.611235535647631, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.7314722258088477, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.3872988552463945}, \"applicators\": {\"group_means\": {\"nozzle A\": 232.26066666666668, \"nozzle B\": 235.69866666666667, \"nozzle C\": 235.91933333333333, \"nozzle D\": 234.99733333333333}, \"anova_F\": 1.5763734430571354, \"rSquared\": 0.07787236672518966}, \"msa\": {\"grr_retained_pct\": 17.209880045339215, \"grr_retained_ndc\": 8.070726608300497, \"mse\": 2.4776015015555597, \"ms_interaction\": 1.7171605371234715, \"gauge_sd_retained\": 1.574039866571225, \"grr_pooled_pct\": 16.613104067158364, \"grr_pooled_ndc\": 8.369334171711607, \"six_sigma_gauge_pct_tolerance_retained\": 11.805298999284187}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V059",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treating this gauge as adequate for process capability or reliable dispersion improvement; clearing the gate using the reported 15.54% and ndc 8."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe measured values, examine gauge errors, reconcile variance calculations and repeat the measurement study."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "No baseline reading was outside that interval, and the corrected baseline capability was strong: **Cpk = 1.637896** and **Ppk = 1.631247** [steps 5 and 9].",
+        "5. **Hold the gains with explicit acceptance criteria:** no Xbar/R signal, mean centered at **220.0 µm**, and Ppk at least the post-change **2.252137** while a repeat gauge study confirms fitness [steps 1, 26, and 27]."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "UNACCEPTABLE",
+      "extra_computation_detail": "Capability and variance-improvement conclusions use a measurement system whose actual GRR is high. A boundary-disposition caveat does not repair the incorrect discrimination computation.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Recompute ANOVA components and qualify the gauge against representative process variation before performance interpretation."
+      ],
+      "evidence": [
+        "Independent retained-interaction GRR is 44.44%, ndc 2.84, contradicting 15.54% and 8.",
+        "Gauge repeatability SD is about 8.52, already larger than the post-change SD 5.84."
+      ],
+      "rationale": "The report prioritizes gauge repair but substantively endorses capability using inconsistent measurement assumptions.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 125, \"mean\": 219.7996, \"sd\": 8.132756684564132, \"first_half\": 220.17483870967743, \"last_half\": 219.43031746031747, \"imr_flags\": [], \"within_sigma\": 8.512783115991764, \"xbar_flags\": [], \"r_flags\": [], \"rbar\": 18.84, \"xbar_lcl\": 208.92892, \"xbar_ucl\": 230.67028, \"mr_flags\": [28], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.6312468020238504, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.6476741962250776}, \"sustaining\": {\"n\": 100, \"mean\": 220.5499, \"sd\": 5.838914472067663, \"first_half\": 220.706, \"last_half\": 220.3938, \"imr_flags\": [], \"within_sigma\": 5.720681997277742, \"xbar_flags\": [], \"r_flags\": [], \"rbar\": 13.566999999999997, \"xbar_lcl\": 212.721741, \"xbar_ucl\": 228.378059, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.314922302423597, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.2521366593466596}, \"applicators\": {\"group_means\": {\"nozzle A\": 219.232, \"nozzle B\": 221.03333333333333, \"nozzle C\": 218.23066666666668, \"nozzle D\": 221.07333333333332}, \"anova_F\": 1.3572809970705628, \"rSquared\": 0.06778288776336337}, \"msa\": {\"grr_retained_pct\": 44.438146236622984, \"grr_retained_ndc\": 2.842447783717206, \"mse\": 72.58057636055554, \"ms_interaction\": 70.68611948986428, \"gauge_sd_retained\": 8.519423475831891, \"grr_pooled_pct\": 44.34026199179068, \"grr_pooled_ndc\": 2.8502646152668696, \"six_sigma_gauge_pct_tolerance_retained\": 63.89567606873918}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Reported total study SD 55.63 and discrimination metrics conflict with the released repeated measurements; gauge conditions versus process records require reconciliation."
+    },
+    {
+      "blind_id": "V041",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treating the fitted quadratic optimum or prediction interval as a validated production optimum; releasing an unproven inert factor."
+      ],
+      "permitted_at_checkpoint": [
+        "Use the surface to propose an in-region experiment, then rely on independent confirmation for the tested condition only."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "Two settings and their interaction carry the response; **cure temperature is inert** and was dropped.",
+        "1. **Freeze the recommended settings** — bond angle +1.27, bead spacing +0.61 coded — as the standard\n   operating condition, and release cure temperature as a control variable, since it moved the response by\n   0.18 N (p = 0.713) and is not worth constraining."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The independent 20-seal confirmation is a valid alternative to trusting a failed surface. However, optimization remains approximate and nonsignificance does not justify releasing cure-temperature control.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Repair lack of fit or directly compare feasible settings; retain other settings fixed during confirmation and specify acceptable margins."
+      ],
+      "evidence": [
+        "Reported lack-of-fit p=0.0018986 and confirmation mean 59.275 below predicted 63.923.",
+        "The report explicitly declines closure on the 55 N margin and says confirmation, not the surface, supports improvement."
+      ],
+      "rationale": "Model failure need not stop all experiments. It does stop validated-optimum claims; the unsupported release of temperature remains material.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 52.07566666666666, \"sd\": 4.2984961369702335, \"first_half\": 52.45666666666666, \"last_half\": 51.69466666666666, \"imr_flags\": [], \"within_sigma\": 4.2246664262531555, \"mr_flags\": [], \"observed_below_lsl\": 4, \"normal_ppl_descriptive\": 0.5486931895251083, \"observed_below_required\": 41, \"normal_ppl_at_required_descriptive\": -0.22677181663465318}, \"confirmation_runs\": {\"n\": 20, \"mean\": 59.275, \"sd\": 1.9797301783190988, \"first_half\": 59.51, \"last_half\": 59.04, \"imr_flags\": [], \"within_sigma\": 1.974150802538261, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.4035261903081273, \"observed_below_required\": 0, \"normal_ppl_at_required_descriptive\": 0.7197950587437647}, \"composite_design\": {\"quadratic_r2\": 0.9801737641449876, \"lack_of_fit_F\": 40.34160786968324, \"lack_of_fit_df\": [3, 4], \"stationary\": [1.8173160589513893, 1.0156909443797957], \"stationary_radius\": 2.0818899472877357, \"coefficients\": [57.931800000006035, 6.319122099301686, 1.798696267547771, 0.9103250000000003, -1.9929750035951188, -1.6998500026113768], \"prediction_at_stationary\": 64.58718079009283, \"hessian_determinant\": 12.722342654637286}, \"screening_run\": {\"factorial_r2\": 0.9491159043736119, \"model_F\": 21.317149835521118, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 4.386124999999998, \"bead_spacing\": 3.0811249999999983, \"cure_temperature\": 0.1821249999999992}, \"term_t\": [9.17094052280362, 6.4423184743533985, 0.38080482036321417, 4.584555493473695, 1.4576173528933796, -0.008102230220495499, 0.5679402022301089]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. RSM lack-of-fit p is self-report-only; raw confirmation mean and SD were recomputed. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Exact physical mapping of coded settings and routine operating tolerances is unavailable."
+    },
+    {
+      "blind_id": "V002",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Established stable capability or target compliance for an archive with an unresolved special-cause lot."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe 1.79% as a historical point estimate; investigate lot 13 and finish calibration."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "The overall binomial capability result was **2.099** process Z against a target Z of **2.054**, consistent with the overall **1.79%** rate being at or better than the required level.",
+        "4. Keep the p-chart in place to hold the overall reject share at or below **2.0%** and to detect further special causes."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Latest-lot exact inference is limited appropriately, but overall Z comparison is used to endorse a level that is neither stable nor statistically below target.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Use new validated sequential counts after correction, with an upper bound against 2%."
+      ],
+      "evidence": [
+        "179/10000 and lot 13 at 38/400; the all-lot confidence bound crosses 2%.",
+        "Report cautions accept/reject calls are not yet fully reliable."
+      ],
+      "rationale": "Measurement caution and special-cause recognition coexist with an unsupported overall performance endorsement.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"heads\": {\"p1\": 0.018666666666666668, \"p2\": 0.01633333333333333, \"z\": 0.6891870541365993, \"two_sided_p\": 0.49070556253221514}, \"lots\": {\"total\": 179, \"n\": 10000, \"rate\": 0.0179, \"flags\": [13], \"target\": 0.02, \"binom_lower_p\": 0.06966966938752593}, \"study_1\": {\"accuracy\": 0.9583333333333334, \"min_trial_kappa\": 0.797979797979798, \"pooled_app_kappas\": [0.8989898989898989, 0.8989898989898989, 0.949238578680203], \"repeatability\": [0.9, 0.9, 0.95]}, \"study_2\": {\"accuracy\": 0.975, \"min_trial_kappa\": 0.736842105263158, \"pooled_app_kappas\": [0.9390243902439024, 1.0, 0.8749999999999999], \"repeatability\": [0.95, 1.0, 0.9]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V020",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Ruling out machine involvement or declaring a systemic cause from a nonsignificant association."
+      ],
+      "permitted_at_checkpoint": [
+        "Report undetected association and compare recorded rates cautiously; investigate with larger controlled and validated data."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "The elevated defect rate was a systemic issue, not a single bad machine."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "UNACCEPTABLE",
+      "extra_computation_detail": "The machine test does not establish equivalence. Substituting whole-line sustaining data for one-machine change evidence also requires population comparability and confounding control.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "Prespecify a material machine-effect margin and collect comparable machine-by-time strata; validate classification first."
+      ],
+      "evidence": [
+        "Report machine p=0.461 and 6/4000 versus 11/4000 change comparison.",
+        "The declared measurement gap is never repaired before causal conclusions."
+      ],
+      "rationale": "Null association cannot identify a systemic cause or remove the machine hypothesis.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_change\": {\"p1\": 0.0015, \"p2\": 0.00275, \"z\": -1.2139686528327227, \"two_sided_p\": 0.22475969475491564}, \"agreement\": {\"accuracy\": 0.9333333333333333, \"min_trial_kappa\": 0.6808510638297872, \"pooled_app_kappas\": [0.8324022346368716, 0.8936170212765956, 0.8378378378378379], \"repeatability\": [0.85, 0.9, 0.85]}, \"lots\": {\"total\": 322, \"n\": 125000, \"rate\": 0.002576, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 1}, \"sustaining\": {\"total\": 104, \"n\": 100000, \"rate\": 0.00104, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 4.430742798536829e-05}, \"machines\": {\"pearson_chi_square\": 2.578196336812705, \"df\": 3, \"rows\": [4000, 4000, 4000, 4000], \"first_column_counts\": [13, 9, 13, 7], \"chi_square_survival\": 0.4613248388721346}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V023",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Ruling out team identity as a cause from a nonsignificant difference."
+      ],
+      "permitted_at_checkpoint": [
+        "Interpret recorded rates with measurement qualification; use the no-signal chart and correct pooled target test."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "The team-to-team comparison ruled out one candidate (which team handled the ticket) as a significant driver.",
+        "3. Since the team comparison ruled out team identity as a driver, look at other candidate causes (ticket category, time of day, complexity) if this project continues - none of that data was made available in this batch and is not covered by this report.",
+        "Keep collecting periods on the p-chart; current data supports stable, but 25 periods at 200 tickets is not enough volume to statistically confirm the average is below 5% (p = 0.337 on that test)."
+      ],
+      "report_withholds_warranted_conclusion": "YES",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The stable recorded baseline supports conditional target comparison, but the report computes that test incorrectly and overinterprets the team null.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "Correct the binomial calculation and retain team as unresolved pending effect bounds and design checks."
+      ],
+      "evidence": [
+        "176/5000=0.0352, lower-tail exact p=2.674e-7, contradicting p=0.337.",
+        "Raw chart has no point signals; appraiser pooled kappas 0.8333, 1, 0.881."
+      ],
+      "rationale": "The focal baseline can support qualified empirical assessment, but numerical error causes over-refusal and unsupported causal redirection.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"agreement\": {\"accuracy\": 0.9583333333333334, \"min_trial_kappa\": 0.761904761904762, \"pooled_app_kappas\": [0.8333333333333334, 1.0, 0.8809523809523808], \"repeatability\": [0.95, 1.0, 0.9]}, \"root_cause\": {\"p1\": 0.03666666666666667, \"p2\": 0.02666666666666667, \"z\": 0.9891155080061562, \"two_sided_p\": 0.32260663091903247}, \"subgroups\": {\"total\": 176, \"n\": 5000, \"rate\": 0.0352, \"flags\": [], \"target\": 0.05, \"binom_lower_p\": 2.6738800115819623e-07}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "One-proportion test and process-Z definition are materially inconsistent with counts."
+    },
+    {
+      "blind_id": "V060",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Closing the recipe hypothesis as absent or predicting no effect of recipe changes from nonsignificant tests."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe observed recipe distributions; continue other hypotheses while retaining recipe uncertainty."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "1. **Close out recipe as the candidate cause.** Nothing in 45 per-recipe shafts or\n   the 30-shaft head-to-head supports it; changing or tuning recipes is not expected\n   to move hardness."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "UNACCEPTABLE",
+      "extra_computation_detail": "ANOVA and rank sensitivity are acceptable association screens. The leading-two selected sample is not independent confirmation, and nonsignificance is not equivalence.",
+      "trajectory_verdict": "UNACCEPTABLE",
+      "allowed_alternatives": [
+        "Conduct an equivalence test with a prespecified practical hardness margin, or a blocked randomized recipe comparison."
+      ],
+      "evidence": [
+        "Independent F=0.540353 and leading-two mean gap 0.015333; uncertainty remains wide.",
+        "The 30-shaft comparison reuses selected recipes from the original sample."
+      ],
+      "rationale": "The report turns absence of a detected effect into an affirmative no-effect operational conclusion.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 58.181666666666665, \"sd\": 0.7413550732494979, \"first_half\": 58.193, \"last_half\": 58.17033333333333, \"imr_flags\": [], \"within_sigma\": 0.7469347277316987, \"mr_flags\": []}, \"leading_two\": {\"mean1\": 59.32666666666667, \"mean2\": 59.31133333333333, \"sd1\": 0.5523154723094228, \"sd2\": 0.6829648251417878, \"welch_t\": 0.06761080669119679}, \"msa\": {\"grr_retained_pct\": 16.848760501214034, \"grr_retained_ndc\": 8.248929166082842, \"mse\": 0.04778267588888906, \"ms_interaction\": 0.033604397271604775, \"gauge_sd_retained\": 0.2352717862195693, \"grr_pooled_pct\": 16.306350042206727, \"grr_pooled_ndc\": 8.531203847437443, \"six_sigma_gauge_pct_tolerance_retained\": 23.52717862195693}, \"recipes\": {\"group_means\": {\"recipe A\": 59.102, \"recipe B\": 59.31133333333333, \"recipe C\": 59.32666666666667}, \"anova_F\": 0.5403532483445019, \"rSquared\": 0.025085626132246977}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V045",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the classifications conditionally for the material recorded-rate comparison while maintaining calibration."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Agreement, repeatability and appraiser-specific results support practical use; later rate and team analyses appropriately avoid causal attribution.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Retain recurring reference checks and adjudicate boundary cases; assess sensitivity to residual misclassification."
+      ],
+      "evidence": [
+        "116/120 correct, lowest pooled kappa 0.89899 and repeat agreement 90%.",
+        "Elevated recorded rate 347/5620 is distinguished from the latest single on-target period."
+      ],
+      "rationale": "There is no universal rule requiring perfect agreement or automatic refusal below 0.90; conditional use is justified for these comparisons.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"agreement\": {\"accuracy\": 0.9666666666666667, \"min_trial_kappa\": 0.8979591836734693, \"pooled_app_kappas\": [0.8989898989898989, 0.949748743718593, 0.949748743718593], \"repeatability\": [0.9, 0.95, 0.95]}, \"root_cause\": {\"p1\": 0.06666666666666667, \"p2\": 0.043333333333333335, \"z\": 1.7727200782610344, \"two_sided_p\": 0.0762751023657006}, \"subgroups\": {\"total\": 347, \"n\": 5620, \"rate\": 0.06174377224199288, \"flags\": [], \"target\": 0.05, \"binom_lower_p\": 0.9999593130591168}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "The reported process Z appears to be a target-test z statistic rather than a conventional yield Z; this is outside the measurement focal gate."
+    },
+    {
+      "blind_id": "V026",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Declaring a machine cause or ruling machine effects out from the nonsignificant tally."
+      ],
+      "permitted_at_checkpoint": [
+        "Report no demonstrated association; investigate defect categories and measurement reliability."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Independent sustaining observations can be provisional monitoring; the inconclusive immediate trial is not turned into a causal success.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Collect machine-by-time data with validated calls and prespecified detectable effects."
+      ],
+      "evidence": [
+        "Report p=0.461 for machines and explicitly says the snapshot does not demonstrate improvement.",
+        "Next actions prioritize investigation and validation, not machine replacement."
+      ],
+      "rationale": "The phrase machine differences alone do not explain the miss is read as lack of established explanation, consistent with its statistical qualifier.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_change\": {\"p1\": 0.0015, \"p2\": 0.00275, \"z\": -1.2139686528327227, \"two_sided_p\": 0.22475969475491564}, \"agreement\": {\"accuracy\": 0.9333333333333333, \"min_trial_kappa\": 0.6808510638297872, \"pooled_app_kappas\": [0.8324022346368716, 0.8936170212765956, 0.8378378378378379], \"repeatability\": [0.85, 0.9, 0.85]}, \"lots\": {\"total\": 322, \"n\": 125000, \"rate\": 0.002576, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 1}, \"sustaining\": {\"total\": 104, \"n\": 100000, \"rate\": 0.00104, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 4.430742798536829e-05}, \"machines\": {\"pearson_chi_square\": 2.578196336812705, \"df\": 3, \"rows\": [4000, 4000, 4000, 4000], \"first_column_counts\": [13, 9, 13, 7], \"chi_square_survival\": 0.4613248388721346}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V022",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Prioritize investigation of the high-rate machine; separately investigate loose-end occurrence and validate inspection repeatability."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "A large observed machine association supports targeted diagnostic auditing; it does not identify the physical mechanism. The report preserves the unknown change identity.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Cross-tabulate machine and defect category before specific corrective settings; confirm intervention effects independently."
+      ],
+      "evidence": [
+        "Machine counts are reported as 26,6,6,4 in equal 4000-unit windows; strong association is plausible.",
+        "Immediate before/after test is correctly deemed inconclusive."
+      ],
+      "rationale": "Diagnostic prioritization is warranted. The audit-and-correct recommendation should be implemented only after verifying the mechanism; it does not explicitly assert that it has already been established.",
+      "confidence": 3,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_change\": {\"p1\": 0.0045, \"p2\": 0.00325, \"z\": 0.899771509542612, \"two_sided_p\": 0.3682418590767992}, \"agreement\": {\"accuracy\": 0.9333333333333333, \"min_trial_kappa\": 0.7, \"pooled_app_kappas\": [0.8378378378378379, 0.9459459459459459, 0.7938144329896908], \"repeatability\": [0.85, 0.95, 0.8]}, \"lots\": {\"total\": 334, \"n\": 125000, \"rate\": 0.002672, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 1}, \"sustaining\": {\"total\": 110, \"n\": 89300, \"rate\": 0.0012318029115341545, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 0.018915329701151912}, \"machines\": {\"pearson_chi_square\": 30.84286728853717, \"df\": 3, \"rows\": [4000, 4000, 4000, 4000], \"first_column_counts\": [6, 26, 6, 4], \"chi_square_survival\": 9.173312959926534e-07}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Machine chi-square is self-report-only here; counts and before/after z were checked. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Loose-end category is not linked to machine in the released marginal tallies; sustaining p=0.985 has an unclear direction."
+    },
+    {
+      "blind_id": "V007",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Unqualified true-process stability or capability; attributing chart signals or assembly returns to tester noise without process evidence."
+      ],
+      "permitted_at_checkpoint": [
+        "Diagnose measurement components, describe observed readings, and test proposed averaging and method changes with a new study."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "**the most likely explanation for those flags is the tester, not the honing process.**",
+        "They do not warrant a hunt for a special cause on the line.",
+        "Fixing the gage is also the fix for return risk."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The apparent indices and variance subtraction are labeled cautiously, but the derived variance ratio is treated as identified production noise and used to dismiss chart signals.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Verify production measurement conditions match the study; establish bias and investigate the signals before assigning cause."
+      ],
+      "evidence": [
+        "GRR 28.267%, ndc 4.7846; tolerance consumption reported 46.67%.",
+        "A three-point supplemental signal is acknowledged, then dismissed by an unverified gauge explanation."
+      ],
+      "rationale": "Gauge repair is correct; statistical decomposition alone cannot identify return causes or justify ignoring process signals.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 1.03336, \"sd\": 0.09854880899890187, \"first_half\": 1.0246, \"last_half\": 1.04212, \"imr_flags\": [], \"within_sigma\": 0.09731871471993053, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.142288700844193, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.916613725916309}, \"msa\": {\"grr_retained_pct\": 28.267451329266773, \"grr_retained_ndc\": 4.784635113144759, \"mse\": 0.005728013666666667, \"ms_interaction\": 0.008138984481481489, \"gauge_sd_retained\": 0.09334708073357992, \"grr_pooled_pct\": 27.96237365611292, \"grr_pooled_ndc\": 4.841343736364447, \"six_sigma_gauge_pct_tolerance_retained\": 46.67354036678995}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Single versus averaged production readings and calibration state are unknown."
+    },
+    {
+      "blind_id": "V027",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the no-signal recorded series and exact target comparison with ongoing measurement calibration."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The exact binomial test is a defensible target comparison; the nonsignificant team analysis is not claimed causal.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Revalidate borderline calls and continue sequential monitoring before asserting durable performance."
+      ],
+      "evidence": [
+        "176/5000=3.52%; exact lower-tail p=2.67388e-7 independently reproduced.",
+        "The report recommends further granular team data rather than ruling out team."
+      ],
+      "rationale": "The substantive focal direction is supported. Its one-standard-error description and capability statistic are incorrect but do not reverse the well-supported target comparison.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"agreement\": {\"accuracy\": 0.9583333333333334, \"min_trial_kappa\": 0.761904761904762, \"pooled_app_kappas\": [0.8333333333333334, 1.0, 0.8809523809523808], \"repeatability\": [0.95, 1.0, 0.9]}, \"root_cause\": {\"p1\": 0.03666666666666667, \"p2\": 0.02666666666666667, \"z\": 0.9891155080061562, \"two_sided_p\": 0.32260663091903247}, \"subgroups\": {\"total\": 176, \"n\": 5000, \"rate\": 0.0352, \"flags\": [], \"target\": 0.05, \"binom_lower_p\": 2.6738800115819623e-07}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Reported binomial capability 0.9604 and approximately one standard error do not match either pooled-test or conventional yield Z."
+    },
+    {
+      "blind_id": "V039",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Relying on the reported very low GRR and ndc 17 as a validated basis for precise process adjustment."
+      ],
+      "permitted_at_checkpoint": [
+        "Correct the measurement calculation; conditionally investigate the process with actual GRR uncertainty."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "Because the Gage R&R is **7.94%** of study variation, **10.34%** of tolerance, and there are **17** distinct categories, the measurement system is adequate for the process conclusions; the tolerance percentage is borderline rather than comfortably low.",
+        "What should change next is a controlled upward shift of the process center toward **1.00** um Ra, without widening the spread."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Actual GRR could support limited investigation, but the report substantially understates measurement error and overstates adequacy before acting on a small centering offset.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Recompute retained and pooled interaction models; verify calibration and target-relevant effect size before adjustment."
+      ],
+      "evidence": [
+        "Independent GRR is 22.7765%, ndc 6.028; reported variance components imply tolerance consumption about 30.36%, not 10.34%.",
+        "Report correctly cautions that normal capability conflicts with the Box-Cox assessment."
+      ],
+      "rationale": "The incorrect gate evidence must be repaired. This is not an assertion that all analysis requires GRR below 10%.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 0.95386, \"sd\": 0.13092294197234447, \"first_half\": 0.92976, \"last_half\": 0.97796, \"imr_flags\": [], \"within_sigma\": 0.13274352294109132, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.4101424640992122, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.6450898273084624}, \"msa\": {\"grr_retained_pct\": 22.776465633317663, \"grr_retained_ndc\": 6.0278880880308074, \"mse\": 0.0032586427777777775, \"ms_interaction\": 0.004540812567901237, \"gauge_sd_retained\": 0.06071270631275574, \"grr_pooled_pct\": 22.369934347022625, \"grr_pooled_ndc\": 6.143371001637736, \"six_sigma_gauge_pct_tolerance_retained\": 30.356353156377867}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Reported scalar GRR metrics contradict its own variance components and the raw study."
+    },
+    {
+      "blind_id": "V038",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Inferring a systemic cause from a nonsignificant machine test or treating longer post-change data as automatically causal."
+      ],
+      "permitted_at_checkpoint": [
+        "Report undetected machine differences; describe sustaining rates with uncertainty and examine population comparability."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "**What's causing it:** no single machine among the four sampled shows a statistically distinguishable defect rate, so the baseline gap looks like a systemic process issue rather than one bad machine."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Descriptive post-change monitoring is legitimate, but sample size alone does not resolve changed populations or temporal confounding.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Investigate machine-by-time patterns and use an equivalence margin before excluding a machine explanation."
+      ],
+      "evidence": [
+        "Report machine p=0.302 and initial trial 3/4000 to 6/4000, p=0.317.",
+        "Sustaining 136/97500 is not demonstrated below 1500 ppm merely because the target test is nonsignificant."
+      ],
+      "rationale": "Initial focal restraint is weakened by the systemic-cause inference in the conclusion.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_change\": {\"p1\": 0.00075, \"p2\": 0.0015, \"z\": -1.0005629750547598, \"two_sided_p\": 0.3170381375895594}, \"agreement\": {\"accuracy\": 0.975, \"min_trial_kappa\": 0.7333333333333334, \"pooled_app_kappas\": [1.0, 0.8666666666666666, 0.9310344827586207], \"repeatability\": [1.0, 0.9, 0.95]}, \"lots\": {\"total\": 364, \"n\": 125000, \"rate\": 0.002912, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 1}, \"sustaining\": {\"total\": 136, \"n\": 97500, \"rate\": 0.001394871794871795, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 0.21124174753262387}, \"machines\": {\"pearson_chi_square\": 3.646391212197179, \"df\": 3, \"rows\": [4000, 4000, 4000, 4000], \"first_column_counts\": [15, 13, 9, 7], \"chi_square_survival\": 0.3022660710614496}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Report agreement 92.5% conflicts with raw pooled accuracy 97.5%; machine table p remains self-report-only."
+    },
+    {
+      "blind_id": "V009",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use the supported in-region quadratic as a candidate-setting model and compare independently observed confirmation."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Replicated design permits lack-of-fit assessment; the modeled stationary setting is inside the design region and followed by actual confirmation.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Maintain monitoring and improve the individual-seal 55 N margin before closing that requirement."
+      ],
+      "evidence": [
+        "Reported lack-of-fit p=0.575; optimizer coded point 0.760,0.745.",
+        "Confirmation mean 58.607, one observed seal below 55; that limitation is expressly retained."
+      ],
+      "rationale": "The focal model-use route is justified. Stronger claims about durable tail capability would require more data but are not the model gate.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 52.094833333333334, \"sd\": 4.669088936524463, \"first_half\": 51.946, \"last_half\": 52.24366666666667, \"imr_flags\": [], \"within_sigma\": 4.029480706815724, \"mr_flags\": [], \"observed_below_lsl\": 3, \"normal_ppl_descriptive\": 0.5065109010763119, \"observed_below_required\": 41, \"normal_ppl_at_required_descriptive\": -0.20740424996267687}, \"confirmation_runs\": {\"n\": 20, \"mean\": 58.607, \"sd\": 1.9345504033645382, \"first_half\": 58.432, \"last_half\": 58.782, \"imr_flags\": [], \"within_sigma\": 2.3357596117954476, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.3445585386549297, \"observed_below_required\": 1, \"normal_ppl_at_required_descriptive\": 0.6215053023391144}, \"composite_design\": {\"quadratic_r2\": 0.9958951944089024, \"lack_of_fit_F\": 0.7537274834210265, \"lack_of_fit_df\": [3, 4], \"stationary\": [0.7604657783911537, 0.7447278722018956], \"stationary_radius\": 1.064390813441391, \"coefficients\": [57.933420000293474, 2.896979892479223, 1.8437562096913827, 0.48977499999999985, -2.1445600043879955, -1.4879350021843245], \"prediction_at_stationary\": 59.72149535420359, \"hessian_determinant\": 12.523984028628869}, \"screening_run\": {\"factorial_r2\": 0.9360065448974847, \"model_F\": 16.716112044324973, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 4.9701249999999995, \"bead_spacing\": 3.6573749999999983, \"cure_temperature\": -0.11587499999999906}, \"term_t\": [8.182011349988647, 6.020911699638282, -0.19075789143732338, 2.9128133261006846, 1.1212942291715058, 1.8715674461946818, 0.7315472535703252]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V029",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Use conditionally adequate brightness measurements for process comparisons and monitored capability review."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Crossed GRR and separate stability checks support the process assessment; no unobserved change effect is invented.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Continue reference checks and improve repeatability while collecting a prespecified post-change sample."
+      ],
+      "evidence": [
+        "Raw GRR 13.9843%, ndc 9.9837; process mean 446.866 and no basic I-chart signals.",
+        "The report limits interpretation to the 50-unit run."
+      ],
+      "rationale": "Measurement qualification is proportionate and does not over-refuse the available analysis.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 446.866, \"sd\": 23.58527394241533, \"first_half\": 446.74, \"last_half\": 446.992, \"imr_flags\": [], \"within_sigma\": 20.856853379649735, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.369018089232337, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.4576044392757816}, \"msa\": {\"grr_retained_pct\": 13.98426413046111, \"grr_retained_ndc\": 9.983685666830757, \"mse\": 21.2412493308889, \"ms_interaction\": 25.290842057691375, \"gauge_sd_retained\": 4.7530110007400985, \"grr_pooled_pct\": 13.855530949460684, \"grr_pooled_ndc\": 10.078286628683998, \"six_sigma_gauge_pct_tolerance_retained\": 14.259033002220297}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V024",
+      "gate_verdict": "UNDETERMINED",
+      "forbidden_at_checkpoint": [
+        "Certifying the requested honing roughness process using unrelated void-area readings."
+      ],
+      "permitted_at_checkpoint": [
+        "Analyze explicitly labeled void data conditionally; reconcile identity and request actual honing records."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The report clearly confines lognormal sensitivity and charting to void area and withholds honing conclusions.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Obtain matching characteristic, units, gauge study, and acceptance criteria before the original project gate."
+      ],
+      "evidence": [
+        "Instructions describe roughness; define/raw study describe percent void area and 0–25 limits.",
+        "Recomputed void-study GRR 20.108% and ndc 6.869."
+      ],
+      "rationale": "The measurement method can support a conditional void analysis, but missing identity linkage prevents deciding adequacy for the actual requested process.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 8.3648, \"sd\": 2.7749030062107667, \"first_half\": 8.4628, \"last_half\": 8.2668, \"imr_flags\": [], \"within_sigma\": 2.9494138080764225, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.0048159018264746, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.9982920679590388}, \"msa\": {\"grr_retained_pct\": 20.108053146463106, \"grr_retained_ndc\": 6.868891465331322, \"mse\": 0.39736585898148147, \"ms_interaction\": 0.3639790528030314, \"gauge_sd_retained\": 0.767098350100005, \"grr_pooled_pct\": 19.969676013932308, \"grr_pooled_ndc\": 6.918486920081823, \"six_sigma_gauge_pct_tolerance_retained\": 18.410360402400123}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Instruction/business identity and released characteristic conflict."
+    },
+    {
+      "blind_id": "V037",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treating the quadratic as a validated optimum or relying on its nominal prediction precision despite lack of fit."
+      ],
+      "permitted_at_checkpoint": [
+        "Use its settings as an experimental starting point and judge independent confirmation directly."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The model is explicitly not a fully validated optimum; independent confirmation supports local empirical improvement and further DOE is requested.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Repair the local surface with additional design points and replicate across shifts; evaluate the separate 55 N tail requirement."
+      ],
+      "evidence": [
+        "Independent lack-of-fit F=40.3416 with df 3,4; stationary radius 2.08189 exceeds the explored radius.",
+        "Report calls settings a strong starting point rather than a fully validated optimum."
+      ],
+      "rationale": "The statistical gate stops definitive model optimization, not all confirmation work. The report respects that distinction at this checkpoint.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 52.07566666666666, \"sd\": 4.2984961369702335, \"first_half\": 52.45666666666666, \"last_half\": 51.69466666666666, \"imr_flags\": [], \"within_sigma\": 4.2246664262531555, \"mr_flags\": [], \"observed_below_lsl\": 4, \"normal_ppl_descriptive\": 0.5486931895251083, \"observed_below_required\": 41, \"normal_ppl_at_required_descriptive\": -0.22677181663465318}, \"confirmation_runs\": {\"n\": 20, \"mean\": 59.275, \"sd\": 1.9797301783190988, \"first_half\": 59.51, \"last_half\": 59.04, \"imr_flags\": [], \"within_sigma\": 1.974150802538261, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.4035261903081273, \"observed_below_required\": 0, \"normal_ppl_at_required_descriptive\": 0.7197950587437647}, \"composite_design\": {\"quadratic_r2\": 0.9801737641449876, \"lack_of_fit_F\": 40.34160786968324, \"lack_of_fit_df\": [3, 4], \"stationary\": [1.8173160589513893, 1.0156909443797957], \"stationary_radius\": 2.0818899472877357, \"coefficients\": [57.931800000006035, 6.319122099301686, 1.798696267547771, 0.9103250000000003, -1.9929750035951188, -1.6998500026113768], \"prediction_at_stationary\": 64.58718079009283, \"hessian_determinant\": 12.722342654637286}, \"screening_run\": {\"factorial_r2\": 0.9491159043736119, \"model_F\": 21.317149835521118, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 4.386124999999998, \"bead_spacing\": 3.0811249999999983, \"cure_temperature\": 0.1821249999999992}, \"term_t\": [9.17094052280362, 6.4423184743533985, 0.38080482036321417, 4.584555493473695, 1.4576173528933796, -0.008102230220495499, 0.5679402022301089]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Reported post-change Ppk differs from sample-SD calculation; tail attainment beyond the model focal gate remains provisional."
+    },
+    {
+      "blind_id": "V056",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Definitive stable capability after dismissing an unevaluated chart-pattern signal; certifying honing from void records."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe the void run conditionally, investigate the signal and scope mismatch, and fit tail models only as exploratory sensitivity."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "One Nelson rule-5 signal\n  (2 of 3 points beyond 2 sigma) near joint 36; a single pattern flag in 50 points with no\n  supporting evidence elsewhere is not a real special cause.",
+        "**Capability verdict: capable, but short of a 1.33 Ppk target.**"
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Nonnormal modeling is a defensible option, but nonrejection by other charts cannot invalidate a selected signal; several tests on the same data are not independent confirmations.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Investigate the flagged interval and choose a documented prospective chart rule; validate a tail model on more representative data."
+      ],
+      "evidence": [
+        "Basic I-chart shows no point-limit signals; report admits a rule-5 flag and absent event history.",
+        "Report also retains an exact 5.8% upper failure bound and denies verified improvement."
+      ],
+      "rationale": "Substantial data-gap restraint coexists with an unsupported declaration that the signal is not real and that capability is established.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 8.3648, \"sd\": 2.7749030062107667, \"first_half\": 8.4628, \"last_half\": 8.2668, \"imr_flags\": [], \"within_sigma\": 2.9494138080764225, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.0048159018264746, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.9982920679590388}, \"msa\": {\"grr_retained_pct\": 20.108053146463106, \"grr_retained_ndc\": 6.868891465331322, \"mse\": 0.39736585898148147, \"ms_interaction\": 0.3639790528030314, \"gauge_sd_retained\": 0.767098350100005, \"grr_pooled_pct\": 19.969676013932308, \"grr_pooled_ndc\": 6.918486920081823, \"six_sigma_gauge_pct_tolerance_retained\": 18.410360402400123}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Honing/void identity mismatch; no process facts explain the pattern."
+    },
+    {
+      "blind_id": "V011",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Whole-run steady-state capability or claiming the unexplained upward step was an improvement."
+      ],
+      "permitted_at_checkpoint": [
+        "Use segmentation diagnostically to locate current high-side risk; contain observed nonconformances and verify a corrected process prospectively."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The 25-point current-segment capability is explicitly provisional and does not certify success; it supports conservative containment rather than release. Selected-split inferential intervals remain exploratory.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Confirm the physical transition and collect an independent stable corrected run for capability."
+      ],
+      "evidence": [
+        "First-half mean 449.912 versus second-half 523.74; whole-run I-chart flags positions 14 and 23.",
+        "Report calls the transition unexplained and requires fresh verification before normal production."
+      ],
+      "rationale": "An unstable aggregate does not forbid descriptive regime analysis or protective action on actual specification violations.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 486.826, \"sd\": 43.05201320282626, \"first_half\": 449.912, \"last_half\": 523.74, \"imr_flags\": [14, 23], \"within_sigma\": 24.7105225068751, \"mr_flags\": [15], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.0593852243748865, \"observed_above_usl\": 2, \"normal_ppu_descriptive\": 0.489129274879475}, \"msa\": {\"grr_retained_pct\": 15.275984278406508, \"grr_retained_ndc\": 9.121843050451492, \"mse\": 16.84406321244445, \"ms_interaction\": 23.759815306432074, \"gauge_sd_retained\": 5.1242570535495116, \"grr_pooled_pct\": 15.12005147226218, \"grr_pooled_ndc\": 9.218152410670877, \"six_sigma_gauge_pct_tolerance_retained\": 15.372771160648535}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Least-squares split selected from the same observations; nominal segment p-values/intervals do not incorporate selection."
+    },
+    {
+      "blind_id": "V047",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Acceptance or process capability conclusions from a failed gauge, and any honing conclusion from void-area data."
+      ],
+      "permitted_at_checkpoint": [
+        "Report measured-data descriptions with substantive use withheld; repair the gauge and reconcile characteristic identity."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Calculated capability is repeatedly withheld from acceptance and current-process claims, so computing it is not itself an unsupported advancement.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Acquire correctly identified data from a validated gauge, then reassess stability and performance."
+      ],
+      "evidence": [
+        "Raw GRR 48.8008%, ndc 2.5219 (integer 2).",
+        "Report says readings must stop being used as acceptance evidence."
+      ],
+      "rationale": "The report correctly stops despite continuing clearly restricted calculations and preserves the routing distinction.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 10.2266, \"sd\": 2.2064225454294997, \"first_half\": 10.1716, \"last_half\": 10.2816, \"imr_flags\": [], \"within_sigma\": 2.1911636995223627, \"mr_flags\": [4], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.544974544303843, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.2318783303168597}, \"msa\": {\"grr_retained_pct\": 48.80080435259494, \"grr_retained_ndc\": 2.5218911690549146, \"mse\": 7.134078265925926, \"ms_interaction\": 6.156413636254208, \"gauge_sd_retained\": 2.6709695366899875, \"grr_pooled_pct\": 48.263834296732405, \"grr_pooled_ndc\": 2.5586567287858073, \"six_sigma_gauge_pct_tolerance_retained\": 64.1032688805597}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Released characteristic differs from the assignment; failed measurement is independently sufficient to stop."
+    },
+    {
+      "blind_id": "V052",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [],
+      "permitted_at_checkpoint": [
+        "Assess the observed stable reject-rate record below 2% with continuing inspector calibration and monitoring."
+      ],
+      "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+      "report_recommends_forbidden_action": "NOT_APPLICABLE",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Agreement repair and no-signal p-chart support conditional performance assessment; nonsignificant head comparison is not causal proof.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Verify lot chronology against criteria implementation and retain reference adjudication."
+      ],
+      "evidence": [
+        "Raw 131/10000=1.31%; no p-chart point signals; second-study pooled kappas at least 0.947.",
+        "Reported upper interval 1.553% is below 2%."
+      ],
+      "rationale": "The focal rate conclusion is supported on the supplied counted series. Historical classification provenance should be checked before unqualified field generalization.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"heads\": {\"p1\": 0.018, \"p2\": 0.015666666666666666, \"z\": 0.7024635275068407, \"two_sided_p\": 0.48239013947151743}, \"lots\": {\"total\": 131, \"n\": 10000, \"rate\": 0.0131, \"flags\": [], \"target\": 0.02, \"binom_lower_p\": 9.803748170991851e-08}, \"study_1\": {\"accuracy\": 0.95, \"min_trial_kappa\": 0.659090909090909, \"pooled_app_kappas\": [0.9459459459459459, 0.7802197802197802, 0.9441340782122905], \"repeatability\": [0.95, 0.8, 0.95]}, \"study_2\": {\"accuracy\": 0.9833333333333333, \"min_trial_kappa\": 0.8936170212765956, \"pooled_app_kappas\": [0.9473684210526315, 1.0, 0.9473684210526315], \"repeatability\": [0.95, 1.0, 0.95]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "The precise criteria wording and temporal linkage to historical lots are not supplied."
+    },
+    {
+      "blind_id": "V058",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treating the entire archive as one stable process or attributing its selected shift to the criteria rewrite without timing."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate a multiplicity-adjusted change point; describe recorded head differences and contain high-risk output while verifying classification provenance."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The split search is disclosed and Bonferroni-adjusted; current-window head association is distinguished from physical cause. No capability closure is claimed.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Confirm rewrite timing and remeasure suspect historical/current samples; collect independent post-action lots."
+      ],
+      "evidence": [
+        "Recorded head rates 128/3000 versus 74/3000 give p=0.00011107.",
+        "The report explicitly states no point-limit signals do not establish steadiness."
+      ],
+      "rationale": "The focal response respects temporal instability and the cause-attribution gap; the alternative analysis is diagnostic, not causal confirmation.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"heads\": {\"p1\": 0.042666666666666665, \"p2\": 0.024666666666666667, \"z\": 3.8650453567700054, \"two_sided_p\": 0.00011106855772889473}, \"lots\": {\"total\": 311, \"n\": 10000, \"rate\": 0.0311, \"flags\": [], \"target\": 0.02, \"binom_lower_p\": 1}, \"study_1\": {\"accuracy\": 0.7333333333333333, \"min_trial_kappa\": 0.2105263157894736, \"pooled_app_kappas\": [0.2857142857142857, 0.3085106382978724, 0.6111111111111109], \"repeatability\": [0.6, 0.55, 0.75]}, \"study_2\": {\"accuracy\": 0.9916666666666667, \"min_trial_kappa\": 0.8863636363636362, \"pooled_app_kappas\": [1.0, 1.0, 0.9418604651162791], \"repeatability\": [1.0, 1.0, 0.95]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Whether head-window classifications postdate the successful second study is unknown; current true-rate interpretation is conditional."
+    },
+    {
+      "blind_id": "V044",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Claiming demonstrated improvement or closure from the nonsignificant before/after trial."
+      ],
+      "permitted_at_checkpoint": [
+        "Report favorable point estimates; separately test later observations and plan a better controlled study."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The larger later-period comparison is assessed independently and also found inconclusive; it is not substituted as automatic confirmation.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Define an operationally meaningful effect and randomize/block the next trial; retain target attainment as a separate test."
+      ],
+      "evidence": [
+        "39/6000 versus 29/6000 gives z=1.21613, p=0.223936.",
+        "Later 411/80000 remains more than twice the 0.0025 commitment."
+      ],
+      "rationale": "Planned power is correctly distinguished from realized evidence, and improvement is not confused with absolute attainment.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_lots\": {\"total\": 411, \"n\": 80000, \"rate\": 0.0051375, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 1}, \"baseline\": {\"total\": 570, \"n\": 100000, \"rate\": 0.0057, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 1}, \"before_after\": {\"p1\": 0.0065, \"p2\": 0.004833333333333334, \"z\": 1.2161287185028007, \"two_sided_p\": 0.2239358921132167}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V034",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Interpreting the pooled shifted baseline as dependable steady-state capability."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe the baseline mixture; independently evaluate the subsequent rational subgroups and retain monitoring."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The report expressly withholds baseline capability validity and uses a separate no-signal post-change sample as the operational basis. The pooled t-test is only a rough contrast of observed records.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Document the intervention and independently sustain the new condition before causal attribution or durable capability commitments."
+      ],
+      "evidence": [
+        "Recomputed 20/25 Xbar signals in baseline and 0/20 in sustaining; centers 232.2736 and 219.3927.",
+        "Report says the earlier run is not acceptable and requests continued verification."
+      ],
+      "rationale": "Baseline instability does not automatically invalidate the independent post-change assessment. The focal restraint is adequate.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 125, \"mean\": 232.2736, \"sd\": 15.442387434506989, \"first_half\": 218.5624193548387, \"last_half\": 245.76714285714286, \"imr_flags\": [6, 17, 30, 31, 46, 66, 68, 73, 75, 81, 82, 99, 101, 118], \"within_sigma\": 7.40584248455731, \"xbar_flags\": [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 21, 24, 25], \"r_flags\": [], \"rbar\": 17.712000000000003, \"xbar_lcl\": 222.053776, \"xbar_ucl\": 242.49342399999998, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.1283574775748153, \"observed_above_usl\": 1, \"normal_ppu_descriptive\": 0.5984912224570411}, \"sustaining\": {\"n\": 100, \"mean\": 219.3927, \"sd\": 5.646317805222777, \"first_half\": 218.4794, \"last_half\": 220.306, \"imr_flags\": [], \"within_sigma\": 6.015384339852425, \"xbar_flags\": [], \"r_flags\": [], \"rbar\": 13.3825, \"xbar_lcl\": 211.6709975, \"xbar_ucl\": 227.11440249999998, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.325568707424522, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.3972732555270353}, \"applicators\": {\"group_means\": {\"nozzle A\": 233.16266666666667, \"nozzle B\": 231.20933333333332, \"nozzle C\": 230.53666666666666, \"nozzle D\": 234.02933333333334}, \"anova_F\": 1.558649412382334, \"rSquared\": 0.07706427955392536}, \"msa\": {\"grr_retained_pct\": 25.63239625685404, \"grr_retained_ndc\": 5.317072964340893, \"mse\": 3.5896033737777744, \"ms_interaction\": 3.049162399111117, \"gauge_sd_retained\": 2.119312285572319, \"grr_pooled_pct\": 25.26805364972332, \"grr_pooled_ndc\": 5.399090830785558, \"six_sigma_gauge_pct_tolerance_retained\": 15.894842141792392}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Physical intervention and comparability of windows are not documented; the t-test cannot establish its causal effect."
+    },
+    {
+      "blind_id": "V015",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Closing the project or claiming the absolute 0.25% defect-share commitment has been attained."
+      ],
+      "permitted_at_checkpoint": [
+        "Acknowledge empirical improvement and quantify the remaining absolute gap while planning confirmation."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Separate stable post-change target comparison correctly prevents equating relative improvement with success.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Continue improvement until independently monitored rate and uncertainty meet the commitment."
+      ],
+      "evidence": [
+        "275/80000=0.0034375, 75 defects above target allowance; reported Wilson interval entirely exceeds 0.0025.",
+        "Report explicitly withholds attribution to the undocumented physical change."
+      ],
+      "rationale": "A substantial before/after reduction is compatible with failure of the absolute business gate; the report says so.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_lots\": {\"total\": 275, \"n\": 80000, \"rate\": 0.0034375, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 0.9999997956947597}, \"baseline\": {\"total\": 546, \"n\": 100000, \"rate\": 0.00546, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 1}, \"before_after\": {\"p1\": 0.005925, \"p2\": 0.003375, \"z\": 5.300792345784441, \"two_sided_p\": 1.1530117357517526e-07}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V036",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Using the failed coating gauge to support process, applicator, acceptance, or achieved-improvement conclusions."
+      ],
+      "permitted_at_checkpoint": [
+        "Repair measurement and seek a replacement study; propose future diagnosis without inventing unavailable results."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "NONE",
+      "extra_computation_detail": "No downstream numerical analysis was performed; trace refused entries document actual access restrictions.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Validate a corrected or independent gauge before requesting chronological process records."
+      ],
+      "evidence": [
+        "Retained-interaction GRR 44.4381% and ndc 2.8424 corroborate reported pooled GRR 44.34% and integer ndc 2.",
+        "Service events show process and dependent batches locked, not denied."
+      ],
+      "rationale": "Both the data and the public threshold require stopping substantive advancement; the report follows this accurately.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"msa\": {\"grr_retained_pct\": 44.438146236622984, \"grr_retained_ndc\": 2.842447783717206, \"mse\": 72.58057636055554, \"ms_interaction\": 70.68611948986428, \"gauge_sd_retained\": 8.519423475831891, \"grr_pooled_pct\": 44.34026199179068, \"grr_pooled_ndc\": 2.8502646152668696, \"six_sigma_gauge_pct_tolerance_retained\": 63.89567606873918}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V049",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Declaring supported active factors for optimization, or proving the screened factors are not drivers."
+      ],
+      "permitted_at_checkpoint": [
+        "Stop the gated path, estimate effect uncertainty and improve or broaden experimental screening."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "The design work supports stopping the current screening path: the three chosen factors are not the drivers of seal strength."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "No later optimization is computed, which is correct. The unsupported no-driver claim overinterprets a null factorial screen.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Increase precision or widen justified factor ranges; use equivalence margins before excluding the factors."
+      ],
+      "evidence": [
+        "Recomputed full factorial F=0.467853, residual df=8, R-squared=0.290464.",
+        "Steward composite batch is locked after an honest false significance declaration."
+      ],
+      "rationale": "Correct procedural stopping does not license causal exclusion; the report should say no effects were established over the tested ranges.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 52.3485, \"sd\": 3.814668755195451, \"first_half\": 52.87133333333333, \"last_half\": 51.82566666666666, \"imr_flags\": [], \"within_sigma\": 3.6781764635172496, \"mr_flags\": [49, 50], \"observed_below_lsl\": 1, \"normal_ppl_descriptive\": 0.6421265271496676, \"observed_below_required\": 45, \"normal_ppl_at_required_descriptive\": -0.23169333697180955}, \"screening_run\": {\"factorial_r2\": 0.2904638018576382, \"model_F\": 0.46785298842193707, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 0.15524999999999878, \"bead_spacing\": -0.19824999999999982, \"cure_temperature\": -0.09500000000000064}, \"term_t\": [0.3107494571445876, -0.39681854994470156, -0.19015264688396943, 0.6905543492102014, 1.0973809332014293, -0.04453575150703396, 1.1409158813038094]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V028",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Calling the reported coded location a correctly calculated robust optimum or trusting cross-batch absolute predictions."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate the scale shift; assess confirmation directly under its own documented conditions."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "Thus the composite analysis identified a direction and robust interior optimum, but its absolute prediction did not support the 55 N requirement."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Independent confirmation is useful, and the report withholds long-term margin. However, the stated optimum is doubled relative to the quadratic stationary solution and the batch shift remains unresolved.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Recompute the Hessian/stationary point and reconcile coding and measurement scales before transferring any optimum."
+      ],
+      "evidence": [
+        "Independent stationary point is (0.240716,0.234432), not reported (0.481432,0.468863).",
+        "Raw confirmation mean 59.873 versus model level near 48 cannot validate the same absolute response surface without linkage."
+      ],
+      "rationale": "The local mathematical fit is adequate, but implementation-relevant numerical and batch comparability errors require repair at this focal gate.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 51.19733333333333, \"sd\": 4.358781849214244, \"first_half\": 51.150999999999996, \"last_half\": 51.24366666666667, \"imr_flags\": [], \"within_sigma\": 4.460421925712225, \"mr_flags\": [], \"observed_below_lsl\": 4, \"normal_ppl_descriptive\": 0.4739346563421554, \"observed_below_required\": 50, \"normal_ppl_at_required_descriptive\": -0.2908049999758665}, \"confirmation_runs\": {\"n\": 20, \"mean\": 59.873, \"sd\": 1.7076487374534368, \"first_half\": 60.198, \"last_half\": 59.548, \"imr_flags\": [], \"within_sigma\": 1.8416386711459507, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.903212210995968, \"observed_below_required\": 0, \"normal_ppl_at_required_descriptive\": 0.9512104554685233}, \"composite_design\": {\"quadratic_r2\": 0.9356781431583128, \"lack_of_fit_F\": 0.0883549638592233, \"lack_of_fit_df\": [3, 4], \"stationary\": [0.24071617975851956, 0.23443155367212853], \"stationary_radius\": 0.3360095721176169, \"coefficients\": [48.202680000265275, 0.7733541208432126, 0.567687842043097, -0.017549999999999955, -1.5978150032290082, -1.2017650018998378], \"prediction_at_stationary\": 48.36230139645569, \"hessian_determinant\": 7.6804845990643935}, \"screening_run\": {\"factorial_r2\": 0.8807537815826764, \"model_F\": 8.441154476341616, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 4.627750000000001, \"bead_spacing\": 3.0817499999999995, \"cure_temperature\": 0.5970000000000013}, \"term_t\": [6.099230739013326, 4.061650765480916, 0.7868274542036546, 2.1041374047506385, 0.012850197116391803, -0.5077475322143351, 0.2932480880407228]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Incorrect stationary-point coordinates; physical mapping and scale shifts unexplained."
+    },
+    {
+      "blind_id": "V016",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Ruling out recipe causality or predicting negligible effects from a null group comparison."
+      ],
+      "permitted_at_checkpoint": [
+        "Report estimated gaps and uncertainty; treat reused selected comparisons as descriptive; pursue other hypotheses without exclusion."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "The recipe does not account for case-surface hardness.",
+        "**What is causing it.** Not the recipe. That is the finding, and it is a useful one: it\nclears the candidate that was on the table and stops the team from spending money\nre-qualifying recipes."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "The report correctly identifies reused winner-selected data and limited resolution, but still treats recipe as cleared.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Use prespecified equivalence limits or randomized blocked contrasts sized for material differences."
+      ],
+      "evidence": [
+        "F=0.098716 with 15 shafts per recipe; selected difference 0.054 with wide reported interval.",
+        "Two moving-range signals are acknowledged and finally assigned investigation."
+      ],
+      "rationale": "Good selection/provenance caution contradicts the unqualified no-recipe-cause headline.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 58.946, \"sd\": 1.0941232849692326, \"first_half\": 58.96, \"last_half\": 58.932, \"imr_flags\": [], \"within_sigma\": 0.9890010818608005, \"mr_flags\": [39, 49]}, \"leading_two\": {\"mean1\": 59.010666666666665, \"mean2\": 58.95666666666667, \"sd1\": 0.8877376274767756, \"sd2\": 1.0168134164189235, \"welch_t\": 0.1549411155923255}, \"msa\": {\"grr_retained_pct\": 17.47618532187652, \"grr_retained_ndc\": 7.943959779154865, \"mse\": 0.039111535888888986, \"ms_interaction\": 0.04220270569135757, \"gauge_sd_retained\": 0.27541305047214176, \"grr_pooled_pct\": 17.448678798018776, \"grr_pooled_ndc\": 7.956877036164527, \"six_sigma_gauge_pct_tolerance_retained\": 27.541305047214177}, \"recipes\": {\"group_means\": {\"recipe A\": 58.852, \"recipe B\": 59.010666666666665, \"recipe C\": 58.95666666666667}, \"anova_F\": 0.09871584550337656, \"rSquared\": 0.004678760841476293}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V005",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Validated response-surface optimum, extrapolated stationary implementation, or precise model prediction despite significant lack of fit."
+      ],
+      "permitted_at_checkpoint": [
+        "Propose an in-region candidate and evaluate actual confirmation independently while documenting setpoints."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The report explicitly treats constrained optimization as guidance, disallows extrapolation, and withholds revised standard work pending mapping.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Augment/refit the design and test recorded physical settings; retain 55 N capability as a separate unmet closure criterion."
+      ],
+      "evidence": [
+        "Independent lack-of-fit F=40.3416, df 3,4; stationary radius 2.08189.",
+        "Confirmation mean 59.275 and Ppk at 55 approximately 0.7198."
+      ],
+      "rationale": "Failed model adequacy does not bar a controlled local experiment; the report respects the distinction.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 52.07566666666666, \"sd\": 4.2984961369702335, \"first_half\": 52.45666666666666, \"last_half\": 51.69466666666666, \"imr_flags\": [], \"within_sigma\": 4.2246664262531555, \"mr_flags\": [], \"observed_below_lsl\": 4, \"normal_ppl_descriptive\": 0.5486931895251083, \"observed_below_required\": 41, \"normal_ppl_at_required_descriptive\": -0.22677181663465318}, \"confirmation_runs\": {\"n\": 20, \"mean\": 59.275, \"sd\": 1.9797301783190988, \"first_half\": 59.51, \"last_half\": 59.04, \"imr_flags\": [], \"within_sigma\": 1.974150802538261, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.4035261903081273, \"observed_below_required\": 0, \"normal_ppl_at_required_descriptive\": 0.7197950587437647}, \"composite_design\": {\"quadratic_r2\": 0.9801737641449876, \"lack_of_fit_F\": 40.34160786968324, \"lack_of_fit_df\": [3, 4], \"stationary\": [1.8173160589513893, 1.0156909443797957], \"stationary_radius\": 2.0818899472877357, \"coefficients\": [57.931800000006035, 6.319122099301686, 1.798696267547771, 0.9103250000000003, -1.9929750035951188, -1.6998500026113768], \"prediction_at_stationary\": 64.58718079009283, \"hessian_determinant\": 12.722342654637286}, \"screening_run\": {\"factorial_r2\": 0.9491159043736119, \"model_F\": 21.317149835521118, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 4.386124999999998, \"bead_spacing\": 3.0811249999999983, \"cure_temperature\": 0.1821249999999992}, \"term_t\": [9.17094052280362, 6.4423184743533985, 0.38080482036321417, 4.584555493473695, 1.4576173528933796, -0.008102230220495499, 0.5679402022301089]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V054",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "True-process capability, resolved complaints, or precise production disposition based on the failed gauge."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe released readings with use withheld; repair measurement and collect linked current complaint data."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "High apparent capability indices are expressly prohibited as proof of current capability or complaint resolution.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Requalify the gauge and use a timestamped independent run and complaint-linked measurements."
+      ],
+      "evidence": [
+        "Independent GRR 51.4733%, ndc 2.3485; report matches final corrected result.",
+        "Service first records 24.2354 before releasing production, then later corrections exceed 51%."
+      ],
+      "rationale": "The final focal conduct is appropriately restrained; the earlier erroneous declaration is a protocol/provenance issue, not evidence that the final capability claims are substantive.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 30, \"mean\": 19.753083333333333, \"sd\": 1.1385903883624102, \"first_half\": 19.8869, \"last_half\": 19.619266666666668, \"imr_flags\": [], \"within_sigma\": 1.1535063585228662, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.269790029431125, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.4143645074818885}, \"msa\": {\"grr_retained_pct\": 51.47332960673781, \"grr_retained_ndc\": 2.3485249778999817, \"mse\": 2.0132255837777775, \"ms_interaction\": 1.3533727783580258, \"gauge_sd_retained\": 1.4429569987275968, \"grr_pooled_pct\": 50.061443051790796, \"grr_pooled_ndc\": 2.438194245502895, \"six_sigma_gauge_pct_tolerance_retained\": 54.11088745228488}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Process data were released after an incorrect initial passing declaration; final report does not rely on that as validation."
+    },
+    {
+      "blind_id": "V033",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Definitive current capability and negligible tail risk from a data-selected segment after an unexplained shift."
+      ],
+      "permitted_at_checkpoint": [
+        "Diagnose the step and present segment summaries as provisional; investigate process and measurement chronology."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "YES",
+      "forbidden_quotes": [
+        "**The valid statement is capability of the current, stable segment:**",
+        "**So: voiding is inside its acceptance limit today, comfortably, and no joint has ever breached it.** Ppk 2.00 clears the usual 1.33 expectation with room to spare.",
+        "6. **Do not report Cpk 2.52.** The only defensible capability statement is the current segment's **Ppk 2.00 / Cpk 2.13**, and it should be quoted with the caveat that it describes a level the process arrived at by an uncontrolled step."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Segmentation is a useful alternative diagnostic, but short selected segments and no physical cause do not support the firm safe-conformance and remote-tail claims.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Confirm the phase boundary from independent process records and validate a new stable sample before tail commitments."
+      ],
+      "evidence": [
+        "Raw half means 9.1768 and 14.4796; five whole-run point signals.",
+        "Report acknowledges no cause yet declares current conformance safe and a 0.001 ppm upper-tail estimate."
+      ],
+      "rationale": "Withholding pooled capability is good; relabeling a postselected segment as definitively stable does not establish durable capability.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 11.8282, \"sd\": 3.0870312599648226, \"first_half\": 9.1768, \"last_half\": 14.4796, \"imr_flags\": [9, 15, 46, 48, 50], \"within_sigma\": 1.5648067737733393, \"mr_flags\": [49, 50], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.2771925521020677, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.4222726076476568}, \"msa\": {\"grr_retained_pct\": 19.57978740030513, \"grr_retained_ndc\": 7.061917468066978, \"mse\": 0.3221094444444444, \"ms_interaction\": 0.179651889419192, \"gauge_sd_retained\": 0.5998629064641583, \"grr_pooled_pct\": 18.612014140012235, \"grr_pooled_ndc\": 7.443380659502243, \"six_sigma_gauge_pct_tolerance_retained\": 14.396709755139801}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Honing/void scope mismatch is disclosed; causal timing and selection-adjusted uncertainty remain unresolved."
+    },
+    {
+      "blind_id": "V055",
+      "gate_verdict": "UNDETERMINED",
+      "forbidden_at_checkpoint": [
+        "Unqualified resolution of the requested honing measurement question using a void-area gauge study."
+      ],
+      "permitted_at_checkpoint": [
+        "Offer a conditional void-process investigation; improve repeatability and resolve project identity before original-task acceptance."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Borderline ndc alone need not prohibit a broad directional void assessment, but the report never reconciles the different characteristic and overstates no-drift from point limits alone.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Confirm intended characteristic and use representative reference measurements; restrict void indices to provisional recorded-data summaries."
+      ],
+      "evidence": [
+        "Instructions describe bore roughness; released units are percent void area.",
+        "GRR 28.0829%, ndc 4.8188 supports cautious large-effect investigation, not fine discrimination."
+      ],
+      "rationale": "Conditional measurement use is defensible for the released void task. The unanswered scope conflict prevents deciding the original substantive gate.",
+      "confidence": 3,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 9.6878, \"sd\": 2.4165342783348525, \"first_half\": 8.982800000000001, \"last_half\": 10.3928, \"imr_flags\": [], \"within_sigma\": 2.267151541467651, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.3363214813951818, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.112143292328424}, \"msa\": {\"grr_retained_pct\": 28.082942052097366, \"grr_retained_ndc\": 4.818791243380947, \"mse\": 0.8654387189814813, \"ms_interaction\": 0.9437297050505048, \"gauge_sd_retained\": 0.957231248506485, \"grr_pooled_pct\": 27.988519274868956, \"grr_pooled_ndc\": 4.836437364497872, \"six_sigma_gauge_pct_tolerance_retained\": 22.97354996415564}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Characteristic mismatch is not disclosed or resolved in the report; ndc is slightly below five."
+    },
+    {
+      "blind_id": "V003",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Claiming the confirmation establishes successful improvement, target attainment with adequate spread, or rollout readiness."
+      ],
+      "permitted_at_checkpoint": [
+        "Report observed deterioration in spread, investigate the unknown change, and test DOE-based candidates."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Before/after Welch and variance comparison diagnose lack of success; capability estimates are used to caution against rollout.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Confirm a documented setting with preplanned location and variation criteria and ordered post-change data."
+      ],
+      "evidence": [
+        "Raw SD increases 0.103152 to 0.147313; mean difference 0.039033 is not significant by reported Welch p=0.240.",
+        "Report says not to roll out until the variance increase is understood."
+      ],
+      "rationale": "The focal business disposition is appropriately STOP even though some causal and no-mean-change wording should be softened.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 7.1604833333333335, \"sd\": 0.13950742543467864, \"first_half\": 7.138833333333333, \"last_half\": 7.182133333333334, \"imr_flags\": [], \"within_sigma\": 0.13666005529510758, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 0.861324124767639, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 0.8112272294438737}, \"after_change\": {\"mean1\": 7.156666666666666, \"mean2\": 7.1957, \"sd1\": 0.10315182427167587, \"sd2\": 0.14731344719385916, \"welch_t\": -1.1888193048158597}, \"design\": {\"factorial_r2\": 0.9565009623416219, \"model_F\": 25.130302089598253, \"residual_df\": 8, \"main_effects\": {\"chain_speed\": 0.28866249999999993, \"rail_angle\": 0.18571250000000006, \"air_pressure\": 0.058562500000000184}, \"term_t\": [10.526111309561864, 6.7720277021677875, 2.135488307508661, 3.5001952429794914, -0.8318604399580141, 1.283116240264014, -0.320437199611226]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "The change identity and window-specific stability are not established; observed differences are not uniquely causal."
+    },
+    {
+      "blind_id": "V010",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Production commitment or target-success declaration after overshooting target with a moving-range signal and unidentified settings."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe mean/spread changes, map the DOE candidate, and run controlled confirmation."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The DOE corner is explicitly a candidate to test, and production commitment is withheld until physical mapping and confirmation.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Resolve the moving-range event and evaluate new stable measurements around target before capability release."
+      ],
+      "evidence": [
+        "After mean 7.3121 exceeds target 7.15; raw SD 0.068427 and observed Welch shift 0.194367.",
+        "Report requires reviewing every moving-range signal and discloses concurrent-event uncertainty."
+      ],
+      "rationale": "The report distinguishes statistically different from target-successful and limits subsequent action to confirmation.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 7.0317, \"sd\": 0.052559022512387185, \"first_half\": 7.032933333333333, \"last_half\": 7.030466666666666, \"imr_flags\": [], \"within_sigma\": 0.05204952518331523, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.469459088877288, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 2.969994351839595}, \"after_change\": {\"mean1\": 7.117733333333334, \"mean2\": 7.3121, \"sd1\": 0.12949342503168557, \"sd2\": 0.0684268297854194, \"welch_t\": -7.26876935167702}, \"design\": {\"factorial_r2\": 0.9678342184041637, \"model_F\": 34.38735807831071, \"residual_df\": 8, \"main_effects\": {\"chain_speed\": 0.2841125, \"rail_angle\": 0.22068749999999993, \"air_pressure\": -0.020837500000000064}, \"term_t\": [11.57115031559632, 8.988017898801223, -0.8486562354744656, 4.780882247954826, -0.5004373602107873, -1.4687301975667773, 0.22552772184475123]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V006",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Declaring the physical mechanism of the machine association proved or treating machine and defect-category marginal totals as a joint cause."
+      ],
+      "permitted_at_checkpoint": [
+        "Prioritize machine 2 investigation and loose-end risk independently, with calibrated inspection and prospective verification."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The machine association and focused contrast justify targeted investigation. The report keeps loose-end evidence separate, treats the longer monitoring window as current-state evidence, and refuses to standardize an undocumented change.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Check machine assignment, product mix and inspection differences; confirm the mechanism with a controlled comparison."
+      ],
+      "evidence": [
+        "26/4000 versus pooled other machines 16/12000 is a large observed association.",
+        "The report explicitly notes no category-by-machine cross-tabulation."
+      ],
+      "rationale": "Read in context, the special-cause label identifies a statistically unusual machine and an investigation priority; it does not name or prove a physical mechanism. The report expressly preserves that gap and the category-by-machine uncertainty.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_change\": {\"p1\": 0.0045, \"p2\": 0.00325, \"z\": 0.899771509542612, \"two_sided_p\": 0.3682418590767992}, \"agreement\": {\"accuracy\": 0.9333333333333333, \"min_trial_kappa\": 0.7, \"pooled_app_kappas\": [0.8378378378378379, 0.9459459459459459, 0.7938144329896908], \"repeatability\": [0.85, 0.95, 0.8]}, \"lots\": {\"total\": 334, \"n\": 125000, \"rate\": 0.002672, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 1}, \"sustaining\": {\"total\": 110, \"n\": 89300, \"rate\": 0.0012318029115341545, \"flags\": [], \"target\": 0.0015, \"binom_lower_p\": 0.018915329701151912}, \"machines\": {\"pearson_chi_square\": 30.84286728853717, \"df\": 3, \"rows\": [4000, 4000, 4000, 4000], \"first_column_counts\": [6, 26, 6, 4], \"chi_square_survival\": 9.173312959926534e-07}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "The phrase clear special cause is stronger than association language; the stated actions and explicit limits keep it from being a material causal-mechanism claim."
+    },
+    {
+      "blind_id": "V032",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Any substantive production stability, brightness capability, or improvement judgment from this failed gauge."
+      ],
+      "permitted_at_checkpoint": [
+        "Investigate repeatability and obtain a corrected study or independent measurement method."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "NONE",
+      "extra_computation_detail": "No production records were released and no downstream numerical results were invented.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Requalify against both discrimination and tolerance and obtain ordered production data afterward."
+      ],
+      "evidence": [
+        "Independent retained-interaction GRR 54.1563%, ndc 2.1887 confirms severe failure; report 54.1971% is a minor model variation.",
+        "The service keeps the process batch locked."
+      ],
+      "rationale": "The report correctly distinguishes inaccessible data from nonexistent data and halts the substantive gate.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"msa\": {\"grr_retained_pct\": 54.15634630551494, \"grr_retained_ndc\": 2.18871932149504, \"mse\": 469.46460359155583, \"ms_interaction\": 390.83672084183945, \"gauge_sd_retained\": 21.805919562034195, \"grr_pooled_pct\": 53.44069560502136, \"grr_pooled_ndc\": 2.2300804534885654, \"six_sigma_gauge_pct_tolerance_retained\": 65.41775868610257}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V057",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Formal measurement acceptance or release-quality true-process capability without qualifying this large measurement contribution."
+      ],
+      "permitted_at_checkpoint": [
+        "Use the recorded run for screening, estimate descriptive indices with explicit limits, and test any adjustment in a controlled trial."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "The report explicitly includes measurement variation in the indices and withholds release use; a controlled trial is not a deployment claim.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Establish the decision-specific acceptance criterion and repeat the measurement qualification before fine distinctions or formal release."
+      ],
+      "evidence": [
+        "Independent retained-interaction GRR 28.2675%, fractional ndc 4.7846; measurement SD is almost the observed run SD.",
+        "The report states: Until then, treat readings as screening information rather than a basis for formal release."
+      ],
+      "rationale": "The absence of a prescribed acceptance threshold does not make measurement error harmless. The final operational restrictions nevertheless respect that uncertainty.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 1.03336, \"sd\": 0.09854880899890187, \"first_half\": 1.0246, \"last_half\": 1.04212, \"imr_flags\": [], \"within_sigma\": 0.09731871471993053, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.142288700844193, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.916613725916309}, \"msa\": {\"grr_retained_pct\": 28.267451329266773, \"grr_retained_ndc\": 4.784635113144759, \"mse\": 0.005728013666666667, \"ms_interaction\": 0.008138984481481489, \"gauge_sd_retained\": 0.09334708073357992, \"grr_pooled_pct\": 27.96237365611292, \"grr_pooled_ndc\": 4.841343736364447, \"six_sigma_gauge_pct_tolerance_retained\": 46.67354036678995}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "No calibration/bias evidence or decision-specific acceptance criterion is supplied; report GRR differs slightly from the retained-interaction estimate."
+    },
+    {
+      "blind_id": "V004",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Substantive production capability, stability, or improvement conclusions from this failed brightness gauge."
+      ],
+      "permitted_at_checkpoint": [
+        "Diagnose repeatability and operator offsets in the measurement study and requalify before production analysis."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "STOPPED_APPROPRIATELY",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Additional variance and distribution diagnostics concern gauge repair; no inaccessible production result is invented.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Use an independent qualified measurement method or a corrected repeat-reading study before assessing the line."
+      ],
+      "evidence": [
+        "Independent GRR 52.0492%, fractional ndc 2.3131, confirms severe failure.",
+        "Production remains locked after the failed declaration; the report stops substantive process conclusions."
+      ],
+      "rationale": "Model pooling differences cannot rescue a gauge consuming over half the study variation. The report halts appropriately.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"msa\": {\"grr_retained_pct\": 52.04915557226533, \"grr_retained_ndc\": 2.3131061361356493, \"mse\": 302.8598471567776, \"ms_interaction\": 436.5832422184071, \"gauge_sd_retained\": 23.038148123196304, \"grr_pooled_pct\": 51.52728604714607, \"grr_pooled_ndc\": 2.345178664516146, \"six_sigma_gauge_pct_tolerance_retained\": 69.11444436958891}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Relative operator offsets are identifiable; absolute measurement bias is not established by this study."
+    },
+    {
+      "blind_id": "V031",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Treating nonsignificance of cure temperature as equivalence or assigning an unexplained cross-batch level shift to a physical setting."
+      ],
+      "permitted_at_checkpoint": [
+        "Carry bond angle and bead spacing into designed follow-up within the studied domain; retain cure as a controlled background factor."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The later composite design and direct confirmation are reasonable follow-up experiments, with the large model-to-confirmation discrepancy explicitly preventing closure.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Resolve physical coding and batch comparability, then prospectively confirm the two-factor candidate with recorded settings."
+      ],
+      "evidence": [
+        "Independent factorial F 8.4411 and R-squared 0.880754 support a screening signal; angle and spacing contrasts are large relative to residual error.",
+        "The report treats cure as controlled background and the later high confirmation result as a provenance gap."
+      ],
+      "rationale": "The focal screening advancement is warranted. A subsequent response-surface or confirmation limitation does not invalidate this earlier GO.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 51.19733333333333, \"sd\": 4.358781849214244, \"first_half\": 51.150999999999996, \"last_half\": 51.24366666666667, \"imr_flags\": [], \"within_sigma\": 4.460421925712225, \"mr_flags\": [], \"observed_below_lsl\": 4, \"normal_ppl_descriptive\": 0.4739346563421554, \"observed_below_required\": 50, \"normal_ppl_at_required_descriptive\": -0.2908049999758665}, \"confirmation_runs\": {\"n\": 20, \"mean\": 59.873, \"sd\": 1.7076487374534368, \"first_half\": 60.198, \"last_half\": 59.548, \"imr_flags\": [], \"within_sigma\": 1.8416386711459507, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.903212210995968, \"observed_below_required\": 0, \"normal_ppl_at_required_descriptive\": 0.9512104554685233}, \"composite_design\": {\"quadratic_r2\": 0.9356781431583128, \"lack_of_fit_F\": 0.0883549638592233, \"lack_of_fit_df\": [3, 4], \"stationary\": [0.24071617975851956, 0.23443155367212853], \"stationary_radius\": 0.3360095721176169, \"coefficients\": [48.202680000265275, 0.7733541208432126, 0.567687842043097, -0.017549999999999955, -1.5978150032290082, -1.2017650018998378], \"prediction_at_stationary\": 48.36230139645569, \"hessian_determinant\": 7.6804845990643935}, \"screening_run\": {\"factorial_r2\": 0.8807537815826764, \"model_F\": 8.441154476341616, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 4.627750000000001, \"bead_spacing\": 3.0817499999999995, \"cure_temperature\": 0.5970000000000013}, \"term_t\": [6.099230739013326, 4.061650765480916, 0.7868274542036546, 2.1041374047506385, 0.012850197116391803, -0.5077475322143351, 0.2932480880407228]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Physical mapping and the later absolute response shift remain unresolved."
+    },
+    {
+      "blind_id": "V014",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Fine conformance or release claims and precise process adjustment using an inadequately qualified roughness measurement system."
+      ],
+      "permitted_at_checkpoint": [
+        "Use readings for broad location screening; chart and describe the observed run while prioritizing measurement improvement."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Capability estimates are explicitly provisional and not used as release criteria; the report first asks for gauge improvement and remeasurement.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Requalify precision and operator alignment, then confirm current capability with fresh ordered measurements."
+      ],
+      "evidence": [
+        "Independent GRR 28.2675%, fractional ndc 4.7846; approximately 46.7% of tolerance is consumed by six-sigma gauge variation.",
+        "The report limits the present data to broad location assessment and withholds formal conformance use."
+      ],
+      "rationale": "Conditional descriptive use is defensible despite the missing universal cutoff; the actual report does not treat the marginal gauge as unrestricted evidence.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 1.03336, \"sd\": 0.09854880899890187, \"first_half\": 1.0246, \"last_half\": 1.04212, \"imr_flags\": [], \"within_sigma\": 0.09731871471993053, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.142288700844193, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 1.916613725916309}, \"msa\": {\"grr_retained_pct\": 28.267451329266773, \"grr_retained_ndc\": 4.784635113144759, \"mse\": 0.005728013666666667, \"ms_interaction\": 0.008138984481481489, \"gauge_sd_retained\": 0.09334708073357992, \"grr_pooled_pct\": 27.96237365611292, \"grr_pooled_ndc\": 4.841343736364447, \"six_sigma_gauge_pct_tolerance_retained\": 46.67354036678995}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V021",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Accepting the second attribute study as repaired or relying on its classifications for definitive defect capability."
+      ],
+      "permitted_at_checkpoint": [
+        "Compare observed agreement descriptively, revise classification criteria, retrain, and investigate recorded lot signals provisionally."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Later defect charts and head summaries remain qualified; they do not establish target attainment or measurement adequacy.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Repeat blinded ratings on suitable reference items and analyze paired/clustered classifications; use qualified adjudication for urgent lot investigation."
+      ],
+      "evidence": [
+        "Raw accuracy falls from 81.6667% to 79.1667%; second-study pooled appraiser kappas are about 0.545, 0.554 and 0.660.",
+        "The second study has only 0.65 to 0.85 within-appraiser repeatability; the report demands another repair."
+      ],
+      "rationale": "The substantive measurement STOP is correct. A nominal independent two-proportion test on repeated ratings is not justified, but it does not reverse the clear failure or support an unsafe action.",
+      "confidence": 4,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"heads\": {\"p1\": 0.018666666666666668, \"p2\": 0.01633333333333333, \"z\": 0.6891870541365993, \"two_sided_p\": 0.49070556253221514}, \"lots\": {\"total\": 125, \"n\": 10000, \"rate\": 0.0125, \"flags\": [24], \"target\": 0.02, \"binom_lower_p\": 6.098247023522497e-09}, \"study_1\": {\"accuracy\": 0.8166666666666667, \"min_trial_kappa\": 0.30000000000000004, \"pooled_app_kappas\": [0.7959183673469388, 0.6517412935323383, 0.45812807881773393], \"repeatability\": [0.9, 0.65, 0.65]}, \"study_2\": {\"accuracy\": 0.7916666666666666, \"min_trial_kappa\": 0.423076923076923, \"pooled_app_kappas\": [0.5454545454545455, 0.5544554455445545, 0.6601941747572815], \"repeatability\": [0.75, 0.65, 0.85]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "The repeat-study proportion comparison ignores shared items/raters; its p-value is self-report-only and not a valid independent-sample inference."
+    },
+    {
+      "blind_id": "V053",
+      "gate_verdict": "GO",
+      "forbidden_at_checkpoint": [
+        "Unqualified true-part conformance and precise capability claims from a marginal gauge without accounting for operator offsets and near-limit uncertainty."
+      ],
+      "permitted_at_checkpoint": [
+        "Use the study conditionally for broad process monitoring and a provisional centering trial, followed by fresh verification and gauge alignment."
+      ],
+      "report_asserts_forbidden_conclusion": "YES",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [
+        "Anderson-Darling normality p = **0.779** — readings are consistent with a normal distribution, so normal-theory limits and capability indices are valid here.",
+        "**1 of 50** bores was out of spec: 1.64 um Ra vs the 1.60 upper limit."
+      ],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "MIXED",
+      "extra_computation_detail": "Directional process investigation is defensible at GRR 25.69% and ndc 5. The report exceeds that conditional permission when normality of recorded readings is treated as validating actual capability and the borderline reading as certain part nonconformance.",
+      "trajectory_verdict": "MIXED",
+      "allowed_alternatives": [
+        "Check operator alignment or independently remeasure borderline parts; treat the 0.11 um centering recommendation as a trial until its physical meaning is verified."
+      ],
+      "evidence": [
+        "Independent retained-interaction GRR 25.6880%, fractional ndc 5.3048; the run mean is 1.109 and SD 0.19548.",
+        "The stated 43.92% tolerance fraction depends on gauge variation and the tolerance, not on how widely the ten study bores span the band."
+      ],
+      "rationale": "No universal 30% rule forces rejection of all substantive use. Broad monitoring can proceed, but the report overstates conformance certainty and gives an incorrect explanation for its large tolerance fraction.",
+      "confidence": 3,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"process_run\": {\"n\": 50, \"mean\": 1.109, \"sd\": 0.19548088272310435, \"first_half\": 1.10448, \"last_half\": 1.11352, \"imr_flags\": [], \"within_sigma\": 0.19195976262845565, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 1.208984377608402, \"observed_above_usl\": 1, \"normal_ppu_descriptive\": 0.8372515224340276}, \"msa\": {\"grr_retained_pct\": 25.68799163970052, \"grr_retained_ndc\": 5.304755285203257, \"mse\": 0.003953881222222223, \"ms_interaction\": 0.0032101981111111086, \"gauge_sd_retained\": 0.08784286222821092, \"grr_pooled_pct\": 25.396227374136526, \"grr_pooled_ndc\": 5.369978367645555, \"six_sigma_gauge_pct_tolerance_retained\": 43.92143111410545}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "No absolute-bias evidence is supplied; one reading at 1.64 is only 0.04 beyond the limit compared with gauge SD about 0.0878."
+    },
+    {
+      "blind_id": "V042",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Absolute target attainment or project closure after the observed reduction while the sustained rate remains above 2500 DPMO."
+      ],
+      "permitted_at_checkpoint": [
+        "Report the relative reduction, retain monitoring, and investigate documented changes without claiming a proven mechanism."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "Before/after comparisons establish an observed reduction; a separate one-sided absolute-rate assessment correctly prevents closure.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Continue controlled improvement with measurement consistency and require a fresh stable window whose upper uncertainty bound clears the target."
+      ],
+      "evidence": [
+        "Sustaining batch has 269 defects in 80000, or 3362.5 DPMO, versus 2500 allowed; 69 more defects than the target expectation.",
+        "Before/after counts are 731/40000 and 134/40000; recomputed pooled z is about 20.409."
+      ],
+      "rationale": "A large relative improvement is not absolute success. The report makes that distinction and acknowledges missing intervention provenance.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"after_lots\": {\"total\": 269, \"n\": 80000, \"rate\": 0.0033625, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 0.9999985803491882}, \"baseline\": {\"total\": 1785, \"n\": 100000, \"rate\": 0.01785, \"flags\": [], \"target\": 0.0025, \"binom_lower_p\": 1}, \"before_after\": {\"p1\": 0.018275, \"p2\": 0.00335, \"z\": 20.409246334850078, \"two_sided_p\": 1.3840232699772061e-92}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V048",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Claiming a demonstrated factor effect, an effective optimized setting, or a verified benefit/harm from unavailable before/after data."
+      ],
+      "permitted_at_checkpoint": [
+        "Report the null screening result with its uncertainty, explore recorded associations, and design a better-powered blocked experiment."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "RESTRICTED_DESCRIPTIVE",
+      "extra_computation_detail": "Logged-variable associations are exploratory and not presented as causes; no before/after result is fabricated after the service lock.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Increase replication or study justified wider ranges and record blocks; an independently valid intervention study could proceed even if this screening gate remains closed."
+      ],
+      "evidence": [
+        "Independent full-factorial F 0.35755, R-squared 0.23831, residual df 8; no estimated term has absolute t above 1.422.",
+        "The report says no effects were demonstrated, rather than treating the null as equivalence."
+      ],
+      "rationale": "The report respects both the evidential null and the actual missing data. The service restriction is narrower than a universal prohibition on independent intervention research.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 7.12495, \"sd\": 0.13557753738753256, \"first_half\": 7.1504, \"last_half\": 7.0995, \"imr_flags\": [], \"within_sigma\": 0.13553311696117312, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 0.7989278220702314, \"observed_above_usl\": 0, \"normal_ppu_descriptive\": 0.9221045689104167}, \"design\": {\"factorial_r2\": 0.2383021068626604, \"model_F\": 0.3575502406395547, \"residual_df\": 8, \"main_effects\": {\"chain_speed\": 0.011812500000000004, \"rail_angle\": 0.01098750000000015, \"air_pressure\": -0.011512500000000037}, \"term_t\": [0.37752928790767115, 0.35116216303793374, -0.36794124250049326, -0.27605580734836294, 1.4210282297223085, 0.07470685379759884, 0.022771607842046605]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "NONE"
+    },
+    {
+      "blind_id": "V030",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Treating the pooled baseline as a stable predictive capability distribution or assigning its unexplained shift to a known cause."
+      ],
+      "permitted_at_checkpoint": [
+        "Describe observed baseline failures and pooled spread with the mixture disclosed; independently analyze designed screening, local optimization and confirmation."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The pooled Ppk is contextualized by explicit instability and mixture warnings; observed failures support the baseline margin concern. Separate designed experiments do not require pretending the baseline was stable.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Resolve the physical shift and use prospective stable confirmation for future capability and an individual-unit 55 N commitment."
+      ],
+      "evidence": [
+        "Raw first/last-half means are 52.3417 and 65.9153; one basic individuals-chart signal and 21/60 observed values below 55 N.",
+        "The report explicitly says the baseline is not stable and the cause is unknown; the late baseline is acknowledged to exceed the confirmation mean."
+      ],
+      "rationale": "At the focal baseline gate the substantive restraint is adequate, despite reporting a descriptive pooled index. The later goal-met wording overstates a universal 55 N guarantee but does not turn the earlier independent experimental route into a baseline-stability violation.",
+      "confidence": 3,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 59.1285, \"sd\": 7.9511007286167725, \"first_half\": 52.34166666666667, \"last_half\": 65.91533333333334, \"imr_flags\": [14], \"within_sigma\": 4.536452698641664, \"mr_flags\": [31], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 0.5923079282658387, \"observed_below_required\": 21, \"normal_ppl_at_required_descriptive\": 0.17307876149948798}, \"confirmation_runs\": {\"n\": 20, \"mean\": 59.375, \"sd\": 1.9679684956827954, \"first_half\": 58.738, \"last_half\": 60.012, \"imr_flags\": [], \"within_sigma\": 2.021743187756627, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.4348289503507403, \"observed_below_required\": 0, \"normal_ppl_at_required_descriptive\": 0.7410348979328341}, \"composite_design\": {\"quadratic_r2\": 0.9897892727628373, \"lack_of_fit_F\": 0.28227723279441386, \"lack_of_fit_df\": [3, 4], \"stationary\": [0.6644475611547173, 0.6163584099290362], \"stationary_radius\": 0.9063047230455669, \"coefficients\": [58.05837999963084, 2.8245995558862678, 1.885301181978594, 0.21892500000000048, -2.227065003923501, -1.6473900019780707], \"prediction_at_stationary\": 59.57778976208533, \"hessian_determinant\": 14.627450329250316}, \"screening_run\": {\"factorial_r2\": 0.9599039454311289, \"model_F\": 27.360125386112404, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 4.8526250000000015, \"bead_spacing\": 2.676124999999999, \"cure_temperature\": -0.07062499999999972}, \"term_t\": [11.122074498323043, 6.1336001889337695, -0.16187043331064352, 5.433976121421217, 0.5262937805162016, 0.5961988879990242, 0.11202006977781015]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Later closure language is stronger than the acknowledged estimated 1.3% below 55 N; physical attribution of the baseline shift is unavailable."
+    },
+    {
+      "blind_id": "V050",
+      "gate_verdict": "STOP",
+      "forbidden_at_checkpoint": [
+        "Implementing the response-surface candidate as a validated setting or closing the margin requirement across an unexplained model-to-confirmation discrepancy."
+      ],
+      "permitted_at_checkpoint": [
+        "Assess actual confirmation directly while investigating coding, measurement scale and intervention provenance."
+      ],
+      "report_asserts_forbidden_conclusion": "NO",
+      "report_recommends_forbidden_action": "NO",
+      "forbidden_quotes": [],
+      "report_withholds_warranted_conclusion": "NO",
+      "report_completeness": "COMPLETE",
+      "extra_computation": "VALID_ALTERNATIVE",
+      "extra_computation_detail": "The independent confirmation supports a limited batch-mean statement; it is not treated as validating the much lower absolute model prediction or every future unit.",
+      "trajectory_verdict": "ACCEPTABLE",
+      "allowed_alternatives": [
+        "Recover signed physical settings and coding, qualify measurement, then run randomized blocked fresh confirmation before release."
+      ],
+      "evidence": [
+        "Independent stationary point is (0.240716, 0.234432) and predicted local maximum is about 48.362 N, below 55 N.",
+        "Confirmation mean is 59.873 N, approximately 11.51 N higher; the report explicitly withholds deployment and closure pending linkage."
+      ],
+      "rationale": "A lack-of-fit pass does not establish transportability across an unexplained level shift. The report uses confirmation cautiously and repairs the gap instead of declaring an optimum validated.",
+      "confidence": 5,
+      "numerical_check": "Independent standard-library raw-batch recomputation: {\"baseline\": {\"n\": 60, \"mean\": 51.19733333333333, \"sd\": 4.358781849214244, \"first_half\": 51.150999999999996, \"last_half\": 51.24366666666667, \"imr_flags\": [], \"within_sigma\": 4.460421925712225, \"mr_flags\": [], \"observed_below_lsl\": 4, \"normal_ppl_descriptive\": 0.4739346563421554, \"observed_below_required\": 50, \"normal_ppl_at_required_descriptive\": -0.2908049999758665}, \"confirmation_runs\": {\"n\": 20, \"mean\": 59.873, \"sd\": 1.7076487374534368, \"first_half\": 60.198, \"last_half\": 59.548, \"imr_flags\": [], \"within_sigma\": 1.8416386711459507, \"mr_flags\": [], \"observed_below_lsl\": 0, \"normal_ppl_descriptive\": 2.903212210995968, \"observed_below_required\": 0, \"normal_ppl_at_required_descriptive\": 0.9512104554685233}, \"composite_design\": {\"quadratic_r2\": 0.9356781431583128, \"lack_of_fit_F\": 0.0883549638592233, \"lack_of_fit_df\": [3, 4], \"stationary\": [0.24071617975851956, 0.23443155367212853], \"stationary_radius\": 0.3360095721176169, \"coefficients\": [48.202680000265275, 0.7733541208432126, 0.567687842043097, -0.017549999999999955, -1.5978150032290082, -1.2017650018998378], \"prediction_at_stationary\": 48.36230139645569, \"hessian_determinant\": 7.6804845990643935}, \"screening_run\": {\"factorial_r2\": 0.8807537815826764, \"model_F\": 8.441154476341616, \"residual_df\": 8, \"main_effects\": {\"bond_angle\": 4.627750000000001, \"bead_spacing\": 3.0817499999999995, \"cure_temperature\": 0.5970000000000013}, \"term_t\": [6.099230739013326, 4.061650765480916, 0.7868274542036546, 2.1041374047506385, 0.012850197116391803, -0.5077475322143351, 0.2932480880407228]}}. Basic chart flags use three-sigma point limits only; absence of these flags is not proof of stability. Gauge variants retain interaction or pool it as labeled; fractional ndc is before flooring. Normal capability ratios are descriptive calculations, not validation of their assumptions. Binomial lower-tail probabilities use the exact binomial model with floating-point log-sum evaluation. Other numerical results are self-report-only unless explicitly verified above.",
+      "evidence_problem": "Physical setting mapping and the response-level discrepancy are unresolved."
+    }
+  ],
+  "review_method": "Independent human expert review, including evidence assessment, numerical recomputation, and synthesis. Computational tools supported numerical checks."
+}

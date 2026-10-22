@@ -1,0 +1,121 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "affectedRetained": 120,
+        "unaffectedRetained": 117,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 2,
+        "bonferroniThreshold": 0.00035971223021582735
+      },
+      "status": "success",
+      "decision": "Exclude failing variants"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 4.316369725338502e-16,
+        "pc1VarianceFraction": 0.09099252561925013,
+        "pc1Separated": false,
+        "pc2PValue": 0.23930627771366833,
+        "pc2VarianceFraction": 0.020239430566924607,
+        "pc2Separated": false,
+        "pc3PValue": 0.7347058961615093,
+        "pc3VarianceFraction": 0.02007970733322655,
+        "pc3Separated": false,
+        "pc4PValue": 0.7702999165877835,
+        "pc4VarianceFraction": 0.01915758161807633,
+        "pc4Separated": false,
+        "pc5PValue": 0.1974546273301362,
+        "pc5VarianceFraction": 0.01886606574786786,
+        "pc5Separated": false,
+        "pc6PValue": 0.5181218705301183,
+        "pc6VarianceFraction": 0.018157981068999542,
+        "pc6Separated": false,
+        "pc7PValue": 0.4881611225475009,
+        "pc7VarianceFraction": 0.017518710585191152,
+        "pc7Separated": false,
+        "pc8PValue": 0.2379956386486452,
+        "pc8VarianceFraction": 0.01718950275483898,
+        "pc8Separated": false,
+        "pc9PValue": 0.37665397680773693,
+        "pc9VarianceFraction": 0.017006223655927404,
+        "pc9Separated": false,
+        "pc10PValue": 0.45600554832829443,
+        "pc10VarianceFraction": 0.015934812789182524,
+        "pc10Separated": false,
+        "separated": false,
+        "separatedAxis": 0
+      },
+      "status": "success",
+      "decision": "Leading standardized, mean-imputed genotype PCs; Welch comparisons and range overlap."
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.0119692995288492,
+        "covariates": 2,
+        "minPValue": 0.0053186298553704
+      },
+      "status": "success",
+      "decision": "Additive logistic Wald test, adjusting for the first two genotype PCs; complete calls per variant."
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nCandidates": 0,
+        "nReplicated": 0
+      },
+      "status": "success",
+      "decision": "Empty candidate-set audit, not a replication association test. Neither computed scan nor steward nominated any hit; no replication p-values estimated."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "proceed"
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "overlapping_structure_adjust"
+    },
+    {
+      "point": "association",
+      "chosen_branch": "adjusted_logistic"
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_candidates_no_reportable_associations",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

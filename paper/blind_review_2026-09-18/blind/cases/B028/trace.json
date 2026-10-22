@@ -1,0 +1,528 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage": "msa",
+        "parts": 10,
+        "operators": 3,
+        "replicates": 3,
+        "observations": 90
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 12.700490673699216,
+        "percentTolerance": 21.606558220784553,
+        "ndc": 11,
+        "parts": 10.0,
+        "operators": 3.0,
+        "replicates": 3.0,
+        "observations": 90.0,
+        "toleranceWidth": 6.0,
+        "gageRRStdDev": 0.21606558220784552,
+        "partToPartStdDev": 1.6874615934528983
+      },
+      "status": "success",
+      "decision": "Acceptable; readings may support the project comparison."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage": "msa",
+        "parts": 10,
+        "operators": 3,
+        "replicates": 3
+      },
+      "method_id": "anova.sov",
+      "outputs": {
+        "totalVariance": 2.89421096519341,
+        "gageRRVariance": 0.04668433581481525,
+        "partToPartVariance": 2.8475266293785944
+      },
+      "status": "success",
+      "decision": "Part variation dominates measurement variation."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage": "baseline",
+        "sampleSize": 60
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 60.63433333333333,
+        "median": 60.93,
+        "stdDev": 2.297360583303699,
+        "skewness": -0.05156972904474212,
+        "adPValue": 0.02359881666497351,
+        "sampleSize": 60.0,
+        "minimum": 56.38,
+        "maximum": 64.63
+      },
+      "status": "success",
+      "decision": "Overall summary is descriptive only; it mixes nonstationary segments."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "stage": "baseline",
+        "comparison": "lag1",
+        "sampleSize": 60
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.7042712072465488,
+        "pValue": 4.858326036843666e-10
+      },
+      "status": "success",
+      "decision": "Strong positive serial correlation."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "stage": "baseline",
+        "sampleSize": 60,
+        "movingRangeSize": 2
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 64.5082965500661,
+        "individualsLCL": 56.76037011660055,
+        "centerLine": 60.63433333333333,
+        "flaggedCount": 2.0,
+        "sigmaEstimated": 1.29132107224426,
+        "movingRangeCenterLine": 1.4566101694915252,
+        "movingRangeUCL": 4.758745423728813,
+        "movingRangeFlaggedCount": 0.0
+      },
+      "status": "success",
+      "decision": "Not stable: two individual points signal and the chart masks a large ordered shift."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "stage": "baseline",
+        "center": "median",
+        "sampleSize": 60
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 4.532976170252393e-08,
+        "runsObserved": 10.0,
+        "runsExpected": 31.0,
+        "aboveCount": 30.0,
+        "belowCount": 30.0
+      },
+      "status": "success",
+      "decision": "Reject randomness about the median."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "stage": "recipes",
+        "recipe": "recipe A",
+        "sampleSize": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 57.95933333333333,
+        "median": 58.15,
+        "stdDev": 0.9090691209510234,
+        "skewness": 0.28049555095181067,
+        "adPValue": 0.07954209122843807,
+        "sampleSize": 15.0
+      },
+      "status": "success",
+      "decision": "Descriptive group summary."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "stage": "recipes",
+        "recipe": "recipe B",
+        "sampleSize": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 59.74333333333334,
+        "median": 59.99,
+        "stdDev": 0.9278136101815362,
+        "skewness": 0.9106445226524105,
+        "adPValue": 0.20118558988872182,
+        "sampleSize": 15.0
+      },
+      "status": "success",
+      "decision": "Descriptive group summary."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "stage": "recipes",
+        "recipe": "recipe C",
+        "sampleSize": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 61.32733333333332,
+        "median": 61.49,
+        "stdDev": 0.865872529934538,
+        "skewness": -0.39683266536737954,
+        "adPValue": 0.4132405728664873,
+        "sampleSize": 15.0
+      },
+      "status": "success",
+      "decision": "Descriptive group summary."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "stage": "recipes",
+        "recipe": "recipe A",
+        "sampleSize": 15
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.10869317301230325,
+        "statistic": 0.9037721599439461
+      },
+      "status": "success",
+      "decision": "No strong normality rejection at 0.05."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "stage": "recipes",
+        "recipe": "recipe B",
+        "sampleSize": 15
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.16829593954855082,
+        "statistic": 0.9161614276992138
+      },
+      "status": "success",
+      "decision": "No strong normality rejection at 0.05."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "stage": "recipes",
+        "recipe": "recipe C",
+        "sampleSize": 15
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.37655103911405946,
+        "statistic": 0.9395343444544608
+      },
+      "status": "success",
+      "decision": "No strong normality rejection at 0.05."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "stage": "recipes",
+        "groups": 3,
+        "groupSize": 15,
+        "center": "median"
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.9755563118740186,
+        "statistic": 0.024761981900359043,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Use equal-variance methods."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "stage": "recipes",
+        "groups": 3,
+        "observationsPerGroup": 15,
+        "totalSampleSize": 45
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 3.833851301067109e-12,
+        "fStatistic": 52.42698750092324,
+        "alpha": 0.05,
+        "groupCount": 3.0,
+        "totalSampleSize": 45.0,
+        "dfBetween": 2.0,
+        "dfWithin": 42.0,
+        "ssBetween": 85.1756799999994,
+        "ssWithin": 34.11771999999999,
+        "pooledStdDev": 0.9012916657035426,
+        "rSquaredPct": 71.40016128302103
+      },
+      "status": "success",
+      "decision": "Reject equal recipe means; all ordered pairwise differences are material."
+    },
+    {
+      "step_id": 15,
+      "inputs_digest": {
+        "stage": "recipes",
+        "groups": 3,
+        "observationsPerGroup": 15
+      },
+      "method_id": "anova.sov",
+      "outputs": {
+        "totalVariance": 2.7112136363636363
+      },
+      "status": "success",
+      "decision": "Recipe explains most of the observed sample variance."
+    },
+    {
+      "step_id": 16,
+      "inputs_digest": {
+        "stage": "recipes",
+        "group1": "recipe A",
+        "group2": "recipe B",
+        "group1Size": 15,
+        "group2Size": 15
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": 5.3192626527934195,
+        "pValue": 1.1607145638686094e-05,
+        "difference": 1.784000000000006,
+        "lower95": 1.09699531918327,
+        "upper95": 2.4710046808167423,
+        "confidenceLevel": 95.0,
+        "alpha": 0.05,
+        "holmAdjustedPValue": 0.00013244478458489215
+      },
+      "status": "success",
+      "decision": "C is highest; every recipe differs from every other."
+    },
+    {
+      "step_id": 17,
+      "inputs_digest": {
+        "stage": "recipes",
+        "group1": "recipe A",
+        "group2": "recipe C",
+        "group1Size": 15,
+        "group2Size": 15
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": 10.39010782364311,
+        "pValue": 4.2196883269945285e-11,
+        "difference": 3.367999999999988,
+        "lower95": 2.7039996478701163,
+        "upper95": 4.0320003521298595,
+        "confidenceLevel": 95.0,
+        "alpha": 0.05,
+        "holmAdjustedPValue": 0.00013244478458489215
+      },
+      "status": "success",
+      "decision": "C is highest; every recipe differs from every other."
+    },
+    {
+      "step_id": 18,
+      "inputs_digest": {
+        "stage": "recipes",
+        "group1": "recipe B",
+        "group2": "recipe C",
+        "group1Size": 15,
+        "group2Size": 15
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": 4.834043506337245,
+        "pValue": 4.414826152829738e-05,
+        "difference": 1.5839999999999819,
+        "lower95": 0.9127861583475468,
+        "upper95": 2.255213841652417,
+        "confidenceLevel": 95.0,
+        "alpha": 0.05,
+        "holmAdjustedPValue": 0.00013244478458489215
+      },
+      "status": "success",
+      "decision": "C is highest; every recipe differs from every other."
+    },
+    {
+      "inputs_digest": {
+        "stage": "leading_two",
+        "recipe": "recipe C",
+        "sampleSize": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 61.32733333333332,
+        "median": 61.49,
+        "stdDev": 0.865872529934538,
+        "shapiroPValue": 0.37655103911405946,
+        "shapiroStatistic": 0.9395343444544608,
+        "sampleSize": 15.0
+      },
+      "status": "success",
+      "decision": "Descriptive check for the selected leading pair.",
+      "step_id": 19
+    },
+    {
+      "inputs_digest": {
+        "stage": "leading_two",
+        "recipe": "recipe B",
+        "sampleSize": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 59.74333333333334,
+        "median": 59.99,
+        "stdDev": 0.9278136101815362,
+        "shapiroPValue": 0.16829593954855082,
+        "shapiroStatistic": 0.9161614276992138,
+        "sampleSize": 15.0
+      },
+      "status": "success",
+      "decision": "Descriptive check for the selected leading pair.",
+      "step_id": 20
+    },
+    {
+      "step_id": 21,
+      "inputs_digest": {
+        "stage": "leading_two",
+        "groups": 2,
+        "groupSize": 15,
+        "center": "median"
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.9330816690985373,
+        "statistic": 0.0071785940756871605,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Pooled t is supported for B versus C."
+    },
+    {
+      "step_id": 22,
+      "inputs_digest": {
+        "stage": "leading_two",
+        "group1": "recipe C",
+        "group2": "recipe B",
+        "group1Size": 15,
+        "group2Size": 15
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "df": 28.0,
+        "group1Size": 15.0,
+        "group2Size": 15.0,
+        "tStatistic": 4.834043506337246,
+        "pValue": 4.3658608057111614e-05,
+        "difference": 1.5839999999999819,
+        "lower95": 0.9127861583475471,
+        "upper95": 2.2552138416524166,
+        "confidenceLevel": 95.0,
+        "alpha": 0.05,
+        "pooledStdDev": 0.89737766111413,
+        "cohenD": 1.7651431149215182,
+        "hedgesG": 1.7174365442479638
+      },
+      "status": "success",
+      "decision": "Recipe C is materially higher than recipe B, but this is not by itself proof of causation."
+    },
+    {
+      "step_id": 23,
+      "inputs_digest": {
+        "stage": "leading_two",
+        "group1": "recipe C",
+        "group2": "recipe B",
+        "group1Size": 15,
+        "group2Size": 15
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 0.0002617547195372892,
+        "uStatistic": 201.0,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis agrees with the t test."
+    },
+    {
+      "step_id": 24,
+      "inputs_digest": {
+        "stage": "baseline",
+        "comparison": "runOrder",
+        "sampleSize": 60
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.8430836925225684,
+        "pValue": 2.915854820516087e-17
+      },
+      "status": "success",
+      "decision": "Hardness increases strongly with run order."
+    },
+    {
+      "step_id": 25,
+      "inputs_digest": {
+        "stage": "baseline",
+        "comparison": "last40MinusFirst20",
+        "group1Size": 20,
+        "group2Size": 40
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": 7.550655677361809,
+        "pValue": 3.4791531902780233e-10,
+        "difference": 3.4024999999999963,
+        "lower95": 2.500479827073258,
+        "upper95": 4.304520172926734,
+        "group1Size": 20.0,
+        "group2Size": 40.0,
+        "firstSegmentMean": 58.366,
+        "lastSegmentMean": 61.768499999999996
+      },
+      "status": "success",
+      "decision": "The final 40 have a materially higher mean than the first 20."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_gate",
+      "chosen_branch": "declare crossed gage R&R and unlock baseline",
+      "observed": {
+        "percentStudyVariation": 12.700490673699216,
+        "ndc": 11
+      }
+    },
+    {
+      "point": "baseline_stability",
+      "chosen_branch": "do not treat the 60 observations as one stable baseline",
+      "observed": {
+        "lag1Correlation": 0.7042712072465488,
+        "runsPValue": 4.532976170252393e-08
+      }
+    },
+    {
+      "point": "three_recipe_test",
+      "chosen_branch": "pooled one-way ANOVA after equal-variance check",
+      "observed": {
+        "equalVariancePValue": 0.9755563118740186
+      }
+    },
+    {
+      "point": "leading_pair",
+      "chosen_branch": "recipe C versus recipe B by pooled t with Mann-Whitney sensitivity",
+      "observed": {
+        "meanC": 61.32733333333332,
+        "meanB": 59.74333333333334
+      }
+    },
+    {
+      "point": "causal_interpretation",
+      "chosen_branch": "report association and require a randomized controlled confirmation",
+      "observed": {
+        "unroutableProcessFactRequests": 1.0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

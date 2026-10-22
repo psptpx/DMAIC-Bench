@@ -1,0 +1,270 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.attribute_agreement",
+      "inputs_digest": {
+        "stage_id": "agreement",
+        "nParts": 20,
+        "nAppraisers": 3,
+        "nTrials": 2,
+        "nRatings": 120,
+        "hasKnownStandard": true
+      },
+      "outputs": {
+        "kappaMin": 0.3617021276595743,
+        "kappaMax": 0.7382198952879582,
+        "kappaMean": 0.5378118454870154,
+        "kappaPooled": 0.5390070921985816,
+        "agreementPct": 15.0,
+        "betweenAppraiserPct": 15.0,
+        "overallJudgementAccuracyPct": 78.33333333333333,
+        "appraiser1RepeatabilityPct": 55.00000000000001,
+        "appraiser2RepeatabilityPct": 50.0,
+        "appraiser3RepeatabilityPct": 75.0,
+        "appraiser1AgreeStandardPct": 55.00000000000001,
+        "appraiser2AgreeStandardPct": 45.0,
+        "appraiser3AgreeStandardPct": 75.0
+      },
+      "status": "success",
+      "decision": "Breach judgement is NOT trustworthy: minimum appraiser-vs-standard kappa 0.362 is far below the 0.90 acceptance bar and below even the 0.70 marginal bar; only 15% of tickets were classed correctly by every reviewer on every pass. All downstream breach rates inherit this misclassification and are provisional."
+    },
+    {
+      "step_id": 2,
+      "method_id": "control_chart.p",
+      "inputs_digest": {
+        "stage_id": "subgroups",
+        "nSubgroups": 25,
+        "subgroupSize": 200,
+        "totalUnits": 5000,
+        "totalDefects": 196
+      },
+      "outputs": {
+        "centerLine": 0.0392,
+        "outOfControlCount": 0,
+        "ucl": 0.08036857053627197,
+        "lcl": 0.0,
+        "sigma": 0.013722856845423988
+      },
+      "status": "success",
+      "decision": "Breach share is stable across the 25 periods: centre line 3.92%, no point outside the 3-sigma limits (UCL 8.04%, LCL 0%). One common-cause system, so no special cause to chase."
+    },
+    {
+      "step_id": 3,
+      "method_id": "nonparametric.runs_test",
+      "inputs_digest": {
+        "stage_id": "subgroups",
+        "n": 25,
+        "reference": "p-chart centre line"
+      },
+      "outputs": {
+        "pValue": 0.6698153575994166,
+        "runs": 12,
+        "expectedRuns": 13.0,
+        "zStatistic": -0.42640143271122083
+      },
+      "status": "success",
+      "decision": "No non-random run pattern about the centre line (p=0.670); confirms stability rather than a hidden drift or shift."
+    },
+    {
+      "step_id": 4,
+      "method_id": "control_chart.laney_p",
+      "inputs_digest": {
+        "stage_id": "subgroups",
+        "nSubgroups": 25,
+        "subgroupSize": 200
+      },
+      "outputs": {
+        "sigmaZ": 1.0228659516101688,
+        "mrBar": 1.1537927934162704
+      },
+      "status": "success",
+      "decision": "sigmaZ 1.023 is essentially 1, so there is no overdispersion at n=200; the ordinary p-chart limits in step 2 are the correct tool and no Laney correction is needed."
+    },
+    {
+      "step_id": 5,
+      "method_id": "basic.descriptive_summary",
+      "inputs_digest": {
+        "stage_id": "subgroups",
+        "n": 25,
+        "variable": "per-period breach rate"
+      },
+      "outputs": {
+        "mean": 0.0392,
+        "median": 0.04,
+        "stdDev": 0.016309506430300092,
+        "skewness": 0.12354487099543857,
+        "adPValue": 0.22443448062198887,
+        "minRate": 0.005,
+        "maxRate": 0.08
+      },
+      "status": "success",
+      "decision": "Per-period breach rate averages 3.92% with SD 1.63 points, ranging 0.5% to 8.0%; nearly symmetric (skew 0.12)."
+    },
+    {
+      "step_id": 6,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "stage_id": "subgroups",
+        "n": 25,
+        "test": "Shapiro-Wilk on period rates"
+      },
+      "outputs": {
+        "pValue": 0.4955125050370384,
+        "statistic": 0.9638131482812682
+      },
+      "status": "success",
+      "decision": "Period rates are consistent with normality (p=0.496); supports use of the normal-approximation tests alongside the exact binomial one."
+    },
+    {
+      "step_id": 7,
+      "method_id": "capability.binomial",
+      "inputs_digest": {
+        "stage_id": "subgroups",
+        "totalUnits": 5000,
+        "totalDefects": 196,
+        "targetRate": 0.05
+      },
+      "outputs": {
+        "avgP": 0.0392,
+        "processZ": 1.7600460440337642,
+        "defectivePct": 3.92,
+        "ppmDefective": 39200.0
+      },
+      "status": "success",
+      "decision": "Current capability: 3.92% of tickets breach (39200 ppm), process Z 1.76. Inside the 5% ceiling but with little margin."
+    },
+    {
+      "step_id": 8,
+      "method_id": "basic.one_proportion",
+      "inputs_digest": {
+        "stage_id": "subgroups",
+        "x": 196,
+        "n": 5000,
+        "target": 0.05,
+        "test": "exact binomial, two-sided"
+      },
+      "outputs": {
+        "pValue": 0.000314088461804528,
+        "observedP": 0.0392,
+        "target": 0.05,
+        "zStatistic": -3.503982696424472,
+        "pValueNormal": 0.0004583551397567831,
+        "ciLow": 0.03399133609389574,
+        "ciHigh": 0.04495500335808845
+      },
+      "status": "success",
+      "decision": "Breach share 3.92% is significantly below the 5% internal requirement (exact p=0.000314; 95% CI 3.40% to 4.50%, entirely under 5%). The requirement is being met on the aggregate of the 25 periods."
+    },
+    {
+      "step_id": 9,
+      "method_id": "basic.two_proportions",
+      "inputs_digest": {
+        "stage_id": "root_cause",
+        "events1": 30,
+        "trials1": 600,
+        "events2": 24,
+        "trials2": 600
+      },
+      "outputs": {
+        "pValue": 0.40342950102782815,
+        "zStatistic": 0.8355119862887138,
+        "p1": 0.05,
+        "p2": 0.04,
+        "diff": 0.010000000000000002,
+        "pooledP": 0.045
+      },
+      "status": "success",
+      "decision": "Team 1 at 5.0% vs team 2 at 4.0% is not a detectable difference (z=0.836, p=0.403). Team is not established as a driver of breaches."
+    },
+    {
+      "step_id": 10,
+      "method_id": "tables.chisquare_assoc",
+      "inputs_digest": {
+        "stage_id": "root_cause",
+        "table": "2x2 team by breach",
+        "n": 1200
+      },
+      "outputs": {
+        "statistic": 0.6980802792321116,
+        "pValue": 0.40342950102782804
+      },
+      "status": "success",
+      "decision": "Independent cross-check of step 9 on the same 2x2 table: chi-square 0.698, p=0.403, same conclusion of no association."
+    },
+    {
+      "step_id": 11,
+      "method_id": "power.two_proportions",
+      "inputs_digest": {
+        "stage_id": "root_cause",
+        "n1": 600,
+        "n2": 600,
+        "p1": 0.05,
+        "p2": 0.04,
+        "alpha": 0.05
+      },
+      "outputs": {
+        "power": 0.13325877158617275,
+        "effectSizeH": 0.048310970215600824
+      },
+      "status": "success",
+      "decision": "Power at the observed 1-point gap is only 0.133, so the non-significant team result in steps 9-10 is inconclusive, not evidence of equality. A larger window is needed before ruling team out."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_trustworthy",
+      "chosen_branch": "not_trustworthy_report_with_caveat",
+      "observed": {
+        "kappaMin": 0.3617021276595743,
+        "agreementPct": 15.0,
+        "overallJudgementAccuracyPct": 78.33333333333333,
+        "acceptanceBar": 0.9
+      }
+    },
+    {
+      "point": "attribute_chart_choice",
+      "chosen_branch": "ordinary_p_chart_no_laney_correction",
+      "observed": {
+        "sigmaZ": 1.0228659516101688,
+        "constantSubgroupSize": true
+      }
+    },
+    {
+      "point": "stability_before_capability",
+      "chosen_branch": "stable_so_capability_is_meaningful",
+      "observed": {
+        "outOfControlCount": 0,
+        "runsPValue": 0.6698153575994166
+      }
+    },
+    {
+      "point": "level_vs_requirement",
+      "chosen_branch": "significantly_below_5pct_ceiling",
+      "observed": {
+        "observedP": 0.0392,
+        "target": 0.05,
+        "pValue": 0.000314088461804528,
+        "ciHigh": 0.04495500335808845
+      }
+    },
+    {
+      "point": "team_as_root_cause",
+      "chosen_branch": "not_established_underpowered",
+      "observed": {
+        "pValue": 0.40342950102782815,
+        "power": 0.13325877158617275
+      }
+    },
+    {
+      "point": "improve_and_control_evidence",
+      "chosen_branch": "no_data_available_conclusion_stops",
+      "observed": {
+        "stagesReleased": 4,
+        "postChangeBatches": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

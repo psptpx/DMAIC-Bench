@@ -1,0 +1,177 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "maxSampleFailFraction": 0.1,
+        "participants": 240,
+        "variants": 150,
+        "participantCallRateThreshold": 0.95,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hwePThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Discovery participant QC computed"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "participants": 240,
+        "variants": 150
+      },
+      "status": "success",
+      "decision": "Discovery variant QC computed"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "groups": 2,
+        "participantsAfterQC": 239
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "affectedAfterQC": 120,
+        "unaffectedAfterQC": 119
+      },
+      "status": "success",
+      "decision": "Affected and unaffected groups are present after QC; comparison was run"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedVariants": 137,
+        "participantsAfterQC": 239
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 36,
+        "lambdaGC": 2.4375084758560432,
+        "bonferroniThreshold": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "Bonferroni-qualified discovery scan"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.008333333333333333,
+        "participants": 120,
+        "variants": 150,
+        "participantCallRateThreshold": 0.95,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hwePThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Replication participant QC computed"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 8,
+        "snpsRetained": 142,
+        "participants": 120,
+        "variants": 150
+      },
+      "status": "success",
+      "decision": "Replication variant QC computed"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "retainedVariants": 142,
+        "participantsAfterQC": 119
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 3,
+        "lambdaGC": 0.7922196206372795
+      },
+      "status": "success",
+      "decision": "Replication association scan for nominated discovery variants"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "discoveryCandidates": 36,
+        "replicationCohortParticipants": 120,
+        "replicationRuleAlpha": 0.05
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 36,
+        "replicationAlpha": 0.05,
+        "discoveryCandidatesCompared": 36
+      },
+      "status": "refused",
+      "decision": "No steward nomination was supplied; no replication-supported reportable hit"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_conclusion",
+      "chosen_branch": "carry_conclusion",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "discovery_association",
+      "chosen_branch": "nominate_discovery_hits",
+      "observed": {
+        "nSignificant": 36,
+        "bonferroniThreshold": 0.00036496350364963507
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "do_not_report_as_replicated",
+      "observed": {
+        "nCandidates": 36,
+        "nReplicated": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

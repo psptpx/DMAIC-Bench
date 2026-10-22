@@ -1,0 +1,59 @@
+{
+  "system_id": "local-analysis-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12
+      },
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "totalLibraries": 12,
+        "usableLibraries": 8,
+        "controlRetained": 6,
+        "treatedRetained": 2,
+        "lowReads": 2,
+        "lowMapping": 2,
+        "requiredReplicates": 3,
+        "readThreshold": 5000000,
+        "mappingThreshold": 0.7
+      },
+      "status": "success",
+      "decision": "Insufficient treated replication; halt gene calling and resequence."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicate_gate",
+      "chosen_branch": "resequence_before_gene_calling",
+      "observed": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "totalLibraries": 12,
+        "usableLibraries": 8,
+        "controlRetained": 6,
+        "treatedRetained": 2,
+        "lowReads": 2,
+        "lowMapping": 2,
+        "requiredReplicates": 3,
+        "readThreshold": 5000000,
+        "mappingThreshold": 0.7
+      }
+    },
+    {
+      "point": "sample_sheet_access",
+      "chosen_branch": "locked_stop",
+      "observed": {
+        "min_replicates": 2,
+        "required_min_replicates": 3
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

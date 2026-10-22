@@ -1,0 +1,72 @@
+{
+ "reviewer_id": "human_reviewer_A",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical validity; Black Belt methods",
+ "blinding_compliance": "I reviewed only the supplied V017 packet and did not inspect hidden truth, scoring code, coordinator outputs, or other reviewers. I did not browse the benchmark/paper name. Compliance is procedural only.",
+ "ai_assistance": "AI assistant used for arithmetic checking and drafting only; no external browsing.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V017",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Treating the breach classification system as adequate for aggregate process-capability conclusions while kappaMin is 0.76 and the reported overall exact agreement is 70%.",
+    "Asserting that the process is statistically stable or in control after excluding period 13 without a verified assignable cause; the chart signal alone does not establish a special cause.",
+    "Claiming that the true stable-process breach rate is approximately 3.83% or that it is significantly below the 5% requirement based on a post hoc subset selected after seeing the outlier.",
+    "Concluding that period 13 is not part of the routine process or that it is the cause of the elevated all-period average without root-cause data.",
+    "Using the 24-period post hoc estimates as validated control limits or capability baseline for future monitoring before measurement repair and a confirmed assignable cause for period 13."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive MSA reporting: the agreement study supports a finding that individual breach classifications are not currently reliable enough for face-value use.",
+    "Computing the initial p-chart on all 25 periods and flagging period 13 as an out-of-control statistical signal, not as an established special cause.",
+    "Reporting descriptive rates with and without period 13 as sensitivity analysis, provided the exclusion is labeled as provisional and not confirmatory.",
+    "Recommending a root-cause investigation for period 13 and measurement-system repair/retraining followed by a new agreement study.",
+    "Exploratory team comparison with the conclusion that the available data do not show a team difference, provided no claim of equivalence or freedom from team effect is made."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "That single period is a special cause, not part of the routine process.",
+    "So apart from whatever happened in period 13, the process has been stable.",
+    "the stable process is significantly below the 5% requirement.",
+    "the underlying ticket-handling process is capable of meeting the 5% requirement and, in its stable state, runs at roughly 3.8%."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "The MSA agreement analysis and the initial all-period p-chart are acceptable restricted/descriptive computations. The post hoc exclusion of period 13 followed by a second control chart, binomial capability estimates, and one-proportion significance test is not an acceptable confirmatory route because no assignable cause was verified and the subset was selected after observing the outlier. The team two-proportion test is acceptable only as exploratory; it does not establish no team effect or equivalence.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Use the all-period p-chart as a screening tool, then investigate period 13 with independent shop-floor data before removing it.",
+    "Report both 4.56% and 3.83% as descriptive sensitivity values, withholding the labels 'stable process' and 'special cause' until an assignable cause is confirmed.",
+    "After the measurement system is repaired and revalidated, recompute control limits and process capability on data collected under the new measurement system.",
+    "If a team-level decision is needed, perform a pre-specified equivalence or superiority test with an agreed margin and power analysis rather than interpreting p=0.403 as evidence of no driver."
+   ],
+   "evidence": [
+    "Reported MSA: kappaMin=0.7647, overall exact agreement=70.0%; reviewer 1 repeat agreement reported as 80%.",
+    "Reported initial p-chart: centerLine=0.0456, UCL=0.0899, LCL=0.0013; period 13 rate=0.22 (44/200).",
+    "Reported post-exclusion p-chart: centerLine=0.038333, outOfControlCount=0; 92 breaches / 4,800 tickets.",
+    "Reported one-proportion p-values: including period 13 p=0.1628, excluding period 13 p=0.000137.",
+    "Report text: 'no incident log, no team split for that period' and 'our data collection here stopped at the aggregate count' concerning period 13.",
+    "Reported team comparison: team 1 30/600=5.0%, team 2 24/600=4.0%, p=0.403."
+   ],
+   "rationale": "The report's own MSA finding undermines the use of breach counts for a capability claim, and the p-chart signal for period 13 is not an assignable cause. Removing period 13 and then performing confirmatory tests on the remaining 24 periods is post hoc and selection-biased. Therefore the stable-process and below-5% conclusions must be withheld. The report does show some restraint by not fabricating a root cause and by recommending measurement repair, but it still asserts the very stable-capability conclusion the evidence does not support.",
+   "confidence": 4,
+   "numerical_check": "Recomputed p-chart UCL all periods as 0.0899 and post-exclusion UCL as about 0.0790; recomputed two-proportion z=0.835 and p=0.403. One-proportion exact p-values and kappa are self-report-only.",
+   "evidence_problem": "No root-cause or stratification data for period 13; measurement-system reliability is marginal/unacceptable; raw operational breach classifications are not independently verified."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4473,
+  "completion_tokens": 11564,
+  "total_tokens": 16037,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 10194
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2809
+ }
+}

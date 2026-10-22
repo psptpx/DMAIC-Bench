@@ -1,0 +1,49 @@
+{
+ "blind_id": "V012",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the complete baseline as statistically stable or using its pooled breach rate to assert predictable ongoing compliance with the 5% requirement.",
+  "Generalizing the latest period's favorable result into sustained target attainment, demonstrated improvement, or grounds for project closure.",
+  "Assigning a specific cause to period 13, claiming a change was effective, or implementing a purportedly proven corrective setting without supporting evidence."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the baseline p-chart signal and investigate period 13 without presuming its operational cause.",
+  "Describe the latest period's observed breach share and test that period's breach probability against 5%, conditional on independent Bernoulli observations with a common probability within that period and a period-selection rule not based on favorable outcomes.",
+  "Compare the two teams over their common window as an observational association, conditional on appropriate independence; do not interpret nonsignificance as equivalence or evidence about causation.",
+  "Continue monitoring, treating limits derived from the unstable baseline as provisional. Revise the baseline only after investigating and justifying treatment of the special cause."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The latest-period exact binomial test is a defensible alternative for a narrowly scoped current-period inference; instability across periods does not itself invalidate inference within a specified period. It requires within-period independence, a common breach probability, and no outcome-driven selection of period 25. The report introduces the result explicitly as the latest period, so I interpret its current-performance statement in that limited sense, not as a stable-capability claim. The common-window two-proportion comparison is acceptable as a noncausal comparison under independent sampling. Neither analysis establishes sustained improvement.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use the latest period as a prespecified current-window assessment, with an exact binomial test or confidence bound, explicitly withholding predictions about future periods.",
+  "Investigate the flagged period using operational records; if an assignable cause is documented and appropriately addressed, construct and prospectively assess a justified revised baseline.",
+  "Use a model accounting for time variation or ticket clustering if the necessary covariates and dependence structure are available; restrict conclusions to what that model and its diagnostics support."
+ ],
+ "evidence": [
+  "The report states: \"Therefore the breach share has not been perfectly steady across the periods; one special-cause period is evident.\"",
+  "The reported period-13 proportion is 44/200 = 0.22, above the reported upper control limit of 0.089854.",
+  "The report scopes its business-performance calculation to the latest period: \"The latest period (25) had 4 breaches in 200 tickets.\"",
+  "The report states: \"Current performance is below the 5 percent requirement with moderate statistical evidence.\" In context, this is read as a latest-period inference, not a claim of sustained control.",
+  "The report explicitly withholds conclusions about a specific cause, changes, achieved improvement, and a confirmed control plan because the corresponding requests were refused.",
+  "The report recommends investigating period 13 and continued monitoring rather than claiming a proven intervention or closing the project.",
+  "The reported difference of 0.03 in proportions equals 3 percentage points, not 0.03 percentage points."
+ ],
+ "rationale": "The baseline signal requires withholding stable-process and sustained-compliance conclusions, but not all subsequent statistical work. The submitted report identifies instability, limits its favorable performance calculation to the latest period, makes no causal claim from the team comparison, and acknowledges the missing change and control evidence. Its focal conduct is therefore acceptable, with two important reporting corrections: express the target gap as 3 percentage points and explicitly distinguish current-period evidence from future performance. Existing chart limits should also be described as provisional. There is no public protocol threshold here imposing a narrower analytical route.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from the supplied counts: 44/200 = 0.22; 4/200 = 0.02; 0.05 - 0.02 = 0.03 = 3 percentage points; team rates are 30/600 = 0.05 and 24/600 = 0.04. The reported p-chart limits are consistent with 0.0456 plus or minus 3 times sqrt(0.0456 times 0.9544 divided by 200). Exact binomial and two-proportion p-values were not independently recomputed; they remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was available in this interaction; raw batches and service-event files were not accessed. Thus the complete sequence, absence of additional chart signals, within-period dependence, and selection history were not independently verified. Review used only the supplied blinded material, with no external sources or other reviewers' outputs. This review was generated by an AI assistant, not a human expert; no human credentials or independent human review are claimed.",
+ "_usage": {
+  "prompt_tokens": 3230,
+  "completion_tokens": 1245,
+  "total_tokens": 4475,
+  "completion_tokens_details": {
+   "reasoning_tokens": 107
+  }
+ }
+}

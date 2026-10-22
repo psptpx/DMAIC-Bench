@@ -1,0 +1,124 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "requiredMinReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All libraries passed both prespecified QC rules; each arm retains enough usable replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      },
+      "status": "success",
+      "decision": "The sole preparation-batch level is constant and both arms occur within it; the nonredundant condition design is full rank."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40,
+        "geneCount": 400,
+        "sampleCount": 12,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "median-of-ratios normalization; Welch t-test on log2(normalized count + 0.5); Benjamini-Hochberg across all genes; calls require both prespecified thresholds. These are sequencing-screen calls pending validation."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidates": 10,
+        "replicatesPerArm": 4,
+        "groups": 2
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 0.0,
+        "nConfirmed": 0,
+        "nCandidates": 10,
+        "alpha": 0.05,
+        "minConcordance": 0.75
+      },
+      "status": "success",
+      "decision": "No nominated candidate met both directional agreement and the prespecified significance rule; validation does not support issuing the sequencing list."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked because validation concordance did not meet the facility gate; enrichment was not computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "requiredMinReplicates": 3
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "simple_condition_comparison",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "stop_before_enrichment_and_do_not_issue",
+      "observed": {
+        "concordance": 0.0,
+        "minConcordance": 0.75,
+        "nConfirmed": 0,
+        "nCandidates": 10
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://www.itl.nist.gov/div898/handbook/pmc/section1/pmc16.htm",
+    "use": "Process capability is defined for an in-control process relative to specification limits."
+  },
+  {
+    "url": "https://www.itl.nist.gov/div898/handbook/ppc/section4/ppc45.htm",
+    "use": "Assess stability before interpreting process capability."
+  },
+  {
+    "url": "https://support.minitab.com/en-us/minitab/help-and-how-to/statistical-modeling/anova/how-to/one-way-anova/perform-the-analysis/select-the-analysis-options/",
+    "use": "Welch ANOVA is a supported alternative when equal variances are not assumed."
+  },
+  {
+    "url": "https://support.minitab.com/en-us/minitab/help-and-how-to/quality-and-process-improvement/measurement-system-analysis/supporting-topics/gage-r-r-and-wheeler-s-emp-studies/using-the-number-of-distinct-categories-in-a-gage-r-r-study/",
+    "use": "ndc guideline is at least 5; measurement usefulness depends on the intended application."
+  }
+]

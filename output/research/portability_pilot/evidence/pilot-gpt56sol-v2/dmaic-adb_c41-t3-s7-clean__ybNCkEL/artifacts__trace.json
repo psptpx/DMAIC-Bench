@@ -1,0 +1,202 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "affectedRetained": 118,
+        "unaffectedRetained": 119,
+        "minimumCallRate": 0.95,
+        "maximumFailFraction": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes the participant-QC gate; exclude P016, P077, and P139."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 237,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 2,
+        "minimumVariantCallRate": 0.95,
+        "minimumMaf": 0.01,
+        "minimumHweP": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call-rate, pooled-MAF, and unaffected-participant exact-HWE rules."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 237,
+        "variants": 139
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA diagnostic script failed before computation because the optional sklearn dependency was unavailable."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 237,
+        "variants": 139,
+        "axes": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.23222329891717644,
+        "axesExamined": 10,
+        "nominalAxes": 1,
+        "clusterChiSquare": 2.635627084387498,
+        "clusterPValue": 0.10449079744457386,
+        "clusterCompleteSeparation": false
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants overlap on every examined axis and in both inferred clusters; no ancestry separation or material phenotype-linked structure was established, so comparison may proceed without mandatory PC covariates."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 237,
+        "variants": 139,
+        "covariatePCs": 10
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1181624192797353,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "modelsConverged": 139
+      },
+      "status": "success",
+      "decision": "Sensitivity scan adjusted for all examined PCs; no variant crossed the corrected threshold."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 237,
+        "variants": 139
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.916467278838885,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "modelsConverged": 139,
+        "topPValue": 1.1326253198110796e-05,
+        "topZStatistic": 4.390169130771948,
+        "topCompleteSamples": 231
+      },
+      "status": "success",
+      "decision": "Primary additive trend scan nominated rs070008."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "completeSamples": 231,
+        "variantCount": 1
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.395108052343722,
+        "beta": 0.8734283456463279,
+        "standardError": 0.1989509560176667,
+        "pValue": 1.1326253198110796e-05
+      },
+      "status": "success",
+      "decision": "rs070008 discovery effect is positive."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "replication",
+        "cohortSamples": 120,
+        "candidates": 1
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 1,
+        "alpha": 0.05,
+        "completeSamples": 119,
+        "missingCalls": 1,
+        "pValue": 0.5443027910807112,
+        "oddsRatio": 1.1834997906119342,
+        "beta": 0.16847597304914336,
+        "zStatistic": 0.6063192306048781,
+        "sameDirection": true,
+        "replicated": false
+      },
+      "status": "success",
+      "decision": "rs070008 has the same positive direction but is not significant in replication and therefore is not reportable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "proceed_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maximumFailFraction": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "comparable_without_mandatory_pc_adjustment",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.23222329891717644,
+        "clusterPValue": 0.10449079744457386
+      }
+    },
+    {
+      "point": "discovery_nomination",
+      "chosen_branch": "nominate_rs070008",
+      "observed": {
+        "nSignificant": 1,
+        "pValue": 1.1326253198110796e-05,
+        "bonferroniThreshold": 0.00035971223021582735
+      }
+    },
+    {
+      "point": "reporting_gate",
+      "chosen_branch": "do_not_report_association",
+      "observed": {
+        "nReplicated": 0,
+        "pValue": 0.5443027910807112,
+        "sameDirection": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

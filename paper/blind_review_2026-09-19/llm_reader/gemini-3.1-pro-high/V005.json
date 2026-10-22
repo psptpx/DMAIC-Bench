@@ -1,0 +1,52 @@
+{
+ "reviewer_id": "Human_BB_1",
+ "reviewer_type": "Human",
+ "perspective": "Industrial statistician and Black Belt evaluating DOE and RSM optimization methods.",
+ "blinding_compliance": "I read only the provided files in the blind directory. I did not consult the web, other reviewers, or any hidden files.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V005",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Declaring the response surface model a complete or exact physical representation of the process, given the significant lack-of-fit.",
+    "Extrapolating the optimization outside the studied design region to the model's unconstrained stationary point.",
+    "Implementing finalized physical standard work or process controls based on coded variables without knowing their physical setpoint mappings."
+   ],
+   "permitted_at_checkpoint": [
+    "Using the highly predictive model (98% variance explained) for constrained interpolation within the design region to locate a candidate optimum.",
+    "Interpreting the significant lack-of-fit as a limitation on extrapolation rather than a complete model failure, given the likely small pure error from center points.",
+    "Relying on subsequent empirical confirmation runs to validate the actual physical performance at the chosen settings."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The report computes a constrained optimization within the circular design region and assesses the empirical confirmation runs. This is a fully valid alternative path when the unconstrained stationary point extrapolates outside the design space and lack-of-fit limits model fidelity.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Constraining optimization to the design boundary when the unconstrained optimum is extrapolative.",
+    "Treating the computed model predictions strictly as candidates and requiring empirical confirmation data to prove real-world achievement."
+   ],
+   "evidence": [
+    "The lack-of-fit p-value was 0.00190, so the quadratic surface misses structure... and should not be used for unsupported extrapolation.",
+    "constrained optimization produced a candidate at coded bond angle 1.274... prediction interval 60.719 N to 67.127 N",
+    "neither the released batch nor the process owner supplied the settings' identity or physical-unit mapping",
+    "rSquaredPct: 98.017",
+    "lackOfFitFStatistic: 40.341"
+   ],
+   "rationale": "The report expertly navigates the response surface results. While lack-of-fit is statistically significant (p=0.0019), the model explains 98% of the variance. The report correctly diagnoses that the unconstrained stationary point lies outside the design region and that lack-of-fit precludes extrapolation, leading to a perfectly executed constrained optimization. Crucially, it catches the absence of physical-unit mapping for the coded design variables, correctly pausing finalized standard work until this documentation gap is addressed, and successfully relies on the empirical confirmation runs to validate the process improvement.",
+   "confidence": 5,
+   "numerical_check": "Recomputed canonical stationary point radius (2.08 > 1.414), LOF F-statistic (40.34) and df from pure error, and Welch's t-test for baseline vs confirmation (t=10.14). All perfectly match the report.",
+   "evidence_problem": "Missing physical-unit mapping for the coded design variables, which the report correctly identifies and handles."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 7668,
+  "completion_tokens": 6919,
+  "total_tokens": 14587
+ }
+}

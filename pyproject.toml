@@ -1,0 +1,105 @@
+[project]
+name = "dmaic-bench"
+version = "0.2.0"
+description = "DMAIC-Bench: a system-agnostic benchmark for autonomous statistical improvement (DMAIC) agents"
+requires-python = ">=3.10"
+# EXACT pins, on purpose, and IDENTICAL to the pins baked into the agent and verifier images
+# (harbor/templates/{environment,verifier}/Dockerfile). Truth values for the ~20 parametric
+# native cases are DERIVED at generate() time by scipy/statsmodels (see truth/verifiers.py),
+# not stored — so the dependency set is part of the benchmark's definition, not an
+# implementation detail. A floating range means a reported score could move because a
+# contestant's machine resolved a different scipy.
+#
+# THE AUTHORITATIVE SET LIVES IN ONE PLACE: `ANALYSIS_PINS` in
+# harbor/src/dmaic_harbor/spec.py. This file, both Dockerfiles and the task.toml metadata
+# emitted by build.py all agree with it, and `test_dependency_pins.py` (here) plus
+# `test_dependency_pins_are_single_sourced` (harbor) FAIL if any of them drifts. Do not edit
+# the versions below without editing spec.py — edit spec.py and let the tests police the rest.
+#
+# WHY THE IMAGE PINS WON. This file used to pin numpy 1.26.4 / scipy 1.13.1 /
+# statsmodels 0.14.2 / pandas 2.3.3 — a second, separately validated baseline. The images
+# install this package with `--no-deps`, so the image pins are what actually executes wherever
+# a third party runs the published Harbor dataset; the package's own pins could only ever win
+# for someone scoring outside a container. Two "validated baselines" is a reproducibility smell
+# in a benchmark whose central claim is that ground truth is derived and reproducible, so the
+# set that governs real runs is now the only set. Both suites pass under it.
+#
+# The divergence was numerically harmless either way: all derived truths were recomputed under
+# scipy 1.13.1 / 1.14.1 / 1.16.3 / 1.18.1 (numpy 1.26.4->2.5.2, statsmodels 0.14.2->0.15.0) and
+# 0 changed. The pins therefore encode a *verified-stable* environment rather than papering
+# over a known drift — see docs and the freeze report.
+#
+# Upstream change already handled: scipy>=1.17 emits a FutureWarning from `stats.anderson`
+# announcing that 1.19.0 drops `critical_values`/`significance_level`/`fit_result`. Both call
+# sites (truth/verifiers.py, the t-family case generator) read ONLY `.statistic` and now route
+# through `truth.verifiers.anderson_statistic`, which passes `method=` on the SciPy versions
+# that accept it. The statistic is bit-identical with and without it.
+dependencies = [
+    "numpy==2.1.3",
+    "scipy==1.14.1",
+    "statsmodels==0.14.4",
+    # transitive (statsmodels) but load-bearing: statsmodels calls
+    # pandas.util._decorators.deprecate_kwarg with the pre-3.x signature, so an unpinned
+    # pandas resolves to a version that makes `import statsmodels.tsa` raise TypeError.
+    # Pinning scipy/statsmodels alone left the environment broken — verified 2026-09-02.
+    "pandas==2.2.3",
+    "pyyaml==6.0.1",
+    "jsonschema==4.23.0",
+    "requests==2.34.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==7.4.4"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# Ship only the explicitly declared runtime data, not stale egg-info manifests.
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["dmaic_bench*"]
+# CONTESTANT ISOLATION. The released wheel must carry neither the private contestant's code
+# nor its name. One contestant in the published comparison depends on proprietary software and
+# infrastructure that cannot be redistributed, so a reader can neither install it nor reproduce
+# a run of it; its adapters are operator-side code. The wheel is also staged into every task's
+# verifier image by `dmaic_harbor.build --bench-wheel`, which is how a wheel that merely
+# mentions a name would end up inside a published benchmark image.
+#
+# setuptools selects at PACKAGE granularity, so each operator-side adapter is its own package
+# (a directory with an `__init__.py`) rather than a bare module: that is the only shape this
+# allowlist/denylist can address from pyproject.toml alone. Import paths are unchanged
+# (`dmaic_bench.adapters.operator`, `dmaic_bench.v3.operator_adapter`), so in-repo use and the
+# existing tests are unaffected; the modules are excluded from the DISTRIBUTION only.
+#
+# `operator_adapters` is the neutral facade the shipped CLI imports, so `cli.py` itself can
+# stay in the wheel without naming anything; it is excluded for the same reason.
+#
+# harbor/tests/test_public_image_hygiene.py scans the built wheel inside every generated task
+# directory and fails if any of these strings survives.
+exclude = [
+    "dmaic_bench.adapters.operator*",
+    "dmaic_bench.v3.operator_adapter*",
+    "dmaic_bench.operator_adapters*",
+]
+
+[tool.setuptools.package-data]
+# NOTE: cases/_identity_map.json is deliberately NOT listed. It maps the public industry codes
+# back to the source organisations and must never enter a wheel, sdist or public dataset
+# release. tests/test_public_corpus.py (test_no_identity_map_is_packaged) enforces that.
+dmaic_bench = [
+    "taxonomy.yaml",
+    "schemas/*.json",
+    "cases/*/case.yaml",
+    # Unused historical frozen snapshots stay in Git, outside the runtime wheel.
+
+]
+
+[tool.setuptools.exclude-package-data]
+# Historical source snapshots stay in Git; retired translations must not enter releases.
+"*" = ["frozen.json", "locale.*.yaml", "glossary.*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

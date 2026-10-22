@@ -1,0 +1,110 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesTotal": 240,
+        "samplesRetained": 239,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119,
+        "sampleFailPercent": 0.4166666666666667
+      },
+      "status": "success",
+      "decision": "Plate passes",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "protocol": "define"
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 4
+      },
+      "status": "success",
+      "decision": "Exact control HWE; QC on retained participants",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "protocol": "define"
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 0.46719033045995384,
+        "pc1Gap": -12.149905107344534,
+        "pc1VarianceFraction": 0.12675988548525358,
+        "pc2PValue": 1.0773321365251674e-140,
+        "pc2Gap": 1.9760579896961776,
+        "pc2VarianceFraction": 0.08615889081444413,
+        "pc3PValue": 0.9324147659946753,
+        "pc3Gap": -8.277928230419196,
+        "pc3VarianceFraction": 0.018138358846731675,
+        "pc4PValue": 0.8862039091026457,
+        "pc4Gap": -7.643325545882018,
+        "pc4VarianceFraction": 0.017775380359830433,
+        "pc5PValue": 0.9633624430428636,
+        "pc5Gap": -7.987474232697604,
+        "pc5VarianceFraction": 0.016777988504343852,
+        "pc6PValue": 0.8138618509905227,
+        "pc6Gap": -7.840091726011179,
+        "pc6VarianceFraction": 0.016029991328339155,
+        "pc7PValue": 0.9321119263486028,
+        "pc7Gap": -7.589151489647184,
+        "pc7VarianceFraction": 0.015522105033982308,
+        "pc8PValue": 0.8844394219788687,
+        "pc8Gap": -8.082043386205337,
+        "pc8VarianceFraction": 0.015061238876011289,
+        "pc9PValue": 0.8427282523811982,
+        "pc9Gap": -7.530380554478217,
+        "pc9VarianceFraction": 0.014901876762960595,
+        "pc10PValue": 0.770568984175533,
+        "pc10Gap": -7.569576137037768,
+        "pc10VarianceFraction": 0.014814338613125854,
+        "separated": true,
+        "separatedAxis": 2
+      },
+      "status": "success",
+      "decision": "PCA on mean-imputed, allele-frequency-standardized retained variants; separation means disjoint case/control score ranges",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "protocol": "define"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_quality",
+      "chosen_branch": "retain_plate",
+      "observed": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesTotal": 240,
+        "samplesRetained": 239,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119,
+        "sampleFailPercent": 0.4166666666666667
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "stop_before_association",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 2
+      }
+    }
+  ],
+  "turns": 0
+}

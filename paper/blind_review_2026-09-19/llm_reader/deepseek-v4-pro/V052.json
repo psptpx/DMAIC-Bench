@@ -1,0 +1,67 @@
+{
+ "reviewer_id": "reviewer_R1",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical Black Belt review",
+ "blinding_compliance": "Reviewed only the provided V052 packet and did not inspect other directories, hidden truth files, scoring code, model identities, or other reviewers' outputs.",
+ "ai_assistance": "AI assistant used to draft the review from the supplied packet; no external sources or computations beyond the packet were used.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V052",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Concluding that the true future reject rate will always remain at or below 2% or that every individual lot met the 2% limit; the observed maximum lot rate was 2.75% and the p-chart UCL was 3.02%, so the stability evidence applies only to the observed window.",
+    "Concluding that the placement heads are proven equivalent; the two-proportion p=0.482 is absence of a detected difference, not evidence of equivalence.",
+    "Concluding that insufficient solder is the current dominant production defect after the criteria rewrite; the 42/90 tally is from the pre-rewrite mismatch study and is an exploratory priority.",
+    "Treating the before/after MSA comparison as a randomized or fully controlled proof of causal effect; it is an observational before/after comparison."
+   ],
+   "permitted_at_checkpoint": [
+    "Stating that there was no detected shift in reject share over the observed 25 lots based on the homogeneity chi-square, runs test, and phase-I p-chart with 0 out-of-control lots.",
+    "Concluding that the current aggregate reject rate is below 2% using the one-proportion test and 95% confidence interval, with the caveat that this is aggregate performance and does not guarantee every future lot.",
+    "Recommending continued p-chart and homogeneity monitoring as stability tools, provided they are supplemented by a specification-based check against the 2% requirement because the control limit is above 2%.",
+    "Using the before/after MSA results as descriptive evidence of improvement after the criteria rewrite, with acknowledgment of the observational pre/post limitation.",
+    "Using the pre-rewrite Pareto tally as an exploratory basis for where to focus additional diagnostic work."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The MSA before/after comparison, placement-head two-proportion test, and Pareto tally are relevant supporting analyses. They are computed correctly under their assumptions. The before/after causal language should be read as observational rather than a randomized comparison, and the Pareto priority is descriptive rather than proof of current defect causation.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "A phase-I p-chart with equal subgroup size n=400 and standard 3-sigma limits is a valid stability check for the observed 25 lots.",
+    "A chi-square homogeneity test across lots and a runs test above/below the mean are valid supporting checks for no detected shift.",
+    "A one-proportion test comparing the aggregate 131/10000 to the 2% requirement is a valid route to assess current average level; a non-inferiority or CI-based comparison would also be defensible.",
+    "Attribute agreement analysis before and after the criteria rewrite can descriptively support improvement, provided no unmodeled confound is present.",
+    "Separate monitoring of placement heads remains valid even though p=0.482; absence of a significant difference does not prove equivalence."
+   ],
+   "evidence": [
+    "Total reject rate = 131/10000 = 1.31%; median lot rate = 1.25%; maximum lot rate = 2.75%.",
+    "p-chart UCL = 0.030155 (3.02%); 0 out-of-control lots.",
+    "Homogeneity chi-square = 22.93, df = 24, p = 0.524; runs test p = 0.286.",
+    "One-proportion z = -4.929, p = 8.28e-7; 95% CI 1.096% to 1.553%.",
+    "Placement head difference p = 0.482; before/after kappa 0.890 -> 0.965, agreement 95% -> 98.33%.",
+    "Pre-rewrite mismatch tally: insufficient solder 42/90 = 46.67%."
+   ],
+   "rationale": "The focal checkpoint is whether the evidence supports baseline stability, current performance relative to 2%, and sensible next steps. The stability checks are appropriate and consistent with no detected shift over the observed window; the aggregate rate is substantially below 2% with a confidence interval entirely below 2%. The recommendations are generally supported, provided the p-chart is understood as a stability tool rather than a specification-monitoring tool and the Pareto priority is treated as exploratory.",
+   "confidence": 4,
+   "numerical_check": "Recomputed one-proportion z as (0.0131-0.02)/sqrt(0.02*0.98/10000) = -4.929; recomputed p-chart UCL as 0.0131+3*sqrt(0.0131*0.9869/400) = 0.03016; recomputed two-proportion z = 0.702; checked 25*400 = 10000 and Pareto counts sum to 90. Kappa and chi-square values accepted as self-reported consistent.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5025,
+  "completion_tokens": 19750,
+  "total_tokens": 24775,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 18470
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3361
+ }
+}

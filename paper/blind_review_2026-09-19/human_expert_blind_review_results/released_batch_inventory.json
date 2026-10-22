@@ -1,0 +1,2606 @@
+[
+  {
+    "blind_id": "V001",
+    "batch": "after_change",
+    "structure": {
+      "group1": 30,
+      "group2": 30,
+      "groupLabels": 2
+    }
+  },
+  {
+    "blind_id": "V001",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V001",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V001",
+    "batch": "design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V001",
+    "batch": "logged_variables",
+    "structure": {
+      "columnNotes": 3,
+      "data": 4,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V002",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "required_reject_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V002",
+    "batch": "disagreements",
+    "structure": {
+      "counts": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V002",
+    "batch": "heads",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V002",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "required_reject_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V002",
+    "batch": "study_1",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V002",
+    "batch": "study_2",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V003",
+    "batch": "after_change",
+    "structure": {
+      "group1": 30,
+      "group2": 30,
+      "groupLabels": 2
+    }
+  },
+  {
+    "blind_id": "V003",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V003",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V003",
+    "batch": "design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V003",
+    "batch": "logged_variables",
+    "structure": {
+      "columnNotes": 3,
+      "data": 4,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V004",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V004",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V005",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V005",
+    "batch": "composite_design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 3,
+      "runs": 13
+    }
+  },
+  {
+    "blind_id": "V005",
+    "batch": "confirmation_runs",
+    "structure": {
+      "data": 20,
+      "mu": "scalar",
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V005",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V005",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V006",
+    "batch": "after_change",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V006",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V006",
+    "batch": "candidates",
+    "structure": {
+      "counts": 5,
+      "goal": "scalar",
+      "requirement_dpmo": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V006",
+    "batch": "failure_modes",
+    "structure": {
+      "items": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V006",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "requirement_dpmo": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V006",
+    "batch": "machines",
+    "structure": {
+      "columnLabels": 2,
+      "rowLabels": 4,
+      "table": 4
+    }
+  },
+  {
+    "blind_id": "V006",
+    "batch": "sustaining",
+    "structure": {
+      "defectCounts": 20,
+      "note": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V007",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V007",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V007",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V008",
+    "batch": "applicators",
+    "structure": {
+      "groups": 4
+    }
+  },
+  {
+    "blind_id": "V008",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V008",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V008",
+    "batch": "process_run",
+    "structure": {
+      "data": 125,
+      "lsl": "scalar",
+      "subgroupSize": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V008",
+    "batch": "sustaining",
+    "structure": {
+      "data": 20,
+      "note": "scalar",
+      "subgroupSize": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V009",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V009",
+    "batch": "composite_design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 3,
+      "runs": 13
+    }
+  },
+  {
+    "blind_id": "V009",
+    "batch": "confirmation_runs",
+    "structure": {
+      "data": 20,
+      "mu": "scalar",
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V009",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V009",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V010",
+    "batch": "after_change",
+    "structure": {
+      "group1": 30,
+      "group2": 30,
+      "groupLabels": 2
+    }
+  },
+  {
+    "blind_id": "V010",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V010",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V010",
+    "batch": "design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V010",
+    "batch": "logged_variables",
+    "structure": {
+      "columnNotes": 3,
+      "data": 4,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V011",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V011",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V011",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V012",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V012",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V012",
+    "batch": "root_cause",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V012",
+    "batch": "subgroups",
+    "structure": {
+      "defectCounts": 25,
+      "subgroupSizes": 25,
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V013",
+    "batch": "after_lots",
+    "structure": {
+      "defectCounts": 20,
+      "required_share": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V013",
+    "batch": "baseline",
+    "structure": {
+      "defectCounts": 25,
+      "required_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V013",
+    "batch": "before_after",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V013",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "note": "scalar",
+      "required_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V013",
+    "batch": "settings",
+    "structure": {
+      "data": 3,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V013",
+    "batch": "trial_size",
+    "structure": {
+      "alpha": "scalar",
+      "nPerGroup": "scalar",
+      "p1": "scalar",
+      "p2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V014",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V014",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V014",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V015",
+    "batch": "after_lots",
+    "structure": {
+      "defectCounts": 20,
+      "required_share": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V015",
+    "batch": "baseline",
+    "structure": {
+      "defectCounts": 25,
+      "required_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V015",
+    "batch": "before_after",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V015",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "note": "scalar",
+      "required_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V015",
+    "batch": "settings",
+    "structure": {
+      "data": 3,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V015",
+    "batch": "trial_size",
+    "structure": {
+      "alpha": "scalar",
+      "nPerGroup": "scalar",
+      "p1": "scalar",
+      "p2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V016",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V016",
+    "batch": "define",
+    "structure": {
+      "candidate": "scalar",
+      "goal": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V016",
+    "batch": "leading_two",
+    "structure": {
+      "group1": 15,
+      "group2": 15,
+      "groupLabels": 2
+    }
+  },
+  {
+    "blind_id": "V016",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V016",
+    "batch": "recipes",
+    "structure": {
+      "groups": 3,
+      "varianceTestCentering": "scalar"
+    }
+  },
+  {
+    "blind_id": "V017",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V017",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V017",
+    "batch": "root_cause",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V017",
+    "batch": "subgroups",
+    "structure": {
+      "defectCounts": 25,
+      "subgroupSizes": 25,
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V018",
+    "batch": "after_change",
+    "structure": {
+      "group1": 30,
+      "group2": 30,
+      "groupLabels": 2
+    }
+  },
+  {
+    "blind_id": "V018",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V018",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V018",
+    "batch": "design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V018",
+    "batch": "logged_variables",
+    "structure": {
+      "columnNotes": 3,
+      "data": 4,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V019",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "required_reject_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V019",
+    "batch": "disagreements",
+    "structure": {
+      "counts": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V019",
+    "batch": "heads",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V019",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "required_reject_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V019",
+    "batch": "study_1",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V019",
+    "batch": "study_2",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V020",
+    "batch": "after_change",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V020",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V020",
+    "batch": "candidates",
+    "structure": {
+      "counts": 5,
+      "goal": "scalar",
+      "requirement_dpmo": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V020",
+    "batch": "failure_modes",
+    "structure": {
+      "items": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V020",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "requirement_dpmo": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V020",
+    "batch": "machines",
+    "structure": {
+      "columnLabels": 2,
+      "rowLabels": 4,
+      "table": 4
+    }
+  },
+  {
+    "blind_id": "V020",
+    "batch": "sustaining",
+    "structure": {
+      "defectCounts": 20,
+      "note": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V021",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "required_reject_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V021",
+    "batch": "disagreements",
+    "structure": {
+      "counts": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V021",
+    "batch": "heads",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V021",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "required_reject_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V021",
+    "batch": "study_1",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V021",
+    "batch": "study_2",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V022",
+    "batch": "after_change",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V022",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V022",
+    "batch": "candidates",
+    "structure": {
+      "counts": 5,
+      "goal": "scalar",
+      "requirement_dpmo": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V022",
+    "batch": "failure_modes",
+    "structure": {
+      "items": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V022",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "requirement_dpmo": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V022",
+    "batch": "machines",
+    "structure": {
+      "columnLabels": 2,
+      "rowLabels": 4,
+      "table": 4
+    }
+  },
+  {
+    "blind_id": "V022",
+    "batch": "sustaining",
+    "structure": {
+      "defectCounts": 20,
+      "note": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V023",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V023",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V023",
+    "batch": "root_cause",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V023",
+    "batch": "subgroups",
+    "structure": {
+      "defectCounts": 25,
+      "subgroupSizes": 25,
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V024",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V024",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V024",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V025",
+    "batch": "applicators",
+    "structure": {
+      "groups": 4
+    }
+  },
+  {
+    "blind_id": "V025",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V025",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V025",
+    "batch": "process_run",
+    "structure": {
+      "data": 125,
+      "lsl": "scalar",
+      "subgroupSize": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V025",
+    "batch": "sustaining",
+    "structure": {
+      "data": 20,
+      "note": "scalar",
+      "subgroupSize": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V026",
+    "batch": "after_change",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V026",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V026",
+    "batch": "candidates",
+    "structure": {
+      "counts": 5,
+      "goal": "scalar",
+      "requirement_dpmo": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V026",
+    "batch": "failure_modes",
+    "structure": {
+      "items": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V026",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "requirement_dpmo": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V026",
+    "batch": "machines",
+    "structure": {
+      "columnLabels": 2,
+      "rowLabels": 4,
+      "table": 4
+    }
+  },
+  {
+    "blind_id": "V026",
+    "batch": "sustaining",
+    "structure": {
+      "defectCounts": 20,
+      "note": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V027",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V027",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V027",
+    "batch": "root_cause",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V027",
+    "batch": "subgroups",
+    "structure": {
+      "defectCounts": 25,
+      "subgroupSizes": 25,
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V028",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V028",
+    "batch": "composite_design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 3,
+      "runs": 13
+    }
+  },
+  {
+    "blind_id": "V028",
+    "batch": "confirmation_runs",
+    "structure": {
+      "data": 20,
+      "mu": "scalar",
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V028",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V028",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V029",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V029",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V029",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V030",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V030",
+    "batch": "composite_design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 3,
+      "runs": 13
+    }
+  },
+  {
+    "blind_id": "V030",
+    "batch": "confirmation_runs",
+    "structure": {
+      "data": 20,
+      "mu": "scalar",
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V030",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V030",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V031",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V031",
+    "batch": "composite_design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 3,
+      "runs": 13
+    }
+  },
+  {
+    "blind_id": "V031",
+    "batch": "confirmation_runs",
+    "structure": {
+      "data": 20,
+      "mu": "scalar",
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V031",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V031",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V032",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V032",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V033",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V033",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V033",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V034",
+    "batch": "applicators",
+    "structure": {
+      "groups": 4
+    }
+  },
+  {
+    "blind_id": "V034",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V034",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V034",
+    "batch": "process_run",
+    "structure": {
+      "data": 125,
+      "lsl": "scalar",
+      "subgroupSize": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V034",
+    "batch": "sustaining",
+    "structure": {
+      "data": 100,
+      "note": "scalar",
+      "subgroupSize": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V035",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V035",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V035",
+    "batch": "root_cause",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V035",
+    "batch": "subgroups",
+    "structure": {
+      "defectCounts": 25,
+      "subgroupSizes": 25,
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V036",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V036",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V037",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V037",
+    "batch": "composite_design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 3,
+      "runs": 13
+    }
+  },
+  {
+    "blind_id": "V037",
+    "batch": "confirmation_runs",
+    "structure": {
+      "data": 20,
+      "mu": "scalar",
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V037",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V037",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V038",
+    "batch": "after_change",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V038",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V038",
+    "batch": "candidates",
+    "structure": {
+      "counts": 5,
+      "goal": "scalar",
+      "requirement_dpmo": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V038",
+    "batch": "failure_modes",
+    "structure": {
+      "items": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V038",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "requirement_dpmo": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V038",
+    "batch": "machines",
+    "structure": {
+      "columnLabels": 2,
+      "rowLabels": 4,
+      "table": 4
+    }
+  },
+  {
+    "blind_id": "V038",
+    "batch": "sustaining",
+    "structure": {
+      "defectCounts": 20,
+      "note": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V039",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V039",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V039",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V040",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V040",
+    "batch": "define",
+    "structure": {
+      "candidate": "scalar",
+      "goal": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V040",
+    "batch": "leading_two",
+    "structure": {
+      "group1": 15,
+      "group2": 15,
+      "groupLabels": 2
+    }
+  },
+  {
+    "blind_id": "V040",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V040",
+    "batch": "recipes",
+    "structure": {
+      "groups": 3,
+      "varianceTestCentering": "scalar"
+    }
+  },
+  {
+    "blind_id": "V041",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V041",
+    "batch": "composite_design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 3,
+      "runs": 13
+    }
+  },
+  {
+    "blind_id": "V041",
+    "batch": "confirmation_runs",
+    "structure": {
+      "data": 20,
+      "mu": "scalar",
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V041",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V041",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V042",
+    "batch": "after_lots",
+    "structure": {
+      "defectCounts": 20,
+      "required_share": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V042",
+    "batch": "baseline",
+    "structure": {
+      "defectCounts": 25,
+      "required_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V042",
+    "batch": "before_after",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V042",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "note": "scalar",
+      "required_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V042",
+    "batch": "settings",
+    "structure": {
+      "data": 3,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V042",
+    "batch": "trial_size",
+    "structure": {
+      "alpha": "scalar",
+      "nPerGroup": "scalar",
+      "p1": "scalar",
+      "p2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V043",
+    "batch": "applicators",
+    "structure": {
+      "groups": 4
+    }
+  },
+  {
+    "blind_id": "V043",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V043",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V043",
+    "batch": "process_run",
+    "structure": {
+      "data": 125,
+      "lsl": "scalar",
+      "subgroupSize": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V043",
+    "batch": "sustaining",
+    "structure": {
+      "data": 100,
+      "note": "scalar",
+      "subgroupSize": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V044",
+    "batch": "after_lots",
+    "structure": {
+      "defectCounts": 20,
+      "required_share": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V044",
+    "batch": "baseline",
+    "structure": {
+      "defectCounts": 25,
+      "required_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V044",
+    "batch": "before_after",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V044",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "note": "scalar",
+      "required_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V044",
+    "batch": "settings",
+    "structure": {
+      "data": 3,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V044",
+    "batch": "trial_size",
+    "structure": {
+      "alpha": "scalar",
+      "nPerGroup": "scalar",
+      "p1": "scalar",
+      "p2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V045",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V045",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V045",
+    "batch": "root_cause",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V045",
+    "batch": "subgroups",
+    "structure": {
+      "defectCounts": 25,
+      "subgroupSizes": 25,
+      "target_rate": "scalar"
+    }
+  },
+  {
+    "blind_id": "V046",
+    "batch": "after_change",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V046",
+    "batch": "agreement",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V046",
+    "batch": "candidates",
+    "structure": {
+      "counts": 5,
+      "goal": "scalar",
+      "requirement_dpmo": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V046",
+    "batch": "failure_modes",
+    "structure": {
+      "items": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V046",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "requirement_dpmo": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V046",
+    "batch": "machines",
+    "structure": {
+      "columnLabels": 2,
+      "rowLabels": 4,
+      "table": 4
+    }
+  },
+  {
+    "blind_id": "V046",
+    "batch": "sustaining",
+    "structure": {
+      "defectCounts": 20,
+      "note": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V047",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V047",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V047",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V048",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V048",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V048",
+    "batch": "design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V048",
+    "batch": "logged_variables",
+    "structure": {
+      "columnNotes": 3,
+      "data": 4,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V049",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V049",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V049",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V050",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "lsl": "scalar",
+      "required_level": "scalar"
+    }
+  },
+  {
+    "blind_id": "V050",
+    "batch": "composite_design",
+    "structure": {
+      "coding": "scalar",
+      "columns": 3,
+      "runs": 13
+    }
+  },
+  {
+    "blind_id": "V050",
+    "batch": "confirmation_runs",
+    "structure": {
+      "data": 20,
+      "mu": "scalar",
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V050",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "required_level": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V050",
+    "batch": "screening_run",
+    "structure": {
+      "coding": "scalar",
+      "columns": 4,
+      "runs": 16
+    }
+  },
+  {
+    "blind_id": "V051",
+    "batch": "after_lots",
+    "structure": {
+      "defectCounts": 20,
+      "required_share": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V051",
+    "batch": "baseline",
+    "structure": {
+      "defectCounts": 25,
+      "required_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V051",
+    "batch": "before_after",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "groupLabels": 2,
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V051",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "note": "scalar",
+      "required_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V051",
+    "batch": "settings",
+    "structure": {
+      "data": 3,
+      "responseColumn": "scalar",
+      "termsInModel": 3
+    }
+  },
+  {
+    "blind_id": "V051",
+    "batch": "trial_size",
+    "structure": {
+      "alpha": "scalar",
+      "nPerGroup": "scalar",
+      "p1": "scalar",
+      "p2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V052",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "required_reject_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V052",
+    "batch": "disagreements",
+    "structure": {
+      "counts": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V052",
+    "batch": "heads",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V052",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "required_reject_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V052",
+    "batch": "study_1",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V052",
+    "batch": "study_2",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V053",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V053",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V053",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V054",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V054",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V054",
+    "batch": "process_run",
+    "structure": {
+      "data": 30,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V055",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V055",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V055",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V056",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V056",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V056",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V057",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V057",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V057",
+    "batch": "process_run",
+    "structure": {
+      "data": 50,
+      "lsl": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V058",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "required_reject_share": "scalar"
+    }
+  },
+  {
+    "blind_id": "V058",
+    "batch": "disagreements",
+    "structure": {
+      "counts": 5,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V058",
+    "batch": "heads",
+    "structure": {
+      "events1": "scalar",
+      "events2": "scalar",
+      "trials1": "scalar",
+      "trials2": "scalar"
+    }
+  },
+  {
+    "blind_id": "V058",
+    "batch": "lots",
+    "structure": {
+      "defectCounts": 25,
+      "required_reject_share": "scalar",
+      "subgroupSizes": 25
+    }
+  },
+  {
+    "blind_id": "V058",
+    "batch": "study_1",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V058",
+    "batch": "study_2",
+    "structure": {
+      "ratings": 3,
+      "standard": 20
+    }
+  },
+  {
+    "blind_id": "V059",
+    "batch": "applicators",
+    "structure": {
+      "groups": 4
+    }
+  },
+  {
+    "blind_id": "V059",
+    "batch": "define",
+    "structure": {
+      "goal": "scalar",
+      "lsl": "scalar",
+      "target": "scalar",
+      "unit": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V059",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V059",
+    "batch": "process_run",
+    "structure": {
+      "data": 125,
+      "lsl": "scalar",
+      "subgroupSize": "scalar",
+      "target": "scalar",
+      "usl": "scalar"
+    }
+  },
+  {
+    "blind_id": "V059",
+    "batch": "sustaining",
+    "structure": {
+      "data": 100,
+      "note": "scalar",
+      "subgroupSize": "scalar",
+      "subgroupSizes": 20
+    }
+  },
+  {
+    "blind_id": "V060",
+    "batch": "baseline",
+    "structure": {
+      "data": 60,
+      "note": "scalar"
+    }
+  },
+  {
+    "blind_id": "V060",
+    "batch": "define",
+    "structure": {
+      "candidate": "scalar",
+      "goal": "scalar",
+      "unit": "scalar"
+    }
+  },
+  {
+    "blind_id": "V060",
+    "batch": "leading_two",
+    "structure": {
+      "group1": 15,
+      "group2": 15,
+      "groupLabels": 2
+    }
+  },
+  {
+    "blind_id": "V060",
+    "batch": "msa",
+    "structure": {
+      "measurements": 3,
+      "numOperators": "scalar",
+      "numParts": "scalar",
+      "numReplicates": "scalar",
+      "tolerance": "scalar"
+    }
+  },
+  {
+    "blind_id": "V060",
+    "batch": "recipes",
+    "structure": {
+      "groups": 3,
+      "varianceTestCentering": "scalar"
+    }
+  }
+]

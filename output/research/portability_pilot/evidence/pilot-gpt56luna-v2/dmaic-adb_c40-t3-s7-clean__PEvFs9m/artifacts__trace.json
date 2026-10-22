@@ -1,0 +1,120 @@
+{
+  "system_id": "sequencing_core_analysis",
+  "task_id": "adb_c40-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sampleCount": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableControl": 6,
+        "usableTreated": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "QC passed; both arms retain the required usable replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sampleCount": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "sampleCount": 12
+      },
+      "status": "success",
+      "decision": "Treatment is estimable because both arms are represented in the preparation batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "geneCount": 400,
+        "sampleCount": 12,
+        "groups": 2,
+        "controlN": 6,
+        "treatedN": 6
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 39,
+        "geneCount": 400,
+        "controlN": 6,
+        "treatedN": 6,
+        "padjThreshold": 0.05,
+        "absLog2FCThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Expression analysis nominated genes meeting adjusted-p-value and effect-size thresholds."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidateCount": 10,
+        "replicatesPerArm": 4,
+        "groups": 2
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 0.0,
+        "nConfirmed": 0,
+        "nCandidates": 10,
+        "alpha": 0.05,
+        "minConcordance": 0.75
+      },
+      "status": "success",
+      "decision": "Validation failed the release gate; the candidate list must be withheld."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "usable_libraries",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "proceed_with_treatment_contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_release",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "concordance": 0.0,
+        "minConcordance": 0.75
+      }
+    },
+    {
+      "point": "gene_set_annotation",
+      "chosen_branch": "blocked_by_validation_gate",
+      "observed": {
+        "concordance": 0.0,
+        "requiredConcordance": 0.75
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

@@ -1,0 +1,162 @@
+{
+  "turns": 0,
+  "interventions": 0,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "operators": 3,
+        "parts": 12,
+        "replicates": 3,
+        "observations": 108,
+        "tolerance": 25.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 19.579787400305115,
+        "percentTolerance": 14.39670975513979,
+        "ndc": 7.061917468066983,
+        "operators": 3,
+        "parts": 12,
+        "replicates": 3,
+        "observations": 108,
+        "tolerance": 25.0
+      },
+      "status": "success",
+      "decision": "Measurement system is adequate for the study; continue to process analysis."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 11.828199999999999,
+        "median": 11.235,
+        "stdDev": 3.0870312599648226,
+        "skewness": 0.16667292489421356,
+        "adPValue": 0.010893005178885098,
+        "observations": 50
+      },
+      "status": "success",
+      "decision": "Overall level and spread were computed; normality evidence is weak."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.010893005178885098,
+        "statistic": 9.03926884489909,
+        "observations": 50
+      },
+      "status": "success",
+      "decision": "Reject normality at the 0.05 level for the overall ordered run."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50,
+        "lsl": 0.0,
+        "usl": 25.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.3497325798748623,
+        "cpk": 1.2771925521020675,
+        "pp": 1.3497325798748623,
+        "ppk": 1.2771925521020675,
+        "withinCount": 50,
+        "outOfSpecCount": 0,
+        "withinProportion": 1.0,
+        "min": 6.31,
+        "max": 17.7,
+        "observations": 50,
+        "lsl": 0.0,
+        "usl": 25.0
+      },
+      "status": "success",
+      "decision": "All observed readings meet the limits, but capability indices are provisional because stability and normality are not established."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50,
+        "classification": "above_or_below_overall_median"
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 4.822134315143417e-06,
+        "runs": 10,
+        "runsZ": -4.572380853195265,
+        "observations": 50
+      },
+      "status": "success",
+      "decision": "Reject randomness; the ordered process contains a sustained shift."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 50,
+        "chart": "individuals_moving_range"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 16.523371428571426,
+        "individualsLCL": 7.1330285714285715,
+        "centerLine": 11.828199999999999,
+        "flaggedCount": 5,
+        "averageMovingRange": 1.765102040816326,
+        "observations": 50
+      },
+      "status": "success",
+      "decision": "The individuals chart flags 5 observations; the run is not statistically stable."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations_per_half": 25
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": -1.538806366368109,
+        "pValue": 0.13028490115138452,
+        "firstHalfMean": 9.176799999999998,
+        "secondHalfMean": 14.479599999999998,
+        "halfMeanDifference": 5.302799999999999,
+        "observationsPerHalf": 25
+      },
+      "status": "success",
+      "decision": "The descriptive half-run shift is 5.302799999999999; this comparison is secondary because the split was selected from the ordered data."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "data_topic",
+      "chosen_branch": "repeat_readings_operator_study_then_void_fraction",
+      "observed": {
+        "roughness_request": "unroutable",
+        "available_process_topic": "void fraction/build order"
+      }
+    },
+    {
+      "point": "measurement_gate",
+      "chosen_branch": "proceed_after_MSA",
+      "observed": {
+        "percentStudyVariation": 19.579787400305115,
+        "percentTolerance": 14.39670975513979,
+        "ndc": 7.061917468066983
+      }
+    }
+  ]
+}

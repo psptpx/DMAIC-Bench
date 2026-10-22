@@ -1,0 +1,121 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "nParticipants": 240,
+        "nVariants": 150,
+        "retainedCases": 119,
+        "retainedControls": 118
+      },
+      "status": "success",
+      "decision": "Plate passes"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 2,
+        "bonferroniAlpha": 0.00035971223021582735
+      },
+      "status": "success",
+      "decision": "Apply variant filters after participant filtering; exact two-sided control HWE"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 0.5956860477011223,
+        "pc1Gap": -7.792925039320888,
+        "pc1VarianceFraction": 0.021095690170957707,
+        "pc2PValue": 0.664642984893081,
+        "pc2Gap": -7.341904971230669,
+        "pc2VarianceFraction": 0.020188392506599335,
+        "pc3PValue": 0.6657897417663243,
+        "pc3Gap": -9.059963580731322,
+        "pc3VarianceFraction": 0.019991391183988485,
+        "pc4PValue": 0.04379024655049357,
+        "pc4Gap": -7.128963050483629,
+        "pc4VarianceFraction": 0.019597730280273336,
+        "pc5PValue": 0.23818375944055778,
+        "pc5Gap": -8.714334344803689,
+        "pc5VarianceFraction": 0.019188451391111607,
+        "pc6PValue": 0.4361566301103246,
+        "pc6Gap": -8.75932934307508,
+        "pc6VarianceFraction": 0.01851593076088443,
+        "pc7PValue": 0.7059434002513975,
+        "pc7Gap": -7.674051458408538,
+        "pc7VarianceFraction": 0.017994062442247626,
+        "pc8PValue": 0.8720385746530669,
+        "pc8Gap": -8.069512518534548,
+        "pc8VarianceFraction": 0.017829348463011367,
+        "pc9PValue": 0.8243457852555764,
+        "pc9Gap": -6.393515410209712,
+        "pc9VarianceFraction": 0.01760342594751383,
+        "pc10PValue": 0.1890427790408639,
+        "pc10Gap": -7.780875596925454,
+        "pc10VarianceFraction": 0.0174022310515877,
+        "separated": false,
+        "separatedAxis": 0
+      },
+      "status": "success",
+      "decision": "Mean-imputed allele-standardized PCA; Welch phenotype comparisons and range overlap on leading axes"
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1113772313100216,
+        "minPValue": 0.01339198051536356
+      },
+      "status": "success",
+      "decision": "Additive Cochran-Armitage score test, asymptotic binomial variance; no convincing ancestry structure in PCA"
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.replication",
+      "inputs_digest": {
+        "batch": "replication",
+        "candidate_selection": "computed Bonferroni discovery hits"
+      },
+      "outputs": {
+        "nCandidates": 0,
+        "nReplicated": 0,
+        "nNominated": 0
+      },
+      "status": "success",
+      "decision": "Empty candidate-set reconciliation only; no variant replication tests were performed and no replication failure is inferred."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "retain passing participants"
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "overlapping, no convincing structure; unadjusted trend scan"
+    },
+    {
+      "point": "discovery",
+      "chosen_branch": "no significant hits; no replication tests warranted"
+    },
+    {
+      "point": "reporting",
+      "chosen_branch": "report null discovery scan, not absence of genetic effects"
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dmaic-harbor"
+version = "0.2.0"
+description = "DMAIC-Bench ported onto the Harbor agent-evaluation framework (task builder, data steward, and separate-container verifier)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+keywords = ["benchmark", "harbor", "dmaic", "six-sigma", "agents", "evaluation"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+]
+
+# Kept deliberately thin: everything that runs INSIDE the agent image (the steward
+# service and its CLI) must work on a stdlib-only interpreter, because the agent
+# container is built `no-network` and cannot resolve wheels at run time.
+# `tomli-w` is the one build-host dependency -- tomllib reads TOML but cannot write
+# it, and the builder emits one `task.toml` per generated task.
+dependencies = [
+  "tomli-w>=1.0",
+]
+
+[project.optional-dependencies]
+# The Harbor framework itself. Only needed on the ORCHESTRATOR host (to run
+# `harbor run`) and by the manifest/job-config validation tests -- never inside
+# either published image.
+harbor = ["harbor>=0.22.0,<0.23.0"]
+dev = ["pytest>=7.4", "pyyaml>=6.0"]
+
+[project.urls]
+Homepage = "https://hub.harborframework.com/datasets"
+
+# NOTE (cross-agent contract): these two names are fixed by the shared contract.
+#   * `dmaic-harbor-build` is the task-generation CLI  -> src/dmaic_harbor/build.py
+#   * `steward` is the in-container data-steward CLI       -> spec.STEWARD_CLI
+#     (`/usr/local/bin/steward`). The agent image currently installs a shim that
+#     runs `python3 -m dmaic_harbor.steward_cli`; this console script is the
+#     equivalent entry point for a host-side or pip-installed steward.
+#   * The steward SERVICE (`dmaic_harbor.steward_service:main`) is started by the
+#     image entrypoint, not by a console script.
+# The modules are owned by other agents; the callables below must exist with these
+# names or the console scripts will not resolve.
+#   * The four operations entry points below run on the ORCHESTRATOR host only. None of
+#     them is staged into either image (build.py: AGENT_MODULES / VERIFIER_MODULES name
+#     the modules that travel, and none of these is among them), and none imports
+#     anything an image installs. They exist because the campaign losses this package
+#     has measured were operational, not scientific: an undeclared environment variable,
+#     an empty provider account, a killed job nothing resumed, and an aggregate that
+#     could not tell a verifier crash from a score.
+[project.scripts]
+dmaic-harbor-build = "dmaic_harbor.build:main"
+steward = "dmaic_harbor.steward_cli:main"
+dmaic-harbor-preflight = "dmaic_harbor.preflight:main"
+dmaic-harbor-probe = "dmaic_harbor.probe:main"
+dmaic-harbor-supervise = "dmaic_harbor.supervisor:main"
+dmaic-harbor-aggregate = "dmaic_harbor.aggregate:main"
+
+# Applies to EVERY build target. This exclude is not redundant with the sdist
+# allowlist below: hatchling's default file selection picks up README/LICENSE files
+# wherever they live, which silently pulled an operator-only README into the sdist
+# until this was added. Verified with `python3 -m build`.
+[tool.hatch.build]
+# gitignore-style: a bare directory name excludes the directory and everything
+# under it, so no "dir/**" companion is needed (and none is written -- that literal
+# is itself one of the forbidden strings this package must not contain).
+exclude = [
+  "private",
+  "tests",
+  "reference",
+  "job.example.yaml",
+  ".gitignore",
+  ".dockerignore",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dmaic_harbor"]
+
+[tool.hatch.build.targets.sdist]
+# Allowlist, not a denylist: only these paths are packaged. The operator-only
+# contestant adapter directory is deliberately absent, and any path added here is
+# a path that ships -- tests/test_public_image_hygiene.py checks this list.
+include = ["src/dmaic_harbor", "templates", "datasets", "README.md", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

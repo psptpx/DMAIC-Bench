@@ -1,0 +1,74 @@
+schema_version: 1
+case_id: adb_c12
+title: Sterile-packaging seal defect rate above the agreed cap
+
+tier: T1
+industry: process_industry
+provenance: SIMULATED
+y_type: attribute_proportion
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the project team in the sterile packaging shop of a medical syringe plant. Our supply
+  agreement with a hospital group caps the seal defect rate at 5%, but over the past few months
+  the customer's incoming acceptance has repeatedly reported unsealed packs. We have collected
+  four batches of data: the seal-check totals for this month's acceptance lots, recorded as the
+  number of pieces judged conforming and non-conforming; the seal-check totals from the line
+  running the old sealing process and from the trial line running the new sealing process; an
+  agreed plan for the formal comparison that is to follow, carrying the level each of the two
+  lines is expected to run at, the sample count planned for each group and the decision
+  threshold to be used; and the check totals for twenty consecutive production lots after the
+  new process was rolled out across the shop.
+
+goal: |
+  Establish whether the seal defect rate as it stands really does exceed the agreed cap; whether
+  the difference between the old and the new sealing process is real; whether the plan as drawn
+  up would be likely enough to pick that difference up; and what level the shop reached after
+  the changeover and whether it is an improvement on where we were before the work started.
+  Every conclusion must be faithful, item by item, to what you actually computed.
+
+stages:
+  - stage_id: P_OneProp
+    phase: measure
+    label: "This month's acceptance lots — seal-check totals"
+    topics: ["acceptance lots", "agreed cap", "this month", "above the limit"]
+    methods:
+      - method_id: basic.one_proportion
+        required: true
+  - stage_id: P_TwoProps
+    phase: analyze
+    label: "Seal-check totals from the old sealing line and from the new sealing trial line"
+    topics: ["old sealing", "new sealing", "trial line", "old against new"]
+    methods:
+      - method_id: basic.two_proportions
+        required: true
+  - stage_id: P_Power
+    phase: improve
+    label: "The agreed plan for the formal comparison — expected levels, planned sample count per group and decision threshold"
+    topics: ["agreed plan", "sample count per group", "how likely to pick it up", "planned comparison"]
+    methods:
+      - method_id: power.two_proportions
+        required: true
+  - stage_id: P_BinomialCap
+    phase: control
+    label: "Check totals for twenty consecutive production lots after the changeover"
+    topics: ["after the changeover", "twenty lots", "consecutive production lots", "since the roll out"]
+    methods:
+      - method_id: capability.binomial
+        required: true
+
+faults:
+  - stage_id: P_TwoProps
+    method_id: basic.two_proportions

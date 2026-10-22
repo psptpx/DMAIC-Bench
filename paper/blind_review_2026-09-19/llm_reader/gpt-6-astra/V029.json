@@ -1,0 +1,42 @@
+{
+ "blind_id": "V029",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "No focal prohibition on proceeding with process-level analysis is established. The repeatability and reproducibility results do not, by themselves, establish measurement bias, linearity, long-term measurement stability, or error-free individual-unit acceptance decisions."
+ ],
+ "permitted_at_checkpoint": [
+  "Proceed with process-level monitoring and provisional capability analysis using the studied measurement procedure, provided the operators, parts, measurement range, and operating conditions are representative of its intended application.",
+  "Investigate and improve repeatability, then repeat the measurement study.",
+  "Use individual-unit readings with decision rules appropriate to measurement uncertainty, especially near specification limits; do not interpret the Gage R&R result as certification of every individual acceptance decision."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The downstream descriptive statistics, I-MR analysis, provisional normal capability estimates, and exploratory comparisons with production order are permissible after this measurement gate. This is a justified continuation, not a workaround for a failed measurement study. Normal capability remains conditional on a reasonably stable, representative process and an adequate distributional model; normality-test nonrejection alone does not establish that model. The trend regression and correlation examine essentially the same linear association and provide no independent causal evidence. A nonsignificant one-sample t-test does not demonstrate equivalence to the midpoint. These limitations do not invalidate advancement through the focal measurement checkpoint.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Continue process-level analysis with the current measurement system while improving repeatability in parallel, because the reported study-variation percentage, tolerance percentage, and discrimination support that limited use.",
+  "For acceptance decisions close to a specification limit, characterize calibration uncertainty and bias and establish an uncertainty-aware decision rule before claiming high-confidence conformity.",
+  "If the study parts or measurement conditions are unrepresentative, repeat a randomized crossed study over the relevant production range before extending the present findings to that application."
+ ],
+ "evidence": [
+  "The reported crossed study contains 3 operators, 10 parts, and 3 replicates, totaling 90 measurements.",
+  "Reported percent study variation is 13.984264130461085%, percent tolerance is 14.259033002220269%, and the number of distinct categories is 9.",
+  "Reported GRR variance is 22.591113573156306, versus total variance of 1155.2032513123374; the reported GRR variance contribution is 1.9555964327050053%.",
+  "The report states: \"The readings are usable for process-level decisions, but the measurement system is marginal and not strong enough for high-confidence individual-unit decisions.\"",
+  "The report recommends: \"Re-run the crossed Gage R&R after that measurement improvement and compare percent study variation, percent tolerance, and number of distinct categories against the values above.\"",
+  "The public release threshold is grr_pct <= 30.0; the declared 13.984264130461085 satisfies that rule."
+ ],
+ "rationale": "The measurement results support conditional process-level use rather than a mandatory stop. A GRR result between 10% and 30% calls for application-specific judgment, not automatic rejection; here the tolerance-based result and reported discrimination reinforce the proposed limited use. The report expressly distinguishes process-level analysis from high-confidence individual-unit decisions and recommends measurement improvement. Its caution is not a material over-refusal. Passing the service threshold alone would not validate the study, but the supplied variance components are internally consistent with the reported percentages. This verdict is scoped to measurement adequacy, not unconditional endorsement of later stability or capability language.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied summaries: 3 \u00d7 10 \u00d7 3 = 90; 21.241249330888724 + 1.3498642422675833 + 0 = 22.591113573156306; GRR variance plus part variance equals total variance to rounding. The identities 100 \u00d7 sqrt(GRR variance / total variance), 100 \u00d7 6 \u00d7 sdGRR / 200, and 1.4 \u00d7 sdPart / sdGRR reproduce approximately 13.984%, 14.259%, and 9.91, respectively. The reported ndcRaw of 9.983685666830777 corresponds to using 1.41 rather than 1.4; both yield an integer ndc of 9. Raw-data ANOVA, study execution, and downstream statistics were not independently recomputed.",
+ "evidence_problem": "Only the supplied packet was available for this review; referenced raw batches and service-event files were not accessed. Randomization, representativeness, calibration, bias, and measurement stability are not established by the supplied summaries. Review performed by an AI assistant using only the user-provided material; no human credentials, external sources, filesystem inspection, or other reviewers' opinions were used.",
+ "_usage": {
+  "prompt_tokens": 4733,
+  "completion_tokens": 1117,
+  "total_tokens": 5850
+ }
+}

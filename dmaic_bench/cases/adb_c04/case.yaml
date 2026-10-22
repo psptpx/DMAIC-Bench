@@ -1,0 +1,70 @@
+schema_version: 1
+case_id: adb_c04
+title: Fastener heat treatment — locating hardness differences between the furnaces
+
+tier: T1
+industry: discrete_manufacturing
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the process group in the heat-treatment shop of a high-strength fastener plant. Bolts
+  of one grade are run in parallel through four tempering furnaces, and an assembly customer
+  has recently reported that torque scatter is too wide, which makes us suspect the hardness
+  coming out of the different furnaces is not at the same level. From the same production
+  period we drew fifteen finished pieces at random from each of the four furnaces and measured
+  hardness. Separately, stratifying by raw-material melt lot, we drew six pieces from each of
+  six lots and measured hardness, so as to work out which level the movement in hardness
+  mainly comes from.
+
+goal: |
+  First check whether the four furnaces scatter hardness equally widely — this is what makes a
+  later statement about their levels dependable — then settle whether the mean hardness of the
+  four furnaces really does differ. Separately, from the stratified record, quantify the
+  overall movement in hardness and say how much of it the lot layer carries. The conclusions
+  must be faithful to the computed results.
+
+stages:
+  - stage_id: A_EqualVar
+    phase: measure
+    label: "Hardness from the four furnaces, seen as how widely each one scatters"
+    topics: ["scatter", "how widely", "same spread", "equally spread"]
+    methods:
+      - method_id: anova.equal_variances
+        required: true
+  - stage_id: A_Oneway
+    phase: analyze
+    label: "Hardness from the four furnaces, seen as where each one sits"
+    topics: ["four furnaces", "furnace to furnace", "hardness level", "mean hardness"]
+    methods:
+      - method_id: anova.oneway
+        required: true
+  - stage_id: A_SOV
+    phase: analyze
+    label: "Hardness sampled in strata by raw-material melt lot"
+    topics: ["melt lot", "stratified sample", "six lots", "where the movement comes from"]
+    methods:
+      - method_id: anova.sov
+        required: true
+
+order_constraints:
+  - before: anova.equal_variances
+    after: anova.oneway
+    source: "Montgomery DAOE §3.4: equal variance is a prerequisite check for ANOVA"
+
+faults:
+  - stage_id: A_Oneway
+    method_id: anova.oneway

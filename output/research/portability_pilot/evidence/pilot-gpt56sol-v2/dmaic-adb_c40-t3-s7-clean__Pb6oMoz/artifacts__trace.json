@@ -1,0 +1,252 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleCount": 12,
+        "groupCount": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "sampleCount": 12,
+        "failedSamples": 0,
+        "usableSamples": 12,
+        "usableControl": 6,
+        "usableTreated": 6,
+        "minReplicates": 6,
+        "replicateCriterionMet": true,
+        "minObservedAssignedReads": 9235000,
+        "minObservedMappingRate": 0.865
+      },
+      "status": "success",
+      "decision": "All libraries passed both usability rules; both arms retain sufficient replication."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleCount": 12,
+        "groupCount": 2,
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2,
+        "overlapBatchCount": 1,
+        "usableSamples": 12
+      },
+      "status": "success",
+      "decision": "Treatment is estimable; both arms occur in the sole preparation batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "geneCount": 400,
+        "sampleCount": 12,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Model fitting completed but JSON serialization failed; no result was used."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "geneCount": 400,
+        "sampleCount": 12,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Second serialization attempt failed; no result was used."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "geneCount": 400,
+        "sampleCount": 12,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nGenes": 400,
+        "nTested": 398,
+        "nConverged": 398,
+        "nSignificant": 39,
+        "sizeFactorMin": 0.8082579567401301,
+        "sizeFactorMax": 1.1957175281411727,
+        "upregulated": 17,
+        "downregulated": 22
+      },
+      "status": "success",
+      "decision": "Exploratory gene-wise NB2 analysis completed; two Wald tests were non-finite and this was not selected as primary."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "candidateCount": 10,
+        "calledGeneCount": 39,
+        "batch": "validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nCandidates": 39,
+        "nValidationRecords": 10,
+        "nConfirmed": 0,
+        "concordance": 0.0,
+        "validationPassed": false,
+        "candidateSetMatches": false
+      },
+      "status": "success",
+      "decision": "Exploratory denominator was inappropriate because it included unassayed calls; result was superseded."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Annotation remained locked because validation concordance did not meet the facility gate; enrichment was not computed."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "geneCount": 400,
+        "sampleCount": 12,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis using normalized log counts; call count was stable across normalization and variance variants."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "geneCount": 400,
+        "sampleCount": 12,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis using normalized log counts; call count was stable across normalization and variance variants."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "geneCount": 400,
+        "sampleCount": 12,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis using normalized log counts; call count was stable across normalization and variance variants."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "geneCount": 400,
+        "sampleCount": 12,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis using normalized log counts; call count was stable across normalization and variance variants."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "geneCount": 400,
+        "sampleCount": 12,
+        "groupCount": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nGenes": 400,
+        "nTested": 400,
+        "nSignificant": 40,
+        "upregulated": 17,
+        "downregulated": 23,
+        "sizeFactorMin": 0.8082579567401301,
+        "sizeFactorMax": 1.1957175281411727
+      },
+      "status": "success",
+      "decision": "Primary analysis: median-ratio normalized log counts, Welch tests, BH adjustment, and prespecified dual thresholds."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "candidateCount": 10,
+        "groupCount": 2,
+        "batch": "validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nCandidates": 10,
+        "nConfirmed": 0,
+        "concordance": 0.0,
+        "validationPassed": false,
+        "directionMatches": 6
+      },
+      "status": "success",
+      "decision": "No nominated candidate met both directional and significance confirmation; validation failed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "continue",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "simple_treatment_contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "concordance": 0.0,
+        "nConfirmed": 0
+      }
+    },
+    {
+      "point": "enrichment_gate",
+      "chosen_branch": "stop_locked",
+      "observed": {
+        "validationPassed": false
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

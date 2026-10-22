@@ -1,0 +1,64 @@
+{
+ "reviewer_id": "independent_human_reviewer_V058",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical Black Belt",
+ "blinding_compliance": "I read only the V058 packet and this item's materials; I did not inspect the repository outside this directory, coordinator files, truth files, other reviewers' outputs, or search for the benchmark/paper.",
+ "ai_assistance": "AI assistant used to draft the structured JSON and check arithmetic; no other human reviewer was consulted.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V058",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Do not attribute the late-lot shift to the criteria rewrite without a process fact linking the rewrite timing to lot 17.",
+    "Do not declare the line currently below or at the 2% requirement: the supplied current placement window is above target.",
+    "Do not treat the pre-repair historical lot reject counts as true defect rates, because the baseline accept/reject call was unreliable.",
+    "Do not assert a physical root cause for Head 1 from the supplied data; only a head difference is identified."
+   ],
+   "permitted_at_checkpoint": [
+    "Report the MSA before/after change as descriptive evidence and condition post-rewrite call reliance on continued audits.",
+    "Analyze the recorded lot stream for trend or level change, provided selected split analyses are multiplicity-adjusted and not given causal attribution.",
+    "Compute current-window binomial capability versus the 2% requirement and compare Head 1 versus Head 2 to prioritize action.",
+    "Recommend Head 1 containment/investigation, criteria audits, and retrieval of missing process timing facts."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The OLS trend and max-z split scan are acceptable alternative stability analyses beyond the p-chart; the split scan was Bonferroni-adjusted over 24 candidate splits, and the report explicitly avoids causal attribution to the rewrite. The current-window binomial capability and head-to-head comparison are appropriate for operational prioritization.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Pre-registered p-chart with run rules plus trend and multiplicity-adjusted changepoint scan for recorded lot reject share.",
+    "Exact binomial tests or Wilson intervals for current-window capability versus 2%.",
+    "Attribute agreement assessed by overall agreement, repeatability, and minimum kappa; before/after comparisons are descriptive unless independent-study conditions are documented."
+   ],
+   "evidence": [
+    "Report: 'The current supplied placement window rejected 202 of 6,000 boards (3.367%), versus the 2.0% requirement; it contains 82 excess rejects relative to a 6,000-board allowance of 120.' Arithmetic is consistent: 202/6000 = 3.367%, 202-120 = 82.",
+    "Report: 'Head 1: 128/3,000 = 4.267%, 68 excess rejects... Head 2: 74/3,000 = 2.467%, 14 excess rejects... Head 1 is 1.800 percentage points higher than Head 2; the head-to-head two-proportion test gives p = 0.000111.' Arithmetic is consistent.",
+    "Report: 'The first 17 lots rejected 240/6,800 (3.529%), while the last 8 rejected 71/3,200 (2.219%); the two-proportion test gave p = 0.000428, or 0.010276 after considering all 24 candidate splits.' Supports a recorded level change, not rewrite attribution.",
+    "Report: 'I did not obtain a process fact tying the criteria rewrite to lot 17, so I will not claim that exact attribution.' Correctly withholds causal attribution.",
+    "Report: 'Do not declare the line capable. Current output remains 1.367 percentage points above the 2.0% requirement.' Consistent with the current-window data.",
+    "MSA data: study 1 agreement 73.333%, minimum kappa 0.285714; study 2 agreement 99.167%, minimum kappa 0.941860. The report conditions this as supporting post-rewrite reliance, not as proof of historical lot-level causation."
+   ],
+   "rationale": "The report is statistically disciplined at this checkpoint. It separates measurement-system repair from historical lot-record interpretation, uses the lot record as a recorded reject stream rather than as proof of true defect levels, and supports the level-shift conclusion with a Bonferroni-adjusted split scan. The current-window binomial capability and Head 1 versus Head 2 comparison justify the downstream prioritization, while the report correctly withholds rewrite attribution and line-capability claims.",
+   "confidence": 4,
+   "numerical_check": "Recomputed key percentages and allowance arithmetic from the self-reported numerators/denominators: 202/6000 = 3.367%, 128/3000 = 4.267%, 74/3000 = 2.467%, 71/3200 = 2.219%, excess rejects 82/68/14. I did not have raw lot-level data to recompute the p-chart, trend, runs test, or split scan from scratch, so those remain self-report-only. Some extreme self-reported upper-tail p-values appear internally inconsistent with the listed z-statistics, but the material conclusions do not depend on the exact tail probability.",
+   "evidence_problem": "Minor: missing process timing facts are disclosed; possible lack of documented independence between the two MSA studies; some self-reported extreme upper-tail p-values appear inconsistent with the stated z-statistics."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6929,
+  "completion_tokens": 24170,
+  "total_tokens": 31099,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 22871
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 5265
+ }
+}

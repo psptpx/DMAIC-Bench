@@ -1,0 +1,62 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleCount": 12,
+        "groupCount": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "totalLibraries": 12,
+        "usableControls": 6,
+        "usableTreated": 2,
+        "requiredMinReplicates": 3,
+        "failedAssignedReads": 2,
+        "failedMappingRate": 2,
+        "replicatesSufficient": false,
+        "usableTotal": 8
+      },
+      "status": "success",
+      "decision": "Joint assigned-read and mapping-rate filtering leaves the treated arm below the required retained-replicate minimum; resequencing is required before gene calling."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Not computed: the steward locked the sample sheet because the declared minimum retained replicate count failed the replicate-sufficiency gate."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "stop_and_resequence",
+      "observed": {
+        "minReplicates": 2,
+        "requiredMinReplicates": 3,
+        "replicatesSufficient": false
+      }
+    },
+    {
+      "point": "downstream_analysis",
+      "chosen_branch": "do_not_call_genes_without_required_qc_and_design_checks",
+      "observed": {
+        "failedSamples": 4,
+        "usableControls": 6,
+        "usableTreated": 2
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

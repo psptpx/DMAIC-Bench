@@ -1,0 +1,68 @@
+{
+ "reviewer_id": "human-expert-blackbelt-v022",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "I read only the V022 blind packet and the supplied schema. I did not inspect the repository outside this item, the coordinator directory, hidden truth files, scoring code, model identities, or other reviewers' outputs. No external web searches were performed.",
+ "ai_assistance": "AI assistant used to draft this independent review; no other AI tools, sources, or delegated reviewers were used.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V022",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the high-rate machine is the cause of the excess defects, or that loose-end defects are generated on that machine, from the observed machine-by-defect-rate association alone.",
+    "Recommending corrective action against loose-end generation on the high-rate machine as an established source rather than as an unconfirmed hypothesis requiring audit.",
+    "Treating the post-change high p-value as statistical proof of equivalence or target consistency; at most the evidence fails to show the post-change rate is above target."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive reporting of the machine defect rates and the chi-square result as an association/screening signal only.",
+    "Using Pareto and FMEA as risk-prioritization inputs to select loose end as a candidate defect mode.",
+    "Recommending a diagnostic audit that investigates whether loose end is concentrated on the high-rate machine, without asserting that it is the cause.",
+    "Reporting the before/after comparison as not statistically significant and stating that the changed machine and change mechanism are not identifiable from the released data.",
+    "Continuing post-change p-chart monitoring and recommending repeatability improvement before lot-by-lot decisions."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "The priority is the machine with the 6500 DPMO rate and the loose-end defect mode.",
+    "Audit and correct loose-end generation on the high-rate machine; loose end has the largest Pareto share and the maximum RPN."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "The chi-square machine comparison and the before/after proportions test are acceptable as descriptive association/description analyses. Pareto and FMEA are acceptable as risk-ranking inputs. However, the report combines the aggregate Pareto/FMEA result with the machine-level chi-square to assert a machine-specific causal priority for loose-end generation on the high-rate machine, which is not supported. The sustaining one-proportion p=0.985 is also overread as 'statistically consistent with target' rather than only as failure to reject above target.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Obtain and analyze a machine-by-reject-category cross-tabulation; if loose-end is concentrated on the high-rate machine, that supports a stronger candidate causal hypothesis but still not proof.",
+    "Run a risk-adjusted or controlled comparison across machines with comparable product mix, operators, upstream conditions, and time windows before assigning the excess defect rate to the high-rate machine.",
+    "Use the before/after data only with an identified machine and matched process fact; otherwise report it as descriptive and not statistically significant.",
+    "Use an equivalence test or confidence interval to support any claim that the post-change level is consistent with the 1500 DPMO target."
+   ],
+   "evidence": [
+    "Machine tally: 26/4000 defects on the high-rate machine (6500 DPMO) versus 6/4000 (1500 DPMO), 6/4000 (1500 DPMO), and 4/4000 (1000 DPMO); chi-square statistic 30.843, p=9.17e-7.",
+    "Pareto: loose end 142/240 rejections = 59.167%; FMEA loose-end RPN = 294.",
+    "Before/after: 18/4000 (4500 DPMO) versus 13/4000 (3250 DPMO); z=0.90, p=0.368.",
+    "Report states: 'The priority is the machine with the 6500 DPMO rate and the loose-end defect mode.'",
+    "Report states: 'Audit and correct loose-end generation on the high-rate machine; loose end has the largest Pareto share and the maximum RPN.'",
+    "No machine-by-defect-category cross-tabulation appears in the submitted outputs."
+   ],
+   "rationale": "The chi-square result supports a statistical association between machine identity and observed defect rate in one common window, but not causation. No randomization, risk adjustment, or machine-by-defect-category linkage is shown. The Pareto and FMEA identify loose end as an aggregate priority, but the submitted evidence does not show that loose-end defects are generated on the high-rate machine. Therefore the specific causal priority and corrective action exceed the available evidence. The report otherwise shows appropriate restraint by not claiming the before/after change was effective.",
+   "confidence": 4,
+   "numerical_check": "Recomputed the machine chi-square from the stated counts: expected 10.5 defects per machine under homogeneity, chi-square approximately 30.76 versus reported 30.843. Recomputed the before/after two-proportion z approximately 0.90 with p approximately 0.368. Other values were self-reported and not independently recomputed.",
+   "evidence_problem": "Missing machine-by-defect-category cross-tabulation; missing identified machine and process fact for the before/after change; no randomization or risk-adjustment for the machine comparison; FMEA/Pareto appear to be aggregate rather than machine-specific."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 3928,
+  "completion_tokens": 10633,
+  "total_tokens": 14561,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 9333
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2264
+ }
+}

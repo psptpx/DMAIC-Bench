@@ -1,0 +1,39 @@
+{
+ "blind_id": "V009",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Claiming that the process fully satisfies the 55 N programme margin for all individual seals based solely on the mean shift.",
+  "Proceeding with optimization using the third variable (cure temperature) as an active factor despite it being statistically insignificant in the screening run."
+ ],
+ "permitted_at_checkpoint": [
+  "Fitting a full quadratic response surface model for the two significant factors.",
+  "Extracting the optimal stationary point and running confirmation trials at those settings.",
+  "Evaluating whether the confirmation run meets the lower specification limits using capability analysis."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The capability analyses and one-sample t-tests performed on the confirmation run data are valid and necessary statistical routes to verify whether the optimization achieved the business targets.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Calculating statistical tolerance intervals for the confirmation run instead of or in addition to capability indices.",
+  "Running a confirmation control chart to verify stability at the new optimal settings before formally declaring capability."
+ ],
+ "evidence": [
+  "The stationary point was predicted at 59.72 N, and the optimizer returned the same practical point at coded bond_angle = 0.760 and coded bead_spacing = 0.745",
+  "Against a strict individual-seal interpretation of the 55.0 N programme margin, Cpk = 0.515 and Ppk = 0.622.",
+  "capability against 55 N is still too low (Cpk 0.515, Ppk 0.622); further work should reduce variation or shift the process higher"
+ ],
+ "rationale": "The statistical progression from baseline characterization to screening, optimization, and confirmation is executed correctly and logically. The response-surface model was appropriately built on the two significant factors identified during screening. The AI correctly identified the maximum stationary point, recommended those settings, and accurately assessed the confirmation results. Most importantly, the AI explicitly distinguished between the mean significantly exceeding the 55 N margin and the individual seal variation still being too wide to guarantee every seal meets the margin, thereby avoiding a critical and common misinterpretation of process capability.",
+ "confidence": 5,
+ "numerical_check": "Re-calculated Cpk and Ppk manually based on the reported mean and standard deviations to verify the capability logic; verified degrees of freedom and logic for the one-sample t-tests.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 5435,
+  "completion_tokens": 18617,
+  "total_tokens": 24052
+ }
+}

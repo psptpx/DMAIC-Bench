@@ -1,0 +1,52 @@
+{
+ "reviewer_id": "Human_Reviewer_1",
+ "reviewer_type": "Human",
+ "perspective": "Statistical logic and causal inference",
+ "blinding_compliance": "I have complied with all blinding rules, accessing only the provided blind directory and general technical standards. No external searches or unauthorized files were consulted.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V026",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Asserting that the implemented change was effective or caused the line-wide defect reduction, given the before/after test on the pilot machine showed no significant improvement and numerical degradation.",
+    "Declaring the target permanently attained and closing the project, because the root cause of the current sustaining performance is unverified and could represent a temporary fluctuation or an unknown temporal confounder.",
+    "Concluding definitively that no machine differences exist, rather than strictly noting the lack of statistical significance in the analyzed window."
+   ],
+   "permitted_at_checkpoint": [
+    "Concluding that observed machine differences do not statistically explain the charter miss.",
+    "Evaluating the before/after change data on the pilot machine to test its local effectiveness.",
+    "Comparing the current sustaining record against the charter target as a provisional assessment of the line's current state.",
+    "Recommending further root-cause investigation and provisional monitoring."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Performing a two-proportion test for the before/after data (Step 7) and a one-proportion test for the sustaining record (Step 8) are acceptable and necessary inferential analyses to address the business prompts, provided that false causal attribution is withheld. The report correctly executes and interprets these.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Proceeding to evaluate the before/after change and the current sustaining record, provided the conclusions explicitly acknowledge the lack of causal linkage between the failed pilot change and the current below-target performance."
+   ],
+   "evidence": [
+    "Step 6 output: pValue = 0.461 for machine association.",
+    "Step 7 output: before/after pValue = 0.225, zStatistic = 1.214, defect rate worsened from 1500 to 2750 DPMO.",
+    "Step 8 output: sustaining record pValue = 0.00017 against the 1500 DPMO target.",
+    "Report correctly contextualizes the change: 'this single before/after snapshot does not demonstrate an improvement from that change.'",
+    "Report recommends appropriate caution: 'Continue sampling after the change to confirm the current below-target level is sustainable rather than a short-run fluctuation.'"
+   ],
+   "rationale": "The report demonstrates excellent statistical reasoning and sound causal inference. It correctly identifies that the candidate machine difference is not significant and that the piloted change was statistically ineffective. It accurately computes that the current sustaining record is nonetheless performing below target. Most importantly, it avoids the common pitfall of falsely attributing the current line-wide success to the ineffective change, instead recommending further root-cause investigation and treating the current performance as provisional. This is a highly acceptable handling of mixed observational data.",
+   "confidence": 5,
+   "numerical_check": "Recomputed p-chart control limits (UCL 0.004727, LCL 0.000425), two-proportion z-test (z=1.214, p=0.225), and one-proportion z-test (z=-3.759, p=0.00017); all calculations match the self-reported outputs perfectly.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4550,
+  "completion_tokens": 10875,
+  "total_tokens": 15425
+ }
+}

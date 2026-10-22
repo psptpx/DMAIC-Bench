@@ -1,0 +1,72 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "measurement system crossed gage repeatability reproducibility study, same units measured by operators repeatedly",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "repeat readings",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "charter",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=12.672291552221276",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 12.672291552221276
+    }
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "unit brightness",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.672291552221276
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "improvement experiment and confirmation run",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 12.672291552221276
+    }
+  },
+  {
+    "seq": 9,
+    "action": "provision",
+    "text": "Does the end-of-line record represent the current process in production order under unchanged conditions, and are any process changes documented during it?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 12.672291552221276
+    }
+  }
+]

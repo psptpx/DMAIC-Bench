@@ -1,0 +1,5 @@
+{
+ "git_head_at_packet_build": "0620cce8300020228ca8287f91fad860761529f6",
+ "scorer_version_of_frame": "eval-v2 (verifier-rescored against harbor/datasets/dmaic-bench-r3)",
+ "note": "rules and reader to be frozen and this file updated with their commit before reviewer outputs are opened"
+}

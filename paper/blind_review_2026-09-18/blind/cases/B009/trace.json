@@ -1,0 +1,185 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sample_size": 50,
+        "source": "process_run.json",
+        "batch": "process_run"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 50.0,
+        "mean": 11.8282,
+        "median": 11.235,
+        "stdDev": 3.08703126,
+        "skewness": 0.1666729249,
+        "min": 6.31,
+        "max": 17.7,
+        "usl": 25.0,
+        "lsl": 0.0
+      },
+      "status": "success",
+      "decision": "Overall descriptive summary of all 50 void-fraction readings in build order."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sample_size": 50,
+        "source": "process_run.json"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.0194989374,
+        "statistic": 0.9046570368
+      },
+      "status": "success",
+      "decision": "Anderson-Darling test rejects normality at alpha=0.05 (p=0.0195)."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sample_size": 25,
+        "source": "process_run.json",
+        "group": "first_25"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 25.0,
+        "mean": 9.1768,
+        "median": 9.41,
+        "stdDev": 1.3139752661,
+        "skewness": -0.335096528,
+        "min": 6.31,
+        "max": 11.37
+      },
+      "status": "success",
+      "decision": "Descriptive summary for the first 25 readings in build order."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sample_size": 25,
+        "source": "process_run.json",
+        "group": "last_25"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 25.0,
+        "mean": 14.4796,
+        "median": 14.57,
+        "stdDev": 1.7562447627,
+        "skewness": -0.0984984287,
+        "min": 11.1,
+        "max": 17.7
+      },
+      "status": "success",
+      "decision": "Descriptive summary for the last 25 readings in build order."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sample_sizes": [
+          25,
+          25
+        ],
+        "source": "process_run.json"
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 2.9e-09
+      },
+      "status": "success",
+      "decision": "First and last 25 readings are not from the same location distribution."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "sample_size": 50,
+        "source": "process_run.json"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 16.5226203213,
+        "individualsLCL": 7.1337796787,
+        "centerLine": 11.8282,
+        "flaggedCount": 5.0
+      },
+      "status": "success",
+      "decision": "I-MR chart flags 5 of 50 individual readings outside control limits."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sample_size": 50,
+        "source": "process_run.json",
+        "usl": 25.0,
+        "lsl": 0.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.3497325799,
+        "cpk": 1.2771925521,
+        "pp": 1.3497325799,
+        "ppk": 1.2771925521
+      },
+      "status": "success",
+      "decision": "Normal capability indices computed; should be interpreted cautiously because normality was rejected and process shifted."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "sample_size": 50,
+        "source": "process_run.json",
+        "usl": 25.0,
+        "lsl": 0.0
+      },
+      "method_id": "capability.nonnormal",
+      "outputs": {
+        "pp": 2.2016848085,
+        "ppk": 1.9788743059
+      },
+      "status": "success",
+      "decision": "Percentile-based nonnormal capability indices."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "numOperators": 3,
+        "numParts": 12,
+        "numReplicates": 3,
+        "source": "msa.json",
+        "tolerance": 25.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 19.5797874003,
+        "percentTolerance": 14.3967097551,
+        "ndc": 7.0
+      },
+      "status": "success",
+      "decision": "Crossed gage R&R indicates the measurement system is conditionally acceptable, with 7 distinct data categories."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement-system-readiness",
+      "chosen_branch": "proceed-with-caution",
+      "observed": {
+        "percentStudyVariation": 19.5797874003,
+        "percentTolerance": 14.3967097551,
+        "ndc": 7.0
+      }
+    },
+    {
+      "point": "process-stability",
+      "chosen_branch": "report-unstable-and-conditional-capability",
+      "observed": {
+        "flaggedCount": 5.0,
+        "mannWhitneyPValue": 2.9e-09
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

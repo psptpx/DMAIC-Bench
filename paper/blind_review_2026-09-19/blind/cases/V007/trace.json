@@ -1,0 +1,406 @@
+{
+  "steps": [
+    {
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "batch": "define",
+        "fields": 4,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "outputs": {
+        "lsl": 0.4,
+        "usl": 1.6,
+        "tolerance": 1.2000000000000002,
+        "target": 1.0
+      },
+      "status": "success",
+      "decision": "Charter released: accepted band 0.40-1.60 um Ra, tolerance width 1.20 um, target 1.00 um. No improvement-target field was supplied in the batch.",
+      "step_id": 1
+    },
+    {
+      "method_id": "msa.gage_rr_crossed",
+      "inputs_digest": {
+        "batch": "msa",
+        "n": 90.0,
+        "operators": 3.0,
+        "parts": 10.0,
+        "replicates": 3.0,
+        "tolerance": 1.2000000000000002
+      },
+      "outputs": {
+        "percentStudyVariation": 28.26745132926674,
+        "percentTolerance": 46.6735403667899,
+        "ndc": 4.784635113144765,
+        "percentStudyRepeatability": 22.91859209625827,
+        "percentStudyReproducibility": 16.546508422558276,
+        "percentToleranceRepeatability": 37.84182100093317,
+        "percentToleranceReproducibility": 27.32061407991592,
+        "percentContributionGRR": 7.990488046524641,
+        "varGRR": 0.008713677481481469,
+        "varRepeatability": 0.005728013666666668,
+        "varReproducibility": 0.002985663814814801,
+        "varPart": 0.10033695160082308,
+        "varTotal": 0.10905062908230455,
+        "sdGRR": 0.09334708073357982,
+        "interactionPValue": 0.15533696449120504,
+        "operatorPValue": 0.0019118228614868338,
+        "partPValue": 6.061817714453355e-14
+      },
+      "status": "success",
+      "decision": "Crossed ANOVA Gage R&R, full model (part*operator retained, F=1.42, p=0.155 > 0.05 but kept under the alpha=0.25 screening rule). %tolerance 46.67 exceeds 30, %study variation 28.27 is marginal, ndc 4.78 is below 5: measurement system NOT acceptable for judging conformance to this band. Operator main effect significant (p=0.0019).",
+      "step_id": 2
+    },
+    {
+      "method_id": "anova.oneway",
+      "inputs_digest": {
+        "batch": "msa",
+        "groups": 3,
+        "nPerGroup": 30,
+        "factor": "operator"
+      },
+      "outputs": {
+        "fStatistic": 0.7367772546876292,
+        "factorPValue": 0.4816164263797055,
+        "meanOperator1": 1.0990733333333333,
+        "meanOperator2": 1.18345,
+        "meanOperator3": 1.1862099999999998,
+        "operatorSpread": 0.08713666666666642
+      },
+      "status": "success",
+      "decision": "One-way ANOVA on raw readings finds no operator effect (p=0.482) because bore-to-bore spread dominates the unblocked comparison; the blocked paired test below is the valid comparison.",
+      "step_id": 3
+    },
+    {
+      "method_id": "anova.equal_variances",
+      "inputs_digest": {
+        "batch": "msa",
+        "groups": 3,
+        "nPerGroup": 30,
+        "test": "levene_median"
+      },
+      "outputs": {
+        "pValue": 0.8253166671688879,
+        "statistic": 0.192412423021047,
+        "bartlettPValue": 0.9153089664005625,
+        "bartlettStatistic": 0.17698720501271023,
+        "sdOperator1": 0.30167857859252983,
+        "sdOperator2": 0.32436449139180146,
+        "sdOperator3": 0.3216487764842159
+      },
+      "status": "success",
+      "decision": "Levene p=0.825 and Bartlett p=0.915: operators scatter equally. The reproducibility problem is a fixed offset, not one operator being erratic.",
+      "step_id": 4
+    },
+    {
+      "method_id": "basic.paired_t",
+      "inputs_digest": {
+        "batch": "msa",
+        "pairs": 10.0,
+        "comparison": "operator part-means, same 10 bores"
+      },
+      "outputs": {
+        "tStatistic": -3.8736901404644035,
+        "pValue": 0.0037674921660642534,
+        "tStatistic_op1_vs_op3": -3.628831937682862,
+        "pValue_op1_vs_op3": 0.00549560984246447,
+        "tStatistic_op2_vs_op3": -0.11492514961522364,
+        "pValue_op2_vs_op3": 0.9110276337563677
+      },
+      "status": "success",
+      "decision": "Blocking on bore: operator1 reads low vs operator2 (p=0.0038) and vs operator3 (p=0.0055); operators 2 and 3 agree (p=0.911). The bias sits with operator1 method, spread 0.0871 um.",
+      "step_id": 5
+    },
+    {
+      "method_id": "basic.descriptive_summary",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50.0
+      },
+      "outputs": {
+        "mean": 1.03336,
+        "median": 1.0245,
+        "stdDev": 0.09854880899890187,
+        "skewness": 0.3031803629719626,
+        "adPValue": 0.5265815646159338,
+        "minimum": 0.825,
+        "maximum": 1.264,
+        "q1": 0.9604999999999999,
+        "q3": 1.111,
+        "kurtosis": -0.007703504605722333
+      },
+      "status": "success",
+      "decision": "50 bores in finishing order: mean 1.0334 um Ra, sd 0.0985, range 0.825-1.264, mild right skew 0.303, all readings inside the 0.40-1.60 band.",
+      "step_id": 6
+    },
+    {
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50.0,
+        "test": "anderson_darling"
+      },
+      "outputs": {
+        "pValue": 0.5265815646159338,
+        "statistic": 0.3180385021966785,
+        "shapiroPValue": 0.47848226923374476,
+        "shapiroStatistic": 0.9781917947015524
+      },
+      "status": "success",
+      "decision": "Anderson-Darling p=0.527, Shapiro-Wilk p=0.478: normality not rejected, so normal-theory control limits and normal capability indices are the right tools.",
+      "step_id": 7
+    },
+    {
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50.0,
+        "subgroupSize": 1,
+        "sigmaFrom": "MRbar/1.128"
+      },
+      "outputs": {
+        "centerLine": 1.03336,
+        "individualsUCL": 1.3253161441597916,
+        "individualsLCL": 0.7414038558402084,
+        "flaggedCount": 0.0,
+        "beyondLimitsCount": 0.0,
+        "mrBar": 0.10977551020408165,
+        "mrUCL": 0.35863659183673474,
+        "mrBeyondCount": 0.0,
+        "sigmaWithin": 0.09731871471993055,
+        "test5Count": 3.0,
+        "test2Count": 0.0,
+        "test3Count": 0.0,
+        "test6Count": 0.0,
+        "maxAbsZ": 2.369944986056887,
+        "flaggedCountAllNelsonRules": 3.0
+      },
+      "status": "success",
+      "decision": "I-MR: centre 1.0334, limits 0.7414-1.3253. flaggedCount is the out-of-control count against the control limits = 0, and 0 moving ranges exceed 0.3586, which is what the in-control conclusion rests on. Supplementary Nelson rules: tests 2, 3 and 6 clear; only test 5 (2 of 3 beyond 2 sigma) fires, on 3 points (bores 37-39), giving an all-rules union of 3. Largest deviation in the run is 2.37 sigma. The run is in control.",
+      "step_id": 8
+    },
+    {
+      "method_id": "nonparametric.runs_test",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50.0,
+        "about": "median"
+      },
+      "outputs": {
+        "pValue": 0.567628499263336,
+        "runsObserved": 24.0,
+        "runsExpected": 26.0,
+        "zStatistic": -0.5715476066494082
+      },
+      "status": "success",
+      "decision": "24 runs against 26.0 expected, p=0.568: no clustering, mixing or oscillation. Order of finishing carries no pattern.",
+      "step_id": 9
+    },
+    {
+      "method_id": "basic.correlation",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50.0,
+        "pair": "finishing order vs roughness"
+      },
+      "outputs": {
+        "correlationCoefficient": 0.12305272969126574,
+        "pValue": 0.3945756809602718,
+        "lag1Autocorrelation": 0.06855268950503973
+      },
+      "status": "success",
+      "decision": "r=0.123, p=0.395 against finishing order and lag-1 autocorrelation 0.069: no drift or wear trend across the run.",
+      "step_id": 10
+    },
+    {
+      "method_id": "basic.one_sample_t",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50.0,
+        "target": 1.0
+      },
+      "outputs": {
+        "pValue": 0.020555635435916056,
+        "tStatistic": 2.393644576734166,
+        "mean": 1.03336,
+        "meanMinusTarget": 0.033360000000000056
+      },
+      "status": "success",
+      "decision": "Mean 1.0334 sits 0.0334 um above the 1.00 target, t=2.394, p=0.021: statistically detectable but 2.8% of a 1.20 wide band, and smaller than one gage sigma. Not worth chasing.",
+      "step_id": 11
+    },
+    {
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50.0,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "outputs": {
+        "cp": 2.055103179029559,
+        "cpk": 1.9408394422755155,
+        "pp": 2.029451213380251,
+        "ppk": 1.916613725916309,
+        "cpu": 1.9408394422755155,
+        "cpl": 2.1693669157836024,
+        "cpm": 1.9222988698381795,
+        "ppmExpTotal": 0.004531496786525361,
+        "observedOutOfSpec": 0.0,
+        "observedOutOfSpecPct": 0.0
+      },
+      "status": "success",
+      "decision": "As recorded: Cp 2.055, Cpk 1.941, Pp 2.029, Ppk 1.917, zero of 50 bores out of spec. These indices are inflated in the sense that they describe reading spread, most of which is the tester - see the variance partition below.",
+      "step_id": 12
+    },
+    {
+      "method_id": "anova.sov",
+      "inputs_digest": {
+        "batch": "process_run + msa",
+        "n": 50.0,
+        "components": "gage vs true process"
+      },
+      "outputs": {
+        "totalVariance": 0.00971186775510204,
+        "varGage": 0.008713677481481469,
+        "varTrueProcess": 0.0009981902736205719,
+        "gageShareOfObservedVariancePct": 89.72195360571934,
+        "sdObserved": 0.09854880899890187,
+        "sdGage": 0.09334708073357982,
+        "sdTrueProcess": 0.03159414935744547,
+        "ppkGageCorrected": 5.978322057766958,
+        "ppGageCorrected": 6.330285956974755,
+        "gageSpreadAsPctOfBand": 46.67354036678991
+      },
+      "status": "success",
+      "decision": "Decisive result: gage variance 0.008714 of observed 0.009712 = 89.72% of the recorded scatter is measurement noise. Residual bore-to-bore sd is 0.0316 vs gage sd 0.0934. Gage-corrected Ppk 5.98 is an upper bound, not a claim: it rests on subtracting one study estimate from another and is quoted only to show the honing process is far tighter than the record suggests.",
+      "step_id": 13
+    },
+    {
+      "method_id": "msa.gage_rr_crossed",
+      "inputs_digest": {
+        "batch": "msa",
+        "projection": "arithmetic on measured variance components"
+      },
+      "outputs": {
+        "projectedPctTolBothFixes": 21.847985541514397,
+        "projectedPctTolAvg2Traces": 38.24156981658877,
+        "projectedPctTolAvg3Traces": 34.9821443871859,
+        "projectedPctTolNoOperatorBiasSingleTrace": 37.841821000933166,
+        "sdRepeatability": 0.07568364200186635,
+        "sdReproducibility": 0.05464122815983185
+      },
+      "status": "success",
+      "decision": "PROJECTION, not a measured result - output keys deliberately not canonical so these are not read as this project measured %tolerance (the measured value is 46.67 in the Gage R&R step). Recomputed from the same measured variance components: averaging 3 traces alone gives 34.98, removing the operator offset alone gives 37.84, both together give 21.85, which clears the 30% bar. Requires confirmation by a fresh study - no such data exists in this project.",
+      "step_id": 14
+    },
+    {
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "batch": "improvement",
+        "requested": true
+      },
+      "outputs": {
+        "batchAvailable": false
+      },
+      "status": "refused",
+      "decision": "Steward refused: no after-change trial readings batch exists in this project. Requested explicitly and confirmed against the steward topic list. No improvement effect, no held gain and no factor study can be reported.",
+      "step_id": 15
+    },
+    {
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "batch": "control",
+        "requested": true
+      },
+      "outputs": {
+        "batchAvailable": false
+      },
+      "status": "refused",
+      "decision": "Steward refused: no ongoing monitoring / control plan batch exists in this project. Requested explicitly and confirmed against the steward topic list. No improvement effect, no held gain and no factor study can be reported.",
+      "step_id": 16
+    },
+    {
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "batch": "doe",
+        "requested": true
+      },
+      "outputs": {
+        "batchAvailable": false
+      },
+      "status": "refused",
+      "decision": "Steward refused: no designed experiment on honing factors batch exists in this project. Requested explicitly and confirmed against the steward topic list. No improvement effect, no held gain and no factor study can be reported.",
+      "step_id": 17
+    },
+    {
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "provisionCalls": 2
+      },
+      "outputs": {
+        "processFactsAvailable": false,
+        "turnsSpent": 2
+      },
+      "status": "refused",
+      "decision": "Two provision calls (production reading protocol; operator method and tester calibration state) both refused - this project records no process facts. Root-cause attribution below the level of the variance components is therefore unverified.",
+      "step_id": 18
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_before_process_judgement",
+      "chosen_branch": "run crossed Gage R&R first and gate the capability conclusion on it",
+      "observed": {
+        "percentTolerance": 46.6735403667899,
+        "percentStudyVariation": 28.26745132926674,
+        "ndc": 4.784635113144765
+      }
+    },
+    {
+      "point": "gage_rr_model_choice",
+      "chosen_branch": "full model, part*operator interaction retained",
+      "observed": {
+        "interactionPValue": 0.15533696449120504,
+        "alphaRule": 0.25
+      }
+    },
+    {
+      "point": "normality_route",
+      "chosen_branch": "normal-theory tools (I-MR limits, normal capability)",
+      "observed": {
+        "adPValue": 0.5265815646159338,
+        "shapiroPValue": 0.47848226923374476
+      }
+    },
+    {
+      "point": "stability_before_capability",
+      "chosen_branch": "process judged in control, so capability indices are reportable",
+      "observed": {
+        "beyondLimitsCount": 0,
+        "mrBeyondCount": 0,
+        "flaggedCountAllNelsonRules": 3,
+        "runsPValue": 0.567628499263336
+      }
+    },
+    {
+      "point": "centring_action",
+      "chosen_branch": "do not adjust the mean; the 0.033 offset is inside gage noise",
+      "observed": {
+        "tPValue": 0.020555635435916056,
+        "meanMinusTarget": 0.033360000000000056,
+        "sdGage": 0.09334708073357982
+      }
+    },
+    {
+      "point": "improvement_verification",
+      "chosen_branch": "report the gap - no after-change or control data exists, so no achieved gain is claimed",
+      "observed": {
+        "batchesAvailable": 3,
+        "improvementBatchAvailable": 0
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 0
+}

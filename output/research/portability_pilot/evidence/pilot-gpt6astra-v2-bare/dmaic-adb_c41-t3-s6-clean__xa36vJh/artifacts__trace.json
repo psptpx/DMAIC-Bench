@@ -1,0 +1,480 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesRetained": 239,
+        "nParticipants": 240,
+        "nVariants": 150,
+        "minCallRate": 0.9466666666666667,
+        "maxCallRate": 1.0,
+        "alpha": 0.05,
+        "maxSampleFailFraction": 0.1,
+        "minHwePControls": 1e-06,
+        "minMaf": 0.01,
+        "minSampleCallRate": 0.95,
+        "minVariantCallRate": 0.95
+      },
+      "status": "success",
+      "decision": "Plate passes; remove failed participant before variant QC."
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 4,
+        "casesRetained": 120,
+        "controlsRetained": 119
+      },
+      "status": "success",
+      "decision": "Exact two-sided HWE among retained controls; all filters applied jointly."
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 2,
+        "pc1PValue": 0.46719033045995384,
+        "pc2PValue": 1.0773321365251674e-140,
+        "pc3PValue": 0.9324147659946753,
+        "pc4PValue": 0.8862039091026457,
+        "pc5PValue": 0.9633624430428636,
+        "pc6PValue": 0.8138618509905227,
+        "pc7PValue": 0.9321119263486028,
+        "pc8PValue": 0.8844394219788687,
+        "pc9PValue": 0.8427282523811982,
+        "pc10PValue": 0.770568984175533
+      },
+      "status": "success",
+      "decision": "Mean-imputed allele-frequency standardized PCA; Welch tests of leading ten axes with Bonferroni screening. Candidate panel is not a genome-wide ancestry assay."
+    },
+    {
+      "step_id": 4,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "controlAxisMin": -5.599559851829679,
+        "controlAxisMax": -0.3457485864390697,
+        "caseAxisMin": 1.630309403257108,
+        "caseAxisMax": 5.26970633258606,
+        "axisOverlap": false
+      },
+      "status": "success",
+      "decision": "No overlap in the phenotype-separating component; source of structure unknown."
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 36,
+        "lambdaGC": 2.2961175481642644,
+        "bonferroniThreshold": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "Unadjusted additive score/trend scan is diagnostic only because of complete structure separation."
+    },
+    {
+      "step_id": 6,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 5.260869565217392,
+        "pValue": 1.8574603256835617e-15
+      },
+      "status": "success",
+      "decision": "rs060001 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 7,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 15.893181818181818,
+        "pValue": 9.487385769046184e-23
+      },
+      "status": "success",
+      "decision": "rs060006 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 8,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.04216216216216216,
+        "pValue": 1.839064567286904e-23
+      },
+      "status": "success",
+      "decision": "rs060009 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 9,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.04975382223373931,
+        "pValue": 9.175565691426656e-21
+      },
+      "status": "success",
+      "decision": "rs060015 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 10,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 13.31532258064516,
+        "pValue": 2.4003590675572706e-24
+      },
+      "status": "success",
+      "decision": "rs060016 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 11,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.06566416040100251,
+        "pValue": 6.687416323646945e-22
+      },
+      "status": "success",
+      "decision": "rs060026 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 12,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.1574165744569332,
+        "pValue": 7.642005827037025e-12
+      },
+      "status": "success",
+      "decision": "rs060030 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 13,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.05699115044247788,
+        "pValue": 3.0266075694610314e-15
+      },
+      "status": "success",
+      "decision": "rs060033 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 14,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 20.120320855614974,
+        "pValue": 1.3869161457815843e-26
+      },
+      "status": "success",
+      "decision": "rs060035 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 15,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 12.285353535353535,
+        "pValue": 5.401609496922802e-23
+      },
+      "status": "success",
+      "decision": "rs060042 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 16,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.18701460080770427,
+        "pValue": 7.455725700076937e-08
+      },
+      "status": "success",
+      "decision": "rs060048 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 17,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 5.709219858156028,
+        "pValue": 1.3631220821964721e-15
+      },
+      "status": "success",
+      "decision": "rs060052 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 18,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 5.379781420765028,
+        "pValue": 1.1923867485877593e-15
+      },
+      "status": "success",
+      "decision": "rs060059 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 19,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 6.776223776223776,
+        "pValue": 1.6250196010949349e-18
+      },
+      "status": "success",
+      "decision": "rs060060 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 20,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.15217391304347827,
+        "pValue": 1.812278748562122e-08
+      },
+      "status": "success",
+      "decision": "rs060064 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 21,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.04956268221574344,
+        "pValue": 2.3101812754928425e-20
+      },
+      "status": "success",
+      "decision": "rs060074 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 22,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.0967741935483871,
+        "pValue": 1.4811964588513778e-11
+      },
+      "status": "success",
+      "decision": "rs060075 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 23,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.10528368102944044,
+        "pValue": 1.1765394433222919e-14
+      },
+      "status": "success",
+      "decision": "rs060086 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 24,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.09710783374832407,
+        "pValue": 2.3571560912735747e-13
+      },
+      "status": "success",
+      "decision": "rs060087 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 25,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.13761467889908258,
+        "pValue": 2.601289338880407e-09
+      },
+      "status": "success",
+      "decision": "rs060088 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 26,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.1392857142857143,
+        "pValue": 9.298229785615603e-11
+      },
+      "status": "success",
+      "decision": "rs060090 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 27,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 8.53885422575156,
+        "pValue": 8.782019877814864e-21
+      },
+      "status": "success",
+      "decision": "rs060095 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 28,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.1410223478037503,
+        "pValue": 2.917889780068745e-08
+      },
+      "status": "success",
+      "decision": "rs060098 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 29,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.11516677155443675,
+        "pValue": 2.8208645302449987e-09
+      },
+      "status": "success",
+      "decision": "rs060099 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 30,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 6.273555502277631,
+        "pValue": 2.7386674175676753e-17
+      },
+      "status": "success",
+      "decision": "rs060103 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 31,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 5.167088607594937,
+        "pValue": 2.433055450276335e-15
+      },
+      "status": "success",
+      "decision": "rs060105 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 32,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.13290585835033517,
+        "pValue": 5.2905360497229045e-14
+      },
+      "status": "success",
+      "decision": "rs060112 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 33,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 7.779503105590062,
+        "pValue": 7.136349643322581e-21
+      },
+      "status": "success",
+      "decision": "rs060113 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 34,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.22157930565010212,
+        "pValue": 1.642821222109533e-06
+      },
+      "status": "success",
+      "decision": "rs060117 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 35,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 7.115702479338843,
+        "pValue": 2.302579613480075e-16
+      },
+      "status": "success",
+      "decision": "rs060120 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 36,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 7.541225122770742,
+        "pValue": 7.178561863118425e-19
+      },
+      "status": "success",
+      "decision": "rs060129 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 37,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.09231651376146789,
+        "pValue": 4.2434638403194716e-17
+      },
+      "status": "success",
+      "decision": "rs060130 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 38,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.0752366716492277,
+        "pValue": 5.924763721683585e-15
+      },
+      "status": "success",
+      "decision": "rs060141 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 39,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 6.080705009276437,
+        "pValue": 6.354095092507601e-16
+      },
+      "status": "success",
+      "decision": "rs060143 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 40,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.10455026455026455,
+        "pValue": 2.12548906941771e-14
+      },
+      "status": "success",
+      "decision": "rs060146 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 41,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.08295964125560538,
+        "pValue": 1.1033032899346644e-15
+      },
+      "status": "success",
+      "decision": "rs060150 unadjusted allelic odds ratio for coded allele; not an adjusted disease effect."
+    },
+    {
+      "step_id": 42,
+      "method_id": "gwas.association_adjusted",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Attempted PC-adjusted logistic null model failed: Singular matrix"
+    },
+    {
+      "step_id": 43,
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nCandidates": 0,
+        "nReplicated": 0,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Empty nominated candidate set evaluated; no replication tests performed, not evidence of failed replication."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "retain after participant exclusions"
+    },
+    {
+      "point": "stratification",
+      "chosen_branch": "structure-separated; raw scan diagnostic, adjusted inference blocked"
+    },
+    {
+      "point": "reporting",
+      "chosen_branch": "no validated disease association; resolve structure before nomination"
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

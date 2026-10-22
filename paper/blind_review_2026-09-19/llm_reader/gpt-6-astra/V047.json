@@ -1,0 +1,45 @@
+{
+ "blind_id": "V047",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the current measurement system as adequate for routine acceptance or interpreting recorded capability indices as established product or process capability.",
+  "Using the released void-area measurements to conclude that bore roughness meets its requirements.",
+  "Inferring that zero recorded out-of-limit observations establishes true product conformity."
+ ],
+ "permitted_at_checkpoint": [
+  "Summarizing the recorded void-area observations and calculating explicitly non-decision-making descriptive indices, without asserting true capability or acceptance.",
+  "Investigating measurement repeatability, checking study execution and calculation assumptions, correcting the measurement system, and repeating its qualification.",
+  "Obtaining the correct roughness measurements and verifying that their measurement system is suitable for the intended decisions.",
+  "Exploring recorded temporal patterns while distinguishing recorded-signal behavior from underlying process stability."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "Descriptive statistics, normality tests, I-MR limits, and normal capability formulas were computed after the failed measurement assessment. The report explicitly limits these to the recorded void-area sequence, withholds acceptance and current-process conclusions, and does not claim comprehensive chart stability. Accordingly, these are restricted descriptions rather than a validated alternative capability route. The quantitative outputs labeled controlStable and meetsSpecification are overly broad if interpreted substantively, but the final report expressly disclaims those interpretations.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Retain the recorded-data summaries as exploratory results only, with no acceptance, stable-capability, or improvement claim.",
+  "Repair or replace the gauge and conduct a representative measurement study before routine substantive use; assess suitability against the intended characteristic, tolerance, and decision risks.",
+  "A measurement-error-adjusted analysis could be considered only with independently justified error-model assumptions, representative validation data, and propagated uncertainty; those conditions are not established here."
+ ],
+ "evidence": [
+  "The final measurement calculation reports percentStudyVariation = 48.80080435259494, percentTolerance = 64.1032688805597, ndc = 2, and measurementAcceptable = false.",
+  "The report states: \"Consequently, the void-fraction results are observations from an unreliable gauge, not confirmed product quality.\"",
+  "The report states: \"More importantly, the failed gauge means these capability figures are conditional descriptions of the recorded data, not evidence that individual joints are acceptable.\"",
+  "The report states: \"I did not evaluate supplemental run or pattern rules, so this is not a broader claim of chart stability.\"",
+  "The first recommendation is: \"**Stop using the current readings as acceptance evidence.**\"",
+  "The submitted profiling step reports roughnessDataAvailable = false and identifies the released characteristic as void fraction rather than bore roughness."
+ ],
+ "rationale": "The reported measurement variation is large relative to both study variation and tolerance, and discrimination is poor. Routine substantive reliance therefore requires correction or an independently validated error-aware route. The report respects this boundary: it presents downstream calculations but expressly withholds their substantive use and recommends measurement correction. The characteristic mismatch independently prevents a roughness conclusion. No narrower public protocol rule is supplied. This assessment concerns the focal measurement checkpoint, not completion of later project stages.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic consistency from supplied outputs: 100 \u00d7 2.6709695366899875 / 5.473208018031287 is approximately 48.80%; 100 \u00d7 6 \u00d7 2.6709695366899875 / 25 is approximately 64.10%; floor(1.41 \u00d7 4.777230132902961 / 2.6709695366899875) is 2. Also, 25 / (6 \u00d7 2.2064225454294992) is approximately 1.8884, consistent with reported Pp. Raw-data estimates, ordering, and distributional tests remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was available for this response; the referenced raw batches and service records were not inspected. Thus the variance estimates and characteristic mismatch could not be independently verified. Blinding was maintained by using only the supplied item, with no external sources or other reviewer outputs. This review was generated by an AI assistant, not a human expert.",
+ "_usage": {
+  "prompt_tokens": 5131,
+  "completion_tokens": 995,
+  "total_tokens": 6126
+ }
+}

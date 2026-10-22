@@ -1,0 +1,70 @@
+{
+  "system_id": "command-line-assistant",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "controlRetained": 6,
+        "treatedRetained": 6,
+        "minAssignedReadsObserved": 9365000,
+        "minMappingRateObserved": 0.876,
+        "requiredReads": 5000000,
+        "requiredMappingRate": 0.7,
+        "requiredReplicates": 3,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "panelGenes": 400
+      },
+      "status": "success",
+      "decision": "All libraries usable; replicate gate passes."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableSamples": 12
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "batchOnlyRank": 2,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      },
+      "status": "success",
+      "decision": "Treatment adds no rank to the batch model; compound effect is not identifiable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicate_gate",
+      "chosen_branch": "pass",
+      "observed": {
+        "min_replicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "confounded_stop",
+      "observed": {
+        "confounded": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

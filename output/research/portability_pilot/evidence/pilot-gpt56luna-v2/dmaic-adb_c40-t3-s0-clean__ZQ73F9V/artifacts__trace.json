@@ -1,0 +1,122 @@
+{
+  "system_id": "openai-api-shell",
+  "task_id": "adb_c40-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableLibraries": 12,
+        "requiredReplicates": 3
+      },
+      "status": "success",
+      "decision": "All libraries passed the stated usability thresholds and the replicate requirement was met."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "usableLibraries": 12
+      },
+      "status": "success",
+      "decision": "Treatment is represented within the preparation batch, so the treatment contrast is estimable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "sample_size": 12,
+        "groups": 2,
+        "genes": 400
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 38,
+        "nGenes": 400,
+        "nControl": 6,
+        "nTreated": 6
+      },
+      "status": "success",
+      "decision": "38 genes met adjusted p < 0.05 and absolute log2 fold change >= 1 under the computed Welch/BH analysis."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "sample_size": 8,
+        "groups": 2,
+        "validatedGenes": 10
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nValidated": 10,
+        "requiredConcordance": 0.75,
+        "replicatesPerArm": 4
+      },
+      "status": "success",
+      "decision": "All 10 tested nominated genes were confirmed in the expected direction at qPCR p < 0.05; the validation threshold was met."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "candidate_genes": 38,
+        "gene_sets": 12,
+        "universe": 400
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "geneSetsTested": 12,
+        "universe": 400,
+        "candidateCount": 38
+      },
+      "status": "success",
+      "decision": "One gene set was significantly enriched after BH adjustment at 0.05: SET03."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "proceed",
+      "observed": {
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "proceed",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation",
+      "chosen_branch": "issue_candidate_list",
+      "observed": {
+        "concordance": 1.0,
+        "nConfirmed": 10
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

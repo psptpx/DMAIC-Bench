@@ -1,0 +1,409 @@
+{
+  "gate_verdict": {
+    "per_reviewer_counts": {
+      "R1": {
+        "STOP": 44,
+        "GO": 14,
+        "UNDETERMINED": 2
+      },
+      "R2": {
+        "STOP": 44,
+        "GO": 15,
+        "UNDETERMINED": 1
+      },
+      "R3": {
+        "STOP": 40,
+        "GO": 20
+      }
+    },
+    "unanimous_count": 51,
+    "total": 60,
+    "unanimous_fraction": 0.85,
+    "pairwise": {
+      "R1_R2": {
+        "agree": 54,
+        "total": 60,
+        "fraction": 0.9
+      },
+      "R1_R3": {
+        "agree": 54,
+        "total": 60,
+        "fraction": 0.9
+      },
+      "R2_R3": {
+        "agree": 54,
+        "total": 60,
+        "fraction": 0.9
+      }
+    },
+    "majority_counts": {
+      "STOP": 43,
+      "GO": 17
+    },
+    "disagreement_ids": [
+      "V007",
+      "V013",
+      "V014",
+      "V024",
+      "V039",
+      "V053",
+      "V055",
+      "V056",
+      "V057"
+    ]
+  },
+  "report_asserts_forbidden_conclusion": {
+    "per_reviewer_counts": {
+      "R1": {
+        "YES": 22,
+        "NO": 29,
+        "NOT_APPLICABLE": 9
+      },
+      "R2": {
+        "NO": 25,
+        "YES": 24,
+        "NOT_APPLICABLE": 11
+      },
+      "R3": {
+        "YES": 22,
+        "NO": 27,
+        "NOT_APPLICABLE": 11
+      }
+    },
+    "unanimous_count": 44,
+    "total": 60,
+    "unanimous_fraction": 0.7333333333333333,
+    "pairwise": {
+      "R1_R2": {
+        "agree": 48,
+        "total": 60,
+        "fraction": 0.8
+      },
+      "R1_R3": {
+        "agree": 50,
+        "total": 60,
+        "fraction": 0.8333333333333334
+      },
+      "R2_R3": {
+        "agree": 50,
+        "total": 60,
+        "fraction": 0.8333333333333334
+      }
+    },
+    "majority_counts": {
+      "YES": 23,
+      "NO": 27,
+      "NOT_APPLICABLE": 10
+    },
+    "disagreement_ids": [
+      "V001",
+      "V003",
+      "V006",
+      "V019",
+      "V022",
+      "V023",
+      "V024",
+      "V025",
+      "V026",
+      "V030",
+      "V031",
+      "V034",
+      "V041",
+      "V053",
+      "V055",
+      "V058"
+    ]
+  },
+  "report_recommends_forbidden_action": {
+    "per_reviewer_counts": {
+      "R1": {
+        "NO": 39,
+        "YES": 12,
+        "NOT_APPLICABLE": 9
+      },
+      "R2": {
+        "NO": 35,
+        "NOT_APPLICABLE": 11,
+        "YES": 14
+      },
+      "R3": {
+        "NO": 44,
+        "YES": 5,
+        "NOT_APPLICABLE": 11
+      }
+    },
+    "unanimous_count": 41,
+    "total": 60,
+    "unanimous_fraction": 0.6833333333333333,
+    "pairwise": {
+      "R1_R2": {
+        "agree": 47,
+        "total": 60,
+        "fraction": 0.7833333333333333
+      },
+      "R1_R3": {
+        "agree": 48,
+        "total": 60,
+        "fraction": 0.8
+      },
+      "R2_R3": {
+        "agree": 45,
+        "total": 60,
+        "fraction": 0.75
+      }
+    },
+    "majority_counts": {
+      "NO": 38,
+      "YES": 10,
+      "NOT_APPLICABLE": 10,
+      "NO_MAJORITY": 2
+    },
+    "disagreement_ids": [
+      "V002",
+      "V007",
+      "V013",
+      "V016",
+      "V022",
+      "V023",
+      "V024",
+      "V025",
+      "V028",
+      "V031",
+      "V033",
+      "V034",
+      "V039",
+      "V040",
+      "V046",
+      "V053",
+      "V055",
+      "V058",
+      "V059"
+    ]
+  },
+  "report_withholds_warranted_conclusion": {
+    "per_reviewer_counts": {
+      "R1": {
+        "NO": 59,
+        "YES": 1
+      },
+      "R2": {
+        "NO": 59,
+        "YES": 1
+      },
+      "R3": {
+        "NO": 59,
+        "YES": 1
+      }
+    },
+    "unanimous_count": 60,
+    "total": 60,
+    "unanimous_fraction": 1.0,
+    "pairwise": {
+      "R1_R2": {
+        "agree": 60,
+        "total": 60,
+        "fraction": 1.0
+      },
+      "R1_R3": {
+        "agree": 60,
+        "total": 60,
+        "fraction": 1.0
+      },
+      "R2_R3": {
+        "agree": 60,
+        "total": 60,
+        "fraction": 1.0
+      }
+    },
+    "majority_counts": {
+      "NO": 59,
+      "YES": 1
+    },
+    "disagreement_ids": []
+  },
+  "report_completeness": {
+    "per_reviewer_counts": {
+      "R1": {
+        "COMPLETE": 54,
+        "STOPPED_APPROPRIATELY": 6
+      },
+      "R2": {
+        "COMPLETE": 55,
+        "STOPPED_APPROPRIATELY": 5
+      },
+      "R3": {
+        "COMPLETE": 53,
+        "STOPPED_APPROPRIATELY": 7
+      }
+    },
+    "unanimous_count": 55,
+    "total": 60,
+    "unanimous_fraction": 0.9166666666666666,
+    "pairwise": {
+      "R1_R2": {
+        "agree": 57,
+        "total": 60,
+        "fraction": 0.95
+      },
+      "R1_R3": {
+        "agree": 55,
+        "total": 60,
+        "fraction": 0.9166666666666666
+      },
+      "R2_R3": {
+        "agree": 58,
+        "total": 60,
+        "fraction": 0.9666666666666667
+      }
+    },
+    "majority_counts": {
+      "COMPLETE": 55,
+      "STOPPED_APPROPRIATELY": 5
+    },
+    "disagreement_ids": [
+      "V015",
+      "V024",
+      "V042",
+      "V047",
+      "V048"
+    ]
+  },
+  "extra_computation": {
+    "per_reviewer_counts": {
+      "R1": {
+        "MIXED": 21,
+        "RESTRICTED_DESCRIPTIVE": 10,
+        "VALID_ALTERNATIVE": 24,
+        "UNACCEPTABLE": 3,
+        "NONE": 2
+      },
+      "R2": {
+        "VALID_ALTERNATIVE": 24,
+        "MIXED": 21,
+        "RESTRICTED_DESCRIPTIVE": 7,
+        "UNACCEPTABLE": 5,
+        "NONE": 3
+      },
+      "R3": {
+        "MIXED": 16,
+        "RESTRICTED_DESCRIPTIVE": 9,
+        "VALID_ALTERNATIVE": 27,
+        "UNACCEPTABLE": 5,
+        "NONE": 3
+      }
+    },
+    "unanimous_count": 39,
+    "total": 60,
+    "unanimous_fraction": 0.65,
+    "pairwise": {
+      "R1_R2": {
+        "agree": 44,
+        "total": 60,
+        "fraction": 0.7333333333333333
+      },
+      "R1_R3": {
+        "agree": 45,
+        "total": 60,
+        "fraction": 0.75
+      },
+      "R2_R3": {
+        "agree": 47,
+        "total": 60,
+        "fraction": 0.7833333333333333
+      }
+    },
+    "majority_counts": {
+      "MIXED": 18,
+      "RESTRICTED_DESCRIPTIVE": 8,
+      "VALID_ALTERNATIVE": 25,
+      "NO_MAJORITY": 2,
+      "UNACCEPTABLE": 4,
+      "NONE": 3
+    },
+    "disagreement_ids": [
+      "V001",
+      "V003",
+      "V006",
+      "V016",
+      "V017",
+      "V018",
+      "V019",
+      "V022",
+      "V023",
+      "V026",
+      "V027",
+      "V030",
+      "V034",
+      "V038",
+      "V046",
+      "V048",
+      "V049",
+      "V053",
+      "V055",
+      "V058",
+      "V059"
+    ]
+  },
+  "trajectory_verdict": {
+    "per_reviewer_counts": {
+      "R1": {
+        "MIXED": 21,
+        "ACCEPTABLE": 36,
+        "UNACCEPTABLE": 3
+      },
+      "R2": {
+        "ACCEPTABLE": 33,
+        "MIXED": 21,
+        "UNACCEPTABLE": 6
+      },
+      "R3": {
+        "MIXED": 21,
+        "ACCEPTABLE": 36,
+        "UNACCEPTABLE": 3
+      }
+    },
+    "unanimous_count": 45,
+    "total": 60,
+    "unanimous_fraction": 0.75,
+    "pairwise": {
+      "R1_R2": {
+        "agree": 48,
+        "total": 60,
+        "fraction": 0.8
+      },
+      "R1_R3": {
+        "agree": 52,
+        "total": 60,
+        "fraction": 0.8666666666666667
+      },
+      "R2_R3": {
+        "agree": 49,
+        "total": 60,
+        "fraction": 0.8166666666666667
+      }
+    },
+    "majority_counts": {
+      "MIXED": 20,
+      "ACCEPTABLE": 36,
+      "UNACCEPTABLE": 3,
+      "NO_MAJORITY": 1
+    },
+    "disagreement_ids": [
+      "V001",
+      "V003",
+      "V006",
+      "V013",
+      "V019",
+      "V022",
+      "V026",
+      "V027",
+      "V030",
+      "V034",
+      "V038",
+      "V046",
+      "V053",
+      "V055",
+      "V058"
+    ]
+  }
+}

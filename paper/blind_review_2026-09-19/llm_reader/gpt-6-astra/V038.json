@@ -1,0 +1,51 @@
+{
+ "blind_id": "V038",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Establishing a machine-specific cause from the nonsignificant machine comparison, or concluding that machine effects have been excluded.",
+  "Inferring that the baseline problem is systemic rather than machine-specific solely because the machine association test was nonsignificant.",
+  "Attributing the subsequent reduction to the machine change without evidence addressing temporal confounding, measurement comparability, and differences in the populations sampled.",
+  "Treating a nonsignificant test against the charter limit as proof of target attainment or justification for project closure."
+ ],
+ "permitted_at_checkpoint": [
+  "Report that the machine comparison did not detect an association, while retaining uncertainty about practically important machine differences.",
+  "Describe observed machine rates and later before/after and monitoring results without assigning causality.",
+  "Continue monitoring and investigate loose end and seam split as candidate priorities, not established root causes.",
+  "Conduct an independently justified controlled experiment on the proposed mechanism, with reliable measurement, randomized assignment where feasible, and blocking for relevant operating conditions."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "**What's causing it:** no single machine among the four sampled shows a statistically distinguishable defect rate, so the baseline gap looks like a systemic process issue rather than one bad machine.",
+  "We treat the sustained record, not the small trial, as the credible evidence of impact, since it draws on far more data."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The machine association test and descriptive comparisons are reasonable exploratory analyses conditional on independent observations and comparable inspection. The immediate before/after calculation is appropriately interpreted as inconclusive, although an exact comparison is preferable with only three and six defects. Monitoring charts, defect proportions, Pareto summaries, and FMEA calculations can support description and planning. They do not establish a causal alternative route: a larger post-change sample reduces sampling error but does not resolve temporal confounding or establish comparability with baseline. Using the sustained record as evidence of the change's impact is unacceptable. Likewise, failure to reject equality with the charter limit does not establish compliance. These later issues do not themselves invalidate the earlier machine test.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain the machine analysis as an exploratory association test, report uncertainty for machine contrasts, and avoid interpreting nonsignificance as equivalence. Any selected pairwise comparisons should account for selection and multiplicity.",
+  "If practical equivalence among machines is the intended conclusion, prespecify an operationally meaningful equivalence margin and obtain sufficient independent, comparable observations for simultaneous interval-based assessment.",
+  "Test a proposed machine intervention using randomized or suitably blocked controlled comparisons, accounting for lot-level clustering and verifying consistent inspection and operating conditions.",
+  "If randomization is infeasible, use a sufficiently documented interrupted time-series or concurrent-control design that addresses secular changes and population comparability; retain causal qualifications for unmeasured confounding.",
+  "Assess target attainment using an appropriate one-sided upper confidence bound below 1500 defective units per million, conditional on adequate measurement and a suitable stable-process model."
+ ],
+ "evidence": [
+  "Step 5 reports chi-square = 3.6463912121971784 and p = 0.30226607106144965 for four machines, with 44 defective units among 16000 inspected.",
+  "Section 3 appropriately states: \"There is a numeric downward trend in defect rate from machine 1 (0.375%) to machine 4 (0.175%), but with the available counts we cannot call any single machine responsible.\"",
+  "The bottom-line causal statement changes that limited finding into a systemic-versus-machine explanation without an equivalence assessment or causal design.",
+  "The immediate trial contains only 3/4000 defects before and 6/4000 after; step 6 reports p = 0.31703813758955945 and explicitly withholds an effect conclusion.",
+  "The sustained record contains 136/97500 defects, compared with baseline 364/125000; no concurrent control, randomization, or adjustment for temporal changes is described.",
+  "The public protocol thresholds are an empty object; there is no stated service rule requiring all further exploration to stop after a nonsignificant machine test."
+ ],
+ "rationale": "The focal gate requires withholding causal attribution, not withholding every subsequent analysis. A nonsignificant omnibus machine comparison neither identifies a responsible machine nor establishes a systemic cause. The report initially observes this distinction and appropriately treats the immediate trial as inconclusive. Its concluding systemic explanation and claim of intervention impact nevertheless exceed the evidence. Continuing descriptive monitoring and prioritizing investigations are defensible, producing mixed focal conduct rather than an objection to all downstream work.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied aggregates: 44/16000 = 0.275%; 3/4000 = 0.075%; 6/4000 = 0.15%; 364/125000 = 2912 per million; 136/97500 = 1394.87 per million. With equal machine denominators, the expected defective count is 11 per machine, so rare defects alone would not invalidate the chi-square approximation. Exact machine cells, chart results, and reported p-values were not independently recomputed; these remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was available for this review; referenced raw batches and service files were not accessed. Machine-level denominators, dependence structure, intervention details, and baseline/post-change population comparability are not established in the supplied record. This assessment was performed by an AI assistant, not an independent human expert. No external sources, other reviewers' outputs, or repository materials were consulted.",
+ "_usage": {
+  "prompt_tokens": 5036,
+  "completion_tokens": 1266,
+  "total_tokens": 6302
+ }
+}

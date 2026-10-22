@@ -1,0 +1,230 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 23.877330782711752,
+        "percentTolerance": 14.719001760327423,
+        "ndc": 5.0,
+        "interactionPValue": 0.3881626345241282,
+        "repeatVariance": 8.451309401708987e-05,
+        "operatorVariance": 1.177535612536426e-05,
+        "interactionVariance": 0.0,
+        "partVariance": 0.0015926065286484402
+      },
+      "status": "success",
+      "decision": "Crossed random-effects ANOVA; pool interaction when p >= .05.",
+      "inputs_digest": {
+        "batch": "msa",
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 25.001499999999997,
+        "flaggedXBarCount": 0.0,
+        "rBar": 0.09446400000000053,
+        "xbarLCL": 24.946994271999998,
+        "xbarUCL": 25.056005727999995,
+        "rLCL": 0.0,
+        "rUCL": 0.19969689600000112,
+        "flaggedRCount": 0.0
+      },
+      "status": "success",
+      "decision": "diameter; point beyond three-sigma limits rule.",
+      "inputs_digest": {
+        "batch": "run_diameter",
+        "groups": 25,
+        "subgroup_size": 5
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.7101928709820751,
+        "statistic": 0.2587813343726708
+      },
+      "status": "success",
+      "decision": "diameter Anderson-Darling normality with estimated mean and variance.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 4,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.6415424570912225,
+        "cpk": 1.629230888663067,
+        "pp": 1.6111497676198057,
+        "ppk": 1.5990661443626852,
+        "mean": 25.001499999999997,
+        "stdDev": 0.041378317526094964,
+        "withinSigma": 0.04061220980223582,
+        "lsl": 24.8,
+        "usl": 25.2,
+        "target": 25.0,
+        "sampleSize": 125.0,
+        "outsideCount": 0.0
+      },
+      "status": "success",
+      "decision": "diameter; within sigma Rbar/d2, overall sample SD; preliminary single-run capability.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 5,
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 1.3917704,
+        "flaggedXBarCount": 0.0,
+        "rBar": 0.22256000000000004,
+        "xbarLCL": 1.26335328,
+        "xbarUCL": 1.52018752,
+        "rLCL": 0.0,
+        "rUCL": 0.47049184000000005,
+        "flaggedRCount": 1.0
+      },
+      "status": "success",
+      "decision": "thickness; point beyond three-sigma limits rule.",
+      "inputs_digest": {
+        "batch": "run_thickness",
+        "groups": 25,
+        "subgroup_size": 5
+      }
+    },
+    {
+      "step_id": 6,
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.46709947065677243,
+        "statistic": 0.35017560811203907
+      },
+      "status": "success",
+      "decision": "thickness Anderson-Darling normality with estimated mean and variance.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 7,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.6967409537502998,
+        "cpk": 0.6680714569853823,
+        "pp": 0.723226262306724,
+        "ppk": 0.6934669480653267,
+        "mean": 1.3917704,
+        "stdDev": 0.09217954344472216,
+        "withinSigma": 0.0956835769561479,
+        "lsl": 1.2,
+        "usl": 1.6,
+        "target": 1.4,
+        "sampleSize": 125.0,
+        "outsideCount": 6.0
+      },
+      "status": "success",
+      "decision": "thickness; within sigma Rbar/d2, overall sample SD; preliminary single-run capability.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 8,
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.3485506170649121,
+        "statistic": 1.1205767867463987
+      },
+      "status": "success",
+      "decision": "Brown-Forsythe fixture variance test.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 9,
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 0.03142159868435731,
+        "fStatistic": 3.1640871508843262,
+        "fixtureMean1": 24.976979999999994,
+        "fixtureMean2": 24.997453333333333,
+        "fixtureMean3": 25.00966,
+        "fixtureMean4": 25.002866666666666
+      },
+      "status": "success",
+      "decision": "Diameter by fixture; ordinary one-way ANOVA.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 10,
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.7019980688840588,
+        "pValue": 4.121164437791441e-10
+      },
+      "status": "success",
+      "decision": "Pressure versus thickness observational Pearson association.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 11,
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 4.1211644377914775e-10,
+        "rSquaredPct": 49.280128871694764,
+        "rSquaredAdjPct": 48.40564833499985,
+        "intercept": 1.1899916469446306,
+        "slope": 0.05529391003857327,
+        "residualSD": 0.059288210920480894,
+        "sampleSize": 60.0
+      },
+      "status": "success",
+      "decision": "Observational linear regression; not causal evidence.",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 12,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "maxRangeSubgroup": 11.0,
+        "maxRange": 0.47409999999999997
+      },
+      "status": "success",
+      "decision": "Locate thickness range signal.",
+      "inputs_digest": {}
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement",
+      "chosen_branch": "conditional_use",
+      "observed": {
+        "percentStudyVariation": 23.877330782711752,
+        "percentTolerance": 14.719001760327423,
+        "ndc": 5.0,
+        "interactionPValue": 0.3881626345241282,
+        "repeatVariance": 8.451309401708987e-05,
+        "operatorVariance": 1.177535612536426e-05,
+        "interactionVariance": 0.0,
+        "partVariance": 0.0015926065286484402
+      }
+    },
+    {
+      "point": "project_priority",
+      "chosen_branch": "thickness_variation_and_stability_before_optimization",
+      "observed": {
+        "diameterCpk": 1.629230888663067,
+        "thicknessCpk": 0.6680714569853823,
+        "thicknessRangeSignals": 1.0
+      }
+    },
+    {
+      "point": "causal_followup",
+      "chosen_branch": "controlled_pressure_investigation_not_fixture_led_project",
+      "observed": {
+        "pressureCorrelation": 0.7019980688840588
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

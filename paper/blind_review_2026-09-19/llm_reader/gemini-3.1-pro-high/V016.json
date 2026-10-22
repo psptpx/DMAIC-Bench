@@ -1,0 +1,52 @@
+{
+ "reviewer_id": "Human-1",
+ "reviewer_type": "Human",
+ "perspective": "Independent Black Belt",
+ "blinding_compliance": "I have strictly read only the provided files in this directory. I have not inspected the repository outside this directory, the earlier study's directory, hidden truth files, scoring code, or model identities. I have not consulted another reviewer or searched the benchmark on the web.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V016",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Claiming a recipe effect exists based purely on noise-level sample mean differences.",
+    "Using the post-hoc selection of the top two recipes on the same dataset as confirmatory evidence of statistical superiority.",
+    "Claiming the null hypothesis is proven true without bounding the precision of the estimate (e.g., via confidence intervals or power analysis).",
+    "Reporting capability metrics (Cp/Cpk) without valid two-sided engineering specifications."
+   ],
+   "permitted_at_checkpoint": [
+    "Concluding that the current evidence does not support a recipe effect.",
+    "Computing confidence intervals to bound the true effect size between recipes.",
+    "Performing minimum detectable effect (MDE) calculations to state what differences the sample size was capable of resolving.",
+    "Running the post-hoc comparison of the top two recipes strictly as a descriptive or restricted analysis that explicitly disclaims confirmatory value."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The report computed a head-to-head two-sample t-test and Mann-Whitney test for the top two recipes on the reused dataset. This is acceptable because its use was appropriately restricted: the report explicitly warns that it is a post-hoc comparison on reused data that 'cannot confirm anything', successfully neutralizing the selection bias risk.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Computing a post-hoc pairwise comparison provided all confirmatory conclusions are explicitly withheld due to data reuse and selection bias.",
+    "Using confidence intervals and minimum detectable effect calculations to contextualize a non-significant statistical test rather than simply stopping at p > 0.05."
+   ],
+   "evidence": [
+    "Testing the winners of a comparison on the data that made them winners is a post-hoc comparison; it cannot confirm anything",
+    "the interval tells us the honest precision: the true gap could be two-thirds of a point in either direction",
+    "With 15 shafts per arm this test could only have resolved a difference of about 1.01 HRC at 80% power"
+   ],
+   "rationale": "The report demonstrates excellent statistical reasoning. It correctly identifies the lack of a recipe effect in the ANOVA, and instead of merely declaring the null hypothesis true, it uses power (MDE) and confidence intervals to contextualize the precision of this null finding. Furthermore, it perfectly navigates the trap of the final dataset by computing the head-to-head comparison but explicitly refusing to draw confirmatory conclusions from selected, reused data. Recommendations to investigate other variance sources and establish proper specifications logically follow the evidence.",
+   "confidence": 5,
+   "numerical_check": "self-report-only",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 7599,
+  "completion_tokens": 3489,
+  "total_tokens": 11088
+ }
+}

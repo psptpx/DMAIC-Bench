@@ -1,0 +1,77 @@
+{
+  "system_id": "openai-cli",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2,
+        "thresholds": "assignedReads>=5000000 and mappingRate>=0.70"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "usableControl": 4,
+        "usableTreated": 4,
+        "minRequiredReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "panelGenes": 400
+      },
+      "status": "success",
+      "decision": "QC passes the replicate gate: 4 usable replicates remain in each arm, above the required minimum of 3."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 8,
+        "groups": 2,
+        "usable_libraries_only": true
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2
+      },
+      "status": "success",
+      "decision": "The usable control arm is entirely in L1 and the usable treated arm is entirely in L2; arm and preparation batch are confounded."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "requested_batch": "counts",
+        "reason_not_run": "design_identifiable gate rejected confounded=true"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-level counts were not released because the design-identifiability gate requires confounded=false; no differential-expression result was computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "usable_replicates_gate",
+      "chosen_branch": "proceed_to_sample_sheet",
+      "observed": {
+        "minReplicates": 4,
+        "required": 3
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "stop_expression_route",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

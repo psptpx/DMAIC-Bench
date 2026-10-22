@@ -1,0 +1,129 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesRetained": 239,
+        "samplesTotal": 240,
+        "variantsTotal": 150,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119,
+        "sampleFailPercent": 0.4166666666666667
+      },
+      "status": "success",
+      "decision": "Plate accepted"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 4,
+        "bonferroniThreshold": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "Sequential QC after participant filtering; exact two-sided control HWE"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 0.46719033045995384,
+        "pc1VarianceFraction": 0.1267598854852536,
+        "pc1CaseMin": -5.882484502704806,
+        "pc1CaseMax": 6.428508635090744,
+        "pc1ControlMin": -6.259346316097512,
+        "pc1ControlMax": 6.267420604639727,
+        "pc2PValue": 1.0773321365251674e-140,
+        "pc2VarianceFraction": 0.08615889081444414,
+        "pc2CaseMin": 1.630309403257108,
+        "pc2CaseMax": 5.26970633258606,
+        "pc2ControlMin": -5.599559851829679,
+        "pc2ControlMax": -0.3457485864390697,
+        "pc3PValue": 0.9324147659946753,
+        "pc3VarianceFraction": 0.018138358846731678,
+        "pc3CaseMin": -3.564010105276282,
+        "pc3CaseMax": 3.1843217409116633,
+        "pc3ControlMin": -5.0936064895075335,
+        "pc3ControlMax": 5.041661195748593,
+        "pc4PValue": 0.8862039091026457,
+        "pc4VarianceFraction": 0.017775380359830437,
+        "pc4CaseMin": -2.830499867294346,
+        "pc4CaseMax": 3.638920590874307,
+        "pc4ControlMin": -5.498093741413611,
+        "pc4ControlMax": 4.8128256785876715,
+        "pc5PValue": 0.9633624430428636,
+        "pc5VarianceFraction": 0.016777988504343855,
+        "pc5CaseMin": -3.253747008640649,
+        "pc5CaseMax": 3.579917752689269,
+        "pc5ControlMin": -4.407556480008335,
+        "pc5ControlMax": 5.28883576885443,
+        "pc6PValue": 0.8138618509905227,
+        "pc6VarianceFraction": 0.01602999132833916,
+        "pc6CaseMin": -3.1113360772295926,
+        "pc6CaseMax": 3.4119747185303932,
+        "pc6ControlMin": -6.363663904896712,
+        "pc6ControlMax": 4.728755648781586,
+        "pc7PValue": 0.9321119263486028,
+        "pc7VarianceFraction": 0.015522105033982311,
+        "pc7CaseMin": -3.8756476495423957,
+        "pc7CaseMax": 3.4875086738082834,
+        "pc7ControlMin": -4.919583657740679,
+        "pc7ControlMax": 3.713503840104789,
+        "pc8PValue": 0.8844394219788687,
+        "pc8VarianceFraction": 0.01506123887601129,
+        "pc8CaseMin": -4.599678819723576,
+        "pc8CaseMax": 4.420615143207021,
+        "pc8ControlMin": -4.784965194436852,
+        "pc8ControlMax": 3.4823645664817606,
+        "pc9PValue": 0.8427282523811982,
+        "pc9VarianceFraction": 0.014901876762960599,
+        "pc9CaseMin": -3.846942665478661,
+        "pc9CaseMax": 4.074835915922949,
+        "pc9ControlMin": -3.785205347185752,
+        "pc9ControlMax": 3.683437888999556,
+        "pc10PValue": 0.770568984175533,
+        "pc10VarianceFraction": 0.014814338613125857,
+        "pc10CaseMin": -3.288081766233579,
+        "pc10CaseMax": 3.062149992302805,
+        "pc10ControlMin": -4.507426144734963,
+        "pc10ControlMax": 5.3823065187602905,
+        "separated": true,
+        "separatedAxis": 2
+      },
+      "status": "success",
+      "decision": "STOP: complete separation on the second leading ancestry axis; no valid case-control comparison. First axis alone would miss this."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_acceptance",
+      "chosen_branch": "pass",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "stop_no_ancestry_overlap",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 2
+      }
+    },
+    {
+      "point": "association_and_replication",
+      "chosen_branch": "not_run_protocol_stop"
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

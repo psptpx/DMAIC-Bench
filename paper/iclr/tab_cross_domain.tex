@@ -1,0 +1,31 @@
+\begin{table}[H]
+\caption{\textbf{Cross-domain evaluation.} Correct/graded decisions in RNA-seq and GWAS.}
+\label{tab:cross-domain}
+\centering
+\small
+\setlength{\tabcolsep}{2pt}
+\begin{minipage}[t]{0.51\linewidth}
+\textbf{(a) Protocol: three attempts}\par\smallskip
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr@{}}
+\toprule
+\textbf{Agent} & \textbf{NO-GO} & \textbf{DIVERT} & \textbf{GO} \\
+\midrule
+\logo{openai.png}GPT-6-astra & 22/24 & 12/12 & 102/102 \\
+\logo{openai.png}GPT-5.6-sol & 23/24 & 11/12 & 96/102 \\
+\logo{openai.png}GPT-5.6-luna & 17/24 & 6/12 & 90/102 \\
+\bottomrule
+\end{tabular*}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.46\linewidth}
+\textbf{(b) NO-GO: first attempt}\par\smallskip
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrr@{}}
+\toprule
+\textbf{Domain} & \textbf{Protocol} & \textbf{Thresholds} \\
+\midrule
+RNA-seq & 12/12 & 12/12 \\
+GWAS & 8/12 & 5/12 \\
+GWAS structure & 4/6 & 0/6 \\
+\bottomrule
+\end{tabular*}
+\end{minipage}
+\end{table}

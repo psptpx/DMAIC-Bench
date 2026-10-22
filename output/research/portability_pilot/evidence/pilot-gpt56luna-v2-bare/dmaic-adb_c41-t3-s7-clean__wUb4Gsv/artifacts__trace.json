@@ -1,0 +1,141 @@
+{
+  "system_id": "openai-command-line",
+  "task_id": "adb_c41-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "platePass": true,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "participants": 240,
+        "sampleRetainedCount": 237
+      },
+      "status": "success",
+      "decision": "Plate passes the protocol re-genotyping threshold."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06,
+        "variants": 150
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call rate, MAF, and control-HWE rules."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "affected": 120,
+        "unaffected": 120,
+        "retainedVariants": 139
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.9141523793512716,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "affected": 120,
+        "unaffected": 120
+      },
+      "status": "success",
+      "decision": "One retained variant reaches the Bonferroni threshold."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "candidate": "rs070008"
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.403020306872863
+      },
+      "status": "success",
+      "decision": "rs070008 has a risk-direction discovery effect."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "candidate": "rs070008"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "sampleRetainedCount": 120,
+        "minSampleCallRate": 0.95,
+        "participants": 120
+      },
+      "status": "success",
+      "decision": "Replication participant call-rate results computed."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidate": "rs070008"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 1,
+        "replicationPValue": 0.5374794553122432,
+        "sameDirection": true,
+        "replicationAlpha": 0.05,
+        "candidateCallRate": 0.9916666666666667
+      },
+      "status": "success",
+      "decision": "The candidate has the same direction, but replication requires p < 0.05 and this candidate does not meet it."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_gate",
+      "chosen_branch": "plate_pass",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "discovery_hits",
+      "chosen_branch": "nominate_rs070008",
+      "observed": {
+        "nSignificant": 1
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "replication_does_not_support_reporting",
+      "observed": {
+        "nReplicated": 0,
+        "replicationPValue": 0.5374794553122432
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

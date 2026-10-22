@@ -1,0 +1,152 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "source": "define.json"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 45.0,
+        "required_level": 55.0
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 52.348499999999994,
+        "median": 52.81,
+        "stdDev": 3.814668755195451,
+        "skewness": -0.09758455039222448,
+        "count_below_lsl": 1,
+        "prop_below_lsl": 0.016666666666666666,
+        "count_below_req": 45,
+        "prop_below_req": 0.75,
+        "n": 60
+      },
+      "status": "success",
+      "decision": "baseline seal strength is near normal and weakly left-skewed; counts below lower spec and required target recorded."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.2233611443449478,
+        "pValue": 0.8943298857316169
+      },
+      "status": "success",
+      "decision": "no evidence against normality at conventional significance levels."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 63.38302939055174,
+        "individualsLCL": 41.31397060944825,
+        "centerLine": 52.348499999999994,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "no baseline seal strength values fall outside individual chart control limits."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.6659549981616891,
+        "cpk": 0.6659549981616891,
+        "pp": 0.642126527149667,
+        "ppk": 0.642126527149667
+      },
+      "status": "success",
+      "decision": "process appears incapable at the lower specification limit and well below the commitment target."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60,
+        "threshold": 45.0,
+        "test": "one_sample_t_above_lsl"
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": 14.92167207485199,
+        "pValue": 5.447898601626416e-22
+      },
+      "status": "success",
+      "decision": "mean seal strength is significantly above the 45 N lower specification."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60,
+        "threshold": 55.0,
+        "test": "one_sample_t_above_required_level"
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": -5.384066613114264,
+        "pValue": 0.9999993379552029
+      },
+      "status": "success",
+      "decision": "mean seal strength is not significantly above the 55 N required level."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "screening_run",
+        "sample_size": 16,
+        "factors": [
+          "bond_angle",
+          "bead_spacing",
+          "cure_temperature"
+        ]
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.8335162744870344,
+        "rSquaredPct": 29.04638018576381,
+        "fStatistic": 0.46785298842193696,
+        "minEffectPValue": 0.28690558295656854,
+        "residualMSE": 0.9983951250000008
+      },
+      "status": "success",
+      "decision": "the full factorial model is not significant; none of the three screened settings accounts for seal strength variation."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "screening_significant",
+      "chosen_branch": "any_factor_significant=false",
+      "observed": {
+        "screeningModelPValue": 0.8335162744870344,
+        "screeningRSquaredPct": 29.04638018576381,
+        "minEffectPValue": 0.28690558295656854
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

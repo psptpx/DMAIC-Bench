@@ -1,0 +1,91 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 119,
+        "unaffectedRetained": 119
+      },
+      "status": "success",
+      "decision": "Plate acceptable"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 3
+      },
+      "status": "success",
+      "decision": "Retain variants passing all rules; exact HWE among controls"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 3.654069761192594e-129,
+        "pc1VarianceFraction": 0.09427730354730536,
+        "pc1RangeOverlap": -1.7896160275164148,
+        "pc2PValue": 0.9616873381192446,
+        "pc2VarianceFraction": 0.02122670834927795,
+        "pc2RangeOverlap": 8.388676460077434,
+        "pc3PValue": 0.9194311954222976,
+        "pc3VarianceFraction": 0.01884049202832686,
+        "pc3RangeOverlap": 8.124769998682536,
+        "pc4PValue": 0.9962081725038585,
+        "pc4VarianceFraction": 0.01880817147909825,
+        "pc4RangeOverlap": 6.794642230494292,
+        "pc5PValue": 0.9538846113531503,
+        "pc5VarianceFraction": 0.018483035473348144,
+        "pc5RangeOverlap": 7.484707436782907,
+        "pc6PValue": 0.9498825989622923,
+        "pc6VarianceFraction": 0.01796333679583493,
+        "pc6RangeOverlap": 7.613113059842181,
+        "pc7PValue": 0.8848437663841419,
+        "pc7VarianceFraction": 0.01738677987123952,
+        "pc7RangeOverlap": 6.464847077976049,
+        "pc8PValue": 0.8914299928318197,
+        "pc8VarianceFraction": 0.017133217076587205,
+        "pc8RangeOverlap": 7.110668962384455,
+        "pc9PValue": 0.9460711645034293,
+        "pc9VarianceFraction": 0.01671934111605059,
+        "pc9RangeOverlap": 8.031159374170056,
+        "pc10PValue": 0.7931982797622781,
+        "pc10VarianceFraction": 0.01633642782471657,
+        "pc10RangeOverlap": 6.974334516971696,
+        "separated": true,
+        "separatedAxis": 1
+      },
+      "status": "success",
+      "decision": "Standardized mean-imputed retained genotypes PCA; Welch group tests and range overlap on leading axes"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_quality",
+      "chosen_branch": "retain_plate",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "stop_before_association",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 3.654069761192594e-129
+      }
+    }
+  ],
+  "turns": 0
+}

@@ -1,0 +1,53 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "method_id": "qc.sample_qc",
+      "status": "success",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "controlUsable": 4,
+        "treatedUsable": 4
+      },
+      "decision": "Apply both library thresholds; excluded S05, S06, S07, S08"
+    },
+    {
+      "method_id": "design.identifiability",
+      "status": "success",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "control_L1": 4,
+        "treated_L2": 4
+      },
+      "decision": "QC-retained treatment indicator equals batch indicator; separate treatment effect is not estimable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "pass",
+      "observed": {
+        "control": 4,
+        "treated": 4
+      }
+    },
+    {
+      "point": "identifiability",
+      "chosen_branch": "confounded",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "control_L1": 4,
+        "treated_L2": 4
+      }
+    }
+  ],
+  "turns": 0
+}

@@ -1,0 +1,57 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_count": 240,
+        "variant_count": 150,
+        "phenotype_groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "sampleFailPercent": 12.916666666666668,
+        "samplesRetained": 209,
+        "affectedFailed": 17,
+        "unaffectedFailed": 14,
+        "affectedPassing": 103,
+        "unaffectedPassing": 106,
+        "sampleCount": 240,
+        "variantCountInput": 150,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "minimumObservedCallRate": 0.5066666666666667,
+        "maximumObservedCallRate": 1.0,
+        "plateCanProceed": false
+      },
+      "status": "success",
+      "decision": "Plate cannot proceed: the computed participant failure fraction exceeds the protocol maximum; re-genotyping is required before variant QC or inferential analysis."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "participant_qc_plate_gate",
+      "chosen_branch": "stop_and_regenotype",
+      "observed": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "maxSampleFailFraction": 0.1,
+        "plateCanProceed": false
+      }
+    },
+    {
+      "point": "downstream_analysis",
+      "chosen_branch": "not_run_on_failed_plate",
+      "observed": {
+        "plateCanProceed": false
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

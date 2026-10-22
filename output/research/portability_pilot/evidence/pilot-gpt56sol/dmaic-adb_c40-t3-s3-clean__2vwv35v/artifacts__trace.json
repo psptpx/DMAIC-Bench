@@ -1,0 +1,69 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleCount": 12,
+        "groupCount": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "totalLibraries": 12,
+        "failedSamples": 4,
+        "usableControl": 6,
+        "usableTreated": 2,
+        "minReplicates": 2,
+        "requiredMinReplicates": 3,
+        "replicatesSufficient": false,
+        "readDepthFailures": 2,
+        "mappingRateFailures": 2
+      },
+      "status": "success",
+      "decision": "QC failed the replicate gate: the treated arm retained fewer usable libraries than required."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Sample sheet was locked because the replicate-sufficiency gate failed; batch confounding could not be computed."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "gene-level read counts"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Counts were locked behind the unavailable sample-sheet/design stage; no gene-level model or calls were computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "stop_and_resequence",
+      "observed": {
+        "minReplicates": 2,
+        "requiredMinReplicates": 3,
+        "replicatesSufficient": false
+      }
+    },
+    {
+      "point": "design_and_expression_release",
+      "chosen_branch": "blocked",
+      "observed": {
+        "replicatesSufficient": false
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

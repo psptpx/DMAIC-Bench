@@ -1,0 +1,148 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 118,
+        "unaffectedRetained": 120,
+        "sampleCallRateThreshold": 0.95,
+        "plateFailFractionLimit": 0.1,
+        "plateUsable": true
+      },
+      "status": "success",
+      "decision": "Plate may proceed; exclude P011 and P120."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedSamples": 238,
+        "variants": 150,
+        "controlSamples": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 3,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweControlPThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call rate, pooled MAF, and exact control-only HWE criteria."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "retainedSamples": 238,
+        "retainedVariants": 138
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation could not run because the requested software dependency was unavailable; no result was produced."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "retainedSamples": 238,
+        "retainedVariants": 138,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 4.0403632009987195e-15,
+        "pc1Statistic": -8.4059792021254,
+        "pc1VarianceFraction": 0.08041143324224803,
+        "pc1RangeOverlap": 9.625759644489982
+      },
+      "status": "success",
+      "decision": "Case and control PC1 ranges overlap, but PC1 differs by phenotype; comparison is permitted only with ancestry-axis adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "retainedSamples": 238,
+        "testedVariants": 138,
+        "pcCovariates": 5
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1974436660096237,
+        "tests": 138,
+        "pcCovariates": 5,
+        "familywiseAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "Five-PC sensitivity model found no Bonferroni-significant variant."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "retainedSamples": 238,
+        "testedVariants": 138,
+        "pcCovariates": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.2102866267476535,
+        "tests": 138,
+        "pcCovariates": 1,
+        "familywiseAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "Primary PC1-adjusted model found no variant meeting the Bonferroni-corrected threshold."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333,
+        "plateFailFractionLimit": 0.1
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "overlapping_structure_adjust_with_pc1",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 4.0403632009987195e-15,
+        "pc1RangeOverlap": 9.625759644489982
+      }
+    },
+    {
+      "point": "multiplicity",
+      "chosen_branch": "bonferroni_over_retained_variants",
+      "observed": {
+        "tests": 138,
+        "familywiseAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "primaryPcCovariates": 1
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

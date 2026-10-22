@@ -1,0 +1,58 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleCount": 240,
+        "variantCount": 150,
+        "phenotypeGroups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "samplesRetained": 209,
+        "totalSamples": 240,
+        "panelVariants": 150,
+        "affectedSamples": 120,
+        "unaffectedSamples": 120,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "platePass": false,
+        "variantQCTestsRun": 0,
+        "ancestryTestsRun": 0,
+        "associationTestsRun": 0,
+        "replicationCandidates": 0
+      },
+      "status": "success",
+      "decision": "Plate failed the mandatory participant-QC gate. Failed IDs: P004, P005, P022, P028, P035, P036, P051, P057, P060, P062, P067, P071, P077, P092, P102, P103, P120, P123, P126, P128, P130, P136, P139, P146, P153, P156, P162, P211, P217, P229, P240. All downstream analyses stopped per protocol."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "participant_qc_plate_gate",
+      "chosen_branch": "stop_and_regenotype",
+      "observed": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "maxSampleFailFraction": 0.1,
+        "platePass": false
+      }
+    },
+    {
+      "point": "downstream_analysis_eligibility",
+      "chosen_branch": "do_not_run_variant_qc_stratification_association_or_replication",
+      "observed": {
+        "platePass": false,
+        "associationTestsRun": 0,
+        "replicationCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

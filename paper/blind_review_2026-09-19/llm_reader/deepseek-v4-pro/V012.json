@@ -1,0 +1,65 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "Independent human expert Black Belt review",
+ "blinding_compliance": "I read only the provided V012 packet and did not inspect other repository areas, coordinator outputs, hidden truth files, or other reviewers' outputs.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V012",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Stating that the latest period is 0.03 percentage points below the 5% requirement; the correct gap is 3 percentage points (0.03 proportion).",
+    "Asserting a specific root cause for the period-13 special cause or claiming that a change was effective and will be held, because the process-facts requests were denied.",
+    "Asserting stable long-term capability from a single latest-period binomial test."
+   ],
+   "permitted_at_checkpoint": [
+    "Relying on the breach judgement with caution based on overall agreement 95.0% and minimum appraiser kappa 0.7647, with continued appraiser-level monitoring.",
+    "Using the p-chart to assess stability and flag period 13 as a special-cause signal; a follow-up recomputation of limits after excluding period 13 is advisable.",
+    "Using the exact one-sided binomial test on the latest period to state that the observed current breach share is below the 5% target, with moderate evidence, provided this is not presented as stable capability.",
+    "Investigating period 13 and continuing subsequent period monitoring."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "The latest period (25) had 4 breaches in 200 tickets. That is a breach share of 0.02 (2.00 percent), which is 0.030000000000000002 percentage points below the internal requirement of 0.05."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The team two-proportion comparison is an additional descriptive analysis and is appropriately reported as non-significant without causal inference. The p-chart and latest-period binomial test are focal computations and are acceptable.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Recalculate the p-chart center line and control limits after removing the period-13 special cause to obtain a common-cause baseline.",
+    "Supplement the latest-period test with a one-sided 95% confidence bound for the binomial proportion.",
+    "Model breach counts with a Poisson or binomial model if overdispersion or varying subgroup sizes are found."
+   ],
+   "evidence": [
+    "Report: 'The upper control limit was 0.089854 and the lower control limit was 0.001346.'",
+    "Report: 'period 13, where the breach share was 0.22 (44 breaches in 200 tickets).'",
+    "Report: 'The latest period (25) had 4 breaches in 200 tickets. That is a breach share of 0.02 (2.00 percent).'",
+    "Report: 'An exact one-sided binomial test against 0.05 gives p = 0.0264.'",
+    "Computed gap: 0.05 - 0.02 = 0.03 proportion = 3 percentage points.",
+    "Self-reported team comparison: z = 0.8355, p = 0.4034."
+   ],
+   "rationale": "The main statistical conclusions are sound: the attribute agreement supports cautious use; the p-chart has a clear period-13 special-cause signal; the latest period's observed breach share is below the 5% target with moderate one-sided evidence; and the report appropriately withholds specific cause/change/control conclusions because those data were denied. However, the report materially misstates the distance to target by a factor of 100, calling the 0.03 proportion gap '0.03 percentage points' when it is 3 percentage points. Because this is a focal numeric assertion about business performance, the conduct is mixed rather than fully acceptable.",
+   "confidence": 4,
+   "numerical_check": "Recomputed p-chart limits from pbar=0.0456, n=200: UCL=0.0456+3*sqrt(0.0456*0.9544/200)=0.08985, LCL=0.0456-3*sqrt(...)=0.00135. Recomputed one-sided binomial P(X<=4|n=200,p=0.05)=0.0264. Verified team z from p1=0.05, p2=0.04, pooled=0.045: z=0.8355, p=0.4034. Spot-checked gap-to-target: 0.05-0.02=0.03 proportion = 3 percentage points, not 0.03 percentage points.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 3384,
+  "completion_tokens": 18871,
+  "total_tokens": 22255,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 17737
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 1720
+ }
+}

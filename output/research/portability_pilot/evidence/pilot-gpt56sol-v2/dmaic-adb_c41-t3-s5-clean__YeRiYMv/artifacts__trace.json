@@ -1,0 +1,197 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "samples": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "platePass": true,
+        "minObservedCallRate": 0.9333333333333333,
+        "sampleCallRateThreshold": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes; exclude P127, P142, and P195."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "retainedSamples": 237,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial exact-HWE implementation was numerically unstable; its variant results were discarded."
+    },
+    {
+      "inputs_digest": {
+        "retainedSamples": 237,
+        "retainedVariants": 94,
+        "groups": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Preliminary PCA used the variant set produced by the numerically unstable HWE implementation and was discarded.",
+      "step_id": 3
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "retainedSamples": 237,
+        "retainedVariants": 94,
+        "covariates": 1,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Preliminary scan used stale variant QC from the unstable HWE run and was discarded."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "samples": 240,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "platePass": true,
+        "minObservedCallRate": 0.9333333333333333,
+        "sampleCallRateThreshold": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Participant QC was recomputed during the corrected run and confirmed the plate-pass result and the same three exclusions."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "retainedSamples": 237,
+        "variants": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 2,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hwePThreshold": 1e-06,
+        "panelVariants": 150
+      },
+      "status": "success",
+      "decision": "Corrected log-space exact HWE test; exclude rs050014, rs050017, rs050019, rs050052, rs050071, rs050082, rs050091, rs050092, rs050096, rs050108, and rs050121."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "retainedSamples": 237,
+        "retainedVariants": 139,
+        "groups": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 4.435600660571416e-16,
+        "pc1VarianceFraction": 0.0814350353018884,
+        "pc1TStatistic": -8.743141419830808,
+        "casePc1Min": -5.008555447580124,
+        "casePc1Max": 5.443683100724443,
+        "controlPc1Min": -4.374225265795551,
+        "controlPc1Max": 6.087775401246504,
+        "axesAssessed": 10
+      },
+      "status": "success",
+      "decision": "PC1 differs by affection status, but observed ranges overlap; compare groups with PC1 as a covariate."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "retainedSamples": 237,
+        "retainedVariants": 139,
+        "covariates": 1,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1818975706719022,
+        "nTested": 139,
+        "nFailedModels": 0,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "familywiseAlpha": 0.05,
+        "topPValue": 0.0045933080607472605,
+        "covariatePCs": 1
+      },
+      "status": "success",
+      "decision": "No retained variant passes Bonferroni correction; no discovery hit is nominated."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "samples": 120,
+        "candidateVariants": 0,
+        "groups": 2,
+        "batch": "replication"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "No discovery candidate exists, so replication testing is not applicable and no association can be reported."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maximumAllowed": 0.1
+      }
+    },
+    {
+      "point": "ancestry_handling",
+      "chosen_branch": "adjust_for_pc1",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 4.435600660571416e-16
+      }
+    },
+    {
+      "point": "replication_nomination",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

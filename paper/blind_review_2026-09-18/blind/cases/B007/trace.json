@@ -1,0 +1,217 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "baseline",
+        "lots": 25,
+        "total_units": 100000
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 0.0054600000000000004,
+        "median": 0.0055,
+        "stdDev": 0.001114955156048888
+      },
+      "status": "success",
+      "decision": "Baseline lot shares summarized."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "lots": 25,
+        "total_units": 100000,
+        "target": 0.0025
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 2.161843095041093e-78,
+        "zStatistic": 18.74412857109458,
+        "defectCount": 546,
+        "inspectedUnits": 100000,
+        "observedShare": 0.00546,
+        "requiredShare": 0.0025
+      },
+      "status": "success",
+      "decision": "Baseline share is significantly above the commitment."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "baseline",
+        "lots": 25,
+        "equal_subgroup_size": 4000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.00546,
+        "outOfControlCount": 0,
+        "upperControlLimit": 0.008955414696427307,
+        "lowerControlLimit": 0.001964585303572693
+      },
+      "status": "success",
+      "decision": "No baseline lots breached the computed 3-sigma limits."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "baseline",
+        "lots": 25
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.4038037971630485
+      },
+      "status": "success",
+      "decision": "No evidence of non-random sequencing in baseline shares."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "settings",
+        "observations": 40,
+        "terms": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 1.20039199680057e-06,
+        "rSquaredPct": 56.426363457132034,
+        "rSquaredAdjPct": 52.795227078559705,
+        "pasteThicknessPValue": 1.5878687634538685e-05,
+        "reflowPeakPValue": 3.647421126578713e-05,
+        "interactionPValue": 1.2151358677491888e-05
+      },
+      "status": "success",
+      "decision": "The settings model is significant; at least one modeled factor/interaction is associated with defect share."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "before_after",
+        "groups": 2,
+        "units_per_group": 40000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 1.1530117357517475e-07,
+        "zStatistic": 5.300792345784441,
+        "beforeDefectCount": 237,
+        "afterDefectCount": 135,
+        "beforeInspectedUnits": 40000,
+        "afterInspectedUnits": 40000,
+        "beforeShare": 0.005925,
+        "afterShare": 0.003375,
+        "absoluteReduction": 0.0025499999999999997,
+        "relativeReductionPct": 43.0379746835443
+      },
+      "status": "success",
+      "decision": "The before/after reduction is statistically significant."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "trial_size",
+        "groups": 2,
+        "nPerGroup": 40000,
+        "alpha": 0.05
+      },
+      "method_id": "power.two_proportions",
+      "outputs": {
+        "power": 0.9999999914471074,
+        "alpha": 0.05,
+        "nPerGroup": 40000,
+        "planningP1": 0.0059,
+        "planningP2": 0.0025
+      },
+      "status": "success",
+      "decision": "Computed prospective power for the supplied trial assumptions."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "lots": 20,
+        "total_units": 80000
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 0.0034375,
+        "median": 0.00325,
+        "stdDev": 0.0009627093073853165
+      },
+      "status": "success",
+      "decision": "Post-change lot shares summarized."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "lots": 20,
+        "total_units": 80000,
+        "target": 0.0025
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 1.0965986220000534e-07,
+        "zStatistic": 5.309942440535915,
+        "defectCount": 273,
+        "inspectedUnits": 80000,
+        "observedShare": 0.0034125,
+        "requiredShare": 0.0025
+      },
+      "status": "success",
+      "decision": "Post-change aggregate share is still significantly above the commitment."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "lots": 20,
+        "equal_subgroup_size": 4000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0034375,
+        "outOfControlCount": 0,
+        "upperControlLimit": 0.006769717078036998,
+        "lowerControlLimit": 5.528292196300174e-05
+      },
+      "status": "success",
+      "decision": "No post-change lots breached the computed 3-sigma limits."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "lots": 20
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.3236781609070164
+      },
+      "status": "success",
+      "decision": "No evidence of non-random sequencing in post-change shares."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability",
+      "chosen_branch": "stable",
+      "observed": {
+        "pChartOutOfControlCount": 0,
+        "runsPValue": 0.4038037971630485
+      }
+    },
+    {
+      "point": "settings_significance",
+      "chosen_branch": "factor_significant",
+      "observed": {
+        "modelPValue": 1.20039199680057e-06,
+        "rSquaredPct": 56.426363457132034
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

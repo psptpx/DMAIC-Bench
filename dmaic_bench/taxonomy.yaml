@@ -1,0 +1,542 @@
+# DMAIC-Bench canonical method taxonomy (v1).
+#
+# The shared vocabulary between ground truth and every contestant's trace. Each entry:
+#   method_id          system-agnostic identifier (family.name)
+#   spec_keys          solver-spec keys of the private contestant's engine that map onto this
+#                      method (used only by that operator-side adapter, never by scoring)
+#   aliases            names/synonyms used to recognize self-reported methods and report mentions
+#   family             metric grouping
+#   applicability      data_type + prerequisites, used by the MS-Misuse judge
+#   canonical_outputs  standard output field names (suffix-matched) with tolerance classes
+#     tol_class: exact = closed-form arithmetic (rel 1e-6) | tight = domain tolerance | soft = convention-variant
+#
+# prerequisites vocabulary: stability_confirmed, normality_holds, msa_passed, variances_equal
+# data_type vocabulary: continuous | attribute_proportion | attribute_count_rate | categorical | any
+
+schema_version: 1
+methods:
+  # ---- meta -----------------------------------------------------------------
+  - method_id: meta.data_profiling
+    spec_keys: [solver.meta.data-classifier.v1]
+    aliases: [data classification, data profiling]
+    family: meta
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs: []
+
+  # ---- MSA ------------------------------------------------------------------
+  - method_id: msa.gage_rr_crossed
+    spec_keys: [solver.gage.rr-crossed.v1]
+    aliases: [gage r&r, crossed grr, grr]
+    family: msa
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: percentStudyVariation, tol_class: soft}
+      - {name: percentTolerance, tol_class: soft}
+      - {name: ndc, tol_class: tight}
+  - method_id: msa.attribute_agreement
+    spec_keys: [solver.gage.attribute-agreement.v1]
+    aliases: [attribute agreement analysis]
+    family: msa
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: kappaMin, tol_class: tight}
+      - {name: agreementPct, tol_class: tight}
+
+  # ---- basic tests ------------------------------------------------------------
+  - method_id: basic.descriptive_summary
+    spec_keys: [solver.basic.descriptive-summary.v1]
+    aliases: [graphical summary, descriptive statistics]
+    family: basic_test
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: mean, tol_class: exact}
+      - {name: median, tol_class: exact}
+      - {name: stdDev, tol_class: exact}
+      - {name: skewness, tol_class: soft}
+      - {name: adPValue, tol_class: soft}
+  - method_id: basic.normality
+    spec_keys: [solver.basic.normality.v1]
+    aliases: [normality test, anderson-darling]
+    family: basic_test
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+      - {name: statistic, tol_class: tight}
+  - method_id: basic.one_sample_t
+    spec_keys: [solver.basic.one-sample-t.v1]
+    aliases: [one-sample t]
+    family: basic_test
+    applicability: {data_type: continuous, prerequisites: [normality_holds]}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+      - {name: tStatistic, tol_class: tight}
+  - method_id: basic.two_sample_t
+    spec_keys: [solver.basic.two-sample-t.v1]
+    aliases: [two-sample t, welch t]
+    family: basic_test
+    applicability: {data_type: continuous, prerequisites: [normality_holds]}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+      - {name: tStatistic, tol_class: tight}
+  - method_id: basic.paired_t
+    spec_keys: [solver.basic.paired-t.v1]
+    aliases: [paired t]
+    family: basic_test
+    applicability: {data_type: continuous, prerequisites: [normality_holds]}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+      - {name: tStatistic, tol_class: tight}
+  - method_id: basic.one_proportion
+    spec_keys: [solver.basic.one-proportion.v1]
+    aliases: [one proportion test]
+    family: basic_test
+    applicability: {data_type: attribute_proportion, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+  - method_id: basic.two_proportions
+    spec_keys: [solver.basic.two-proportions.v1]
+    aliases: [two proportions test]
+    family: basic_test
+    applicability: {data_type: attribute_proportion, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+      - {name: zStatistic, tol_class: soft}
+  - method_id: basic.correlation
+    spec_keys: [solver.basic.correlation.v1]
+    aliases: [correlation, pearson]
+    family: basic_test
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: correlationCoefficient, tol_class: tight}
+      - {name: pValue, tol_class: tight}
+
+  # ---- ANOVA ------------------------------------------------------------------
+  - method_id: anova.oneway
+    spec_keys: [solver.anova.one-way.v1]
+    aliases: [one-way anova]
+    family: anova
+    applicability: {data_type: continuous, prerequisites: [normality_holds, variances_equal]}
+    canonical_outputs:
+      - {name: factorPValue, tol_class: tight}
+      - {name: fStatistic, tol_class: tight}
+  - method_id: anova.welch
+    spec_keys: []
+    aliases: [welch anova, welch one-way anova, heteroscedastic anova]
+    family: anova
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: factorPValue, tol_class: loose}
+  - method_id: anova.equal_variances
+    spec_keys: [solver.anova.equal-variances.v1]
+    aliases: [equal variances test, bartlett, levene]
+    family: anova
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+      - {name: statistic, tol_class: tight}
+  - method_id: anova.sov
+    spec_keys: [solver.anova.sov.v1]
+    aliases: [sources of variation, variance components]
+    family: anova
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: totalVariance, tol_class: soft}
+
+  # ---- capability ---------------------------------------------------------------
+  - method_id: capability.normal
+    spec_keys: [solver.capability.normal.v1]
+    aliases: [process capability, cp/cpk]
+    family: capability
+    applicability: {data_type: continuous, prerequisites: [stability_confirmed, normality_holds]}
+    canonical_outputs:
+      - {name: cp, tol_class: tight}
+      - {name: cpk, tol_class: tight}
+      - {name: pp, tol_class: soft}
+      - {name: ppk, tol_class: soft}
+  - method_id: capability.nonnormal
+    spec_keys: [solver.capability.nonnormal.v1]
+    aliases: [nonnormal capability]
+    family: capability
+    applicability: {data_type: continuous, prerequisites: [stability_confirmed]}
+    canonical_outputs:
+      - {name: ppk, tol_class: soft}
+      - {name: pp, tol_class: soft}
+  - method_id: capability.grouped
+    spec_keys: [solver.capability.grouped.v1]
+    aliases: [grouped capability]
+    family: capability
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: cpk, tol_class: tight}
+      - {name: ppk, tol_class: soft}
+  - method_id: capability.binomial
+    spec_keys: [solver.capability.binomial.v1]
+    aliases: [binomial capability]
+    family: capability
+    applicability: {data_type: attribute_proportion, prerequisites: []}
+    canonical_outputs:
+      - {name: processZ, tol_class: tight}
+      - {name: avgP, tol_class: exact}
+  - method_id: capability.poisson
+    spec_keys: [solver.capability.poisson.v1]
+    aliases: [poisson capability]
+    family: capability
+    applicability: {data_type: attribute_count_rate, prerequisites: []}
+    canonical_outputs:
+      - {name: dpu, tol_class: exact}
+
+  # ---- control charts -------------------------------------------------------------
+  - method_id: control_chart.imr
+    spec_keys: [solver.controlchart.imr.v1]
+    aliases: [i-mr chart]
+    family: control_chart
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: individualsUCL, tol_class: tight}
+      - {name: individualsLCL, tol_class: tight}
+      - {name: centerLine, tol_class: exact}
+      - {name: flaggedCount, tol_class: soft}
+  - method_id: control_chart.xbar_r
+    spec_keys: [solver.controlchart.xbar-r.v1]
+    aliases: [xbar-r chart]
+    family: control_chart
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: xBarChartCenterLine, tol_class: exact}
+      - {name: flaggedXBarCount, tol_class: soft}
+  - method_id: control_chart.xbar_s
+    spec_keys: [solver.controlchart.xbar-s.v1]
+    aliases: [xbar-s chart]
+    family: control_chart
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: xBarChartCenterLine, tol_class: exact}
+  - method_id: control_chart.ewma
+    spec_keys: [solver.controlchart.ewma.v1]
+    aliases: [ewma chart]
+    family: control_chart
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: flaggedCount, tol_class: soft}
+  - method_id: control_chart.cusum
+    spec_keys: [solver.controlchart.cusum.v1]
+    aliases: [cusum chart]
+    family: control_chart
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: flaggedCount, tol_class: soft}
+  - method_id: control_chart.p
+    spec_keys: [solver.controlchart.p-chart.v1]
+    aliases: [p chart]
+    family: control_chart
+    applicability: {data_type: attribute_proportion, prerequisites: []}
+    canonical_outputs:
+      - {name: centerLine, tol_class: exact}
+      - {name: outOfControlCount, tol_class: soft}
+  - method_id: control_chart.np
+    spec_keys: [solver.controlchart.np-chart.v1]
+    aliases: [np chart]
+    family: control_chart
+    applicability: {data_type: attribute_proportion, prerequisites: []}
+    canonical_outputs:
+      - {name: centerLine, tol_class: exact}
+  - method_id: control_chart.laney_p
+    spec_keys: [solver.controlchart.laney-p-chart.v1]
+    aliases: [laney p chart, laney p′]
+    family: control_chart
+    applicability: {data_type: attribute_proportion, prerequisites: []}
+    canonical_outputs:
+      - {name: sigmaZ, tol_class: soft}
+  - method_id: control_chart.u
+    spec_keys: [solver.controlchart.u-chart.v1]
+    aliases: [u chart]
+    family: control_chart
+    applicability: {data_type: attribute_count_rate, prerequisites: []}
+    canonical_outputs:
+      - {name: processMean, tol_class: exact}
+  - method_id: control_chart.c
+    spec_keys: [solver.controlchart.c-chart.v1]
+    aliases: [c chart]
+    family: control_chart
+    applicability: {data_type: attribute_count_rate, prerequisites: []}
+    canonical_outputs:
+      - {name: centerLine, tol_class: exact}
+  - method_id: control_chart.laney_u
+    spec_keys: [solver.controlchart.laney-u-chart.v1]
+    aliases: [laney u chart, laney u′]
+    family: control_chart
+    applicability: {data_type: attribute_count_rate, prerequisites: []}
+    canonical_outputs:
+      - {name: sigmaZ, tol_class: soft}
+
+  # ---- DOE -----------------------------------------------------------------------
+  - method_id: doe.create_factorial
+    spec_keys: [solver.doe.create-factorial.v1]
+    aliases: [create factorial design]
+    family: doe
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs: []
+  - method_id: doe.factorial_analysis
+    spec_keys: [solver.doe.factorial-analysis.v1]
+    aliases: [factorial analysis]
+    family: doe
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: modelPValue, tol_class: tight}
+      - {name: rSquaredPct, tol_class: tight}
+  - method_id: doe.factorial_prediction
+    spec_keys: [solver.doe.factorial-prediction.v1]
+    aliases: [factorial prediction]
+    family: doe
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: predictedValue, tol_class: tight}
+      - {name: piLower, tol_class: soft}
+      - {name: piUpper, tol_class: soft}
+  - method_id: doe.rsm_analysis
+    spec_keys: [solver.doe.rsm-analysis.v1]
+    aliases: [response surface analysis, rsm]
+    family: doe
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: rSquaredPct, tol_class: tight}
+      - {name: lackOfFitPValue, tol_class: soft}
+  - method_id: doe.rsm_canonical
+    spec_keys: [solver.doe.rsm-canonical.v1]
+    aliases: [canonical analysis, stationary point analysis]
+    family: doe
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: predictedAtStationary, tol_class: tight}
+  - method_id: doe.rsm_optimizer
+    spec_keys: [solver.doe.rsm-optimizer.v1]
+    aliases: [response optimizer, desirability]
+    family: doe
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: compositeDesirability, tol_class: tight}
+      - {name: predictedResponse, tol_class: tight}
+
+  # ---- regression -------------------------------------------------------------------
+  - method_id: regression.ols
+    spec_keys: [solver.regression.ols.v1]
+    aliases: [linear regression, ols]
+    family: regression
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: modelPValue, tol_class: tight}
+      - {name: rSquaredPct, tol_class: tight}
+      - {name: rSquaredAdjPct, tol_class: tight}
+  - method_id: regression.binary_logistic
+    spec_keys: [solver.regression.binary-logistic.v1]
+    aliases: [binary logistic regression]
+    family: regression
+    applicability: {data_type: attribute_proportion, prerequisites: []}
+    canonical_outputs:
+      - {name: modelPValue, tol_class: tight}
+  - method_id: regression.poisson
+    spec_keys: [solver.regression.poisson.v1]
+    aliases: [poisson regression]
+    family: regression
+    applicability: {data_type: attribute_count_rate, prerequisites: []}
+    canonical_outputs:
+      - {name: deviance, tol_class: tight}
+
+  # ---- nonparametric ------------------------------------------------------------------
+  - method_id: nonparametric.mann_whitney
+    spec_keys: [solver.nonparametric.mann-whitney.v1]
+    aliases: [mann-whitney]
+    family: nonparametric
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+  - method_id: nonparametric.kruskal_wallis
+    spec_keys: [solver.nonparametric.kruskal-wallis.v1]
+    aliases: [kruskal-wallis]
+    family: nonparametric
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+  - method_id: nonparametric.one_sample_wilcoxon
+    spec_keys: [solver.nonparametric.one-sample-wilcoxon.v1]
+    aliases: [wilcoxon signed rank]
+    family: nonparametric
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+  - method_id: nonparametric.moods_median
+    spec_keys: [solver.nonparametric.moods-median.v1]
+    aliases: [mood's median test]
+    family: nonparametric
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+  - method_id: nonparametric.runs_test
+    spec_keys: [solver.nonparametric.runs-test.v1]
+    aliases: [runs test]
+    family: nonparametric
+    applicability: {data_type: continuous, prerequisites: []}
+    canonical_outputs:
+      - {name: pValue, tol_class: tight}
+
+  # ---- quality tools ---------------------------------------------------------------------
+  - method_id: quality.pareto
+    spec_keys: [solver.quality.pareto.v1]
+    aliases: [pareto analysis]
+    family: quality_tools
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: topCategoryPct, tol_class: exact}
+  - method_id: quality.fmea_rpn
+    spec_keys: [solver.quality.fmea-rpn.v1]
+    aliases: [fmea, rpn]
+    family: quality_tools
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: maxRpn, tol_class: exact}
+
+  # ---- tables ------------------------------------------------------------------------------
+  - method_id: tables.chisquare_assoc
+    spec_keys: [solver.tables.chisquare-assoc.v1]
+    aliases: [chi-square association]
+    family: tables
+    applicability: {data_type: categorical, prerequisites: []}
+    canonical_outputs:
+      - {name: statistic, tol_class: tight}
+      - {name: pValue, tol_class: tight}
+  - method_id: tables.chisquare_gof
+    spec_keys: [solver.tables.chisquare-gof.v1]
+    aliases: [chi-square goodness of fit]
+    family: tables
+    applicability: {data_type: categorical, prerequisites: []}
+    canonical_outputs:
+      - {name: chiSquare, tol_class: tight}
+      - {name: pValue, tol_class: tight}
+
+  # ---- power --------------------------------------------------------------------------------
+  - method_id: power.two_proportions
+    spec_keys: [solver.power.two-proportions.v1]
+    aliases: [power and sample size (two proportions)]
+    family: power
+    applicability: {data_type: attribute_proportion, prerequisites: []}
+    canonical_outputs:
+      - {name: power, tol_class: tight}
+
+  # ---- second-domain pilot: bulk RNA-seq -------------------------------------------------
+  # Preconditions with published thresholds; see dmaic_bench/truth/omics.py for sources.
+  - method_id: qc.sample_qc
+    spec_keys: []
+    aliases: [library qc, sample-level qc]
+    family: qc
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: failedSamples, tol_class: exact}
+      - {name: minReplicates, tol_class: exact}
+  - method_id: design.identifiability
+    spec_keys: []
+    aliases: [design rank check, identifiability check]
+    family: design
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: confounded, tol_class: exact}
+      - {name: batchCount, tol_class: exact}
+  - method_id: expression.batch_assessment
+    spec_keys: []
+    aliases: [batch variance assessment]
+    family: expression
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: batchVarianceFraction, tol_class: soft}
+  - method_id: expression.de_simple
+    spec_keys: []
+    aliases: [two-group expression test]
+    family: expression
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: nSignificant, tol_class: soft}
+  - method_id: expression.validation_concordance
+    spec_keys: []
+    aliases: [qpcr validation concordance]
+    family: expression
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: concordance, tol_class: tight}
+      - {name: nConfirmed, tol_class: exact}
+  - method_id: expression.enrichment
+    spec_keys: []
+    aliases: [gene-set over-representation]
+    family: expression
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: nSignificantSets, tol_class: soft}
+  - method_id: expression.de_blocked
+    spec_keys: []
+    aliases: [batch-adjusted expression model]
+    family: expression
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: nSignificant, tol_class: soft}
+
+  # ---- second-domain pilot: case-control genotype association ----------------------------
+  - method_id: gwas.sample_qc
+    spec_keys: []
+    aliases: [sample call-rate qc]
+    family: gwas
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: samplesFailed, tol_class: exact}
+      - {name: sampleFailFraction, tol_class: tight}
+  - method_id: gwas.snp_qc
+    spec_keys: []
+    aliases: [variant qc, snp filtering]
+    family: gwas
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: snpsFailed, tol_class: soft}
+      - {name: snpsRetained, tol_class: soft}
+  - method_id: gwas.stratification
+    spec_keys: []
+    aliases: [population structure check, ancestry pca]
+    family: gwas
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: separated, tol_class: exact}
+      - {name: separatedAxis, tol_class: exact}
+      - {name: pc1PValue, tol_class: soft}
+  - method_id: gwas.association_trend
+    spec_keys: []
+    aliases: [trend test association, unadjusted association scan]
+    family: gwas
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: nSignificant, tol_class: soft}
+      - {name: lambdaGC, tol_class: soft}
+  - method_id: gwas.replication
+    spec_keys: []
+    aliases: [replication cohort test]
+    family: gwas
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: nReplicated, tol_class: exact}
+      - {name: nCandidates, tol_class: exact}
+  - method_id: gwas.effect_estimate
+    spec_keys: []
+    aliases: [per-allele odds ratio]
+    family: gwas
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: oddsRatio, tol_class: soft}
+  - method_id: gwas.association_adjusted
+    spec_keys: []
+    aliases: [covariate-adjusted association scan, pc-adjusted logistic scan]
+    family: gwas
+    applicability: {data_type: any, prerequisites: []}
+    canonical_outputs:
+      - {name: nSignificant, tol_class: soft}
+      - {name: lambdaGC, tol_class: soft}
+
+# Default numeric tolerances per class, used when a TruthEntry does not override.
+tol_defaults:
+  exact: 1.0e-6   # relative
+  tight: 0.01     # absolute, generator should override per quantity
+  soft: 0.1

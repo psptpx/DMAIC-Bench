@@ -1,0 +1,157 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleSize": 240,
+        "variantCount": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation failed because the requested software module was unavailable; no result was used."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleSize": 240,
+        "variantCount": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "sampleCallRateThreshold": 0.95,
+        "plateStopThreshold": 0.1,
+        "minimumObservedCallRate": 0.94,
+        "plateRegenotypingRequired": false
+      },
+      "status": "success",
+      "decision": "Plate passes the participant-level stop rule; exclude P085, P136, and P193."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sampleSize": 237,
+        "variantCount": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 2,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain variants passing call rate, minor-allele frequency, and control-only exact HWE criteria."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sampleSize": 237,
+        "variantCount": 139,
+        "groups": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 5,
+        "pc1PValue": 0.5198453416432496,
+        "pc5PValue": 0.013370319722095542,
+        "pc5CaseMinimum": -3.9972187970291286,
+        "pc5CaseMaximum": 3.8038106021259948,
+        "pc5ControlMinimum": -3.475652446043865,
+        "pc5ControlMaximum": 5.385120956243994
+      },
+      "status": "success",
+      "decision": "Groups overlap rather than forming separate ancestry cohorts, but PC5 is associated with affection status; comparison may proceed with leading-axis adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sampleSize": 237,
+        "variantCount": 139,
+        "covariateCount": 5,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.8836108651022039,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "testedVariants": 139,
+        "adjustedPcCount": 5,
+        "affectedRetained": 119,
+        "unaffectedRetained": 118,
+        "nonconvergedModels": 0,
+        "minimumPValue": 0.012118851514246501,
+        "topOddsRatio": 1.986273688869261
+      },
+      "status": "success",
+      "decision": "No variant meets the corrected discovery threshold; rs040143 has the smallest p-value but is not a discovery association."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "sampleSize": 120,
+        "variantCount": 150,
+        "candidateCount": 0,
+        "batch": "replication"
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0
+      },
+      "status": "success",
+      "decision": "No discovery candidate was nominated, so no variant could be tested for or declared as replicated."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_stop_rule",
+      "chosen_branch": "continue_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "plateStopThreshold": 0.1
+      }
+    },
+    {
+      "point": "cohort_comparability",
+      "chosen_branch": "compare_with_leading_pc_adjustment",
+      "observed": {
+        "separated": false,
+        "separatedAxis": 5,
+        "axisPValue": 0.013370319722095542
+      }
+    },
+    {
+      "point": "association_model",
+      "chosen_branch": "pc_adjusted_additive_logistic",
+      "observed": {
+        "adjustedPcCount": 5
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_candidates_to_replicate",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

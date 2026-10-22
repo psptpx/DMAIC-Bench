@@ -1,0 +1,119 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesTotal": 240,
+        "samplesRetained": 238,
+        "casesRetained": 119,
+        "controlsRetained": 119,
+        "plateRequiresRegenotyping": false
+      },
+      "status": "success",
+      "decision": "Plate passes; exclude failed participants",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "qc_rules_batch": "define"
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 3
+      },
+      "status": "success",
+      "decision": "Variant QC on retained participants; exact control HWE",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "qc_rules_batch": "define"
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 3.654069761192594e-129,
+        "pc1VarianceFraction": 0.09427730354730536,
+        "pc1Overlap": -1.7896160275164148,
+        "pc2PValue": 0.9616873381192446,
+        "pc2VarianceFraction": 0.02122670834927795,
+        "pc2Overlap": 8.388676460077434,
+        "pc3PValue": 0.9194311954222976,
+        "pc3VarianceFraction": 0.01884049202832686,
+        "pc3Overlap": 8.124769998682536,
+        "pc4PValue": 0.9962081725038585,
+        "pc4VarianceFraction": 0.01880817147909825,
+        "pc4Overlap": 6.794642230494292,
+        "pc5PValue": 0.9538846113531503,
+        "pc5VarianceFraction": 0.018483035473348144,
+        "pc5Overlap": 7.484707436782907,
+        "caseAxisMin": -5.899208337332883,
+        "caseAxisMax": -1.484927464351246,
+        "controlAxisMin": 0.30468856316516874,
+        "controlAxisMax": 6.737616767616936
+      },
+      "status": "success",
+      "decision": "STOP: leading ancestry axis has disjoint affection-group ranges; no defensible association comparison under protocol. No variant tests performed.",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "qc_rules_batch": "define"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_quality",
+      "chosen_branch": "retain_plate_exclude_failed_samples",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesTotal": 240,
+        "samplesRetained": 238,
+        "casesRetained": 119,
+        "controlsRetained": 119,
+        "plateRequiresRegenotyping": false
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "stop_nonoverlapping_ancestry_no_association_or_replication",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 3.654069761192594e-129,
+        "pc1VarianceFraction": 0.09427730354730536,
+        "pc1Overlap": -1.7896160275164148,
+        "pc2PValue": 0.9616873381192446,
+        "pc2VarianceFraction": 0.02122670834927795,
+        "pc2Overlap": 8.388676460077434,
+        "pc3PValue": 0.9194311954222976,
+        "pc3VarianceFraction": 0.01884049202832686,
+        "pc3Overlap": 8.124769998682536,
+        "pc4PValue": 0.9962081725038585,
+        "pc4VarianceFraction": 0.01880817147909825,
+        "pc4Overlap": 6.794642230494292,
+        "pc5PValue": 0.9538846113531503,
+        "pc5VarianceFraction": 0.018483035473348144,
+        "pc5Overlap": 7.484707436782907,
+        "caseAxisMin": -5.899208337332883,
+        "caseAxisMax": -1.484927464351246,
+        "controlAxisMin": 0.30468856316516874,
+        "controlAxisMax": 6.737616767616936
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

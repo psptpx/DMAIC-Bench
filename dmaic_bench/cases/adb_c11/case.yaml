@@ -1,0 +1,81 @@
+schema_version: 1
+case_id: adb_c11
+title: Instrument-panel carrier warpage — one round of shop trials
+
+tier: T1
+industry: discrete_manufacturing
+provenance: SIMULATED
+y_type: continuous
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the process improvement group at an injection moulding plant that makes automotive
+  interior parts. Warpage on one instrument-panel carrier has been running outside what
+  assembly will accept and complaints from the customer end have been building up. The process
+  engineers have reduced the adjustable settings to three: holding pressure, melt
+  temperature and cooling time. The group's plan is, first, to produce a brief for one round of
+  shop trials that covers every high and low combination of the three settings and includes
+  repeats; then to work quantitatively through the warpage figures the round produces and
+  establish which of the settings really do anything; and finally to state the warpage expected
+  at the recommended combination of settings, for review before the mould trial.
+
+goal: |
+  Working from the three batches you are given: (1) produce a brief for the round of trials that
+  satisfies the stated requirements; (2) quantify from the trial results how large each
+  setting's effect is and how much of the warpage the fitted description accounts for; and
+  (3) state the warpage expected at the recommended combination of settings. Every numeric
+  conclusion must be faithful to what you actually computed.
+
+stages:
+  - stage_id: D_Create
+    phase: analyze
+    label: "Brief for the round of trials — the three settings, their low and high values, and what the round has to cover"
+    topics: ["trial brief", "plan the round", "combinations to be covered", "low and high values"]
+    methods:
+      - method_id: doe.create_factorial
+        required: true
+  - stage_id: D_Analyze
+    phase: analyze
+    label: "Warpage measured over the completed round, with the coded setting for every trial"
+    topics: ["warpage readings", "trial outcome", "which setting matters", "measured results"]
+    methods:
+      - method_id: doe.factorial_analysis
+        required: true
+  - stage_id: D_Predict
+    phase: improve
+    label: "The recommended combination of settings, for which a warpage figure is wanted"
+    topics: ["recommended combination", "expected warpage", "mould trial check", "figure at the new settings"]
+    methods:
+      - method_id: doe.factorial_prediction
+        required: true
+
+decision_points:
+  - point_id: effect_screen
+    phase: improve
+    rule: "The fitted trial model shows no significant cooling-time (C) main effect (p>0.2), but significant holding-pressure (A), melt-temperature (B), and interaction effects: omit C from optimization and point prediction (set C=0 or any value), retaining A, B, and their interaction."
+    source: "Montgomery DAOE 6e §6.4 effect sparsity"
+    correct_branch: drop_C
+    acceptable_branches: []
+    branch_evidence:
+      drop_C: [doe.factorial_prediction]
+
+order_constraints:
+  - before: doe.factorial_analysis
+    after: doe.factorial_prediction
+    source: "Fit the model before point prediction (Montgomery DAOE 6e §6.2)"
+
+faults:
+  - stage_id: D_Predict
+    method_id: doe.factorial_prediction

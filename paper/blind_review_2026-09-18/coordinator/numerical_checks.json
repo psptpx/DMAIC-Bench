@@ -1,0 +1,809 @@
+{
+  "B001": {
+    "baseline": {
+      "n": 60,
+      "mean": 7.035916666666665,
+      "sd": 0.062016479949371005,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        6.851684787835075,
+        7.2201485454982555
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "design": {
+      "n": 16,
+      "full_factorial_model_p": 0.1777236278857123,
+      "r_squared": 0.6351869375583747,
+      "terms": [
+        "intercept",
+        "chain_speed",
+        "rail_angle",
+        "air_pressure",
+        "chain_speed*rail_angle",
+        "chain_speed*air_pressure",
+        "rail_angle*air_pressure",
+        "chain_speed*rail_angle*air_pressure"
+      ],
+      "term_p_values": [
+        1.532691699830555e-19,
+        0.6514436041169661,
+        0.43460771727702885,
+        0.01312984009320627,
+        0.7631180918401679,
+        0.7445690391304263,
+        0.13996017861619983,
+        0.802100374452257
+      ],
+      "method_note": "Full factorial including all interactions; not causal without randomization assumptions"
+    },
+    "logged_variables": {
+      "main_effect_model_p": 0.12741591084589246,
+      "r_squared": 0.12015711603933477,
+      "n": 48
+    }
+  },
+  "B002": {
+    "after_lots": {
+      "events": 147,
+      "n": 80000,
+      "share": 0.0018375,
+      "p_chart_point_flags": 0,
+      "target": 0.0025,
+      "exact_lower_tail_p": 5.060125914974413e-05,
+      "exact_upper_tail_p": 0.9999634565029054,
+      "upper_one_sided_95": 0.0021067496047439418
+    },
+    "baseline": {
+      "events": 599,
+      "n": 100000,
+      "share": 0.00599,
+      "p_chart_point_flags": 0,
+      "target": 0.0025,
+      "exact_lower_tail_p": 1.0,
+      "exact_upper_tail_p": 2.73393804200261e-78,
+      "upper_one_sided_95": 0.00640716693933667
+    }
+  },
+  "B003": {
+    "lots": {
+      "events": 311,
+      "n": 10000,
+      "share": 0.0311,
+      "p_chart_point_flags": 0
+    }
+  },
+  "B004": {
+    "baseline": {
+      "n": 60,
+      "mean": 7.1604833333333335,
+      "sd": 0.13950742543467862,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        6.750503167448011,
+        7.570463499218656
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "design": {
+      "n": 16,
+      "full_factorial_model_p": 7.688688499771873e-05,
+      "r_squared": 0.9565009623416219,
+      "terms": [
+        "intercept",
+        "chain_speed",
+        "rail_angle",
+        "air_pressure",
+        "chain_speed*rail_angle",
+        "chain_speed*air_pressure",
+        "rail_angle*air_pressure",
+        "chain_speed*rail_angle*air_pressure"
+      ],
+      "term_p_values": [
+        2.0118851384338683e-19,
+        5.781140867010357e-06,
+        0.0001418178181685425,
+        0.06523312049064169,
+        0.008076770702043663,
+        0.4296171970874736,
+        0.2353721715271666,
+        0.7568466833503671
+      ],
+      "method_note": "Full factorial including all interactions; not causal without randomization assumptions"
+    },
+    "logged_variables": {
+      "main_effect_model_p": 0.8931051172421587,
+      "r_squared": 0.01371568503797238,
+      "n": 48
+    }
+  },
+  "B005": {},
+  "B006": {
+    "baseline": {
+      "n": 60,
+      "mean": 60.63433333333333,
+      "sd": 2.297360583303699,
+      "imr_point_flags": 2,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        56.76037011660055,
+        64.5082965500661
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "recipes": {
+      "group_n": [
+        15,
+        15,
+        15
+      ],
+      "group_means": [
+        57.95933333333333,
+        59.74333333333334,
+        61.32733333333332
+      ],
+      "group_variances": [
+        0.8264066666666664,
+        0.8608380952380955,
+        0.7497352380952373
+      ],
+      "levene_median_p": 0.9755563118740186,
+      "pooled_anova_p": 3.833851301067109e-12,
+      "welch_anova_p": 3.2358912739920965e-10,
+      "welch_anova_F": 52.72274163874709,
+      "welch_df": [
+        2.0,
+        27.975912461549612
+      ],
+      "kruskal_p": 6.715535907754879e-08
+    },
+    "leading_two_reuses_recipe_rows": [
+      true,
+      true
+    ]
+  },
+  "B007": {
+    "after_lots": {
+      "events": 275,
+      "n": 80000,
+      "share": 0.0034375,
+      "p_chart_point_flags": 0,
+      "target": 0.0025,
+      "exact_lower_tail_p": 0.9999997956415169,
+      "exact_upper_tail_p": 2.847837963216255e-07,
+      "upper_one_sided_95": 0.003797850749373749
+    },
+    "baseline": {
+      "events": 546,
+      "n": 100000,
+      "share": 0.00546,
+      "p_chart_point_flags": 0,
+      "target": 0.0025,
+      "exact_lower_tail_p": 1.0,
+      "exact_upper_tail_p": 4.220242209124989e-59,
+      "upper_one_sided_95": 0.005859125216375043
+    }
+  },
+  "B008": {
+    "process_run": {
+      "n": 60,
+      "mean": 82.66521666666668,
+      "sd": 13.521997411740154,
+      "imr_point_flags": 2,
+      "imr_moving_range_flags": 1,
+      "imr_limits": [
+        59.94154194614738,
+        105.38889138718598
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    }
+  },
+  "B009": {
+    "process_run": {
+      "n": 50,
+      "mean": 11.828199999999999,
+      "sd": 3.0870312599648226,
+      "imr_point_flags": 5,
+      "imr_moving_range_flags": 2,
+      "imr_limits": [
+        7.133779678679982,
+        16.522620321320016
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    }
+  },
+  "B010": {
+    "subgroups": {
+      "events": 228,
+      "n": 5000,
+      "share": 0.0456,
+      "p_chart_point_flags": 1
+    }
+  },
+  "B011": {
+    "baseline": {
+      "n": 60,
+      "mean": 52.348499999999994,
+      "sd": 3.814668755195451,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 2,
+      "imr_limits": [
+        41.31397060944825,
+        63.38302939055174
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "screening_run": {
+      "n": 16,
+      "full_factorial_model_p": 0.8335162744870344,
+      "r_squared": 0.2904638018576381,
+      "terms": [
+        "intercept",
+        "bond_angle",
+        "bead_spacing",
+        "cure_temperature",
+        "bond_angle*bead_spacing",
+        "bond_angle*cure_temperature",
+        "bead_spacing*cure_temperature",
+        "bond_angle*bead_spacing*cure_temperature"
+      ],
+      "term_p_values": [
+        2.553674773434112e-16,
+        0.7639333678077637,
+        0.7018768317841417,
+        0.8539259688398788,
+        0.5093811716173159,
+        0.30440396422280597,
+        0.9655689412070433,
+        0.2869055829565749
+      ],
+      "method_note": "Full factorial including all interactions; not causal without randomization assumptions"
+    }
+  },
+  "B012": {},
+  "B013": {
+    "fixtures": {
+      "group_n": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "group_means": [
+        24.99245333333333,
+        24.982466666666664,
+        25.00918,
+        25.020913333333336
+      ],
+      "group_variances": [
+        0.0012070169523809586,
+        0.0016813623809524287,
+        0.0005795288571428802,
+        0.0008474255238095328
+      ],
+      "levene_median_p": 0.5210438417591147,
+      "pooled_anova_p": 0.010893452040248355,
+      "welch_anova_p": 0.023435747415084182,
+      "welch_anova_F": 3.642564240257562,
+      "welch_df": [
+        3.0,
+        30.58487662601588
+      ],
+      "kruskal_p": 0.01216227312931478
+    },
+    "run_diameter": {
+      "n": 125,
+      "mean": 25.000735999999996,
+      "sd": 0.04133908249992362,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 1,
+      "imr_limits": [
+        24.88826388263555,
+        25.113208117364444
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "run_thickness": {
+      "n": 125,
+      "mean": 1.4002143999999996,
+      "sd": 0.05176572334613307,
+      "imr_point_flags": 5,
+      "imr_moving_range_flags": 8,
+      "imr_limits": [
+        1.2750063526424156,
+        1.5254224473575837
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "setting": {
+      "n": 60,
+      "ols_model_p": 0.972162068475354,
+      "ols_r2": 2.1177818060769127e-05,
+      "coefficients": [
+        1.3985302749344117,
+        -8.853213529243231e-05
+      ]
+    }
+  },
+  "B014": {
+    "process_run": {
+      "n": 50,
+      "mean": 486.8260000000001,
+      "sd": 43.05201320282626,
+      "imr_point_flags": 2,
+      "imr_moving_range_flags": 1,
+      "imr_limits": [
+        412.69443247937477,
+        560.9575675206254
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    }
+  },
+  "B015": {
+    "process_run": {
+      "n": 50,
+      "mean": 11.828199999999999,
+      "sd": 3.0870312599648226,
+      "imr_point_flags": 5,
+      "imr_moving_range_flags": 2,
+      "imr_limits": [
+        7.133779678679982,
+        16.522620321320016
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    }
+  },
+  "B016": {
+    "process_run": {
+      "n": 50,
+      "mean": 11.828199999999999,
+      "sd": 3.0870312599648226,
+      "imr_point_flags": 5,
+      "imr_moving_range_flags": 2,
+      "imr_limits": [
+        7.133779678679982,
+        16.522620321320016
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    }
+  },
+  "B017": {
+    "process_run": {
+      "n": 50,
+      "mean": 1.11236,
+      "sd": 0.19193927185866017,
+      "imr_point_flags": 4,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        0.8110139296569692,
+        1.4137060703430309
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    }
+  },
+  "B018": {
+    "process_run": {
+      "n": 30,
+      "mean": 86.08750666666666,
+      "sd": 2.860251663021297,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        76.72251216923452,
+        95.45250116409879
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "screening_doe": {
+      "n": 12,
+      "ols_model_p": 0.06641813304165016,
+      "ols_r2": 0.2978738111158554,
+      "coefficients": [
+        89.87709166666669,
+        -0.9282416666666671
+      ]
+    }
+  },
+  "B019": {
+    "fixtures": {
+      "group_n": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "group_means": [
+        24.976979999999994,
+        24.997453333333333,
+        25.00966,
+        25.002866666666666
+      ],
+      "group_variances": [
+        0.00035389028571428447,
+        0.0011841326666666545,
+        0.0009269182857143083,
+        0.0012987280952381196
+      ],
+      "levene_median_p": 0.3485506170649121,
+      "pooled_anova_p": 0.03142159868435731,
+      "welch_anova_p": 0.005594587037569988,
+      "welch_anova_F": 5.122973624867771,
+      "welch_df": [
+        3.0,
+        29.873322822516553
+      ],
+      "kruskal_p": 0.014762625070891986
+    },
+    "run_diameter": {
+      "n": 125,
+      "mean": 25.001499999999997,
+      "sd": 0.041378317526094964,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 1,
+      "imr_limits": [
+        24.877184196980092,
+        25.1258158030199
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "run_thickness": {
+      "n": 125,
+      "mean": 1.3917704,
+      "sd": 0.09217954344472216,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 2,
+      "imr_limits": [
+        1.1007486086479066,
+        1.6827921913520933
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "setting": {
+      "n": 60,
+      "ols_model_p": 4.1211644377915044e-10,
+      "ols_r2": 0.4928012887169475,
+      "coefficients": [
+        1.1899916469446306,
+        0.05529391003857327
+      ]
+    }
+  },
+  "B020": {
+    "after_lots": {
+      "events": 146,
+      "n": 80000,
+      "share": 0.001825,
+      "p_chart_point_flags": 0,
+      "target": 0.0025,
+      "exact_lower_tail_p": 3.6543497094608496e-05,
+      "exact_upper_tail_p": 0.9999737819708572,
+      "upper_one_sided_95": 0.0020934051201200194
+    },
+    "baseline": {
+      "events": 210,
+      "n": 100000,
+      "share": 0.0021,
+      "p_chart_point_flags": 0,
+      "target": 0.0025,
+      "exact_lower_tail_p": 0.005218966633675191,
+      "exact_upper_tail_p": 0.9957060991557439,
+      "upper_one_sided_95": 0.002354177731888054
+    }
+  },
+  "B021": {
+    "baseline": {
+      "n": 60,
+      "mean": 52.094833333333334,
+      "sd": 4.669088936524463,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        40.006391212886165,
+        64.18327545378051
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "confirmation_runs": {
+      "n": 20,
+      "mean": 58.60699999999999,
+      "sd": 1.9345504033645384,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        51.59972116461365,
+        65.61427883538633
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules",
+      "target": 55.0,
+      "greater_t_p": 4.5046555198870935e-08,
+      "lower_one_sided_95": 57.8590141132427,
+      "below_target_count": 1
+    },
+    "screening_run": {
+      "n": 16,
+      "full_factorial_model_p": 0.0003450875084604319,
+      "r_squared": 0.9360065448974847,
+      "terms": [
+        "intercept",
+        "bond_angle",
+        "bead_spacing",
+        "cure_temperature",
+        "bond_angle*bead_spacing",
+        "bond_angle*cure_temperature",
+        "bead_spacing*cure_temperature",
+        "bond_angle*bead_spacing*cure_temperature"
+      ],
+      "term_p_values": [
+        1.3639773404932168e-15,
+        3.7126308417585216e-05,
+        0.0003159527006047853,
+        0.8534673068258681,
+        0.01950483494675099,
+        0.29468967254899603,
+        0.09817019267923462,
+        0.4853190001925566
+      ],
+      "method_note": "Full factorial including all interactions; not causal without randomization assumptions"
+    },
+    "reported_prediction_interval_check": {
+      "interval": [
+        58.954156544674305,
+        60.488834163732875
+      ],
+      "observed_mean": 58.60699999999999,
+      "mean_inside_interval": false,
+      "observations_outside_interval": 16,
+      "note": "This direct arithmetic check does not endorse using a single-observation PI to assess a sample mean."
+    }
+  },
+  "B022": {
+    "baseline": {
+      "n": 60,
+      "mean": 58.95466666666667,
+      "sd": 0.9682930405767555,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 1,
+      "imr_limits": [
+        56.06339367712466,
+        61.84593965620868
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "recipes": {
+      "group_n": [
+        15,
+        15,
+        15
+      ],
+      "group_means": [
+        59.03466666666667,
+        59.30399999999999,
+        60.11133333333334
+      ],
+      "group_variances": [
+        0.19142666666666713,
+        1.441982857142859,
+        7.409940952380958
+      ],
+      "levene_median_p": 0.0006607844289582165,
+      "pooled_anova_p": 0.22163520750493595,
+      "welch_anova_p": 0.2754590424634292,
+      "welch_anova_F": 1.3708906394371467,
+      "welch_df": [
+        2.0,
+        21.22896107840732
+      ],
+      "kruskal_p": 0.3602224775091209
+    },
+    "leading_two_reuses_recipe_rows": [
+      true,
+      true
+    ]
+  },
+  "B023": {
+    "lots": {
+      "events": 127,
+      "n": 125000,
+      "share": 0.001016,
+      "p_chart_point_flags": 0
+    },
+    "sustaining": {
+      "events": 107,
+      "n": 100000,
+      "share": 0.00107,
+      "p_chart_point_flags": 0
+    }
+  },
+  "B024": {
+    "process_run": {
+      "n": 50,
+      "mean": 429.88399999999996,
+      "sd": 39.88408899676713,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 1,
+      "imr_limits": [
+        306.65885887972206,
+        553.1091411202779
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    }
+  },
+  "B025": {
+    "lots": {
+      "events": 179,
+      "n": 10000,
+      "share": 0.0179,
+      "p_chart_point_flags": 1
+    }
+  },
+  "B026": {
+    "process_run": {
+      "n": 50,
+      "mean": 411.43399999999997,
+      "sd": 48.61663698608466,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        271.48067824576634,
+        551.3873217542337
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    }
+  },
+  "B027": {
+    "fixtures": {
+      "group_n": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "group_means": [
+        24.874686666666662,
+        24.972753333333333,
+        25.020706666666666,
+        25.063706666666672
+      ],
+      "group_variances": [
+        0.004055238380952399,
+        0.008444829809523791,
+        0.006329603523809512,
+        0.0028599192380952035
+      ],
+      "levene_median_p": 0.17989079376831155,
+      "pooled_anova_p": 2.2375516890132885e-08,
+      "welch_anova_p": 1.713640723537657e-08,
+      "welch_anova_F": 25.692364888415202,
+      "welch_df": [
+        3.0,
+        30.546505640824666
+      ],
+      "kruskal_p": 2.012531295902554e-06
+    },
+    "run_diameter": {
+      "n": 125,
+      "mean": 25.003015199999997,
+      "sd": 0.09735823942135467,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        24.687838466986957,
+        25.318191933013036
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "run_thickness": {
+      "n": 125,
+      "mean": 1.3957487999999998,
+      "sd": 0.03825886069834652,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 1,
+      "imr_limits": [
+        1.2832487999999997,
+        1.5082487999999998
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "setting": {
+      "n": 60,
+      "ols_model_p": 0.4334723152125901,
+      "ols_r2": 0.010612399662966343,
+      "coefficients": [
+        1.386505479224379,
+        0.00300993610415572
+      ]
+    }
+  },
+  "B028": {
+    "baseline": {
+      "n": 60,
+      "mean": 60.63433333333333,
+      "sd": 2.297360583303699,
+      "imr_point_flags": 2,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        56.76037011660055,
+        64.5082965500661
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "recipes": {
+      "group_n": [
+        15,
+        15,
+        15
+      ],
+      "group_means": [
+        57.95933333333333,
+        59.74333333333334,
+        61.32733333333332
+      ],
+      "group_variances": [
+        0.8264066666666664,
+        0.8608380952380955,
+        0.7497352380952373
+      ],
+      "levene_median_p": 0.9755563118740186,
+      "pooled_anova_p": 3.833851301067109e-12,
+      "welch_anova_p": 3.2358912739920965e-10,
+      "welch_anova_F": 52.72274163874709,
+      "welch_df": [
+        2.0,
+        27.975912461549612
+      ],
+      "kruskal_p": 6.715535907754879e-08
+    },
+    "leading_two_reuses_recipe_rows": [
+      true,
+      true
+    ]
+  },
+  "B029": {
+    "process_run": {
+      "n": 30,
+      "mean": 86.08750666666666,
+      "sd": 2.860251663021297,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        76.72251216923452,
+        95.45250116409879
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "screening_doe": {
+      "n": 12,
+      "ols_model_p": 0.06641813304165016,
+      "ols_r2": 0.2978738111158554,
+      "coefficients": [
+        89.87709166666669,
+        -0.9282416666666671
+      ]
+    }
+  },
+  "B030": {
+    "process_run": {
+      "n": 30,
+      "mean": 86.62074333333334,
+      "sd": 2.677871793908214,
+      "imr_point_flags": 0,
+      "imr_moving_range_flags": 0,
+      "imr_limits": [
+        79.9742558058205,
+        93.26723086084617
+      ],
+      "method_note": "I-MR, MR(2), d2=1.128, D4=3.267; only point-beyond-limit rules"
+    },
+    "screening_doe": {
+      "n": 12,
+      "ols_model_p": 6.831448800224623e-06,
+      "ols_r2": 0.8786497163240671,
+      "coefficients": [
+        90.05234166666669,
+        3.207324999999999
+      ]
+    }
+  }
+}

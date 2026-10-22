@@ -1,0 +1,238 @@
+{
+  "system_id": "local-statistical-assistant",
+  "task_id": "adb_c41-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "nSamples": 240,
+        "nVariants": 150,
+        "nRetained": 238,
+        "callRateThreshold": 0.95,
+        "plateFailureThreshold": 0.1
+      },
+      "status": "success",
+      "decision": "Plate acceptable"
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 2
+      },
+      "status": "success",
+      "decision": "QC evaluated on retained participants; exact HWE in controls"
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 4.195269044230135e-18,
+        "pc1Variance": 0.1017012557185128,
+        "pc1CaseMin": -5.695365662196995,
+        "pc1CaseMax": 5.70695505166538,
+        "pc1ControlMin": -4.964265631904615,
+        "pc1ControlMax": 6.568968252325215,
+        "pc2PValue": 0.3768869629319004,
+        "pc2Variance": 0.02003994242791983,
+        "pc2CaseMin": -3.714980316139104,
+        "pc2CaseMax": 3.869575431385989,
+        "pc2ControlMin": -5.224361029795032,
+        "pc2ControlMax": 5.642296765951208,
+        "pc3PValue": 0.11563956822019951,
+        "pc3Variance": 0.019344030258285762,
+        "pc3CaseMin": -4.738658839519476,
+        "pc3CaseMax": 2.8177919532667866,
+        "pc3ControlMin": -4.0418846475997565,
+        "pc3ControlMax": 4.100788429461659,
+        "pc4PValue": 0.5887667577050781,
+        "pc4Variance": 0.01862286138041861,
+        "pc4CaseMin": -3.6897632286080833,
+        "pc4CaseMax": 4.670941499263726,
+        "pc4ControlMin": -4.140096643948799,
+        "pc4ControlMax": 4.239696126300382,
+        "pc5PValue": 0.7633570312822526,
+        "pc5Variance": 0.018518759869536452,
+        "pc5CaseMin": -4.590928756136693,
+        "pc5CaseMax": 4.049293100917724,
+        "pc5ControlMin": -4.238683334613228,
+        "pc5ControlMax": 4.170226400388786,
+        "pc6PValue": 0.7020573127481564,
+        "pc6Variance": 0.017215473496843218,
+        "pc6CaseMin": -3.666749700974796,
+        "pc6CaseMax": 4.338722883466446,
+        "pc6ControlMin": -4.135802029899401,
+        "pc6ControlMax": 5.390614358949322,
+        "pc7PValue": 0.6200033344904983,
+        "pc7Variance": 0.01690801755826399,
+        "pc7CaseMin": -3.96570560915391,
+        "pc7CaseMax": 3.7723111464559094,
+        "pc7ControlMin": -4.163912605631111,
+        "pc7ControlMax": 4.443641034424812,
+        "pc8PValue": 0.3475780931673391,
+        "pc8Variance": 0.01634605650019771,
+        "pc8CaseMin": -3.7178284699521216,
+        "pc8CaseMax": 4.283217429223107,
+        "pc8ControlMin": -5.533871435787486,
+        "pc8ControlMax": 3.6900307175576694,
+        "pc9PValue": 0.49511562089037453,
+        "pc9Variance": 0.016182831745457028,
+        "pc9CaseMin": -3.5461550322008604,
+        "pc9CaseMax": 4.278333748938397,
+        "pc9ControlMin": -4.7146077425244215,
+        "pc9ControlMax": 3.513221013136315,
+        "pc10PValue": 0.6863128830912373,
+        "pc10Variance": 0.015779394584992872,
+        "pc10CaseMin": -2.6685205728641703,
+        "pc10CaseMax": 4.4216871615332884,
+        "pc10ControlMin": -3.6180923688093367,
+        "pc10ControlMax": 4.826301622894217
+      },
+      "status": "success",
+      "decision": "Dominant ancestry axis associated with phenotype, but overlapping distributions; adjust for PC1, not a disjoint-ancestry stop. Other inspected axes show no phenotype association."
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 2,
+        "lambdaGC": 0.9870249032192632,
+        "bonferroniThreshold": 0.00035971223021582735
+      },
+      "status": "success",
+      "decision": "Additive logistic likelihood-ratio tests with PC1; per-variant complete cases"
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.626313844354682,
+        "pValue": 2.0959114151312725e-05,
+        "beta": 0.9655812829642845
+      },
+      "status": "success",
+      "decision": "rs020008 discovery dosage effect, PC1 adjusted"
+    },
+    {
+      "step_id": 6,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.4040603963866832,
+        "pValue": 0.00019276486248305573,
+        "beta": -0.9061909161877599
+      },
+      "status": "success",
+      "decision": "rs020065 discovery dosage effect, PC1 adjusted"
+    },
+    {
+      "step_id": 7,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "nRetained": 120
+      },
+      "status": "success",
+      "decision": "Replication sample QC"
+    },
+    {
+      "step_id": 8,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 9,
+        "snpsRetained": 141
+      },
+      "status": "success",
+      "decision": "Replication variant QC"
+    },
+    {
+      "step_id": 9,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.1880358912163143,
+        "pc2PValue": 0.7058766190857064,
+        "pc3PValue": 0.7326364032441726,
+        "pc4PValue": 0.3868262330630151,
+        "pc5PValue": 0.07144151641574202,
+        "pc6PValue": 0.6999938383235047,
+        "pc7PValue": 0.08201782708053781,
+        "pc8PValue": 0.5634573692306746,
+        "pc9PValue": 0.17665429710077749,
+        "pc10PValue": 0.5385066973879461
+      },
+      "status": "success",
+      "decision": "Replication leading-axis phenotype checks; PC1 adjustment maintained for comparability"
+    },
+    {
+      "step_id": 10,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.642170809226796,
+        "pValue": 0.0005926889072640596,
+        "beta": 0.971600855496613,
+        "qcPass": true
+      },
+      "status": "success",
+      "decision": "rs020008 replication PC1-adjusted additive logistic effect"
+    },
+    {
+      "step_id": 11,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 0.745550100233506,
+        "pValue": 0.297769650319195,
+        "beta": -0.2936329435028636,
+        "qcPass": true
+      },
+      "status": "success",
+      "decision": "rs020065 replication PC1-adjusted additive logistic effect"
+    },
+    {
+      "step_id": 12,
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 2,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Both computed discovery hits tested, including additional hit not in steward nomination; same direction and nominal significance required"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333
+      }
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "overlapping_structure_adjust",
+      "observed": {
+        "pc1PValue": 4.195269044230135e-18
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "report_only_confirmed",
+      "observed": {
+        "nReplicated": 1
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

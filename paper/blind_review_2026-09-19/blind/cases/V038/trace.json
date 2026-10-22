@@ -1,0 +1,212 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage": "agreement",
+        "n_units": 20,
+        "n_appraisers": 3,
+        "n_trials": 2
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.7333333333333334,
+        "agreementPct": 92.5
+      },
+      "status": "success",
+      "decision": "Repeatability/reproducibility is marginal: worst appraiser kappa vs standard/self is 0.733 (below the 0.75 acceptable threshold, above the 0.6-0.7 marginal floor). Proceed with caution; results downstream inherit this uncertainty."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage": "lots",
+        "n_subgroups": 25,
+        "subgroup_size": 5000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.002912,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "Baseline defect rate is stable across 25 lots (no points beyond 3-sigma limits); the process runs at a steady but elevated level."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage": "lots",
+        "total_defects": 364,
+        "total_inspected": 125000
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.002912,
+        "processZ": 2.7575292641966724
+      },
+      "status": "success",
+      "decision": "Baseline defect rate corresponds to 2912 DPMO, well above the 1500 DPMO charter commitment."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "stage": "lots",
+        "total_defects": 364,
+        "total_inspected": 125000,
+        "requirement_p": 0.0015
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.0
+      },
+      "status": "success",
+      "decision": "Baseline defect proportion is statistically significantly above the 1500 DPMO requirement (z=12.9, p<0.001)."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "stage": "machines",
+        "n_machines": 4,
+        "total_defective": 44,
+        "total_sound": 15956
+      },
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 3.6463912121971784,
+        "pValue": 0.30226607106144965
+      },
+      "status": "success",
+      "decision": "No statistically significant association between machine and defect status (p=0.302), despite a numeric downward trend from machine 1 (0.375%) to machine 4 (0.175%)."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "stage": "after_change",
+        "events_before": 3,
+        "events_after": 6,
+        "trials_before": 4000,
+        "trials_after": 4000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.31703813758955945,
+        "zStatistic": 1.0005629750547598
+      },
+      "status": "success",
+      "decision": "The immediate before/after trial on one machine shows the defect rate doubling (0.075% to 0.15%) but the difference is not statistically significant at this sample size (p=0.317); this single trial cannot confirm or rule out an effect of the change."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "stage": "sustaining",
+        "n_subgroups": 20,
+        "subgroup_sizes": "variable 3200-6400"
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.001394871794871795,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "The monitoring record since the change is stable (no out-of-control points); sigmaZ=1.07 shows no meaningful overdispersion, so the standard p-chart limits are adequate and a Laney adjustment is not needed."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "stage": "sustaining",
+        "total_defects": 136,
+        "total_inspected": 97500
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.001394871794871795,
+        "processZ": 2.9900033812316655
+      },
+      "status": "success",
+      "decision": "Since the change, the sustained defect rate is 1395 DPMO, below the 1500 DPMO requirement."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "stage": "sustaining",
+        "total_defects": 136,
+        "total_inspected": 97500,
+        "requirement_p": 0.0015
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.39632265475379036
+      },
+      "status": "success",
+      "decision": "The sustained defect rate (1395 DPMO) is statistically indistinguishable from the 1500 DPMO charter requirement (p=0.396); the process is now consistent with meeting the commitment."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "stage": "candidates",
+        "n_categories": 5,
+        "total_count": 240
+      },
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryPct": 34.166666666666664
+      },
+      "status": "success",
+      "decision": "'Loose end' is the leading reject category at 34.2% of tallied defects, ahead of off-weight, seam split, soft spot, and stain."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "stage": "failure_modes",
+        "n_modes": 5
+      },
+      "method_id": "quality.fmea_rpn",
+      "outputs": {
+        "maxRpn": 336
+      },
+      "status": "success",
+      "decision": "Highest-risk candidate failure mode is 'seam split' (RPN=336: severity 6 x occurrence 7 x detection 8), narrowly ahead of 'loose end' (RPN=280), even though loose end is the most frequent reject category observed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_reliability",
+      "chosen_branch": "proceed_with_caveat",
+      "observed": {
+        "kappaMin": 0.7333333333333334,
+        "agreementPct": 92.5
+      }
+    },
+    {
+      "point": "baseline_stability",
+      "chosen_branch": "stable_but_off_target",
+      "observed": {
+        "outOfControlCount": 0,
+        "dpmo": 2912.0
+      }
+    },
+    {
+      "point": "machine_variation",
+      "chosen_branch": "no_significant_difference",
+      "observed": {
+        "pValue": 0.30226607106144965
+      }
+    },
+    {
+      "point": "change_effect_single_trial",
+      "chosen_branch": "inconclusive",
+      "observed": {
+        "pValue": 0.31703813758955945
+      }
+    },
+    {
+      "point": "capability_vs_charter",
+      "chosen_branch": "baseline_fails_sustaining_meets",
+      "observed": {
+        "baseline_dpmo": 2912.0,
+        "sustaining_dpmo": 1394.871794871795
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

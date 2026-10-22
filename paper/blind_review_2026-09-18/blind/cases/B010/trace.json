@@ -1,0 +1,117 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "appraiser1Kappa": 0.7647058823529412,
+        "appraiser1AccuracyPct": 90.0,
+        "appraiser1RepeatabilityPct": 80.0,
+        "appraiser2Kappa": 0.9354838709677419,
+        "appraiser2AccuracyPct": 97.5,
+        "appraiser2RepeatabilityPct": 95.0,
+        "appraiser3Kappa": 0.9310344827586207,
+        "appraiser3AccuracyPct": 97.5,
+        "appraiser3RepeatabilityPct": 95.0,
+        "kappaMin": 0.7647058823529412,
+        "agreementPct": 95.0,
+        "tickets": 20,
+        "judgements": 120,
+        "reviewers": 3
+      },
+      "status": "success",
+      "decision": "Pooled Cohen kappa against standard per reviewer; repeatability is exact agreement across trials. Weakest reviewer requires calibration; not uniformly reliable.",
+      "inputs_digest": {
+        "batch": "agreement"
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0456,
+        "outOfControlCount": 1,
+        "lcl": 0.0013458612105037154,
+        "ucl": 0.08985413878949629,
+        "periods": 25,
+        "tickets": 5000,
+        "breaches": 228,
+        "flaggedPeriod": 13,
+        "flaggedRate": 0.22,
+        "flaggedBreaches": 44,
+        "periodSize": 200
+      },
+      "status": "success",
+      "decision": "Three-sigma point rule: unstable; retain all observations, investigate flagged period.",
+      "inputs_digest": {
+        "batch": "subgroups"
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "capability.binomial",
+      "outputs": {
+        "avgP": 0.0456,
+        "processZ": 1.6891013980043694,
+        "targetRate": 0.05,
+        "targetPct": 5.0,
+        "observedPct": 4.5600000000000005,
+        "gapPercentagePoints": -0.4400000000000001
+      },
+      "status": "success",
+      "decision": "Historical pooled yield and unshifted normal-equivalent Z only; instability prevents predictive capability claim.",
+      "inputs_digest": {
+        "batch": "subgroups"
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.9294440167581286,
+        "ciLower": 0.039984398495302845,
+        "ciUpper": 0.05175346808010406
+      },
+      "status": "success",
+      "decision": "Exact one-sided exceedance test; nominal pooled interval assumes independent constant-probability tickets, contradicted by chart. Failure to reject is not proof of compliance.",
+      "inputs_digest": {
+        "batch": "subgroups"
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.40342950102782804,
+        "zStatistic": 0.8355119862887138,
+        "team1Rate": 0.05,
+        "team2Rate": 0.04,
+        "team1Pct": 5.0,
+        "team2Pct": 4.0,
+        "difference": 0.010000000000000002,
+        "differenceLower": -0.013451414765340747,
+        "differenceUpper": 0.03345141476534075,
+        "team1Events": 30,
+        "team2Events": 24,
+        "team1Trials": 600,
+        "team2Trials": 600
+      },
+      "status": "success",
+      "decision": "Two-sided pooled z test, no continuity correction. Aggregate observational comparison cannot establish cause or equivalence.",
+      "inputs_digest": {
+        "batch": "root_cause"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "stability",
+      "chosen_branch": "investigate_special_cause_before_predictive_capability",
+      "observed": {
+        "outOfControlCount": 1
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

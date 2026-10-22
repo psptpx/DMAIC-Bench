@@ -1,0 +1,131 @@
+{
+  "system_id": "openai-command-line-agent",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "participants": 240,
+        "variants": 150,
+        "groups": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 118,
+        "unaffectedRetained": 120,
+        "affectedFailed": 2,
+        "unaffectedFailed": 0,
+        "minimumObservedCallRate": 0.9466666666666667,
+        "sampleCallRateThreshold": 0.95,
+        "plateFailFractionThreshold": 0.1,
+        "platePasses": true
+      },
+      "status": "success",
+      "decision": "Plate passes the participant-level stop rule; exclude P011 and P120 and continue."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 150,
+        "unaffected": 120,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "callRateFailures": 5,
+        "mafFailures": 4,
+        "hweFailures": 3,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hwePThreshold": 1e-06,
+        "familywiseAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "Retain variants passing all three protocol criteria and test over the retained set."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 138,
+        "groups": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 4.0403632009987195e-15,
+        "pc1Statistic": -8.4059792021254,
+        "pc1VarianceFraction": 0.08041143324224802,
+        "pc1AffectedMinimum": -4.575433479950249,
+        "pc1AffectedMaximum": 5.618346811390099,
+        "pc1UnaffectedMinimum": -4.804200549932126,
+        "pc1UnaffectedMaximum": 5.050326164539733
+      },
+      "status": "success",
+      "decision": "PC1 is strongly associated with phenotype but group score ranges overlap; comparison is allowed with PC1 adjustment."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "participants": 238,
+        "variants": 138,
+        "covariates": 1,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.1750327876429354,
+        "variantsTested": 138,
+        "modelsFailed": 0,
+        "covariateCount": 1,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "smallestPValue": 0.0018095930621595277,
+        "topOddsRatio": 2.363275351744545,
+        "topModelParticipants": 233
+      },
+      "status": "success",
+      "decision": "No retained variant meets the protocol-corrected threshold; rs050022 is the smallest-p result but is not significant."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_stop_rule",
+      "chosen_branch": "continue_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333,
+        "maximumAllowed": 0.1,
+        "platePasses": true
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "overlapping_structure_adjust_pc1",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 4.0403632009987195e-15
+      }
+    },
+    {
+      "point": "association_declaration",
+      "chosen_branch": "no_association_declared",
+      "observed": {
+        "nSignificant": 0,
+        "smallestPValue": 0.0018095930621595277,
+        "threshold": 0.00036231884057971015
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

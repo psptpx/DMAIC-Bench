@@ -1,0 +1,276 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "source": "baseline.json",
+        "lots": 25,
+        "inspected": 100000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.00546,
+        "outOfControlCount": 0,
+        "lowerControlLimitMin": 0.001964585303572693,
+        "upperControlLimitMax": 0.008955414696427307,
+        "observedProportion": 0.00546,
+        "defectives": 546.0,
+        "inspected": 100000.0,
+        "lotCount": 25
+      },
+      "decision": "No plotted lot crossed three-sigma limits.",
+      "status": "success"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "source": "baseline.json",
+        "aggregateGroups": 1,
+        "defectives": 546,
+        "inspected": 100000
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 4.220242209124989e-59,
+        "observedProportion": 0.00546,
+        "nullProportion": 0.0025,
+        "defectives": 546,
+        "inspected": 100000,
+        "ratioToTarget": 2.184,
+        "excessDefectivesVsTarget": 296.0
+      },
+      "decision": "Observed share is significantly greater than the commitment.",
+      "status": "success"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "source": "settings.json",
+        "records": 40,
+        "predictors": 2,
+        "modelTerms": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {},
+      "status": "failed",
+      "decision": "First implementation failed on an internal import path; no result was produced."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "source": "baseline.json",
+        "lots": 25,
+        "inspected": 100000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.00546,
+        "outOfControlCount": 0,
+        "lowerControlLimitMin": 0.001964585303572693,
+        "upperControlLimitMax": 0.008955414696427307,
+        "observedProportion": 0.00546,
+        "defectives": 546.0,
+        "inspected": 100000.0,
+        "lotCount": 25
+      },
+      "decision": "No plotted lot crossed three-sigma limits.",
+      "status": "success"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "source": "after_lots.json",
+        "lots": 20,
+        "defectiveLots": 20,
+        "inspected": 80000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0034375,
+        "outOfControlCount": 0,
+        "lowerControlLimitMin": 0.0006612096538838918,
+        "upperControlLimitMax": 0.006213790346116108,
+        "observedProportion": 0.0034375,
+        "defectives": 275.0,
+        "inspected": 80000.0,
+        "lotCount": 20
+      },
+      "decision": "No plotted post-change lot crossed its three-sigma limits.",
+      "status": "success"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "source": "baseline.json",
+        "aggregateGroups": 1,
+        "defectives": 546,
+        "inspected": 100000
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 4.220242209124989e-59,
+        "observedProportion": 0.00546,
+        "nullProportion": 0.0025,
+        "defectives": 546,
+        "inspected": 100000,
+        "ratioToTarget": 2.184,
+        "excessDefectivesVsTarget": 296.0
+      },
+      "decision": "Observed share is significantly greater than the commitment.",
+      "status": "success"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "source": "after.json",
+        "aggregateGroups": 1,
+        "defectives": 275,
+        "inspected": 80000
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 2.847837963216255e-07,
+        "observedProportion": 0.0034375,
+        "nullProportion": 0.0025,
+        "defectives": 275,
+        "inspected": 80000
+      },
+      "decision": "Observed share is significantly greater than the commitment.",
+      "status": "success"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "source": "before_after.json",
+        "groups": 2,
+        "inspectedPerGroup": 40000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 1.1530117357517475e-07,
+        "zStatistic": -5.300792345784441,
+        "beforeProportion": 0.005925,
+        "afterProportion": 0.003375,
+        "differenceAfterMinusBefore": -0.0025499999999999997,
+        "percentReductionFromBefore": 43.0379746835443,
+        "beforeDefectives": 237,
+        "afterDefectives": 135,
+        "beforeInspected": 40000,
+        "afterInspected": 40000
+      },
+      "decision": "The post-change window is significantly lower than the before window.",
+      "status": "success"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "source": "trial_size.json",
+        "groups": 2,
+        "plannedNPerGroup": 40000
+      },
+      "method_id": "power.two_proportions",
+      "outputs": {
+        "power": 0.9999999914471074,
+        "alpha": 0.05,
+        "plannedBeforeProportion": 0.0059,
+        "plannedAfterProportion": 0.0025,
+        "nPerGroup": 40000
+      },
+      "decision": "The design had essentially certain power for the planned 0.0059-to-0.0025 change.",
+      "status": "success"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "source": "settings.json",
+        "records": 40,
+        "predictors": 2,
+        "modelTerms": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 1.20039199680057e-06,
+        "rSquaredPct": 56.426363457132034,
+        "rSquaredAdjPct": 52.795227078559705,
+        "fStatistic": 15.539588044698402,
+        "residualStandardError": 0.0006013889412062952,
+        "maximumTermPValue": 3.647421126578713e-05,
+        "pasteThicknessPValue": 1.5878687634538685e-05,
+        "reflowPeakPValue": 3.647421126578713e-05,
+        "interactionPValue": 1.2151358677491888e-05,
+        "pasteThicknessEstimate": -0.14070740096043682,
+        "reflowPeakEstimate": -0.0008648128403685798,
+        "interactionEstimate": 0.0005832562392927196,
+        "sampleSize": 40,
+        "predictorCount": 2,
+        "modelTermCount": 3
+      },
+      "decision": "All specified model terms are significant; this is association, not proof of causation.",
+      "status": "success"
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "source": "baseline_vs_after.json",
+        "groups": 2,
+        "inspected": [
+          100000,
+          80000
+        ]
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 2.48636583545256e-10,
+        "zStatistic": -6.327827674758111,
+        "baselineProportionPct": 0.5459999999999999,
+        "afterProportionPct": 0.34375,
+        "differenceAfterMinusBaselinePct": -0.20224999999999996,
+        "percentReductionFromBaseline": 37.04212454212454
+      },
+      "decision": "The post-change lot aggregate is significantly below baseline.",
+      "status": "success"
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "source": "after_lots.json",
+        "aggregateGroups": 1,
+        "defectives": 275,
+        "inspected": 80000
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 2.847837963216255e-07,
+        "observedProportion": 0.0034375,
+        "nullProportion": 0.0025,
+        "ratioToTarget": 1.375,
+        "excessDefectivesVsTarget": 75.0,
+        "furtherReductionToTargetPct": 27.272727272727273,
+        "wilson95Lower": 0.003055072228494698,
+        "wilson95Upper": 0.003867613591607647
+      },
+      "decision": "The post-change share remains significantly above target; the Wilson interval also excludes target.",
+      "status": "success"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability_gate",
+      "chosen_branch": "stable",
+      "observed": {
+        "outOfControlCount": 0,
+        "centerLine": 0.00546
+      }
+    },
+    {
+      "point": "settings_factor_gate",
+      "chosen_branch": "any_factor_significant",
+      "observed": {
+        "maximumTermPValue": 3.647421126578713e-05,
+        "modelPValue": 1.20039199680057e-06
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

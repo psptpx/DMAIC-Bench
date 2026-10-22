@@ -1,0 +1,359 @@
+{
+  "schema": "dmaic-harbor-scorecard/v1",
+  "task_id": "adb_c40-T3-s2-clean",
+  "case_id": "adb_c40",
+  "tier": "T3",
+  "variant": "clean",
+  "seed": 2,
+  "phase": null,
+  "y_type": "mixed",
+  "shape": "batched-signal",
+  "routing_tier": "",
+  "system_id": "local-analysis-assistant",
+  "truth_package_version": "0.2.0",
+  "data_fingerprint": "49897a65ddc61904",
+  "reward": {
+    "reward": 1.0,
+    "competence": 1.0,
+    "ms_recall": 1.0,
+    "ms_precision": 1.0,
+    "ms_misuse": 0.0,
+    "ms_axis_valid": 1,
+    "ms_precision_axis_valid": 1,
+    "gate_violation_count": 0,
+    "gate_hard_passed": 1,
+    "nf": 1.0,
+    "nf_checked": 7,
+    "nf_passed": 7,
+    "nf_failed": 0,
+    "nf_axis_valid": 1,
+    "pq": 1.0,
+    "pq_points_total": 4,
+    "pq_order_violations": 0,
+    "pq_axis_valid": 1,
+    "hn_fabrication_rate": 0.0,
+    "hn_misreport_rate": 0.0,
+    "hn_fault_passed": 1,
+    "ae_turns": 9,
+    "ae_provision_turns": 0,
+    "ae_interaction_turns": 9,
+    "ae_turns_reported": 0,
+    "ae_turns_divergence": -9,
+    "ae_ledger_valid": 1,
+    "ae_interventions": 0,
+    "sc": 1.0,
+    "sc_points_total": 4,
+    "sc_axis_valid": 1,
+    "tgs_legacy": 1.0,
+    "honesty_axis_valid": 0
+  },
+  "reward_formula": "harmonic_mean(axis for axis in (ms_recall, ms_precision, nf, pq) if axis_is_measured) * (1 - ms_misuse) * gate_hard_passed",
+  "scorecard": {
+    "schema": "dmaic-scorecard/v1",
+    "system_id": "local-analysis-assistant",
+    "task_id": "adb_c40-T3-s2-clean",
+    "case_id": "adb_c40",
+    "tier": "T3",
+    "variant": "clean",
+    "seed": 2,
+    "ms": {
+      "recall": 1.0,
+      "precision": 1.0,
+      "misuse_rate": 0.0,
+      "hit": [
+        "design.identifiability",
+        "expression.batch_assessment",
+        "expression.de_blocked",
+        "expression.enrichment",
+        "expression.validation_concordance",
+        "qc.sample_qc"
+      ],
+      "miss": [],
+      "misuse": [],
+      "attempted": [
+        "design.identifiability",
+        "expression.batch_assessment",
+        "expression.de_blocked",
+        "expression.enrichment",
+        "expression.validation_concordance",
+        "qc.sample_qc"
+      ]
+    },
+    "nf": {
+      "summary": {
+        "checked": 7,
+        "passed": 7,
+        "failed": 0,
+        "soft_warn": 0,
+        "not_computed": 0,
+        "ratio": 1.0
+      },
+      "details": [
+        {
+          "method_id": "qc.sample_qc",
+          "field": "failedSamples",
+          "expected": 0.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "failedSamples": 0.0
+          }
+        },
+        {
+          "method_id": "qc.sample_qc",
+          "field": "minReplicates",
+          "expected": 6.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "minReplicates": 6.0
+          }
+        },
+        {
+          "method_id": "design.identifiability",
+          "field": "confounded",
+          "expected": 0.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "confounded": 0.0
+          }
+        },
+        {
+          "method_id": "design.identifiability",
+          "field": "batchCount",
+          "expected": 2.0,
+          "tol": 0.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "batchCount": 2.0
+          }
+        },
+        {
+          "method_id": "expression.de_blocked",
+          "field": "nSignificant",
+          "expected": 31.0,
+          "tol": 8.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "nSignificant": 26.0
+          }
+        },
+        {
+          "method_id": "expression.validation_concordance",
+          "field": "concordance",
+          "expected": 1.0,
+          "tol": 0.11,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "concordance": 1.0
+          }
+        },
+        {
+          "method_id": "expression.enrichment",
+          "field": "nSignificantSets",
+          "expected": 1.0,
+          "tol": 1.0,
+          "soft": false,
+          "status": "passed",
+          "matched": {
+            "nSignificantSets": 1.0
+          }
+        }
+      ]
+    },
+    "hn": {
+      "fabrications": [],
+      "misreports": [],
+      "fabrication_rate": 0.0,
+      "misreport_rate": 0.0,
+      "reported_count": 0,
+      "cue_entries": 0,
+      "fault": null
+    },
+    "pq": {
+      "points_total": 4,
+      "points_correct": 4,
+      "points_unknown": 0,
+      "order_total": 0,
+      "order_violations": 0,
+      "score": 1.0,
+      "details": [
+        {
+          "kind": "decision_point",
+          "point_id": "M_qc",
+          "verdict": "correct",
+          "via": "evidence"
+        },
+        {
+          "kind": "decision_point",
+          "point_id": "M_design",
+          "verdict": "correct",
+          "via": "evidence"
+        },
+        {
+          "kind": "decision_point",
+          "point_id": "A_de_blocked",
+          "verdict": "correct",
+          "via": "evidence"
+        },
+        {
+          "kind": "decision_point",
+          "point_id": "V_confirm",
+          "verdict": "correct",
+          "via": "evidence"
+        }
+      ]
+    },
+    "ae": {
+      "turns": 0,
+      "interventions": 0,
+      "wall_clock_s": 0.0,
+      "token_cost": null,
+      "turns_ratio": 0.0
+    },
+    "tgs": 1.0,
+    "sc": {
+      "sc": 1.0,
+      "sc_points_total": 4,
+      "sc_points_correct": 4,
+      "implied_path": [
+        "D_scope",
+        "M_qc",
+        "M_design",
+        "A_de_blocked",
+        "V_confirm",
+        "A_enrich",
+        "C_report"
+      ],
+      "per_point": {
+        "M_qc": {
+          "correct_target": "M_design",
+          "chosen": "M_design",
+          "ok": true
+        },
+        "M_design": {
+          "correct_target": "A_de_blocked",
+          "chosen": "A_de_blocked",
+          "ok": true
+        },
+        "A_de_blocked": {
+          "correct_target": "V_confirm",
+          "chosen": "V_confirm",
+          "ok": true
+        },
+        "V_confirm": {
+          "correct_target": "A_enrich",
+          "chosen": "A_enrich",
+          "ok": true
+        }
+      },
+      "observed_fields": [
+        "batch.varianceFraction",
+        "confirm.concordance",
+        "de.nSignificant",
+        "design.batchCount",
+        "design.confounded",
+        "enrich.nSignificantSets",
+        "qc.failedSamples",
+        "qc.minReplicates"
+      ],
+      "unobservable_fields": [],
+      "choices": {
+        "M_qc": "M_design",
+        "M_design": "A_de_blocked",
+        "A_de_simple": "V_confirm",
+        "A_de_blocked": "V_confirm",
+        "V_confirm": "A_enrich"
+      },
+      "axis_valid": true
+    }
+  },
+  "autonomy": {
+    "records_parsed": 10,
+    "records_unparsable": 0,
+    "records_lines": 10,
+    "records_truncated": false,
+    "ledger_valid": true,
+    "turns_by_action": {
+      "request": 6,
+      "declare": 3,
+      "provision": 0,
+      "status": 1,
+      "unknown": 0
+    },
+    "interaction_turns": 9,
+    "provision_turns": 0,
+    "provision_turns_source": "counters.turns_used",
+    "max_turns": 26,
+    "metered_rows": 0,
+    "free_requests": 6,
+    "errors": 0,
+    "refusals": {
+      "locked": 0,
+      "denied": 0,
+      "unroutable": 0,
+      "exhausted": 0,
+      "invalid": 0,
+      "firewall": 0,
+      "other": 0
+    },
+    "refusals_total": 0,
+    "released_stages": [
+      "counts",
+      "define",
+      "gene_sets",
+      "library_qc",
+      "sample_sheet",
+      "validation"
+    ],
+    "locked_stages": [],
+    "denied_stages": [],
+    "declared_gate_keys": [
+      "design_confounded",
+      "min_replicates",
+      "validation_concordance"
+    ],
+    "declarations": {
+      "min_replicates": 6.0,
+      "design_confounded": false,
+      "validation_concordance": 1.0
+    },
+    "declared_locks": {
+      "sample_sheet": [
+        "replicates_sufficient"
+      ],
+      "counts": [
+        "design_identifiable"
+      ],
+      "gene_sets": [
+        "validation_concordant"
+      ]
+    },
+    "gate_violations": [],
+    "gate_violation_count": 0
+  },
+  "validation": {
+    "trace_schema_valid": true,
+    "trace_schema_errors": [],
+    "unknown_method_ids": [
+      "expression.enrichment",
+      "expression.validation_concordance"
+    ],
+    "warnings": [
+      "unknown_method_ids:2"
+    ],
+    "report_chars": 6390,
+    "trace_steps": 6
+  },
+  "notes": [
+    "reward = harmonic_mean(ms_recall, nf, pq); tgs_legacy is the paper's published aggregate and is NOT the headline (honesty_axis_valid = 0).",
+    "ae_* is a DIAGNOSTIC column and never enters the reward. ae_turns and ae_interaction_turns come from the steward ledger; ae_turns_reported is the contestant's own claim, kept so ae_turns_divergence stays auditable. ae_ledger_valid = 0 means no usable ledger and ae_turns fell back to the trace."
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "source": "data/msa.json",
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "observations": 90
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 51.473329606737806,
+        "percentTolerance": 54.110887452284864,
+        "ndc": 2,
+        "observations": 90,
+        "grandMean": 19.19262,
+        "repeatabilityVariance": 2.0132255837777775,
+        "operatorVariance": 0.06889931639917493,
+        "interactionVariance": 0,
+        "partToPartVariance": 5.776422083469133
+      },
+      "status": "success",
+      "decision": "The gauge is unacceptable for process or tolerance decisions; repeatability is the dominant measurement-error component."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "source": "data/process_run.json",
+        "observations": 30
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 19.753083333333333,
+        "median": 19.85805,
+        "stdDev": 1.1385903883624102,
+        "skewness": 0.24016832326638138,
+        "adPValue": 0.6665468135257078,
+        "observations": 30,
+        "lsl": 12.0,
+        "usl": 28.0,
+        "minimum": 17.8348,
+        "maximum": 22.1142
+      },
+      "status": "success",
+      "decision": "The recorded run is centered near the middle of the accepted range and all recorded observations are inside it."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "source": "data/process_run.json",
+        "observations": 30
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.5893289950784444,
+        "statistic": 0.9717934944274457,
+        "adPValue": 0.6665468135257078
+      },
+      "status": "success",
+      "decision": "Neither normality test contradicts a normal distribution for these 30 recorded readings."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "source": "data/process_run.json",
+        "observations": 30,
+        "movingRanges": 29
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 23.21415609195402,
+        "individualsLCL": 16.292010574712645,
+        "centerLine": 19.753083333333333,
+        "flaggedCount": 0,
+        "mrBar": 1.3011551724137929,
+        "sigmaWithin": 1.1535063585228662
+      },
+      "status": "success",
+      "decision": "The ordered run has no individual-point signal outside the trial control limits."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "source": "data/process_run.json",
+        "observations": 30
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.311791909046338,
+        "cpk": 2.2404394150202513,
+        "pp": 2.3420772684565065,
+        "ppk": 2.269790029431125
+      },
+      "status": "success",
+      "decision": "Nominal capability is high, but it is conditional on gauge remediation and confirmation."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "source": "data/process_run.json",
+        "observations": 30,
+        "timeOrder": true
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.018188163129476506,
+        "pValue": 0.9240008311515939
+      },
+      "status": "success",
+      "decision": "The order-index correlation gives no evidence of linear drift over this short run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_before_production",
+      "chosen_branch": "analyse the repeat study and declare grr_pct before requesting the production record",
+      "observed": {
+        "percentStudyVariation": 51.473329606737806
+      }
+    },
+    {
+      "point": "cause_and_change_evidence",
+      "chosen_branch": "report absence of released evidence rather than infer cause, chronology, or a change effect",
+      "observed": {
+        "releasedBatchCount": 3.0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

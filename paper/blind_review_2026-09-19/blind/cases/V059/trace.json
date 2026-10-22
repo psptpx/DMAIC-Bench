@@ -1,0 +1,743 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0
+      },
+      "status": "success",
+      "decision": "Released accepted interval and target were profiled directly from the charter batch."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "msa",
+        "expectedObservations": 90
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial parser expected CSV records while released JSON used nested arrays; no estimate was produced."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "msa",
+        "observations": 90,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "tolerance": 80.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 15.54173435636568,
+        "percentTolerance": 64.84568955932677,
+        "ndc": 8,
+        "sigmaGRR": 8.64609194124357,
+        "sigmaTotal": 55.63144847925064,
+        "interactionPValue": 0.5001485510264245,
+        "operatorPValue": 0.17123567227784164,
+        "partPValue": 1.1102230246251565e-16,
+        "varianceComponentGRR": 74.754905856437,
+        "repeatabilityPercentOfGRR": 97.09138889151014,
+        "operatorPercentOfGRR": 2.9086111084898576,
+        "observations": 90,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "tolerance": 80.0
+      },
+      "status": "success",
+      "decision": "Passes study-variation discrimination criterion; percent of tolerance is excessive, so gauge improvement is still required."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 125,
+        "subgroups": 25,
+        "subgroupSize": 5,
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 219.7996,
+        "flaggedXBarCount": 0,
+        "xBarUCL": 230.67028,
+        "xBarLCL": 208.92892,
+        "rBar": 18.84,
+        "rUCL": 39.82776,
+        "flaggedRCount": 0,
+        "observations": 125,
+        "subgroups": 25,
+        "subgroupSize": 5,
+        "zoneAFlagCount": 0,
+        "eightSameSideFlagCount": 0
+      },
+      "status": "success",
+      "decision": "Baseline Xbar and R charts have no Shewhart point signals."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 125,
+        "subgroupSize": 5,
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 219.7996,
+        "median": 218.92,
+        "stdDev": 8.132756684564132,
+        "skewness": -0.018405846600706415,
+        "adPValue": 0.5544073410979302,
+        "min": 199.64,
+        "max": 240.54,
+        "meanOffset": -0.2004000000000019,
+        "observedOutOfRangePct": 0.0,
+        "observations": 125
+      },
+      "status": "success",
+      "decision": "Baseline is centered essentially on target and has no observed out-of-spec readings."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 125
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.5544073410979302,
+        "statistic": 0.308627031980663
+      },
+      "status": "success",
+      "decision": "Anderson-Darling gives no evidence incompatible with normality."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 125
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.8230714791224346,
+        "cpk": 0.008247176220806875,
+        "pp": 0.8197302495622321,
+        "ppk": 0.008213697100613643
+      },
+      "status": "failed",
+      "decision": "Superseded first capability execution accidentally used 220 as USL and 260 as target; values are not used in the report."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "process_run",
+        "subgroupMeans": 25,
+        "predictor": "samplingPoint"
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.41065210516835193,
+        "rSquaredPct": 2.962810632949541,
+        "rSquaredAdjPct": -1.2561976004004771,
+        "slopePerSubgroup": -0.08698307692307693
+      },
+      "status": "success",
+      "decision": "No significant baseline linear trend across sampling points."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "process_run_corrected",
+        "observations": 125,
+        "subgroupSize": 5,
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.6461429582448692,
+        "cpk": 1.6378957820240625,
+        "pp": 1.6394604991244641,
+        "ppk": 1.6312468020238504,
+        "cpu": 1.6543901344656762,
+        "cpl": 1.6378957820240625,
+        "ppu": 1.6476741962250776,
+        "ppl": 1.6312468020238504,
+        "expectedOutOfRangePct": 8.792894610198942e-05,
+        "sigmaWithin": 8.099742046431642,
+        "sigmaOverall": 8.132756684564132
+      },
+      "status": "success",
+      "decision": "Corrected 180-260 capability is strong, but this overall capability remains conditional on gauge improvement."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "applicators",
+        "expectedObservations": 60
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "groupCount": 4,
+        "observations": 60,
+        "observationsPerGroup": 15
+      },
+      "status": "failed",
+      "decision": "The first applicator/sustaining script stopped at a Python syntax error before computing either batch."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groups": 4,
+        "observations": 60,
+        "observationsPerGroup": 15
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "groupCount": 4,
+        "observations": 60,
+        "observationsPerGroup": 15
+      },
+      "status": "success",
+      "decision": "Balanced four-applicator sample assembled in ordinal JSON order."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "batch": "applicators",
+        "observations": 60,
+        "groups": [
+          "nozzle A",
+          "nozzle B",
+          "nozzle C",
+          "nozzle D"
+        ],
+        "observationsPerGroup": 15
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 219.8923333333333,
+        "group0Mean": 219.232,
+        "group0StdDev": 3.7200695077991672,
+        "group0Median": 218.85,
+        "group1Mean": 221.03333333333333,
+        "group1StdDev": 4.0199549867179,
+        "group1Median": 220.85,
+        "group2Mean": 218.23066666666668,
+        "group2StdDev": 4.109409875372565,
+        "group2Median": 216.68,
+        "group3Mean": 221.07333333333327,
+        "group3StdDev": 6.321489050020083,
+        "group3Median": 223.01
+      },
+      "status": "success",
+      "decision": "Nozzle A-D sample summaries were computed; D has the largest observed standard deviation."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groups": 4,
+        "observationsPerGroup": 15,
+        "test": "Brown-Forsythe median Levene"
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.19647479664990153,
+        "statistic": 1.6135931133295809
+      },
+      "status": "success",
+      "decision": "No significant evidence of unequal group medianspread; parametric ANOVA is supported."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "batch": "applicators",
+        "observations": 60,
+        "unit": "ANOVA residuals",
+        "test": "Shapiro-Wilk"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.7119259748845042,
+        "statistic": 0.9858059088581788
+      },
+      "status": "success",
+      "decision": "ANOVA residuals show no significant departure from normality."
+    },
+    {
+      "step_id": 15,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groups": 4,
+        "observationsPerGroup": 15,
+        "betweenSS": 88.40727333333032,
+        "withinSS": 1215.864000000001
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 0.26524159241384115,
+        "fStatistic": 1.3572809970705795
+      },
+      "status": "success",
+      "decision": "No statistically detectable difference among applicator means."
+    },
+    {
+      "step_id": 16,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groups": 4,
+        "observationsPerGroup": 15
+      },
+      "method_id": "nonparametric.kruskal_wallis",
+      "outputs": {
+        "pValue": 0.19065979175936595
+      },
+      "status": "success",
+      "decision": "The rank-based confirmatory comparison also finds no significant applicator effect."
+    },
+    {
+      "step_id": 17,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groupA": "nozzle A",
+        "groupB": "nozzle B",
+        "nA": 15,
+        "nB": 15,
+        "test": "Welch"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.2132838954171729,
+        "tStatistic": -1.273757194920359,
+        "meanDifference": -1.8013333333333321
+      },
+      "status": "success",
+      "decision": "No pairwise comparison remains significant after recognizing that these are six unplanned tests."
+    },
+    {
+      "step_id": 18,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groupA": "nozzle A",
+        "groupB": "nozzle C",
+        "nA": 15,
+        "nB": 15,
+        "test": "Welch"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.48998523415763606,
+        "tStatistic": 0.699632720099929,
+        "meanDifference": 1.0013333333333208
+      },
+      "status": "success",
+      "decision": "No pairwise comparison remains significant after recognizing that these are six unplanned tests."
+    },
+    {
+      "step_id": 19,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groupA": "nozzle A",
+        "groupB": "nozzle D",
+        "nA": 15,
+        "nB": 15,
+        "test": "Welch"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.3411826545804827,
+        "tStatistic": -0.9722687741613082,
+        "meanDifference": -1.8413333333332673
+      },
+      "status": "success",
+      "decision": "No pairwise comparison remains significant after recognizing that these are six unplanned tests."
+    },
+    {
+      "step_id": 20,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groupA": "nozzle B",
+        "groupB": "nozzle C",
+        "nA": 15,
+        "nB": 15,
+        "test": "Welch"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.06940564699303776,
+        "tStatistic": 1.8882051060472007,
+        "meanDifference": 2.802666666666653
+      },
+      "status": "success",
+      "decision": "No pairwise comparison remains significant after recognizing that these are six unplanned tests."
+    },
+    {
+      "step_id": 21,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groupA": "nozzle B",
+        "groupB": "nozzle D",
+        "nA": 15,
+        "nB": 15,
+        "test": "Welch"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.9836741429235545,
+        "tStatistic": -0.020679589187972896,
+        "meanDifference": -0.0399999999999352
+      },
+      "status": "success",
+      "decision": "No pairwise comparison remains significant after recognizing that these are six unplanned tests."
+    },
+    {
+      "step_id": 22,
+      "inputs_digest": {
+        "batch": "applicators",
+        "groupA": "nozzle C",
+        "groupB": "nozzle D",
+        "nA": 15,
+        "nB": 15,
+        "test": "Welch"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.15718184350410372,
+        "tStatistic": -1.4601993924051981,
+        "meanDifference": -2.842666666666588
+      },
+      "status": "success",
+      "decision": "No pairwise comparison remains significant after recognizing that these are six unplanned tests."
+    },
+    {
+      "step_id": 23,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "observations": 100,
+        "subgroups": 20,
+        "subgroupSize": 5,
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "observations": 100,
+        "subgroups": 20,
+        "mean": 220.54989999999998,
+        "median": 220.875,
+        "stdDev": 5.838914472067663,
+        "min": 206.77,
+        "max": 232.22,
+        "postSkewness": -0.12513144654644964
+      },
+      "status": "success",
+      "decision": "The 100-reading monitoring sample remains near target with no observed out-of-spec readings."
+    },
+    {
+      "step_id": 24,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "observations": 100
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.7432302312606766,
+        "statistic": 0.24851375644547602
+      },
+      "status": "success",
+      "decision": "Anderson-Darling gives no evidence incompatible with normality."
+    },
+    {
+      "step_id": 25,
+      "inputs_digest": {
+        "batch": "sustaining_against_baseline_limits",
+        "observations": 100,
+        "subgroups": 20,
+        "subgroupSize": 5
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 219.7996,
+        "xBarUCL": 230.67028,
+        "xBarLCL": 208.92892,
+        "flaggedXBarCount": 0,
+        "rBar": 18.84,
+        "rUCL": 39.82776,
+        "flaggedRCount": 0,
+        "observations": 100,
+        "subgroups": 20,
+        "subgroupSize": 5
+      },
+      "status": "success",
+      "decision": "All 20 post-change subgroup means and ranges remain inside baseline Xbar/R limits."
+    },
+    {
+      "step_id": 26,
+      "inputs_digest": {
+        "batch": "sustaining_own_limits",
+        "observations": 100,
+        "subgroups": 20,
+        "subgroupSize": 5
+      },
+      "method_id": "control_chart.xbar_r",
+      "outputs": {
+        "xBarChartCenterLine": 220.54990000000004,
+        "xBarUCL": 228.37805900000004,
+        "xBarLCL": 212.72174100000004,
+        "flaggedXBarCount": 0,
+        "rBar": 13.566999999999997,
+        "rUCL": 28.68063799999999,
+        "flaggedRCount": 0,
+        "zoneAFlagCount": 0,
+        "eightSameSideFlagCount": 0,
+        "observations": 100,
+        "subgroups": 20,
+        "subgroupSize": 5
+      },
+      "status": "success",
+      "decision": "Own-limit Xbar/R monitoring also has no point signals."
+    },
+    {
+      "step_id": 27,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "observations": 100,
+        "subgroupSize": 5,
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.285938920419646,
+        "cpk": 2.2545129751111785,
+        "pp": 2.2835294808851283,
+        "ppk": 2.2521366593466614,
+        "observedOutOfRangePct": 0.0,
+        "expectedOutOfRangePct": 8.968048526014627e-10,
+        "sigmaWithin": 5.832760103181426,
+        "sigmaOverall": 5.838914472067663
+      },
+      "status": "success",
+      "decision": "Post-change capability is substantially stronger than baseline."
+    },
+    {
+      "step_id": 28,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "subgroupMeans": 20,
+        "predictor": "monitoringSubgroup"
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.6586078657565825,
+        "rSquaredPct": 1.108860037449752,
+        "rSquaredAdjPct": -4.385092182691919,
+        "slopePerSubgroup": -0.04970977443609121
+      },
+      "status": "success",
+      "decision": "No significant post-change trend."
+    },
+    {
+      "step_id": 29,
+      "inputs_digest": {
+        "batch": "process_run",
+        "observations": 125,
+        "hypothesizedMean": 220.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 0.7833939296962624,
+        "tStatistic": -0.27549577595343644
+      },
+      "status": "success",
+      "decision": "Baseline mean is not significantly different from target."
+    },
+    {
+      "step_id": 30,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "observations": 100,
+        "hypothesizedMean": 220.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 0.34859537834613796,
+        "tStatistic": 0.9417846461540141
+      },
+      "status": "success",
+      "decision": "Post-change mean is not significantly different from target."
+    },
+    {
+      "step_id": 31,
+      "inputs_digest": {
+        "batch": "process_run versus sustaining",
+        "observationsBaseline": 125,
+        "observationsPost": 100,
+        "test": "Welch"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.4220454503723907,
+        "tStatistic": -0.8043768779370586,
+        "meanDifference": 0.7502999999999531,
+        "baselineMean": 219.7996,
+        "postMean": 220.54989999999998
+      },
+      "status": "success",
+      "decision": "No significant change in mean between baseline and monitoring readings."
+    },
+    {
+      "step_id": 32,
+      "inputs_digest": {
+        "batch": "process_run versus sustaining",
+        "observationsBaseline": 125,
+        "observationsPost": 100,
+        "test": "Brown-Forsythe median Levene"
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.003566664649132216,
+        "statistic": 8.675741039493118
+      },
+      "status": "success",
+      "decision": "Significant evidence that reading variability changed."
+    },
+    {
+      "step_id": 33,
+      "inputs_digest": {
+        "batch": "process_run versus sustaining",
+        "observationsBaseline": 125,
+        "observationsPost": 100
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 0.3935132590401955
+      },
+      "status": "success",
+      "decision": "The rank-based comparison does not contradict the unchanged-mean conclusion."
+    },
+    {
+      "step_id": 34,
+      "inputs_digest": {
+        "batch": "process_run versus sustaining",
+        "observationsBaseline": 125,
+        "observationsPost": 100,
+        "subgroupSize": 5
+      },
+      "method_id": "capability.grouped",
+      "outputs": {
+        "baselinePpk": 1.6312468020238504,
+        "postPpk": 2.2521366593466614,
+        "ppkImprovement": 0.620889857322811,
+        "baselineStdDev": 8.132756684564132,
+        "postStdDev": 5.838914472067663,
+        "stdDevReductionPct": 28.204977739591698,
+        "rBarReductionPct": 27.988322717622097,
+        "varianceRatioPostToBaseline": 0.5154525221372525,
+        "baselineRBar": 18.84,
+        "postRBar": 13.566999999999997,
+        "observations": 225,
+        "baselineObservations": 125,
+        "postObservations": 100,
+        "baselineSubgroups": 25,
+        "postSubgroups": 20,
+        "subgroupSize": 5,
+        "cpk": 2.2545129751111785,
+        "ppk": 2.2521366593466614
+      },
+      "status": "success",
+      "decision": "Observed variability fell materially and Ppk improved, subject to the unresolved gauge limitation."
+    },
+    {
+      "step_id": 35,
+      "inputs_digest": {
+        "batch": "all_released_batches",
+        "releasedBatchCount": 5
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "processRunObservations": 125,
+        "sustainingObservations": 100,
+        "applicatorObservations": 60,
+        "msaObservations": 90,
+        "processFactRequests": 2,
+        "releasedBatchCount": 5,
+        "deniedBatchCount": 0
+      },
+      "status": "success",
+      "decision": "All five released batches were inventoried; no data batch remains unavailable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_gate_metric",
+      "chosen_branch": "declare percent study variation as grr_pct, while retaining percent tolerance as a separate qualification limitation",
+      "observed": {
+        "percentStudyVariation": 15.54173435636568,
+        "percentTolerance": 64.84568955932677,
+        "ndc": 8
+      }
+    },
+    {
+      "point": "baseline_capability_specification",
+      "chosen_branch": "discard invalid capability run and recompute with LSL 180, target 220, USL 260",
+      "observed": {
+        "lsl": 180.0,
+        "target": 220.0,
+        "usl": 260.0,
+        "invalidCpkUsed": 0.008247176220806875,
+        "correctedCpk": 1.6378957820240625
+      }
+    },
+    {
+      "point": "applicator_comparison_method",
+      "chosen_branch": "check residuals and spread, then report ANOVA with rank-based confirmation",
+      "observed": {
+        "residualShapiroPValue": 0.7119259748845042,
+        "levenePValue": 0.19647479664990153,
+        "anovaPValue": 0.26524159241384115,
+        "kruskalPValue": 0.19065979175936595
+      }
+    },
+    {
+      "point": "post_change_cause_inquiry",
+      "chosen_branch": "stop at unavailable process fact rather than infer the intervention",
+      "observed": {
+        "provisionAttempts": 2,
+        "routableProcessFactTopics": 0
+      }
+    },
+    {
+      "point": "monitoring_control_basis",
+      "chosen_branch": "evaluate against both unchanged baseline limits and monitoring-record own limits",
+      "observed": {
+        "baselineFlaggedXBarCount": 0,
+        "baselineFlaggedRCount": 0,
+        "ownLimitFlaggedXBarCount": 0,
+        "ownLimitFlaggedRCount": 0
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

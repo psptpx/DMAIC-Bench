@@ -1,0 +1,168 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sample_count": 12,
+        "group_count": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minimumRequired": 3,
+        "qcPass": true,
+        "nSamples": 12
+      },
+      "status": "success",
+      "decision": "Library QC passed; both arms retain the required usable replication."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "usable_sample_count": 12,
+        "group_count": 2,
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2,
+        "treatmentEstimable": true,
+        "conditionCount": 2
+      },
+      "status": "success",
+      "decision": "Treatment is estimable; the only preparation batch contains both arms, so no batch term is required."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "gene_count": 400,
+        "sample_count": 12,
+        "group_count": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "modelsSuccessful": 0
+      },
+      "status": "failed",
+      "decision": "Initial median-ratio normalization failed because unrestricted geometric means encountered individual zero counts; its apparent call count was discarded."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "gene_count": 400,
+        "sample_count": 12,
+        "group_count": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 38,
+        "modelsSuccessful": 400,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "sizeFactorMin": 0.7358996855730512,
+        "sizeFactorMax": 1.2415643256753288
+      },
+      "status": "success",
+      "decision": "Negative-binomial GLMs after positive-gene median-ratio normalization; BH-adjusted p-value and absolute log2 fold-change criteria jointly yielded the response calls."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "candidate_count": 10,
+        "replicates_per_group": 4,
+        "group_count": 2,
+        "batch": "validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "minimumConcordance": 0.75,
+        "validationAlpha": 0.05,
+        "validationPass": true,
+        "replicatesPerGroup": 4
+      },
+      "status": "success",
+      "decision": "Welch two-sample tests confirmed every independently assayed nominee at the required p-value and in the panel-called direction."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "universe_size": 400,
+        "called_count": 38,
+        "set_count": 12,
+        "batch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "universeSize": 400,
+        "calledCount": 38,
+        "setCount": 12,
+        "enrichmentAlpha": 0.05,
+        "topSetSize": 30,
+        "topSetOverlap": 20,
+        "topSetOddsRatio": 39.111111111111114,
+        "topSetPValue": 2.2685638725907814e-16,
+        "topSetPadj": 2.722276647108938e-15
+      },
+      "status": "success",
+      "decision": "One-sided Fisher over-representation tests with BH correction identified SET03 as the sole significant set."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "minimumRequired": 3
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "unconfounded_single_batch",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      }
+    },
+    {
+      "point": "normalization_recovery",
+      "chosen_branch": "restrict_size_factor_reference_to_positive_in_all_samples",
+      "observed": {
+        "initialModelsSuccessful": 0,
+        "correctedModelsSuccessful": 400
+      }
+    },
+    {
+      "point": "validation_release_gate",
+      "chosen_branch": "issue_candidate_list",
+      "observed": {
+        "concordance": 1.0,
+        "minimumConcordance": 0.75,
+        "nConfirmed": 10,
+        "nCandidates": 10
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

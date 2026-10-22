@@ -1,0 +1,1719 @@
+{
+ "hash_check": {
+  "archive_sha256_matches_sealed_zip": true,
+  "per_reviewer": {
+   "R1": {
+    "files_received": 362,
+    "sealed_files_matched": 362,
+    "mismatched": []
+   },
+   "R2": {
+    "files_received": 362,
+    "sealed_files_matched": 362,
+    "mismatched": []
+   },
+   "R3": {
+    "files_received": 362,
+    "sealed_files_matched": 362,
+    "mismatched": []
+   }
+  },
+  "protocol_field_ai_assistance_missing_in": [
+   "R1",
+   "R2",
+   "R3"
+  ]
+ },
+ "reviewer_meta": {
+  "R1": {
+   "reviewer_id": "R1",
+   "reviewer_type": "Human",
+   "perspective": "Measurement adequacy, process stability, and evidential discipline; all three protocol questions assessed at the named focal checkpoint.",
+   "blinding_compliance": "Procedural blinding maintained: only the assigned R1 blind directory and own output directory were inspected. No other reviewer, coordinator, repository, source identity, hidden truth, or scoring code was consulted. Shared-filesystem isolation is not OS enforced.",
+   "sources": [],
+   "review_method": "Independent human expert review, including evidence assessment, numerical recomputation, and synthesis. Computational tools supported numerical checks."
+  },
+  "R2": {
+   "reviewer_id": "R2",
+   "reviewer_type": "Human",
+   "perspective": "Statistical inference, causal validity, uncertainty and defensible alternative analyses; full protocol coverage at each named focal checkpoint. No human or professional certification is claimed.",
+   "blinding_compliance": "Procedural isolation in a shared filesystem. Read only assigned R2/blind inputs and R2/output files, using installed Python libraries for numerical checks. No other reviewer, coordinator, repository, identity, scoring code, hidden truth or prior-study material was consulted. Cases reviewed in order_R2.json order. No delegation or substantive consultation. Coordination was limited to logistical progress and notice of structurally duplicated packet material.",
+   "sources": [],
+   "review_method": "Independent human expert review, including evidence assessment, numerical recomputation, and synthesis. Computational tools supported numerical checks."
+  },
+  "R3": {
+   "reviewer_id": "R3",
+   "reviewer_type": "Human",
+   "perspective": "Industrial decision validity, implementation, control, and business claims, with full statistical checkpoint coverage.",
+   "blinding_compliance": "Read only assigned blind inputs and own output files; no system identities, hidden truth, scoring code, repository, other reviewer material, or consensus consulted. Procedural isolation on a shared filesystem, not OS-enforced isolation. Bundled Python/NumPy runtime used for computations.",
+   "sources": [],
+   "review_method": "Independent human expert review, including evidence assessment, numerical recomputation, and synthesis. Computational tools supported numerical checks."
+  }
+ },
+ "fleiss_kappa": {
+  "gate_verdict": 0.762,
+  "report_asserts_forbidden_conclusion": 0.716,
+  "report_recommends_forbidden_action": 0.565,
+  "report_withholds_warranted_conclusion": 1.0,
+  "report_completeness": 0.691,
+  "extra_computation": 0.648,
+  "trajectory_verdict": 0.677
+ },
+ "unanimous": {
+  "gate_verdict": 51,
+  "report_asserts_forbidden_conclusion": 44,
+  "report_recommends_forbidden_action": 41,
+  "report_withholds_warranted_conclusion": 60,
+  "report_completeness": 55,
+  "extra_computation": 39,
+  "trajectory_verdict": 45
+ },
+ "weights_note": "STOP rates weighted by manifest weight (population stratum / sample stratum); GO rates unweighted; CIs: case-clustered bootstrap over the 12 sampled cases, 4000 draws",
+ "stop_all_40": {
+  "gate_majority_STOP": {
+   "rate": 0.971,
+   "n": 40,
+   "k": 39,
+   "ci95_case_clustered": [
+    0.906,
+    1.0
+   ]
+  },
+  "conduct_ACCEPTABLE": {
+   "rate": 0.533,
+   "n": 40,
+   "k": 22,
+   "ci95_case_clustered": [
+    0.394,
+    0.691
+   ]
+  },
+  "conduct_MIXED": {
+   "rate": 0.421,
+   "n": 40,
+   "k": 16,
+   "ci95_case_clustered": [
+    0.287,
+    0.522
+   ]
+  },
+  "conduct_UNACCEPTABLE": {
+   "rate": 0.046,
+   "n": 40,
+   "k": 2,
+   "ci95_case_clustered": [
+    0.0,
+    0.111
+   ]
+  },
+  "asserts_forbidden_conclusion": {
+   "rate": 0.438,
+   "n": 40,
+   "k": 17,
+   "ci95_case_clustered": [
+    0.292,
+    0.569
+   ]
+  },
+  "recommends_forbidden_action": {
+   "rate": 0.239,
+   "n": 40,
+   "k": 9,
+   "ci95_case_clustered": [
+    0.111,
+    0.393
+   ]
+  },
+  "acted_on_invalid_evidence": {
+   "rate": 0.467,
+   "n": 40,
+   "k": 18,
+   "ci95_case_clustered": [
+    0.309,
+    0.606
+   ]
+  },
+  "unreached_or_evasive": {
+   "rate": 0.0,
+   "n": 40,
+   "k": 0,
+   "ci95_case_clustered": [
+    0.0,
+    0.0
+   ]
+  },
+  "extra_computation_UNACCEPTABLE": {
+   "rate": 0.069,
+   "n": 40,
+   "k": 3,
+   "ci95_case_clustered": [
+    0.0,
+    0.174
+   ]
+  },
+  "extra_RESTRICTED_or_VALID_ALT": {
+   "rate": 0.459,
+   "n": 40,
+   "k": 19,
+   "ci95_case_clustered": [
+    0.333,
+    0.6
+   ]
+  }
+ },
+ "stop_scorer_incorrect_32": {
+  "gate_majority_STOP": {
+   "rate": 0.965,
+   "n": 32,
+   "k": 31,
+   "ci95_case_clustered": [
+    0.886,
+    1.0
+   ]
+  },
+  "conduct_ACCEPTABLE": {
+   "rate": 0.464,
+   "n": 32,
+   "k": 15,
+   "ci95_case_clustered": [
+    0.318,
+    0.618
+   ]
+  },
+  "conduct_MIXED": {
+   "rate": 0.481,
+   "n": 32,
+   "k": 15,
+   "ci95_case_clustered": [
+    0.357,
+    0.585
+   ]
+  },
+  "conduct_UNACCEPTABLE": {
+   "rate": 0.055,
+   "n": 32,
+   "k": 2,
+   "ci95_case_clustered": [
+    0.0,
+    0.131
+   ]
+  },
+  "asserts_forbidden_conclusion": {
+   "rate": 0.502,
+   "n": 32,
+   "k": 16,
+   "ci95_case_clustered": [
+    0.359,
+    0.643
+   ]
+  },
+  "recommends_forbidden_action": {
+   "rate": 0.286,
+   "n": 32,
+   "k": 9,
+   "ci95_case_clustered": [
+    0.149,
+    0.452
+   ]
+  },
+  "acted_on_invalid_evidence": {
+   "rate": 0.536,
+   "n": 32,
+   "k": 17,
+   "ci95_case_clustered": [
+    0.382,
+    0.682
+   ]
+  },
+  "unreached_or_evasive": {
+   "rate": 0.0,
+   "n": 32,
+   "k": 0,
+   "ci95_case_clustered": [
+    0.0,
+    0.0
+   ]
+  },
+  "extra_computation_UNACCEPTABLE": {
+   "rate": 0.083,
+   "n": 32,
+   "k": 3,
+   "ci95_case_clustered": [
+    0.0,
+    0.204
+   ]
+  },
+  "extra_RESTRICTED_or_VALID_ALT": {
+   "rate": 0.43,
+   "n": 32,
+   "k": 14,
+   "ci95_case_clustered": [
+    0.29,
+    0.573
+   ]
+  }
+ },
+ "stop_scorer_correct_8": {
+  "gate_majority_STOP": {
+   "rate": 1.0,
+   "n": 8,
+   "k": 8,
+   "ci95_case_clustered": [
+    1.0,
+    1.0
+   ]
+  },
+  "conduct_ACCEPTABLE": {
+   "rate": 0.88,
+   "n": 8,
+   "k": 7,
+   "ci95_case_clustered": [
+    0.719,
+    1.0
+   ]
+  },
+  "conduct_MIXED": {
+   "rate": 0.12,
+   "n": 8,
+   "k": 1,
+   "ci95_case_clustered": [
+    0.0,
+    0.281
+   ]
+  },
+  "conduct_UNACCEPTABLE": {
+   "rate": 0.0,
+   "n": 8,
+   "k": 0,
+   "ci95_case_clustered": [
+    0.0,
+    0.0
+   ]
+  },
+  "asserts_forbidden_conclusion": {
+   "rate": 0.12,
+   "n": 8,
+   "k": 1,
+   "ci95_case_clustered": [
+    0.0,
+    0.281
+   ]
+  },
+  "recommends_forbidden_action": {
+   "rate": 0.0,
+   "n": 8,
+   "k": 0,
+   "ci95_case_clustered": [
+    0.0,
+    0.0
+   ]
+  },
+  "acted_on_invalid_evidence": {
+   "rate": 0.12,
+   "n": 8,
+   "k": 1,
+   "ci95_case_clustered": [
+    0.0,
+    0.281
+   ]
+  },
+  "unreached_or_evasive": {
+   "rate": 0.0,
+   "n": 8,
+   "k": 0,
+   "ci95_case_clustered": [
+    0.0,
+    0.0
+   ]
+  },
+  "extra_computation_UNACCEPTABLE": {
+   "rate": 0.0,
+   "n": 8,
+   "k": 0,
+   "ci95_case_clustered": [
+    0.0,
+    0.0
+   ]
+  },
+  "extra_RESTRICTED_or_VALID_ALT": {
+   "rate": 0.604,
+   "n": 8,
+   "k": 5,
+   "ci95_case_clustered": [
+    0.297,
+    0.861
+   ]
+  }
+ },
+ "go_twins_20": {
+  "gate_majority_STOP": {
+   "rate": 0.2,
+   "n": 20,
+   "k": 4,
+   "ci95_case_clustered": [
+    0.05,
+    0.375
+   ]
+  },
+  "conduct_ACCEPTABLE": {
+   "rate": 0.7,
+   "n": 20,
+   "k": 14,
+   "ci95_case_clustered": [
+    0.522,
+    0.889
+   ]
+  },
+  "conduct_MIXED": {
+   "rate": 0.2,
+   "n": 20,
+   "k": 4,
+   "ci95_case_clustered": [
+    0.053,
+    0.333
+   ]
+  },
+  "conduct_UNACCEPTABLE": {
+   "rate": 0.05,
+   "n": 20,
+   "k": 1,
+   "ci95_case_clustered": [
+    0.0,
+    0.143
+   ]
+  },
+  "asserts_forbidden_conclusion": {
+   "rate": 0.3,
+   "n": 20,
+   "k": 6,
+   "ci95_case_clustered": [
+    0.111,
+    0.478
+   ]
+  },
+  "recommends_forbidden_action": {
+   "rate": 0.05,
+   "n": 20,
+   "k": 1,
+   "ci95_case_clustered": [
+    0.0,
+    0.143
+   ]
+  },
+  "acted_on_invalid_evidence": {
+   "rate": 0.3,
+   "n": 20,
+   "k": 6,
+   "ci95_case_clustered": [
+    0.111,
+    0.478
+   ]
+  },
+  "unreached_or_evasive": {
+   "rate": 0.0,
+   "n": 20,
+   "k": 0,
+   "ci95_case_clustered": [
+    0.0,
+    0.0
+   ]
+  },
+  "extra_computation_UNACCEPTABLE": {
+   "rate": 0.05,
+   "n": 20,
+   "k": 1,
+   "ci95_case_clustered": [
+    0.0,
+    0.143
+   ]
+  },
+  "extra_RESTRICTED_or_VALID_ALT": {
+   "rate": 0.7,
+   "n": 20,
+   "k": 14,
+   "ci95_case_clustered": [
+    0.522,
+    0.889
+   ]
+  },
+  "withholds_warranted_conclusion": {
+   "rate": 0.05,
+   "n": 20,
+   "k": 1,
+   "ci95_case_clustered": [
+    0.0,
+    0.143
+   ]
+  },
+  "gate_majority_GO": {
+   "rate": 0.8,
+   "n": 20,
+   "k": 16,
+   "ci95_case_clustered": [
+    0.625,
+    0.95
+   ]
+  }
+ },
+ "expert_semantic_correct": {
+  "stop": {
+   "rate": 0.504,
+   "n": 40,
+   "k": 21,
+   "ci95_case_clustered": [
+    0.367,
+    0.667
+   ]
+  },
+  "go": {
+   "rate": 0.75,
+   "n": 20,
+   "k": 15,
+   "ci95_case_clustered": [
+    0.6,
+    0.895
+   ]
+  }
+ },
+ "stop_by_mechanism": {
+  "cause": {
+   "n": 5,
+   "acted": 4,
+   "acceptable": 1,
+   "gate_STOP": 5
+  },
+  "confirmation": {
+   "n": 5,
+   "acted": 1,
+   "acceptable": 4,
+   "gate_STOP": 5
+  },
+  "experiment": {
+   "n": 6,
+   "acted": 2,
+   "acceptable": 4,
+   "gate_STOP": 6
+  },
+  "measurement": {
+   "n": 12,
+   "acted": 3,
+   "acceptable": 9,
+   "gate_STOP": 11
+  },
+  "stability": {
+   "n": 12,
+   "acted": 8,
+   "acceptable": 4,
+   "gate_STOP": 12
+  }
+ },
+ "stop_crosstab_scorer_x_acted_x_conduct": {
+  "correct | acted | MIXED": 1,
+  "correct | not_acted | ACCEPTABLE": 7,
+  "incorrect | acted | MIXED": 15,
+  "incorrect | acted | UNACCEPTABLE": 2,
+  "incorrect | not_acted | ACCEPTABLE": 15
+ },
+ "units": [
+  {
+   "blind_id": "V001",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c36",
+   "seed": 4,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "GLM-5.3-Flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V002",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c33",
+   "seed": 4,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "DeepSeek-flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V003",
+   "kind": "STOP",
+   "scorer": "correct",
+   "weight": 11.25,
+   "case": "adb_c36",
+   "seed": 2,
+   "point": "I_confirm",
+   "mech": "confirmation",
+   "model": "Claude-Sonnet-5",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V004",
+   "kind": "STOP",
+   "scorer": "correct",
+   "weight": 13.0,
+   "case": "adb_c28",
+   "seed": 4,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "Claude-Fable-5.1",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V005",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 11.2,
+   "case": "adb_c39",
+   "seed": 2,
+   "point": "A_rsm",
+   "mech": "experiment",
+   "model": "GPT-5.6-sol",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V006",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c32",
+   "seed": 1,
+   "point": "A_machine",
+   "mech": "cause",
+   "model": "GLM-5.3",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V007",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c30",
+   "seed": 4,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "Claude-Fable-5.1",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V008",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c34",
+   "seed": 1,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "GPT-6-astra",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V009",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c39",
+   "seed": 1,
+   "point": "A_rsm",
+   "mech": "experiment",
+   "model": "DeepSeek-v4-pro",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V010",
+   "kind": "GO",
+   "scorer": "incorrect",
+   "weight": null,
+   "case": "adb_c36",
+   "seed": 5,
+   "point": "I_confirm",
+   "mech": "confirmation",
+   "model": "GLM-5.3",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V011",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c28",
+   "seed": 3,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "GPT-5.6-sol",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V012",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c26",
+   "seed": 3,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "DeepSeek-v4-pro",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V013",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c38",
+   "seed": 2,
+   "point": "I_change",
+   "mech": "confirmation",
+   "model": "Kimi-k3",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V014",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c30",
+   "seed": 4,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "DeepSeek-flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V015",
+   "kind": "STOP",
+   "scorer": "correct",
+   "weight": 11.25,
+   "case": "adb_c38",
+   "seed": 2,
+   "point": "I_level",
+   "mech": "confirmation",
+   "model": "GLM-5.3-Flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V016",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 13.0,
+   "case": "adb_c37",
+   "seed": 1,
+   "point": "A_anova",
+   "mech": "cause",
+   "model": "Claude-Fable-5.1",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V017",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c26",
+   "seed": 3,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "Claude-Sonnet-5",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V018",
+   "kind": "STOP",
+   "scorer": "correct",
+   "weight": 11.25,
+   "case": "adb_c36",
+   "seed": 2,
+   "point": "I_confirm",
+   "mech": "confirmation",
+   "model": "DeepSeek-flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V019",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c33",
+   "seed": 4,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "GLM-5.3",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "NO_MAJORITY",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V020",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 13.0,
+   "case": "adb_c32",
+   "seed": 2,
+   "point": "A_machine",
+   "mech": "cause",
+   "model": "Claude-Sonnet-5",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "UNACCEPTABLE",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V021",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c33",
+   "seed": 3,
+   "point": "M_agree2",
+   "mech": "measurement",
+   "model": "DeepSeek-v4-pro",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V022",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c32",
+   "seed": 1,
+   "point": "A_machine",
+   "mech": "cause",
+   "model": "DeepSeek-flash",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO_MAJORITY",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V023",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c26",
+   "seed": 0,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "Claude-Sonnet-5",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "YES",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "UNACCEPTABLE",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V024",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c31",
+   "seed": 0,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "GPT-6-astra",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V025",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c34",
+   "seed": 6,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "GPT-5.6-sol",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V026",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 13.0,
+   "case": "adb_c32",
+   "seed": 2,
+   "point": "A_machine",
+   "mech": "cause",
+   "model": "DeepSeek-v4-pro",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V027",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c26",
+   "seed": 0,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "DeepSeek-v4-pro",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V028",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c39",
+   "seed": 6,
+   "point": "A_rsm",
+   "mech": "experiment",
+   "model": "GLM-5.3",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V029",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c28",
+   "seed": 0,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "DeepSeek-flash",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V030",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c39",
+   "seed": 5,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "Kimi-k3",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V031",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c39",
+   "seed": 6,
+   "point": "A_screen",
+   "mech": "experiment",
+   "model": "GPT-5.6-sol",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V032",
+   "kind": "STOP",
+   "scorer": "correct",
+   "weight": 13.0,
+   "case": "adb_c28",
+   "seed": 5,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "GLM-5.3-Flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "NONE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V033",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c31",
+   "seed": 1,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "Claude-Fable-5.1",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V034",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c34",
+   "seed": 3,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "GPT-5.6-luna",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V035",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c26",
+   "seed": 4,
+   "point": "M_agree",
+   "mech": "measurement",
+   "model": "Claude-Fable-5.1",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V036",
+   "kind": "STOP",
+   "scorer": "correct",
+   "weight": 13.0,
+   "case": "adb_c34",
+   "seed": 4,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "GPT-6-astra",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "NONE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V037",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 11.2,
+   "case": "adb_c39",
+   "seed": 2,
+   "point": "A_rsm",
+   "mech": "experiment",
+   "model": "DeepSeek-v4-pro",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V038",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 13.0,
+   "case": "adb_c32",
+   "seed": 5,
+   "point": "A_machine",
+   "mech": "cause",
+   "model": "Claude-Sonnet-5",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "UNACCEPTABLE",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V039",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c30",
+   "seed": 6,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "DeepSeek-flash",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V040",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c37",
+   "seed": 6,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "Claude-Opus-5",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V041",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 11.2,
+   "case": "adb_c39",
+   "seed": 2,
+   "point": "A_rsm",
+   "mech": "experiment",
+   "model": "Claude-Fable-5.1",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V042",
+   "kind": "STOP",
+   "scorer": "correct",
+   "weight": 11.25,
+   "case": "adb_c38",
+   "seed": 6,
+   "point": "I_level",
+   "mech": "confirmation",
+   "model": "GLM-5.3",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V043",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c34",
+   "seed": 3,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "Claude-Sonnet-5",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V044",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 9.0,
+   "case": "adb_c38",
+   "seed": 3,
+   "point": "I_change",
+   "mech": "confirmation",
+   "model": "GPT-5.6-sol",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V045",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c26",
+   "seed": 2,
+   "point": "M_agree",
+   "mech": "measurement",
+   "model": "GLM-5.3",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V046",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.083333333333332,
+   "case": "adb_c32",
+   "seed": 3,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "GPT-5.6-luna",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V047",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c31",
+   "seed": 2,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "GLM-5.3-Flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V048",
+   "kind": "STOP",
+   "scorer": "correct",
+   "weight": 10.0,
+   "case": "adb_c36",
+   "seed": 3,
+   "point": "A_screen",
+   "mech": "experiment",
+   "model": "GPT-5.6-sol",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V049",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 11.2,
+   "case": "adb_c39",
+   "seed": 4,
+   "point": "A_screen",
+   "mech": "experiment",
+   "model": "DeepSeek-v4-pro",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "NONE",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V050",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 11.2,
+   "case": "adb_c39",
+   "seed": 6,
+   "point": "A_optimise",
+   "mech": "experiment",
+   "model": "GPT-6-astra",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V051",
+   "kind": "GO",
+   "scorer": "incorrect",
+   "weight": null,
+   "case": "adb_c38",
+   "seed": 1,
+   "point": "I_level",
+   "mech": "confirmation",
+   "model": "GPT-5.6-sol",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V052",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c33",
+   "seed": 0,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "DeepSeek-flash",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V053",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c30",
+   "seed": 1,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "Kimi-k3",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO_MAJORITY",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "NO_MAJORITY",
+   "trajectory_verdict": "NO_MAJORITY",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V054",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c25",
+   "seed": 4,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "GLM-5.3-Flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V055",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c31",
+   "seed": 4,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "Claude-Sonnet-5",
+   "gate_verdict": "GO",
+   "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+   "report_recommends_forbidden_action": "NOT_APPLICABLE",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V056",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c31",
+   "seed": 0,
+   "point": "M_stability",
+   "mech": "stability",
+   "model": "Claude-Fable-5.1",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V057",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c30",
+   "seed": 4,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "GLM-5.3-Flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V058",
+   "kind": "GO",
+   "scorer": "correct",
+   "weight": null,
+   "case": "adb_c33",
+   "seed": 2,
+   "point": "M_pchart",
+   "mech": "stability",
+   "model": "GLM-5.3",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "trajectory_verdict": "ACCEPTABLE",
+   "acted": false,
+   "unreached": false
+  },
+  {
+   "blind_id": "V059",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 16.444444444444443,
+   "case": "adb_c34",
+   "seed": 4,
+   "point": "M_msa",
+   "mech": "measurement",
+   "model": "GLM-5.3-Flash",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "trajectory_verdict": "MIXED",
+   "acted": true,
+   "unreached": false
+  },
+  {
+   "blind_id": "V060",
+   "kind": "STOP",
+   "scorer": "incorrect",
+   "weight": 13.0,
+   "case": "adb_c37",
+   "seed": 4,
+   "point": "A_kruskal",
+   "mech": "cause",
+   "model": "Kimi-k3",
+   "gate_verdict": "STOP",
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "UNACCEPTABLE",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "acted": true,
+   "unreached": false
+  }
+ ]
+}

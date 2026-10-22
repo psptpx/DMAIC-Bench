@@ -1,0 +1,219 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "source": "define"
+      },
+      "outputs": {
+        "requiredRejectShare": 0.02
+      },
+      "status": "success",
+      "decision": "Business target"
+    },
+    {
+      "step_id": 2,
+      "method_id": "msa.attribute_agreement",
+      "inputs_digest": {
+        "source": "study_1"
+      },
+      "outputs": {
+        "appraiser1Kappa": 0.2857142857142857,
+        "appraiser1AgreementPct": 70.0,
+        "appraiser1RepeatabilityPct": 60.0,
+        "appraiser2Kappa": 0.3085106382978724,
+        "appraiser2AgreementPct": 67.5,
+        "appraiser2RepeatabilityPct": 55.00000000000001,
+        "appraiser3Kappa": 0.6111111111111109,
+        "appraiser3AgreementPct": 82.5,
+        "appraiser3RepeatabilityPct": 75.0,
+        "kappaMin": 0.2857142857142857,
+        "agreementPct": 73.33333333333333,
+        "boards": 20,
+        "ratings": 120
+      },
+      "status": "success",
+      "decision": "Compare ratings to standard; kappa pooled over repeats within each appraiser."
+    },
+    {
+      "step_id": 3,
+      "method_id": "quality.pareto",
+      "inputs_digest": {
+        "source": "disagreements"
+      },
+      "outputs": {
+        "topCategoryPct": 47.77777777777778,
+        "totalDisagreements": 90,
+        "component offsetPct": 14.444444444444445,
+        "insufficient solderPct": 47.77777777777778,
+        "solder bridgePct": 7.777777777777778,
+        "tombstonePct": 17.77777777777778,
+        "wrong polarityPct": 12.222222222222221
+      },
+      "status": "success",
+      "decision": "Prioritize clarification of insufficient solder"
+    },
+    {
+      "step_id": 4,
+      "method_id": "msa.attribute_agreement",
+      "inputs_digest": {
+        "source": "study_2"
+      },
+      "outputs": {
+        "appraiser1Kappa": 1.0,
+        "appraiser1AgreementPct": 100.0,
+        "appraiser1RepeatabilityPct": 100.0,
+        "appraiser2Kappa": 1.0,
+        "appraiser2AgreementPct": 100.0,
+        "appraiser2RepeatabilityPct": 100.0,
+        "appraiser3Kappa": 0.9418604651162791,
+        "appraiser3AgreementPct": 97.5,
+        "appraiser3RepeatabilityPct": 95.0,
+        "kappaMin": 0.9418604651162791,
+        "agreementPct": 99.16666666666667,
+        "boards": 20,
+        "ratings": 120
+      },
+      "status": "success",
+      "decision": "Compare ratings to standard; kappa pooled over repeats within each appraiser."
+    },
+    {
+      "step_id": 5,
+      "method_id": "control_chart.p",
+      "inputs_digest": {
+        "source": "lots"
+      },
+      "outputs": {
+        "centerLine": 0.0311,
+        "outOfControlCount": 0,
+        "lcl": 0.005061801617623388,
+        "ucl": 0.05713819838237661,
+        "lotCount": 25,
+        "inspected": 10000,
+        "rejected": 311
+      },
+      "status": "success",
+      "decision": "No points beyond three-sigma limits; this does not prove independence or exclude all run patterns."
+    },
+    {
+      "step_id": 6,
+      "method_id": "capability.binomial",
+      "inputs_digest": {
+        "source": "lots"
+      },
+      "outputs": {
+        "avgP": 0.0311,
+        "processZ": 1.8648673498199195,
+        "requiredRejectShare": 0.02,
+        "rejectPct": 3.11,
+        "targetPct": 2.0,
+        "ratioToTarget": 1.555
+      },
+      "status": "success",
+      "decision": "Stable on point-limit rule but reject level exceeds requirement; Z uses no shift."
+    },
+    {
+      "step_id": 7,
+      "method_id": "basic.one_proportion",
+      "inputs_digest": {
+        "source": "lots"
+      },
+      "outputs": {
+        "pValue": 1.252860457627278e-13
+      },
+      "status": "success",
+      "decision": "Exact one-sided binomial test of reject share above requirement; assumes independent boards."
+    },
+    {
+      "step_id": 8,
+      "method_id": "basic.two_proportions",
+      "inputs_digest": {
+        "source": "heads"
+      },
+      "outputs": {
+        "pValue": 0.00011106855772889447,
+        "zStatistic": 3.8650453567700054,
+        "head1Pct": 4.266666666666667,
+        "head2Pct": 2.466666666666667,
+        "differencePctPoints": 1.7999999999999998,
+        "head1Rejected": 128,
+        "head2Rejected": 74,
+        "head1Placed": 3000,
+        "head2Placed": 3000
+      },
+      "status": "success",
+      "decision": "Two-sided pooled two-proportion z test: head 1 has higher rejection; observational association, not proof of cause."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_baseline",
+      "chosen_branch": "clarify criteria before process inference",
+      "observed": {
+        "appraiser1Kappa": 0.2857142857142857,
+        "appraiser1AgreementPct": 70.0,
+        "appraiser1RepeatabilityPct": 60.0,
+        "appraiser2Kappa": 0.3085106382978724,
+        "appraiser2AgreementPct": 67.5,
+        "appraiser2RepeatabilityPct": 55.00000000000001,
+        "appraiser3Kappa": 0.6111111111111109,
+        "appraiser3AgreementPct": 82.5,
+        "appraiser3RepeatabilityPct": 75.0,
+        "kappaMin": 0.2857142857142857,
+        "agreementPct": 73.33333333333333,
+        "boards": 20,
+        "ratings": 120
+      }
+    },
+    {
+      "point": "measurement_recheck",
+      "chosen_branch": "proceed with qualified measurement system",
+      "observed": {
+        "appraiser1Kappa": 1.0,
+        "appraiser1AgreementPct": 100.0,
+        "appraiser1RepeatabilityPct": 100.0,
+        "appraiser2Kappa": 1.0,
+        "appraiser2AgreementPct": 100.0,
+        "appraiser2RepeatabilityPct": 100.0,
+        "appraiser3Kappa": 0.9418604651162791,
+        "appraiser3AgreementPct": 97.5,
+        "appraiser3RepeatabilityPct": 95.0,
+        "kappaMin": 0.9418604651162791,
+        "agreementPct": 99.16666666666667,
+        "boards": 20,
+        "ratings": 120
+      }
+    },
+    {
+      "point": "lot_stability",
+      "chosen_branch": "stable by point limits; assess binomial capability",
+      "observed": {
+        "centerLine": 0.0311,
+        "outOfControlCount": 0,
+        "lcl": 0.005061801617623388,
+        "ucl": 0.05713819838237661,
+        "lotCount": 25,
+        "inspected": 10000,
+        "rejected": 311
+      }
+    },
+    {
+      "point": "improvement_focus",
+      "chosen_branch": "investigate higher-reject placement head",
+      "observed": {
+        "pValue": 0.00011106855772889447,
+        "zStatistic": 3.8650453567700054,
+        "head1Pct": 4.266666666666667,
+        "head2Pct": 2.466666666666667,
+        "differencePctPoints": 1.7999999999999998,
+        "head1Rejected": 128,
+        "head2Rejected": 74,
+        "head1Placed": 3000,
+        "head2Placed": 3000
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

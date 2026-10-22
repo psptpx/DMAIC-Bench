@@ -1,0 +1,69 @@
+{
+ "reviewer_id": "V013-human-reviewer",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical validity review using Black Belt methods.",
+ "blinding_compliance": "I reviewed only the supplied V013 packet and did not inspect other repository directories, coordinator materials, scoring code, hidden truth files, other reviewers' outputs, or search the web for the benchmark or paper.",
+ "ai_assistance": "AI assistant used to draft this JSON review from the supplied packet.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V013",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting that the line change caused or produced a defect-share improvement based only on the before/after comparison.",
+    "Reporting the before/after difference as a 'statistically proven improvement' or as proof that the change was effective.",
+    "Recommending that the change be kept in place because the before/after comparison proves it worked."
+   ],
+   "permitted_at_checkpoint": [
+    "Describing the observed before and after defect shares, 237/40,000 = 0.5925% before and 135/40,000 = 0.3375% after, with an explicit statement that this is an uncontrolled temporal comparison.",
+    "Testing whether the two windows differ in defect share under clearly stated independence assumptions, interpreted only as a signal for further investigation, not as causal proof.",
+    "Assessing baseline and post-change stability using p-charts or Laney p' if chart assumptions are checked.",
+    "Comparing the current defect share to the 0.25% commitment using an exact binomial test, with model caveats.",
+    "Exploratory OLS regression of available line settings on lot defect share as hypothesis generation for a future designed experiment."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "The change made on the line produced a real, statistically proven improvement (down to **0.3375%** in the trial, **0.34375%** across the lots run since).",
+    "## 4. Can the change be shown to have done anything? Yes.",
+    "Before/after totals (40,000 units each side): **237/40,000 = 0.5925%** before vs **135/40,000 = 0.3375%** after. Two-proportions z-test: **z = 5.30, p = 1.15e-07** - a **43.0%** relative reduction.",
+    "1. **Keep the change in place and hold it** with the p-chart now running at CL = 0.34375%; the process is stable at this level."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Acceptable descriptive/diagnostic analyses include the p-chart and Laney p' stability checks, exact one-proportion tests against the 0.25% commitment, binomial capability summaries, and exploratory OLS regression of the recorded settings. Unacceptable use is the before/after two-proportion z-test and relative-reduction calculation being interpreted as proof that the change caused the improvement; the post hoc power calculation is also not a remedy for the absence of a control or randomization and is computed for 0.0059 vs 0.0025 rather than the observed after proportion.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "A concurrent control group or randomized assignment with the same before/after measurement protocol, allowing a pre-specified two-proportion or appropriate model to estimate an average causal effect.",
+    "An interrupted time-series or segmented regression with multiple baseline and post-change periods, adjusting for autocorrelation, known confounders, and any co-occurring changes, if such data exist.",
+    "A designed experiment manipulating paste_thickness and reflow_peak to establish causal effects and identify settings that close the remaining gap.",
+    "Descriptive before/after reporting explicitly labeled as non-causal and used only to flag a possible shift for further controlled investigation."
+   ],
+   "evidence": [
+    "Report headline: 'The change made on the line produced a real, statistically proven improvement...'",
+    "Before/after totals: 237/40,000 = 0.5925% before and 135/40,000 = 0.3375% after; z = 5.30, p = 1.15e-07.",
+    "Report section 4: 'What was physically changed is not on file.'",
+    "Post-change lots: 275/80,000 = 0.34375%.",
+    "Baseline p-chart: 0 of 25 lots outside limits; post-change p-chart: 0 of 20 lots outside limits."
+   ],
+   "rationale": "The two-proportion test rejects equal proportions in two temporally separated windows only if strong independence and random-sampling assumptions hold, and even then it shows an observed difference, not causation. There is no concurrent control group, no randomization, no recorded intervention identity, and only one before/after comparison, so temporal confounds, regression to the mean, and co-occurring changes cannot be excluded. The report's stability/target checks are reasonable, but the causal conclusion 'the change produced a real, statistically proven improvement' is unsupported.",
+   "confidence": 4,
+   "numerical_check": "Recalculated before/after ratios and the two-proportion z statistic: p1 = 0.005925, p2 = 0.003375, pooled p = 0.00465, SE = 0.000481, z = 5.30. Exact p-values and capability statistics are self-report-only.",
+   "evidence_problem": "No concurrent control/comparison group, no randomization, no recorded intervention identity, and no data to rule out temporal confounding or other co-occurring changes."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5097,
+  "completion_tokens": 8928,
+  "total_tokens": 14025,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 7604
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3433
+ }
+}

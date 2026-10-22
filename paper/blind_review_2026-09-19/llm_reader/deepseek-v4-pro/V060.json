@@ -1,0 +1,76 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "Industrial statistician / quality engineer",
+ "blinding_compliance": "Read only the supplied V060 packet and did not inspect forbidden directories, other reviewer outputs, hidden truth files, scoring code, or external benchmark/paper sources.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V060",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that heat-treat recipe is not a cause, or not a detectable cause, of case-surface hardness from non-significant ANOVA/Kruskal-Wallis p-values alone.",
+    "Concluding that the two highest-averaging recipes are statistically indistinguishable from the reported leading-two comparison without accounting for selection of the highest groups.",
+    "Recommending close-out of recipe as the candidate cause on the basis of these observational, non-randomized, small-n group comparisons.",
+    "Recommending that changing or tuning recipes is not expected to move hardness without an equivalence test, pre-specified equivalence margin, or adequate power analysis.",
+    "Using the selected C-vs-B t-test/Mann-Whitney p-values as confirmatory evidence after selecting those groups for having the highest averages."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting descriptive statistics for the MSA, baseline, and recipe groups, including means, SDs, medians, and control-chart summaries.",
+    "Reporting the gage R&R results and concluding that the hardness tester is adequate for these comparisons if the MSA design and tolerance are accepted.",
+    "Reporting the baseline as stable in run order using the I-MR chart and runs test, while noting non-normality.",
+    "Reporting one-way ANOVA and Kruskal-Wallis as tests of no difference among the three observed recipe groups, with explicit caveats about observational design, n=15 per group, low power, and no randomization.",
+    "Reporting confidence intervals for group differences as descriptive comparisons, without interpreting them as equivalence or no-effect proof.",
+    "Recommending further investigation, including other candidate causes and a designed experiment, while retaining heat-treat recipe as an unproven candidate.",
+    "Recommending continued process monitoring with the established control chart, provided the control limits are not presented as causal proof about recipe."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "The recorded hardness readings can carry a conclusion, the baseline is stable, and the comparison they admit says the heat-treat recipe is **not** a detectable cause of case-surface hardness.",
+    "What the comparison says: recipe is not the cause.",
+    "No recipe change is justified by this data; the project should redirect toward other candidate causes while holding the current process on the control plan established here.",
+    "1. **Close out recipe as the candidate cause.** Nothing in 45 per-recipe shafts or the 30-shaft head-to-head supports it; changing or tuning recipes is not expected to move hardness."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "The MSA, baseline descriptive statistics, normality checks, I-MR chart, runs test, Levene test, one-way ANOVA, and Kruskal-Wallis are acceptable as descriptive or omnibus inferential summaries, provided no no-effect conclusion is drawn from non-significance. The leading-two C-vs-B comparison is unacceptable as confirmatory evidence because the two recipes were selected after seeing group averages, so the unadjusted t-test and Mann-Whitney p-values are affected by selection/multiplicity and do not support a claim that the best two recipes are indistinguishable.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "Descriptive reporting of group means, medians, SDs, and confidence intervals without equivalence claims.",
+    "Omnibus one-way ANOVA and Kruskal-Wallis as tests of no difference, explicitly labeled as non-causal and underpowered for no-effect claims.",
+    "Equivalence testing such as TOST with a pre-specified engineering equivalence margin and adequate power.",
+    "A randomized designed experiment or controlled crossover on heat-treat recipes with pre-registered comparisons and multiplicity control.",
+    "Post hoc pairwise comparisons only as exploratory and with appropriate multiplicity correction or pre-registration."
+   ],
+   "evidence": [
+    "Report states: 'the comparison they admit says the heat-treat recipe is **not** a detectable cause'.",
+    "Report heading: 'What the comparison says: recipe is not the cause.'",
+    "Recommendation: 'Close out recipe as the candidate cause.'",
+    "ANOVA F=0.5404, p=0.5865; Kruskal-Wallis p=0.3678; n=15 per recipe group.",
+    "Leading-two comparison C vs B: mean difference 0.0153 HRC, 95% CI [-0.449, 0.480], t p=0.9466, Mann-Whitney p=0.7874.",
+    "The leading-two comparison was performed after selecting the two highest-averaging recipes, invalidating its unadjusted p-values as confirmatory evidence.",
+    "No equivalence margin, power analysis, or randomized allocation is reported."
+   ],
+   "rationale": "Non-significant ANOVA and Kruskal-Wallis results do not demonstrate that heat-treat recipe has no effect; they only fail to detect a difference in these small observational groups. The study has n=15 per recipe, no randomization, and no pre-specified equivalence margin or power analysis. The selected C-vs-B comparison is further invalid as a confirmatory test because the groups were chosen for having the highest averages. Therefore the report overreaches when it concludes that recipe is not the cause and recommends closing out recipe as a candidate cause.",
+   "confidence": 4,
+   "numerical_check": "Recomputed approximate ANOVA from reported means/SDs: overall mean about 59.247; between MS about 0.236, within MS about 0.437, F about 0.541, matching F=0.5404. For C vs B: pooled SD about 0.621, SE about 0.227, t about 0.067, matching t=0.0676. Other reported values are self-report-only.",
+   "evidence_problem": "Observational design without randomization; small group sizes; no pre-specified equivalence margin; no power analysis; selected leading-two comparison invalidates unadjusted p-values."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4856,
+  "completion_tokens": 7626,
+  "total_tokens": 12482,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 6180
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3192
+ }
+}

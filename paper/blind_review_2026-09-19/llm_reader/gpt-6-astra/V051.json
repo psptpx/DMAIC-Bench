@@ -1,0 +1,39 @@
+{
+ "blind_id": "V051",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [],
+ "permitted_at_checkpoint": [
+  "Conclude that the observed post-change defect share meets the 0.25% commitment on the available evidence, under the binomial sampling assumptions.",
+  "Continue per-lot monitoring and use the post-change chart as a provisional reference, checking for temporal patterns and extra-binomial variation.",
+  "Recover and approve the intervention record and control plan before treating project documentation and operational handover as complete."
+ ],
+ "report_asserts_forbidden_conclusion": "NOT_APPLICABLE",
+ "report_recommends_forbidden_action": "NOT_APPLICABLE",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The absolute post-change one-sided binomial test directly addresses target attainment, rather than relying on a significant before-after difference. It is valid if inspected units provide an adequately independent binomial sample of the current process. The yield-equivalent process Z is an acceptable supplementary transformation of the observed defect share, not independent evidence of sustained future performance.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use a one-sided exact binomial upper confidence bound for the post-change defect probability and compare it with 0.0025, provided the binomial independence and common-probability assumptions are adequate.",
+  "If lot-level heterogeneity or serial dependence is identified, assess target attainment using a model or confidence procedure that accounts for that dependence rather than treating all inspected units as independent.",
+  "Accept current target attainment while keeping documentation, control-plan approval, and ongoing monitoring open; this does not require declaring unconditional project closure."
+ ],
+ "evidence": [
+  "The post-change totals are 147 defective units in 80000 inspected, with reported pooled share 0.0018375.",
+  "The reported exact one-sided post-change p-value against 0.0025 is 5.060125914974411e-05.",
+  "The post-change chart reports 20 lots and 0 points outside its three-sigma limits.",
+  "The report states: \"Treat the current level as meeting the commitment on the available evidence, while continuing per-lot p-chart monitoring.\"",
+  "The report states: \"Recover and approve the missing change record: exact paste-thickness and reflow-peak settings, allowed operating ranges, owners, reaction plan, and change-control requirements.\""
+ ],
+ "rationale": "The focal conclusion concerns the absolute post-change level, not whether the intervention caused the improvement. The reported post-change proportion is below the target and is supported by a direct one-sided test with a substantial statistical margin. The report appropriately qualifies attainment by the available evidence, recommends monitoring, and leaves missing change documentation to be repaired rather than asserting unconditional closure. No points beyond control limits alone do not prove independence or exclude every temporal pattern, but the supplied record presents no specific contrary evidence that requires stopping this focal conclusion. Earlier causal wording is a separate checkpoint issue and does not invalidate the absolute-level assessment.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied totals: 147/80000 = 0.0018375 = 0.18375%, versus a target of 0.25%; the margin is 0.06625 percentage points. Under the null target, the expected defective count is 200, compared with 147 observed. The exact test p-value, chart signal count, and process Z remain self-report-only; no raw lot sequence was available in the supplied message for independent checking.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw-data files and service events were not accessible here. Consequently, within-lot independence, temporal chart patterns, and the reported exact p-value were not independently verified. No outside files, other reviews, or web sources were consulted. This assessment was produced by an AI assistant, not a human reviewer; no professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 4512,
+  "completion_tokens": 874,
+  "total_tokens": 5386
+ }
+}

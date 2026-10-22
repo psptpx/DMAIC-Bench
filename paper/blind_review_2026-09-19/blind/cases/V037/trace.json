@@ -1,0 +1,271 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.6764205833753795,
+        "statistic": 0.9851228579009723
+      },
+      "status": "success",
+      "decision": "Baseline seal strengths are consistent with a normal distribution.",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 52.07566666666666,
+        "median": 51.805,
+        "stdDev": 4.2984961369702335,
+        "skewness": -0.14386516991554446,
+        "adPValue": 0.3800271170510971,
+        "min": 41.08,
+        "max": 62.92,
+        "belowLsl": 4,
+        "belowRequired": 41
+      },
+      "status": "success",
+      "decision": "Baseline centre is below the 55 N committed margin and 41/60 units are under 55 N.",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": 12.750477511249048,
+        "pValue": 6.692993844159019e-19
+      },
+      "status": "success",
+      "decision": "Mean seal strength is significantly above the lower product limit of 45 N.",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60,
+        "test_mu": 45.0,
+        "alternative": "greater"
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": -5.2697008152912845,
+        "pValue": 0.999998987757913
+      },
+      "status": "success",
+      "decision": "Mean seal strength is not significantly above the 55 N committed margin.",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60,
+        "test_mu": 55.0,
+        "alternative": "greater"
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 64.75169378531074,
+        "individualsLCL": 39.39963954802259,
+        "centerLine": 52.07566666666666,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "Baseline IMR chart is stable at its current level; no out-of-control individuals.",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60
+      }
+    },
+    {
+      "step_id": 6,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 0.5582820790060223,
+        "ppk": 0.5533235938916663
+      },
+      "status": "success",
+      "decision": "Baseline capability is below a practically acceptable level against the lower specification.",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sample_size": 60,
+        "lsl": 45.0
+      }
+    },
+    {
+      "step_id": 7,
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.00014177924620450156,
+        "rSquaredPct": 94.9115904373612,
+        "fStatistic": 21.317149835521132
+      },
+      "status": "success",
+      "decision": "Screening DOE model is significant; bead_spacing, bond_angle, and their interaction explain most of the variation.",
+      "inputs_digest": {
+        "batch": "screening_run",
+        "runs": 16,
+        "factors": [
+          "bead_spacing",
+          "bond_angle",
+          "cure_temperature"
+        ]
+      }
+    },
+    {
+      "step_id": 8,
+      "method_id": "doe.rsm_analysis",
+      "outputs": {
+        "rSquaredPct": 98.01737641449876,
+        "lackOfFitPValue": 0.00189864546184813
+      },
+      "status": "success",
+      "decision": "Quadratic response surface explains 98.02% of composite design variation but demonstrates significant lack of fit.",
+      "inputs_digest": {
+        "batch": "composite_design",
+        "runs": 13,
+        "centre_runs": 5
+      }
+    },
+    {
+      "step_id": 9,
+      "method_id": "doe.rsm_optimizer",
+      "outputs": {
+        "compositeDesirability": 1.0,
+        "predictedResponse": 64.28314306260685
+      },
+      "status": "success",
+      "decision": "The model predicts a maximum seal-strength response of 64.28 N at the optimum coded settings.",
+      "inputs_digest": {
+        "batch": "composite_design",
+        "coded_x1": 0.9077535443400787,
+        "coded_x2": 1.41421356
+      }
+    },
+    {
+      "step_id": 10,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 59.275,
+        "median": 59.04,
+        "stdDev": 1.9797301783190988,
+        "skewness": 0.5546945463817203,
+        "adPValue": 0.5101447105824561,
+        "min": 56.41,
+        "max": 63.24,
+        "belowLsl": 0,
+        "belowRequired": 0
+      },
+      "status": "success",
+      "decision": "Confirmation seals all exceed both the lower limit and the 55 N committed margin.",
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sample_size": 20
+      }
+    },
+    {
+      "step_id": 11,
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": 9.657064087317059,
+        "pValue": 4.602817437225877e-09
+      },
+      "status": "success",
+      "decision": "Confirmation mean is significantly above the committed 55 N margin.",
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sample_size": 20,
+        "test_mu": 55.0,
+        "alternative": "greater"
+      }
+    },
+    {
+      "step_id": 12,
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": 32.2466876833804,
+        "pValue": 2.3529498200459854e-18
+      },
+      "status": "success",
+      "decision": "Confirmation mean is significantly above the lower specification of 45 N.",
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sample_size": 20,
+        "test_mu": 45.0,
+        "alternative": "greater"
+      }
+    },
+    {
+      "step_id": 13,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 2.410319073505081,
+        "ppk": 2.4659658399258406
+      },
+      "status": "success",
+      "decision": "Confirmation-run capability is substantially improved over baseline.",
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sample_size": 20,
+        "lsl": 45.0
+      }
+    },
+    {
+      "step_id": 14,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": -10.141739773219125,
+        "pValue": 2.2252665764921073e-15
+      },
+      "status": "success",
+      "decision": "Confirmation-run mean seal strength is significantly higher than baseline.",
+      "inputs_digest": {
+        "groups": [
+          "baseline",
+          "confirmation_runs"
+        ],
+        "baseline_n": 60,
+        "confirmation_n": 20,
+        "alternative": "two-sided",
+        "equal_variances": false
+      }
+    },
+    {
+      "step_id": 15,
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 8.311469646352351e-10,
+        "uStatistic": 57.0
+      },
+      "status": "success",
+      "decision": "Nonparametric comparison confirms the improvement from baseline to confirmation runs.",
+      "inputs_digest": {
+        "groups": [
+          "baseline",
+          "confirmation_runs"
+        ],
+        "baseline_n": 60,
+        "confirmation_n": 20,
+        "alternative": "less"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "screening_run_any_factor_significant",
+      "chosen_branch": "true",
+      "observed": {
+        "screening_model_pvalue": 0.00014177924620450156,
+        "screening_r_squared_pct": 94.9115904373612
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

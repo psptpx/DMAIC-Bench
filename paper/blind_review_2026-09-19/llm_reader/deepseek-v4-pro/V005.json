@@ -1,0 +1,54 @@
+{
+ "blind_id": "V005",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Treating the quadratic response-surface model as a validated predictive model for optimization; the significant lack-of-fit (p=0.00190) forbids relying on it as the sole basis for setting recommendations.",
+  "Recommending or implementing a specific physical setpoint solely from the coded constrained optimizer without documented mapping to physical units.",
+  "Claiming the extrapolated stationary point (coded bond angle 1.817 outside design radius 1.414) or its predicted 64.587 N as a supported operating optimum.",
+  "Closing the project or claiming durable long-term capability against the 55 N programme margin from the 20-run confirmation alone."
+ ],
+ "permitted_at_checkpoint": [
+  "Descriptive and diagnostic analysis of the screening experiment: bond angle and bead spacing plus interaction are active, cure temperature is not.",
+  "Using the fitted RSM within the circular design region only as provisional guidance to generate a candidate for confirmation, provided the significant lack-of-fit is disclosed and the prediction is not treated as proof.",
+  "Using the confirmation batch as an independent empirical check of actual mean, short-run stability and capability, conditional on verifying the physical setpoints and recognising before-after observational limits.",
+  "Retaining the improved condition under controlled verification and continued monitoring while withholding final capability closure."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "After the RSM limitation, the submitted route did not rest on the model alone. It used the confirmation batch as an independent empirical check: descriptive summary, one-sample t against 55 N, Ppk/Cpk, I-MR, and Welch comparison with baseline. This is acceptable as a sequential alternative provided the confirmation settings are verified, the comparison is interpreted as observational rather than randomised proof of causation, and final capability is not claimed from the short run.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Proceed from the significant screening factorial (model p=0.000142, bond-angle and bead-spacing effects significant) to a response-surface study restricted to those active factors.",
+  "Use a constrained RSM candidate only as a hypothesis for confirmation, with significant lack-of-fit and out-of-region stationary point explicitly rejected.",
+  "Use the confirmation batch as the primary empirical evidence for holding the recommended settings while verifying setpoint identity.",
+  "Augment or refit the response-surface design with higher-order terms before further extrapolation or model-based optimisation."
+ ],
+ "evidence": [
+  "Reported RSM lack-of-fit p=0.00190, pure error SD=0.2515, residual SD=1.0629.",
+  "Reported stationary point at coded bond angle 1.817, bead spacing 1.016, outside design radius 1.414; predicted stationary response 64.587 N.",
+  "Reported constrained candidate at radius 1.414 with predicted response 63.923 N and PI 60.719-67.127 N, explicitly called model guidance and not proof.",
+  "Reported confirmation n=20, mean 59.275 N, SD 1.980 N, min 56.41 N, all above 55 N; Ppk against 55 N is 0.720.",
+  "Reported baseline vs confirmation Welch t=10.142, mean difference 7.199 N, 95% CI 5.784-8.615 N."
+ ],
+ "rationale": "The response-surface model is not validated as a predictive surface because lack-of-fit is significant. That does not require stopping all optimisation work: the report correctly limits the RSM to provisional guidance, rejects the extrapolative stationary point, and uses independent confirmation data for the actual hold decision. The main risk is the before-after nature of the confirmation comparison, which the report partially acknowledges with short-run and non-causal language. No material forbidden conclusion or action is asserted.",
+ "confidence": 4,
+ "numerical_check": "Recomputed the aggregate t-tests and capability indices from reported means/SDs: baseline vs 55 N t=-5.27; confirmation vs 55 N t=9.66; Welch difference 7.199 N; Ppk vs 55 N 4.275/(3*1.9797)=0.720. DOE/RSM LOF and prediction interval were not recomputed from raw data; they are self-reported in the packet.",
+ "evidence_problem": "Missing physical-unit mapping for the recommended settings; raw DOE/RSM design data not independently recomputed from the packet.",
+ "_usage": {
+  "prompt_tokens": 6543,
+  "completion_tokens": 13240,
+  "total_tokens": 19783,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 12188
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 4879
+ }
+}

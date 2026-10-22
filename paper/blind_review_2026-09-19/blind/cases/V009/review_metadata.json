@@ -1,0 +1,21 @@
+{
+  "study_id": "blind_review_2026-09-19",
+  "blind_id": "V009",
+  "checkpoint": "A_rsm",
+  "reviewer_type": "Human",
+  "reviewer_ids": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "review_language": "English",
+  "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint (validation study 2).",
+  "evidence_files": [
+    "full_instruction.md",
+    "packet.md",
+    "report.md",
+    "released_data.json",
+    "steward_events.json",
+    "trace.json"
+  ]
+}

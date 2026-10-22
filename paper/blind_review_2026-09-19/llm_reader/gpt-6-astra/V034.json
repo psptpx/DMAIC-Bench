@@ -1,0 +1,51 @@
+{
+ "blind_id": "V034",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the pooled baseline as a stable process or using its normal capability indices to predict steady-state conformance.",
+  "Using an ordinary piece-level two-sample t test as validated evidence of improvement without addressing the baseline temporal shifts and subgroup dependence.",
+  "Attributing the observed before/after differences to a particular process change, or endorsing a demonstrated optimized setting, without identifying and validating that intervention."
+ ],
+ "permitted_at_checkpoint": [
+  "Report baseline sample summaries, observed nonconformance, and capability-index arithmetic with steady-state interpretation explicitly withheld.",
+  "Investigate the timing and causes of subgroup mean shifts using time-ordered charts and operating records.",
+  "Explore the separately released applicator sample, provided independence and sampling conditions are assessed and association is not equated with causation.",
+  "Assess the sustaining sample on its own merits and describe observed before/after differences without causal attribution.",
+  "Develop monitoring and reaction plans while obtaining evidence about the intervention and its reproducibility."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "On the released sample, the change achieved centering near target, much lower variation, and stable control-chart behavior.",
+  "Hold the demonstrated post-change setting as the current standard.",
+  "The evidence supports sustaining the change, not declaring the earlier run acceptable."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Baseline summaries, observed nonconformance, and explicitly nonpredictive capability indices are acceptable restricted descriptions. A separately evaluated sustaining sample can support provisional sample-specific capability assessment if rational subgrouping, representative sampling, and appropriate distributional assumptions hold; baseline instability does not prohibit this route. Applicator ANOVA is exploratory and the report appropriately avoids identifying a cause, although sampling independence is not documented here. The piece-level two-sample t test does not establish a valid temporal comparison without accounting for baseline shifts and subgroup structure. Descriptive mean and variance differences remain useful, but neither they nor the reported p-value establish that a specific change caused improvement or validate an unidentified setting.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Investigate baseline special causes and estimate capability for an independently justified stable operating regime, without selecting favorable segments solely to improve capability.",
+  "Use subgroup-level or time-series modeling for before/after inference, accounting for temporal dependence and regime changes; causal attribution additionally requires intervention records and a defensible comparison design.",
+  "Report sustaining-sample conformance and provisional capability independently, with continued prospective monitoring and no assertion that zero observed defects implies zero future defects.",
+  "Validate an identified operating setting through a documented prospective trial or replicated controlled comparison before treating it as an established improvement."
+ ],
+ "evidence": [
+  "Step 5 reports 20 flagged X-bar subgroup means among 25 subgroups and zero range-chart flags.",
+  "The report explicitly states: \"The normality p-value was 1.4173807372389032e-14, so pooled capability from that unstable run should not be treated as a dependable steady-state capability estimate.\"",
+  "Step 6 likewise states that stable-process capability cannot be claimed from the baseline run.",
+  "Step 12 reports a two-sample t statistic of 8.632373210605964 and p-value of 5.159111477818606e-15 using 125 baseline readings and 100 sustaining readings, with no adjustment for temporal structure documented.",
+  "The sustaining sample has reported zero X-bar and range flags and zero observed out-of-specification readings, supporting separate provisional assessment rather than automatic rejection of all subsequent analysis.",
+  "The supplied report and quantitative steps do not identify the changed setting, document its implementation, or establish an intervention comparison."
+ ],
+ "rationale": "The baseline requires withholding stable capability, and the report substantially respects that restriction. Reporting the baseline indices with their use withheld is not itself an unsupported capability claim. Nor does baseline instability automatically invalidate independently assessed sustaining data or limited applicator exploration. However, the subsequent ordinary t test leaves the temporal comparison unvalidated, and the report converts observed sample differences into achievement by a change and a recommendation to standardize an unidentified demonstrated setting. Those statements exceed the evidence provided. This is substantial restraint combined with material overstatement, rather than wholesale disregard of the stability gate. The supplied public thresholds concern MSA and do not impose a statistical prohibition on every subsequent analysis.",
+ "confidence": 4,
+ "numerical_check": "Checked aggregate arithmetic from the supplied summaries: 219.3927 minus 232.2736 equals -12.8809 um; 1/125 equals 0.8%; 80/(6 times 15.4423874345) is approximately 0.863424, consistent with baseline Pp. Raw observations were not available for inspection in this interaction; chart flags, normality results, ANOVA, and test p-values remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw batches and service-event files were not accessible through this interaction. Temporal dependence, exact chart rules, sampling design, and intervention details could not be independently checked. No external sources or other reviewer materials were used. This review was generated by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 4716,
+  "completion_tokens": 1166,
+  "total_tokens": 5882
+ }
+}

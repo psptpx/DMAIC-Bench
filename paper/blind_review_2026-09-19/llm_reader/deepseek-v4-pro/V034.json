@@ -1,0 +1,68 @@
+{
+ "reviewer_id": "reviewer_1",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "I read only the blinded item packet and my own output; I did not inspect other directories, hidden truth files, model outputs, scoring code, or external materials about the benchmark.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V034",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Treating the 125-piece process_run as a stable baseline for steady-state capability or process centering.",
+    "Declaring the baseline process acceptable or capable from the pooled Pp/Ppk values without explicit instability caveats.",
+    "Attributing the 20 flagged X-bar points to a specific cause from the baseline run alone.",
+    "Using the baseline normality p-value as evidence of a stable non-normal distribution rather than as evidence of an unstable pooled process.",
+    "Implementing an optimized setting or closing the project solely from the baseline instability finding without follow-up data and continued monitoring."
+   ],
+   "permitted_at_checkpoint": [
+    "Describing the baseline run with mean, standard deviation, min/max, out-of-spec count, and control-chart signals.",
+    "Concluding that the baseline run is temporally unstable from the X-bar chart with 20/25 subgroup means flagged and zero range flags.",
+    "Reporting within-subgroup versus overall capability indices as a contrast, provided they are explicitly not stable-process capability.",
+    "Using the instability finding to request and analyze follow-up batches for diagnostic and corrective-action purposes.",
+    "Reporting post-change descriptive, control-chart, capability, and pre/post comparisons as an observational follow-up with confirmation requirements.",
+    "Recommending reaction plans and continued gauge training."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The later applicator ANOVA, sustaining-sample control charts, capability indices, and pre/post two-sample comparison are acceptable as a conditional observational route after baseline instability. They are stronger descriptively than inferentially: the Welch t-test p-value should be treated as approximate evidence of a large difference because the baseline run was unstable and non-normal, while the post-change stability checks, descriptive effect sizes, and variance ratio are the more defensible basis. The applicator ANOVA is appropriately interpreted as not identifying a nozzle cause.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Recompute baseline control limits after removing out-of-control points only diagnostically, not as a capability baseline; require a stable control chart before normal capability is interpreted.",
+    "Use pre/post comparison only if post-change data are shown stable and process records limit temporal confounding; rely mainly on descriptive effect sizes and control-chart output rather than a t-test p-value.",
+    "Use robust or nonparametric pre/post methods if normality or stable-variance assumptions fail.",
+    "Treat post-change capability as provisional until a predetermined confirmation period and reaction plan are completed."
+   ],
+   "evidence": [
+    "Baseline MSA gage R&R: 25.595558960756396% study variation and ndc 5.325263048633628, passing steward thresholds <=30% and >=5.",
+    "Baseline process_run: 125 readings, 25 subgroups of 5; mean 232.2736, sd 15.442387434506989; 20 X-bar flags, 0 R flags; normality p=1.4173807372389032e-14.",
+    "Baseline capability: Cp 1.7509786208973201, Cpk 1.2137083408611857, Pp 0.8634243500159282, Ppk 0.5984912224570405; one OOS reading at 261.8 with USL=260.",
+    "Sustaining sample: 100 readings, 20 subgroups; mean 219.39270000000005, sd 5.646317805222777; 0 OOS; 0 X-bar and R flags; normality p=0.5410651521150227.",
+    "Applicator ANOVA: 4 groups, 15 readings each; F=1.5586494123823231, p=0.20958647030444327.",
+    "Pre/post Welch two-sample test: t=8.632373210605964, p=5.159111477818606e-15; mean change -12.88089999999994; sd change -9.796069629284212; variance ratio post/pre 0.13369086994307292."
+   ],
+   "rationale": "At the baseline temporal-stability checkpoint, the evidence strongly supports the conclusion that the earlier run was not stable and should not be used as a steady-state capability baseline. The report follows that path, does not declare the baseline acceptable, and conditions later post-change statements on the released sustaining sample. There is mild causal language in 'the change achieved', but the report qualifies it as 'on the released sample' and requires continued monitoring, so it remains within acceptable industrial/statistical restraint.",
+   "confidence": 4,
+   "numerical_check": "Recomputed Pp for baseline as 80/(6*15.442387)=0.8634 and Ppk as (260-232.2736)/(3*15.442387)=0.5985; recomputed post Pp as 80/(6*5.646318)=2.3614; recomputed Welch t approximately as 12.8809/sqrt(15.442387^2/125 + 5.646318^2/100)=8.63, matching t=8.632373. Other values are self-report-only.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4941,
+  "completion_tokens": 11548,
+  "total_tokens": 16489,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 10228
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3277
+ }
+}

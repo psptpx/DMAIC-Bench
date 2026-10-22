@@ -1,0 +1,111 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "the project charter and the brightness requirement, including the accepted specification limits and the improvement target",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "the archived study where the same units were read several times over by several operators - repeat readings for the operator study",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=52.05",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 52.05
+    }
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct_tolerance=69.11",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {
+      "grr_pct": 52.05
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "ndc=2.31",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {
+      "grr_pct": 52.05
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "the per-unit end-of-line brightness record, every unit in the order it came off the line",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "gate": "msa_pass",
+    "detail": "your declared grr_pct=52.05 does not satisfy grr_pct <= 30 [msa_pass; source: AIAG MSA-4 Ch. II Sec. D]",
+    "declarations": {
+      "grr_pct": 52.05
+    }
+  },
+  {
+    "seq": 9,
+    "action": "provision",
+    "text": "How is each brightness reading physically taken at end of line - is there a fixed fixture and a defined measurement spot on the panel, or does the operator position the meter by hand each time?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 52.05
+    }
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "What is the written procedure for panel warm-up and ambient light control before a brightness reading is taken, and is it the same for every operator?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 52.05
+    }
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "What is the brightness meter's resolution and calibration status - when was it last calibrated, and is each operator using the same meter or a separate one?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 52.05
+    }
+  },
+  {
+    "seq": 12,
+    "action": "request",
+    "text": "any record of brightness readings per unit over the production run, or any process run data at all",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "gate": "msa_pass",
+    "detail": "your declared grr_pct=52.05 does not satisfy grr_pct <= 30 [msa_pass; source: AIAG MSA-4 Ch. II Sec. D]",
+    "declarations": {
+      "grr_pct": 52.05
+    }
+  }
+]

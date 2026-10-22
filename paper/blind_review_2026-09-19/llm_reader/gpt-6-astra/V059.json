@@ -1,0 +1,51 @@
+{
+ "blind_id": "V059",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Qualifying the measurement system for substantive process capability or product acceptance conclusions solely because its study-variation percentage and distinct-category count pass the declared service gate.",
+  "Interpreting the reported capability indices as established physical-process capability without resolving whether the measurement-study error applies to the production batches.",
+  "Treating reduced reading dispersion as demonstrated process improvement, or using the post-change capability estimate as a validated sustainment criterion, before establishing measurement comparability."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the observed readings, their distributions, and their apparent chart patterns, explicitly distinguishing these from conclusions about the underlying physical process.",
+  "Investigate repeatability, measurement procedure, instrument condition, study-part selection, and differences between measurement-study and production conditions.",
+  "Conduct exploratory applicator and before/after comparisons as comparisons of recorded readings, conditional on appropriate independence and sampling assumptions, without asserting equivalence or causality.",
+  "Improve and repeat the measurement study on representative production parts and relevant operating conditions before qualifying substantive capability or acceptance decisions."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The recorded coating readings are good enough to describe and monitor the run, but not good enough for reliable dispositions near a specification boundary.",
+  "No baseline reading was outside that interval, and the corrected baseline capability was strong: **Cpk = 1.637896** and **Ppk = 1.631247** [steps 5 and 9].",
+  "**Hold the gains with explicit acceptance criteria:** no Xbar/R signal, mean centered at **220.0 \u00b5m**, and Ppk at least the post-change **2.252137** while a repeat gauge study confirms fitness [steps 1, 26, and 27]."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Descriptive summaries and exploratory charts are useful for diagnosing the recorded data. The corrected capability arithmetic is permissible as a descriptive calculation, but the report uses the indices to characterize process capability and set a sustainment criterion rather than withholding that use. Applicator comparisons support at most failure to detect differences in recorded outcomes under independent, representative sampling; neither nonsignificant global tests nor additional rank tests establish absence of a relevant effect. The six exploratory pairwise tests are acknowledged as unplanned and yield no selected positive claim. Before/after dispersion comparisons can describe differences between batches, subject to subgroup dependence and temporal confounding; they do not resolve whether physical-process variation or measurement conditions changed.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain charting as provisional monitoring of the measurement stream, with no claim that absence of chart signals establishes physical-process stability or measurement fitness.",
+  "Use recorded-data capability indices only as explicitly nonqualifying descriptive quantities until gauge applicability, bias, and stability have been assessed.",
+  "Establish a representative, condition-matched measurement study and demonstrate adequate discrimination relative to actual production variation as well as suitability for tolerance decisions.",
+  "A conservative capability argument incorporating measurement error may be defensible if independent additive, stable, unbiased error and its transferability to the production batches are supported; the current scale discrepancy must first be reconciled.",
+  "Compare applicators or batches exploratorily using a sampling model that accounts for dependence and time; require a defined equivalence margin and adequate precision before concluding that practically important differences are absent."
+ ],
+ "evidence": [
+  "Step 3 reports gauge standard deviation 8.64609194124357 \u00b5m, total study standard deviation 55.63144847925064 \u00b5m, study variation 15.54173435636568%, and ndc 8.",
+  "The same step reports 64.84568955932677% of tolerance and gauge variance 74.754905856437 \u00b5m squared.",
+  "Baseline overall standard deviation is only 8.132756684564132 \u00b5m; post-change overall standard deviation is 5.838914472067663 \u00b5m. Both are below the reported gauge standard deviation.",
+  "Applicator sample standard deviations range from 3.7200695077991672 to 6.321489050020083 \u00b5m, also below the reported gauge standard deviation.",
+  "The report explicitly prioritizes gauge improvement and quarantines boundary dispositions, but calls baseline capability strong and recommends retaining the post-change Ppk as an acceptance criterion.",
+  "The report appropriately states that the physical intervention is unknown and that the observed variance reduction could be confounded with measurement changes."
+ ],
+ "rationale": "Passing the declared study-relative discrimination gate is not sufficient evidence of measurement fitness for these production data. The broad measurement-study spread makes the gauge percentage appear favorable, while the gauge error estimate is larger than the entire observed production spread. This is not proof that either estimate is impossible, but it is a material applicability or consistency issue requiring investigation before substantive qualification. The high tolerance consumption separately supports withholding boundary acceptance decisions. The report shows substantial restraint through its gauge-first recommendation, boundary quarantine, and refusal to identify a cause. Nevertheless, it treats capability as substantively strong and operationalizes the post-change Ppk, so its qualifications do not fully withhold the unsupported uses. This judgment distinguishes professional validity from the apparently satisfied public service thresholds.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied scalars: 6 \u00d7 8.64609194124357 / 80 \u00d7 100 = approximately 64.84569% tolerance. Gauge SD is approximately 1.063 times baseline SD and 1.481 times post-change SD. Baseline and post-change variances are approximately 66.14 and 34.09 \u00b5m squared, versus gauge variance 74.75 \u00b5m squared; naive subtraction under a common independent additive-error model would yield negative process-variance estimates. Capability arithmetic is consistent with the reported summaries: (219.7996 \u2212 180)/(3 \u00d7 8.132756684564132) is approximately 1.63125. Raw observations, ANOVA components, chart signals, and test p-values were not independently recomputed.",
+ "evidence_problem": "Only the supplied packet was available for this review; raw batches and service-event files were not accessed. Representativeness of the measurement-study parts, gauge transferability, bias, and sampling independence remain unverified. Procedural blinding was maintained: no outside repository material, other reviews, or external sources were consulted. This assessment was produced by an AI assistant, not a human expert; AI assistance comprised reading the packet, checking scalar relationships, and composing the judgment.",
+ "_usage": {
+  "prompt_tokens": 9603,
+  "completion_tokens": 1442,
+  "total_tokens": 11045
+ }
+}

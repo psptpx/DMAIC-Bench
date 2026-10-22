@@ -1,0 +1,47 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "samplesRetained": 209,
+        "affectedRetained": 103,
+        "unaffectedRetained": 106,
+        "alpha": 0.05,
+        "maxSampleFailFraction": 0.1,
+        "minHwePControls": 1e-06,
+        "minMaf": 0.01,
+        "minSampleCallRate": 0.95,
+        "minVariantCallRate": 0.95,
+        "participantsTotal": 240,
+        "sampleFailPct": 12.916666666666668,
+        "plateThresholdPct": 10.0,
+        "participantCallRatePct": 95.0,
+        "plateRequiresRegenotyping": true
+      },
+      "status": "success",
+      "decision": "Plate fails protocol: stop and re-genotype, not simply delete failed participants and proceed.",
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "source": "data/genotypes.json"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_viability",
+      "chosen_branch": "stop_and_regenotype",
+      "observed": {
+        "sampleFailFraction": 0.12916666666666668,
+        "threshold": 0.1
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

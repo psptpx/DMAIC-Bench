@@ -1,0 +1,61 @@
+{
+ "reviewer_id": "human_expert_1",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical Black Belt",
+ "blinding_compliance": "I reviewed only the assigned blind packet and did not inspect other directories, outputs, hidden files, or reviewers' work; no web search for the benchmark or paper.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V051",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Full project closure or declaring the commitment will be met indefinitely without a documented and approved settings/hold plan for paste thickness and reflow peak and without continued p-chart monitoring.",
+    "Treating the post-change observed share as a permanent process parameter rather than a finite-period estimate conditional on a stable period."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting that the post-change 20-lot period had 147/80000 = 0.0018375 pooled defect share, below the 0.0025 commitment.",
+    "A one-sided exact binomial test against 0.0025 under the stable binomial model, yielding 5.06e-05 and supporting the conclusion that the observed post-change period is below the commitment.",
+    "A Phase I p-chart for the 20 post-change lots as a stability check, with the caveat that control limits are based on the same data and future monitoring must extend or revalidate them.",
+    "Recommending continued monitoring and recovery/approval of the missing change record rather than closing the project."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Baseline p-chart and exact one-proportion against the commitment are valid context. The OLS regression is acceptable only as restricted descriptive because the report explicitly states it is associational and not proof of causation. The before-after two-proportion test is a valid statistical comparison of the before and after windows, but the statement 'strong evidence that the change reduced defects' is stronger than a single observational before-after comparison warrants without control for temporal confounding. This does not invalidate the focal post-change target-attainment claim.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "A one-sided exact binomial test plus an upper confidence bound for the post-change defect rate; target attainment is supported if the upper bound is below 0.0025 and the Phase I p-chart is stable.",
+    "A Poisson exact test for the post-change defect count with total inspection exposure as an alternative rare-event model, expected to give the same GO.",
+    "A Phase I p-chart followed by ongoing monitoring with frozen/validated limits once the missing settings are documented."
+   ],
+   "evidence": [
+    "Reported post-change counts: 147 defects in 80000 inspected, giving 0.0018375.",
+    "Reported exact one-sided p-value 5.060125914974411e-05 vs p0=0.0025.",
+    "Post-change p-chart: center line 0.0018375, UCL 0.0038689472884959383, LCL 0, 0 out-of-control lots.",
+    "Report quote: 'Treat the current level as meeting the commitment on the available evidence, while continuing per-lot p-chart monitoring.'",
+    "Report quote: 'The records do not identify the exact setting values implemented as the line change... not guessed here.'"
+   ],
+   "rationale": "The focal checkpoint is specifically whether the absolute post-change business level supports target attainment or closure. The observed post-change pooled defect share is below the committed maximum, the exact one-sided test strongly rejects the hypothesis that the underlying rate is at or above 0.0025, and the Phase I p-chart shows no out-of-control lots. Therefore target attainment for the observed period is justified. Closure is not yet justified because the exact change settings/hold mechanism are not documented and only a finite post-change period is available; the report appropriately withholds full closure and recommends monitoring and documentation recovery.",
+   "confidence": 4,
+   "numerical_check": "Recomputed pooled share 147/80000=0.0018375; verified p-chart limits from p +/- 3*sqrt(p(1-p)/4000); approximate one-sided 95% upper bound for p is about 0.00209, below 0.0025. Did not recompute exact binomial tails; exact p-values are self-reported but plausible.",
+   "evidence_problem": "Missing exact change settings/hold mechanism record; not material to the immediate post-change level test but blocks full closure."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4687,
+  "completion_tokens": 18542,
+  "total_tokens": 23229,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 17472
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3023
+ }
+}

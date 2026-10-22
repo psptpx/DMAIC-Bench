@@ -1,0 +1,153 @@
+{
+  "system_id": "openai-api-command-line-assistant",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "discovery",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "maxAllowedFailFraction": 0.1,
+        "nParticipants": 240,
+        "nVariants": 150
+      },
+      "status": "success",
+      "decision": "plate_pass"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "discovery",
+        "variants": 150,
+        "controls": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "minCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHweP": 1e-06,
+        "nParticipants": 240,
+        "nControls": 120
+      },
+      "status": "success",
+      "decision": "retain_variants"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "discovery",
+        "participants": 240,
+        "retainedVariants": 138,
+        "leadingAxes": 5
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 0.48379006582465833,
+        "structurePresent": true,
+        "leadingAxis5PValue": 0.03680249497138648
+      },
+      "status": "success",
+      "decision": "adjust_for_overlapping_structure"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "discovery",
+        "participants": 240,
+        "retainedVariants": 138,
+        "covariates": 5
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.8391361726486453,
+        "bonferroniAlpha": 0.00036231884057971015,
+        "alpha": 0.05,
+        "nRetained": 138,
+        "covariates": 5
+      },
+      "status": "success",
+      "decision": "no_discovery_hits"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "candidateVariants": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.008333333333333333,
+        "nParticipants": 120,
+        "nVariants": 150,
+        "affected": 60,
+        "unaffected": 60,
+        "candidateCount": 0
+      },
+      "status": "success",
+      "decision": "replication_not_computable_empty_candidate_set"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "discovery",
+        "retainedVariants": 138
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "sklearn_unavailable_numpy_svd_rerun_used"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_retain_or_regenotype",
+      "chosen_branch": "retain_plate",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxAllowedFailFraction": 0.1
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "overlapping_structure_adjust_with_leading_axes",
+      "observed": {
+        "separated": false,
+        "structurePresent": true,
+        "leadingAxis5PValue": 0.03680249497138648
+      }
+    },
+    {
+      "point": "discovery_nomination",
+      "chosen_branch": "nominate_none",
+      "observed": {
+        "nSignificant": 0,
+        "bonferroniAlpha": 0.00036231884057971015
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "stop_no_candidates",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0.0,
+  "token_cost": null
+}

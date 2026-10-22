@@ -1,0 +1,46 @@
+{
+  "system_id": "openai",
+  "task_id": "adb_c40-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {"batch": "library_qc", "sample_size": 12, "groups": 2},
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 4,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "minReplicatesPerArm": 3,
+        "controlUsable": 4,
+        "treatedUsable": 4
+      },
+      "status": "success",
+      "decision": "QC passed the usable-replicate gate: both arms retained 4 usable libraries, exceeding the required minimum of 3."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {"batch": "sample_sheet", "sample_size": 8, "groups": 2, "usable_only": true},
+      "method_id": "design.identifiability",
+      "outputs": {"confounded": true, "batchCount": 2, "usableN": 8, "controlInL1": 4, "treatedInL2": 4},
+      "status": "success",
+      "decision": "Treatment and preparation batch are perfectly confounded among usable libraries, so the planned treatment contrast is not identifiable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {"requested_batch": "counts", "reason": "design_identifiable gate not satisfied"},
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The steward locked gene-level counts because design_confounded=true; no gene-level computation can be performed."
+    }
+  ],
+  "route_decisions": [
+    {"point": "library_qc_gate", "chosen_branch": "continue", "observed": {"minReplicates": 4, "requiredMinimum": 3}},
+    {"point": "design_identifiability_gate", "chosen_branch": "stop_gene_calling", "observed": {"confounded": true, "batchCount": 2}},
+    {"point": "counts_release", "chosen_branch": "locked", "observed": {"design_confounded": true}}
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

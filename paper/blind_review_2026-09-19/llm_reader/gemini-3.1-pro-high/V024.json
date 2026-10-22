@@ -1,0 +1,36 @@
+{
+ "blind_id": "V024",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Certifying the bore finish or roughness tester using the void area data",
+  "Unconditional approval of the measurement system given %RR > 10%"
+ ],
+ "permitted_at_checkpoint": [
+  "Conditional use of the measurement system for process investigation",
+  "Exploratory baseline analysis of the void area measurements"
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "Control charting and lognormal capability modeling on the void area data are acceptable descriptive and exploratory steps given the explicit caveats about the charter mismatch and lack of causal data.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Proceed with analyzing the released void area data under the explicit condition that it does not satisfy the original roughness charter"
+ ],
+ "evidence": [
+  "gage R&R 20.11% of study variation, 18.41% of tolerance, and 6 distinct categories",
+  "The released archive concerns X-ray joint void area, not bore roughness."
+ ],
+ "rationale": "Initial logic and parameters are validated. The MSA results (%RR ~20%, ndc=6) justify conditional use of the measurement system. The report accurately identifies the data-charter mismatch, refuses to certify the originally requested roughness parameters, and limits subsequent analysis to heavily caveated exploratory descriptions. The final capability computations are statistically sound and procedurally restrained.",
+ "confidence": 5,
+ "numerical_check": "Recomputed ANOVA variance components, %Study Variation (20.1%), %Tolerance (18.4%), and ndc (6) based on 6*sigma spread and 0-25 tolerance.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 5129,
+  "completion_tokens": 1813,
+  "total_tokens": 6942
+ }
+}

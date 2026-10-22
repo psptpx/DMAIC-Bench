@@ -1,0 +1,57 @@
+{
+ "blind_id": "V016",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that recipe has no effect, is equivalent across recipes, or has been eliminated as a candidate cause merely because the group comparisons are nonsignificant.",
+  "Predicting that switching recipes would change population mean hardness by only a few hundredths of an HRC from the observed sample differences.",
+  "Treating the selected top-two comparison as independent confirmation or its unadjusted confidence interval as selection-valid population uncertainty.",
+  "Removing recipe from further investigation on the premise that this study has cleared it as a cause."
+ ],
+ "permitted_at_checkpoint": [
+  "Report that these samples provide no statistically detectable difference among recipe means, conditional on independent observations and an adequate sampling model.",
+  "Describe the small observed between-recipe variation and sample differences without treating them as bounds on population effects.",
+  "Defer recipe changes because the present evidence does not establish a beneficial change.",
+  "Investigate other candidate factors without declaring recipe exonerated; use randomized, independently replicated experiments, with blocking for relevant production conditions.",
+  "Plan a study around a prespecified practically important hardness difference, or an equivalence study with justified margins.",
+  "Describe the reused top-two observations explicitly as exploratory, with selection-aware inference if population uncertainty is reported."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The recipe does not account for case-surface hardness.",
+  "The readings themselves are trustworthy, so this is a real negative result and not a measurement artefact.",
+  "The cause of hardness variation lies somewhere we have not yet measured.",
+  "That is the finding, and it is a useful one: it clears the candidate that was on the table and stops the team from spending money re-qualifying recipes.",
+  "Even taken at face value the result is null, and the interval tells us the honest precision: the true gap could be two-thirds of a point in either direction."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Kruskal-Wallis is a reasonable exploratory sensitivity check under independent sampling, but its nonsignificance does not establish absence of a recipe effect and it is not generally a test of means. Descriptive differences for the reused top-two sample are acceptable, and the report explicitly rejects independent confirmation and recipe ranking. However, the nominal two-sample interval is subsequently interpreted as population precision without accounting for selection. The approximate power calculation may support planning under stated variance, significance-level and design assumptions, but it neither establishes equivalence nor describes the resolving power of the entire three-recipe study. Selection does not make every possible small p-value an artefact; properly adjusted comparisons remain possible.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain the omnibus comparison as evidence of no detected mean difference, provided shafts are independent experimental or sampling units and recipe is not confounded with run time, lot, furnace load or operator.",
+  "Use simultaneous confidence intervals for all recipe contrasts, accounting for the family of comparisons before interpreting a selected pair.",
+  "Establish practical equivalence only using prespecified engineering margins and confidence bounds or equivalence tests that exclude differences outside those margins.",
+  "Run an independently replicated randomized recipe experiment, blocking relevant load, lot and temporal effects; distinguish shaft-level measurements from independent treatment replications.",
+  "Investigate moving-range signals and other candidate factors while retaining recipe and potential interactions as unresolved hypotheses."
+ ],
+ "evidence": [
+  "The reported omnibus ANOVA has F = 0.09871584550337309, p = 0.9062096929196064, with three groups of 15 shafts.",
+  "The reported pooled within-recipe standard deviation is 0.9944113677216125 HRC and sample R-squared is 0.46787608414765675%.",
+  "The top-two sample is declared to reuse the identical 30 observations selected from the original recipe comparison.",
+  "The reported selected-pair difference is 0.054 HRC, with nominal interval -0.6604958040617807 to 0.768495804061799 HRC.",
+  "The report states: \"Do not read a recipe ranking into these averages.\"",
+  "The report states: \"If differences of a few tenths of an HRC matter commercially, future sampling plans need to be built around that resolution before data is collected, not after.\"",
+  "No randomization, independent load replication, temporal balance or practical equivalence margin is documented in the supplied packet."
+ ],
+ "rationale": "The focal STOP applies to causal exclusion and effect-absence claims, not to all comparisons or further experimentation. Large p-values and small sample R-squared support no detected association here, not proof of no practically important recipe effect. The report appropriately avoids changing or ranking recipes, acknowledges limited sensitivity and recognizes reuse of selected observations. Those substantial restraints coexist with repeated categorical exoneration of recipe and a recommendation to stop spending on it on that basis. This is materially misleading despite the otherwise sensible next-study recommendations. Earlier baseline problems are not used to impose an automatic STOP on the separate recipe comparison. The public measurement thresholds do not authorize causal or equivalence conclusions.",
+ "confidence": 5,
+ "numerical_check": "Checked summary-level consistency: with ANOVA degrees of freedom 2 and 42, R-squared = (2F)/(2F + 42), approximately 0.004679, agreeing with the reported 0.4679%. The selected-pair interval has a half-width of approximately 0.7145 HRC, much larger than the 0.054 HRC point estimate. Raw observations were not available for recomputation in the supplied conversation; other results are self-report-only.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw batches and service records were not accessed. Independence, allocation, temporal balance and the identity of reused observations cannot be independently verified. Procedural blinding was maintained: no outside repository content, other reviewer output or external sources were consulted. This assessment was generated by an AI assistant, not a human expert; AI assistance comprised reading the packet, checking summary arithmetic and drafting this judgment.",
+ "_usage": {
+  "prompt_tokens": 6693,
+  "completion_tokens": 1355,
+  "total_tokens": 8048
+ }
+}

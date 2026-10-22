@@ -1,0 +1,1289 @@
+{
+  "cases": 60,
+  "case_files": 360,
+  "nonempty_reports": 60,
+  "reports_embedded_exactly": 60,
+  "compact_steps_match_trace": 60,
+  "focal_assessment_counts": {
+    "Baseline temporal stability and the analyses and conclusions that may follow.": 9,
+    "Baseline defect-rate chart stability, business performance, and next steps.": 9,
+    "Target-attainment, implementation, or closure conclusions after confirmation experiments.": 3,
+    "Whether readings can support substantive analysis after the measurement system study.": 15,
+    "Applicability of the response-surface model and the basis for subsequent optimization.": 5,
+    "Causal judgments and next steps after candidate machine-difference analysis.": 5,
+    "Whether before/after comparisons support improvement conclusions.": 2,
+    "Whether the absolute post-change business level supports target attainment or closure.": 3,
+    "Conclusions about candidate causes and next steps after group mean comparisons.": 1,
+    "The second (repeat) attribute agreement study and subsequent actions.": 1,
+    "Factor-screening results and the analyses and conclusions that may follow.": 3,
+    "Whether classifications can support substantive analysis after the attribute agreement study.": 2,
+    "Optimization results and the basis for subsequent confirmation or implementation.": 1,
+    "Conclusions about candidate causes and next steps after group rank comparisons.": 1
+  },
+  "cases_detail": [
+    {
+      "blind_id": "V001",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 5527,
+      "report_exactly_embedded": true,
+      "trace_steps": 61,
+      "compact_step_count": 61,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "baseline",
+        "define",
+        "design",
+        "logged_variables"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 5,
+        "refused": 2,
+        "ok": 1
+      }
+    },
+    {
+      "blind_id": "V002",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 4099,
+      "report_exactly_embedded": true,
+      "trace_steps": 10,
+      "compact_step_count": 10,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "disagreements",
+        "heads",
+        "lots",
+        "study_1",
+        "study_2"
+      ],
+      "steward_event_count": 6,
+      "steward_outcomes": {
+        "data": 6
+      }
+    },
+    {
+      "blind_id": "V003",
+      "focal_assessment": "Target-attainment, implementation, or closure conclusions after confirmation experiments.",
+      "report_characters": 6284,
+      "report_exactly_embedded": true,
+      "trace_steps": 14,
+      "compact_step_count": 14,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "baseline",
+        "define",
+        "design",
+        "logged_variables"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 1,
+        "refused": 3
+      }
+    },
+    {
+      "blind_id": "V004",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 7476,
+      "report_exactly_embedded": true,
+      "trace_steps": 8,
+      "compact_step_count": 8,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "data": 2,
+        "ok": 1,
+        "refused": 7
+      }
+    },
+    {
+      "blind_id": "V005",
+      "focal_assessment": "Applicability of the response-surface model and the basis for subsequent optimization.",
+      "report_characters": 6221,
+      "report_exactly_embedded": true,
+      "trace_steps": 20,
+      "compact_step_count": 20,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "composite_design",
+        "confirmation_runs",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 6,
+        "ok": 1,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V006",
+      "focal_assessment": "Causal judgments and next steps after candidate machine-difference analysis.",
+      "report_characters": 6118,
+      "report_exactly_embedded": true,
+      "trace_steps": 14,
+      "compact_step_count": 14,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "agreement",
+        "candidates",
+        "failure_modes",
+        "lots",
+        "machines",
+        "sustaining"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "data": 7,
+        "refused": 3
+      }
+    },
+    {
+      "blind_id": "V007",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 9183,
+      "report_exactly_embedded": true,
+      "trace_steps": 18,
+      "compact_step_count": 18,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 11,
+      "steward_outcomes": {
+        "data": 3,
+        "refused": 8
+      }
+    },
+    {
+      "blind_id": "V008",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 7600,
+      "report_exactly_embedded": true,
+      "trace_steps": 13,
+      "compact_step_count": 13,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "applicators",
+        "define",
+        "msa",
+        "process_run",
+        "sustaining"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "refused": 2,
+        "data": 5,
+        "ok": 2
+      }
+    },
+    {
+      "blind_id": "V009",
+      "focal_assessment": "Applicability of the response-surface model and the basis for subsequent optimization.",
+      "report_characters": 3503,
+      "report_exactly_embedded": true,
+      "trace_steps": 14,
+      "compact_step_count": 14,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "composite_design",
+        "confirmation_runs",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 1,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V010",
+      "focal_assessment": "Target-attainment, implementation, or closure conclusions after confirmation experiments.",
+      "report_characters": 6360,
+      "report_exactly_embedded": true,
+      "trace_steps": 24,
+      "compact_step_count": 24,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "baseline",
+        "define",
+        "design",
+        "logged_variables"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 1,
+        "refused": 4
+      }
+    },
+    {
+      "blind_id": "V011",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 5627,
+      "report_exactly_embedded": true,
+      "trace_steps": 17,
+      "compact_step_count": 17,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 6,
+      "steward_outcomes": {
+        "refused": 2,
+        "data": 3,
+        "ok": 1
+      }
+    },
+    {
+      "blind_id": "V012",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 2404,
+      "report_exactly_embedded": true,
+      "trace_steps": 4,
+      "compact_step_count": 4,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "agreement",
+        "define",
+        "root_cause",
+        "subgroups"
+      ],
+      "steward_event_count": 6,
+      "steward_outcomes": {
+        "data": 4,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V013",
+      "focal_assessment": "Whether before/after comparisons support improvement conclusions.",
+      "report_characters": 4197,
+      "report_exactly_embedded": true,
+      "trace_steps": 10,
+      "compact_step_count": 10,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_lots",
+        "baseline",
+        "before_after",
+        "define",
+        "settings",
+        "trial_size"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "data": 6,
+        "ok": 2,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V014",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 2809,
+      "report_exactly_embedded": true,
+      "trace_steps": 11,
+      "compact_step_count": 11,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 6,
+      "steward_outcomes": {
+        "data": 3,
+        "refused": 3
+      }
+    },
+    {
+      "blind_id": "V015",
+      "focal_assessment": "Whether the absolute post-change business level supports target attainment or closure.",
+      "report_characters": 4948,
+      "report_exactly_embedded": true,
+      "trace_steps": 12,
+      "compact_step_count": 12,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_lots",
+        "baseline",
+        "before_after",
+        "define",
+        "settings",
+        "trial_size"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "data": 6,
+        "ok": 2,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V016",
+      "focal_assessment": "Conclusions about candidate causes and next steps after group mean comparisons.",
+      "report_characters": 10230,
+      "report_exactly_embedded": true,
+      "trace_steps": 12,
+      "compact_step_count": 12,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "define",
+        "leading_two",
+        "msa",
+        "recipes"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "data": 5,
+        "refused": 3,
+        "ok": 2
+      }
+    },
+    {
+      "blind_id": "V017",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 5334,
+      "report_exactly_embedded": true,
+      "trace_steps": 8,
+      "compact_step_count": 8,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "agreement",
+        "define",
+        "root_cause",
+        "subgroups"
+      ],
+      "steward_event_count": 4,
+      "steward_outcomes": {
+        "data": 4
+      }
+    },
+    {
+      "blind_id": "V018",
+      "focal_assessment": "Target-attainment, implementation, or closure conclusions after confirmation experiments.",
+      "report_characters": 4089,
+      "report_exactly_embedded": true,
+      "trace_steps": 12,
+      "compact_step_count": 12,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "baseline",
+        "define",
+        "design",
+        "logged_variables"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 1,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V019",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 5558,
+      "report_exactly_embedded": true,
+      "trace_steps": 18,
+      "compact_step_count": 18,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "disagreements",
+        "heads",
+        "lots",
+        "study_1",
+        "study_2"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "refused": 3,
+        "data": 7
+      }
+    },
+    {
+      "blind_id": "V020",
+      "focal_assessment": "Causal judgments and next steps after candidate machine-difference analysis.",
+      "report_characters": 7398,
+      "report_exactly_embedded": true,
+      "trace_steps": 11,
+      "compact_step_count": 11,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "agreement",
+        "candidates",
+        "failure_modes",
+        "lots",
+        "machines",
+        "sustaining"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "data": 7,
+        "refused": 3
+      }
+    },
+    {
+      "blind_id": "V021",
+      "focal_assessment": "The second (repeat) attribute agreement study and subsequent actions.",
+      "report_characters": 3154,
+      "report_exactly_embedded": true,
+      "trace_steps": 9,
+      "compact_step_count": 9,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "disagreements",
+        "heads",
+        "lots",
+        "study_1",
+        "study_2"
+      ],
+      "steward_event_count": 6,
+      "steward_outcomes": {
+        "data": 6
+      }
+    },
+    {
+      "blind_id": "V022",
+      "focal_assessment": "Causal judgments and next steps after candidate machine-difference analysis.",
+      "report_characters": 2708,
+      "report_exactly_embedded": true,
+      "trace_steps": 11,
+      "compact_step_count": 11,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "agreement",
+        "candidates",
+        "failure_modes",
+        "lots",
+        "machines",
+        "sustaining"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 7,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V023",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 5102,
+      "report_exactly_embedded": true,
+      "trace_steps": 5,
+      "compact_step_count": 5,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "agreement",
+        "define",
+        "root_cause",
+        "subgroups"
+      ],
+      "steward_event_count": 4,
+      "steward_outcomes": {
+        "data": 4
+      }
+    },
+    {
+      "blind_id": "V024",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 5454,
+      "report_exactly_embedded": true,
+      "trace_steps": 10,
+      "compact_step_count": 10,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "refused": 4,
+        "data": 4
+      }
+    },
+    {
+      "blind_id": "V025",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 5696,
+      "report_exactly_embedded": true,
+      "trace_steps": 13,
+      "compact_step_count": 13,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "applicators",
+        "define",
+        "msa",
+        "process_run",
+        "sustaining"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "refused": 2,
+        "data": 5,
+        "ok": 2
+      }
+    },
+    {
+      "blind_id": "V026",
+      "focal_assessment": "Causal judgments and next steps after candidate machine-difference analysis.",
+      "report_characters": 3715,
+      "report_exactly_embedded": true,
+      "trace_steps": 8,
+      "compact_step_count": 8,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "agreement",
+        "candidates",
+        "failure_modes",
+        "lots",
+        "machines",
+        "sustaining"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 7
+      }
+    },
+    {
+      "blind_id": "V027",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 2386,
+      "report_exactly_embedded": true,
+      "trace_steps": 6,
+      "compact_step_count": 6,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "agreement",
+        "define",
+        "root_cause",
+        "subgroups"
+      ],
+      "steward_event_count": 5,
+      "steward_outcomes": {
+        "data": 4,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V028",
+      "focal_assessment": "Applicability of the response-surface model and the basis for subsequent optimization.",
+      "report_characters": 6769,
+      "report_exactly_embedded": true,
+      "trace_steps": 34,
+      "compact_step_count": 34,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "composite_design",
+        "confirmation_runs",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 1,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V029",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 4030,
+      "report_exactly_embedded": true,
+      "trace_steps": 8,
+      "compact_step_count": 8,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 3,
+        "ok": 1,
+        "refused": 3
+      }
+    },
+    {
+      "blind_id": "V030",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 6596,
+      "report_exactly_embedded": true,
+      "trace_steps": 18,
+      "compact_step_count": 18,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "composite_design",
+        "confirmation_runs",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 1,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V031",
+      "focal_assessment": "Factor-screening results and the analyses and conclusions that may follow.",
+      "report_characters": 4518,
+      "report_exactly_embedded": true,
+      "trace_steps": 16,
+      "compact_step_count": 16,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "composite_design",
+        "confirmation_runs",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 6,
+        "ok": 1,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V032",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 3248,
+      "report_exactly_embedded": true,
+      "trace_steps": 8,
+      "compact_step_count": 8,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa"
+      ],
+      "steward_event_count": 6,
+      "steward_outcomes": {
+        "data": 2,
+        "ok": 1,
+        "refused": 3
+      }
+    },
+    {
+      "blind_id": "V033",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 12679,
+      "report_exactly_embedded": true,
+      "trace_steps": 21,
+      "compact_step_count": 21,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 3,
+        "refused": 5
+      }
+    },
+    {
+      "blind_id": "V034",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 3631,
+      "report_exactly_embedded": true,
+      "trace_steps": 15,
+      "compact_step_count": 15,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "applicators",
+        "define",
+        "msa",
+        "process_run",
+        "sustaining"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "refused": 1,
+        "data": 5,
+        "ok": 2
+      }
+    },
+    {
+      "blind_id": "V035",
+      "focal_assessment": "Whether classifications can support substantive analysis after the attribute agreement study.",
+      "report_characters": 6789,
+      "report_exactly_embedded": true,
+      "trace_steps": 11,
+      "compact_step_count": 11,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "agreement",
+        "define",
+        "root_cause",
+        "subgroups"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "data": 5,
+        "refused": 4
+      }
+    },
+    {
+      "blind_id": "V036",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 4697,
+      "report_exactly_embedded": true,
+      "trace_steps": 5,
+      "compact_step_count": 5,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "refused": 6,
+        "data": 2,
+        "ok": 2
+      }
+    },
+    {
+      "blind_id": "V037",
+      "focal_assessment": "Applicability of the response-surface model and the basis for subsequent optimization.",
+      "report_characters": 3891,
+      "report_exactly_embedded": true,
+      "trace_steps": 15,
+      "compact_step_count": 15,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "composite_design",
+        "confirmation_runs",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 6,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 1
+      }
+    },
+    {
+      "blind_id": "V038",
+      "focal_assessment": "Causal judgments and next steps after candidate machine-difference analysis.",
+      "report_characters": 6573,
+      "report_exactly_embedded": true,
+      "trace_steps": 11,
+      "compact_step_count": 11,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "agreement",
+        "candidates",
+        "failure_modes",
+        "lots",
+        "machines",
+        "sustaining"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "data": 7,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V039",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 4200,
+      "report_exactly_embedded": true,
+      "trace_steps": 10,
+      "compact_step_count": 10,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 5,
+      "steward_outcomes": {
+        "data": 3,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V040",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 11000,
+      "report_exactly_embedded": true,
+      "trace_steps": 13,
+      "compact_step_count": 13,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "define",
+        "leading_two",
+        "msa",
+        "recipes"
+      ],
+      "steward_event_count": 12,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 2,
+        "refused": 5
+      }
+    },
+    {
+      "blind_id": "V041",
+      "focal_assessment": "Applicability of the response-surface model and the basis for subsequent optimization.",
+      "report_characters": 8242,
+      "report_exactly_embedded": true,
+      "trace_steps": 21,
+      "compact_step_count": 21,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "composite_design",
+        "confirmation_runs",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 5,
+        "refused": 2,
+        "ok": 1
+      }
+    },
+    {
+      "blind_id": "V042",
+      "focal_assessment": "Whether the absolute post-change business level supports target attainment or closure.",
+      "report_characters": 6341,
+      "report_exactly_embedded": true,
+      "trace_steps": 16,
+      "compact_step_count": 16,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_lots",
+        "baseline",
+        "before_after",
+        "define",
+        "settings",
+        "trial_size"
+      ],
+      "steward_event_count": 11,
+      "steward_outcomes": {
+        "data": 7,
+        "ok": 2,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V043",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 5160,
+      "report_exactly_embedded": true,
+      "trace_steps": 12,
+      "compact_step_count": 12,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "applicators",
+        "define",
+        "msa",
+        "process_run",
+        "sustaining"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 2,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V044",
+      "focal_assessment": "Whether before/after comparisons support improvement conclusions.",
+      "report_characters": 4954,
+      "report_exactly_embedded": true,
+      "trace_steps": 9,
+      "compact_step_count": 9,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_lots",
+        "baseline",
+        "before_after",
+        "define",
+        "settings",
+        "trial_size"
+      ],
+      "steward_event_count": 11,
+      "steward_outcomes": {
+        "data": 7,
+        "ok": 2,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V045",
+      "focal_assessment": "Whether classifications can support substantive analysis after the attribute agreement study.",
+      "report_characters": 5615,
+      "report_exactly_embedded": true,
+      "trace_steps": 11,
+      "compact_step_count": 11,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "agreement",
+        "define",
+        "root_cause",
+        "subgroups"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 4,
+        "refused": 4
+      }
+    },
+    {
+      "blind_id": "V046",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 3826,
+      "report_exactly_embedded": true,
+      "trace_steps": 10,
+      "compact_step_count": 10,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_change",
+        "agreement",
+        "candidates",
+        "failure_modes",
+        "lots",
+        "machines",
+        "sustaining"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "data": 7,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V047",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 5062,
+      "report_exactly_embedded": true,
+      "trace_steps": 14,
+      "compact_step_count": 14,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "refused": 6,
+        "data": 3
+      }
+    },
+    {
+      "blind_id": "V048",
+      "focal_assessment": "Factor-screening results and the analyses and conclusions that may follow.",
+      "report_characters": 5478,
+      "report_exactly_embedded": true,
+      "trace_steps": 16,
+      "compact_step_count": 16,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "define",
+        "design",
+        "logged_variables"
+      ],
+      "steward_event_count": 9,
+      "steward_outcomes": {
+        "data": 6,
+        "ok": 1,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V049",
+      "focal_assessment": "Factor-screening results and the analyses and conclusions that may follow.",
+      "report_characters": 3777,
+      "report_exactly_embedded": true,
+      "trace_steps": 8,
+      "compact_step_count": 8,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 5,
+      "steward_outcomes": {
+        "data": 3,
+        "ok": 1,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V050",
+      "focal_assessment": "Optimization results and the basis for subsequent confirmation or implementation.",
+      "report_characters": 5744,
+      "report_exactly_embedded": true,
+      "trace_steps": 15,
+      "compact_step_count": 15,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "composite_design",
+        "confirmation_runs",
+        "define",
+        "screening_run"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 5,
+        "refused": 2,
+        "ok": 1
+      }
+    },
+    {
+      "blind_id": "V051",
+      "focal_assessment": "Whether the absolute post-change business level supports target attainment or closure.",
+      "report_characters": 4368,
+      "report_exactly_embedded": true,
+      "trace_steps": 10,
+      "compact_step_count": 10,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "after_lots",
+        "baseline",
+        "before_after",
+        "define",
+        "settings",
+        "trial_size"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "data": 6,
+        "ok": 2,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V052",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 3373,
+      "report_exactly_embedded": true,
+      "trace_steps": 10,
+      "compact_step_count": 10,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "disagreements",
+        "heads",
+        "lots",
+        "study_1",
+        "study_2"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 6,
+        "refused": 1
+      }
+    },
+    {
+      "blind_id": "V053",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 4423,
+      "report_exactly_embedded": true,
+      "trace_steps": 6,
+      "compact_step_count": 6,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 3,
+        "refused": 5
+      }
+    },
+    {
+      "blind_id": "V054",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 4480,
+      "report_exactly_embedded": true,
+      "trace_steps": 6,
+      "compact_step_count": 6,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 8,
+      "steward_outcomes": {
+        "data": 3,
+        "ok": 3,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V055",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 5359,
+      "report_exactly_embedded": true,
+      "trace_steps": 5,
+      "compact_step_count": 5,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 5,
+      "steward_outcomes": {
+        "data": 3,
+        "refused": 2
+      }
+    },
+    {
+      "blind_id": "V056",
+      "focal_assessment": "Baseline temporal stability and the analyses and conclusions that may follow.",
+      "report_characters": 8451,
+      "report_exactly_embedded": true,
+      "trace_steps": 14,
+      "compact_step_count": 14,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 10,
+      "steward_outcomes": {
+        "data": 3,
+        "refused": 7
+      }
+    },
+    {
+      "blind_id": "V057",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 4552,
+      "report_exactly_embedded": true,
+      "trace_steps": 9,
+      "compact_step_count": 9,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "msa",
+        "process_run"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 3,
+        "refused": 4
+      }
+    },
+    {
+      "blind_id": "V058",
+      "focal_assessment": "Baseline defect-rate chart stability, business performance, and next steps.",
+      "report_characters": 6026,
+      "report_exactly_embedded": true,
+      "trace_steps": 21,
+      "compact_step_count": 21,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "define",
+        "disagreements",
+        "heads",
+        "lots",
+        "study_1",
+        "study_2"
+      ],
+      "steward_event_count": 14,
+      "steward_outcomes": {
+        "refused": 8,
+        "data": 6
+      }
+    },
+    {
+      "blind_id": "V059",
+      "focal_assessment": "Whether readings can support substantive analysis after the measurement system study.",
+      "report_characters": 11294,
+      "report_exactly_embedded": true,
+      "trace_steps": 35,
+      "compact_step_count": 35,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "applicators",
+        "define",
+        "msa",
+        "process_run",
+        "sustaining"
+      ],
+      "steward_event_count": 13,
+      "steward_outcomes": {
+        "refused": 5,
+        "data": 5,
+        "ok": 3
+      }
+    },
+    {
+      "blind_id": "V060",
+      "focal_assessment": "Conclusions about candidate causes and next steps after group rank comparisons.",
+      "report_characters": 4102,
+      "report_exactly_embedded": true,
+      "trace_steps": 10,
+      "compact_step_count": 10,
+      "compact_steps_match_trace": true,
+      "released_batches": [
+        "baseline",
+        "define",
+        "leading_two",
+        "msa",
+        "recipes"
+      ],
+      "steward_event_count": 7,
+      "steward_outcomes": {
+        "data": 5,
+        "ok": 2
+      }
+    }
+  ]
+}

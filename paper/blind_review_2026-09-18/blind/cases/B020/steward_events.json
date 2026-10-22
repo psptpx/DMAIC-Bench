@@ -1,0 +1,122 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "baseline inspected and defective counts for the twenty-five consecutive lots",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Project charter and committed defect share",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "stable=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "stable": true
+    }
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Per-lot line settings alongside defect share",
+    "stage_id": "settings",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true
+    }
+  },
+  {
+    "seq": 6,
+    "action": "provision",
+    "text": "What physical change was made to the line in the before-and-after trial?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "stable": true
+    }
+  },
+  {
+    "seq": 7,
+    "action": "provision",
+    "text": "Do the settings records represent the same production population as the baseline lots, and how are they linked?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "stable": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Inspected and defective totals before and after change",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "trial size and risk level",
+    "stage_id": "trial_size",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "before and after the change",
+    "stage_id": "before_after",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 12,
+    "action": "request",
+    "text": "lots since the change",
+    "stage_id": "after_lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  }
+]

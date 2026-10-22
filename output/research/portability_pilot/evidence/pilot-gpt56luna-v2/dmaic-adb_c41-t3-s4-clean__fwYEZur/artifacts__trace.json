@@ -1,0 +1,155 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1,
+        "nSamples": 240,
+        "minSampleCallRate": 0.94
+      },
+      "status": "success",
+      "decision": "plate passes the protocol re-genotyping gate"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variants_tested": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "nVariantsTested": 150
+      },
+      "status": "success",
+      "decision": "retain variants passing call rate, MAF, and control HWE rules"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "groups": 2,
+        "axes": 3
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 0,
+        "pc1PValue": 0.8040312257984145
+      },
+      "status": "success",
+      "decision": "affected and unaffected participants are comparable on the tested leading axes"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "variants_tested": 138
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 1.0785885704389688,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "strongestPValue": 0.01573838744162139,
+        "strongestOddsRatio": 1.798505093170125,
+        "nRetainedVariants": 138
+      },
+      "status": "success",
+      "decision": "no variant meets the Bonferroni-corrected discovery threshold"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "sample_size": 120,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.008333333333333333,
+        "nSamples": 120,
+        "nVariants": 150
+      },
+      "status": "success",
+      "decision": "replication cohort QC computed descriptively; no candidate was available for testing"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "variants_tested": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 9,
+        "snpsRetained": 141,
+        "nVariantsTested": 150
+      },
+      "status": "success",
+      "decision": "replication variant QC computed descriptively; no candidate was available for testing"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidate_count": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0
+      },
+      "status": "success",
+      "decision": "no replication test was applicable because the discovery candidate list was empty"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_re_genotyping_gate",
+      "chosen_branch": "proceed_without_re_genotyping",
+      "observed": {
+        "sampleFailFraction": 0.0125
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "unadjusted_comparison",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.8040312257984145
+      }
+    },
+    {
+      "point": "discovery_threshold",
+      "chosen_branch": "no_nominated_hits",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_candidates_to_replicate",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

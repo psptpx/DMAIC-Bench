@@ -1,0 +1,60 @@
+schema_version: 1
+case_id: adb_c14
+title: Branch waiting time against satisfaction and complaints
+
+tier: T1
+industry: services
+provenance: SIMULATED
+y_type: attribute_proportion
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the branch operations team on the retail side of a joint-stock bank. Over the past two
+  quarters customers have been queueing longer than we would like, and alongside that the
+  satisfaction scores have slipped and complaint tickets have been escalating. The team has
+  collected two batches of data: one records, for individual transactions, the wait time the
+  customer actually had and the satisfaction score given immediately after the transaction was
+  completed; the other records, customer by customer, the wait time and whether that customer
+  went on to raise a complaint within the following 30 days. We want the strength and the
+  significance of the connection between wait time and satisfaction, and between wait time and
+  a complaint occurring, put on a numeric footing, so that the service standard we set — the
+  time limit we would commit to — rests on data.
+
+goal: |
+  Carry out the appropriate quantitative work on each of the two batches: (1) quantify how much
+  of the movement in the satisfaction score wait time accounts for, and whether that is
+  significant; and (2) establish whether wait time significantly changes how likely a complaint
+  is, and in which direction. Every numeric conclusion must be faithful to what you actually
+  computed.
+
+stages:
+  - stage_id: G_OLS
+    phase: analyze
+    label: "Wait time recorded against the satisfaction score for the same transaction"
+    topics: ["satisfaction score", "score given after the transaction", "how satisfaction moves with the wait", "rating from the customer"]
+    methods:
+      - method_id: regression.ols
+        required: true
+  - stage_id: G_Logistic
+    phase: analyze
+    label: "Wait time recorded against whether that customer complained within thirty days"
+    topics: ["complaint within thirty days", "whether a complaint followed", "complaint ticket", "customers who complained"]
+    methods:
+      - method_id: regression.binary_logistic
+        required: true
+
+faults:
+  - stage_id: G_Logistic
+    method_id: regression.binary_logistic

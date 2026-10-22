@@ -1,0 +1,332 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage_id": "msa",
+        "nParts": 10,
+        "nOperators": 3,
+        "nReplicates": 3,
+        "sampleSize": 90,
+        "tolerance": 20.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 23.08946822558952,
+        "percentTolerance": 8.11358627789766,
+        "ndc": 5.941670126263153,
+        "varGageRR": 0.07314475809876579,
+        "varPart": 1.2988591435733854,
+        "sdGageRR": 0.270452875929922,
+        "pctSV_repeatability": 22.717689263336027,
+        "pctSV_reproducibility": 4.126758712962889,
+        "interactionPValue": 0.3947109928119996,
+        "operatorPValue": 0.1435831761130395,
+        "partPValue": 1.1102230246251565e-16
+      },
+      "status": "success",
+      "decision": "Assay accepted. Crossed ANOVA with the part-by-operator interaction pooled into error (interaction p=0.395). Gage R&R is 23.09 pct of study variation and 8.11 pct of tolerance with 5.94 distinct categories, so it passes the msa_pass gate of 30 pct; repeatability dominates, operator bias is not significant."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 30,
+        "nGroups": 1
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 86.08750666666666,
+        "median": 86.15119999999999,
+        "stdDev": 2.860251663021297,
+        "skewness": 0.18418193732334195,
+        "adPValue": 0.9716358284328265,
+        "adStatistic": 0.13879136385014945,
+        "kurtosis": -0.03405081557482026,
+        "min": 80.3653,
+        "max": 92.6678
+      },
+      "status": "success",
+      "decision": "Yield over 30 charges averages 86.09 with sd 2.86, near-symmetric, and Anderson-Darling p=0.972 supports normality, so normal-theory tools apply."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 30
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.993237928426975,
+        "statistic": 0.9904706832301521
+      },
+      "status": "success",
+      "decision": "Shapiro-Wilk p=0.993 confirms normality, so the normal capability model is the right one rather than a non-normal fit."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 30,
+        "subgroupSize": 1
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 86.08750666666666,
+        "individualsUCL": 95.45399956321839,
+        "individualsLCL": 76.72101377011492,
+        "flaggedCount": 0,
+        "mrFlaggedCount": 0,
+        "mrBar": 3.5212379310344835,
+        "mrUCL": 11.503884320689657,
+        "sigmaWithin": 3.1216648324773795,
+        "test2RunCount": 0,
+        "test5Count": 0
+      },
+      "status": "success",
+      "decision": "Line is in statistical control: no individual outside 76.72 to 95.45, no moving-range violation, no 9-point run and no 2-of-3 beyond 2 sigma. The batch-to-batch swings are common cause, not upsets, so chasing individual bad batches would be wasted effort."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 30
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 1.0,
+        "runsObserved": 16,
+        "runsExpected": 16.0,
+        "runsZ": 0.0
+      },
+      "status": "success",
+      "decision": "Runs about the median: 16 observed against 16 expected, p=1.0. No clustering or oscillation, confirming the order is random."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 30,
+        "xVariable": "charge order"
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.23913992003046136,
+        "pValue": 0.20311417762427408
+      },
+      "status": "success",
+      "decision": "No drift with charge order (r=0.239, p=0.203). Yield is not decaying over the run, so the low yield is a persistent level problem, not degradation."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 30,
+        "lsl": 80.0,
+        "usl": 100.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.0678062867780624,
+        "cpk": 0.6500277889470022,
+        "pp": 1.165398617341356,
+        "ppk": 0.7094371852389607,
+        "cpl": 0.6500277889470022,
+        "cpu": 1.4855847846091228,
+        "ppl": 0.7094371852389607,
+        "ppu": 1.6213600494437512,
+        "ppmBelowLSL": 16655.63031874196,
+        "ppmAboveUSL": 0.5749515717953665,
+        "observedOutOfSpec": 0
+      },
+      "status": "success",
+      "decision": "Not capable, and specifically off-centre low. Cp 1.068 versus Cpk 0.650 (Pp 1.165 versus Ppk 0.709) shows the spread would nearly fit the 20-wide window but the mean sits low, putting about 16656 ppm at risk below 80 against 0.6 ppm above 100. Centring, not variation reduction, is the primary lever."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 30,
+        "target": 90.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": -7.492210851445262,
+        "pValue": 2.9430346525454686e-08,
+        "mean": 86.08750666666666,
+        "ciLower": 85.01947114302195,
+        "ciUpper": 87.15554219031137
+      },
+      "status": "success",
+      "decision": "Mean yield is significantly below the 90 midpoint of the accepted range (t=-7.49, p=2.94e-08, 95 pct CI 85.02 to 87.16). This quantifies the centring gap the project has to close."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "stage_id": "screening_doe",
+        "sampleSize": 12,
+        "nGroups": 2
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.44738339874276234,
+        "statistic": 0.6254391789536544,
+        "bartlettPValue": 0.6947650620559271
+      },
+      "status": "success",
+      "decision": "Levene p=0.447, so the two settings have comparable spread and the pooled two-sample comparison is valid. The setting does not affect variability either."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "stage_id": "screening_doe",
+        "sampleSize": 12,
+        "nLow": 6,
+        "nHigh": 6
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": -2.059721844071912,
+        "pValue": 0.06641813304165052,
+        "lowMean": 90.80533333333334,
+        "highMean": 88.94885000000001,
+        "effectHighMinusLow": -1.8564833333333406,
+        "effectCiLower": -3.8647654977093895,
+        "effectCiUpper": 0.15179883104270853,
+        "pooledSd": 1.5611445137569215
+      },
+      "status": "success",
+      "decision": "Setting effect is not significant at the 5 pct level (p=0.066) and points the wrong way: high minus low is -1.86, 95 pct CI -3.86 to +0.15. Even the most favourable end of that interval is far short of the 3.91 needed to centre the process."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "stage_id": "screening_doe",
+        "sampleSize": 12,
+        "nGroups": 2
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 0.06641813304165023,
+        "fStatistic": 4.24245407494701
+      },
+      "status": "success",
+      "decision": "One-way ANOVA agrees with the t-test (F=4.24, p=0.066): the setting does not explain a significant share of the yield variation."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "stage_id": "screening_doe",
+        "sampleSize": 12,
+        "nFactors": 1,
+        "nLevels": 2
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.06641813304165012,
+        "rSquaredPct": 29.787381111585546,
+        "rSquaredAdjPct": 22.76611922274411,
+        "slope": -0.9282416666666703,
+        "intercept": 89.8770916666667,
+        "slopePValue": 0.06641813304164912,
+        "residualShapiroP": 0.03427972105004414
+      },
+      "status": "success",
+      "decision": "Two-level single-factor fit: model p=0.066, R-squared 29.8 pct (adjusted 22.8 pct). The design is one factor at two levels rather than a full factorial, so there are no interaction terms to estimate. Residual Shapiro p=0.034 is a mild normality caveat on only 12 runs, which is why the nonparametric check in step 13 was run as well."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "stage_id": "screening_doe",
+        "nLow": 6,
+        "nHigh": 6
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 0.04112554112554113
+      },
+      "status": "success",
+      "decision": "Rank-based test gives p=0.041, marginally significant where the t-test gave 0.066. The two disagree around the 5 pct line, so the honest reading is a weak effect of uncertain significance; either way its sign is negative, so the high setting is the worse of the two."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "stage_id": "screening_doe",
+        "nPerGroup": 6,
+        "pooledSd": 1.5611445137569215
+      },
+      "method_id": "power.two_proportions",
+      "outputs": {
+        "power": 0.4608415274136006,
+        "powerAtCenteringGap": 0.9735580381195968,
+        "mde80": 2.803098857426958,
+        "observedEffect": 1.8564833333333406,
+        "centeringGap": 3.9124933333333445
+      },
+      "status": "success",
+      "decision": "Retrospective power for the two-sample comparison of means; the table has no two-sample-t power entry, so the closest power family entry is used and the difference is noted here. Power was only 0.461 against the small observed effect of 1.86, but 0.974 against the 3.91 shift needed to centre the process, and the minimum effect detectable at 80 pct power was 2.80. The trial was therefore well able to see a business-relevant effect and did not, which makes the negative conclusion actionable rather than merely inconclusive."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_pass gate (AIAG MSA-4 Ch. II Sec. D)",
+      "chosen_branch": "declare grr_pct=23.089 and proceed to the per-batch yield record",
+      "observed": {
+        "percentStudyVariation": 23.08946822558952,
+        "percentTolerance": 8.11358627789766,
+        "ndc": 5.941670126263153,
+        "threshold": 30
+      }
+    },
+    {
+      "point": "stability of the run before judging capability",
+      "chosen_branch": "in control, so capability indices are meaningful and were computed",
+      "observed": {
+        "flaggedCount": 0,
+        "mrFlaggedCount": 0,
+        "runsPValue": 1.0,
+        "trendPValue": 0.20311417762427408
+      }
+    },
+    {
+      "point": "capability model choice",
+      "chosen_branch": "normal capability, since both normality tests pass",
+      "observed": {
+        "adPValue": 0.9716358284328265,
+        "shapiroPValue": 0.993237928426975
+      }
+    },
+    {
+      "point": "diagnosis: centring versus spread",
+      "chosen_branch": "centring is the dominant loss, driven by the lower limit",
+      "observed": {
+        "cp": 1.0678062867780624,
+        "cpk": 0.6500277889470022,
+        "ppmBelowLSL": 16655.63031874196,
+        "ppmAboveUSL": 0.5749515717953665,
+        "oneSampleTPValue": 2.9430346525454686e-08
+      }
+    },
+    {
+      "point": "is the setting worth more charges",
+      "chosen_branch": "no - stop spending on this factor and screen other variables",
+      "observed": {
+        "effectHighMinusLow": -1.8564833333333406,
+        "effectCiUpper": 0.15179883104270853,
+        "modelPValue": 0.06641813304165012,
+        "mannWhitneyP": 0.04112554112554113,
+        "powerAtCenteringGap": 0.9735580381195968,
+        "centeringGap": 3.9124933333333445
+      }
+    },
+    {
+      "point": "improve and control evidence",
+      "chosen_branch": "no data exists - project reported as stopping at Analyze",
+      "observed": {
+        "stagesReleased": 4
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

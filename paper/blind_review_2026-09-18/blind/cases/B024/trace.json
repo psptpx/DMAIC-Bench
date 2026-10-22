@@ -1,0 +1,147 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 12.672291552221276,
+        "percentTolerance": 13.609116407734396,
+        "ndc": 11,
+        "interactionPValue": 0.8083824385781958,
+        "repeatabilityVariance": 19.24939189057832,
+        "operatorVariance": 1.329280264895631,
+        "interactionVariance": 0.0,
+        "partVariance": 1260.8871745063886,
+        "n": 90,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "status": "success",
+      "decision": "ANOVA random effects; pool interaction if p >= 0.05.",
+      "inputs_digest": {
+        "batch": "msa"
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 429.88399999999996,
+        "median": 420.75,
+        "stdDev": 39.88408899676713,
+        "skewness": 1.2107798032721664,
+        "adPValue": 9.692419169884592e-05,
+        "n": 50,
+        "minimum": 374.2,
+        "maximum": 544.2,
+        "belowLSL": 0,
+        "aboveUSL": 0
+      },
+      "status": "success",
+      "decision": "All released readings; specification counts empirical.",
+      "inputs_digest": {
+        "batch": "process_run"
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 553.1091411202779,
+        "individualsLCL": 306.65885887972206,
+        "centerLine": 429.88399999999996,
+        "flaggedCount": 0,
+        "movingRangeMean": 46.33265306122449,
+        "movingRangeUCL": 151.3687775510204,
+        "movingRangeFlaggedCount": 1,
+        "withinSigma": 41.075047040092635
+      },
+      "status": "success",
+      "decision": "Individual and successive moving-range charts; beyond-limit rule.",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 9.692419169884592e-05,
+        "statistic": 1.8275535190596344
+      },
+      "status": "success",
+      "decision": "Anderson-Darling normality with estimated normal parameters.",
+      "inputs_digest": {
+        "batch": "process_run"
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "capability.nonnormal",
+      "outputs": {
+        "pp": 1.186675403366545,
+        "ppk": 1.0581525867491708,
+        "lowerQuantile": 374.35876,
+        "upperQuantile": 542.896845,
+        "median": 420.75,
+        "tailProbability": 0.00135
+      },
+      "status": "success",
+      "decision": "Empirical percentile snapshot using linear quantiles, NOT fitted population capability. Extreme tails poorly estimated and run unstable; no predictive claim.",
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      }
+    },
+    {
+      "step_id": 6,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "defectCount": 0,
+        "observedConformancePct": 100.0,
+        "oneSided95DefectUpperPct": 5.815507911697225,
+        "confidencePct": 95,
+        "maxMovingRange": 167.60000000000002,
+        "eventFromUnit": 20,
+        "eventToUnit": 21,
+        "eventFromBrightness": 376.6,
+        "eventToBrightness": 544.2
+      },
+      "status": "success",
+      "decision": "Exact binomial upper bound assumes independent representative units; event units are one-based.",
+      "inputs_digest": {
+        "batch": "process_run"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_adequacy",
+      "chosen_branch": "conditional use, improve gage",
+      "observed": {
+        "grr_pct": 12.672291552221276,
+        "ndc": 11
+      }
+    },
+    {
+      "point": "stability",
+      "chosen_branch": "investigate moving-range signal before predictive capability",
+      "observed": {
+        "movingRangeFlaggedCount": 1
+      }
+    },
+    {
+      "point": "distribution",
+      "chosen_branch": "nonnormal empirical snapshot only",
+      "observed": {
+        "normalityPValue": 9.692419169884592e-05
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

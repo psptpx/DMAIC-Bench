@@ -1,0 +1,279 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage": "msa",
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "n": 90,
+        "toleranceWidth": 6.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 17.448678798018772,
+        "percentTolerance": 27.498102857810547,
+        "ndc": 7.9568770361645305,
+        "repeatabilityPctStudy": 12.663013472959921,
+        "reproducibilityPctStudy": 12.004352609785556,
+        "partToPartPctStudy": 98.4659515172812,
+        "interactionPValue": 0.39415171581066494,
+        "operatorPValue": 6.992673665973891e-10,
+        "toleranceWidth": 6.0,
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "n": 90
+      },
+      "status": "success",
+      "decision": "Measurement system acceptable: %GRR study variation 17.45%% (<30%%), %tolerance 27.50%% (<30%%), ndc 7.96 (>=5). Interaction p=0.394 so pooled into repeatability. Operator term detectable (p<0.001) but small. Hardness readings can carry a conclusion."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage": "baseline",
+        "n": 60
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 58.946000000000005,
+        "median": 58.89,
+        "stdDev": 1.0941232849692328,
+        "skewness": 0.4103121722416264,
+        "adPValue": 0.3059458218362864,
+        "minValue": 57.06,
+        "maxValue": 61.63,
+        "kurtosis": -0.32331131760806153,
+        "n": 60
+      },
+      "status": "success",
+      "decision": "Baseline hardness averages 58.946 HRC, sd 1.094; AD p=0.306 so normality is not rejected."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage": "baseline",
+        "n": 60,
+        "subgroupSize": 1
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 61.91300324558241,
+        "individualsLCL": 55.9789967544176,
+        "centerLine": 58.946000000000005,
+        "flaggedCount": 2,
+        "beyondIndividualsLimits": 0,
+        "beyondMovingRangeLimit": 2,
+        "movingRangeCenterLine": 1.115593220338983,
+        "movingRangeUCL": 3.644643050847457,
+        "sigmaHat": 0.9890010818608005
+      },
+      "status": "success",
+      "decision": "Level is stable: no individuals outside 55.979-61.913 and no runs-rule violations. 2 moving ranges exceed the MR limit of 3.645, isolated shaft-to-shaft jumps rather than a shift in average."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "stage": "baseline",
+        "n": 60,
+        "centering": "median"
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.11817227514341429
+      },
+      "status": "success",
+      "decision": "p=0.118: run order shows no nonrandom pattern, baseline behaved as one stable population."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "stage": "baseline",
+        "n": 60,
+        "specLimitsAvailable": false
+      },
+      "method_id": "capability.normal",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Not computed: no engineering specification limits exist for hardness. The charter carries only unit (HRC) and the process owner recorded no process facts, so both provision requests were refused as unroutable. The 6.0 HRC figure on the MSA batch is a tolerance width used for %tolerance, not a two-sided spec. Cp/Cpk/Pp/Ppk are therefore unavailable and no statement about conformance to requirement can be made."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "stage": "recipes",
+        "n": 45,
+        "target": "anova residuals"
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.39779952763162874,
+        "statistic": 0.3555
+      },
+      "status": "success",
+      "decision": "Anderson-Darling on residuals p=0.398: normality assumption for ANOVA holds."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "stage": "recipes",
+        "groups": 3,
+        "n": 45,
+        "centering": "median"
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.8313295064250082,
+        "statistic": 0.18554392812678971
+      },
+      "status": "success",
+      "decision": "Median-centered Levene p=0.831: equal variances across the three recipes, so a parametric one-way ANOVA is admissible."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "stage": "recipes",
+        "groups": 3,
+        "nPerGroup": 15,
+        "n": 45
+      },
+      "method_id": "anova.oneway",
+      "outputs": {
+        "factorPValue": 0.9062096929196064,
+        "fStatistic": 0.09871584550337309,
+        "rSquaredPct": 0.46787608414765675,
+        "pooledSd": 0.9944113677216125,
+        "nPerGroup": 15,
+        "numGroups": 3,
+        "n": 45
+      },
+      "status": "success",
+      "decision": "F=0.099, p=0.906: recipe does not account for case-surface hardness. Recipe explains 0.47%% of variation; all three means lie within 0.16 HRC while pooled within-recipe sd is 0.994 HRC."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "stage": "recipes",
+        "groups": 3,
+        "n": 45
+      },
+      "method_id": "anova.sov",
+      "outputs": {
+        "totalVariance": 0.9483431313131315
+      },
+      "status": "success",
+      "decision": "Total variance 0.948 HRC^2, essentially all of it within recipe rather than between recipes."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "stage": "recipes",
+        "groups": 3,
+        "n": 45
+      },
+      "method_id": "nonparametric.kruskal_wallis",
+      "outputs": {
+        "pValue": 0.9139699213444697
+      },
+      "status": "success",
+      "decision": "p=0.914, distribution-free cross-check agrees with the ANOVA: no recipe effect."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "stage": "leading_two",
+        "n1": 15,
+        "n2": 15,
+        "sameObservationsAsRecipesBatch": true
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.8779993943869393,
+        "tStatistic": 0.15494111559236629,
+        "meanDiff": 0.05400000000000915,
+        "ciLower": -0.6604958040617807,
+        "ciUpper": 0.768495804061799,
+        "cohensD": 0.05657649606330296,
+        "mdeApprox": 1.0124409916030932,
+        "n1": 15,
+        "n2": 15,
+        "reusedSameObservations": true,
+        "ciLowerAbs": 0.6604958040617807
+      },
+      "status": "success",
+      "decision": "Recipe B minus C = +0.054 HRC, 95%% CI (-0.661, +0.769), p=0.878. Post-hoc: these are the identical 30 observations from the recipes batch, selected for ranking highest, so this confirms nothing new. At n=15 per arm it could only resolve about 1.01 HRC at 80%% power."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "stage": "leading_two",
+        "n1": 15,
+        "n2": 15
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 0.7243862381207838
+      },
+      "status": "success",
+      "decision": "p=0.724: no difference between the two leading recipes on ranks either."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_trusted_before_analysis",
+      "chosen_branch": "msa_acceptable_proceed",
+      "observed": {
+        "percentStudyVariation": 17.448678798018772,
+        "percentTolerance": 27.498102857810547,
+        "ndc": 7.9568770361645305
+      }
+    },
+    {
+      "point": "baseline_stability",
+      "chosen_branch": "stable_in_mean_isolated_range_signals",
+      "observed": {
+        "beyondIndividualsLimits": 0,
+        "beyondMovingRangeLimit": 2,
+        "runsPValue": 0.11817227514341429
+      }
+    },
+    {
+      "point": "parametric_or_nonparametric_comparison",
+      "chosen_branch": "parametric_oneway_anova",
+      "observed": {
+        "residualAdPValue": 0.39779952763162874,
+        "levenePValue": 0.8313295064250082,
+        "groups": 3
+      }
+    },
+    {
+      "point": "recipe_effect_verdict",
+      "chosen_branch": "no_effect_do_not_change_recipe",
+      "observed": {
+        "factorPValue": 0.9062096929196064,
+        "rSquaredPct": 0.46787608414765675,
+        "kwPValue": 0.9139699213444697
+      }
+    },
+    {
+      "point": "head_to_head_on_selected_top_two",
+      "chosen_branch": "computed_but_treated_as_nonconfirmatory",
+      "observed": {
+        "pValue": 0.8779993943869393,
+        "meanDiff": 0.05400000000000915,
+        "reusedSameObservations": true,
+        "mdeApprox": 1.0124409916030932
+      }
+    },
+    {
+      "point": "capability_study",
+      "chosen_branch": "not_computed_no_specification_limits",
+      "observed": {
+        "specLimitsAvailable": false,
+        "provisionRefusals": 2
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 0
+}

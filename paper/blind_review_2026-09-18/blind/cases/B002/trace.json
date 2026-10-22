@@ -1,0 +1,257 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "baseline",
+        "nLots": 25,
+        "subgroupSize": 4000
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "nLots": 25,
+        "subgroupSize": 4000,
+        "totalDefects": 599,
+        "totalInspected": 100000,
+        "defectShare": 0.00599,
+        "defectSharePct": 0.599,
+        "requiredShare": 0.0025,
+        "requiredSharePct": 0.25
+      },
+      "status": "success",
+      "decision": null
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "nLots": 25,
+        "subgroupSize": 4000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.00599,
+        "outOfControlCount": 0,
+        "uclCount": 38.600639207357034,
+        "lclCount": 9.319360792642964
+      },
+      "status": "success",
+      "decision": "stable_above_commitment"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "baseline",
+        "defects": 599,
+        "inspected": 100000,
+        "target": 0.0025
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 3.136907093091575e-108,
+        "exactPValue": 3.7306979805640508e-78,
+        "zStatistic": 22.10034078145949,
+        "observedShare": 0.00599,
+        "requiredShare": 0.0025
+      },
+      "status": "success",
+      "decision": "above_commitment"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "settings",
+        "nObservations": 40,
+        "terms": [
+          "paste_thickness",
+          "reflow_peak",
+          "paste_x_reflow"
+        ]
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 8.381756185366018e-14,
+        "rSquaredPct": 82.72578038855498,
+        "rSquaredAdjPct": 81.28626208760123,
+        "nObservations": 40,
+        "pastePValue": 1.0930398582646995e-11,
+        "reflowPValue": 8.322450533508093e-11,
+        "interactionPValue": 7.095312426248794e-12,
+        "pasteCoefficient": -0.13285132585922493,
+        "reflowCoefficient": -0.0007886359111256776,
+        "interactionCoefficient": 0.0005487401951439041
+      },
+      "status": "success",
+      "decision": "any_factor_significant"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "p1": 0.0059,
+        "p2": 0.0025,
+        "nPerGroup": 40000,
+        "alpha": 0.05
+      },
+      "method_id": "power.two_proportions",
+      "outputs": {
+        "power": 0.9999999914471074,
+        "effectSize": 0.0537326663641023,
+        "alpha": 0.05,
+        "nPerGroup": 40000,
+        "p1": 0.0059,
+        "p2": 0.0025
+      },
+      "status": "success",
+      "decision": "adequate_power"
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "beforeEvents": 235,
+        "beforeTrials": 40000,
+        "afterEvents": 77,
+        "afterTrials": 40000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "zStatistic": 8.962482483814625,
+        "pValue": 3.174494287484549e-19,
+        "events1": 235,
+        "trials1": 40000,
+        "events2": 77,
+        "trials2": 40000,
+        "p1": 0.005875,
+        "p2": 0.001925,
+        "p1Pct": 0.5875,
+        "p2Pct": 0.1925,
+        "absoluteReduction": 0.00395,
+        "absoluteReductionPctPoints": 0.395
+      },
+      "status": "success",
+      "decision": "after_lower_than_before"
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "window": "after_trial",
+        "events": 77,
+        "trials": 40000,
+        "target": 0.0025
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.02128557311974885,
+        "zStatistic": -2.3028804018800906,
+        "observedShare": 0.001925,
+        "events": 77,
+        "trials": 40000,
+        "target": 0.0025
+      },
+      "status": "success",
+      "decision": "below_target"
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "nLots": 20,
+        "subgroupSize": 4000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0018375,
+        "outOfControlCount": 0,
+        "uclCount": 15.475789153983753,
+        "lclCount": 0,
+        "nLots": 20,
+        "subgroupSize": 4000,
+        "totalDefects": 147,
+        "totalInspected": 80000,
+        "defectShare": 0.0018375,
+        "defectSharePct": 0.18375
+      },
+      "status": "success",
+      "decision": "stable"
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "defects": 147,
+        "inspected": 80000,
+        "target": 0.0025
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 9.717173745815809e-05,
+        "exactPValue": 9.717173745815809e-05,
+        "observedShare": 0.0018375,
+        "requiredShare": 0.0025
+      },
+      "status": "success",
+      "decision": "below_commitment"
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "afterLotsEvents": 147,
+        "afterLotsTrials": 80000,
+        "trialAfterEvents": 77,
+        "trialAfterTrials": 40000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "zStatistic": -0.3310280176820626,
+        "pValue": 0.7406233224472969,
+        "p1": 0.0018375,
+        "p2": 0.001925,
+        "events1": 147,
+        "trials1": 80000,
+        "events2": 77,
+        "trials2": 40000
+      },
+      "status": "success",
+      "decision": "no_detectable_difference"
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "combinedPostEvents": 224,
+        "combinedPostTrials": 120000,
+        "target": 0.0025
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 1.1161352409798517e-05,
+        "zStatistic": -4.393357178922209,
+        "observedShare": 0.0018666666666666666,
+        "events": 224,
+        "trials": 120000,
+        "target": 0.0025,
+        "observedSharePct": 0.18666666666666668
+      },
+      "status": "success",
+      "decision": "below_commitment"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability",
+      "chosen_branch": "stable",
+      "observed": {
+        "outOfControlCount": 0,
+        "centerLine": 0.00599
+      }
+    },
+    {
+      "point": "settings_significance",
+      "chosen_branch": "any_factor_significant",
+      "observed": {
+        "modelPValue": 8.381756185366018e-14,
+        "rSquaredPct": 82.72578038855498
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

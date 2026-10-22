@@ -1,0 +1,88 @@
+schema_version: 1
+case_id: adb_c17
+title: Daily defect-monitoring baselines for a label printing shop
+
+tier: T1
+industry: process_industry
+provenance: SIMULATED
+y_type: attribute_proportion
+language: en
+parametric: true
+
+# --- difficulty axis: OBSERVED human effort ---------------------------------
+# expert_hours = total practitioner-hours the recorded project team spent; junior_hours =
+# hours for a competent engineer new to the method set. Both are read off the source project
+# document, never estimated: an invented number turns an observed axis back into an estimate,
+# which is the weakness (Terminal-Bench reports human-vs-empirical difficulty at r = 0.436)
+# this axis exists to improve on. See docs/archive/difficulty-effort-axis-2026-09-04.md and the
+# per-case evidence in the authors' effort ledger (not published; see docs/HELD_OUT.md).
+expert_hours: null
+junior_hours: null
+effort_source: "none — SIMULATED case, authored synthetically for the benchmark; no human project record exists, so there is no effort to observe and no figure is entered"
+
+context: |
+  We are the project team in the quality assurance department of a label printing plant, and we
+  are setting up the shop's baselines for day-to-day defect monitoring. We have four batches of
+  data in hand: the manual sampling line's record over twenty-five consecutive days, where the
+  quantity checked differs from day to day and the number of non-conforming sheets is recorded;
+  the automatic inspection line's record over twenty consecutive days, where the same fixed
+  number of sheets is checked every day and the number of non-conforming sheets is recorded;
+  the in-line camera line's record over thirty consecutive days, where every sheet is checked
+  and the daily quantity runs to several thousand — the quality assurance supervisor reports
+  that this line's day-to-day swing looks far more violent than the sampling line's; and the
+  appearance-blemish register, twenty-two consecutive days on which the same printed area is
+  examined each day and the number of blemishes counted is logged, a single sheet being able to
+  carry several of them.
+
+goal: |
+  Establish a suitable day-to-day monitoring baseline for each of the four sources — its own
+  centre level and the basis on which a day would be flagged as unusual — and say in particular
+  how the limits for the camera line's large daily quantities ought properly to be set, and by
+  how much that line's day-to-day swing runs beyond what sampling theory on its own would lead
+  us to expect. Every conclusion must be faithful to what you actually computed.
+
+stages:
+  - stage_id: AC_P
+    phase: measure
+    label: "Manual sampling line — twenty-five consecutive days, a different quantity checked each day"
+    topics: ["manual sampling", "twenty five day record", "different quantity each day", "sheets pulled by hand"]
+    methods:
+      - method_id: control_chart.p
+        required: true
+  - stage_id: AC_NP
+    phase: measure
+    label: "Automatic inspection line — twenty consecutive days, the same fixed quantity checked each day"
+    topics: ["automatic inspection", "twenty day record", "fixed quantity each day"]
+    methods:
+      - method_id: control_chart.np
+        required: true
+  - stage_id: AC_LaneyP
+    phase: analyze
+    label: "In-line camera line — thirty consecutive days, every sheet checked, several thousand a day"
+    topics: ["camera line", "every sheet checked", "thirty day record", "day to day swing"]
+    methods:
+      - method_id: control_chart.laney_p
+        required: true
+  - stage_id: AC_C
+    phase: control
+    label: "Appearance-blemish register — twenty-two consecutive days on the same printed area"
+    topics: ["blemish register", "blemishes counted", "same printed area"]
+    methods:
+      - method_id: control_chart.c
+        required: true
+
+decision_points:
+  - point_id: overdispersion_gate
+    phase: analyze
+    rule: "Between-day variation in the large daily subgroups on the full-inspection line clearly exceeds the binomial sampling assumption (sigma_Z far above 1): use Laney-adjusted proportion limits rather than conventional binomial limits."
+    source: "Laney (2002) Quality Engineering 14(4)"
+    correct_branch: laney_p_chart
+    acceptable_branches: []
+    # Do not use control_chart.p as wrong-branch evidence for plain_p_chart: AC_P also requires it.
+    # A compliant run uses both; that evidence would misclassify a correct trace. Keep positive-branch evidence only.
+    branch_evidence:
+      laney_p_chart: [control_chart.laney_p]
+
+faults:
+  - stage_id: AC_LaneyP
+    method_id: control_chart.laney_p

@@ -1,0 +1,50 @@
+{
+ "blind_id": "V010",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Claiming target attainment, successful confirmation of the proposed DOE setting, or readiness for project closure.",
+  "Treating the window capability estimates as demonstrated stable process capability or their numerical increase as established capability improvement before investigating the after-window moving-range signal.",
+  "Attributing the before/after difference uniquely to the unidentified line change.",
+  "Making a routine production commitment to coded settings without physical mapping and prospective confirmation."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the observed increase in window mean, reduction in sample standard deviation, and absence of observed out-of-specification joints.",
+  "Use Welch and variance comparisons as conditional evidence of differences between sampled windows, subject to independence and temporal-process checks, rather than proof of intervention causality.",
+  "Investigate the moving-range signal and recover the change history and physical factor settings.",
+  "Conduct a controlled, documented confirmation experiment at the candidate DOE corner, with air pressure standardized at a documented setting within the studied range.",
+  "Report Ppk values as descriptive window indices with stable capability and improvement claims explicitly withheld."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "After-window Ppk was 0.915333 versus 0.817888 before, so capability improved but remained below the usual desirable level and was constrained toward the upper limit."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The descriptive window summaries and candidate-setting prediction are useful. Welch is a defensible alternative to a pooled-variance test; unequal variances do not require stopping all comparisons. Brown\u2013Forsythe and Mann\u2013Whitney provide supplementary evidence but do not resolve serial dependence or temporal confounding. Calculating window Ppk is permissible descriptively, but using its modest point-estimate increase to assert capability improvement is not justified without resolving the moving-range signal and addressing estimation uncertainty. The selected reduced-model prediction is suitable for planning confirmation, not a validated optimum or a selection-adjusted guarantee.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Evaluate the before/after windows descriptively and, after checking independence and investigating unusual variation, estimate their difference with uncertainty while retaining the noncausal interpretation.",
+  "Investigate the moving-range signal for a documented assignable cause; obtain a representative stable prospective sample before making predictive capability claims.",
+  "Map the coded factors to physical settings and run randomized or otherwise temporally controlled confirmation with replication, documented air pressure, and a prespecified practical target-attainment criterion.",
+  "For a claim of improvement, distinguish centering, dispersion, and conformance performance, and quantify uncertainty rather than infer success from a larger Ppk point estimate."
+ ],
+ "evidence": [
+  "The after-window mean is reported as 7.3121 mm against a target of 7.15 mm; the reported target test gives t = 12.9753 and p = 1.32646e-13.",
+  "Step 24 reports movingRangeFlaggedCount = 1 despite flaggedCount = 0 on the individuals chart.",
+  "The reported Ppk estimates are 0.8178879436171818 before and 0.9153329699731276 after.",
+  "The report states: \"Do not make a production commitment until the coded corner has been translated to documented physical setpoints and confirmed on this line.\"",
+  "The report acknowledges that it \"cannot isolate other events that happened at the same time as the change.\"",
+  "The proposed DOE corner predicts 7.1254 mm, but no separate prospective confirmation of that proposed setting appears in the supplied record."
+ ],
+ "rationale": "Target attainment and stable capability improvement are not demonstrated. The after window is above target, its moving-range signal requires investigation, and an unidentified before/after intervention cannot establish unique causality. Nevertheless, the report meaningfully withholds production implementation, acknowledges temporal confounding, and recommends confirmation rather than closure. Those are substantial focal safeguards. Its affirmative capability-improvement statement is materially stronger than a descriptive comparison of estimated window indices, making the overall focal conduct mixed rather than wholly acceptable. The public screening threshold does not establish confirmation success or stable capability.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from the supplied summaries: after-minus-before mean is approximately 0.194367 mm; after mean exceeds target by 0.1621 mm; (7.50 - 7.3121)/(3 \u00d7 0.0684268298) is approximately 0.915333, consistent with reported after Ppk. Raw observations were not available for independent recomputation here; test p-values, chart signals, and prediction intervals remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was reviewed; raw batches and service-event files were not accessed. Independence, the moving-range signal's cause, intervention identity, physical factor mapping, and prospective confirmation remain unresolved. No external sources or other reviewers' outputs were consulted. This review was produced by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 6519,
+  "completion_tokens": 1124,
+  "total_tokens": 7643
+ }
+}

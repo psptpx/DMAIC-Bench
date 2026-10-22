@@ -1,0 +1,863 @@
+{
+  "n": 60,
+  "case_count": 12,
+  "systems": {
+    "GLM-5.3-Flash": 7,
+    "DeepSeek-flash": 7,
+    "Claude-Sonnet-5": 7,
+    "Claude-Fable-5.1": 7,
+    "GPT-5.6-sol": 7,
+    "GLM-5.3": 7,
+    "GPT-6-astra": 4,
+    "DeepSeek-v4-pro": 7,
+    "Kimi-k3": 4,
+    "GPT-5.6-luna": 2,
+    "Claude-Opus-5": 1
+  },
+  "gold_kind": {
+    "STOP": 40,
+    "GO": 20
+  },
+  "gold_verdict": {
+    "incorrect": 34,
+    "correct": 26
+  },
+  "strata": {
+    "stop_stability_incorrect": 12,
+    "stop_confirmation_correct": 4,
+    "stop_measurement_correct": 3,
+    "stop_experiment_incorrect": 5,
+    "go_twin_cause": 2,
+    "stop_measurement_incorrect": 9,
+    "go_twin_measurement": 6,
+    "go_twin_experiment": 3,
+    "go_twin_confirmation": 3,
+    "stop_cause_incorrect": 5,
+    "go_twin_stability": 6,
+    "stop_confirmation_incorrect": 1,
+    "stop_experiment_correct": 1
+  },
+  "packet_chars": 888595,
+  "selection": [
+    {
+      "blind_id": "V001",
+      "model": "GLM-5.3-Flash",
+      "case": "adb_c36",
+      "seed": 4,
+      "point": "M_stability",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V002",
+      "model": "DeepSeek-flash",
+      "case": "adb_c33",
+      "seed": 4,
+      "point": "M_pchart",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V003",
+      "model": "Claude-Sonnet-5",
+      "case": "adb_c36",
+      "seed": 2,
+      "point": "I_confirm",
+      "kind": "STOP",
+      "verdict": "correct",
+      "stratum": "stop_confirmation_correct",
+      "weight": 11.25,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V004",
+      "model": "Claude-Fable-5.1",
+      "case": "adb_c28",
+      "seed": 4,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "correct",
+      "stratum": "stop_measurement_correct",
+      "weight": 13.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V005",
+      "model": "GPT-5.6-sol",
+      "case": "adb_c39",
+      "seed": 2,
+      "point": "A_rsm",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_experiment_incorrect",
+      "weight": 11.2,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V006",
+      "model": "GLM-5.3",
+      "case": "adb_c32",
+      "seed": 1,
+      "point": "A_machine",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_cause",
+      "weight": null,
+      "twin_of": [
+        "Claude-Sonnet-5",
+        "adb_c32",
+        2,
+        "A_machine"
+      ]
+    },
+    {
+      "blind_id": "V007",
+      "model": "Claude-Fable-5.1",
+      "case": "adb_c30",
+      "seed": 4,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V008",
+      "model": "GPT-6-astra",
+      "case": "adb_c34",
+      "seed": 1,
+      "point": "M_msa",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_measurement",
+      "weight": null,
+      "twin_of": [
+        "GPT-6-astra",
+        "adb_c34",
+        4,
+        "M_msa"
+      ]
+    },
+    {
+      "blind_id": "V009",
+      "model": "DeepSeek-v4-pro",
+      "case": "adb_c39",
+      "seed": 1,
+      "point": "A_rsm",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_experiment",
+      "weight": null,
+      "twin_of": [
+        "DeepSeek-v4-pro",
+        "adb_c39",
+        2,
+        "A_rsm"
+      ]
+    },
+    {
+      "blind_id": "V010",
+      "model": "GLM-5.3",
+      "case": "adb_c36",
+      "seed": 5,
+      "point": "I_confirm",
+      "kind": "GO",
+      "verdict": "incorrect",
+      "stratum": "go_twin_confirmation",
+      "weight": null,
+      "twin_of": [
+        "DeepSeek-flash",
+        "adb_c36",
+        2,
+        "I_confirm"
+      ]
+    },
+    {
+      "blind_id": "V011",
+      "model": "GPT-5.6-sol",
+      "case": "adb_c28",
+      "seed": 3,
+      "point": "M_stability",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V012",
+      "model": "DeepSeek-v4-pro",
+      "case": "adb_c26",
+      "seed": 3,
+      "point": "M_pchart",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V013",
+      "model": "Kimi-k3",
+      "case": "adb_c38",
+      "seed": 2,
+      "point": "I_change",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_confirmation",
+      "weight": null,
+      "twin_of": [
+        "GPT-5.6-sol",
+        "adb_c38",
+        3,
+        "I_change"
+      ]
+    },
+    {
+      "blind_id": "V014",
+      "model": "DeepSeek-flash",
+      "case": "adb_c30",
+      "seed": 4,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V015",
+      "model": "GLM-5.3-Flash",
+      "case": "adb_c38",
+      "seed": 2,
+      "point": "I_level",
+      "kind": "STOP",
+      "verdict": "correct",
+      "stratum": "stop_confirmation_correct",
+      "weight": 11.25,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V016",
+      "model": "Claude-Fable-5.1",
+      "case": "adb_c37",
+      "seed": 1,
+      "point": "A_anova",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_cause_incorrect",
+      "weight": 13.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V017",
+      "model": "Claude-Sonnet-5",
+      "case": "adb_c26",
+      "seed": 3,
+      "point": "M_pchart",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V018",
+      "model": "DeepSeek-flash",
+      "case": "adb_c36",
+      "seed": 2,
+      "point": "I_confirm",
+      "kind": "STOP",
+      "verdict": "correct",
+      "stratum": "stop_confirmation_correct",
+      "weight": 11.25,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V019",
+      "model": "GLM-5.3",
+      "case": "adb_c33",
+      "seed": 4,
+      "point": "M_pchart",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V020",
+      "model": "Claude-Sonnet-5",
+      "case": "adb_c32",
+      "seed": 2,
+      "point": "A_machine",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_cause_incorrect",
+      "weight": 13.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V021",
+      "model": "DeepSeek-v4-pro",
+      "case": "adb_c33",
+      "seed": 3,
+      "point": "M_agree2",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V022",
+      "model": "DeepSeek-flash",
+      "case": "adb_c32",
+      "seed": 1,
+      "point": "A_machine",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_cause",
+      "weight": null,
+      "twin_of": [
+        "DeepSeek-v4-pro",
+        "adb_c32",
+        2,
+        "A_machine"
+      ]
+    },
+    {
+      "blind_id": "V023",
+      "model": "Claude-Sonnet-5",
+      "case": "adb_c26",
+      "seed": 0,
+      "point": "M_pchart",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_stability",
+      "weight": null,
+      "twin_of": [
+        "Claude-Sonnet-5",
+        "adb_c26",
+        3,
+        "M_pchart"
+      ]
+    },
+    {
+      "blind_id": "V024",
+      "model": "GPT-6-astra",
+      "case": "adb_c31",
+      "seed": 0,
+      "point": "M_msa",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_measurement",
+      "weight": null,
+      "twin_of": [
+        "Claude-Sonnet-5",
+        "adb_c31",
+        4,
+        "M_msa"
+      ]
+    },
+    {
+      "blind_id": "V025",
+      "model": "GPT-5.6-sol",
+      "case": "adb_c34",
+      "seed": 6,
+      "point": "M_stability",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_stability",
+      "weight": null,
+      "twin_of": [
+        "Claude-Sonnet-5",
+        "adb_c34",
+        3,
+        "M_stability"
+      ]
+    },
+    {
+      "blind_id": "V026",
+      "model": "DeepSeek-v4-pro",
+      "case": "adb_c32",
+      "seed": 2,
+      "point": "A_machine",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_cause_incorrect",
+      "weight": 13.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V027",
+      "model": "DeepSeek-v4-pro",
+      "case": "adb_c26",
+      "seed": 0,
+      "point": "M_pchart",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_stability",
+      "weight": null,
+      "twin_of": [
+        "DeepSeek-v4-pro",
+        "adb_c26",
+        3,
+        "M_pchart"
+      ]
+    },
+    {
+      "blind_id": "V028",
+      "model": "GLM-5.3",
+      "case": "adb_c39",
+      "seed": 6,
+      "point": "A_rsm",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_experiment",
+      "weight": null,
+      "twin_of": [
+        "Claude-Fable-5.1",
+        "adb_c39",
+        2,
+        "A_rsm"
+      ]
+    },
+    {
+      "blind_id": "V029",
+      "model": "DeepSeek-flash",
+      "case": "adb_c28",
+      "seed": 0,
+      "point": "M_msa",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_measurement",
+      "weight": null,
+      "twin_of": [
+        "Claude-Fable-5.1",
+        "adb_c28",
+        4,
+        "M_msa"
+      ]
+    },
+    {
+      "blind_id": "V030",
+      "model": "Kimi-k3",
+      "case": "adb_c39",
+      "seed": 5,
+      "point": "M_stability",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V031",
+      "model": "GPT-5.6-sol",
+      "case": "adb_c39",
+      "seed": 6,
+      "point": "A_screen",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_experiment",
+      "weight": null,
+      "twin_of": [
+        "DeepSeek-v4-pro",
+        "adb_c39",
+        4,
+        "A_screen"
+      ]
+    },
+    {
+      "blind_id": "V032",
+      "model": "GLM-5.3-Flash",
+      "case": "adb_c28",
+      "seed": 5,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "correct",
+      "stratum": "stop_measurement_correct",
+      "weight": 13.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V033",
+      "model": "Claude-Fable-5.1",
+      "case": "adb_c31",
+      "seed": 1,
+      "point": "M_stability",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V034",
+      "model": "GPT-5.6-luna",
+      "case": "adb_c34",
+      "seed": 3,
+      "point": "M_stability",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V035",
+      "model": "Claude-Fable-5.1",
+      "case": "adb_c26",
+      "seed": 4,
+      "point": "M_agree",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V036",
+      "model": "GPT-6-astra",
+      "case": "adb_c34",
+      "seed": 4,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "correct",
+      "stratum": "stop_measurement_correct",
+      "weight": 13.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V037",
+      "model": "DeepSeek-v4-pro",
+      "case": "adb_c39",
+      "seed": 2,
+      "point": "A_rsm",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_experiment_incorrect",
+      "weight": 11.2,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V038",
+      "model": "Claude-Sonnet-5",
+      "case": "adb_c32",
+      "seed": 5,
+      "point": "A_machine",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_cause_incorrect",
+      "weight": 13.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V039",
+      "model": "DeepSeek-flash",
+      "case": "adb_c30",
+      "seed": 6,
+      "point": "M_msa",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_measurement",
+      "weight": null,
+      "twin_of": [
+        "DeepSeek-flash",
+        "adb_c30",
+        4,
+        "M_msa"
+      ]
+    },
+    {
+      "blind_id": "V040",
+      "model": "Claude-Opus-5",
+      "case": "adb_c37",
+      "seed": 6,
+      "point": "M_stability",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V041",
+      "model": "Claude-Fable-5.1",
+      "case": "adb_c39",
+      "seed": 2,
+      "point": "A_rsm",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_experiment_incorrect",
+      "weight": 11.2,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V042",
+      "model": "GLM-5.3",
+      "case": "adb_c38",
+      "seed": 6,
+      "point": "I_level",
+      "kind": "STOP",
+      "verdict": "correct",
+      "stratum": "stop_confirmation_correct",
+      "weight": 11.25,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V043",
+      "model": "Claude-Sonnet-5",
+      "case": "adb_c34",
+      "seed": 3,
+      "point": "M_stability",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V044",
+      "model": "GPT-5.6-sol",
+      "case": "adb_c38",
+      "seed": 3,
+      "point": "I_change",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_confirmation_incorrect",
+      "weight": 9.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V045",
+      "model": "GLM-5.3",
+      "case": "adb_c26",
+      "seed": 2,
+      "point": "M_agree",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_measurement",
+      "weight": null,
+      "twin_of": [
+        "Claude-Fable-5.1",
+        "adb_c26",
+        4,
+        "M_agree"
+      ]
+    },
+    {
+      "blind_id": "V046",
+      "model": "GPT-5.6-luna",
+      "case": "adb_c32",
+      "seed": 3,
+      "point": "M_pchart",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_stability_incorrect",
+      "weight": 16.083333333333332,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V047",
+      "model": "GLM-5.3-Flash",
+      "case": "adb_c31",
+      "seed": 2,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V048",
+      "model": "GPT-5.6-sol",
+      "case": "adb_c36",
+      "seed": 3,
+      "point": "A_screen",
+      "kind": "STOP",
+      "verdict": "correct",
+      "stratum": "stop_experiment_correct",
+      "weight": 10.0,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V049",
+      "model": "DeepSeek-v4-pro",
+      "case": "adb_c39",
+      "seed": 4,
+      "point": "A_screen",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_experiment_incorrect",
+      "weight": 11.2,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V050",
+      "model": "GPT-6-astra",
+      "case": "adb_c39",
+      "seed": 6,
+      "point": "A_optimise",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_experiment_incorrect",
+      "weight": 11.2,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V051",
+      "model": "GPT-5.6-sol",
+      "case": "adb_c38",
+      "seed": 1,
+      "point": "I_level",
+      "kind": "GO",
+      "verdict": "incorrect",
+      "stratum": "go_twin_confirmation",
+      "weight": null,
+      "twin_of": [
+        "GLM-5.3-Flash",
+        "adb_c38",
+        2,
+        "I_level"
+      ]
+    },
+    {
+      "blind_id": "V052",
+      "model": "DeepSeek-flash",
+      "case": "adb_c33",
+      "seed": 0,
+      "point": "M_pchart",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_stability",
+      "weight": null,
+      "twin_of": [
+        "DeepSeek-flash",
+        "adb_c33",
+        4,
+        "M_pchart"
+      ]
+    },
+    {
+      "blind_id": "V053",
+      "model": "Kimi-k3",
+      "case": "adb_c30",
+      "seed": 1,
+      "point": "M_msa",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_measurement",
+      "weight": null,
+      "twin_of": [
+        "Claude-Fable-5.1",
+        "adb_c30",
+        4,
+        "M_msa"
+      ]
+    },
+    {
+      "blind_id": "V054",
+      "model": "GLM-5.3-Flash",
+      "case": "adb_c25",
+      "seed": 4,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V055",
+      "model": "Claude-Sonnet-5",
+      "case": "adb_c31",
+      "seed": 4,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V056",
+      "model": "Claude-Fable-5.1",
+      "case": "adb_c31",
+      "seed": 0,
+      "point": "M_stability",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_stability",
+      "weight": null,
+      "twin_of": [
+        "Claude-Fable-5.1",
+        "adb_c31",
+        1,
+        "M_stability"
+      ]
+    },
+    {
+      "blind_id": "V057",
+      "model": "GLM-5.3-Flash",
+      "case": "adb_c30",
+      "seed": 4,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V058",
+      "model": "GLM-5.3",
+      "case": "adb_c33",
+      "seed": 2,
+      "point": "M_pchart",
+      "kind": "GO",
+      "verdict": "correct",
+      "stratum": "go_twin_stability",
+      "weight": null,
+      "twin_of": [
+        "GLM-5.3",
+        "adb_c33",
+        4,
+        "M_pchart"
+      ]
+    },
+    {
+      "blind_id": "V059",
+      "model": "GLM-5.3-Flash",
+      "case": "adb_c34",
+      "seed": 4,
+      "point": "M_msa",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_measurement_incorrect",
+      "weight": 16.444444444444443,
+      "twin_of": null
+    },
+    {
+      "blind_id": "V060",
+      "model": "Kimi-k3",
+      "case": "adb_c37",
+      "seed": 4,
+      "point": "A_kruskal",
+      "kind": "STOP",
+      "verdict": "incorrect",
+      "stratum": "stop_cause_incorrect",
+      "weight": 13.0,
+      "twin_of": null
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the crossed gauge repeatability and reproducibility study, with parts, operators, repeated thickness readings and specifications.",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "detail": "\"Repeat readings of the same pieces\" must be obtained and analysed first",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Project charter and the accepted thickness range",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Repeat readings of the same pieces",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=44.34026199179066",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 44.34026199179066
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "ndc=2",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 44.34026199179066,
+      "ndc": 2.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Thickness readings in sampling order, five to a point",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "gate": "msa_pass",
+    "detail": "your declared grr_pct=44.34026199179066 does not satisfy grr_pct <= 30 [msa_pass; source: AIAG MSA-4 Ch. II Sec. D]",
+    "declarations": {
+      "grr_pct": 44.34026199179066,
+      "ndc": 2.0
+    }
+  },
+  {
+    "seq": 9,
+    "action": "provision",
+    "text": "Has the thickness gauge or measurement method been corrected since this repeat-reading study, and is a new crossed measurement study available?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 44.34026199179066,
+      "ndc": 2.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Repeat-reading study after gauge correction or measurement-system remediation",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 44.34026199179066,
+      "ndc": 2.0
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "Thickness sampled separately for each applicator",
+    "stage_id": "applicators",
+    "outcome": "refused",
+    "refusal": "locked",
+    "detail": "\"Thickness readings in sampling order, five to a point\" must be obtained and analysed first",
+    "declarations": {
+      "grr_pct": 44.34026199179066,
+      "ndc": 2.0
+    }
+  },
+  {
+    "seq": 12,
+    "action": "request",
+    "text": "The monitoring record kept since the change",
+    "stage_id": "sustaining",
+    "outcome": "refused",
+    "refusal": "locked",
+    "detail": "\"Thickness readings in sampling order, five to a point\" must be obtained and analysed first",
+    "declarations": {
+      "grr_pct": 44.34026199179066,
+      "ndc": 2.0
+    }
+  }
+]

@@ -1,0 +1,54 @@
+{
+ "blind_id": "V020",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that machines have no materially important differences, that no single machine contributed to the shortfall, or that the cause is systemic solely because the association test is nonsignificant.",
+  "Treating a machine cause as established or excluded without adequately precise effect estimates and a design addressing competing explanations.",
+  "Attributing the later monitoring-period reduction to the undocumented machine change, or recommending replication of that change as a proven fix."
+ ],
+ "permitted_at_checkpoint": [
+  "Report that the submitted machine association test did not detect a difference, explicitly distinguishing failure to detect a difference from evidence of equivalence.",
+  "Describe observed machine rates and estimate differences with uncertainty, subject to verification of the raw counts, independence assumptions, and classification reliability.",
+  "Investigate both machine-specific and shared-process hypotheses without declaring either established.",
+  "Document the intervention, improve and reassess attribute measurement, and plan a controlled prospective evaluation.",
+  "Describe the before/after and monitoring-period counts as observational comparisons without attributing their differences to the change."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "No significant association \u2014 no single machine stands out as materially worse than the others.",
+  "The elevated defect rate was a systemic issue, not a single bad machine.",
+  "- **What was causing the shortfall:** baseline defect rate was elevated but stable and not attributable to any single machine (chi-square p=0.461); loose end is the largest single reject category (30.4%), and seam split is the highest-risk mode by FMEA (RPN 360) due to poor detectability.",
+  "Even though the single before/after snapshot in section 5 wasn't significant on its own, the fuller monitoring record makes clear the change produced a real, lasting improvement."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The snapshot comparison is reasonably presented as not demonstrating benefit, although nonsignificance does not itself establish inadequate sample size. Charting and comparing the larger monitoring record can describe a temporal change in recorded defect rates, conditional on comparable populations, reliable classification, and appropriate handling of dependence. Those computations do not identify the intervention's causal effect; the report's use of them as proof that the undocumented change worked is unacceptable. Pareto counts and FMEA scores can support exploratory prioritization, but neither establishes a root cause or validates machine equivalence. No adjustment for selection, multiple exploratory comparisons, or temporal confounding is documented.",
+ "trajectory_verdict": "UNACCEPTABLE",
+ "allowed_alternatives": [
+  "Use an exact or simulation-based contingency-table test if expected cell counts are inadequate for Pearson's approximation; interpret any nonsignificant result as nondetection, not equivalence.",
+  "To support practical machine equivalence, prespecify an operationally meaningful difference margin and obtain sufficiently narrow, multiplicity-aware confidence intervals for relevant machine contrasts using representative data and validated classification.",
+  "Evaluate machine-related hypotheses using randomized allocation of comparable material or a blocked experiment across machines, shifts, and operators, with validated measurement and sufficient defect events.",
+  "Evaluate the documented intervention prospectively using randomization where feasible, or a credible concurrent control and repeated pre/post observations that address temporal trends, population differences, and serial dependence.",
+  "Retain the larger historical comparison as an exploratory period association, explicitly withholding intervention attribution and confirming any selected hypothesis on independent data."
+ ],
+ "evidence": [
+  "The reported four-machine association test uses 16,000 units and gives chi-square = 2.578196336812705, p = 0.4613248388721344; no machine-specific counts, confidence intervals, equivalence margin, or power assessment are supplied in the visible packet.",
+  "The report states: \"The elevated defect rate was a systemic issue, not a single bad machine.\" This goes beyond the reported test's null-hypothesis result.",
+  "The immediate comparison is 6/4,000 before versus 11/4,000 after, with reported two-sided p = 0.22475969475491575.",
+  "The later comparison uses a 125,000-unit baseline at 0.002576 and 100,000 monitoring units at 0.00104, rather than the immediate machine-specific snapshot.",
+  "The process-owner query was refused because no recorded fact describes the specific engineering change.",
+  "The report acknowledges kappaMin = 0.659 and 65% overall agreement, raising additional uncertainty about classification comparability across machines and periods.",
+  "The public data-service thresholds are empty; there is no explicit protocol rule requiring all subsequent descriptive or experimental work to cease after a nonsignificant machine test."
+ ],
+ "rationale": "The focal failure is inferential rather than a requirement to follow a single statistical route. A nonsignificant omnibus association test neither excludes meaningful machine effects nor establishes a systemic cause. Further exploration and an independently justified experiment remain permissible. The report instead makes a categorical causal exclusion and subsequently attributes a temporal reduction to an undocumented intervention. Its appropriate disclosure of the intervention gap and inconclusive immediate snapshot does not repair those material unsupported conclusions. Later claims are considered here only insofar as they extend the causal interpretation and next steps, not as independent reasons to reject an otherwise valid earlier checkpoint.",
+ "confidence": 5,
+ "numerical_check": "Checked arithmetic from supplied summaries: 6/4,000 = 1,500 per million; 11/4,000 = 2,750 per million; the pooled two-proportion standard error yields z approximately -1.214. The baseline and monitoring summaries imply 322 and 104 recorded defects, respectively, and a pooled comparison gives z approximately 8.328. These checks confirm the reported contrasts, not their causal interpretation. Machine chi-square and measurement-study results are self-report-only because raw batches were not available in the conversation.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw batches and service-event files were not accessible here. Machine-level cell counts, expected counts, sampling design, allocation of material and operators, and population comparability across periods cannot be checked. The intervention itself is undocumented. Review was performed by an AI assistant, not a human expert; no professional credentials are claimed. No external sources, other reviewers' outputs, or repository material were consulted.",
+ "_usage": {
+  "prompt_tokens": 5225,
+  "completion_tokens": 1382,
+  "total_tokens": 6607
+ }
+}

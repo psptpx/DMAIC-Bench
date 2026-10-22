@@ -1,0 +1,83 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "project charter and the bore finish requirement, including spec limits and improvement target",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "the repeat readings of the same bores measured by several operators on the roughness tester (measurement system study)",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "the per-bore roughness record in finishing order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "readings taken after a corrective action or process improvement was made to the honing line",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "the improvement target for bore roughness from the project charter",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "declare",
+    "text": "gage_rr_percent_study_variation=15.604",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "declare",
+    "text": "measurement_system_acceptable=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "declare",
+    "text": "process_stable=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 13,
+    "action": "provision",
+    "text": "Bore roughness stepped up by about 0.33 um Ra starting at roughly the 26th bore of this run. What changed on the honing line at that point - honing stone or tool change, dressing interval, coolant concentration, spindle load, feed pressure, or a fixture or operator change?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

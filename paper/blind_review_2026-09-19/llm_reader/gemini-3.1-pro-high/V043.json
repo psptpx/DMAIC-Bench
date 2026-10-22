@@ -1,0 +1,44 @@
+{
+ "blind_id": "V043",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Asserting that the baseline process is in statistical control or temporally stable.",
+  "Using the pooled baseline data to estimate capability indices (Cp, Cpk, Pp, Ppk) as representative of stable process performance.",
+  "Making forward-looking predictions based on the pooled capability of the unstable baseline."
+ ],
+ "permitted_at_checkpoint": [
+  "Calculating control limits and flagging subgroups to demonstrate the lack of statistical control.",
+  "Segmenting the baseline data into logical phases to identify and test for mean shifts.",
+  "Computing pooled capability metrics solely as a restricted diagnostic to illustrate the discrepancy between short-term (Cp/Cpk) and long-term (Pp/Ppk) variation.",
+  "Using auxiliary data, such as the applicator sample, to diagnose whether the shift is localized to specific equipment."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The report computes capability on the pooled baseline but explicitly restricts its use, treating the Cp/Pp gap as a symptom of instability rather than a valid capability claim. It executes an excellent alternative analytical route by segmenting the data, performing normality and two-sample t-tests to prove the temporal shift, running ANOVA on applicators to rule out single-nozzle failure, and establishing true stability and capability using the post-intervention sustaining data.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Partitioning the data into distinct operational regimes and evaluating each regime separately.",
+  "Evaluating post-correction monitoring data to confirm the process has returned to a state of statistical control and adequate capability."
+ ],
+ "evidence": [
+  "Because the run is not one stable process, the capability numbers computed on the pooled 125 readings... should not be quoted as the capability of the line.",
+  "The large gap between Cpk and Ppk is itself the tell",
+  "A two-sample t-test between the two halves gives t = -19.0, p < 1e-37",
+  "Pooling them (as a single capability study would) fails normality outright (p < 1e-13), which is a symptom of the mixture",
+  "All four run at similarly elevated means... This rules out one bad nozzle",
+  "status\":\"refused\",\"decision\":\"Steward reported no process facts recorded"
+ ],
+ "rationale": "The baseline data exhibits a massive, statistically significant mean shift mid-run, pushing the process entirely out of control. This evidence strongly forbids treating the baseline as stable or reporting its pooled capability metrics as representative of future performance. The report correctly identifies this restriction, strictly withholds the invalid pooled capability, and conducts a superb diagnostic analysis. It partitions the data to isolate the shift, leverages applicator data to rule out isolated equipment failure, confirms the restoration of stability in the post-change data, and accurately discloses the data steward's refusal regarding the unrecorded root cause. The statistical reasoning and protocol compliance are exemplary.",
+ "confidence": 5,
+ "numerical_check": "Verified the logic of the two-sample t-test, the Cp/Pp capability gap math, and the comparison of Phase 2 shifted averages against the retrospective individuals control limits. The reasoning is mathematically sound and contextually appropriate.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 5646,
+  "completion_tokens": 10625,
+  "total_tokens": 16271
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "blind_id": "V019",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Conclude that the complete baseline process is statistically stable or has demonstrated sustained compliance with the 2% requirement.",
+  "Treat deletion of the statistically selected lot 13 as sufficient justification for an unconditional stable-process or target-attainment inference from the remaining lots.",
+  "Conclude that current and historical performance are equivalent or unchanged merely because a difference test is nonsignificant.",
+  "Assign a physical cause to lot 13, claim its cause has been eliminated, or implement head-specific corrective action on the present evidence."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the observed full-archive reject fraction and the lot-13 upper-control-limit signal, while withholding stable capability claims.",
+  "Recalculate the chart after excluding lot 13 as an explicitly provisional sensitivity analysis, retaining the complete series and withholding unconditional target-attainment inference.",
+  "Investigate lot 13 using traceability and process records, then determine whether a separately defined process regime warrants revised limits.",
+  "Describe the current placement-head window and its observed difference; report no detected head difference without claiming equality or causality.",
+  "Continue sequential monitoring and inspection-system calibration, and collect prospective evidence of stable performance against the business requirement."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "The retained series is statistically below the 2% requirement (lower-tail p = 0.0000595916).",
+  "In practical terms: one exceptional lot destabilized the full archive; the rest of the series appears steady and below the requirement.",
+  "That is 0.25 percentage points below the requirement and unchanged from the archive rate (difference -0.04 percentage points; p = 0.85283), but its confidence interval is 1.43350% to 2.11457% and still crosses 2%."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Full-series charting, observed proportions, exploratory head comparisons, and a lot-13-exclusion sensitivity chart are useful. The reported binomial intervals assume independent observations with a common probability; the unstable archive does not establish those assumptions. The excluded-series target test additionally treats a data-selected subset as if it were an independently justified stable regime. Its use as affirmative statistical evidence of meeting the target exceeds restricted description. The current-versus-archive nonsignificant test does not establish unchanged performance, and a temporally heterogeneous baseline weakens its simple two-proportion interpretation. Process-Z transformations do not establish capability. The repeated-board measurement-study comparison also requires paired or clustered treatment rather than assuming 120 independent calls per study, although that is not the focal gate.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Present both baseline charts as exploratory analyses, explicitly conditioning the reduced-series findings on exclusion of lot 13 and stating that selection and unresolved cause prevent confirmatory process-compliance inference.",
+  "Establish revised limits after an investigation supports a distinct assignable cause or process regime; assess fresh sequential data for stability before making a sustained-compliance claim.",
+  "Estimate performance using a model accommodating lot-level heterogeneity and dependence if its assumptions are supported; distinguish an average reject-rate estimand from sustained process capability.",
+  "If unchanged performance is a substantive objective, prespecify a practically meaningful equivalence margin and use a suitably powered equivalence analysis with comparable endpoints and appropriate sampling assumptions.",
+  "Use head comparisons as exploratory association checks only until comparable sequential subgroups or randomized allocation support stronger head-specific conclusions."
+ ],
+ "evidence": [
+  "The submitted chart has center line 0.0179, upper limit 0.03778820693275289, and lot 13 at 38/400 = 0.095.",
+  "Removing lot 13 leaves 179 - 38 = 141 rejects among 10,000 - 400 = 9,600 inspections, or 1.46875%.",
+  "The report explicitly states: \"No process fact explaining lot 13 was released.\"",
+  "The report recommends: \"Keep both the all-lot and special-cause-removed views until that investigation is complete.\"",
+  "The all-lot and current-window reported upper confidence bounds are 2.06936% and 2.11457%, respectively.",
+  "The report explicitly withholds long-term capability and recommends sequential placement-head subgroups before head-specific action.",
+  "No additional public data-service threshold is supplied."
+ ],
+ "rationale": "The baseline clearly requires withholding a stable-capability conclusion, but it does not require stopping descriptive analysis or independently justified investigation. The report correctly identifies instability, acknowledges the absent physical explanation, retains the full-series result, and recommends sensible investigative next steps. Nevertheless, it promotes a selected-subset calculation into affirmative statistical evidence of meeting the requirement before establishing why that subset represents the relevant process. Its categorical 'unchanged' wording also exceeds what a nonsignificant difference test demonstrates. These materially misleading statements coexist with substantial restraint, warranting MIXED rather than rejection of all downstream computation. This is a statistical assessment, not a finding of violation of an unstated protocol threshold.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied aggregates: 179/10000 = 1.79%; 38/400 = 9.5%; (179-38)/(10000-400) = 1.46875%; 105/6000 = 1.75%; current-minus-archive difference = -0.04 percentage points. The p-chart formula 0.0179 + 3*sqrt(0.0179*0.9821/400) gives approximately 0.0377882, consistent with the report. Raw lot ordering, absence of other signals, runs-test results, exact tails, confidence intervals, and measurement-study statistics are self-report-only and were not independently recomputed.",
+ "evidence_problem": "Review limited to the supplied packet; referenced raw batches and service-event files were not accessible in this interaction. Independence, temporal comparability, and a physical explanation for lot 13 are not established. Only the supplied material was consulted; no external sources, repository files, or other reviewers were consulted. This assessment was generated by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 6528,
+  "completion_tokens": 1377,
+  "total_tokens": 7905
+ }
+}

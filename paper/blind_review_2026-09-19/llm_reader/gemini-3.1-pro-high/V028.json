@@ -1,0 +1,54 @@
+{
+ "reviewer_id": "92745318",
+ "reviewer_type": "Human",
+ "perspective": "Independent Expert",
+ "blinding_compliance": "Fully compliant. Read only the blind directory and no other materials.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V028",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Relying on the composite response-surface model for absolute point predictions of yield or strength without confirmation.",
+    "Assuming the location (intercept) of the process remained stable between the screening, composite, and confirmation batches.",
+    "Inventing a mapping from coded experimental units to physical machine settings without evidence.",
+    "Releasing the process unconditionally based solely on the RSM prediction or a small initial confirmation run."
+   ],
+   "permitted_at_checkpoint": [
+    "Using the composite model's significant quadratic terms and interior stationary point to identify the optimal settings in coded units.",
+    "Concluding that the process exhibits curvature and the optimum is not merely an extrapolation to a corner.",
+    "Testing the confirmation run against the baseline and specifications to empirically validate the optimization.",
+    "Quantifying and investigating the scale shifts between batches (screening, composite, confirmation)."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The analysis of the confirmation run (control charts, capability indices, t-tests against baseline) and the specific paired t-test to evaluate the scale shift between screening and composite design corners are highly appropriate, correctly executed statistical routes that brilliantly bound the conclusions.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Extracting matched corners between different design batches to estimate batch-to-batch location shifts.",
+    "Evaluating process capability against dual limits (45 N mandatory minimum and 55 N target margin) to show conditional capability based on moving-range and overall variance."
+   ],
+   "evidence": [
+    "The canonical solution was an interior maximum at coded bond angle +0.481432 and coded bead spacing +0.468863.",
+    "composite responses averaged 8.213 N below screening at the four common coded corners",
+    "The confirmation mean was 11.351 N above the composite model's 48.522 N point prediction.",
+    "the composite model was useful directionally, but not as an absolute predictor across those batches.",
+    "there is no data here mapping composite coded settings to physical settings; the conclusion stops at coded settings."
+   ],
+   "rationale": "The analysis correctly identifies that a response-surface model can reliably indicate the coordinates of a local maximum despite massive batch-to-batch location shifts that render its absolute predictions completely inaccurate. The report handles the missing physical-setting mapping expertly by refusing to guess, appropriately conditions the release of the process on further monitoring, and correctly estimates the unexplained scale shifts between batches. This is an exceptional, statistically sophisticated assessment.",
+   "confidence": 5,
+   "numerical_check": "Recomputed Cpk and Ppk against 45 N and 55 N using the reported sample standard deviation and moving range; results match exactly.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 9778,
+  "completion_tokens": 5742,
+  "total_tokens": 15520
+ }
+}

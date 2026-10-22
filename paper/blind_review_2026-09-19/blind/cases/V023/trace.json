@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "agreement",
+        "n_appraisers": 3,
+        "n_parts": 20,
+        "n_trials": 2
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.8333333333333334,
+        "agreementPct": 0.8
+      },
+      "status": "success",
+      "decision": "kappaMin above 0.7 floor but overall agreement only 80pct; judgement usable but not fully reliable"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "n_periods": 25,
+        "subgroup_size": 200
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0352,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "no periods outside 3-sigma limits; breach share stable across 25 periods"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "n_periods": 25,
+        "subgroup_size": 200
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 1.1357604308874591,
+        "avgP": 0.0352
+      },
+      "status": "success",
+      "decision": "average breach rate 3.52pct below 5pct requirement, 1.14 sigma margin"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "subgroups",
+        "n_periods": 25,
+        "total_n": 5000,
+        "total_events": 176
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.33687868440515745
+      },
+      "status": "success",
+      "decision": "difference between 3.52pct observed and 5pct target not statistically significant at this sample size"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "root_cause",
+        "n1": 600,
+        "n2": 600,
+        "x1": 22,
+        "x2": 16
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "zStatistic": 0.9891155080061562,
+        "pValue": 0.3226066309190325
+      },
+      "status": "success",
+      "decision": "no statistically significant difference between the two teams breach rates"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_reliability",
+      "chosen_branch": "usable_with_caution",
+      "observed": {
+        "kappaMin": 0.8333333333333334,
+        "agreementPct": 0.8
+      }
+    },
+    {
+      "point": "process_stability",
+      "chosen_branch": "stable",
+      "observed": {
+        "outOfControlCount": 0,
+        "centerLine": 0.0352
+      }
+    },
+    {
+      "point": "team_comparison",
+      "chosen_branch": "no_significant_difference",
+      "observed": {
+        "pValue": 0.3226066309190325
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

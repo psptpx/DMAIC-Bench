@@ -1,0 +1,36 @@
+[
+  {
+    "blind_id": "V059",
+    "batch": "msa",
+    "parts": 10,
+    "operators": 3,
+    "replicates": 3,
+    "unpooled_crossed_anova": {
+      "gage_sd": 8.519423475831891,
+      "grr_percent_study_variation": 44.438146236622984,
+      "ndc_unrounded": 2.842447783717206
+    },
+    "interaction_pooled_crossed_anova": {
+      "grr_percent_study_variation": 44.34026199179068,
+      "ndc_unrounded": 2.8502646152668696
+    },
+    "note": "Coordinator arithmetic spot-check; no additional expert vote or adjudication."
+  },
+  {
+    "blind_id": "V039",
+    "batch": "msa",
+    "parts": 10,
+    "operators": 3,
+    "replicates": 3,
+    "unpooled_crossed_anova": {
+      "gage_sd": 0.06071270631275574,
+      "grr_percent_study_variation": 22.77646563331767,
+      "ndc_unrounded": 6.027888088030807
+    },
+    "interaction_pooled_crossed_anova": {
+      "grr_percent_study_variation": 22.369934347022625,
+      "ndc_unrounded": 6.143371001637735
+    },
+    "note": "Coordinator arithmetic spot-check; no additional expert vote or adjudication."
+  }
+]

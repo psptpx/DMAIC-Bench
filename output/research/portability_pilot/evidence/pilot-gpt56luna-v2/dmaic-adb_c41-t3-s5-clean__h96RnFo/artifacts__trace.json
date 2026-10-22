@@ -1,0 +1,137 @@
+{
+  "system_id": "openai-cli",
+  "task_id": "adb_c41-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "panel_variants": 150
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "panelVariants": 150,
+        "discoveryParticipants": 240,
+        "replicationParticipants": 120,
+        "alpha": 0.05,
+        "maxSampleFailFraction": 0.1,
+        "minSampleCallRate": 0.95,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Protocol thresholds loaded."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125
+      },
+      "status": "success",
+      "decision": "Plate does not trigger re-genotyping because the computed failure fraction is below the protocol limit."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variants": 150,
+        "controlParticipants": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call rate, control MAF, and control HWE rules."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "retainedVariants": 139,
+        "groups": 2,
+        "missingCallsExcluded": true
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 27,
+        "lambdaGC": 2.1157548994019657
+      },
+      "status": "success",
+      "decision": "Provisional discovery scan identifies 27 Bonferroni-significant variants; ancestry comparability is not yet established."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "requiredData": "ancestry or leading axes",
+        "releasedBatches": 3
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "refused",
+      "decision": "No ancestry or PC data were released, so cohort comparability cannot be computed."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariants": 0,
+        "replicationParticipants": 120
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0
+      },
+      "status": "success",
+      "decision": "The released replication batch contained zero nominated discovery candidates; consequently zero candidates could be tested or replicated, and no association is reportable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_retest_gate",
+      "chosen_branch": "continue_without_retest",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "variant_qc",
+      "chosen_branch": "retain_qc_passing_variants",
+      "observed": {
+        "snpsFailed": 11,
+        "snpsRetained": 139
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "stop_final_association_interpretation_pending_ancestry_data",
+      "observed": {
+        "releasedBatches": 3
+      }
+    },
+    {
+      "point": "replication_gate",
+      "chosen_branch": "do_not_report_discovery_hits",
+      "observed": {
+        "nCandidates": 0,
+        "nReplicated": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

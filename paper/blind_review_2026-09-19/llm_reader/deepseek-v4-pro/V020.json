@@ -1,0 +1,70 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical validity review",
+ "blinding_compliance": "I read only the assigned blind V020 packet and did not inspect repository areas outside this item, sibling/coordinator directories, earlier study materials, scoring code, hidden truth files, paper drafts, or other reviewers' outputs. I did not search the benchmark or paper name online.",
+ "ai_assistance": "AI assistant used to read the packet, perform aggregate numerical checks, and draft this review.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V020",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that no single machine is worse, or that the elevated baseline defect rate is systemic rather than machine-related, from a non-significant chi-square association (p=0.461) without an equivalence test or power analysis.",
+    "Concluding that the unknown machine change caused the observed reduction to 1,040 dpmo, or produced a real, lasting improvement; the comparison is observational and lacks contemporaneous control, randomization, or documented mechanism.",
+    "Claiming that the line is currently meeting the 1,500 dpmo charter as established capability/target attainment; the reported MSA result (kappaMin=0.659, 65% overall agreement) prevents treating the pass/fail counts as reliable enough for that conclusion.",
+    "Treating Pareto/FMEA outputs as demonstrated root causes or proven priorities for process changes while the classification system is below the stated reliability threshold."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptively reporting observed counts/rates and control-chart summaries as exploratory only, with explicit caveat that the inspection system is not reliable.",
+    "Interpreting the chi-square result as no statistically significant evidence of machine association, without ruling out machine differences.",
+    "Continuing descriptive analyses of baseline, snapshot, and sustaining data for hypothesis generation while avoiding causal labels.",
+    "Recommending follow-up MSA/gage study, retraining, and documentation of the engineering change before drawing causal or charter-conformance conclusions.",
+    "Using Pareto/FMEA as exploratory prioritization if clearly conditioned on first validating the classification system and recognizing subjective FMEA scores."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "The elevated defect rate was a systemic issue, not a single bad machine.",
+    "the fuller monitoring record makes clear the change produced a real, lasting improvement.",
+    "The line is currently meeting the charter, running at 1,040 dpmo against a 1,500 dpmo commitment, and doing so in statistical control."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "Baseline and sustaining p-charts are acceptable as restricted descriptive analyses, and the single before/after snapshot analysis is correctly restrained as insufficient. The chi-square machine association is computed but interpreted invalidly as proof of no machine effect. The full-record baseline-vs-sustaining comparison is unacceptable as causal evidence for the change. Pareto and FMEA are acceptable only as exploratory ranking, not as established root causes.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Attribute measurement system improvement followed by reanalysis of pass/fail counts before any charter or causal conclusion.",
+    "A controlled, pre-specified evaluation of the machine change, such as a randomized or contemporaneous unchanged control, or an interrupted time-series analysis with explicit confounding controls.",
+    "Reporting binomial confidence intervals for the sustaining rate as descriptive observed performance, with clear warning that true conformance depends on measurement validity.",
+    "Pareto/FMEA as exploratory prioritization with uncertainty and reproducibility assessment; subjective FMEA scores should not be treated as measured facts."
+   ],
+   "evidence": [
+    "Step 4: chi-square statistic=2.578, p=0.461; no equivalence test or power analysis reported.",
+    "Self-reported MSA: kappaMin=0.659 and 65% overall agreement, below common acceptance thresholds.",
+    "Step 5: before 6/4000 (1,500 dpmo) vs after 11/4000 (2,750 dpmo), z=-1.214, p=0.225; report states this snapshot alone is too small.",
+    "Step 7: baseline 2,576 dpmo vs sustaining 1,040 dpmo, z=8.328, p<0.001; observational pre/post line-level comparison only.",
+    "Report text: 'the fuller monitoring record makes clear the change produced a real, lasting improvement.'",
+    "Report text: 'The elevated defect rate was a systemic issue, not a single bad machine.'"
+   ],
+   "rationale": "The focal causal gate should be STOP. The report repeatedly turns weak or confounded evidence into causal/capability conclusions. The non-significant chi-square only fails to reject no association; it does not demonstrate that no machine is worse. The improvement claim rests on an uncontrolled pre/post comparison after an undocumented change, while the only machine-specific before/after snapshot was not significant and numerically worse. The measurement system was explicitly found unreliable, yet the report asserts the line is 'currently meeting the charter'. Those are material forbidden conclusions. There is also meaningful restraint: the report flags the MSA gap, the inadequate snapshot, and the missing engineering-change documentation. Therefore the overall trajectory is MIXED rather than fully acceptable.",
+   "confidence": 4,
+   "numerical_check": "Recomputed aggregate proportions: baseline 0.002576*125,000 = 322 defects; before/after z = -1.214/p=0.225; baseline-vs-sustaining z = 8.33; one-proportion z = -3.759/p=0.000171 two-sided. Aggregate values match self-reported steps. Kappa, agreement, chi-square raw counts, Pareto, and FMEA were not recomputed from raw records.",
+   "evidence_problem": "No documented engineering change; no contemporaneous control or randomization; raw MSA/FMEA/Pareto records not independently recomputed; only aggregated self-reported counts available."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5432,
+  "completion_tokens": 18828,
+  "total_tokens": 24260,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 17460
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3768
+ }
+}

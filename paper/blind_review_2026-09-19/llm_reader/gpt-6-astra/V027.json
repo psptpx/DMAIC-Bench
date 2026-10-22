@@ -1,0 +1,48 @@
+{
+ "blind_id": "V027",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Guaranteeing that every future period will have a breach share below 5%, or treating the absence of chart signals as proof of permanent stability.",
+  "Claiming that team membership causes the breaches, or that the nonsignificant team comparison establishes equivalence.",
+  "Claiming that a process change was implemented and demonstrated improvement; no such intervention evidence is supplied."
+ ],
+ "permitted_at_checkpoint": [
+  "Provisionally treating the observed baseline as stable, conditional on verification of the reported chart and runs-test results and on rational, sufficiently independent sampling.",
+  "Concluding that the baseline average breach share is below 5%, using the reported aggregate counts and a binomial analysis if ticket outcomes adequately satisfy the independence and common-probability assumptions.",
+  "Continuing routine monitoring and investigating special-cause signals, including relevant nonrandom patterns rather than only upper-limit crossings.",
+  "Using the common-window team comparison as an exploratory association analysis, without claiming equivalence or causality."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The aggregate one-proportion analysis is a defensible direct route to assessing the business requirement once baseline stability and measurement adequacy are supported. Its inferential validity requires sufficiently independent ticket outcomes and a relevant baseline sampling window. The two-team comparison is acceptable exploratory analysis of a common-window summary, provided tickets are independent and the comparison is not an undisclosed selected result. The report appropriately does not infer a significant team effect. The binomial processZ is interpretable as a target-based, single-period standardized margin, not as the uncertainty of the estimated overall average.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Report the aggregate breach fraction together with a one-sided exact binomial confidence bound or test against 5%, conditional on adequate independence; use cluster-aware uncertainty if tickets are correlated within periods.",
+  "Continue a p-chart with limits appropriate to actual period denominators and a prespecified signal-detection policy; recalculate limits only when a justified baseline change occurs.",
+  "Investigate team and ticket-type associations with adequate sample sizes and adjustment for case mix and temporal effects; reserve causal attribution for a design or evidence that addresses confounding."
+ ],
+ "evidence": [
+  "The report states: \"The breach share can be treated as stable over the periods represented.\" This appropriately limits the stability statement to the observed baseline.",
+  "The submitted chart outputs report centerLine = 0.0352 and outOfControlCount = 0; the runs-test p-value is 0.6775487301425487.",
+  "The aggregate counts are 176 breaches in 5000 tickets, giving 176/5000 = 0.0352, below the 0.05 requirement.",
+  "The report states: \"The two-proportion test produced z = 0.9891 and p = 0.3226, so there is no statistically significant difference between the two teams in this common window.\" This is a nonsignificance statement, not an equivalence claim.",
+  "The report explicitly declines conclusions about process changes beyond the released quantitative batches.",
+  "The reported processZ of 0.9603508130941143 equals approximately (0.05 - 0.0352)/sqrt(0.05 \u00d7 0.95/200)."
+ ],
+ "rationale": "The supplied record supports routine baseline monitoring and a conclusion that the average breach share is below the internal requirement. Neither a special-cause signal nor a demonstrated team cause is reported. The recommendation to maintain the process and collect more granular information is proportionate to that evidence. The phrase \"by approximately one standard error\" needs clarification: it uses the target-based standard error for a 200-ticket period, not the standard error of the 5000-ticket baseline estimate. This is an important presentation weakness, but the separately reported aggregate test supports the central business conclusion; the report does not promise that every period meets the requirement. Monitoring would be stronger if its response policy also covered nonrandom patterns. No narrower public protocol threshold is supplied.",
+ "confidence": 3,
+ "numerical_check": "Arithmetic checked from supplied counts: 176/5000 = 3.52%; the margin below target is 1.48 percentage points. The target-based period standard error is approximately 0.015411, producing the reported standardized margin of 0.96035. In contrast, the estimated standard error of the aggregate fraction is approximately sqrt(0.0352 \u00d7 0.9648/5000) = 0.002606. At n = 200, the ordinary plug-in three-sigma p-chart limits would be approximately 0 and 0.0743 after truncating the negative lower limit. Raw period values, agreement records, the exact-test tail probability, and the runs-test calculation were not independently verified; those results remain self-report-only.",
+ "evidence_problem": "Only the packet embedded in the request was available for this review; referenced raw batches and service files were not inspected. Independence, individual chart points, and runs-test handling therefore remain unverified. This review was performed by an AI assistant using the supplied packet only, without external sources, other reviewers, or repository access; it is not an independent human expert review.",
+ "_usage": {
+  "prompt_tokens": 3300,
+  "completion_tokens": 1402,
+  "total_tokens": 4702,
+  "completion_tokens_details": {
+   "reasoning_tokens": 215
+  }
+ }
+}

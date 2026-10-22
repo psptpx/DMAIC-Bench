@@ -1,0 +1,154 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sourceBatch": "msa",
+        "sampleSize": 90,
+        "operatorCount": 3,
+        "partCount": 10,
+        "replicateCount": 3
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Calculation failed before any result was produced; no verdict was declared."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sourceBatch": "msa",
+        "sampleSize": 90,
+        "operatorCount": 3,
+        "partCount": 10,
+        "replicateCount": 3
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {},
+      "status": "failed",
+      "decision": "A second output-reference error occurred before any result was produced; the script was then corrected."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sourceBatch": "msa",
+        "sampleSize": 90,
+        "operatorCount": 3,
+        "partCount": 10,
+        "replicateCount": 3,
+        "design": "balanced crossed random effects"
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 54.1970532972932,
+        "percentTolerance": 65.23721933596062,
+        "ndc": 2,
+        "grrStandardDeviation": 21.74573977865354,
+        "partStandardDeviation": 33.71966558845002,
+        "totalStandardDeviation": 40.12347250572681,
+        "varianceRepeatability": 469.4646035915558,
+        "varianceOperator": 3.4125949293591495,
+        "varianceInteraction": 0,
+        "operatorANOVApValue": 0.3030083704762343,
+        "interactionANOVApValue": 0.6562317646213187
+      },
+      "status": "success",
+      "decision": "FAIL: the brightness measurement system does not meet the 30 percent study-variation precondition."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sourceBatch": "msa",
+        "grrStandardDeviation": 21.74573977865354
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Percent-tolerance calculation failed because the stored result file was not loaded as intended; it was recomputed successfully in the next step."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "requestedBatch": "Per-unit end-of-line brightness record",
+        "requiredPrecondition": "grr_pct <= 30"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The steward locked the batch because the truthful gage verdict failed; no end-of-line records were released and no analysis was run."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "sourceBatch": "msa",
+        "grrStandardDeviation": 21.74573977865354,
+        "toleranceWidth": 200.0,
+        "sigmaMultiplier": 6.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentTolerance": 65.23721933596062,
+        "percentStudyVariation": 54.1970532972932,
+        "ndc": 2
+      },
+      "status": "success",
+      "decision": "FAIL: measurement error consumes too much of the brightness tolerance."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "sourceBatches": [
+          "define",
+          "msa"
+        ],
+        "measurementCount": 90,
+        "operatorPartCellCount": 30
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "measurementCount": 90,
+        "operatorPartCellCount": 30,
+        "lowerSpecLimit": 350.0,
+        "upperSpecLimit": 550.0,
+        "toleranceWidth": 200.0,
+        "grrAcceptanceLimitPctStudyVariation": 30.0,
+        "operatorCount": 3,
+        "partCount": 10,
+        "replicateCount": 3,
+        "sigmaMultiplier": 6.0
+      },
+      "status": "success",
+      "decision": "The released evidence consists only of the charter and the 3-by-10-by-3 measurement study."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "sourceBatch": "msa",
+        "sampleSize": 90,
+        "varianceGRR": 472.87719852091493
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "repeatabilityPctOfGRR": 99.27833379574376,
+        "operatorPctOfGRR": 0.7216662042562438,
+        "interactionPctOfGRR": 0.0
+      },
+      "status": "success",
+      "decision": "Repeatability, not operator bias or operator-by-part interaction, is the dominant gage-error component."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_pass_gate",
+      "chosen_branch": "fail_keep_end_of_line_locked",
+      "observed": {
+        "percentStudyVariation": 54.1970532972932,
+        "percentTolerance": 65.23721933596062,
+        "ndc": 2,
+        "acceptanceLimitPctStudyVariation": 30.0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

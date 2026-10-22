@@ -1,0 +1,54 @@
+{
+ "blind_id": "V040",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the baseline as temporally stable or using its pooled mean and spread to assert stable capability or predict future performance.",
+  "Identifying recipe mixing as the established cause of the baseline step without run-linked recipe records or other process evidence.",
+  "Treating the separate observational recipe comparison as proof of causality or as a bounded estimate of the improvement achievable by implementation.",
+  "Using the pooled within-recipe standard deviation as an established future control-chart standard without demonstrating temporal stability under the intended operating conditions."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the baseline, report its time-order signals, investigate the apparent step, and obtain recipe, lot, operator, equipment and other process records.",
+  "Compare the separate recipe groups descriptively; conditional associational inference is defensible if observations are independent and sampling or time effects do not invalidate the comparison.",
+  "Use multiplicity-controlled recipe comparisons when their model and sampling assumptions are credible, without claiming they explain the baseline shift.",
+  "Conduct a prospective randomized or appropriately blocked recipe experiment, followed by independent implementation verification and stable-process monitoring."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "Recipe is the cause of the hardness differences, at **71.4%** of the variation, with recipe C the strongest at **61.33 HRC**.",
+  "Three recipes in simultaneous use put the same part on three different hardness levels spanning **3.37 HRC**, and the mixed baseline is what a plant looks like when it lets that happen unmanaged.",
+  "The gain from moving B to C is real and its size is bounded: at worst about **0.9 HRC**, at best about **2.3 HRC**.",
+  "**Standardise on one recipe and stop running three.**",
+  "Judge it against the within-recipe spread of **0.901 HRC**, which is the right yardstick, not the inflated baseline SD of **2.30 HRC**."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Baseline summaries, the individuals chart and runs test appropriately diagnose temporal instability. The separate recipe ANOVA, variance decomposition and Tukey comparisons are not automatically prohibited by baseline instability: they can support conditional association if independence and sampling validity are established. Normality and variance tests alone do not establish those conditions, and nonsignificance does not prove assumptions. The report instead uses these comparisons to establish causality and explain the baseline. Kruskal-Wallis and Mann-Whitney do not remove temporal confounding or independence requirements. Identifying the leading-two data as reused is valuable restraint, but an ordinary interval for a pair selected for having the highest observed means is not automatically selection-valid and is not a causal intervention interval.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Investigate the baseline step against contemporaneous process records; assess stability within independently justified operating regimes rather than declaring two distinct processes solely from distribution shape.",
+  "Report observed recipe means, sample variance explained and Tukey comparisons as associations, explicitly conditional on independent observations and a defensible sampling model.",
+  "Use simultaneous confidence intervals covering all recipe pairs to address selection of the leading two, or estimate their contrast in a genuinely independent sample.",
+  "Randomize recipe assignment across comparable shafts, blocking relevant time, furnace or lot effects, before estimating a causal hardness response.",
+  "Obtain engineering specifications and assess trade-offs, then establish stable prospective performance before setting operational control limits or claiming capability."
+ ],
+ "evidence": [
+  "The reported baseline chart has two observations beyond individual limits and 49 observations flagged under unspecified run rules.",
+  "The runs test reports 10 runs versus 31 expected, z = -5.46872 and p = 4.533e-08.",
+  "First-half and second-half means are 58.662333 and 62.606333 HRC, respectively.",
+  "The report explicitly says: \"We are therefore reporting the step as an unexplained special cause with a plausible link to recipe, not as a confirmed recipe change.\" Its final business explanation contradicts this restraint.",
+  "The separate recipe sample contains 15 readings per recipe; no randomization, time balance or observation-independence evidence is supplied in the packet.",
+  "The report withholds capability, implemented-improvement and sustained-control claims and identifies the leading-two sample as element-wise identical to previously analyzed data."
+ ],
+ "rationale": "The reported temporal signals require withholding stable-baseline conclusions and investigating special causes, not abandoning all analysis of separately sampled recipes. The report correctly recognizes instability and several important evidence gaps. However, it then converts recipe association into a causal explanation of the unresolved baseline and recommends standardization using a claimed intervention gain. Those claims exceed what the supplied design evidence supports. Its proposed control yardstick also lacks demonstrated temporal validity. This combination of substantial restraint and material overreach warrants MIXED. The public thresholds concern measurement adequacy only and neither prohibit a defensible separate comparison nor validate causal inference.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied summaries: 62.606333 - 58.662333 = 3.944 HRC; 60.634333 \u00b1 3 \u00d7 1.291321 gives approximately 56.760370 and 64.508296 HRC; 85.17568 / 119.2934 is approximately 71.40%; (85.17568 / 2) / (34.11772 / 42) is approximately 52.43. These support internal consistency, not provenance or design validity. Raw observations were not available through this conversation; chart flags, test results and data identity remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw batches and service records were not accessible here. Recipe timing, assignment, independence and exact chart run rules are unspecified. Procedural blinding was maintained: no external files, other reviews or sources were consulted. This review was produced by an AI assistant, not an independent human expert; no professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 7567,
+  "completion_tokens": 1342,
+  "total_tokens": 8909
+ }
+}

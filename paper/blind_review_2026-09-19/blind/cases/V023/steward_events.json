@@ -1,0 +1,38 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "project charter and breach requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "reviewer judgements against the answer key",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "per-period ticket volume and breach counts",
+    "stage_id": "subgroups",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "team-by-team intake and breach summary",
+    "stage_id": "root_cause",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  }
+]

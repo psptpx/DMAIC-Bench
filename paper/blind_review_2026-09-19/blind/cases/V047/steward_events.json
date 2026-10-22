@@ -1,0 +1,83 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Release the first batch of shop-floor data for the honing-line bore roughness study, including the recorded readings in production order.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the Project charter and voiding limit batch, including the acceptance limit and improvement target.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Please release the Repeat X-ray readings of the same joints batch for the repeat readings/operator study.",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Release the Per-joint void fraction in build order batch now that the repeat X-ray readings have been analyzed.",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Release the next analysis batch for this project, such as root-cause, improvement, or follow-up process data in time order.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "declare",
+    "text": "gage_acceptable=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Release the next improvement or root-cause batch that follows the completed measurement-system and baseline process analyses.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "The task requests honing-line bore roughness in Ra with limits 0.40 to 1.60, but the steward released repeat X-ray readings and percent void area for joints. Are the released void-fraction batches the intended evidence for this task, or is the requested roughness dataset unavailable/misrouted?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "Does the released 50-joint build-order void-fraction run cross any process change? If yes, where?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

@@ -1,0 +1,374 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "agreement",
+        "units": 20,
+        "appraisers": 3,
+        "judgements": 120,
+        "repeatsPerAppraiser": 2
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.7938144329896908,
+        "agreementPct": 90.0,
+        "repeatAgreementPctMin": 80.0,
+        "units": 20,
+        "appraisers": 3,
+        "judgements": 120,
+        "repeatsPerAppraiser": 2,
+        "appraiser1AgreementPct": 92.5,
+        "appraiser2AgreementPct": 97.5,
+        "appraiser3AgreementPct": 90.0,
+        "appraiser1Kappa": 0.8378378378378379,
+        "appraiser2Kappa": 0.9459459459459459,
+        "appraiser3Kappa": 0.7938144329896908,
+        "appraiser1RepeatPct": 85.0,
+        "appraiser2RepeatPct": 95.0,
+        "appraiser3RepeatPct": 80.0
+      },
+      "status": "success",
+      "decision": "Attribute system is usable with controls: high chance-adjusted agreement but repeat agreement leaves no headroom for drift."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25,
+        "inspected": 125000,
+        "defectives": 334,
+        "nullDPMO": 1500
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 4.724619983557232e-27,
+        "zStatistic": 10.706880463852865,
+        "avgP": 0.002672,
+        "avgDPMO": 2672.0,
+        "lots": 25,
+        "targetDefectsEquivalent": 187.5,
+        "targetDPMO": 1500,
+        "defectiveTotal": 334,
+        "inspectedTotal": 125000
+      },
+      "status": "success",
+      "decision": "Baseline defective share is significantly above charter."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25,
+        "defectives": 334,
+        "inspected": 125000
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 2.785531787565683,
+        "avgP": 0.002672,
+        "avgDPMO": 2672.0,
+        "defectiveTotal": 334,
+        "inspectedTotal": 125000
+      },
+      "status": "success",
+      "decision": "Baseline binomial capability is inadequate."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25,
+        "subgroupSize": 5000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.002672,
+        "outOfControlCount": 0,
+        "upperControlLimit": 0.004862148111155955,
+        "lowerControlLimit": 0.00048185188884404453,
+        "upperControlLimitDPMO": 4862.148111155955,
+        "lowerControlLimitDPMO": 481.85188884404454,
+        "lotDefectMin": 9,
+        "lotDefectMax": 19,
+        "minLotDPMO": 1800.0,
+        "maxLotDPMO": 3800.0
+      },
+      "status": "success",
+      "decision": "Baseline lot-to-lot variation is consistent with common cause."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25,
+        "defectives": 334,
+        "inspected": 125000,
+        "tableRows": 25,
+        "columns": 2
+      },
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 14.84205317566622,
+        "pValue": 0.9252952261054066,
+        "degreesOfFreedom": 24,
+        "defectiveTotal": 334,
+        "inspectedTotal": 125000
+      },
+      "status": "success",
+      "decision": "No evidence that the defective share differs by lot."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "machines",
+        "machines": 4,
+        "defectives": 42,
+        "inspected": 16000
+      },
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 30.84286728853717,
+        "pValue": 9.173312959926518e-07,
+        "degreesOfFreedom": 3,
+        "machineCount": 4,
+        "machine1DPMO": 1500.0,
+        "machine2DPMO": 6500.0,
+        "machine3DPMO": 1500.0,
+        "machine4DPMO": 1000.0,
+        "machine1Defectives": 6,
+        "machine2Defectives": 26,
+        "machine3Defectives": 6,
+        "machine4Defectives": 4,
+        "machineInspectedEach": 4000,
+        "overallDefectives": 42,
+        "overallInspected": 16000
+      },
+      "status": "success",
+      "decision": "Defective share differs by machine; machine 2 is the outlier."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "machines",
+        "group1": "machine 2",
+        "group2": "other machines",
+        "group1Defectives": 26,
+        "group1Inspected": 4000,
+        "group2Defectives": 16,
+        "group2Inspected": 12000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 3.190231254655291e-08,
+        "zStatistic": 5.530662764379728,
+        "machine2P": 0.0065,
+        "machine2DPMO": 6500.0,
+        "otherP": 0.0013333333333333333,
+        "otherDPMO": 1333.3333333333333,
+        "machine2Defectives": 26,
+        "machine2Inspected": 4000,
+        "otherDefectives": 16,
+        "otherInspected": 12000,
+        "differenceDPMO": 5166.666666666667
+      },
+      "status": "success",
+      "decision": "Focused contrast confirms machine 2 is materially worse than the other machines."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "after_change",
+        "beforeDefectives": 18,
+        "beforeInspected": 4000,
+        "afterDefectives": 13,
+        "afterInspected": 4000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.3682418590767994,
+        "zStatistic": -0.899771509542612,
+        "beforeP": 0.0045,
+        "beforeDPMO": 4500.0,
+        "afterP": 0.00325,
+        "afterDPMO": 3250.0,
+        "absoluteReductionDPMO": 1249.9999999999998,
+        "relativeReductionPct": 27.777777777777775,
+        "beforeDefectives": 18,
+        "beforeInspected": 4000,
+        "afterDefectives": 13,
+        "afterInspected": 4000,
+        "difference95LowerDPMO": -3972.775729838945,
+        "difference95UpperDPMO": 1472.7757298389454
+      },
+      "status": "success",
+      "decision": "Observed reduction is not statistically demonstrable in the change trial alone."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "after_change",
+        "defectives": 13,
+        "inspected": 4000,
+        "nullDPMO": 1500
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.00211898163415606,
+        "zStatistic": 2.8598837510064232,
+        "avgP": 0.00325,
+        "avgDPMO": 3250.0,
+        "defectiveTotal": 13,
+        "inspectedTotal": 4000
+      },
+      "status": "success",
+      "decision": "Immediately after the change, that machine remained significantly above charter."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "periods": 20,
+        "defectives": 110,
+        "inspected": 89300,
+        "nullDPMO": 1500
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.01918384911363467,
+        "zStatistic": -2.0709047496753703,
+        "avgP": 0.0012318029115341545,
+        "avgDPMO": 1231.8029115341544,
+        "defectiveTotal": 110,
+        "inspectedTotal": 89300,
+        "upper95DPMO": 1424.8683310273984,
+        "confidenceLevelPct": 95,
+        "targetDPMO": 1500
+      },
+      "status": "success",
+      "decision": "Monitoring aggregate is statistically below the charter limit."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "periods": 20,
+        "subgroupSizeMin": 3200,
+        "subgroupSizeMax": 6400
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0012318029115341545,
+        "outOfControlCount": 0,
+        "minSubgroupDPMO": 400.0,
+        "maxSubgroupDPMO": 1896.5517241379312,
+        "periods": 20,
+        "defectiveTotal": 110,
+        "inspectedTotal": 89300
+      },
+      "status": "success",
+      "decision": "Post-change monitoring is stable at the reduced level."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "periods": 20,
+        "defectives": 110,
+        "inspected": 89300
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 3.027776055826837,
+        "avgP": 0.0012318029115341545,
+        "avgDPMO": 1231.8029115341544,
+        "upper95DPMO": 1424.8683310273984,
+        "defectiveTotal": 110,
+        "inspectedTotal": 89300
+      },
+      "status": "success",
+      "decision": "Current binomial capability meets the charter on this record."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "batch": "candidates",
+        "categories": 5,
+        "rejectTotal": 240
+      },
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryPct": 59.166666666666664,
+        "topCategoryCount": 142,
+        "categoryCount": 5,
+        "rejectTotal": 240,
+        "looseEndCount": 142
+      },
+      "status": "success",
+      "decision": "Loose end is the dominant reject category."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "batch": "failure_modes",
+        "modes": 5
+      },
+      "method_id": "quality.fmea_rpn",
+      "outputs": {
+        "maxRpn": 294,
+        "modeCount": 5,
+        "looseEndRpn": 294,
+        "seamSplitRpn": 252,
+        "stainRpn": 210,
+        "softSpotRpn": 72,
+        "offWeightRpn": 40
+      },
+      "status": "success",
+      "decision": "Loose end has the highest risk priority."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_gate",
+      "chosen_branch": "proceed_using_attribute_data_with_periodic_verification",
+      "observed": {
+        "kappaMin": 0.7938144329896908,
+        "agreementPct": 90.0,
+        "repeatAgreementPctMin": 80.0
+      }
+    },
+    {
+      "point": "baseline_variation",
+      "chosen_branch": "common_cause_improvement",
+      "observed": {
+        "outOfControlCount": 0,
+        "homogeneityPValue": 0.9252952261054066
+      }
+    },
+    {
+      "point": "machine_priority",
+      "chosen_branch": "machine_2",
+      "observed": {
+        "machine2DPMO": 6500.0,
+        "otherDPMO": 1333.3333333333333,
+        "contrastPValue": 3.190231254655291e-08
+      }
+    },
+    {
+      "point": "change_evidence",
+      "chosen_branch": "retain_change_based_on_monitoring_and_document_the_change",
+      "observed": {
+        "trialPValue": 0.3682418590767994,
+        "monitoringDPMO": 1231.8029115341544,
+        "monitoringUpper95DPMO": 1424.8683310273984
+      }
+    },
+    {
+      "point": "process_fact",
+      "chosen_branch": "report_missing_process_fact",
+      "observed": {}
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

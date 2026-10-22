@@ -1,0 +1,51 @@
+{
+ "reviewer_id": "9999",
+ "reviewer_type": "Human",
+ "perspective": "Independent",
+ "blinding_compliance": "Fully compliant. Read only the blind directory and no other materials.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V038",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the change implemented on the single machine caused the improvement observed in the overall sustained monitoring record.",
+    "Dismissing the specific, locally controlled before/after trial data on the modified machine as evidence of the change's impact in favor of the temporally confounded overall sustaining record."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting that the overall process has dropped to a defect rate statistically consistent with the 1500 DPMO charter in the sustaining period.",
+    "Concluding that the specific trial on one machine did not show evidence of improvement from the change.",
+    "Recommending further investigation to identify the true systemic factors that caused the overall defect rate to drop."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "We treat the sustained record, not the small trial, as the credible evidence of impact, since it draws on far more data."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The subsequent calculations (two-proportion test, p-chart, binomial capability, Pareto, FMEA) are valid standard methods for evaluating the additional data provided. The failure lies in the report's logical causal inferences rather than the selection or execution of these quantitative steps.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "Computing the two-proportion test for the before/after trial on the specific machine.",
+    "Computing capability and hypothesis tests to describe the sustaining period's overall performance."
+   ],
+   "evidence": [
+    "We treat the sustained record, not the small trial, as the credible evidence of impact, since it draws on far more data.",
+    "events_before: 3, trials_before: 4000",
+    "avgP: 0.002912"
+   ],
+   "rationale": "The baseline defect rate was ~2912 DPMO. A before/after trial on a single machine tested an intervention. However, the trial showed the localized defect rate was already only 750 DPMO (3 in 4000) before the change\u2014far below baseline\u2014and numerically worsened to 1500 DPMO (6 in 4000) after the change. The report commits a severe causal fallacy (temporal confounding) by explicitly dismissing this localized trial data and instead attributing the overall line's temporal improvement during the sustaining period entirely to this single machine's change.",
+   "confidence": 5,
+   "numerical_check": "Recomputed the two-proportions z-test for 3/4000 vs 6/4000 (z=1.0, p=0.317); recomputed the sustaining 1-proportion test for 136/97500 vs 0.0015 (p=0.396). All math is correct.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5571,
+  "completion_tokens": 7874,
+  "total_tokens": 13445
+ }
+}

@@ -1,0 +1,137 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "n_readings": 90,
+        "num_operators": 3,
+        "num_parts": 10,
+        "num_replicates": 3,
+        "tolerance": 1.2
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 25.687991639700588,
+        "percentTolerance": 43.92143111410558,
+        "ndc": 5,
+        "partPValue": 1.1102230246251565e-16,
+        "operatorPValue": 4.957788146686681e-07,
+        "interactionPValue": 0.6791460401072464
+      },
+      "status": "success",
+      "decision": "Crossed gage R&R (ANOVA method, 6-sigma spread): %StudyVariation = 25.69% and ndc = 5 put the roughness tester in the marginal/acceptable zone for process monitoring; %Tolerance = 43.92% because part variation is wide. Measurement system can carry a conclusion, with caution."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 1.109,
+        "median": 1.121,
+        "stdDev": 0.19548088272310435,
+        "skewness": 0.17024882873894798,
+        "adPValue": 0.7788543993147489
+      },
+      "status": "success",
+      "decision": "Run of 50 bores averages 1.109 um Ra, above the 1.0 target; spread 0.195."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.7788543993147489,
+        "statistic": 0.23557576757492882
+      },
+      "status": "success",
+      "decision": "Anderson-Darling normality p = 0.779 > 0.05; roughness readings are consistent with a normal distribution, so normal-based control limits and capability indices are valid."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50,
+        "subgrouping": "individuals in finishing order"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 1.684879287885367,
+        "individualsLCL": 0.5331207121146331,
+        "centerLine": 1.109,
+        "flaggedCount": 0,
+        "mrBar": 0.21653061224489795
+      },
+      "status": "success",
+      "decision": "I-MR chart in finishing order: 0 points beyond control limits; the line ran in statistical control across the 50-bore run."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.39126727928263927
+      },
+      "status": "success",
+      "decision": "Runs test about the median p = 0.391 > 0.05; no trend, drift or clustering over finishing order."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 50,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.0418850141376061,
+        "cpk": 0.8526092365692745,
+        "pp": 1.0231179500212149,
+        "ppk": 0.8372515224340276,
+        "outOfSpecCount": 1
+      },
+      "status": "success",
+      "decision": "Cp = 1.042 shows the spread fits the band, but Cpk = 0.853 and Ppk = 0.837 < 1 because the mean (1.109) sits above the 1.0 target toward USL; 1 of 50 bores (1.64 um Ra) exceeded the 1.6 limit."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "can_the_recorded_readings_carry_a_conclusion",
+      "chosen_branch": "yes_marginal_msa",
+      "observed": {
+        "percentStudyVariation": 25.687991639700588,
+        "percentTolerance": 43.92143111410558,
+        "ndc": 5
+      }
+    },
+    {
+      "point": "process_behaviour_across_run",
+      "chosen_branch": "stable_off_center",
+      "observed": {
+        "flaggedCount": 0,
+        "runsTestPValue": 0.39126727928263927,
+        "mean": 1.109,
+        "target": 1.0
+      }
+    },
+    {
+      "point": "improvement_data_availability",
+      "chosen_branch": "no_post_change_data_recommendation_only",
+      "observed": {
+        "steward_refusal": "unroutable: only define, msa, process_run batches exist"
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 0
+}

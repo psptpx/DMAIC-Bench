@@ -1,0 +1,113 @@
+{
+  "system_id": "openai-api",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sampleCount": 12,
+        "groupCount": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "usableControlLibraries": 6,
+        "usableTreatedLibraries": 6,
+        "minAssignedReadsThreshold": 5000000,
+        "minMappingRateThreshold": 0.7,
+        "requiredMinReplicates": 3
+      },
+      "status": "success",
+      "decision": "All libraries met both usability criteria, and each arm exceeded the required minimum usable replicate count."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sampleCount": 12,
+        "conditionCount": 2,
+        "batchCount": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "conditionCount": 2,
+        "conditionModelRank": 2,
+        "batchModelRank": 2,
+        "combinedModelRank": 2,
+        "combinedModelColumns": 3
+      },
+      "status": "success",
+      "decision": "Condition and preparation batch are perfectly aliased: all control libraries are in one batch and all treated libraries are in the other, so separate condition and batch effects are not identifiable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "requestedBatch": "counts",
+        "availableCountMatrices": 0
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The steward locked gene-level counts because design_confounded=true does not satisfy the design-identifiability gate; no differential-expression computation was run."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "requestedBatch": "validation",
+        "availableValidationDatasets": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The qPCR batch was locked because gene-level counts had not been obtained and analyzed; concordance and confirmation were not computed."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "requestedBatch": "gene_sets",
+        "availableAnnotationDatasets": 0
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The gene-set annotation was locked behind validation; enrichment was not computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability_gate",
+      "chosen_branch": "qc_pass",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "requiredMinReplicates": 3
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "stop_due_to_complete_confounding",
+      "observed": {
+        "confounded": true,
+        "combinedModelRank": 2,
+        "combinedModelColumns": 3
+      }
+    },
+    {
+      "point": "downstream_inference",
+      "chosen_branch": "do_not_issue_gene_list_or_validation_verdict",
+      "observed": {
+        "countsReleased": false,
+        "validationReleased": false,
+        "geneSetsReleased": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

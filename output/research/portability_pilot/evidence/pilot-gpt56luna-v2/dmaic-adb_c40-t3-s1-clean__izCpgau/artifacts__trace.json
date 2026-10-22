@@ -1,0 +1,97 @@
+{
+  "system_id": "local-python-steward-analysis",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "nLibraries": 12,
+        "usableControl": 6,
+        "usableTreated": 6,
+        "requiredMinReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All libraries passed the stated usability rules; the replicate precondition is satisfied."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2
+      },
+      "status": "success",
+      "decision": "Treatment and preparation batch are perfectly confounded; the planned contrast is not estimable separately from batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "requested_batch": "counts",
+        "reason": "design_identifiable gate required confounded=false"
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene counts were locked by the steward because design_confounded=true; no differential-expression result or gene list was computed."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "requested_batch": "qPCR validation",
+        "dependency": "gene-level read counts and nominated candidates unavailable"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Validation could not be obtained or computed because no candidates could be nominated from an identifiable expression analysis."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "requested_batch": "gene-set annotation",
+        "dependency": "validated candidate list unavailable"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set analysis was not run because the upstream candidate list was unavailable."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "retain_all_libraries",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "stop_gene_calling_and_redesign",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

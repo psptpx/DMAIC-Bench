@@ -1,0 +1,193 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "baseline",
+        "groups": 25,
+        "totalInspected": 100000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0057,
+        "outOfControlCount": 0,
+        "ucl": 0.009270979907532385,
+        "lcl": 0.0021290200924676157,
+        "totalDefective": 570,
+        "totalInspected": 100000,
+        "stable": true
+      },
+      "status": "success",
+      "decision": "Baseline stable by three-sigma p-chart: no lot outside its control limits."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "baseline",
+        "totalInspected": 100000,
+        "requiredShare": 0.0025
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 1.588400817280976e-67,
+        "avgP": 0.0057,
+        "requiredShare": 0.0025,
+        "excessShare": 0.0032,
+        "ratioToRequirement": 2.2800000000000002
+      },
+      "status": "success",
+      "decision": "Reject that baseline meets the upper-share commitment; observed share is greater."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "settings",
+        "observations": 40,
+        "predictors": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 4.658610154613516e-09,
+        "rSquaredPct": 68.1445164732662,
+        "rSquaredAdjPct": 65.48989284603837,
+        "fStatistic": 25.670123543814185,
+        "pasteThicknessPValue": 7.50497899270782e-07,
+        "reflowPeakPValue": 1.2202120171998797e-06,
+        "interactionPValue": 4.792416137274965e-07,
+        "anyFactorSignificant": true
+      },
+      "status": "success",
+      "decision": "The specified settings model is significant; both settings and their interaction are associated with lot defect share, but observational association is not proof of cause."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "trial_size",
+        "nPerGroup": 6000,
+        "alpha": 0.05
+      },
+      "method_id": "power.two_proportions",
+      "outputs": {
+        "power": 0.821196457947401,
+        "alpha": 0.05,
+        "nPerGroup": 6000,
+        "p1": 0.0059,
+        "p2": 0.0025
+      },
+      "status": "success",
+      "decision": "Prospective two-sided power for the filed design assumptions."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "before_after",
+        "groups": 2,
+        "trialsPerGroup": 6000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.22393589211321674,
+        "zStatistic": 1.2161287185028007,
+        "beforeShare": 0.0065,
+        "afterShare": 0.004833333333333334,
+        "absoluteChange": -0.0016666666666666661,
+        "relativeReduction": 0.25641025641025633,
+        "beforeDefective": 39,
+        "afterDefective": 29,
+        "trialsPerGroup": 6000
+      },
+      "status": "success",
+      "decision": "The observed before/after difference is not statistically significant in a two-sided pooled z-test."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "groups": 20,
+        "totalInspected": 80000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0051375,
+        "outOfControlCount": 0,
+        "ucl": 0.008528663327080768,
+        "lcl": 0.0017463366729192327,
+        "totalDefective": 411,
+        "totalInspected": 80000,
+        "stable": true
+      },
+      "status": "success",
+      "decision": "Post-change level is stable by the three-sigma p-chart."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "totalInspected": 80000,
+        "requiredShare": 0.0025
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 3.394697744792781e-39,
+        "avgP": 0.0051375,
+        "requiredShare": 0.0025,
+        "excessShare": 0.0026374999999999997,
+        "ratioToRequirement": 2.0549999999999997
+      },
+      "status": "success",
+      "decision": "Post-change defect share remains significantly above the commitment."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "after_lots",
+        "totalInspected": 80000
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 2.5664345979906646,
+        "avgP": 0.0051375
+      },
+      "status": "success",
+      "decision": "One-sided binomial process Z calculated as the standard-normal quantile of yield."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batches": "baseline,after_lots",
+        "groups": 2
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.10724104396572472,
+        "zStatistic": 1.6107187184493452,
+        "baselineShare": 0.0057,
+        "afterShare": 0.0051375,
+        "absoluteReduction": 0.0005625000000000005,
+        "relativeReduction": 0.09868421052631587
+      },
+      "status": "success",
+      "decision": "The pooled post-change level is lower than baseline in the aggregate comparison."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability_gate",
+      "chosen_branch": "stable",
+      "observed": {
+        "outOfControlCount": 0,
+        "centerLine": 0.0057
+      }
+    },
+    {
+      "point": "settings_significance_gate",
+      "chosen_branch": "any_factor_significant",
+      "observed": {
+        "modelPValue": 4.658610154613516e-09,
+        "anyFactorSignificant": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

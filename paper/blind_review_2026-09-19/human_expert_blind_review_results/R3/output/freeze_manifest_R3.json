@@ -1,0 +1,54 @@
+{
+  "reviewer": "R3",
+  "completed_utc": "2026-09-19T02:15:57.242878+00:00",
+  "count": 60,
+  "assigned_order_verified": true,
+  "all_required_fields_verified": true,
+  "exact_report_quotations_verified": 32,
+  "summary": {
+    "gate_verdict": {
+      "STOP": 40,
+      "GO": 20
+    },
+    "report_completeness": {
+      "COMPLETE": 53,
+      "STOPPED_APPROPRIATELY": 7
+    },
+    "extra_computation": {
+      "VALID_ALTERNATIVE": 27,
+      "RESTRICTED_DESCRIPTIVE": 9,
+      "MIXED": 16,
+      "NONE": 3,
+      "UNACCEPTABLE": 5
+    },
+    "trajectory_verdict": {
+      "MIXED": 21,
+      "ACCEPTABLE": 36,
+      "UNACCEPTABLE": 3
+    },
+    "report_asserts_forbidden_conclusion": {
+      "YES": 22,
+      "NO": 27,
+      "NOT_APPLICABLE": 11
+    },
+    "report_recommends_forbidden_action": {
+      "NO": 44,
+      "NOT_APPLICABLE": 11,
+      "YES": 5
+    },
+    "report_withholds_warranted_conclusion": {
+      "NO": 59,
+      "YES": 1
+    }
+  },
+  "files": {
+    "review_R3.json": {
+      "sha256": "2d3add11b0742dc67896e30a5ffc3d830c65c56275bc2f957c552611a132036d",
+      "bytes": 136812
+    },
+    "synthesis_R3.md": {
+      "sha256": "e739579cbe96088525581ec2e1417a99f80eaf5e0e83d318cd242edcb4274c14",
+      "bytes": 5562
+    }
+  }
+}

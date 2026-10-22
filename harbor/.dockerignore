@@ -1,0 +1,103 @@
+# =============================================================================
+# Docker build-context filter for BOTH published images (agent and verifier).
+#
+# Rule 0 of this benchmark: the published images carry the public task material
+# only. One private contestant depends on proprietary software and infrastructure
+# that cannot be redistributed, so its adapter lives under private/ and is excluded here.
+# private/ is not part of the public repository at all; this rule is what keeps
+# it out of an image in an operator's checkout, where it does exist.
+# See policy.PUBLIC_IMAGE_FORBIDDEN (src/dmaic_harbor/policy.py, host-side only).
+#
+# tests/test_public_image_hygiene.py enforces every rule below.
+# =============================================================================
+
+# ---------------------------------------------------------------- THE POLICY
+private
+private/
+private/**
+**/private
+**/private/**
+
+# Belt and braces: anything named after an excluded stack, anywhere. The vendor-specific
+# patterns are NOT written here -- a public file listing the names we exclude re-discloses
+# exactly what the exclusion is for. An operator appends their own to a local copy; the
+# structural rule above is what ships.
+**/*operator_agent*
+**/*operator_adapter*
+
+# ---------------------------------------------------------------- repo noise
+.git
+.git/**
+.gitignore
+.gitattributes
+.github
+.github/**
+**/.DS_Store
+
+# ---------------------------------------------------------------- run output
+runs
+runs/**
+jobs
+jobs/**
+trials
+trials/**
+**/*.log
+
+# ---------------------------------------------------------------- caches / venvs
+**/__pycache__
+**/__pycache__/**
+**/*.py[cod]
+.pytest_cache
+.pytest_cache/**
+.ruff_cache
+.ruff_cache/**
+.mypy_cache
+.mypy_cache/**
+.coverage
+htmlcov
+htmlcov/**
+.venv
+.venv/**
+venv
+venv/**
+build
+build/**
+dist
+dist/**
+*.egg-info
+*.egg-info/**
+
+# ---------------------------------------------------------------- credentials
+.env
+.env.*
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/*.p12
+**/*.keystore
+**/id_rsa*
+**/credentials
+**/credentials.*
+**/secrets
+**/secrets.*
+**/.netrc
+**/.npmrc
+**/.docker/config.json
+**/settings.xml
+
+# ---------------------------------------------------------------- host-only material
+# These are operator/orchestrator files. They are also the only public files
+# permitted to name the excluded stack (to document why it is excluded), so
+# keeping them out of every image is what makes that permission safe. The hygiene
+# test asserts exactly this pairing.
+tests
+tests/**
+docs
+docs/**
+job.example.yaml
+README.md
+reference
+reference/**
+.gitignore
+.dockerignore

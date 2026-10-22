@@ -1,0 +1,194 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c41-T3-s2-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "sampleQcPass": true,
+        "retainedSamples": 238,
+        "retainedAffected": 118,
+        "retainedUnaffected": 120,
+        "minObservedCallRate": 0.9466666666666667,
+        "maxAllowedFailFraction": 0.1,
+        "minRequiredCallRate": 0.95,
+        "totalParticipants": 240,
+        "totalVariants": 150
+      },
+      "status": "success",
+      "decision": "Plate sample QC passed; retain 238 participants and exclude P017 and P111."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participantsAfterSampleQC": 238,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 116,
+        "snpsRetained": 34,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 112,
+        "minObservedVariantCallRate": 0.8361344537815126,
+        "minObservedMaf": 0.0,
+        "minObservedHweP": 0.0,
+        "variantQcPass": true,
+        "minRequiredVariantCallRate": 0.95,
+        "minRequiredMaf": 0.01,
+        "minRequiredHweP": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain 34 variants after call-rate, MAF, and control-HWE filtering."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 238,
+        "variants": 34,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 5.861587813431253e-14,
+        "pc1TStatistic": 7.993206396844061,
+        "pc1ExplainedFraction": 0.13078054874892756
+      },
+      "status": "success",
+      "decision": "Ancestry structure is present; affected and unaffected participants cannot be compared without leading-axis covariate adjustment."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 238,
+        "variants": 34,
+        "groups": 2,
+        "test": "unadjusted genotype chi-square"
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 10,
+        "bonferroniThreshold": 0.0014705882352941176,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Ten provisional unadjusted candidates exceeded the Bonferroni threshold; they are not final claims because the protocol requires ancestry covariate adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 238,
+        "variants": 34,
+        "structurePresent": true
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {},
+      "status": "failed",
+      "decision": "No adjusted association result was computed; the zero value records no computed result, not a statistical finding."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "candidateVariants": 1,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "sampleQcPass": true,
+        "retainedSamples": 120,
+        "retainedAffected": 60,
+        "retainedUnaffected": 60
+      },
+      "status": "success",
+      "decision": "Replication sample QC passed with all 120 participants retained."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "candidateVariants": 1,
+        "candidateCallRate": 0.9916666666666667
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "replicationPValue": 0.0006620796019655648,
+        "replicationStatistic": 14.640249529190204,
+        "oddsRatio": 2.5108199789449057,
+        "sameDirection": true,
+        "replicates": true,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "The steward-nominated replication candidate rs020008 replicated at p below 0.05 in the same direction, but it lacks a qualifying discovery association in the retained discovery analysis."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_sample_qc",
+      "chosen_branch": "retain_plate",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "maxAllowedFailFraction": 0.1
+      }
+    },
+    {
+      "point": "variant_qc",
+      "chosen_branch": "retain_qc_variants",
+      "observed": {
+        "snpsRetained": 34,
+        "snpsFailed": 116
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "require_leading_axis_covariates",
+      "observed": {
+        "separated": true,
+        "pc1PValue": 5.861587813431253e-14
+      }
+    },
+    {
+      "point": "discovery_reporting",
+      "chosen_branch": "do_not_report_pending_adjusted_discovery_test",
+      "observed": {
+        "nProvisionalUnadjusted": 10,
+        "nAdjustedComputed": 0
+      }
+    },
+    {
+      "point": "replication_reporting",
+      "chosen_branch": "replication_supports_candidate_but_discovery_prerequisite_missing",
+      "observed": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "sameDirection": true
+      }
+    }
+  ]
+}

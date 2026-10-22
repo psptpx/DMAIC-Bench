@@ -1,0 +1,121 @@
+{
+  "system_id": "openai-cli",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "sampleSize": 240,
+        "panelVariants": 150,
+        "retainedSamples": 209,
+        "affectedParticipants": 120,
+        "unaffectedParticipants": 120
+      },
+      "status": "success",
+      "decision": "plate fails participant QC"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 131,
+        "snpsRetained": 19,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06,
+        "sampleSize": 240,
+        "panelVariants": 150,
+        "retainedSamples": 209
+      },
+      "status": "success",
+      "decision": "retain variants meeting all stated filters"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retained_samples": 209,
+        "retained_variants": 19
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.35308534416370824,
+        "bonferroniThreshold": 0.002631578947368421,
+        "alpha": 0.05,
+        "retainedVariants": 19
+      },
+      "status": "success",
+      "decision": "provisional scan has no Bonferroni-significant variants but is invalid because plate QC failed"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "affected": 120,
+        "unaffected": 120
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "affectedParticipants": 120,
+        "unaffectedParticipants": 120
+      },
+      "status": "refused",
+      "decision": "ancestry structure and affected/unaffected comparability were not available for computation"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "sample_size": 120,
+        "candidate_variants": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationSampleSize": 120,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "no discovery candidates were nominated; no replication-supported hit exists"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_qc",
+      "chosen_branch": "stop_valid_discovery_conclusion_and_recommend_re-genotyping",
+      "observed": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "replication_nomination",
+      "chosen_branch": "no_candidates_available_for_replication",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

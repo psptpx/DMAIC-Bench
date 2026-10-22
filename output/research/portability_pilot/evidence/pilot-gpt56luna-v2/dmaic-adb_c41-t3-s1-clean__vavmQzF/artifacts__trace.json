@@ -1,0 +1,138 @@
+{
+  "system_id": "openai-codex",
+  "task_id": "adb_c41-T3-s1-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "groups": 2,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333
+      },
+      "status": "success",
+      "decision": "Plate passes the protocol re-genotyping gate."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "variants": 150,
+        "thresholds": 3
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call rate, MAF, and unaffected-control HWE thresholds."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "groups": 2,
+        "retained_variants": 138
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 37,
+        "lambdaGC": 8.698851990266833
+      },
+      "status": "success",
+      "decision": "Unadjusted scan is highly inflated and is not a final association conclusion."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "groups": 2,
+        "required_data": "ancestry axes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": false
+      },
+      "status": "refused",
+      "decision": "No ancestry or leading-axis data were released, so stratification cannot be computed."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "sample_size": 120,
+        "groups": 2,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0
+      },
+      "status": "success",
+      "decision": "Replication sample call-rate QC was computed, but no candidate-specific replication test was supplied."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "replication",
+        "sample_size": 120,
+        "groups": 2,
+        "nominated_candidates": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0
+      },
+      "status": "refused",
+      "decision": "No nominated discovery candidates were supplied; replication p-values and direction checks cannot be computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_retest_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333
+      }
+    },
+    {
+      "point": "variant_qc",
+      "chosen_branch": "retain_qc_passing_variants",
+      "observed": {
+        "snpsFailed": 12,
+        "snpsRetained": 138
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "stop_adjusted_association",
+      "observed": {
+        "lambdaGC": 8.698851990266833
+      }
+    },
+    {
+      "point": "replication_nomination",
+      "chosen_branch": "stop_reporting",
+      "observed": {
+        "nCandidates": 0,
+        "nReplicated": 0
+      }
+    }
+  ]
+}

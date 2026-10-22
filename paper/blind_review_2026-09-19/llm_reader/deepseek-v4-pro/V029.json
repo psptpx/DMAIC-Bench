@@ -1,0 +1,64 @@
+{
+ "reviewer_id": "human_black_belt_v029",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical validity review using Black Belt methods",
+ "blinding_compliance": "Read only the provided V029 packet; did not inspect other cases, coordinator data, scoring code, or other reviewers' outputs; no web search of the benchmark or paper name.",
+ "ai_assistance": "AI assistant used to read the packet, cross-check arithmetic in the reported quantitative steps, and draft this JSON output.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V029",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Concluding that the readings support high-confidence individual-unit acceptance or rejection decisions; the MSA result is below the 30% gate but marginal at 13.98% study variation and 14.26% tolerance.",
+    "Claiming any process-change or improvement effect because no post-change or verification batch was released.",
+    "Treating the 50-unit released run as a guaranteed future population or as a full production history."
+   ],
+   "permitted_at_checkpoint": [
+    "Using the released readings for process-level decisions, descriptive statistics, stability assessment, and capability analysis because GRR percent study variation is 13.98% <= 30% and NDC is 9.",
+    "Diagnostic analysis showing repeatability is the dominant GRR component and recommending measurement-system improvement.",
+    "Reporting the absence of post-change data as a missing-data gap and stopping that causal or improvement conclusion.",
+    "Future comparisons if a post-change batch and pre-specified comparison plan are created."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "After passing the MSA gate, the report ran standard process-level analyses: descriptive summary, I-MR control chart, normal capability, OLS trend, correlation, and one-sample t-test. These are acceptable under the conditions that the process sequence is independent, normality was not rejected for the normal-capability route, and the 50-unit run is treated as a released-sample description rather than a guaranteed future population.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Using percent tolerance or percent study variation as the GRR criterion; both were below 30% here.",
+    "Using non-normal capability or distribution-free capability if normality had been rejected; here normality was not rejected.",
+    "Using an EWMA or other time-series method if autocorrelation were present; the reported trend and correlation did not detect meaningful autocorrelation.",
+    "Improving repeatability and re-running crossed Gage R&R before using the system for individual-unit decisions."
+   ],
+   "evidence": [
+    "Submitted MSA outputs: percent study variation 13.984264130461085%, percent tolerance 14.259033002220269%, NDC 9, GRR standard deviation 4.75301100074009 cd/m2.",
+    "Report statement: 'The readings are usable for process-level decisions, but the measurement system is marginal and not strong enough for high-confidence individual-unit decisions.'",
+    "I-MR outputs: flagged points 0; process mean 446.866 cd/m2; UCL 509.43656; LCL 384.29544.",
+    "Capability outputs: Cp 1.598, Cpk 1.548, Pp 1.413, Ppk 1.369; below LSL 0, above USL 0.",
+    "Trend outputs: OLS slope 0.077 per unit, p-value 0.743; R-squared 0.2256%.",
+    "Post-change request outcome: 'unroutable' and report states no change effect can be computed."
+   ],
+   "rationale": "The MSA gate is met: GRR percent study variation is 13.98%, under the public threshold of 30%, with NDC 9. The measurement system is adequate for process-level use though marginal for individual-unit decisions, and the report states that limitation clearly. Subsequent process analyses are standard and internally consistent with the reported data. The report appropriately refuses to infer a change effect from missing post-change data.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from reported components: %SV=100*4.753011/33.988281=13.98%; %Tol=100*6*4.753011/200=14.259%; NDC=sqrt(2)*33.654303/4.753011=10.0, reported as integer 9. I-MR limits, capability indices, and one-sample t-statistic match the reported values. Raw data were not independently re-read from released_data.json in this review.",
+   "evidence_problem": "NONE materially; operator variance component is reported as 0.0, which is possible when operator mean square is small, but raw MSA data were not independently reanalyzed."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4945,
+  "completion_tokens": 9602,
+  "total_tokens": 14547,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 8464
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3281
+ }
+}

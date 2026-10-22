@@ -1,0 +1,142 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c41-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 0,
+        "sampleFailFraction": 0.0,
+        "samplesRetained": 240,
+        "minimumObservedCallRate": 0.9533333333333334,
+        "maximumObservedCallRate": 1.0,
+        "sampleCallRateThreshold": 0.95,
+        "maximumAllowedFailFraction": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "All released participants met the inclusive call-rate rule; the plate passes and does not require re-genotyping."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation failed before analysis because the requested scikit-learn module was unavailable; no result from this attempt was used."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 10,
+        "snpsRetained": 140,
+        "failedCallRate": 5,
+        "failedMaf": 3,
+        "failedHweControls": 2,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweControlPThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain only variants meeting all inclusive protocol criteria; exclude the ten listed in the report."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 140,
+        "groupCount": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 0.8990497051966733,
+        "pc1Statistic": 0.1269973760632533,
+        "pc1VarianceFraction": 0.02098564776332856,
+        "pc1RangesOverlap": true,
+        "affectedRetained": 120,
+        "unaffectedRetained": 120
+      },
+      "status": "success",
+      "decision": "NumPy SVD PCA found overlapping affected/unaffected PC1 ranges and no PC1 phenotype difference; groups are not separated, so use the unadjusted trend-test branch."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sampleCount": 240,
+        "variantCount": 140,
+        "groupCount": 2,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 0.8903762915485509,
+        "variantsTested": 140,
+        "familywiseAlpha": 0.05,
+        "bonferroniThreshold": 0.00035714285714285714,
+        "minimumPValue": 0.020881951144371365,
+        "maximumAbsoluteZ": 2.310112056199081
+      },
+      "status": "success",
+      "decision": "No retained variant met the Bonferroni-corrected declaration threshold."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_without_regenotyping",
+      "observed": {
+        "sampleFailFraction": 0.0,
+        "maximumAllowedFailFraction": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "variant_filter",
+      "chosen_branch": "test_retained_variants_only",
+      "observed": {
+        "snpsRetained": 140,
+        "snpsFailed": 10
+      }
+    },
+    {
+      "point": "ancestry_structure",
+      "chosen_branch": "unadjusted_additive_trend_test",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.8990497051966733,
+        "pc1RangesOverlap": true
+      }
+    },
+    {
+      "point": "association_declaration",
+      "chosen_branch": "no_association_declared",
+      "observed": {
+        "nSignificant": 0,
+        "bonferroniThreshold": 0.00035714285714285714,
+        "minimumPValue": 0.020881951144371365
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

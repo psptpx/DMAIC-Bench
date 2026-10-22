@@ -1,0 +1,83 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the baseline batch of sixty consecutive seal pull-strength measurements in build order.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the programme charter and seal-strength requirement, including the lower acceptance threshold and committed product-margin level.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Baseline sequence analysis is complete. Please release the screening run in which all three assembly settings were each varied at low and high levels twice over, including run order, factor levels, and seal strength.",
+    "stage_id": "screening_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "The screening factorial analysis found at least one significant factor. Please release the later composite response-surface design over the two selected settings, including coded factor values, seal strengths, and the five centre runs.",
+    "stage_id": "composite_design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "The quadratic composite-design analysis is complete. Please release the twenty seal strengths produced at the settings recommended by that design work, including their build order and the recommended setting values if held.",
+    "stage_id": "composite_design",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Please release the separate confirmation batch: the twenty seals made at the recommended settings. I need the twenty confirmation pull strengths, not the composite design runs.",
+    "stage_id": "confirmation_runs",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "Were the confirmation seals actually run at the quadratic model's coded stationary settings, and is there a documented process reason why their strength differs substantially from the model prediction?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  }
+]

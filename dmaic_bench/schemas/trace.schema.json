@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dmaic-bench/trace/v1",
+  "title": "DMAIC-Bench analysis trace",
+  "type": "object",
+  "required": ["system_id", "task_id", "steps"],
+  "properties": {
+    "system_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["method_id", "status"],
+        "properties": {
+          "step_id": {"type": "integer"},
+          "method_id": {"type": "string", "description": "canonical taxonomy id, e.g. anova.oneway"},
+          "inputs_digest": {"type": "object", "description": "shape summary of the inputs actually used"},
+          "outputs": {"type": "object", "description": "named scalar results; keys suffix-matched against ground truth"},
+          "status": {"enum": ["success", "failed", "refused"]},
+          "decision": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "route_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["point", "chosen_branch"],
+        "properties": {
+          "point": {"type": "string"},
+          "observed": {"type": "object"},
+          "chosen_branch": {"type": "string"}
+        }
+      }
+    },
+    "turns": {"type": "integer"},
+    "interventions": {"type": "integer"},
+    "wall_clock_s": {"type": "number"},
+    "token_cost": {"type": ["integer", "null"]}
+  }
+}

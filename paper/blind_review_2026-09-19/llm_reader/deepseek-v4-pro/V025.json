@@ -1,0 +1,70 @@
+{
+ "reviewer_id": "independent_human_black_belt_reviewer",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical Black Belt",
+ "blinding_compliance": "I reviewed only the blind/V025 packet and publicly accessible technical standards; I did not inspect the repository outside this directory, coordinator directory, hidden truth files, scoring code, other reviewers' outputs, or web search the benchmark. I did not consult or delegate to another reviewer.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V025",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Causal attribution of the baseline off-target condition to a specific applicator/nozzle; the one-way ANOVA does not identify one and absence of a significant difference is not equivalence.",
+    "Causal attribution of the post-change improvement to the unrecorded intervention or any named physical change; the pre/post comparison is observational.",
+    "Final declaration that the post-change process is stable and capable as a permanent state from only 20 provisional observations and provisional I-MR limits.",
+    "Use of post-change capability estimates as more than descriptive/provisional evidence without continued monitoring and recalculation."
+   ],
+   "permitted_at_checkpoint": [
+    "Proceeding with process analysis after the crossed gage R&R because GRR% is within the AIAG MSA-4 acceptance band and ndc>=5.",
+    "Describing the baseline with mean/median/sd/min/max and reporting all 125 readings above the 260 um USL.",
+    "Concluding baseline temporal stability using an X-bar/R chart of 25 ordered subgroups of 5 consecutive pieces under a point-limit screen, with no X-bar or range flags.",
+    "Computing normality-based capability indices for the stable baseline and concluding the baseline is incapable because it is centered above the upper specification limit.",
+    "Comparing applicator means with Levene's test and one-way ANOVA, concluding only that no single applicator is established as the cause and proposing a common-cause hypothesis.",
+    "Making a descriptive pre/post comparison, a provisional I-MR chart, and provisional post-change capability estimates, while explicitly treating them as limited and continuing monitoring.",
+    "Recommending preservation of the current post-change condition, documentation of settings, gauge repeatability improvement, and no individual-nozzle tuning without evidence."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Capability analysis, applicator ANOVA/Levene, post-change I-MR and capability, and pre/post descriptive comparison are valid follow-on analyses conditional on the stable baseline and on treating post-change results as provisional/observational. The report does exactly that. Step 13 repurposes descriptive statistic fields for change quantities, but the reported change values are arithmetically correct and traceable.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "X-bar/R for the 25 ordered subgroups if consecutive pieces form rational subgroups and autocorrelation is absent or minimal.",
+    "Normality-based capability after the Anderson-Darling test fails to reject normality in the stable baseline.",
+    "One-way ANOVA and Levene's test for applicator comparison, interpreted as a test of mean differences and not a demonstration of equivalence.",
+    "I-MR and provisional capability for the 20 post-change individuals as descriptive/provisional only, with continued monitoring and recalculated limits after a longer stable record."
+   ],
+   "evidence": [
+    "MSA crossed study: 90 readings, 3 operators, 10 parts, 3 replicates; percent study variation 12.27%, percent tolerance 11.35%, ndc 11.",
+    "Baseline descriptive: mean 291.34 um, median 291.13 um, sd 7.74 um, min 272.04 um, max 311.40 um, n=125.",
+    "Baseline control chart: X-bar center 291.34 um, UCL 301.45 um, LCL 281.23 um; R-bar 17.53 um, R UCL 37.05 um; 0 X-bar flags, 0 range flags.",
+    "Baseline capability: Cp 1.769, Cpk -1.386, Pp 1.722, Ppk -1.349; all 125 readings above 260 um, outside-specification rate 100%.",
+    "Applicator means: A 291.55, B 290.77, C 294.06, D 290.91; Levene p=0.309; ANOVA F=1.865, p=0.146.",
+    "Post-change descriptive: mean 219.25 um, sd 5.08 um, n=20, 0 outside 180-260 um.",
+    "Post-change I-MR: I UCL 237.42, I LCL 201.08; moving range UCL 22.32; 0 individual flags, 0 moving-range flags.",
+    "Pre/post change: mean shift -72.09 um, absolute target offset reduction 70.59 um, sd change -2.66 um, outside-specification rate change -100 percentage points."
+   ],
+   "rationale": "The measurement system passes the applicable AIAG MSA-4 gate (GRR 12.27% <=30%, ndc 11 >=5) with a recommendation to improve repeatability. The baseline is stable under the stated point-limit Shewhart screen and is correctly described as stable but off-target and incapable; the capability indices are arithmetically consistent with a center above the USL. The applicator analysis supports only absence of a demonstrated individual-nozzle effect, and the report properly refrains from naming one. The post-change analysis is appropriately treated as provisional and observational, not as proof of permanent stability or causal attribution. No material unsupported focal inference is made.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from the reported summary constants: X-bar UCL/LCL = 291.34136 +/- 0.577*17.52720 = 301.45/281.23; R UCL = 2.114*17.52720 = 37.0525; Cp = 80/(6*7.53534)=1.769; Cpk = (260-291.34136)/(3*7.53534)=-1.386; I-MR UCL/LCL = 219.24650 +/- 2.66*6.83158 = 237.42/201.08; MR UCL = 3.267*6.83158 = 22.3188; post Cpk lower = (219.2465-180)/(3*6.05636)=2.160. Pre/post mean difference = 219.2465-291.34136=-72.0949; sd difference = 5.07997-7.74221=-2.66224. Raw microdata were not independently recomputed.",
+   "evidence_problem": "NONE material; step 13 uses non-standard field aliases for pre/post change quantities, but the reported values are correctly computed and traceable."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5645,
+  "completion_tokens": 13532,
+  "total_tokens": 19177,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 11913
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3981
+ }
+}

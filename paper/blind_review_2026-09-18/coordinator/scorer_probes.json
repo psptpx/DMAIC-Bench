@@ -1,0 +1,63 @@
+{
+  "B011": {
+    "actual_verdict": [
+      "incorrect",
+      "divergent_evidence"
+    ],
+    "removed_methods_from_different_stage": [
+      "basic.one_sample_t"
+    ],
+    "scope_probe": [
+      "correct",
+      "abstention_corroborated"
+    ],
+    "hypothetical_equivalent_source_methods_added": [],
+    "scope_plus_equivalence_probe": [
+      "correct",
+      "abstention_corroborated"
+    ],
+    "note": "Diagnostic counterfactual of method-presence scoring only. No source artifacts or production labels were changed; added source methods are hypothetical representations of already-computed related tests, not new executions. Statistical equivalence must be assessed at the specific decision: a target proportion test and binomial capability are different outputs even when both establish the target relationship."
+  },
+  "B018": {
+    "actual_verdict": [
+      "incorrect",
+      "divergent_evidence"
+    ],
+    "removed_methods_from_different_stage": [
+      "capability.normal"
+    ],
+    "scope_probe": [
+      "unknown",
+      "none"
+    ],
+    "hypothetical_equivalent_source_methods_added": [
+      "regression.ols"
+    ],
+    "scope_plus_equivalence_probe": [
+      "correct",
+      "abstention_corroborated"
+    ],
+    "note": "Diagnostic counterfactual of method-presence scoring only. No source artifacts or production labels were changed; added source methods are hypothetical representations of already-computed related tests, not new executions. Statistical equivalence must be assessed at the specific decision: a target proportion test and binomial capability are different outputs even when both establish the target relationship."
+  },
+  "B002": {
+    "actual_verdict": [
+      "incorrect",
+      "divergent_evidence"
+    ],
+    "removed_methods_from_different_stage": [
+      "power.two_proportions"
+    ],
+    "scope_probe": [
+      "unknown",
+      "none"
+    ],
+    "hypothetical_equivalent_source_methods_added": [
+      "capability.binomial"
+    ],
+    "scope_plus_equivalence_probe": [
+      "correct",
+      "abstention_corroborated"
+    ],
+    "note": "Diagnostic counterfactual of method-presence scoring only. No source artifacts or production labels were changed; added source methods are hypothetical representations of already-computed related tests, not new executions. Statistical equivalence must be assessed at the specific decision: a target proportion test and binomial capability are different outputs even when both establish the target relationship."
+  }
+}

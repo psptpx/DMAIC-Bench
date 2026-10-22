@@ -1,0 +1,123 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "sampleFailLimit": 0.1,
+        "participantsRetained": 239,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119,
+        "failedParticipantCount": 1,
+        "totalParticipants": 240,
+        "failedParticipantIndex": 128
+      },
+      "status": "success",
+      "decision": "plate_passes_sample_QC"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 239,
+        "variants": 150,
+        "hwe_population": "unaffected"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "totalVariants": 150
+      },
+      "status": "success",
+      "decision": "retain_variants_passing_call_rate_MAF_and_control_HWE"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 239,
+        "variants": 137,
+        "axes_tested": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 2,
+        "pc1PValue": 0.5031215641305539
+      },
+      "status": "success",
+      "decision": "overlapping_structure_requires_PC_covariates"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 239,
+        "variants": 137,
+        "covariates": 2
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 0,
+        "lambdaGC": 2.7589520149947964,
+        "pc2PValue": 1.5825823445808038,
+        "bonferroniAlpha": 0.00036496350364963507,
+        "covariatesUsed": 2
+      },
+      "status": "success",
+      "decision": "no_adjusted_discovery_associations"
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidateVariants": 0
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationAlpha": 0.05
+      },
+      "status": "refused",
+      "decision": "no_candidates_were_nominated; replication_support_not_computable"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_retest_gate",
+      "chosen_branch": "do_not_re genotype; sample failure fraction below limit",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "include leading structure axes as covariates",
+      "observed": {
+        "pc2PValue": 1.5825823445808039e-139
+      }
+    },
+    {
+      "point": "replication_gate",
+      "chosen_branch": "stop reporting; no candidate list available",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

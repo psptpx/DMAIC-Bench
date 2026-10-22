@@ -1,0 +1,214 @@
+{
+  "turns": 1,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "source": "/workspace/data/define.json"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "lsl": 350.0,
+        "usl": 550.0,
+        "specWidth": 200.0,
+        "targetMean": 450.0
+      },
+      "status": "success",
+      "decision": "Profiled the released brightness specification: LSL=350, USL=550, width=200, midpoint target=450 cd/m2."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "msa",
+        "source": "/workspace/data/msa.json",
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "measurementCount": 90
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 13.984264130461085,
+        "percentTolerance": 14.259033002220269,
+        "ndc": 9,
+        "ndcRaw": 9.983685666830777,
+        "operators": 3,
+        "parts": 10,
+        "replicates": 3,
+        "measurementCount": 90,
+        "tolerance": 200.0,
+        "sigma2Repeatability": 21.241249330888724,
+        "sigma2Operator": 0.0,
+        "sigma2Interaction": 1.3498642422675833,
+        "sigma2GRR": 22.591113573156306,
+        "sigma2Part": 1132.6121377391812,
+        "sigma2Total": 1155.2032513123374,
+        "sdGRR": 4.75301100074009,
+        "sdPart": 33.65430340594173,
+        "sdTotal": 33.988281087932904,
+        "repeatabilityVariancePct": 1.8387456325766203,
+        "operatorVariancePct": 0.0,
+        "interactionVariancePct": 0.11685080012838489,
+        "grrVariancePct": 1.9555964327050053,
+        "partVariancePct": 98.044403567295
+      },
+      "status": "success",
+      "decision": "Measurement system is marginal: percent study variation is 13.98%, percent tolerance is 14.26%, and ndc is 9. The variability is dominated by repeatability; the operator variance component is zero."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "source": "/workspace/data/process_run.json",
+        "sampleSize": 50,
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "sampleSize": 50,
+        "n": 50,
+        "mean": 446.86600000000004,
+        "median": 446.85,
+        "stdDev": 23.58527394241533,
+        "skewness": -0.13349201373014186,
+        "adPValue": 0.9179899086225278,
+        "adStatistic": 0.1761778665738305,
+        "shapiroStatistic": 0.9862659511789769,
+        "shapiroPValue": 0.8243790243885181
+      },
+      "status": "success",
+      "decision": "Summary and normality checks show a roughly symmetric, approximately normal distribution (AD p=0.918, Shapiro p=0.824)."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "source": "/workspace/data/process_run.json",
+        "sampleSize": 50
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsCenterLine": 446.86600000000004,
+        "individualsUCL": 509.43656013894923,
+        "individualsLCL": 384.29543986105085,
+        "centerLine": 446.86600000000004,
+        "flaggedCount": 0,
+        "movingRangeCenterLine": 23.526530612244894,
+        "movingRangeUCL": 76.86117551020406,
+        "flaggedRangeCount": 0,
+        "sigmaWithin": 20.85685337964973
+      },
+      "status": "success",
+      "decision": "I-MR chart flags no individual or moving-range points; the process is stable across the released production sequence."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "process_run",
+        "source": "/workspace/data/process_run.json",
+        "sampleSize": 50,
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.5981956974323388,
+        "cpk": 1.54810824427481,
+        "pp": 1.4133112642540593,
+        "ppk": 1.3690180892323376,
+        "belowLsl": 0,
+        "aboveUsl": 0,
+        "outsideCount": 0,
+        "pctOutside": 0.0,
+        "sigmaWithin": 20.85685337964973,
+        "sigmaOverall": 23.58527394241533
+      },
+      "status": "success",
+      "decision": "Process capability is good against 350-550 cd/m2; no released reading was below LSL or above USL."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "process_run",
+        "source": "/workspace/data/process_run.json",
+        "sampleSize": 50
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.7432313497928538,
+        "rSquaredPct": 0.2256412107087713,
+        "rSquaredAdjPct": -1.8529912640681268,
+        "slope": 0.07685474189675591
+      },
+      "status": "success",
+      "decision": "OLS trend on production order is not significant (p=0.743); no drift is evident."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "process_run",
+        "source": "/workspace/data/process_run.json",
+        "sampleSize": 50
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.0475017063597499,
+        "pValue": 0.7432313497928463
+      },
+      "status": "success",
+      "decision": "Correlation between production order and brightness is negligible and not significant."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "process_run",
+        "source": "/workspace/data/process_run.json",
+        "sampleSize": 50
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": -0.9396001325442588,
+        "pValue": 0.3520316394297086,
+        "targetMean": 450.0,
+        "sampleMean": 446.86600000000004,
+        "sampleSize": 50
+      },
+      "status": "success",
+      "decision": "Process mean is not statistically distinguishable from the 450 cd/m2 midpoint of the accepted range."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_precondition_gate",
+      "chosen_branch": "Compute crossed Gage R&R and declare grr_pct before requesting the locked end-of-line record",
+      "observed": {
+        "grrPct": 13.984264130461085
+      }
+    },
+    {
+      "point": "process_control_chart_selection",
+      "chosen_branch": "I-MR individuals chart because the record is one brightness reading per production unit",
+      "observed": {
+        "sampleSize": 50
+      }
+    },
+    {
+      "point": "capability_method_selection",
+      "chosen_branch": "Normal capability because normality checks did not reject normality",
+      "observed": {
+        "adPValue": 0.9179899086225278,
+        "shapiroPValue": 0.8243790243885181
+      }
+    },
+    {
+      "point": "post_change_data_availability",
+      "chosen_branch": "Report unavailable post-change data rather than infer an unobserved change effect",
+      "observed": {
+        "requestOutcome": "unroutable",
+        "requestMessage": "no post-change data topic available"
+      }
+    }
+  ]
+}

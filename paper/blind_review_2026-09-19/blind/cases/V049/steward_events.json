@@ -1,0 +1,54 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Seal strength assembly by assembly, in the order built",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "The screening run: three settings at a low and a high level",
+    "stage_id": "screening_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "any_factor_significant=false",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "The composite design over two settings, centre run five times",
+    "stage_id": "composite_design",
+    "outcome": "refused",
+    "refusal": "locked",
+    "gate": "screening_significant",
+    "detail": "your declared any_factor_significant=false does not satisfy any_factor_significant == true [screening_significant; source: Montgomery DAOE 6e 11.2]",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Programme charter and the seal-strength requirement",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": false
+    }
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "define",
+        "recordCount": 1,
+        "fieldsProfiled": 3
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "recordCount": 1,
+        "lowerSpecificationLimit": 12.0,
+        "upperSpecificationLimit": 28.0,
+        "toleranceWidth": 16.0,
+        "toleranceConsistent": true
+      },
+      "status": "success",
+      "decision": "Profiled the charter and verified that its accepted range implies the tolerance supplied with the MSA."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "msa",
+        "sampleSize": 90,
+        "operatorGroups": 3,
+        "partGroups": 10,
+        "replicatesPerCell": 3
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 51.47332960673783,
+        "percentTolerance": 54.11088745228491,
+        "ndc": 2.3555431739844868,
+        "grandMean": 19.19262,
+        "measurementCount": 90,
+        "operatorCount": 3,
+        "partCount": 10,
+        "replicateCount": 3,
+        "repeatabilityVariance": 2.0132255837777775,
+        "operatorVariance": 0.06889931639917882,
+        "partVariance": 5.7764220834691375,
+        "interactionVariance": 0,
+        "grrVariance": 2.0821249001769564,
+        "totalVariance": 7.858546983646094,
+        "grrStudyVariation": 8.657741992365587,
+        "repeatabilityShareOfGrrVariancePct": 96.69091338404706,
+        "operatorShareOfGrrVariancePct": 3.309086615952923
+      },
+      "status": "success",
+      "decision": "Reject the measurement system for this application: %GRR is high and the number of distinct categories is low."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "requestedRecordType": "piece-by-piece production measurements"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Locked: the computed grr_pct does not satisfy the required msa_pass gate, so production readings cannot be reliably analyzed."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "repeat_msa",
+        "requestedRecordType": "crossed MSA after corrective action"
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {},
+      "status": "refused",
+      "decision": "No repeat corrective-action MSA record is available; measurement-system improvement cannot be verified."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_gate_to_process_analysis",
+      "chosen_branch": "stop_before_process_interpretation",
+      "observed": {
+        "grrPct": 51.47332960673783,
+        "maximumAcceptableGrrPct": 30.0,
+        "ndc": 2.3555431739844868,
+        "measurementCount": 90
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

@@ -1,0 +1,49 @@
+{
+ "reviewer_id": "expert_human_01",
+ "reviewer_type": "Human",
+ "perspective": "Industrial Statistician / Black Belt",
+ "blinding_compliance": "Complied fully with all blinding instructions. Did not inspect other directories, repositories, or reviewer outputs.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V037",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Asserting that the response surface model perfectly captures the true process behavior, given the significant lack-of-fit p-value.",
+    "Relying solely on the model's predicted optimum (64.28 N) to guarantee future process performance without acknowledging the model's uncertainty."
+   ],
+   "permitted_at_checkpoint": [
+    "Using the model's derived optimal settings as a directional guide or starting point.",
+    "Evaluating the physical confirmation runs to establish the actual process capability at the recommended settings.",
+    "Declaring practical process improvement based on the empirical confirmation data exceeding the product targets."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Testing, comparing, and computing capability on the physical confirmation runs is a valid and necessary empirical alternative to relying strictly on a response surface model that exhibits significant lack-of-fit.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Empirical validation of the recommended settings via confirmation runs to override or contextualize model-based uncertainty."
+   ],
+   "evidence": [
+    "lackOfFitPValue: 0.001898",
+    "predictedResponse: 64.28 N",
+    "confirmation mean: 59.27 N",
+    "Report quote: 'Because the response-surface model has significant lack of fit, the current recommended settings should be treated as a strong starting point rather than a fully validated optimum.'"
+   ],
+   "rationale": "The report correctly identifies the significant lack-of-fit in the response surface model and explicitly refrains from treating the model's exact predictions as absolute truth. It appropriately pivots to relying on the empirical evidence from the physical confirmation runs, noting the gap between prediction and actual performance while confirming the business requirement is met. This demonstrates excellent industrial statistical judgment, balancing a known model limitation with successful empirical confirmation.",
+   "confidence": 5,
+   "numerical_check": "Verified baseline t-test logic and standard descriptive calculations. Self-reported statistics logically match the reported conclusions.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5354,
+  "completion_tokens": 6349,
+  "total_tokens": 11703
+ }
+}

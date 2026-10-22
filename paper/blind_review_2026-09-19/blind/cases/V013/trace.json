@@ -1,0 +1,222 @@
+{
+  "turns": 1,
+  "interventions": 0,
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "control_chart.p",
+      "inputs_digest": {
+        "batch": "baseline",
+        "subgroups": 25,
+        "subgroup_size": 4000,
+        "total_inspected": 100000,
+        "total_defects": 546
+      },
+      "outputs": {
+        "centerLine": 0.00546,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "Baseline defect share is statistically in control: 0 of 25 lots outside 3-sigma p-chart limits (CL 0.5460%)."
+    },
+    {
+      "step_id": 2,
+      "method_id": "control_chart.laney_p",
+      "inputs_digest": {
+        "batch": "baseline",
+        "subgroups": 25,
+        "total_inspected": 100000
+      },
+      "outputs": {
+        "sigmaZ": 0.9569
+      },
+      "status": "success",
+      "decision": "sigmaZ < 1.1 confirms no meaningful overdispersion; the plain p-chart is the right chart and the stability verdict stands. Declared stable=true."
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.one_proportion",
+      "inputs_digest": {
+        "batch": "baseline",
+        "events": 546,
+        "trials": 100000,
+        "hypothesized_share": 0.0025,
+        "alternative": "greater",
+        "test": "exact binomial"
+      },
+      "outputs": {
+        "pValue": 4.22024e-59
+      },
+      "status": "success",
+      "decision": "Baseline defect share 0.546% is significantly ABOVE the committed 0.25% (p = 4.2e-59). Stable but not at the committed level."
+    },
+    {
+      "step_id": 4,
+      "method_id": "capability.binomial",
+      "inputs_digest": {
+        "batch": "baseline",
+        "events": 546,
+        "trials": 100000
+      },
+      "outputs": {
+        "avgP": 0.00546,
+        "processZ": 2.5452
+      },
+      "status": "success",
+      "decision": "Baseline binomial capability: avgP = 0.00546, processZ = 2.5452 - short of the level the 0.25% commitment implies."
+    },
+    {
+      "step_id": 5,
+      "method_id": "regression.ols",
+      "inputs_digest": {
+        "batch": "settings",
+        "n": 40,
+        "predictors": [
+          "paste_thickness",
+          "reflow_peak",
+          "paste_thickness*reflow_peak"
+        ],
+        "response": "lot_defect_share"
+      },
+      "outputs": {
+        "modelPValue": 1.20039e-06,
+        "rSquaredPct": 56.426,
+        "rSquaredAdjPct": 52.795,
+        "pasteThicknessPValue": 1.58787e-05,
+        "reflowPeakPValue": 3.64742e-05,
+        "interactionPValue": 1.21514e-05
+      },
+      "status": "success",
+      "decision": "Line settings account for the defect share: model p = 1.2e-06, adj R2 = 52.8%; paste_thickness, reflow_peak and their interaction are all significant (each p < 4e-05). Declared any_factor_significant=true."
+    },
+    {
+      "step_id": 6,
+      "method_id": "basic.two_proportions",
+      "inputs_digest": {
+        "batch": "before_after",
+        "before": {
+          "events": 237,
+          "trials": 40000
+        },
+        "after": {
+          "events": 135,
+          "trials": 40000
+        }
+      },
+      "outputs": {
+        "pValue": 1.15301e-07,
+        "zStatistic": 5.3008,
+        "beforeShare": 0.005925,
+        "afterShare": 0.003375,
+        "relativeReductionPct": 43.038
+      },
+      "status": "success",
+      "decision": "The change can be shown to have worked: defect share fell from 0.5925% to 0.3375% (z = 5.30, p = 1.15e-07), a 43.0% relative reduction."
+    },
+    {
+      "step_id": 7,
+      "method_id": "power.two_proportions",
+      "inputs_digest": {
+        "batch": "trial_size",
+        "alpha": 0.05,
+        "nPerGroup": 40000,
+        "p1": 0.0059,
+        "p2": 0.0025,
+        "alternative": "two-sided"
+      },
+      "outputs": {
+        "power": 1.0
+      },
+      "status": "success",
+      "decision": "The trial was run with power = 1.0 (computed > 0.999999, rounds to 1.0) at alpha = 0.05 for the design effect 0.0059 vs 0.0025, so the significant result in step 6 is trustworthy."
+    },
+    {
+      "step_id": 8,
+      "method_id": "control_chart.p",
+      "inputs_digest": {
+        "batch": "after_lots",
+        "subgroups": 20,
+        "subgroup_size": 4000,
+        "total_inspected": 80000,
+        "total_defects": 275
+      },
+      "outputs": {
+        "centerLine": 0.0034375,
+        "outOfControlCount": 0
+      },
+      "status": "success",
+      "decision": "Post-change process is in control at the new level: 0 of 20 lots outside limits (CL 0.34375%)."
+    },
+    {
+      "step_id": 9,
+      "method_id": "basic.one_proportion",
+      "inputs_digest": {
+        "batch": "after_lots",
+        "events": 275,
+        "trials": 80000,
+        "hypothesized_share": 0.0025,
+        "alternative": "greater",
+        "test": "exact binomial"
+      },
+      "outputs": {
+        "pValue": 2.84784e-07,
+        "excessVsTargetPct": 37.5,
+        "gapSharePoints": 0.0009375
+      },
+      "status": "success",
+      "decision": "The level reached since the change (0.34375%) is still significantly ABOVE the committed 0.25% (p = 2.85e-07) - about 37.5% over target. The commitment is not yet met."
+    },
+    {
+      "step_id": 10,
+      "method_id": "capability.binomial",
+      "inputs_digest": {
+        "batch": "after_lots",
+        "events": 275,
+        "trials": 80000
+      },
+      "outputs": {
+        "avgP": 0.0034375,
+        "processZ": 2.7028
+      },
+      "status": "success",
+      "decision": "Post-change binomial capability: avgP = 0.0034375, processZ = 2.7028 - improved from 2.5452 but still short of the commitment."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "baseline_stability",
+      "chosen_branch": "stable",
+      "observed": {
+        "outOfControlCount": 0,
+        "laneySigmaZ": 0.9569,
+        "centerLine": 0.00546
+      }
+    },
+    {
+      "point": "any_factor_significant",
+      "chosen_branch": "true",
+      "observed": {
+        "modelPValue": 1.20039e-06,
+        "interactionPValue": 1.21514e-05
+      }
+    },
+    {
+      "point": "change_effectiveness",
+      "chosen_branch": "effective_but_insufficient",
+      "observed": {
+        "zStatistic": 5.3008,
+        "pValue": 1.15301e-07,
+        "afterShare": 0.0034375,
+        "targetShare": 0.0025
+      }
+    },
+    {
+      "point": "what_was_changed",
+      "chosen_branch": "not_on_file",
+      "observed": {
+        "provision_outcome": "refused",
+        "refusal": "unroutable"
+      }
+    }
+  ]
+}

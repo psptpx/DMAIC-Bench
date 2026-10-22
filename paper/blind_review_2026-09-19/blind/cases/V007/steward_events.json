@@ -1,0 +1,101 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "project charter and the bore finish requirement, including the roughness specification and improvement target",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "the repeat readings of the same bores taken by several operators on the roughness tester - the measurement system study data",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "the per-bore roughness record in finishing order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "provision",
+    "text": "Is each roughness value in the per-bore production record a single reading taken by one operator, or an average of several traces?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "provision",
+    "text": "Do the three operators follow one documented measuring method on the roughness tester - same cutoff, traverse length, stylus and bore fixturing - and when was the tester last calibrated?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "readings taken after an improvement or process change was made to the honing line - the after-change trial data",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "control phase data: the ongoing monitoring readings and control plan used to hold the gain after the change",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "any designed experiment or factor study on honing variables such as stone grit, pressure, speed or dwell",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 13,
+    "action": "declare",
+    "text": "gageRRPercentTolerance=46.6735",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 14,
+    "action": "declare",
+    "text": "measurementSystemAcceptable=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 15,
+    "action": "declare",
+    "text": "processInControl=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  }
+]

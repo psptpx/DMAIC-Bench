@@ -1,0 +1,300 @@
+{
+  "system_id": "local-statistical-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "affectedRetained": 119,
+        "unaffectedRetained": 118,
+        "sampleCallMinimum": 0.94,
+        "sampleCallThreshold": 0.95,
+        "plateFailThreshold": 0.1
+      },
+      "status": "success",
+      "decision": "Plate acceptable",
+      "inputs_digest": {
+        "batch": "genotypes"
+      }
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "callFailed": 6,
+        "mafFailed": 4,
+        "hweFailed": 3,
+        "variantCallThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain only variants passing all rules",
+      "inputs_digest": {
+        "batch": "genotypes"
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 0.939778863712323,
+        "pc1VarianceFraction": 0.02276690808334021,
+        "pc1RangeOverlap": true,
+        "pc2PValue": 0.32951000314407763,
+        "pc2VarianceFraction": 0.020719631284483415,
+        "pc2RangeOverlap": true,
+        "pc3PValue": 0.4596422667923362,
+        "pc3VarianceFraction": 0.020351719092228087,
+        "pc3RangeOverlap": true,
+        "pc4PValue": 0.3171412622582263,
+        "pc4VarianceFraction": 0.01992616598785838,
+        "pc4RangeOverlap": true,
+        "pc5PValue": 0.02659641854927202,
+        "pc5VarianceFraction": 0.019921218687468826,
+        "pc5RangeOverlap": true,
+        "pc6PValue": 0.02698148029659702,
+        "pc6VarianceFraction": 0.019125499819168446,
+        "pc6RangeOverlap": true,
+        "pc7PValue": 0.9411956508556956,
+        "pc7VarianceFraction": 0.018205104525363842,
+        "pc7RangeOverlap": true,
+        "pc8PValue": 0.6888227106728744,
+        "pc8VarianceFraction": 0.017901843894494535,
+        "pc8RangeOverlap": true,
+        "pc9PValue": 0.04604850125857919,
+        "pc9VarianceFraction": 0.01751948364368314,
+        "pc9RangeOverlap": true,
+        "pc10PValue": 0.4221705205886451,
+        "pc10VarianceFraction": 0.017132758742547907,
+        "pc10RangeOverlap": true,
+        "separated": false,
+        "separatedAxis": 0,
+        "axesChecked": 10,
+        "minMultiplicityAdjustedAxisPValue": 0.2659641854927202
+      },
+      "status": "success",
+      "decision": "No nonoverlapping leading axis or multiplicity-significant phenotype difference; proceed without ancestry adjustment. Candidate-panel PCA is not a genome-wide ancestry guarantee.",
+      "inputs_digest": {
+        "batch": "genotypes"
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.115940928253286,
+        "bonferroniThreshold": 0.00036496350364963507,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "No leading ancestry separation; unadjusted additive score/trend scan. Later nominal axis differences do not survive correction across inspected axes.",
+      "inputs_digest": {
+        "batch": "genotypes"
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.7865156483986326,
+        "ciLower": 2.4702621688129605,
+        "ciUpper": 5.804121091510477,
+        "pValue": 5.253540318605901e-11,
+        "beta": 1.331446242244736
+      },
+      "status": "success",
+      "decision": "rs000008 per coded allele; logistic Wald CI and trend p-value",
+      "inputs_digest": {
+        "batch": "genotypes"
+      }
+    },
+    {
+      "step_id": 6,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.016666666666666666,
+        "samplesRetained": 118,
+        "affectedRetained": 59,
+        "unaffectedRetained": 59,
+        "sampleCallMinimum": 0.9466666666666667,
+        "sampleCallThreshold": 0.95,
+        "plateFailThreshold": 0.1
+      },
+      "status": "success",
+      "decision": "Plate acceptable",
+      "inputs_digest": {
+        "batch": "replication"
+      }
+    },
+    {
+      "step_id": 7,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 10,
+        "snpsRetained": 140,
+        "callFailed": 6,
+        "mafFailed": 4,
+        "hweFailed": 0,
+        "variantCallThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain only variants passing all rules",
+      "inputs_digest": {
+        "batch": "replication"
+      }
+    },
+    {
+      "step_id": 8,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "pc1PValue": 0.8045514412842651,
+        "pc1VarianceFraction": 0.029875924088860452,
+        "pc1RangeOverlap": true,
+        "pc2PValue": 0.38644226837668394,
+        "pc2VarianceFraction": 0.02879380273665429,
+        "pc2RangeOverlap": true,
+        "pc3PValue": 0.743053270389396,
+        "pc3VarianceFraction": 0.027724490181043827,
+        "pc3RangeOverlap": true,
+        "pc4PValue": 0.8910273659064467,
+        "pc4VarianceFraction": 0.027131776308743315,
+        "pc4RangeOverlap": true,
+        "pc5PValue": 0.5361478564648073,
+        "pc5VarianceFraction": 0.024632067520156366,
+        "pc5RangeOverlap": true,
+        "pc6PValue": 0.8288007932812606,
+        "pc6VarianceFraction": 0.024138985497982744,
+        "pc6RangeOverlap": true,
+        "pc7PValue": 0.5795974508382722,
+        "pc7VarianceFraction": 0.023574526104661722,
+        "pc7RangeOverlap": true,
+        "pc8PValue": 0.475925207563197,
+        "pc8VarianceFraction": 0.023141289906923636,
+        "pc8RangeOverlap": true,
+        "pc9PValue": 0.3233640191533629,
+        "pc9VarianceFraction": 0.022446994098879392,
+        "pc9RangeOverlap": true,
+        "pc10PValue": 0.23138658222921044,
+        "pc10VarianceFraction": 0.02217089314144602,
+        "pc10RangeOverlap": true,
+        "separated": false,
+        "separatedAxis": 0,
+        "axesChecked": 10,
+        "minMultiplicityAdjustedAxisPValue": 1
+      },
+      "status": "success",
+      "decision": "No nonoverlapping leading axis or multiplicity-significant phenotype difference; proceed without ancestry adjustment. Candidate-panel PCA is not a genome-wide ancestry guarantee.",
+      "inputs_digest": {
+        "batch": "replication"
+      }
+    },
+    {
+      "step_id": 9,
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.0972325857441465,
+        "pValue": 4.031318359856021e-05,
+        "beta": 1.1305089985083243,
+        "sameDirection": true,
+        "variantPass": true,
+        "nCalled": 117
+      },
+      "status": "success",
+      "decision": "Replication rs000008",
+      "inputs_digest": {
+        "batch": "replication"
+      }
+    },
+    {
+      "step_id": 10,
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1
+      },
+      "status": "success",
+      "decision": "Independent same-direction replication at protocol alpha",
+      "inputs_digest": {
+        "batch": "replication"
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "retain_passing_participants",
+      "observed": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "affectedRetained": 119,
+        "unaffectedRetained": 118,
+        "sampleCallMinimum": 0.94,
+        "sampleCallThreshold": 0.95,
+        "plateFailThreshold": 0.1
+      }
+    },
+    {
+      "point": "ancestry",
+      "chosen_branch": "comparable_unadjusted_trend",
+      "observed": {
+        "pc1PValue": 0.939778863712323,
+        "pc1VarianceFraction": 0.02276690808334021,
+        "pc1RangeOverlap": true,
+        "pc2PValue": 0.32951000314407763,
+        "pc2VarianceFraction": 0.020719631284483415,
+        "pc2RangeOverlap": true,
+        "pc3PValue": 0.4596422667923362,
+        "pc3VarianceFraction": 0.020351719092228087,
+        "pc3RangeOverlap": true,
+        "pc4PValue": 0.3171412622582263,
+        "pc4VarianceFraction": 0.01992616598785838,
+        "pc4RangeOverlap": true,
+        "pc5PValue": 0.02659641854927202,
+        "pc5VarianceFraction": 0.019921218687468826,
+        "pc5RangeOverlap": true,
+        "pc6PValue": 0.02698148029659702,
+        "pc6VarianceFraction": 0.019125499819168446,
+        "pc6RangeOverlap": true,
+        "pc7PValue": 0.9411956508556956,
+        "pc7VarianceFraction": 0.018205104525363842,
+        "pc7RangeOverlap": true,
+        "pc8PValue": 0.6888227106728744,
+        "pc8VarianceFraction": 0.017901843894494535,
+        "pc8RangeOverlap": true,
+        "pc9PValue": 0.04604850125857919,
+        "pc9VarianceFraction": 0.01751948364368314,
+        "pc9RangeOverlap": true,
+        "pc10PValue": 0.4221705205886451,
+        "pc10VarianceFraction": 0.017132758742547907,
+        "pc10RangeOverlap": true,
+        "separated": false,
+        "separatedAxis": 0,
+        "axesChecked": 10,
+        "minMultiplicityAdjustedAxisPValue": 0.2659641854927202
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "report_replicated_association",
+      "observed": {
+        "nReplicated": 1,
+        "nCandidates": 1
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

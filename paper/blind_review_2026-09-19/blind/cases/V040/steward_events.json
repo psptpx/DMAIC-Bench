@@ -1,0 +1,137 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "project charter, the candidate cause under test, and the hardness requirement/spec",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "the repeat readings of the same shafts measured several times by several operators on the hardness tester (measurement system study)",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=12.7005",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 12.7005
+    }
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "ndc=11",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "the sixty consecutive shafts' hardness readings shaft by shaft in the order they were run",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "the baseline record: hardness shaft by shaft in shaft order",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "hardness sampled recipe by recipe, under each of the three recipes",
+    "stage_id": "recipes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "the leading two recipes, head to head sample",
+    "stage_id": "leading_two",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "In the sixty-shaft run-order record, the level steps up by about 4 HRC around the thirtieth shaft. Was there a known process event at that point, for example a change of heat-treat recipe, and were those sixty shafts all run under one recipe or more than one?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "Is there a specification or engineering requirement for case-surface hardness in HRC - a lower spec limit, upper spec limit or target - that we should judge these readings against?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 13,
+    "action": "request",
+    "text": "the hardness specification limits and tolerance for a capability study of case-surface hardness",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 14,
+    "action": "request",
+    "text": "the control plan and post-change monitoring data for holding the gain",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 12.7005,
+      "ndc": 11.0
+    }
+  }
+]

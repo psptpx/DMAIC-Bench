@@ -1,0 +1,163 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "nLibraries": 12,
+        "nGroups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "requiredReplicates": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All libraries met both usability rules and each arm retained the required replication."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "nUsable": 12,
+        "nConditions": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "nuisanceRank": 1,
+        "fullRank": 2,
+        "nUsable": 12
+      },
+      "status": "success",
+      "decision": "Treatment is estimable because adding treatment increases design rank; both arms share the single preparation batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "nGenes": 400,
+        "nSamples": 12,
+        "nGroups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40,
+        "nGenes": 400,
+        "nSamples": 12,
+        "nControl": 6,
+        "nTreated": 6,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "fitFailures": 22,
+        "failedFitsCalled": 0
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization followed by per-gene NB2 GLMs, Wald tests, and BH adjustment called genes meeting both strict thresholds; no called gene had a failed optimizer status."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "nGenes": 400,
+        "nSamples": 12,
+        "nGroups": 2
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 1.6282090640370763e-07,
+        "nNominalSignificant": 48,
+        "alpha": 0.05
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis used two-sided Welch tests on log2 normalized counts with a half-count; it was not the prespecified calling rule."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "validation",
+        "nCandidates": 10,
+        "replicatesPerArm": 4
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {},
+      "status": "failed",
+      "decision": "The initial Welch-test computation reached JSON serialization but failed because a NumPy integer was not serializable; it was rerun successfully in the next step."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "validation",
+        "nCandidates": 10,
+        "nGroups": 2
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 0.0,
+        "nConfirmed": 0,
+        "nCandidates": 10,
+        "directionMatches": 6,
+        "alpha": 0.05,
+        "requiredConcordance": 0.75,
+        "validationPassed": false
+      },
+      "status": "success",
+      "decision": "Welch two-sample tests on independent qPCR log2 values found directional significance for only the confirmed subset; concordance failed the release rule."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked because computed validation concordance did not meet the facility criterion; enrichment was not computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "continue_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "estimable_simple_contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "concordance": 0.0,
+        "requiredConcordance": 0.75
+      }
+    },
+    {
+      "point": "enrichment_gate",
+      "chosen_branch": "stop_locked",
+      "observed": {
+        "validationPassed": false
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

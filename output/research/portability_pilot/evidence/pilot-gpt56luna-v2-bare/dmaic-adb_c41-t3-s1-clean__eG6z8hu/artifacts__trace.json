@@ -1,0 +1,110 @@
+{
+  "system_id": "openai-command-line-analysis",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "number_of_groups": 2,
+        "groups_affected": 120,
+        "groups_unaffected": 120,
+        "number_of_variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "sampleSize": 240,
+        "affectedCount": 120,
+        "unaffectedCount": 120,
+        "minSampleCallRate": 0.94,
+        "minSampleCallRateThreshold": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "plate_passes_participant_qc"
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "number_of_variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "panelVariants": 150,
+        "minVariantCallRateThreshold": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "retain_variants_passing_call_rate_maf_and_control_hwe"
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sample_size": 240,
+        "number_of_groups": 2,
+        "number_of_variants_tested": 138
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 37,
+        "lambdaGC": 4.757245375911504,
+        "bonferroniAlpha": 0.00036231884057971015,
+        "associationAlpha": 0.05,
+        "retainedVariantsTested": 138
+      },
+      "status": "success",
+      "decision": "discovery_hits_observed_but_inflation_requires_replication"
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "replication",
+        "sample_size": 120,
+        "number_of_groups": 2,
+        "number_of_variants": 150
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationSampleSize": 120,
+        "replicationAffectedCount": 60,
+        "replicationUnaffectedCount": 60,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "replication_not_assessable_no_discovery_hit_was_nominated"
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "participant_qc_gate",
+      "chosen_branch": "pass",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "replication_nomination",
+      "chosen_branch": "no_candidates_available",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

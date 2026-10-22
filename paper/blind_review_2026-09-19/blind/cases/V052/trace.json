@@ -1,0 +1,285 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage_id": "study_1",
+        "ratings": 120,
+        "appraisers": 3,
+        "trials": 2,
+        "boards": 20
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.7802197802,
+        "agreementPct": 95.0,
+        "overallKappa": 0.8901098901,
+        "overallAgreementPct": 95.0,
+        "minAppraiserKappa": 0.7802197802,
+        "maxAppraiserKappa": 0.9459459459,
+        "minAppraiserAgreementPct": 90.0,
+        "maxAppraiserAgreementPct": 97.5,
+        "minTrialKappa": 0.6590909091,
+        "minTrialAgreementPct": 85.0,
+        "appraiserCount": 3,
+        "trialCount": 2,
+        "boardCount": 20,
+        "ratingCount": 120
+      },
+      "status": "success",
+      "decision": "Before rewrite: overall agreement 95.00 percent and overall kappa 0.890; weakest appraiser kappa 0.780."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage_id": "study_2",
+        "ratings": 120,
+        "appraisers": 3,
+        "trials": 2,
+        "boards": 20
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.9473684211,
+        "agreementPct": 98.3333333333,
+        "overallKappa": 0.965034965,
+        "overallAgreementPct": 98.3333333333,
+        "minAppraiserKappa": 0.9473684211,
+        "maxAppraiserKappa": 1.0,
+        "minAppraiserAgreementPct": 97.5,
+        "maxAppraiserAgreementPct": 100.0,
+        "minTrialKappa": 0.8936170213,
+        "minTrialAgreementPct": 95.0,
+        "appraiserCount": 3,
+        "trialCount": 2,
+        "boardCount": 20,
+        "ratingCount": 120
+      },
+      "status": "success",
+      "decision": "After rewrite: overall agreement 98.33 percent, overall kappa 0.965, weakest appraiser kappa 0.947."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage_id": "lots",
+        "lots": 25,
+        "totalInspected": 10000,
+        "totalRejected": 131
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 0.0131,
+        "median": 0.0125,
+        "stdDev": 0.0055565277,
+        "skewness": 0.7354284315,
+        "adPValue": 0.2716773932,
+        "meanPct": 1.31,
+        "medianPct": 1.25,
+        "stdDevPct": 0.5556527693,
+        "minProportion": 0.005,
+        "minPct": 0.5,
+        "maxProportion": 0.0275,
+        "maxPct": 2.75,
+        "lotCount": 25,
+        "totalInspected": 10000,
+        "totalRejected": 131,
+        "meanCount": 5.24,
+        "varianceCounts": 4.94,
+        "expectedVarianceUnderPbar": 5.171356
+      },
+      "status": "success",
+      "decision": "Lot reject share averaged 1.31 percent across 25 lots."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "stage_id": "lots",
+        "lots": 25,
+        "totalInspected": 10000,
+        "test": "homogeneity_of_reject_proportions"
+      },
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 22.9262885789,
+        "pValue": 0.5241529976,
+        "degreesOfFreedom": 24
+      },
+      "status": "success",
+      "decision": "No evidence that reject share differs across lots."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "stage_id": "lots",
+        "subgroups": 25,
+        "centerLine": 0.0131
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0131,
+        "outOfControlCount": 0,
+        "upperControlLimit": 0.0301554617,
+        "upperControlLimitPct": 3.0155461735,
+        "lowerControlLimit": 0.0,
+        "controlChartSubgroups": 25
+      },
+      "status": "success",
+      "decision": "No out-of-control lots in the p-chart."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "stage_id": "lots",
+        "subgroups": 25,
+        "cutoff": "mean"
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.2864220228,
+        "runs": 16,
+        "nAbove": 10,
+        "nBelow": 15,
+        "zStatistic": 1.0660035818
+      },
+      "status": "success",
+      "decision": "No evidence of nonrandom clustering across lot counts."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "stage_id": "lots",
+        "totalInspected": 10000,
+        "totalRejected": 131,
+        "targetProportion": 0.02
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 8.283305126e-07,
+        "zStatistic": -4.9285714286,
+        "observedProportion": 0.0131,
+        "targetProportion": 0.02,
+        "totalInspected": 10000,
+        "totalRejected": 131,
+        "exactPValue": 2.095021886e-07,
+        "exactOneSidedPValue": 9.80374817e-08,
+        "ci95Low": 0.0109641385,
+        "ci95High": 0.0155259472
+      },
+      "status": "success",
+      "decision": "Overall reject share is significantly below the required 2.00 percent."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "stage_id": "lots",
+        "totalInspected": 10000,
+        "totalRejected": 131,
+        "targetProportion": 0.02
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 2.2232343755,
+        "avgP": 0.0131,
+        "targetP": 0.02,
+        "zAgainstTarget": 4.9285714286,
+        "totalInspected": 10000,
+        "totalRejected": 131
+      },
+      "status": "success",
+      "decision": "Observed reject rate corresponds to a binomial process Z of 2.223."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "stage_id": "heads",
+        "head1Placed": 3000,
+        "head2Placed": 3000,
+        "head1Rejected": 54,
+        "head2Rejected": 47
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.4823901395,
+        "zStatistic": 0.7024635275,
+        "head1Proportion": 0.018,
+        "head2Proportion": 0.0156666667,
+        "head1Pct": 1.8,
+        "head2Pct": 1.5666666667,
+        "head1Rejected": 54,
+        "head1Placed": 3000,
+        "head2Rejected": 47,
+        "head2Placed": 3000,
+        "difference": 0.0023333333,
+        "pooledProportion": 0.0168333333
+      },
+      "status": "success",
+      "decision": "No statistically significant difference between the two placement heads."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "stage_id": "disagreements",
+        "categories": 5,
+        "totalCount": 90
+      },
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryPct": 46.6666666667,
+        "topCategoryCount": 42,
+        "totalCount": 90,
+        "insufficientSolderPct": 46.6666666667,
+        "insufficientSolderCount": 42,
+        "solderBridgeCount": 16,
+        "solderBridgePct": 17.7777777778,
+        "tombstoneCount": 13,
+        "tombstonePct": 14.4444444444,
+        "componentOffsetCount": 11,
+        "componentOffsetPct": 12.2222222222,
+        "wrongPolarityCount": 8,
+        "wrongPolarityPct": 8.8888888889
+      },
+      "status": "success",
+      "decision": "Insufficient solder is the largest mismatch category at 46.67 percent of mismatches."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "accept_reject_reliability",
+      "chosen_branch": "criteria_rewrite_improved_agreement",
+      "observed": {
+        "beforeKappaMin": 0.7802197802,
+        "afterKappaMin": 0.9473684211,
+        "beforeAgreementPct": 95.0,
+        "afterAgreementPct": 98.3333333333
+      }
+    },
+    {
+      "point": "reject_share_stability",
+      "chosen_branch": "no_evidence_of_shift",
+      "observed": {
+        "chiSquarePValue": 0.5241529976,
+        "runsPValue": 0.2864220228,
+        "pChartOutOfControlCount": 0
+      }
+    },
+    {
+      "point": "level_vs_required",
+      "chosen_branch": "below_required_level",
+      "observed": {
+        "observedProportion": 0.0131,
+        "targetProportion": 0.02,
+        "oneProportionPValue": 8.283305126e-07
+      }
+    },
+    {
+      "point": "placement_head_difference",
+      "chosen_branch": "no_significant_difference",
+      "observed": {
+        "pValue": 0.4823901395,
+        "zStatistic": 0.7024635275
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

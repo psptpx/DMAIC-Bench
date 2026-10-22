@@ -1,0 +1,20 @@
+{
+  "R1": {
+    "review_json": "R1/output/review_R1.json",
+    "review_sha256": "99708e4bfc4b8cc438a74598e6d1ca8da536fbc81cf69159206ac8580fd49243",
+    "synthesis_md": "R1/output/synthesis_R1.md",
+    "synthesis_sha256": "3b17f6259d8bd04fb548252dbf4bf298e46471c90b4ea8c876f0e4296cf585bd"
+  },
+  "R2": {
+    "review_json": "R2/output/review_R2.json",
+    "review_sha256": "dca6f5ae23149e00a37f3db093f23e3900997d56fbafd9b972aa83c10a0bb488",
+    "synthesis_md": "R2/output/synthesis_R2.md",
+    "synthesis_sha256": "f1b281a2513b42514ab02dc26e81f478b6f8ed5f87bf92c8f97ab475fa47fd59"
+  },
+  "R3": {
+    "review_json": "R3/output/review_R3.json",
+    "review_sha256": "2d3add11b0742dc67896e30a5ffc3d830c65c56275bc2f957c552611a132036d",
+    "synthesis_md": "R3/output/synthesis_R3.md",
+    "synthesis_sha256": "e739579cbe96088525581ec2e1417a99f80eaf5e0e83d318cd242edcb4274c14"
+  }
+}

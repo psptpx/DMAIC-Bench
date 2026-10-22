@@ -1,0 +1,83 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Provide the baseline batch of sixty consecutive seal-strength pull tests in build order.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Provide the programme charter, seal-strength specification, and committed product-margin requirement.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Provide the complete screening run in which three assembly settings were each run at low and high levels with two replicates, including run order, factor levels, and seal strength.",
+    "stage_id": "screening_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Provide the later composite response-surface design over bond angle and bead spacing, including all factor settings, coded or actual units, run responses, and the five centre runs.",
+    "stage_id": "composite_design",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Provide all twenty seal-strength results made at the settings recommended from the composite design, in build order, together with the implemented coded bond-angle and bead-spacing settings.",
+    "stage_id": "composite_design",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Provide the recommended settings confirmation seals batch: the twenty seal strength results.",
+    "stage_id": "confirmation_runs",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "provision",
+    "text": "What bond-angle and bead-spacing settings were actually recommended and used for the twenty confirmation seals, in coded and physical units if known, and was cure temperature held fixed?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "any_factor_significant": true
+    }
+  }
+]

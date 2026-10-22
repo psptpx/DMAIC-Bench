@@ -1,0 +1,100 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Release the inspected and defective counts for the twenty-five consecutive baseline lots.",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Release the project charter, committed defect share, and improvement target.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "stable=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "stable": true
+    }
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Release the per-lot line settings alongside each lot's defect share.",
+    "stage_id": "settings",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "any_factor_significant=true",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Release the inspected and defective totals for the window before the line change and the window after the line change.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Inspected and defective totals either side of the change (before and after the change/trial totals).",
+    "stage_id": "before_after",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Release the per-lot inspected and defective counts since the change, the new level lots.",
+    "stage_id": "after_lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "Release the size and risk level the before-and-after trial was run at.",
+    "stage_id": "trial_size",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "stable": true,
+      "any_factor_significant": true
+    }
+  }
+]

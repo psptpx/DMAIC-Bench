@@ -1,0 +1,58 @@
+{
+ "blind_id": "V058",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Conclude that the baseline has a stable reject probability or supports prospective capability merely because no point exceeds three-sigma limits.",
+  "Treat historical recorded rejects as validated true defects simply because a subsequent retained-board agreement study improved; historical classification accuracy requires independent validation or reinspection.",
+  "Attribute the detected archive change to the criteria rewrite without implementation timing and evidence separating measurement change from physical process change.",
+  "Claim verified current board-level target failure or a validated physical head effect without confirming the placement-count unit and whether the window used the validated inspection criteria.",
+  "Treat the selected late-segment interval as an ordinary confirmatory interval or use its lack of significance to establish target attainment."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the archive's observed reject fractions, chart signals, trend, and selection-adjusted split comparison as analyses of recorded calls, conditional on the relevant sampling assumptions.",
+  "Withhold stable capability and project closure while investigating the temporal change.",
+  "Describe the supplied placement-window rates and head association, and prioritize a precautionary Head 1 investigation without claiming a physical root cause.",
+  "Maintain the revised inspection criteria, audit performance on representative new boards, and obtain the missing implementation and window-timing facts.",
+  "Make confirmatory target comparisons on a prospectively defined, correctly denominated window collected using validated inspection, with dependence and product mix addressed."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "The numerical lot record was not interpreted as proof of true defect level until the measurement issue was addressed.",
+  "The current placement window is above requirement: **202/6,000 = 3.367%**, with a 95% Wilson interval from **2.939% to 3.854%**; the binomial upper-tail test against 2.0% gives p = **3.217e-12**.",
+  "The attribution gap is limited to unavailable process-timing facts; it does not undermine the computed MSA improvement, the observed lot shift, or the current head comparison."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The trend, runs test, and split search are defensible complementary diagnostics rather than prohibited substitutes for a p chart. Multiplying the selected split p-value by all 24 tested splits appropriately addresses that particular search, assuming valid component tests. The head comparison can support investigation as an observational association, not causality. However, later measurement repair does not validate earlier classifications, and the missing linkage between the placement window and validated inspection limits substantive interpretation of its tests. The pooled archive binomial capability calculation lacks a common stable probability; it can describe aggregate recorded performance but should not imply stable capability. The late-segment Wilson interval and target test are post-selection results and need stronger qualification than an ordinary nominal confidence statement.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Use the multiplicity-adjusted change-point analysis to flag nonconstant recorded reject behavior, provided within-lot dependence and the calibration of the two-proportion tests are defensible; do not identify the split as the intervention date.",
+  "Use lot-level binomial regression or a dependence-aware temporal analysis to investigate recorded-rate changes, with dispersion and serial dependence checked and the analysis family disclosed.",
+  "Use descriptive head-rate differences to prioritize reversible containment and investigation, followed by contemporaneous validated inspection and adjustment or matching for product mix, time, and routing.",
+  "Evaluate target performance on a prespecified post-repair window with confirmed board-level denominators; use a cluster-aware analysis if repeated placements or shared lot conditions create dependence.",
+  "Reinspect a representative historical sample against the revised reference standard before interpreting the archived series as true defect performance."
+ ],
+ "evidence": [
+  "Step 7 reports 311 rejects among 10,000 inspections, a center line of 0.0311, and zero three-sigma exceedances.",
+  "Steps 9\u201311 report a runs-test p-value of 0.154355, a trend p-value of 0.040377, and a selected split p-value of 0.000428159 adjusted to 0.010275825 across 24 candidates.",
+  "The report explicitly says it lacks a process fact tying the rewrite to lot 17 and declines exact attribution.",
+  "Step 21 records zero matching facts for the placement window's timing relative to the rewrite.",
+  "The original business description supplies rejected and placed counts by head; the report labels their pooled denominator as boards without demonstrating the equivalence in the provided record.",
+  "The report explicitly recommends: \u201cDo not declare the line capable.\u201d",
+  "The report states: \u201cThe supplied data identify the head difference, not its physical root cause.\u201d"
+ ],
+ "rationale": "The substantive stable-capability gate should remain stopped, but descriptive analysis and a head-focused investigation need not stop. The report correctly rejects the inference that zero chart exceedances prove steadiness, corrects for its split search, refuses exact intervention attribution, and withholds capability. Those are substantial strengths. Its material weakness is treating successful later MSA as sufficient to interpret historical and temporally unlinked placement calls substantively. The timing gap concerns measurement validity as well as causal attribution. The current-window arithmetic is convincing for recorded counts, but its board-level and validated-current-output interpretation is not established by this packet. Precautionary containment is nevertheless reasonable and does not require a proven physical cause.",
+ "confidence": 3,
+ "numerical_check": "Checked arithmetic from supplied aggregates: 311/10000 = 3.11%; 240/6800 = 3.5294%; 71/3200 = 2.21875%; 24 \u00d7 0.000428159364 = 0.010275824736; 202/6000 = 3.3667%; 202 \u2212 0.02 \u00d7 6000 = 82; (128 \u2212 74)/3000 = 1.8 percentage points. With equal 400-board lots, the reported whole-series center implies approximate p-chart limits of 0.00506 and 0.05714. Individual lot signals, regression, agreement statistics, confidence intervals, and exact test tails remain self-report-only because raw files were not accessible in the supplied conversation.",
+ "evidence_problem": "Missing historical revalidation, criteria-implementation timing, placement-window linkage to validated inspection, and explicit confirmation that placed counts are distinct inspected boards. Raw batches and service files were referenced but not supplied here. Review used only the supplied packet, with no outside files, other reviewers, or web sources consulted. This assessment was produced by an AI assistant, not an independent human expert.",
+ "_usage": {
+  "prompt_tokens": 6562,
+  "completion_tokens": 1513,
+  "total_tokens": 8075,
+  "completion_tokens_details": {
+   "reasoning_tokens": 47
+  }
+ }
+}

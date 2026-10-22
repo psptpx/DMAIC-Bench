@@ -1,0 +1,384 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "controlRetained": 6,
+        "treatedRetained": 6,
+        "minAssignedReads": 9307000,
+        "minMappingRate": 0.863
+      },
+      "status": "success",
+      "decision": "Libraries pass QC; retain all."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet"
+      },
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "L1_control": 5,
+        "L1_treated": 1,
+        "L2_control": 1,
+        "L2_treated": 5
+      },
+      "status": "success",
+      "decision": "Estimable but imbalanced; use batch-adjusted model."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.batch_assessment",
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12
+      },
+      "outputs": {
+        "batchVarianceFraction": 0.32032025561928423
+      },
+      "status": "success",
+      "decision": "Incremental batch sum of squares conditional on treatment / total centered log-expression sum of squares."
+    },
+    {
+      "step_id": 4,
+      "method_id": "expression.de_blocked",
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12
+      },
+      "outputs": {
+        "nSignificant": 26,
+        "genesTested": 400,
+        "residualDf": 9,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0,
+        "G0010_log2FC": 2.3265102424421586,
+        "G0010_p": 9.447215571928229e-05,
+        "G0010_padj": 0.0034353511170648107,
+        "G0012_log2FC": -2.7796120194988916,
+        "G0012_p": 0.00026306661961919857,
+        "G0012_padj": 0.0057673361890695635,
+        "G0017_log2FC": -1.4954435519973042,
+        "G0017_p": 0.0004170176086199836,
+        "G0017_padj": 0.007582138338545157,
+        "G0026_log2FC": 2.0426456073263486,
+        "G0026_p": 1.0824037534561723e-06,
+        "G0026_padj": 0.00022769843315015057,
+        "G0075_log2FC": -2.1217283442298394,
+        "G0075_p": 0.00012571554010770445,
+        "G0075_padj": 0.004190518003590149,
+        "G0078_log2FC": 2.111625155576974,
+        "G0078_p": 0.00022135298109196577,
+        "G0078_padj": 0.005533824527299144,
+        "G0086_log2FC": -1.74167911262452,
+        "G0086_p": 0.0004128383948784255,
+        "G0086_padj": 0.007582138338545157,
+        "G0112_log2FC": 2.1056657026447185,
+        "G0112_p": 0.0005908119720336172,
+        "G0112_padj": 0.010274990817975952,
+        "G0133_log2FC": -1.5632636089256502,
+        "G0133_p": 0.0003246160844200916,
+        "G0133_padj": 0.006492321688401832,
+        "G0141_log2FC": 2.059669068059179,
+        "G0141_p": 0.00025226947956702943,
+        "G0141_padj": 0.0057673361890695635,
+        "G0146_log2FC": -1.6258785673712637,
+        "G0146_p": 0.00015221241689325203,
+        "G0146_padj": 0.004683458981330831,
+        "G0163_log2FC": 1.9326899476661907,
+        "G0163_p": 0.00021552113083183081,
+        "G0163_padj": 0.005533824527299144,
+        "G0183_log2FC": 1.561123374614728,
+        "G0183_p": 4.5122564301816835e-05,
+        "G0183_padj": 0.0018049025720726732,
+        "G0213_log2FC": -2.5796790115290484,
+        "G0213_p": 1.4388999217247278e-05,
+        "G0213_padj": 0.0009592666144831518,
+        "G0228_log2FC": -1.641294631470809,
+        "G0228_p": 2.853896677506206e-05,
+        "G0228_padj": 0.0012683985233360917,
+        "G0236_log2FC": 2.296796194645448,
+        "G0236_p": 8.51721035390986e-06,
+        "G0236_padj": 0.0006813768283127887,
+        "G0247_log2FC": -3.067873134208918,
+        "G0247_p": 5.4899387731580814e-06,
+        "G0247_padj": 0.0005489938773158081,
+        "G0291_log2FC": -1.5317318289100648,
+        "G0291_p": 0.0007369188668355417,
+        "G0291_padj": 0.012281981113925696,
+        "G0302_log2FC": -1.9138206059976564,
+        "G0302_p": 2.529074968260059e-05,
+        "G0302_padj": 0.0012645374841300295,
+        "G0311_log2FC": 1.7081920941608884,
+        "G0311_p": 0.0014067456479705507,
+        "G0311_padj": 0.02084067626623038,
+        "G0318_log2FC": 2.4431930113993596,
+        "G0318_p": 3.788021073608969e-06,
+        "G0318_padj": 0.0005050694764811959,
+        "G0342_log2FC": -2.0005647464575356,
+        "G0342_p": 0.0011910515434381684,
+        "G0342_padj": 0.019056824695010695,
+        "G0355_log2FC": -2.3106498554803436,
+        "G0355_p": 1.714272945369374e-05,
+        "G0355_padj": 0.000979584540211071,
+        "G0358_log2FC": -2.7209146184122455,
+        "G0358_p": 1.1384921657507529e-06,
+        "G0358_padj": 0.00022769843315015057,
+        "G0372_log2FC": -2.225292560074201,
+        "G0372_p": 0.00027394846898080426,
+        "G0372_padj": 0.0057673361890695635,
+        "G0373_log2FC": 1.8524090906028738,
+        "G0373_p": 0.00016599488491573299,
+        "G0373_padj": 0.0047427109975923705
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization using count+1 geometric means; log2(normalized count+1) OLS with treatment and batch, t tests and panel-wide BH."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0247"
+      },
+      "outputs": {
+        "pValue": 5.439539541751164e-05,
+        "tStatistic": -13.498072242756317,
+        "meanDifference": -2.97175
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0012"
+      },
+      "outputs": {
+        "pValue": 0.002367608453561468,
+        "tStatistic": -8.99552714613832,
+        "meanDifference": -2.3625
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0213"
+      },
+      "outputs": {
+        "pValue": 4.546736662315535e-05,
+        "tStatistic": -13.160905895964314,
+        "meanDifference": -2.5582499999999997
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0358"
+      },
+      "outputs": {
+        "pValue": 4.6272239567815516e-05,
+        "tStatistic": -11.034883279808655,
+        "meanDifference": -2.32575
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0355"
+      },
+      "outputs": {
+        "pValue": 0.007700753439182208,
+        "tStatistic": -4.852870329330299,
+        "meanDifference": -1.7274999999999998
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0372"
+      },
+      "outputs": {
+        "pValue": 6.943865906337498e-06,
+        "tStatistic": -16.070751674575984,
+        "meanDifference": -2.305
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0295"
+      },
+      "outputs": {
+        "pValue": 0.0008160703280576134,
+        "tStatistic": -7.841021938928537,
+        "meanDifference": -1.68075
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0075"
+      },
+      "outputs": {
+        "pValue": 0.0015208698104873836,
+        "tStatistic": -7.501660865692432,
+        "meanDifference": -2.1645
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0342"
+      },
+      "outputs": {
+        "pValue": 0.00021800374315883428,
+        "tStatistic": -7.901020832320987,
+        "meanDifference": -1.7222500000000003
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "batch": "validation",
+        "gene": "G0302"
+      },
+      "outputs": {
+        "pValue": 0.00014594719981889017,
+        "tStatistic": -9.533910763453532,
+        "meanDifference": -1.92425
+      },
+      "status": "success",
+      "decision": "Two-sided Welch test on independent qPCR log-expression."
+    },
+    {
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "minConcordance": 0.75,
+        "calledAndValidated": 9
+      },
+      "status": "success",
+      "decision": "Archive nominated subset passes; not every panel call was independently tested."
+    },
+    {
+      "method_id": "expression.enrichment",
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "background": "all assayed genes"
+      },
+      "outputs": {
+        "nSignificantSets": 1,
+        "setsTested": 12,
+        "SET01_overlap": 1,
+        "SET01_pValue": 0.8770459906099344,
+        "SET01_padj": 0.9567774443017466,
+        "SET02_overlap": 1,
+        "SET02_pValue": 0.8770459906099344,
+        "SET02_padj": 0.9567774443017466,
+        "SET03_overlap": 10,
+        "SET03_pValue": 2.849101727893695e-06,
+        "SET03_padj": 3.418922073472434e-05,
+        "SET04_overlap": 1,
+        "SET04_pValue": 0.8770459906099344,
+        "SET04_padj": 0.9567774443017466,
+        "SET05_overlap": 1,
+        "SET05_pValue": 0.8770459906099344,
+        "SET05_padj": 0.9567774443017466,
+        "SET06_overlap": 2,
+        "SET06_pValue": 0.5990630128584817,
+        "SET06_padj": 0.9567774443017466,
+        "SET07_overlap": 3,
+        "SET07_pValue": 0.30782362142812986,
+        "SET07_padj": 0.9234708642843896,
+        "SET08_overlap": 1,
+        "SET08_pValue": 0.8770459906099344,
+        "SET08_padj": 0.9567774443017466,
+        "SET09_overlap": 2,
+        "SET09_pValue": 0.5990630128584817,
+        "SET09_padj": 0.9567774443017466,
+        "SET10_overlap": 0,
+        "SET10_pValue": 1.0,
+        "SET10_padj": 1.0,
+        "SET11_overlap": 5,
+        "SET11_pValue": 0.03594616509336671,
+        "SET11_padj": 0.14378466037346685,
+        "SET12_overlap": 5,
+        "SET12_pValue": 0.03594616509336671,
+        "SET12_padj": 0.14378466037346685
+      },
+      "status": "success",
+      "decision": "Upper-tail hypergeometric over-representation, BH across all annotated sets."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "batch_adjusted",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "L1_control": 5,
+        "L1_treated": 1,
+        "L2_control": 1,
+        "L2_treated": 5
+      }
+    },
+    {
+      "point": "validation",
+      "chosen_branch": "pass",
+      "observed": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "minConcordance": 0.75,
+        "calledAndValidated": 9
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

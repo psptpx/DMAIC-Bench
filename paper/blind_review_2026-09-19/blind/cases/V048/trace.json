@@ -1,0 +1,312 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "baseline"
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial baseline analysis attempt failed at the statsmodels runs-test import before producing quantitative outputs; it was corrected and rerun."
+    },
+    {
+      "step_id": 2,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 7.12495,
+        "median": 7.1445,
+        "stdDev": 0.13557753738753253,
+        "skewness": -0.024849434759416398,
+        "adPValue": 0.30600600196266753,
+        "sampleSize": 60,
+        "lsl": 6.8,
+        "target": 7.15,
+        "usl": 7.5,
+        "minimum": 6.807,
+        "maximum": 7.457,
+        "belowLSL": 0,
+        "aboveUSL": 0,
+        "inSpecification": 60
+      },
+      "status": "success",
+      "decision": "Baseline location and spread summarized.",
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "baseline"
+      }
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.42564226433187,
+        "pValue": 0.30600600196266753
+      },
+      "status": "success",
+      "decision": "Anderson-Darling does not reject normality.",
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "baseline"
+      }
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": -1.4311844674561602,
+        "pValue": 0.1576531625409152,
+        "difference_from_target": -0.02505000000000024,
+        "absoluteDifferenceFromTarget": 0.02505000000000024
+      },
+      "status": "success",
+      "decision": "No detectable difference from target.",
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "baseline",
+        "test_value": 7.15
+      }
+    },
+    {
+      "step_id": 5,
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.6024848821020334,
+        "statistic": 0.5208304597621878
+      },
+      "status": "success",
+      "decision": "No evidence of nonrandom ordering around the median.",
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "baseline",
+        "order": "production"
+      }
+    },
+    {
+      "step_id": 6,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 7.12495,
+        "individualsUCL": 7.53154935088352,
+        "individualsLCL": 6.718350649116481,
+        "flaggedCount": 0,
+        "movingRangeMean": 0.15288135593220326,
+        "movingRangeUCL": 0.49946338983050803,
+        "movingRangeFlaggedCount": 0
+      },
+      "status": "success",
+      "decision": "No individuals or moving-range points exceed computed limits.",
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "baseline",
+        "order": "production"
+      }
+    },
+    {
+      "step_id": 7,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.8607982261640806,
+        "cpk": 0.7991896674057662,
+        "pp": 0.8605161954903243,
+        "ppk": 0.7989278220702316,
+        "sigmaWithin": 0.13553311696117312,
+        "capabilityThreshold": 1.0,
+        "capabilityBelowThreshold": true
+      },
+      "status": "success",
+      "decision": "Normal capability indices are below one; process spread is too wide for the tolerance.",
+      "inputs_digest": {
+        "sample_size": 60,
+        "batch": "baseline",
+        "specification_limits": 2
+      }
+    },
+    {
+      "step_id": 8,
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.9034501374582152,
+        "fStatistic": 0.35755024063955465,
+        "rSquaredPct": 23.83021068626604,
+        "rSquaredAdjPct": -42.81835496325117,
+        "chain_speedEffect": 0.011812499999998295,
+        "chain_speedPValue": 0.7155992786622045,
+        "chain_speedTStatistic": 0.3775292879076165,
+        "rail_angleEffect": 0.010987500000001125,
+        "rail_anglePValue": 0.7345354201401662,
+        "rail_angleTStatistic": 0.35116216303796477,
+        "air_pressureEffect": -0.01151249999999928,
+        "air_pressurePValue": 0.722461793697287,
+        "air_pressureTStatistic": -0.3679412425004691,
+        "chain_speed_rail_angleEffect": -0.008637499999998525,
+        "chain_speed_rail_anglePValue": 0.7895023953810277,
+        "chain_speed_rail_angleTStatistic": -0.27605580734831325,
+        "chain_speed_air_pressureEffect": 0.04446250000000154,
+        "chain_speed_air_pressurePValue": 0.19309301740846047,
+        "chain_speed_air_pressureTStatistic": 1.4210282297223629,
+        "rail_angle_air_pressureEffect": 0.0023374999999995713,
+        "rail_angle_air_pressurePValue": 0.9422822584728143,
+        "rail_angle_air_pressureTStatistic": 0.07470685379758894,
+        "chain_speed_rail_angle_air_pressureEffect": 0.0007124999999995156,
+        "chain_speed_rail_angle_air_pressurePValue": 0.9823901952223903,
+        "chain_speed_rail_angle_air_pressureTStatistic": 0.022771607842034514,
+        "runCount": 16,
+        "treatmentCombinations": 8,
+        "replicatesPerCombination": 2,
+        "residualStdDev": 0.06257792641978482,
+        "anyFactorSignificant": false
+      },
+      "status": "success",
+      "decision": "No main effect or interaction is significant; declared any_factor_significant=false.",
+      "inputs_digest": {
+        "sample_size": 16,
+        "groups": 8,
+        "batch": "design",
+        "factors": 3
+      }
+    },
+    {
+      "step_id": 9,
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "statistic": 9.816990031579096e+27,
+        "pValue": 4.3092307521294335e-111
+      },
+      "status": "failed",
+      "decision": "Median-centered Levene calculation is degenerate with two observations per cell and is not interpreted.",
+      "inputs_digest": {
+        "sample_size": 16,
+        "groups": 8,
+        "batch": "design"
+      }
+    },
+    {
+      "step_id": 10,
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "statistic": 10.970787337651137,
+        "pValue": 0.13989834888124444
+      },
+      "status": "success",
+      "decision": "Bartlett test does not detect unequal treatment-cell variances, but each estimate has only two replicates.",
+      "inputs_digest": {
+        "sample_size": 16,
+        "groups": 8,
+        "batch": "design"
+      }
+    },
+    {
+      "step_id": 11,
+      "method_id": "basic.normality",
+      "outputs": {
+        "statistic": 0.20715644739510708,
+        "pValue": 0.838868756725448
+      },
+      "status": "success",
+      "decision": "Anderson-Darling does not reject normality of factorial residuals.",
+      "inputs_digest": {
+        "sample_size": 16,
+        "batch": "design",
+        "data": "model residuals"
+      }
+    },
+    {
+      "step_id": 12,
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.8571324249148539,
+        "fStatistic": 0.25531266436883937,
+        "rSquaredPct": 1.7109839030390983,
+        "rSquaredAdjPct": -4.990539921753689,
+        "sampleSize": 48,
+        "predictorCount": 3,
+        "v1Coefficient": 0.001749344247139295,
+        "v1PValue": 0.698971368765763,
+        "v1TStatistic": 0.3892464857882345,
+        "v2Coefficient": 0.028392925094996357,
+        "v2PValue": 0.8328826027902255,
+        "v2TStatistic": 0.21226239346025835,
+        "v3Coefficient": -0.004364359550939445,
+        "v3PValue": 0.49531650935850413,
+        "v3TStatistic": -0.6875952425863423
+      },
+      "status": "success",
+      "decision": "The joint observational model is not significant and does not establish causation.",
+      "inputs_digest": {
+        "sample_size": 48,
+        "batch": "logged_variables",
+        "predictors": 3
+      }
+    },
+    {
+      "step_id": 13,
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.0635320453459311,
+        "pValue": 0.6679274434283261
+      },
+      "status": "success",
+      "decision": "v1 has no detectable marginal linear association with fillet height.",
+      "inputs_digest": {
+        "sample_size": 48,
+        "batch": "logged_variables",
+        "predictor": "v1"
+      }
+    },
+    {
+      "step_id": 14,
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.04495143161926293,
+        "pValue": 0.7616027551379035
+      },
+      "status": "success",
+      "decision": "v2 has no detectable marginal linear association with fillet height.",
+      "inputs_digest": {
+        "sample_size": 48,
+        "batch": "logged_variables",
+        "predictor": "v2"
+      }
+    },
+    {
+      "step_id": 15,
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": -0.1141255452217594,
+        "pValue": 0.4398945296335959
+      },
+      "status": "success",
+      "decision": "v3 has no detectable marginal linear association with fillet height.",
+      "inputs_digest": {
+        "sample_size": 48,
+        "batch": "logged_variables",
+        "predictor": "v3"
+      }
+    },
+    {
+      "step_id": 16,
+      "method_id": "basic.two_sample_t",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Before/after data locked by screening_significant because any_factor_significant=false; change effect cannot be computed.",
+      "inputs_digest": {
+        "batch": "after_change",
+        "groups": 2
+      }
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "screening_significant",
+      "chosen_branch": "no_significant_factor_stop_before_after",
+      "observed": {
+        "any_factor_significant": false,
+        "modelPValue": 0.9034501374582152
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

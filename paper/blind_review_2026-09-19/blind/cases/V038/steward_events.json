@@ -1,0 +1,83 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "inspector judgements of retained units against the answer key",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "declare",
+    "text": "kappaMin=0.7333333333333334",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "per-lot inspected and defective counts for the twenty-five lots",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "machine-by-machine defective and sound tally over the common window",
+    "stage_id": "machines",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "one machine's inspected and defective counts either side of the change",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "before and after a change - the change trial data for one machine",
+    "stage_id": "after_change",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "the monitoring record kept since the change",
+    "stage_id": "sustaining",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 12,
+    "action": "request",
+    "text": "reject categories tallied for the charter",
+    "stage_id": "candidates",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 13,
+    "action": "request",
+    "text": "candidate failure modes with their risk ratings",
+    "stage_id": "failure_modes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  }
+]

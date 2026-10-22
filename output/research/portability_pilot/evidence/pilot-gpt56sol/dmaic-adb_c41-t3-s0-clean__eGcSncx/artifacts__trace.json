@@ -1,0 +1,195 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "sample_size": 240,
+        "variant_count": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 5,
+        "sampleFailFraction": 0.020833333333333332,
+        "samplesRetained": 235,
+        "affectedRetained": 117,
+        "unaffectedRetained": 118,
+        "callRateThreshold": 0.95,
+        "maximumFailFraction": 0.1,
+        "platePasses": true,
+        "failed_P011": true,
+        "failed_P059": true,
+        "failed_P069": true,
+        "failed_P224": true,
+        "failed_P225": true,
+        "nSamples": 240
+      },
+      "status": "success",
+      "decision": "Plate passes participant QC; exclude the flagged participants and continue."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sample_size": 235,
+        "variant_count": 150,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "snpsInput": 150,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 3,
+        "excluded_rs000031": true,
+        "excluded_rs000049": true,
+        "excluded_rs000060": true,
+        "excluded_rs000078": true,
+        "excluded_rs000086": true,
+        "excluded_rs000093": true,
+        "excluded_rs000114": true,
+        "excluded_rs000126": true,
+        "excluded_rs000135": true,
+        "excluded_rs000138": true,
+        "excluded_rs000142": true,
+        "excluded_rs000148": true,
+        "rs000031_callRate": 0.9829787234042553,
+        "rs000049_callRate": 0.9787234042553191,
+        "rs000060_callRate": 0.8553191489361702,
+        "rs000078_callRate": 0.8723404255319149,
+        "rs000086_callRate": 0.8085106382978723,
+        "rs000093_callRate": 0.8,
+        "rs000114_callRate": 0.9702127659574468,
+        "rs000126_callRate": 0.9914893617021276,
+        "rs000135_callRate": 0.9744680851063829,
+        "rs000138_callRate": 0.9872340425531915,
+        "rs000142_callRate": 0.8765957446808511,
+        "rs000148_callRate": 0.9787234042553191,
+        "rs000031_maf": 0.43506493506493504,
+        "rs000049_maf": 0.002173913043478261,
+        "rs000060_maf": 0.30597014925373134,
+        "rs000078_maf": 0.36341463414634145,
+        "rs000086_maf": 0.45789473684210524,
+        "rs000093_maf": 0.22606382978723405,
+        "rs000114_maf": 0.37280701754385964,
+        "rs000126_maf": 0.004291845493562232,
+        "rs000135_maf": 0.16375545851528384,
+        "rs000138_maf": 0.008620689655172414,
+        "rs000142_maf": 0.08495145631067962,
+        "rs000148_maf": 0.006521739130434782,
+        "rs000031_hweP": 6.555462215280314e-12,
+        "rs000049_hweP": 1.0,
+        "rs000060_hweP": 0.49413411996267864,
+        "rs000078_hweP": 0.6682160488386857,
+        "rs000086_hweP": 0.8308740864994092,
+        "rs000093_hweP": 0.029499360744654046,
+        "rs000114_hweP": 4.168600823843702e-11,
+        "rs000126_hweP": 1.0,
+        "rs000135_hweP": 1.946065462872528e-08,
+        "rs000138_hweP": 1.0,
+        "rs000142_hweP": 0.5930593658976172,
+        "rs000148_hweP": 1.0
+      },
+      "status": "success",
+      "decision": "Retain variants meeting all inclusive protocol thresholds; exclude the listed failures."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "sample_size": 235,
+        "variant_count": 138,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "PCA calculations ran, but serialization failed on a NumPy boolean; no result artifact was accepted from this attempt."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sample_size": 235,
+        "variant_count": 138,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 0.260362248140186,
+        "pc1Statistic": 1.1283387554353252,
+        "pc1VarianceFraction": 0.021253335977234045,
+        "pc1RangesOverlap": true,
+        "pc1OverlapWidth": 7.527539139890907,
+        "pc4PValue": 0.003001951972322571,
+        "pc4Statistic": -2.9991211306138803,
+        "pc4RangesOverlap": true
+      },
+      "status": "success",
+      "decision": "Affected and unaffected score ranges overlap, so comparison is permitted; phenotype-related overlapping structure requires covariate adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "sample_size": 235,
+        "group_count": 2,
+        "variant_count": 138,
+        "batch": "genotypes"
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.7990958633797803,
+        "variantsTested": 138,
+        "covariatePCs": 10,
+        "familyAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015,
+        "modelsFailed": 0,
+        "minimumPValue": 1.387897681959808e-05,
+        "significant_rs000008": true,
+        "rs000008Called": 231,
+        "rs000008Beta": 0.9745181571609529,
+        "rs000008StandardError": 0.2242453711591018,
+        "rs000008OddsRatio": 2.6498900727615413,
+        "rs000008ZStatistic": 4.345767103792451,
+        "rs000008PValue": 1.387897681959808e-05,
+        "rs000008Converged": true
+      },
+      "status": "success",
+      "decision": "rs000008 passes the Bonferroni threshold in the ancestry-adjusted additive logistic model."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.020833333333333332,
+        "maximumFailFraction": 0.1,
+        "platePasses": true
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "overlapping_cohorts_are_comparable",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 0.260362248140186,
+        "pc1RangesOverlap": true
+      }
+    },
+    {
+      "point": "association_model",
+      "chosen_branch": "adjust_for_leading_principal_components",
+      "observed": {
+        "pc4PValue": 0.003001951972322571,
+        "pc4RangesOverlap": true
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

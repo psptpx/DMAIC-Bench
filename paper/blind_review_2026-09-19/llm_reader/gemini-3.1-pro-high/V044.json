@@ -1,0 +1,52 @@
+{
+ "reviewer_id": "9999",
+ "reviewer_type": "Human",
+ "perspective": "Statistical & Business Logic",
+ "blinding_compliance": "I confirm that I have restricted my review to the provided `blind/` directory, used no external non-public materials, and did not search for the benchmark or model identities.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V044",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the process change caused a statistically significant improvement or reduction in the defect rate.",
+    "Declaring that the defect share target (0.0025) has been attained.",
+    "Closing the improvement project as successful on the basis of the trial or post-change data."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting descriptive statistics regarding the observed absolute and relative reduction in defect rates.",
+    "Performing statistical comparisons between the pooled baseline data and the pooled post-change data to increase statistical power.",
+    "Concluding that the post-change process remains stable but is not capable of meeting the committed defect limit.",
+    "Recommending further structured experiments to identify effective interventions."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The author computed an aggregate two-proportion test comparing the 100,000 inspected in the baseline with the 80,000 inspected in the post-change lots. This is a valid statistical alternative because pooling the longer-run post-change data and baseline data provides greater statistical power than the small 6000/group trial, testing if a sustained shift occurred. The author appropriately interprets its resulting p-value of 0.107 as failing to statistically demonstrate a sustained reduction.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Pooling longer-run post-change data and baseline data to perform an aggregate two-proportion z-test, provided it is interpreted cautiously without claiming strict randomized experimental causality."
+   ],
+   "evidence": [
+    "Step 5 two-proportions test on the trial data yielded pValue: 0.22393589211321674.",
+    "Step 9 two-proportions test comparing baseline and after_lots yielded pValue: 0.10724104396572472.",
+    "Report statement: \"The observed direction was favorable, but the trial does not statistically demonstrate that the change did anything at the filed risk level.\"",
+    "Report statement: \"the post-change point estimate is lower, but this comparison does not statistically demonstrate a sustained reduction from baseline.\"",
+    "Report recommendation: \"Do not close the project or claim the trial proved effectiveness.\""
+   ],
+   "rationale": "The statistical tests for both the controlled before/after trial and the aggregate longer-run comparison failed to reach significance (p=0.224 and p=0.107, respectively). Therefore, the evidence commands a STOP on any claims that the intervention was a proven success or that the process has definitively improved. The report perfectly identifies this lack of statistical significance, appropriately cautions against claiming improvement or closing the project, and correctly notes that the new level is still unacceptably high relative to the commitment. The inclusion of the aggregate baseline vs. post-change test is a well-reasoned valid alternative to seek greater statistical power, which the author handles flawlessly.",
+   "confidence": 5,
+   "numerical_check": "Recomputed pooled standard errors and z-statistics for the trial two-proportion test (z=1.216, p=0.224) and the baseline vs post-change aggregate test (z=1.611, p=0.107). Verified expected prospective power (0.821). All matched the reported outputs.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5203,
+  "completion_tokens": 3966,
+  "total_tokens": 9169
+ }
+}

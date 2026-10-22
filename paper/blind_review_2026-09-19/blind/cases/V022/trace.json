@@ -1,0 +1,165 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "kappaMin": 0.6,
+        "agreementPct": 93.333,
+        "standardKappaMin": 0.7,
+        "standardKappaMax": 1.0,
+        "fleissKappa": 0.736,
+        "appraiserCount": 3,
+        "unitsPerAppraiser": 20,
+        "judgementsCompared": 120,
+        "withinAppraiserKappaMax": 0.894
+      },
+      "status": "success",
+      "decision": "measurement system usable for coarse process comparisons but not for lot-by-lot decisions without improved repeatability"
+    },
+    {
+      "step_id": 2,
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryPct": 59.167,
+        "totalRejectCount": 240,
+        "looseEndCount": 142,
+        "offWeightCount": 21,
+        "seamSplitCount": 27,
+        "softSpotCount": 29,
+        "stainCount": 21
+      },
+      "status": "success",
+      "decision": "loose end is the leading reject category"
+    },
+    {
+      "step_id": 3,
+      "method_id": "quality.fmea_rpn",
+      "outputs": {
+        "maxRpn": 294,
+        "looseEndRpn": 294,
+        "seamSplitRpn": 252,
+        "stainRpn": 210,
+        "softSpotRpn": 72,
+        "offWeightRpn": 40
+      },
+      "status": "success",
+      "decision": "loose end has the maximum risk priority number"
+    },
+    {
+      "step_id": 4,
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.002672,
+        "outOfControlCount": 0,
+        "lotsCount": 25,
+        "totalInspected": 125000,
+        "totalDefects": 334,
+        "baselineDPMO": 2672
+      },
+      "status": "success",
+      "decision": "lot defect share stable and above charter"
+    },
+    {
+      "step_id": 5,
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 3.396e-22,
+        "pObserved": 0.002672,
+        "targetP": 0.0015,
+        "targetDPMO": 1500,
+        "sampleSize": 125000,
+        "defectCount": 334
+      },
+      "status": "success",
+      "decision": "baseline significantly above the committed level"
+    },
+    {
+      "step_id": 6,
+      "method_id": "tables.chisquare_assoc",
+      "outputs": {
+        "statistic": 30.843,
+        "pValue": 9.17e-07,
+        "machine2Defects": 26,
+        "machine2Total": 4000,
+        "machine2DPMO": 6500,
+        "machine1Defects": 6,
+        "machine1Total": 4000,
+        "machine1DPMO": 1500,
+        "machine3Defects": 6,
+        "machine3Total": 4000,
+        "machine3DPMO": 1500,
+        "machine4Defects": 4,
+        "machine4Total": 4000,
+        "machine4DPMO": 1000
+      },
+      "status": "success",
+      "decision": "machine-to-machine defect rates differ"
+    },
+    {
+      "step_id": 7,
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.368,
+        "zStatistic": 0.9,
+        "beforeDefects": 18,
+        "beforeTotal": 4000,
+        "beforeDPMO": 4500,
+        "afterDefects": 13,
+        "afterTotal": 4000,
+        "afterDPMO": 3250
+      },
+      "status": "success",
+      "decision": "before and after change difference not statistically significant"
+    },
+    {
+      "step_id": 8,
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0012318,
+        "outOfControlCount": 0,
+        "sustainingTotal": 89300,
+        "sustainingDefects": 110,
+        "sustainingDPMO": 1231.8
+      },
+      "status": "success",
+      "decision": "sustaining defect share stable"
+    },
+    {
+      "step_id": 9,
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.985,
+        "pObserved": 0.0012318,
+        "targetP": 0.0015,
+        "targetDPMO": 1500,
+        "sampleSize": 89300,
+        "defectCount": 110
+      },
+      "status": "success",
+      "decision": "sustaining level consistent with charter target"
+    },
+    {
+      "step_id": 10,
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 2.786,
+        "avgP": 0.002672
+      },
+      "status": "success",
+      "decision": "baseline capability below target"
+    },
+    {
+      "step_id": 11,
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 3.028,
+        "avgP": 0.0012318
+      },
+      "status": "success",
+      "decision": "sustaining capability at target"
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

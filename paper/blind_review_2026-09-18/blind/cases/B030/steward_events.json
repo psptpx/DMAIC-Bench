@@ -1,0 +1,63 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the project charter and yield requirement batch now.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the repeat assays of the same samples by several analysts for measurement system analysis.",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=16.39058051752204",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 16.39058051752204
+    }
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Please release the per-batch yield record in charge order now that the measurement system analysis is complete.",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 16.39058051752204
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Please release the earlier run of charges made deliberately at the high and low setting.",
+    "stage_id": "screening_doe",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 16.39058051752204
+    }
+  },
+  {
+    "seq": 8,
+    "action": "provision",
+    "text": "In the released screening study, which actual process setting corresponds to coded level +1, and are there operating constraints that affect implementing it?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 16.39058051752204
+    }
+  }
+]

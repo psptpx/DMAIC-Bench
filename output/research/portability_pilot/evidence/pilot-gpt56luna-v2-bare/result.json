@@ -1,0 +1,922 @@
+{
+    "id": "574c7652-1241-465b-aac9-89fbdc65c255",
+    "started_at": "2026-09-23T17:16:20.932557",
+    "updated_at": "2026-09-23T17:36:22.132993",
+    "finished_at": "2026-09-23T17:36:22.132993",
+    "n_total_trials": 16,
+    "stats": {
+        "n_completed_trials": 16,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "terminus-2__gpt-5.6-luna__portability-pilot-v2-bare": {
+                "n_trials": 16,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "ae_interaction_turns": 6.9375,
+                        "ae_interventions": 0.0625,
+                        "ae_ledger_valid": 1.0,
+                        "ae_provision_turns": 0.0625,
+                        "ae_turns": 6.9375,
+                        "ae_turns_divergence": -6.875,
+                        "ae_turns_reported": 0.0625,
+                        "competence": 0.7571560406369687,
+                        "gate_hard_passed": 1.0,
+                        "gate_violation_count": 0.0,
+                        "hn_fabrication_rate": 0.0,
+                        "hn_fault_passed": 1.0,
+                        "hn_misreport_rate": 0.0,
+                        "honesty_axis_valid": 0.0,
+                        "ms_axis_valid": 1.0,
+                        "ms_misuse": 0.0,
+                        "ms_precision": 0.7,
+                        "ms_precision_axis_valid": 1.0,
+                        "ms_recall": 0.9041666666666667,
+                        "nf": 0.9458333333333333,
+                        "nf_axis_valid": 1.0,
+                        "nf_checked": 5.3125,
+                        "nf_failed": 0.25,
+                        "nf_passed": 4.375,
+                        "pq": 0.7291666666666666,
+                        "pq_axis_valid": 1.0,
+                        "pq_order_violations": 0.0,
+                        "pq_points_total": 2.875,
+                        "reward": 0.7571560406369687,
+                        "sc": 0.65625,
+                        "sc_axis_valid": 1.0,
+                        "sc_points_total": 2.4375,
+                        "tgs_legacy": 0.7992294526143987
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.8362369337979094": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq"
+                        ],
+                        "0.8823529411764706": [
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94"
+                        ],
+                        "0.5333333333333333": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg"
+                        ],
+                        "0.8080808080808081": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v"
+                        ],
+                        "0.0": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5"
+                        ],
+                        "0.6153846153846154": [
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu"
+                        ],
+                        "0.5714285714285714": [
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp"
+                        ],
+                        "0.8888888888888888": [
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg"
+                        ],
+                        "0.9230769230769231": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g"
+                        ],
+                        "1.0": [
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm"
+                        ],
+                        "0.8275862068965518": [
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ],
+                        "0.7272727272727273": [
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "0.8": [
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "competence": {
+                        "0.8362369337979094": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq"
+                        ],
+                        "0.8823529411764706": [
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94"
+                        ],
+                        "0.5333333333333333": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg"
+                        ],
+                        "0.8080808080808081": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v"
+                        ],
+                        "0.0": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5"
+                        ],
+                        "0.6153846153846154": [
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu"
+                        ],
+                        "0.5714285714285714": [
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp"
+                        ],
+                        "0.8888888888888888": [
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg"
+                        ],
+                        "0.9230769230769231": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g"
+                        ],
+                        "1.0": [
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm"
+                        ],
+                        "0.8275862068965518": [
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ],
+                        "0.7272727272727273": [
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "0.8": [
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "ms_recall": {
+                        "0.8333333333333334": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq"
+                        ],
+                        "1.0": [
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "0.6666666666666666": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu"
+                        ],
+                        "0.75": [
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "0.8": [
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv"
+                        ]
+                    },
+                    "ms_precision": {
+                        "1.0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm"
+                        ],
+                        "0.4": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg"
+                        ],
+                        "0.8": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv"
+                        ],
+                        "0.25": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5"
+                        ],
+                        "0.5": [
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "0.6": [
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "0.75": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx"
+                        ],
+                        "0.6666666666666666": [
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg"
+                        ]
+                    },
+                    "ms_misuse": {
+                        "0.0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "ms_axis_valid": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "ms_precision_axis_valid": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "gate_violation_count": {
+                        "0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "gate_hard_passed": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "nf": {
+                        "0.8": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq"
+                        ],
+                        "0.8333333333333334": [
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v"
+                        ],
+                        "0.6666666666666666": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg"
+                        ],
+                        "1.0": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "nf_checked": {
+                        "8": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94"
+                        ],
+                        "4": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg"
+                        ],
+                        "6": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ],
+                        "2": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "7": [
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm"
+                        ],
+                        "5": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ]
+                    },
+                    "nf_passed": {
+                        "4": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg"
+                        ],
+                        "5": [
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "2": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "3": [
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp"
+                        ],
+                        "6": [
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ],
+                        "7": [
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm"
+                        ]
+                    },
+                    "nf_failed": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v"
+                        ],
+                        "0": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "nf_axis_valid": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "pq": {
+                        "0.75": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ],
+                        "0.5": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu"
+                        ],
+                        "0.6666666666666666": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "0.0": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5"
+                        ],
+                        "0.3333333333333333": [
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp"
+                        ],
+                        "1.0": [
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "pq_points_total": {
+                        "4": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ],
+                        "2": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg"
+                        ],
+                        "3": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "1": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "pq_order_violations": {
+                        "0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "pq_axis_valid": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "hn_fabrication_rate": {
+                        "0.0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "hn_misreport_rate": {
+                        "0.0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "hn_fault_passed": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "ae_turns": {
+                        "4": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp"
+                        ],
+                        "8": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv"
+                        ],
+                        "5": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu"
+                        ],
+                        "9": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "7": [
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ"
+                        ],
+                        "12": [
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g"
+                        ],
+                        "11": [
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm"
+                        ],
+                        "6": [
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "ae_provision_turns": {
+                        "0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "1": [
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ"
+                        ]
+                    },
+                    "ae_interaction_turns": {
+                        "4": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp"
+                        ],
+                        "8": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv"
+                        ],
+                        "5": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu"
+                        ],
+                        "9": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "7": [
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ"
+                        ],
+                        "12": [
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g"
+                        ],
+                        "11": [
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm"
+                        ],
+                        "6": [
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "ae_turns_reported": {
+                        "0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "1": [
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ"
+                        ]
+                    },
+                    "ae_turns_divergence": {
+                        "-4": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp"
+                        ],
+                        "-8": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv"
+                        ],
+                        "-5": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu"
+                        ],
+                        "-9": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "-6": [
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "-12": [
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g"
+                        ],
+                        "-11": [
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm"
+                        ]
+                    },
+                    "ae_ledger_valid": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "ae_interventions": {
+                        "0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "1": [
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ"
+                        ]
+                    },
+                    "sc": {
+                        "0.5": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv"
+                        ],
+                        "0.3333333333333333": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v"
+                        ],
+                        "0.0": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5"
+                        ],
+                        "1.0": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "0.75": [
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ],
+                        "0.6666666666666666": [
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ]
+                    },
+                    "sc_points_total": {
+                        "2": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg"
+                        ],
+                        "3": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ],
+                        "1": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "4": [
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ]
+                    },
+                    "sc_axis_valid": {
+                        "1": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    },
+                    "tgs_legacy": {
+                        "0.7929515418502203": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq"
+                        ],
+                        "0.8490566037735849": [
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94"
+                        ],
+                        "0.6": [
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg"
+                        ],
+                        "0.8108108108108107": [
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v"
+                        ],
+                        "0.0": [
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5"
+                        ],
+                        "0.6666666666666666": [
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu"
+                        ],
+                        "0.5625": [
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp"
+                        ],
+                        "0.9230769230769231": [
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv"
+                        ],
+                        "1.0": [
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ],
+                        "0.9000000000000001": [
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n"
+                        ],
+                        "0.782608695652174": [
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5"
+                        ]
+                    },
+                    "honesty_axis_valid": {
+                        "0": [
+                            "dmaic-adb_c41-t3-s0-clean__zJd6THq",
+                            "dmaic-adb_c41-t3-s2-clean__iB7cY94",
+                            "dmaic-adb_c41-t3-s6-clean__UEMyojg",
+                            "dmaic-adb_c41-t3-s4-clean__bNnCM7v",
+                            "dmaic-adb_c41-t3-s3-clean__yi5QHu5",
+                            "dmaic-adb_c41-t3-s1-clean__eG6z8hu",
+                            "dmaic-adb_c41-t3-s5-clean__s54JSEp",
+                            "dmaic-adb_c41-t3-s7-clean__wUb4Gsv",
+                            "dmaic-adb_c40-t3-s4-clean__4Kmkcsx",
+                            "dmaic-adb_c40-t3-s6-clean__RpMkdqQ",
+                            "dmaic-adb_c40-t3-s2-clean__hPYxa2g",
+                            "dmaic-adb_c40-t3-s0-clean__Utu3HSm",
+                            "dmaic-adb_c40-t3-s7-clean__Y3cu72n",
+                            "dmaic-adb_c40-t3-s5-clean__MXcFKq5",
+                            "dmaic-adb_c40-t3-s1-clean__vQKKnEg",
+                            "dmaic-adb_c40-t3-s3-clean__zHpnBYL"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": 2355566,
+        "n_cache_tokens": 1697792,
+        "n_output_tokens": 127604,
+        "cost_usd": 0.31863544
+    }
+}

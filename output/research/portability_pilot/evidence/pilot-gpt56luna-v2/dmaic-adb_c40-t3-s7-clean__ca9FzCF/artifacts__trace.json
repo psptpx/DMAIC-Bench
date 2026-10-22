@@ -1,0 +1,107 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c40-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "nLibraries": 12,
+        "failedSamples": 0,
+        "controlReplicates": 6,
+        "treatedReplicates": 6,
+        "minReplicates": 6
+      },
+      "status": "success",
+      "decision": "All 12 libraries passed usability QC and both arms retained 6 usable replicates."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usable_libraries": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "usableLibraries": 12,
+        "confounded": false,
+        "batchCount": 1
+      },
+      "status": "success",
+      "decision": "The treatment contrast is estimable because the single batch contains both arms."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40
+      },
+      "status": "success",
+      "decision": "40 genes met adjusted p < 0.05 and absolute log2 fold change >= 1 under the computed analysis."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "nominated_candidates": 10,
+        "groups": 2
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nCandidates": 10,
+        "nConfirmed": 0,
+        "concordance": 0.0,
+        "minConcordance": 0.75
+      },
+      "status": "success",
+      "decision": "No nominated gene met both the qPCR p < 0.05 and direction-concordance requirements; the candidate list fails validation."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "retain_all_usable",
+      "observed": {
+        "nLibraries": 12,
+        "failedSamples": 0,
+        "controlReplicates": 6,
+        "treatedReplicates": 6,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "contrast_estimable",
+      "observed": {
+        "usableLibraries": 12,
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_release",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "nCandidates": 10,
+        "nConfirmed": 0,
+        "concordance": 0.0,
+        "minConcordance": 0.75
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

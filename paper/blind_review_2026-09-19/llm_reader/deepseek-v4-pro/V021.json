@@ -1,0 +1,72 @@
+{
+ "reviewer_id": "human-black-belt-1",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical Black Belt independent validity review",
+ "blinding_compliance": "I complied with the blind review protocol: I read only the supplied blind packet and did not inspect the repository outside this item, coordinator, hidden truth, scoring code, other reviewers' outputs, or search the benchmark/paper name. I did not browse external sources.",
+ "ai_assistance": "AI assistant used to analyze the supplied blind packet and draft this independent review.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V021",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the accept/reject call can be relied on after the second study; the demonstrated agreement/kappa remain too low.",
+    "Concluding that the criteria rewrite produced a statistically significant improvement in agreement based on the basic two-proportion test of 98/120 vs 95/120; the 120 ratings per study are repeated/clustered and not independent Bernoulli trials.",
+    "Treating the production lot rejected counts or placement-head rejected counts as valid true reject-share measurements while the MSA shows the accept/reject measurement system is not reliable.",
+    "Asserting that the reject share has not held steady, that one lot is out of control, or that today's combined head reject rate is a valid capability comparison to 2% from the current counts.",
+    "Recommending routine production monitoring/control limits or use of the 2% business limit on the current unvalidated inspection reject counts."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive reporting of the second study's overall agreement (79.2%) and minimum kappa (0.423) and the conclusion that reliability is still not demonstrated.",
+    "Descriptive comparison of first and second study agreement/kappa as raw observed values, with no formal significance claim unless a valid clustered/paired test is used.",
+    "Using the MSA disagreement tally to prioritize corrective action on insufficient solder (46.67%) as a descriptive Pareto analysis.",
+    "Recommending criteria revision, retraining, and a new MSA before relying on accept/reject calls.",
+    "Exploratory plotting of lot and head counts only if explicitly identified as coming from the currently invalid measurement system and not used for capability or stability decisions.",
+    "After an adequate measurement system is demonstrated, re-running p-chart/Laney-P and one/two-proportion tests on re-collected or appropriately adjusted reject data."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "Agreement percentage did not improve significantly (two-proportion test p = 0.6256, z = 0.4880).",
+    "The reject share has not held steady across the lots; one high lot needs investigation.",
+    "In the recent placement-head window, the combined head reject rate was 1.750% (one-proportion test against 2%: p = 0.1666).",
+    "Investigate the single out-of-control lot in the p-chart before accepting the current process as stable.",
+    "Monitor the placement heads with control charts and continue using the 2% required reject share as the business limit."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "The second MSA summary and the Pareto of disagreement categories are acceptable descriptive analyses. The study1-vs-study2 two-proportion test is unacceptable because the 120 observations per study are repeated ratings (3 appraisers x 2 trials x 20 items) and are not independent Bernoulli trials; the formal p-value is unsupported. The lot p-chart/Laney-P and placement-head proportion tests would be acceptable only after the measurement system is validated; as used, they treat inspector-generated reject counts as if they were true reject counts despite the MSA STOP.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "For the reliability gate: apply a pre-specified kappa/agreement acceptance threshold to study2 alone; no study1-vs-study2 significance test is needed.",
+    "For comparing studies: use a mixed-effects logistic regression with a study fixed effect and random effects for appraiser/item/trial, or item-level McNemar if the same items/appraisers were used; otherwise stay descriptive.",
+    "For reject-share stability/capability: first demonstrate acceptable MSA, then re-collect or use measurement-error-adjusted reject counts before p-chart/Laney-P or one/two-proportion tests."
+   ],
+   "evidence": [
+    "Self-reported step 2: study_2 agreementPct = 79.16666666666666 and kappaMin = 0.423076923076923.",
+    "Self-reported step 3: x_agree_1 = 98, n_total_1 = 120, x_agree_2 = 95, n_total_2 = 120, basic.two_proportions p = 0.6256.",
+    "Submitted report: 'Agreement percentage did not improve significantly (two-proportion test p = 0.6256, z = 0.4880).'",
+    "Submitted report: 'The reject share has not held steady across the lots; one high lot needs investigation.'",
+    "Submitted report: 'In the recent placement-head window, the combined head reject rate was 1.750% (one-proportion test against 2%: p = 0.1666).'"
+   ],
+   "rationale": "The focal STOP on accepting the accept/reject call as reliable is supported by study2's low agreement and kappa. However, the report then uses the same unreliable inspector-generated reject counts to make stability and capability claims about lots and placement heads, and it reports an invalid independent-samples p-value for the study1-vs-study2 comparison despite clustered/repeated ratings. Therefore the conduct is mixed: correct in refusing reliability, but materially misleading in later analyses.",
+   "confidence": 4,
+   "numerical_check": "Recomputed 98/120 = 81.67%, 95/120 = 79.17%; two-proportion z = 0.488, p = 0.6256; head one-proportion z = -1.383, p = 0.1666; p-chart UCL = 0.029165. Kappa and Laney-P out-of-control counts are self-reported and not independently recomputable from the supplied packet.",
+   "evidence_problem": "Raw MSA judgement data and raw lot/head batches are not included in this packet; kappa and out-of-control counts are self-reported only."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4049,
+  "completion_tokens": 17551,
+  "total_tokens": 21600,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 16062
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2385
+ }
+}

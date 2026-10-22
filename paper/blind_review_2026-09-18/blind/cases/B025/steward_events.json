@@ -1,0 +1,92 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Provide the attribute agreement study in which multiple inspectors classified the same retained boards as accept or reject against the agreed answer key.",
+    "stage_id": "study_1",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Provide the project charter and the line's required reject-share level or improvement target.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Provide the tally of items inspectors called differently from the answer key, broken out by reject category.",
+    "stage_id": "study_1",
+    "outcome": "data",
+    "detail": "re-served",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Disagreement tally by reject categories.",
+    "stage_id": "disagreements",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Lot record in lot order: boards inspected and boards rejected per lot.",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Second study on retained boards after the accept reject criteria were rewritten.",
+    "stage_id": "study_2",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Placed and rejected counts for each placement head.",
+    "stage_id": "heads",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "What exactly was changed when the visual accept/reject criteria were rewritten after the first retained-board study?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "Was a documented assignable cause found for the unusually high-reject lot in the archived lot sequence, and if so what was it?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 13,
+    "action": "provision",
+    "text": "What documented reaction plan or ongoing control is used to sustain visual inspection agreement and respond to abnormal reject lots?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  }
+]

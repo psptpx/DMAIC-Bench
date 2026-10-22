@@ -1,0 +1,47 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "I need the complete raw roughness measurement study data, including repeated measurements by bore and operator, to assess measurement-system adequacy before drawing conclusions about the process.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the complete repeat X-ray readings of the same joints, including readings by operator, so I can analyse the operator/repeat measurement study.",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "msa_acceptable=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Please release the complete project charter and voiding limit, including the acceptance limit, target, and improvement objective for the void-fraction study.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Please release the complete per-joint void fraction readings in build order, including the reading sequence and any subgroup or lot identifiers.",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  }
+]

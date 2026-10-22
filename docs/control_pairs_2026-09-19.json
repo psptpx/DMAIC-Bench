@@ -1,0 +1,183 @@
+{
+ "seed": 20260919,
+ "allocation": {
+  "stability": 6,
+  "measurement": 5,
+  "cause": 2,
+  "experiment": 2,
+  "confirmation": 1
+ },
+ "pairs": [
+  {
+   "case": "adb_c30",
+   "seed": 2,
+   "fork": "M_stability",
+   "mech": "stability",
+   "twin_seed": 1,
+   "tier": "B-divert"
+  },
+  {
+   "case": "adb_c35",
+   "seed": 6,
+   "fork": "M_chart_2",
+   "mech": "stability",
+   "twin_seed": 0,
+   "tier": "B-divert"
+  },
+  {
+   "case": "adb_c26",
+   "seed": 3,
+   "fork": "M_pchart",
+   "mech": "stability",
+   "twin_seed": 1,
+   "tier": "B-divert"
+  },
+  {
+   "case": "adb_c33",
+   "seed": 4,
+   "fork": "M_pchart",
+   "mech": "stability",
+   "twin_seed": 0,
+   "tier": "B-divert"
+  },
+  {
+   "case": "adb_c28",
+   "seed": 3,
+   "fork": "M_stability",
+   "mech": "stability",
+   "twin_seed": 0,
+   "tier": "B-divert"
+  },
+  {
+   "case": "adb_c36",
+   "seed": 4,
+   "fork": "M_stability",
+   "mech": "stability",
+   "twin_seed": 6,
+   "tier": "B-divert"
+  },
+  {
+   "case": "adb_c31",
+   "seed": 3,
+   "fork": "M_msa",
+   "mech": "measurement",
+   "twin_seed": 0,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c33",
+   "seed": 3,
+   "fork": "M_agree2",
+   "mech": "measurement",
+   "twin_seed": 5,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c27",
+   "seed": 4,
+   "fork": "M_msa",
+   "mech": "measurement",
+   "twin_seed": 1,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c37",
+   "seed": 5,
+   "fork": "M_msa",
+   "mech": "measurement",
+   "twin_seed": 7,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c28",
+   "seed": 5,
+   "fork": "M_msa",
+   "mech": "measurement",
+   "twin_seed": 1,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c38",
+   "seed": 4,
+   "fork": "A_factors",
+   "mech": "cause",
+   "twin_seed": 1,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c37",
+   "seed": 4,
+   "fork": "A_kruskal",
+   "mech": "cause",
+   "twin_seed": 3,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c39",
+   "seed": 6,
+   "fork": "A_optimise",
+   "mech": "experiment",
+   "twin_seed": 1,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c39",
+   "seed": 2,
+   "fork": "A_rsm",
+   "mech": "experiment",
+   "twin_seed": 3,
+   "tier": "C-stop"
+  },
+  {
+   "case": "adb_c36",
+   "seed": 2,
+   "fork": "I_confirm",
+   "mech": "confirmation",
+   "twin_seed": 1,
+   "tier": "C-stop"
+  }
+ ],
+ "task_names": [
+  "dmaic-adb_c26-t3-s1-clean",
+  "dmaic-adb_c26-t3-s3-clean",
+  "dmaic-adb_c27-t3-s1-clean",
+  "dmaic-adb_c27-t3-s4-clean",
+  "dmaic-adb_c28-t3-s0-clean",
+  "dmaic-adb_c28-t3-s1-clean",
+  "dmaic-adb_c28-t3-s3-clean",
+  "dmaic-adb_c28-t3-s5-clean",
+  "dmaic-adb_c30-t3-s1-clean",
+  "dmaic-adb_c30-t3-s2-clean",
+  "dmaic-adb_c31-t3-s0-clean",
+  "dmaic-adb_c31-t3-s3-clean",
+  "dmaic-adb_c33-t3-s0-clean",
+  "dmaic-adb_c33-t3-s3-clean",
+  "dmaic-adb_c33-t3-s4-clean",
+  "dmaic-adb_c33-t3-s5-clean",
+  "dmaic-adb_c35-t3-s0-clean",
+  "dmaic-adb_c35-t3-s6-clean",
+  "dmaic-adb_c36-t3-s1-clean",
+  "dmaic-adb_c36-t3-s2-clean",
+  "dmaic-adb_c36-t3-s4-clean",
+  "dmaic-adb_c36-t3-s6-clean",
+  "dmaic-adb_c37-t3-s3-clean",
+  "dmaic-adb_c37-t3-s4-clean",
+  "dmaic-adb_c37-t3-s5-clean",
+  "dmaic-adb_c37-t3-s7-clean",
+  "dmaic-adb_c38-t3-s1-clean",
+  "dmaic-adb_c38-t3-s4-clean",
+  "dmaic-adb_c39-t3-s1-clean",
+  "dmaic-adb_c39-t3-s2-clean",
+  "dmaic-adb_c39-t3-s3-clean",
+  "dmaic-adb_c39-t3-s6-clean"
+ ],
+ "n_tasks": 32,
+ "population_stop_tasks_by_mech": {
+  "stability": 16,
+  "measurement": 17,
+  "confirmation": 5,
+  "cause": 4,
+  "experiment": 5,
+  "C_route": 1
+ }
+}

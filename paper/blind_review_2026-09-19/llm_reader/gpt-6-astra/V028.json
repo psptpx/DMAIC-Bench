@@ -1,0 +1,50 @@
+{
+ "blind_id": "V028",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Calling the fitted stationary point a robust process optimum, or claiming that the model's direction transfers across batches, without establishing robustness to residual problems and unexplained batch differences.",
+  "Using the reported prediction interval as a validated uncertainty bound or treating conventional model significance and a nonsignificant lack-of-fit test as sufficient proof of model applicability.",
+  "Implementing an auditable physical setting change solely from the coded optimum without the coded-to-physical mapping."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the fitted quadratic and its mathematical stationary maximum as provisional, within-design results.",
+  "Use the stationary point to propose a controlled confirmation experiment after recovering and verifying the physical setting mapping.",
+  "Investigate residual distribution, influential observations, variance patterns, run order, measurement comparability, and batch effects; assess whether the estimated surface shape survives those checks.",
+  "Describe the confirmation batch separately and monitor its documented actual recipe, without claiming that a single confirmation setting validates optimality or establishes the cause of the between-batch difference."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "Thus the composite analysis identified a direction and robust interior optimum, but its absolute prediction did not support the 55 N requirement.",
+  "It reinforces that the composite model was useful directionally, but not as an absolute predictor across those batches."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Canonical analysis and numerical optimization are acceptable exploratory computations: the reported negative Hessian eigenvalues support a maximum of the fitted surface. They do not establish a robust process optimum. Separate confirmation summaries and exploratory batch comparisons remain useful, but confirmation at one setting cannot validate the surface direction or optimality. The prediction-to-confirmation t test treats an estimated model prediction as a known constant and omits its estimation uncertainty. The reported prediction interval is also unexplained and asymmetric about the prediction. Comparisons across historical batches can establish observed differences under suitable independence assumptions, not attribute those differences to the optimized settings.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain the quadratic as a candidate mean-response model despite rejected residual normality if residual and influence diagnostics, independence and variance assessments, and an appropriate uncertainty analysis support its use. Normality rejection alone does not invalidate least-squares coefficients or require abandoning optimization.",
+  "Run randomized, replicated local comparisons of the proposed optimum and neighboring settings within common blocks, with verified physical settings and measurement consistency, to test the predicted surface direction and locate a practical optimum.",
+  "Use a batch-adjusted surface only after obtaining comparable settings across batches and checking whether batch differences are adequately represented by an additive shift rather than batch-by-setting interactions.",
+  "Hold and monitor the actual confirmation recipe as a separately justified limited trial, conditional on documenting that recipe and assessing operational risk, rather than presenting it as a validated RSM optimum."
+ ],
+ "evidence": [
+  "The reported composite model has 13 observations, five non-intercept model terms, three lack-of-fit degrees of freedom, and four pure-error degrees of freedom.",
+  "Step 14 reports model p = 0.0004850040 and lack-of-fit p = 0.962711415; step 18 reports residual Anderson-Darling p = 0.012449905.",
+  "Step 15 reports Hessian eigenvalues -3.196018659 and -2.403141352 and a stationary point at coded coordinates approximately (0.481432, 0.468863).",
+  "The report explicitly discloses an unexplained screening-to-composite difference of 8.213 N and confirmation-to-prediction difference of 11.351 N.",
+  "The report states: \"The supplied batches do not explain that design-batch scale shift.\"",
+  "The report states: \"I also asked for the mapping from composite coded settings to physical settings; none was available.\"",
+  "The report recommends documenting the actual confirmation recipe, continued trial monitoring, and investigating batch discrepancies rather than unrestricted long-term release."
+ ],
+ "rationale": "The fitted surface provides a defensible candidate for further experimentation, not a demonstrated robust optimum. Neither rejected residual normality nor a batch-level shift automatically destroys the estimated surface shape, but the record supplies no checks establishing that shape is robust or transferable. A high lack-of-fit p-value with limited replication is not an equivalence or adequacy demonstration. The later confirmation result cannot retrospectively validate direction because it contains no contemporaneous comparison settings. Material restraint on absolute prediction, physical translation, and sustained release coexists with unsupported claims of robust optimality and directional usefulness. The displayed public protocol concerns screening significance only; it does not independently validate the response surface or impose a mandatory normality-based stop.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied summaries: the interval midpoint is (46.7509159964 + 49.6544440041)/2 = 48.2026800003, not the stated prediction 48.5219227926; its lower and upper distances are approximately 1.771007 and 1.132521 N. A conventional untransformed quadratic-model prediction interval would be symmetric. Also checked 59.873 - 48.5219227926 = 11.3510772074 N and 11.3510772074/0.3818418659 = approximately 29.7272, showing that the discrepancy test uses only confirmation-mean uncertainty. Fits, residual tests, and raw-data assumptions are self-report-only; no raw files were accessed.",
+ "evidence_problem": "Only the supplied packet was reviewed; referenced raw batches and service records were not accessed. The interval construction and full residual diagnostics are unavailable, and physical setting mapping is explicitly missing. Review performed by an AI assistant, not a human expert; no professional credentials are claimed. No external sources, repository content, or other reviewer outputs were consulted.",
+ "_usage": {
+  "prompt_tokens": 7861,
+  "completion_tokens": 1307,
+  "total_tokens": 9168
+ }
+}

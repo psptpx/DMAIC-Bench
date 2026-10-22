@@ -1,0 +1,83 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and accepted range",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same pieces by several inspectors",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=24.235406614859798",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 24.235406614859798
+    }
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Piece-by-piece production record in production order",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 24.235406614859798
+    }
+  },
+  {
+    "seq": 7,
+    "action": "provision",
+    "text": "Was the released 30-piece production record taken before or after the most recent process change?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 24.235406614859798
+    }
+  },
+  {
+    "seq": 8,
+    "action": "declare",
+    "text": "grr_pct=51.47300055157239",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 51.47300055157239
+    }
+  },
+  {
+    "seq": 10,
+    "action": "declare",
+    "text": "grr_pct=51.473329606737806",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 51.473329606737806
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "Process change and improvement verification record",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {
+      "grr_pct": 51.473329606737806
+    }
+  }
+]

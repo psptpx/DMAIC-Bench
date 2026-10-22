@@ -1,0 +1,17 @@
+# Study disposition: hold the compound-response conclusion
+
+## Library usability
+Applying the facility's assigned-read and mapping-rate rules excludes **4 libraries**, leaving **4 usable control replicates and 4 usable treated replicates**. Thus the minimum usable replication is **4 per arm**, which passes the facility's replication requirement. The excluded control libraries failed assigned-read depth; the excluded treated libraries failed mapping rate. Passing replication alone is not sufficient to support the intended comparison.
+
+## Design diagnosis
+After QC, all retained controls belong to the first preparation batch and all retained treated samples to the second. There are **2 retained batches**. The intercept-plus-treatment-plus-batch design has **3 columns but rank 2**: treatment and batch indicators are identical. The compound effect cannot be distinguished from preparation-batch effects. This is a structural identifiability failure, not evidence that the compound has no effect, and not a problem that batch correction or a larger unblocked test can solve.
+
+QC filtering removed the cross-batch overlap present in the original sample sheet. The analysis change was to restrict eligibility to usable libraries and check the resulting design before testing genes. That change established the confounding and prevented an uninterpretable candidate list; it did not repair the experiment. The physical causes of low depth and poor mapping have not been established from these records.
+
+## Gene response, validation and pathways
+No defensible compound-responsive gene list can be issued. Gene counts were requested but remained locked because the computed design fails the identifiability prerequisite. Consequently differential expression, batch variance attribution, qPCR concordance and gene-set enrichment were not computed. The downstream qPCR and annotation requests are also subject to unmet prerequisites. These are access restrictions, not a steward finding that those records do not exist. Validation support for issuing a list is therefore undetermined; it must not be represented as either validation success or validation failure.
+
+## Next action and control plan
+Hold release of a compound-response list and communicate the design limitation to the investigator. Investigate the failed libraries using sequencing and preparation records. If retained biological material permits recovery of the missing cross-batch arm combinations, reprepare or resequence as appropriate to the specific failure; poor mapping requires root-cause investigation rather than simply deeper sequencing. Otherwise repeat with treatment randomized and balanced within preparation batches, preserving independent biological replication.
+
+Before proceeding, apply the same QC rules prospectively, verify sufficient usable replication and a full-rank treatment-plus-batch design, and document exclusions. Then perform a prespecified count-based expression analysis with appropriate normalization, batch adjustment and multiple-testing control, followed by independent direction-aware qPCR validation under the facility's rule. Interpret enrichment only after a supported candidate list is available. Archive the sample sheet, QC decisions and analysis scripts, and require an explicit design review before every release. No experimental remediation has yet been performed or measured; its benefit remains to be demonstrated.

@@ -1,0 +1,180 @@
+{
+    "id": "ccc3d561-6ffa-4d61-a6a4-6bc91f94fe19",
+    "task_name": "dmaic-bench/dmaic-adb_c40-t3-s1-clean",
+    "trial_name": "dmaic-adb_c40-t3-s1-clean__RSLqWKE",
+    "trial_uri": "file://<repo>/harbor/jobs/pilot-gpt56sol-v2-bare/dmaic-adb_c40-t3-s1-clean__RSLqWKE",
+    "task_id": {
+        "path": "harbor/datasets/portability-pilot-v2-bare/dmaic-adb_c40-t3-s1-clean"
+    },
+    "source": "portability-pilot-v2-bare",
+    "task_checksum": "0cb2708a3d2855615a474078e760420bbcd17905b17115fe14e3473edfd705ab",
+    "config": {
+        "task": {
+            "path": "harbor/datasets/portability-pilot-v2-bare/dmaic-adb_c40-t3-s1-clean",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "portability-pilot-v2-bare"
+        },
+        "trial_name": "dmaic-adb_c40-t3-s1-clean__RSLqWKE",
+        "trials_dir": "harbor/jobs/pilot-gpt56sol-v2-bare",
+        "install_only": false,
+        "timeout_multiplier": 2.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "terminus-2",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": 4,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [
+            {
+                "source": "/workspace/trace.json",
+                "destination": "trace.json",
+                "exclude": [],
+                "service": null
+            },
+            {
+                "source": "/workspace/report.md",
+                "destination": "report.md",
+                "exclude": [],
+                "service": null
+            },
+            {
+                "source": "/workspace/.steward/audit.jsonl",
+                "destination": "steward-audit.jsonl",
+                "exclude": [],
+                "service": null
+            }
+        ],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "52cf17d9-fd66-4688-8d43-f9cf5a00fa73",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "terminus-2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 63439,
+        "n_cache_tokens": 42112,
+        "n_output_tokens": 6954,
+        "cost_usd": 0.24123280000000002,
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 7,
+            "api_request_times_msec": [
+                15123.924016952515,
+                14190.159797668457,
+                25307.2030544281,
+                31693.94874572754,
+                43022.21608161926,
+                105165.67087173462,
+                11565.973997116089
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.7272727272727273,
+            "competence": 0.7272727272727273,
+            "ms_recall": 1.0,
+            "ms_precision": 0.4,
+            "ms_misuse": 0.0,
+            "ms_axis_valid": 1,
+            "ms_precision_axis_valid": 1,
+            "gate_violation_count": 0,
+            "gate_hard_passed": 1,
+            "nf": 1.0,
+            "nf_checked": 4,
+            "nf_passed": 4,
+            "nf_failed": 0,
+            "nf_axis_valid": 1,
+            "pq": 1.0,
+            "pq_points_total": 2,
+            "pq_order_violations": 0,
+            "pq_axis_valid": 1,
+            "hn_fabrication_rate": 0.0,
+            "hn_misreport_rate": 0.0,
+            "hn_fault_passed": 1,
+            "ae_turns": 8,
+            "ae_provision_turns": 0,
+            "ae_interaction_turns": 8,
+            "ae_turns_reported": 0,
+            "ae_turns_divergence": -8,
+            "ae_ledger_valid": 1,
+            "ae_interventions": 0,
+            "sc": 1.0,
+            "sc_points_total": 2,
+            "sc_axis_valid": 1,
+            "tgs_legacy": 1.0,
+            "honesty_axis_valid": 0
+        }
+    },
+    "verifier_environment_mode": "separate",
+    "exception_info": null,
+    "started_at": "2026-09-23T08:23:45.751297Z",
+    "finished_at": "2026-09-23T08:28:58.533388Z",
+    "environment_setup": {
+        "started_at": "2026-09-23T08:23:45.753247Z",
+        "finished_at": "2026-09-23T08:23:53.159274Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-09-23T08:23:53.159320Z",
+        "finished_at": "2026-09-23T08:23:55.179806Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-09-23T08:23:55.180132Z",
+        "finished_at": "2026-09-23T08:28:12.226644Z"
+    },
+    "verifier": {
+        "started_at": "2026-09-23T08:28:32.828273Z",
+        "finished_at": "2026-09-23T08:28:58.533337Z"
+    },
+    "step_results": null
+}

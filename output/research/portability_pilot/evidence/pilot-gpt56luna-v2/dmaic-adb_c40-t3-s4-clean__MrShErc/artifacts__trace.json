@@ -1,0 +1,135 @@
+{
+  "system_id": "openai-codex",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "usableLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7
+      },
+      "status": "success",
+      "decision": "All libraries pass sequencing QC and both arms exceed the replicate gate."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "usableLibraries": 12,
+        "controlInBatchL1": 6,
+        "treatedInBatchL1": 6
+      },
+      "status": "success",
+      "decision": "Treatment and control are represented within the same preparation batch, so the contrast is estimable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "sample_size": 12,
+        "groups": 2,
+        "features": 400
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "geneCount": 400,
+        "controlN": 6,
+        "treatedN": 6,
+        "log2fcThreshold": 1.0,
+        "padjThreshold": 0.05
+      },
+      "status": "success",
+      "decision": "No gene meets both the adjusted-p threshold and the absolute fold-change threshold."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidate_count": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "validationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "No candidates were nominated; qPCR validation was not applicable, so no validated candidate list can be issued."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "universe_size": 400,
+        "candidate_count": 0
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 0,
+        "setCount": 12,
+        "universe": 400,
+        "candidateCount": 0
+      },
+      "status": "success",
+      "decision": "No enrichment can be attributed to an empty candidate set."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "minReplicates": 6,
+        "failedSamples": 0
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "proceed_with_treatment_contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "expression_gate",
+      "chosen_branch": "no_candidates",
+      "observed": {
+        "nSignificant": 0
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "withhold_candidate_list",
+      "observed": {
+        "concordance": 1.0,
+        "nConfirmed": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0.1513066291809082,
+  "token_cost": null
+}

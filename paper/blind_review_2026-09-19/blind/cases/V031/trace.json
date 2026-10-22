@@ -1,0 +1,328 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 60,
+        "mean": 51.19733333333334,
+        "median": 51.42,
+        "stdDev": 4.358781849214244,
+        "skewness": 0.3060216575441991,
+        "adStatistic": 0.35726439281149425,
+        "adPValue": 0.4440166457189789,
+        "minimum": 41.8,
+        "maximum": 62.41
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "decision": "Baseline distribution summarized; normality was not rejected."
+    },
+    {
+      "step_id": 2,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 51.19733333333334,
+        "movingRangeMean": 5.0313559322033905,
+        "withinSigma": 4.460421925712226,
+        "individualsUCL": 64.57859911047002,
+        "individualsLCL": 37.81606755619666,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "decision": "No points beyond individuals limits; ordered baseline shows no point-rule signal."
+    },
+    {
+      "step_id": 3,
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "statistic": 0.7812456896432817,
+        "pValue": 0.4346580060052977
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60
+      },
+      "decision": "No evidence of nonrandom runs around the median."
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "tStatistic": -6.757697531402264,
+        "pValue": 3.473673164958507e-09,
+        "twoSidedPValue": 6.947346329917014e-09
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60,
+        "reference": 55
+      },
+      "decision": "One-sided test shows baseline mean is below the committed level."
+    },
+    {
+      "step_id": 5,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 0.46313506035596014,
+        "ppk": 0.473934656342156,
+        "belowLslCount": 4,
+        "belowLslFraction": 0.06666666666666667,
+        "belowRequiredCount": 50,
+        "belowRequiredFraction": 0.8333333333333334,
+        "lsl": 45.0,
+        "requiredLevel": 55.0
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "baseline",
+        "sampleSize": 60,
+        "specificationSides": 1
+      },
+      "decision": "Only lower one-sided Cpk/Ppk are meaningful; cp and pp placeholders are zero because no upper specification was supplied."
+    },
+    {
+      "step_id": 6,
+      "method_id": "doe.factorial_analysis",
+      "outputs": {},
+      "status": "failed",
+      "inputs_digest": {
+        "batch": "screening_run",
+        "sampleSize": 16,
+        "factors": 3
+      },
+      "decision": "First screening computation failed before results were written because a factor name shadowed the formula categorical function."
+    },
+    {
+      "step_id": 7,
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 0.003695281195233372,
+        "fStatistic": 8.44115447634162,
+        "rSquaredPct": 88.07537815826764,
+        "rSquaredAdjPct": 77.64133404675182,
+        "bondAngleEffect": 4.6277499999999865,
+        "beadSpacingEffect": 3.0817500000000084,
+        "cureTemperatureEffect": 0.5970000000000064,
+        "bondAnglePValue": 0.0002897164572040077,
+        "beadSpacingPValue": 0.003625131734048375,
+        "cureTemperaturePValue": 0.4540583696688837,
+        "interactionABPValue": 0.06849524644563343,
+        "lackOfFitF": 1.192840335811492,
+        "lackOfFitPValue": 0.3840397914354224,
+        "pureErrorStdDev": 1.5174864496923863,
+        "residualAdPValue": 0.4374496327133862,
+        "anyMainFactorSignificant": true
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "screening_run",
+        "sampleSize": 16,
+        "factors": 3,
+        "replicatesPerCorner": 2
+      },
+      "decision": "Bond angle and bead spacing are significant screening factors; cure temperature is not."
+    },
+    {
+      "step_id": 8,
+      "method_id": "doe.rsm_analysis",
+      "outputs": {
+        "rSquaredPct": 93.56781431583127,
+        "rSquaredAdjPct": 88.97339596999647,
+        "modelPValue": 0.0004850040318949866,
+        "fStatistic": 20.365540809024875,
+        "lackOfFitPValue": 0.9627114149832965,
+        "lackOfFitF": 0.08835496385922445,
+        "residualAdPValue": 0.012449905358126212,
+        "pureErrorStdDev": 0.7193742190265113
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "composite_design",
+        "sampleSize": 13,
+        "factors": 2,
+        "centerRuns": 5
+      },
+      "decision": "Quadratic response surface is significant with no detected lack of fit, but residual normality is questionable."
+    },
+    {
+      "step_id": 9,
+      "method_id": "doe.rsm_canonical",
+      "outputs": {
+        "predictedAtStationary": 48.36230139645569,
+        "stationaryBondAngle": 0.24071617975852067,
+        "stationaryBeadSpacing": 0.23443155367212534,
+        "hessianEigenvalue1": -3.196018658709453,
+        "hessianEigenvalue2": -2.403141351548187,
+        "stationaryIsMaximum": true
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "composite_design",
+        "factors": 2
+      },
+      "decision": "Both Hessian eigenvalues are negative, identifying a local maximum."
+    },
+    {
+      "step_id": 10,
+      "method_id": "doe.factorial_prediction",
+      "outputs": {
+        "predictedValue": 48.36230139645569,
+        "piLower": 46.911802499808,
+        "piUpper": 49.812800293103386,
+        "meanCiLower": 47.77842704299399,
+        "meanCiUpper": 48.946175749917394
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "composite_design",
+        "predictionPoints": 1
+      },
+      "decision": "Prediction at the fitted stationary point remains below the committed level."
+    },
+    {
+      "step_id": 11,
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 20,
+        "mean": 59.87299999999999,
+        "median": 59.495000000000005,
+        "stdDev": 1.707648737453437,
+        "skewness": 0.7043198881179051,
+        "adStatistic": 0.4773550324320155,
+        "adPValue": 0.21115690637800058,
+        "minimum": 57.53,
+        "maximum": 63.49
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20
+      },
+      "decision": "Confirmation batch summarized; normality was not rejected."
+    },
+    {
+      "step_id": 12,
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 59.87299999999999,
+        "movingRangeMean": 2.077368421052632,
+        "withinSigma": 1.8416386711459507,
+        "individualsUCL": 65.39791601343784,
+        "individualsLCL": 54.34808398656214,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20
+      },
+      "decision": "No confirmation point lies beyond the individuals limits."
+    },
+    {
+      "step_id": 13,
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "requiredLevel": 55.0,
+        "tStatistic": 12.761827436016908,
+        "pValue": 4.549448452460978e-11,
+        "twoSidedPValue": 9.098896904921957e-11
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20,
+        "reference": 55
+      },
+      "decision": "Confirmation mean is significantly above the committed level."
+    },
+    {
+      "step_id": 14,
+      "method_id": "capability.normal",
+      "outputs": {
+        "cpk": 2.691986622751454,
+        "ppk": 2.9032122109959664,
+        "lsl": 45.0,
+        "requiredLevel": 55.0,
+        "cpkAtLsl": 2.691986622751454,
+        "ppkAtLsl": 2.9032122109959664,
+        "cpkAtRequired": 0.8820043577400537,
+        "ppkAtRequired": 0.9512104554685218,
+        "belowLslCount": 0,
+        "belowRequiredCount": 0
+      },
+      "status": "success",
+      "inputs_digest": {
+        "batch": "confirmation_runs",
+        "sampleSize": 20,
+        "specificationSides": 1
+      },
+      "decision": "Lower one-sided capability is reported at both thresholds; bilateral cp and pp are unavailable and represented as zero placeholders because no upper specification was supplied."
+    },
+    {
+      "step_id": 15,
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "statistic": 14.728786944778749,
+        "pValue": 0.00025072570726358465
+      },
+      "status": "success",
+      "inputs_digest": {
+        "groups": 2,
+        "baselineN": 60,
+        "confirmationN": 20
+      },
+      "decision": "Variance equality is rejected, so the before-after comparison uses Welch correction."
+    },
+    {
+      "step_id": 16,
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "baselineN": 60,
+        "confirmationN": 20,
+        "baselineMean": 51.19733333333334,
+        "confirmationMean": 59.87299999999999,
+        "meanDifference": 8.67566666666665,
+        "tStatistic": 12.757604095833555,
+        "pValue": 1.4499350334549586e-20
+      },
+      "status": "success",
+      "inputs_digest": {
+        "groups": 2,
+        "baselineN": 60,
+        "confirmationN": 20
+      },
+      "decision": "Confirmation mean exceeds baseline mean using a Welch independent-samples comparison."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "screening_factor_gate",
+      "chosen_branch": "any_factor_significant=true",
+      "observed": {
+        "bondAnglePValue": 0.0002897164572040077,
+        "beadSpacingPValue": 0.003625131734048375,
+        "cureTemperaturePValue": 0.4540583696688837
+      }
+    },
+    {
+      "point": "before_after_variance_choice",
+      "chosen_branch": "welch_unequal_variances",
+      "observed": {
+        "statistic": 14.728786944778749,
+        "pValue": 0.00025072570726358465
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

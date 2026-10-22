@@ -1,0 +1,167 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s6-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "initialParticipants": 240,
+        "initialAffected": 120,
+        "initialUnaffected": 120,
+        "panelVariants": 150,
+        "retainedAffected": 120,
+        "retainedUnaffected": 119,
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesRetained": 239,
+        "platePass": true,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes participant QC; exclude P129."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samplesAfterSampleQC": 239,
+        "variants": 150,
+        "controlGroupSize": 119
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 13,
+        "snpsRetained": 137,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain 137 variants after call-rate, MAF, and exact control-HWE filters."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 239,
+        "variants": 137,
+        "axesTested": 1
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 1,
+        "pc1PValue": 0.5031215641305578
+      },
+      "status": "success",
+      "decision": "Initial PC1-only screen did not detect separation; this screen was later found insufficient."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 239,
+        "retainedVariants": 137,
+        "groups": 2
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 36,
+        "lambdaGC": 2.2961175481642777,
+        "bonferroniThreshold": 0.00036496350364963507
+      },
+      "status": "success",
+      "decision": "Unadjusted diagnostic scan is highly inflated and its 36 signals are not valid association conclusions after PC2 confounding was identified."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 239,
+        "retainedVariants": 137,
+        "covariatePCs": 10
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {},
+      "status": "failed",
+      "decision": "PC-adjusted logistic association failed with a singular Hessian; no adjusted p-values or discoveries were produced."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 239,
+        "variants": 137,
+        "axesTested": 10,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 2,
+        "pc1PValue": 0.5031215641305691,
+        "firstSeparatingPValue": 1.582582344580355e-139,
+        "completeRangeSeparation": true,
+        "pc2VarianceFraction": 0.08136027771197264,
+        "pc2TStatistic": 60.88768020785006
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants are completely separated on PC2 and cannot support an identifiable case-control association contrast."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "replication",
+        "participants": 120,
+        "availablePanelVariants": 150
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 0,
+        "nCandidates": 0,
+        "replicationParticipants": 120,
+        "availablePanelVariants": 150,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "No discovery candidate was nominated, so no per-variant replication test or same-direction check was possible."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participant",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667,
+        "platePass": true
+      }
+    },
+    {
+      "point": "case_control_comparability",
+      "chosen_branch": "stop_inferential_association_due_to_complete_genetic_separation",
+      "observed": {
+        "separatedAxis": 2,
+        "firstSeparatingPValue": 1.582582344580355e-139,
+        "completeRangeSeparation": true
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_candidate_tests_possible",
+      "observed": {
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

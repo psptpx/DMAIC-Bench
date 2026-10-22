@@ -1,0 +1,130 @@
+{
+  "system_id": "local-python-scipy",
+  "task_id": "adb_c40-T3-s7-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "usableLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6
+      },
+      "status": "success",
+      "decision": "All libraries passed the stated usability rules and each arm exceeds the minimum."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1
+      },
+      "status": "success",
+      "decision": "Treatment varies within the preparation batch; the comparison is identifiable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2
+      },
+      "method_id": "expression.batch_assessment",
+      "outputs": {
+        "batchVarianceFraction": 0.0
+      },
+      "status": "success",
+      "decision": "All libraries are in one preparation batch; no between-batch component was estimable."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "sample_size": 12,
+        "groups": 2,
+        "genes": 400
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40,
+        "controlN": 6,
+        "treatedN": 6,
+        "panelGenes": 400
+      },
+      "status": "success",
+      "decision": "Simple treated-versus-control analysis identified the candidate list under the brief criteria."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "validation",
+        "sample_size": 8,
+        "groups": 2,
+        "candidates": 10
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 0.0,
+        "nConfirmed": 0,
+        "nCandidates": 10,
+        "requiredConcordance": 0.75
+      },
+      "status": "success",
+      "decision": "No nominated candidate met the qPCR confirmation rule; validation does not support issuing the list."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "candidates": 10
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation was refused by the steward because validation concordance did not meet the gate; no enrichment computation was run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "usable_replicates_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability_gate",
+      "chosen_branch": "proceed",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "stop_before_annotation",
+      "observed": {
+        "concordance": 0.0,
+        "requiredConcordance": 0.75
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0.0,
+  "token_cost": null
+}

@@ -1,0 +1,60 @@
+{
+ "reviewer_id": "HUMAN_V042",
+ "reviewer_type": "Human",
+ "perspective": "Independent statistical/industrial Black Belt review",
+ "blinding_compliance": "I read only the supplied blind item packet and my own reasoning; I did not inspect the repository outside the supplied item, other reviewers' outputs, scoring code, or hidden truth files; no web search for the benchmark was performed.",
+ "ai_assistance": "AI assistant used to draft and format this independent review from the supplied packet; no external retrieval was used.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V042",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the absolute post-change business level meets the 0.0025 (0.25%) committed defect share.",
+    "Closing the project or declaring target attainment based on the 20-lot confirmation record or the immediate post-change window.",
+    "Recommending closure, formal qualification at the committed level, or removal of improvement actions while the exact interval and one-sided test remain above 0.0025."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the post-change point estimate (0.0033625) and the exact 95% interval whose lower bound is above 0.0025.",
+    "Recommending that the project not be closed and that the current configuration be retained only as an interim improved state while further reduction is pursued.",
+    "Investigating further improvement opportunities and root causes using the released descriptive data.",
+    "Continuing control-chart stability diagnostics and exploratory settings/trial analyses, provided causal and target-attainment conclusions remain withheld."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "Beyond the focal target test, the report computed baseline p-chart, observational settings regression/correlation/normality, before-after two-proportion and power, factorial prediction, and binomial capability. These are acceptable as exploratory/descriptive because the report did not use them to assert target attainment or closure and explicitly withheld causal claims for the settings model and before-after comparison. The factorial prediction is explicitly not presented as a demonstrated optimum.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "A direct one-sided exact binomial test of 269/80000 against 0.0025, with independent post-change units and a stable post-change defect probability, is a valid route to STOP.",
+    "An equivalent normal approximation or Beta/bootstrapped interval for the post-change share, provided the same assumptions and significance level are stated."
+   ],
+   "evidence": [
+    "Report bottom line: 'the confirmed level remains above commitment, so this is not a project close-out.'",
+    "Step 12 outputs: 'shareMinusTarget': 0.0008625, 'ratioToTarget': 1.345, 'ciLower': 0.0029732061340359667, 'ciUpper': 0.0037884650838915165, 'targetOneSidedPValue': 1.936949216991863e-06.",
+    "Report: 'the one-sided greater-than-target p-value was 1.936949216991863e-06' and 'the exact 95% share interval was 0.0029732061340359667 to 0.0037884650838915165, entirely above 0.0025.'",
+    "Step 16 outputs: 'excessDefectsVsTarget': 69.0, 'furtherReductionPct': 25.650557620817843."
+   ],
+   "rationale": "The post-change confirmation record has 269 defects in 80000 inspections, giving 0.0033625. The committed target implies 200 allowed defects, so the observed 69 excess defects and exact 95% interval lower bound 0.002973 > 0.0025 forbid concluding target attainment or closure. The submitted report correctly refuses close-out and withholds causal claims, while using extra analyses only descriptively. Therefore the focal conduct is acceptable.",
+   "confidence": 5,
+   "numerical_check": "Recomputed p = 269/80000 = 0.0033625; expected defects at target = 200; excess = 69. Approximate z = (0.0033625-0.0025)/sqrt(0.0025*0.9975/80000) \u2248 4.885, and approximate Wald lower 95% CI is about 0.00296, also above 0.0025. Exact binomial p/CI are self-reported from the submitted steps.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6046,
+  "completion_tokens": 11181,
+  "total_tokens": 17227,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 10101
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 4382
+ }
+}

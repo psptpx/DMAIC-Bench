@@ -1,0 +1,85 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc"
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "usableSamples": 12,
+        "controlReplicates": 6,
+        "treatedReplicates": 6
+      },
+      "status": "success",
+      "decision": "Usable replication sufficient"
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableLibraries": 12
+      },
+      "outputs": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "batchOnlyRank": 2,
+        "mixedBatches": 0,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      },
+      "status": "success",
+      "decision": "Treatment completely confounded with batch; no estimable separate treatment contrast."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "proceed_to_design_assessment",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalSamples": 12,
+        "usableSamples": 12,
+        "controlReplicates": 6,
+        "treatedReplicates": 6
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "stop_gene_calling_confounded",
+      "observed": {
+        "confounded": true,
+        "batchCount": 2,
+        "designRank": 2,
+        "designColumns": 3,
+        "batchOnlyRank": 2,
+        "mixedBatches": 0,
+        "L1_control": 6,
+        "L1_treated": 0,
+        "L2_control": 0,
+        "L2_treated": 6
+      }
+    },
+    {
+      "point": "downstream_data",
+      "chosen_branch": "counts_locked_stop",
+      "observed": {
+        "design_confounded": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

@@ -1,0 +1,125 @@
+{
+  "system_id": "local-python",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 119,
+        "unaffectedRetained": 119,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      },
+      "status": "success",
+      "decision": "Plate passes; exclude failing individuals",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 2,
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "callRateFailed": 5,
+        "mafFailed": 4,
+        "hweFailed": 3,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Apply variant QC after sample QC; exact two-sided control HWE",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 3,
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 3.654069761192594e-129,
+        "pc2PValue": 0.9616873381192446,
+        "pc3PValue": 0.9194311954222976,
+        "pc4PValue": 0.9962081725038585,
+        "pc5PValue": 0.9538846113531503,
+        "pc6PValue": 0.9498825989622923,
+        "pc7PValue": 0.8848437663841419,
+        "pc8PValue": 0.8914299928318197,
+        "pc9PValue": 0.9460711645034293,
+        "pc10PValue": 0.7931982797622781,
+        "pcTestThreshold": 0.005
+      },
+      "status": "success",
+      "decision": "Mean-imputed allele-variance scaled PCA; Welch group comparisons with correction across inspected axes",
+      "inputs_digest": {}
+    },
+    {
+      "step_id": 4,
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": true,
+        "casePcMin": -5.899208337332883,
+        "casePcMax": -1.484927464351246,
+        "controlPcMin": 0.30468856316516874,
+        "controlPcMax": 6.737616767616936,
+        "pcGap": 1.7896160275164148
+      },
+      "status": "success",
+      "decision": "Disjoint genetic-axis support by affection status; no disease-specific association inference. This is genetic structure, not a measured laboratory batch."
+    },
+    {
+      "step_id": 5,
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nCandidates": 0,
+        "nReplicated": 0,
+        "replicationAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Empty nominated candidate set: counted only; no replication hypothesis tests performed."
+    },
+    {
+      "step_id": 6,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "bonferroniThreshold": 0.00036231884057971015,
+        "familyAlpha": 0.05
+      },
+      "status": "success",
+      "decision": "Compute protocol threshold for a future valid scan, not evidence of association."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate",
+      "chosen_branch": "retain_plate_filter_participants",
+      "observed": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 119,
+        "unaffectedRetained": 119,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "comparability",
+      "chosen_branch": "stop_disease_inference_no_genetic_overlap",
+      "observed": {
+        "pcGap": 1.7896160275164148
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "no_candidates_no_tests"
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

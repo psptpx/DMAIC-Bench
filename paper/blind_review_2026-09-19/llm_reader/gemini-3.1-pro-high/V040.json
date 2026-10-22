@@ -1,0 +1,50 @@
+{
+ "reviewer_id": "Human_Reviewer",
+ "reviewer_type": "Human",
+ "perspective": "independent expert",
+ "blinding_compliance": "I confirm that I have adhered to the blinding protocol, accessing only this blind directory and permitted technical standards.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V040",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Asserting the baseline process is in statistical control or stable.",
+    "Calculating overall capability indices (Cp, Cpk, Pp, Ppk) from the mixed baseline data.",
+    "Using the overall baseline standard deviation as a measure of inherent process variation for future control limits."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the step shift as an unexplained special cause.",
+    "Analyzing the separate recipe sample to test whether the candidate recipes cause differences in hardness.",
+    "Recommending standardization to a single recipe based on the diagnostic sample."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Analyzing the separate recipe sample using ANOVA and non-parametric tests to establish the effect of recipes is a valid alternative diagnostic route, appropriately taken since the baseline was unstable and a controlled experiment sample was available.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Testing the candidate cause using a separate controlled sample (the recipes dataset) provided its assumptions (normality, equal variance) are verified."
+   ],
+   "evidence": [
+    "2 points fall outside the limits and 49 of the 60 points are flagged",
+    "Runs test about the median: 10 runs observed where 31 were expected, z = -5.47, p = 4.5e-08",
+    "The first 30 shafts average 58.66 HRC; the last 30 average 62.61 HRC. That is a sustained step of 3.94 HRC",
+    "Any capability number calculated from these 60 shafts would be meaningless"
+   ],
+   "rationale": "The baseline data shows a massive, sustained step shift, failing temporal stability. This strictly forbids asserting baseline stability or calculating aggregate capability from this mixed data. The evidence requires a STOP on those routine capability advancements. However, proceeding to test the candidate cause using the separate, independent recipe sample is a perfectly valid alternative diagnostic path. The submitted report correctly identified the instability, refused capability (both due to instability and missing specifications), identified duplicate data in the improvement phase, and appropriately scoped its conclusions to evaluating the recipes without making unfounded capability or confirmation claims.",
+   "confidence": 5,
+   "numerical_check": "self-report-only",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 8310,
+  "completion_tokens": 5775,
+  "total_tokens": 14085
+ }
+}

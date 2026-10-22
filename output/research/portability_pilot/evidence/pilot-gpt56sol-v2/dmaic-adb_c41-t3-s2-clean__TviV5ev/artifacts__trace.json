@@ -1,0 +1,197 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s2-clean",
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null,
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 118,
+        "unaffectedRetained": 120,
+        "callRateThreshold": 0.95,
+        "plateFailLimit": 0.1,
+        "platePasses": true,
+        "minimumCallRate": 0.9466666666666667
+      },
+      "status": "success",
+      "decision": "Exclude P017 and P111; the failure fraction does not trigger plate re-genotyping."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 238,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial combined variant-QC/PCA script stopped before computation because scikit-learn was unavailable; rerun with NumPy and SciPy only."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 238,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 18,
+        "snpsRetained": 132,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHweControls": 9,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweControlPThreshold": 1e-06
+      },
+      "status": "success",
+      "decision": "Retain only variants passing call rate, MAF, and exact control HWE criteria."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 238,
+        "variants": 132
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 1,
+        "pc1PValue": 5.230440889696471e-18,
+        "pc1Statistic": -9.392820783592372,
+        "pc1VarianceFraction": 0.10177791048043063,
+        "crossValidatedAccuracy": 0.7352941176470589
+      },
+      "status": "success",
+      "decision": "PC1 differs by affection status but group ranges overlap; comparison is allowed only with PC1 adjustment."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 238,
+        "variants": 132,
+        "covariates": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 2,
+        "lambdaGC": 1.0173354542865025,
+        "bonferroniThreshold": 0.0003787878787878788,
+        "minimumPValue": 1.682943023071532e-05
+      },
+      "status": "success",
+      "decision": "Exploratory likelihood-ratio implementation was superseded by coefficient Wald tests for final nomination."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "samples": 238,
+        "variants": 132,
+        "covariates": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.0173354542865025,
+        "bonferroniThreshold": 0.0003787878787878788,
+        "minimumPValue": 3.623076440155987e-05,
+        "testedVariants": 132,
+        "covariateAxes": 1,
+        "hitPValue": 3.623076440155987e-05,
+        "hitZStatistic": 4.130288903165427,
+        "hitCalledSamples": 235
+      },
+      "status": "success",
+      "decision": "The final PC1-adjusted additive logistic Wald scan nominates rs020008."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "variant": "rs020008",
+        "calledSamples": 235
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 2.6544031182868935,
+        "beta": 0.9762198152148408,
+        "standardError": 0.23635630293722845
+      },
+      "status": "success",
+      "decision": "Discovery minor-allele effect is positive."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "replication",
+        "candidates": 1
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "alpha": 0.05,
+        "pValue": 0.0006966849453772815,
+        "oddsRatio": 2.7299977127137143,
+        "beta": 1.004300771362713,
+        "standardError": 0.29617699549568993,
+        "zStatistic": 3.390880408121798,
+        "calledSamples": 119,
+        "sameDirection": true
+      },
+      "status": "success",
+      "decision": "rs020008 meets the independent nominal-p and same-direction replication rule."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "proceed_after_sample_exclusions",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333,
+        "maximumAllowed": 0.1
+      }
+    },
+    {
+      "point": "ancestry_structure",
+      "chosen_branch": "overlapping_structure_adjust_pc1",
+      "observed": {
+        "pc1PValue": 5.230440889696471e-18,
+        "separated": false
+      }
+    },
+    {
+      "point": "association_test",
+      "chosen_branch": "pc1_adjusted_additive_logistic_wald",
+      "observed": {
+        "retainedVariants": 132,
+        "covariateAxes": 1
+      }
+    },
+    {
+      "point": "reporting",
+      "chosen_branch": "report_replicated_hit",
+      "observed": {
+        "nCandidates": 1,
+        "nReplicated": 1,
+        "sameDirection": true
+      }
+    }
+  ]
+}

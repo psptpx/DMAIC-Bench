@@ -1,0 +1,146 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "nLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minimumRequired": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "qcPass": true
+      },
+      "status": "success",
+      "decision": "All libraries passed both rules and each arm exceeds the minimum usable replicate requirement."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "samples": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "controlL1": 5,
+        "controlL2": 1,
+        "treatedL1": 1,
+        "treatedL2": 5
+      },
+      "status": "success",
+      "decision": "The intercept, batch, and condition model is full rank; condition is estimable with batch adjustment despite imbalance."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "nGenes": 400,
+        "nSamples": 12
+      },
+      "status": "failed",
+      "decision": "The first NB2 run reached result serialization with non-finite diagnostics; no result from this attempt was used."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "samples": 12,
+        "modelFactors": 2
+      },
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "nGenes": 400,
+        "nSamples": 12,
+        "nSuccessfulFits": 398,
+        "nFailedFits": 2,
+        "padjThreshold": 0.05,
+        "log2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Median-ratio normalization followed by per-gene NB2 regression with batch and condition, Wald tests, and BH correction yielded no genes meeting both strict thresholds."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidates": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "computable": false,
+        "alpha": 0.05,
+        "minimumConcordance": 0.75
+      },
+      "status": "failed",
+      "decision": "Concordance cannot be computed because no candidates were nominated and no qPCR measurements exist; no numeric concordance was invented."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "gene_sets",
+        "released": false
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Gene-set annotation remained locked because validation concordance is undefined and therefore cannot satisfy the numeric release gate; enrichment was not run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_qc_gate",
+      "chosen_branch": "continue",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "minimumRequired": 3
+      }
+    },
+    {
+      "point": "design_gate",
+      "chosen_branch": "batch_adjusted_de",
+      "observed": {
+        "confounded": false,
+        "designRank": 3,
+        "designColumns": 3
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "stop_without_numeric_concordance",
+      "observed": {
+        "nCandidates": 0,
+        "nConfirmed": 0,
+        "computable": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

@@ -1,0 +1,56 @@
+{
+ "reviewer_id": "847253",
+ "reviewer_type": "Human",
+ "perspective": "Black Belt",
+ "blinding_compliance": "I have strictly adhered to all procedural blinding rules, only reviewing the contents of this blind directory and using appropriate domain knowledge. I did not access other directories, truth files, or coordinate with anyone.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V055",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the gage's %Tolerance is acceptable based on a fabricated tolerance of 25.0.",
+    "Using the measurement system to support any capability or accept/reject decisions against the actual tolerance, as it fails completely.",
+    "Asserting the process is capable or stable relative to an invented 0-25 tolerance band."
+   ],
+   "permitted_at_checkpoint": [
+    "Calculating Gage R&R %Study Variation, which evaluates gage variation against total variation independently of the tolerance.",
+    "Evaluating the MSA %Tolerance using the correct specification width of 1.20 (1.60 - 0.40).",
+    "Noting descriptively that the raw process measurements (mean ~9.68) are massively out of the required 0.40 to 1.60 specification band."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "percent Tolerance (GRR): 19.72 percent, comfortably under the 30 percent AIAG ceiling, i.e. the gage's own error is a small fraction of the 25-point tolerance band.",
+    "The X-ray gage is marginal, not good. It is precise enough to support a directional, plant-level read on where voiding sits relative to the 25 percent limit",
+    "Both Cpk (1.42) and Ppk (1.34) clear the common 1.33 capability bar.",
+    "Bottom line: voiding today is comfortably inside its acceptance limit and the process is capable and stable at the current sample."
+   ],
+   "report_withholds_warranted_conclusion": "YES",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "UNACCEPTABLE",
+   "extra_computation_detail": "The subsequent analyses (normality, control charts, process capability) are unacceptable because they are calculated against a fabricated context (void fraction) and an invented tolerance band (0.0 to 25.0). This falsely presents a highly out-of-spec process (mean 9.68 vs target 1.00) as capable.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "Evaluating the measurement system %Tolerance against the correct 1.20 specification width, showing it is vastly unacceptable (>400%).",
+    "Descriptively reporting that the process measurements are completely outside the specified 0.40 to 1.60 roughness limits."
+   ],
+   "evidence": [
+    "Business background: 'accepted band for roughness is 0.40 to 1.60 um Ra with 1.00 as the target'",
+    "Report text: 'Joint void fraction against the acceptance limit (LSL = 0.0, USL = 25.0 percent void area'",
+    "Step 1 inputs: '\"tolerance\":25.0'",
+    "Report text: 'percent Tolerance (GRR): 19.72 percent, comfortably under the 30 percent AIAG ceiling'"
+   ],
+   "rationale": "The AI assistant entirely ignored the assigned business context (roughness with specifications 0.40 to 1.60 um Ra and target 1.00). Instead, it hallucinated a 'void fraction' scenario with a specification of 0.0 to 25.0. By using a tolerance of 25.0 instead of the true 1.20, it calculated an acceptable %Tolerance (19.7% instead of the actual ~410%) and computed capability indices that falsely declared a wildly out-of-spec process to be capable. This renders the measurement validation and all subsequent analyses materially misleading and unacceptable.",
+   "confidence": 5,
+   "numerical_check": "Recomputed %Tolerance: 6*SD_GRR = 25.0 * 0.19719 = 4.93. With the correct tolerance of 1.20 (1.60 - 0.40), the true %Tolerance is 4.93 / 1.20 = 410.8%. Checked capability: the reported mean of 9.68 is completely outside the true 0.4-1.6 specification.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4778,
+  "completion_tokens": 7715,
+  "total_tokens": 12493
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "reviewer_id": "R1",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical Black Belt",
+ "blinding_compliance": "Read only the provided blind packet for V006 and public statistical reasoning. Did not inspect the repository outside this item, coordinator directory, other reviewer outputs, hidden truth files, scoring code, or model identities.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V006",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Concluding that machine 2 is the root cause or physical mechanism of the elevated defect rate from the common-window machine tally alone; the data support a statistical special cause/association and improvement target, not a proven root cause.",
+    "Concluding that loose-end defects originate on machine 2; no reject-category-by-machine cross-tabulation exists.",
+    "Concluding that the specific undocumented machine change caused the post-change improvement; the paired trial is not statistically significant and there is no process-fact record of the physical change.",
+    "Standardizing or naming the physical change as effective from these records alone."
+   ],
+   "permitted_at_checkpoint": [
+    "Treating machine 2 as a high-defect improvement target/statistical special cause based on the significant machine association and focused two-proportion contrast.",
+    "Treating loose end as the dominant reject category and highest FMEA RPN as a separate priority, without localizing it to machine 2.",
+    "Using the post-change monitoring aggregate to assess current charter compliance, conditional on the 20 periods being representative and sufficiently independent for the binomial inference.",
+    "Recommending corrective actions: close the change-control gap, continue p-chart monitoring, retrain appraisers, and audit floor implementation."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Steps 8-12 extend beyond the machine-difference focal decision into pre/post change and sustaining monitoring. These are acceptable because the report uses the paired trial to withhold a causal effect conclusion and uses the monitoring aggregate only for current charter-compliance status. Steps 13-14, Pareto and FMEA, are acceptable for prioritization but not for localizing loose ends to machine 2.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Logistic regression or Fisher exact test for the machine comparison with pre-specified machine contrasts.",
+    "Interrupted time-series or SPC on longer post-change periods with a documented change date and a control group if the causal effect of the change is to be claimed.",
+    "Cross-tabulation of reject category by machine for any future localization of loose ends to machine 2.",
+    "Variable-subgroup p-chart monitoring as used, provided control limits are properly calculated for changing subgroup sizes."
+   ],
+   "evidence": [
+    "Machine 2 is a clear special cause in the common-window tally.",
+    "The available data do not cross-tabulate reject category by machine, so they do not prove that loose ends originate on machine 2;",
+    "the trial alone does not establish a statistically reliable effect (z = -0.8997715095, p = 0.3682418591)",
+    "The longer monitoring record gives stronger evidence of where the line now stands: 110 defectives in 89,300 inspections across 20 periods, or 1,231.8029115342 DPMO.",
+    "Machine 2 produced 26 defectives among 4,000 units (6,500 DPMO), while machines 1, 3, and 4 were at 1,500, 1,500, and 1,000 DPMO.",
+    "Monitoring aggregate upper 95% bound: 1,424.8683310274 DPMO, below the 1,500 DPMO charter limit."
+   ],
+   "rationale": "The report is appropriately limited at the focal checkpoint. It treats machine 2 as a statistical special cause and improvement target rather than a proven root cause, explicitly withholds loose-end localization, and does not claim the change reduced defects from the paired trial. The current charter-compliance claim is supported by the monitoring aggregate with an upper confidence bound below 1,500 DPMO. The principal causal claims are either framed as priorities or explicitly marked as not proved.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from stated counts: baseline 334/125,000 vs 0.0015 gives z about 10.71; machine 2 vs others 26/4,000 vs 16/12,000 gives z about 5.53; pre/post change z about -0.90; monitoring 110/89,300 vs 0.0015 gives one-sided z about -2.07 and one-sided upper 95% bound about 1,424.9 DPMO.",
+   "evidence_problem": "No reject-category-by-machine cross-tabulation; process-fact query empty; paired change trial has no control group and is underpowered; no physical change documentation."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6334,
+  "completion_tokens": 17787,
+  "total_tokens": 24121,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 16618
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 4670
+ }
+}

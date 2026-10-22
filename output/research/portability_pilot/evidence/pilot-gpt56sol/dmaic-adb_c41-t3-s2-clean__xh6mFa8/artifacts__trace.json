@@ -1,0 +1,140 @@
+{
+  "system_id": "openai-command-line-assistant",
+  "task_id": "adb_c41-T3-s2-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "participants": 240,
+        "variants": 150,
+        "groups": 2,
+        "batch_genotypes": 1
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "samplesRetained": 237,
+        "participantsTotal": 240,
+        "affectedTotal": 120,
+        "unaffectedTotal": 120,
+        "sampleCallRateThreshold": 0.95,
+        "plateRegenotypeThreshold": 0.1,
+        "minimumSampleCallRate": 0.9466666666666667,
+        "maximumSampleCallRate": 1.0,
+        "plateMayProceed": true
+      },
+      "status": "success",
+      "decision": "Exclude participants below the call-rate rule; the observed failure fraction does not exceed the plate stop threshold, so analysis may proceed."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "participants": 237,
+        "controls": 118,
+        "variants": 150,
+        "batch_genotypes": 1
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 11,
+        "snpsRetained": 139,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHweControls": 2,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hweControlsThreshold": 1e-06,
+        "samplesInput": 237,
+        "controlsInput": 118,
+        "variantsInput": 150
+      },
+      "status": "success",
+      "decision": "Retain only variants satisfying call rate, minor-allele frequency, and unaffected-participant HWE rules."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "participants": 237,
+        "groups": 2,
+        "variants": 139,
+        "batch_genotypes": 1
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "pc1PValue": 1.800877623368265e-14,
+        "pc1Statistic": 8.182953204302224,
+        "pc1VarianceFraction": 0.09352354350804105,
+        "pc2VarianceFraction": 0.019118007520773535,
+        "pc1IntervalsOverlap": true,
+        "structureAssociatedWithPhenotype": true,
+        "samplesAnalyzed": 237,
+        "variantsAnalyzed": 139,
+        "affectedAnalyzed": 119,
+        "unaffectedAnalyzed": 118
+      },
+      "status": "success",
+      "decision": "Case and control ancestry ranges overlap, but PC1 is associated with phenotype; compare groups using PC1 adjustment."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "participants": 237,
+        "groups": 2,
+        "variants": 139,
+        "covariates": 1,
+        "batch_genotypes": 1
+      },
+      "method_id": "gwas.association_adjusted",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 0.976823439086659,
+        "variantsTested": 139,
+        "samplesAvailable": 237,
+        "covariatesCount": 1,
+        "bonferroniAlpha": 0.05,
+        "bonferroniThreshold": 0.00035971223021582735,
+        "topPValue": 7.55531482395406e-05,
+        "topOddsRatio": 2.385798901666481,
+        "topN": 230,
+        "topBeta": 0.8695340375028231,
+        "topSE": 0.21968555244786325,
+        "topZStatistic": 3.9580847616694537,
+        "topChiSquare": 15.666434980559936
+      },
+      "status": "success",
+      "decision": "One retained variant, rs020008, passes the retained-variant Bonferroni threshold in PC1-adjusted additive logistic regression."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "proceed_after_sample_exclusions",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "plateRegenotypeThreshold": 0.1
+      }
+    },
+    {
+      "point": "ancestry_comparability",
+      "chosen_branch": "overlapping_structure_adjust_with_pc1",
+      "observed": {
+        "separated": false,
+        "pc1PValue": 1.800877623368265e-14,
+        "pc1IntervalsOverlap": true
+      }
+    },
+    {
+      "point": "association_test",
+      "chosen_branch": "pc1_adjusted_additive_logistic",
+      "observed": {
+        "variantsTested": 139,
+        "bonferroniThreshold": 0.00035971223021582735
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

@@ -1,0 +1,17 @@
+dmaic-adb_c40-t3-s6-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c40-t3-s7-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c41-t3-s6-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c41-t3-s7-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c40-t3-s0-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c41-t3-s0-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c40-t3-s1-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c40-t3-s2-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c40-t3-s3-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c40-t3-s4-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c40-t3-s5-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c41-t3-s1-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c41-t3-s2-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c41-t3-s3-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c41-t3-s4-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+dmaic-adb_c41-t3-s5-clean exit=0 reward="reward":1.0 pq="pq":1.0 nf="nf":1.0 leak=truthvaluesreachableintheagentimage:0
+E2E-ALL-DONE

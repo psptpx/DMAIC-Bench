@@ -1,0 +1,223 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "agreement",
+        "appraisers": 3,
+        "trials_per_appraiser": 2,
+        "units": 20
+      },
+      "method_id": "msa.attribute_agreement",
+      "outputs": {
+        "agreementPct": 95.83333333333334,
+        "kappaMin": 0.6938775510204082,
+        "fleissKappa": 0.8391139609443309,
+        "meanKeyKappa": 0.9135185989289333
+      },
+      "status": "success",
+      "decision": "Agreement with the answer key is high overall, but the minimum appraiser-key kappa is lower than the pooled agreement; use the measurement system with routine alignment and review."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25,
+        "subgroup_size_each": 5000
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 1368.0,
+        "median": 1000.0,
+        "stdDev": 1532.2454111531872,
+        "totalDefects": 171,
+        "totalInspected": 125000,
+        "targetDpmo": 1500.0
+      },
+      "status": "success",
+      "decision": "The aggregate defective level is below the charter level."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25,
+        "defectives": 171,
+        "inspected": 125000,
+        "target_rate": 0.001
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 0.22785821528181183,
+        "zStatistic": -1.2058943867138037,
+        "dpmo": 1368.0
+      },
+      "status": "success",
+      "decision": "The observed aggregate rate is not significantly different from the charter rate in this test."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "lots",
+        "lots": 25,
+        "subgroup_size_each": 5000
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.001368,
+        "outOfControlCount": 1,
+        "ucl": 0.0029361299170668227,
+        "lcl": 0.0,
+        "runsPValue": 0.39376863464299294,
+        "runs": 11
+      },
+      "status": "success",
+      "decision": "The lot sequence shows no runs-test evidence of a systematic shift, but one lot signals beyond the three-sigma p-chart limit and requires investigation."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "machines",
+        "machines": 4,
+        "common_window": true
+      },
+      "method_id": "capability.binomial",
+      "outputs": {
+        "processZ": 1.2256644647170392,
+        "avgP": 0.001125,
+        "totalDefects": 18,
+        "totalInspected": 16000,
+        "machine1Dpmo": 1250.0,
+        "machine2Dpmo": 1500.0,
+        "machine3Dpmo": 1000.0,
+        "machine4Dpmo": 750.0
+      },
+      "status": "success",
+      "decision": "Machine 2 is highest at the charter boundary; machine 4 is lowest in the common window."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "candidates",
+        "categories": 5,
+        "total_category_count": 240
+      },
+      "method_id": "quality.pareto",
+      "outputs": {
+        "topCategoryPct": 63.75,
+        "totalCount": 240,
+        "topCategoryCount": 153
+      },
+      "status": "success",
+      "decision": "Loose end is the dominant reject category and should be the first improvement focus."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "batch": "failure_modes",
+        "failure_modes": 5
+      },
+      "method_id": "quality.fmea_rpn",
+      "outputs": {
+        "maxRpn": 392,
+        "looseEndRpn": 56,
+        "softSpotRpn": 144,
+        "offWeightRpn": 96,
+        "seamSplitRpn": 160,
+        "stainRpn": 392
+      },
+      "status": "success",
+      "decision": "Stain has the maximum computed RPN and should receive risk-reduction attention alongside the dominant loose-end count."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "batch": "after_change",
+        "before_defects": 6,
+        "before_inspected": 4000,
+        "after_defects": 3,
+        "after_inspected": 4000
+      },
+      "method_id": "basic.two_proportions",
+      "outputs": {
+        "pValue": 0.31703813758955945,
+        "zStatistic": 1.0005629750547598,
+        "beforeDpmo": 1500.0,
+        "afterDpmo": 750.0,
+        "absoluteReductionDpmo": 750.0,
+        "relativeReductionPct": 50.0
+      },
+      "status": "success",
+      "decision": "The change trial shows an observed reduction, but the available comparison does not establish statistical significance."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "subgroups": 20
+      },
+      "method_id": "control_chart.p",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial computation failed due to a coding syntax error; it was rerun successfully in the next step."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "batch": "sustaining",
+        "subgroups": 20,
+        "variable_subgroup_sizes": true,
+        "total_defects": 91,
+        "total_inspected": 93900
+      },
+      "method_id": "control_chart.p",
+      "outputs": {
+        "centerLine": 0.0009691160809371672,
+        "outOfControlCount": 0,
+        "dpmo": 969.1160809371672,
+        "uclMinDpmo": 2135.9488703872507,
+        "uclMaxDpmo": 2619.2668367991055,
+        "lclMinDpmo": 0.0,
+        "lclMaxDpmo": 0.0
+      },
+      "status": "success",
+      "decision": "The post-change monitoring record is stable by the calculated variable-size p-chart and is below the charter level."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system",
+      "chosen_branch": "proceed_with_caution",
+      "observed": {
+        "agreementPct": 95.83333333333334,
+        "kappaMin": 0.6938775510204082
+      }
+    },
+    {
+      "point": "lot_level",
+      "chosen_branch": "investigate_special_cause_and_continue",
+      "observed": {
+        "outOfControlCount": 1,
+        "runsPValue": 0.39376863464299294
+      }
+    },
+    {
+      "point": "change_evidence",
+      "chosen_branch": "retain_change_but_confirm",
+      "observed": {
+        "relativeReductionPct": 50.0,
+        "pValue": 0.31703813758955945
+      }
+    },
+    {
+      "point": "sustaining",
+      "chosen_branch": "continue_monitoring",
+      "observed": {
+        "outOfControlCount": 0,
+        "dpmo": 969.1160809371672
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

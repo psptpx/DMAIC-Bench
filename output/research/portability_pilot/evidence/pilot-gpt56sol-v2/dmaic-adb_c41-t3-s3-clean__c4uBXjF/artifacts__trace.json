@@ -1,0 +1,73 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleCount": 240,
+        "variantCount": 150
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "The initial combined script failed at import because scikit-learn was unavailable; no stratification statistic was computed in this attempt."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "sampleCount": 240,
+        "variantCount": 150,
+        "sampleCallRateThreshold": 0.95,
+        "maximumSampleFailFraction": 0.1
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "samplesRetained": 209,
+        "inputSamples": 240,
+        "inputVariants": 150,
+        "affectedInput": 120,
+        "unaffectedInput": 120,
+        "minimumObservedSampleCallRate": 0.5066666666666667,
+        "sampleCallRateThreshold": 0.95,
+        "maximumSampleFailFraction": 0.1,
+        "plateAcceptable": false
+      },
+      "status": "success",
+      "decision": "Plate rejected: the observed participant failure fraction exceeded the protocol maximum, so the protocol requires re-genotyping before variant QC or any analysis."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "discovery_plate_viability",
+      "chosen_branch": "stop_and_regenotype",
+      "observed": {
+        "samplesFailed": 31,
+        "sampleFailFraction": 0.12916666666666668,
+        "maximumSampleFailFraction": 0.1,
+        "plateAcceptable": false
+      }
+    },
+    {
+      "point": "downstream_discovery_analysis",
+      "chosen_branch": "not_permitted",
+      "observed": {
+        "plateAcceptable": false
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "not_requested_without_valid_discovery_hits",
+      "observed": {
+        "plateAcceptable": false
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

@@ -1,0 +1,68 @@
+{
+ "reviewer_id": "HBB-V046",
+ "reviewer_type": "Human",
+ "perspective": "Independent industrial/statistical Black Belt validation review",
+ "blinding_compliance": "Reviewed only the supplied V046 packet; did not inspect repository contents outside this item, coordinator files, hidden truth files, scoring code, other reviewer outputs, or web sources.",
+ "ai_assistance": "AI assistant used to draft this review from the supplied packet; no external search or tools were used.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V046",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Standardize the change, i.e. make the new setting permanent/standard, based solely on this before/after trial with z=1.0006 and p=0.317.",
+    "Assert that the change caused the observed reduction or achieved a confirmed improvement.",
+    "Assert that the aggregate lot DPMO or post-change DPMO is statistically significantly below the 1500 DPMO charter.",
+    "Assert that machine 2 or loose-end rejection is a proven cause rather than a descriptive prioritization finding."
+   ],
+   "permitted_at_checkpoint": [
+    "Report descriptive DPMO levels, lot p-chart results, and common-window machine rates with uncertainty and without causal claims.",
+    "Use the measurement system with routine calibration and adjudication, given the reported agreement and kappa values.",
+    "Retain the change provisionally as a pilot and continue monitoring, explicitly labelled as unconfirmed.",
+    "Investigate the exceptional lot, machine 2, loose-end category, and stain failure mode as prioritization activities, not as proven causes.",
+    "Run a larger pre-specified confirmatory before/after study.",
+    "Continue the variable-size p-chart monitoring for post-change stability."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "Standardize the change and verify that operators can recognize the answer-key categories; review disagreements during calibration."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "The descriptive summaries, one-proportion test, lot p-chart, machine tally, Pareto, FMEA, before/after two-proportion test, and post-change variable-size p-chart are conditionally acceptable. The before/after two-proportion test is acceptable only as a descriptive signal because the event count is small and no temporal confounding adjustment is possible from the stated data; the report mostly interprets it that way, but then recommends standardization anyway.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "A pre-specified two-sample confidence interval for the before/after difference in proportions to quantify the plausible effect size; standardization would still require confirmatory evidence.",
+    "An exact binomial test or logistic regression adjusting for lot/time for the before/after comparison if additional covariates are available.",
+    "A binomial mixed model or multiple-window machine comparison before prioritizing machine 2.",
+    "An overdispersion-adjusted p-chart such as Laney P' if lot or subgroup defect counts show overdispersion."
+   ],
+   "evidence": [
+    "Change trial: before 6/4000 = 1500 DPMO; after 3/4000 = 750 DPMO; z = 1.0005629750547598; p = 0.31703813758955945.",
+    "Report states: 'Treat the change as promising and retain it, but do not claim confirmed causal improvement from this trial alone; repeat the comparison with a larger, predefined sample.'",
+    "Report recommends: 'Standardize the change and verify that operators can recognize the answer-key categories; review disagreements during calibration.'",
+    "Aggregate lots: 171/125000 = 1368 DPMO; one-proportion p = 0.22785821528181183 against 1500 DPMO.",
+    "Post-change variable-size p-chart: centerline 0.0009691160809371672, 0 out-of-control signals."
+   ],
+   "rationale": "The report is mostly statistically disciplined: it avoids claiming statistical compliance with the charter, flags the single out-of-control lot, and correctly states that the before/after change comparison is not statistically significant. However, after acknowledging non-significance, it recommends standardizing the change. Standardization is an implementation decision requiring causal or confirmatory evidence, which this trial alone does not provide. Therefore the focal advancement should be paused for that specific action; descriptive, monitoring, and confirmatory-study activities remain justified.",
+   "confidence": 4,
+   "numerical_check": "Recomputed aggregate DPMO = 171/125000*1e6 = 1368; one-proportion z approximately -1.206 against p0=0.0015; change z approximately 1.0006 using pooled p=9/8000; post-change DPMO = 91/93900*1e6 = 969.116. MSA kappas, Pareto counts, FMEA RPNs, and machine/lot raw counts were not independently recomputed from raw data in this packet.",
+   "evidence_problem": "No material conflict; MSA, Pareto, FMEA, and raw lot/machine counts are treated as self-reported because raw released data were not independently recomputed for this review."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4620,
+  "completion_tokens": 13937,
+  "total_tokens": 18557,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 12732
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2956
+ }
+}

@@ -1,0 +1,163 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "protocol_panel_variants": 150,
+        "discovery_participants": 240
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "panelVariants": 150,
+        "discoveryAffected": 120,
+        "discoveryUnaffected": 120,
+        "replicationAffected": 60,
+        "replicationUnaffected": 60,
+        "alpha": 0.05,
+        "maxSampleFailFraction": 0.1,
+        "minSampleCallRate": 0.95,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06
+      },
+      "status": "success",
+      "decision": "Protocol thresholds recorded."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "sample_count": 240,
+        "group_count": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 3,
+        "sampleFailFraction": 0.0125,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes the re-genotyping gate."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "variant_count": 150,
+        "control_group_count": 120
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138
+      },
+      "status": "success",
+      "decision": "Retain variants meeting call-rate, MAF, and control-HWE rules."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "sample_count": 240,
+        "leading_axis": 1
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": false,
+        "separatedAxis": 1,
+        "pc1PValue": 0.6507520555249791
+      },
+      "status": "success",
+      "decision": "Affected and unaffected groups are not separated on the leading axis; comparison is permitted."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "tested_retained_variants": 138,
+        "sample_count": 240
+      },
+      "method_id": "gwas.association_trend",
+      "outputs": {
+        "nSignificant": 1,
+        "lambdaGC": 1.5550328058928786,
+        "bonferroniAlpha": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "One discovery hit passes the corrected threshold."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "variant": "rs000008",
+        "discovery_group_count": 2
+      },
+      "method_id": "gwas.effect_estimate",
+      "outputs": {
+        "oddsRatio": 3.699969164353992,
+        "discoveryPValue": 7.390179111520088e-11
+      },
+      "status": "success",
+      "decision": "rs000008 has a positive discovery direction."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "candidate_count": 1,
+        "replication_sample_count": 120,
+        "missing_candidate_calls": 1
+      },
+      "method_id": "gwas.replication",
+      "outputs": {
+        "nReplicated": 1,
+        "nCandidates": 1,
+        "replicationPValue": 9.684803104789346e-05,
+        "sameDirection": true,
+        "replicationSampleCount": 120,
+        "affectedN": 60,
+        "unaffectedN": 60,
+        "missingCandidateCalls": 1,
+        "oddsRatio": 3.377574370709382
+      },
+      "status": "success",
+      "decision": "rs000008 meets replication p-value and direction criteria."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "dependency": "sklearn PCA"
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial PCA implementation failed because sklearn was unavailable; the successful NumPy eigen-decomposition result is recorded in step 4."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_gate",
+      "chosen_branch": "continue",
+      "observed": {
+        "sampleFailFraction": 0.0125,
+        "threshold": 0.1
+      }
+    },
+    {
+      "point": "ancestry_gate",
+      "chosen_branch": "compare_groups",
+      "observed": {
+        "separated": false
+      }
+    },
+    {
+      "point": "replication_gate",
+      "chosen_branch": "report_rs000008",
+      "observed": {
+        "nReplicated": 1,
+        "nCandidates": 1
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "wall_clock_s": 0,
+  "token_cost": null
+}

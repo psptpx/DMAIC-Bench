@@ -1,0 +1,134 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "totalLibraries": 12,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "minimumRequired": 3,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "qcPass": true
+      },
+      "status": "success",
+      "decision": "All libraries met both inclusive usability rules; both arms exceed the minimum replicate requirement."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "usableSamples": 12,
+        "groups": 2
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "conditionCount": 2,
+        "usableSamples": 12
+      },
+      "status": "success",
+      "decision": "Both conditions occur in the single preparation batch, so the arm contrast is identifiable; a separate batch effect cannot be estimated."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "genes": 400,
+        "controlSamples": 6,
+        "treatedSamples": 6
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "genesTested": 400,
+        "controlSamples": 6,
+        "treatedSamples": 6,
+        "padjThreshold": 0.05,
+        "absLog2fcThreshold": 1.0
+      },
+      "status": "success",
+      "decision": "Median-of-ratios normalization, Welch tests on log2 normalized abundance, and Benjamini-Hochberg correction produced no genes meeting both prespecified call criteria."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "nominatedCandidates": 0,
+        "qpcrRecords": 0
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "qpcrRecords": 0,
+        "concordanceDefined": false,
+        "requiredConcordance": 0.75,
+        "validationAlpha": 0.05
+      },
+      "status": "failed",
+      "decision": "Concordance cannot be computed because no candidates were nominated; the denominator is zero. No value was declared or imputed."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "gene-set annotation",
+        "calledGenes": 0
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The annotation batch remained locked behind a numeric validation-concordance gate, which cannot be satisfied honestly for an empty candidate set; enrichment was not run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "proceed",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "minimumRequired": 3
+      }
+    },
+    {
+      "point": "design_model",
+      "chosen_branch": "simple_condition_contrast",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_zero_denominator",
+      "chosen_branch": "do_not_impute_concordance",
+      "observed": {
+        "nCandidates": 0,
+        "nConfirmed": 0,
+        "concordanceDefined": false
+      }
+    },
+    {
+      "point": "release_candidate_list",
+      "chosen_branch": "do_not_issue",
+      "observed": {
+        "nSignificant": 0,
+        "nCandidates": 0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

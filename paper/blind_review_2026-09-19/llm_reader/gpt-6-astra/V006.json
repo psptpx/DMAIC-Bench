@@ -1,0 +1,49 @@
+{
+ "blind_id": "V006",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the common-window machine association as establishing that machine 2 is a causal source of defects or a demonstrated special cause.",
+  "Concluding that loose ends originate on machine 2, or that the Pareto ranking and FMEA scores establish a physical defect mechanism.",
+  "Attributing subsequent improvement to the undocumented machine change, or standardizing a causal remedy solely on these observational comparisons."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the machine-rate association and prioritize machine 2 for investigation, conditional on comparable inspection, product mix, operating exposure, and sufficiently independent observations.",
+  "Use the reject-category counts and FMEA scores as separate screening and risk-prioritization inputs, not as proof of causation.",
+  "Collect machine-by-category data with product, material, shift, operator, and time information; investigate measurement differences and clustering.",
+  "Conduct a documented, prospectively designed controlled experiment or appropriately controlled longitudinal study to test a specified machine-related mechanism.",
+  "Describe the before/after trial and assess the monitoring record independently, without attributing either result to a proven machine mechanism."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "Machine 2 is a clear special cause in the common-window tally."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The omnibus machine association test and machine-2-versus-others contrast are useful screening analyses under independent-binomial sampling and comparable ascertainment. Selecting machine 2 after inspecting the table makes the contrast exploratory; its nominal p-value should not be presented as an independent confirmatory test. The very strong association would nevertheless survive a simple four-machine multiplicity adjustment. Their use to declare a clear special cause is unacceptable. The Pareto and FMEA analyses appropriately support separate investigative priorities, and the report explicitly withholds a machine-by-defect linkage. The before/after calculation is acceptable as a limited comparison of independent production samples, with the report withholding a demonstrated effect; calling it paired does not establish actual unit pairing. Monitoring calculations may independently characterize current performance under stable, representative sampling, but cannot establish that the undocumented change caused it.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain the machine comparison as exploratory association, identify machine 2 as an investigation priority, and acknowledge post-selection inference; use simultaneous contrasts or a fresh confirmatory sample if formal machine-specific confirmation is needed.",
+  "Randomize or block a documented intervention across comparable production runs, hold inspection criteria constant, and analyze at the appropriate independent experimental-unit level before claiming a causal effect.",
+  "If randomization is infeasible, use a controlled longitudinal comparison with comparable untreated machines, adequate pre-change observations, adjustment for measured production differences, and explicit assumptions about concurrent changes.",
+  "Continue monitoring the current operating state while documenting and verifying the change; distinguish evidence about the present defect rate from evidence identifying its cause."
+ ],
+ "evidence": [
+  "The reported common-window table contains 26/4000 defectives for machine 2 and 6/4000, 6/4000, and 4/4000 for the other machines.",
+  "Step 6 reports chi-square = 30.8428672885 with 3 degrees of freedom and p = 9.1733129599e-7; step 7 reports a selected machine-2 contrast with p = 3.1902312547e-8.",
+  "The causal section is headed 'What stands out as the cause' and states: 'Machine 2 is a clear special cause in the common-window tally.'",
+  "The report also states: 'The available data do not cross-tabulate reject category by machine, so they do not prove that loose ends originate on machine 2; seam split remains the secondary risk even though its reject count is lower.'",
+  "The report states: 'However, the trial alone does not establish a statistically reliable effect (z = -0.8997715095, p = 0.3682418591), and the immediately post-change machine remained above charter (z = 2.8598837510, p = 0.0021189816).'",
+  "The report recommends collecting reject category and machine together and says the physical change cannot be named or standardized from the released data."
+ ],
+ "rationale": "The machine table supports a substantial association and a sensible investigation priority, not identification of a causal mechanism. A common observation window limits one temporal difference but does not control machine allocation, materials, operators, inspection, or within-run dependence. The declaration of a clear special cause, especially under a causal heading, materially overstates the evidence. Substantial restraint remains: the report explicitly rejects the machine-to-loose-end inference, acknowledges the inconclusive change trial, and declines to standardize an unidentified change. The focal conduct is therefore mixed rather than wholly unacceptable. No explicit public protocol threshold supplies a separate basis for rejecting these exploratory analyses.",
+ "confidence": 4,
+ "numerical_check": "Arithmetic checked from the supplied aggregate counts: 26/4000 \u00d7 1000000 = 6500; 16/12000 \u00d7 1000000 = 1333.3333; difference = 5166.6667 DPMO. Under the pooled machine table, each machine has 10.5 expected defectives, so the conventional expected-cell-count objection to the omnibus chi-square approximation does not arise. A four-comparison Bonferroni adjustment of the self-reported contrast p-value gives approximately 1.2761e-7, leaving strong association but not proving causality. Test statistics, raw observation independence, and monitoring results were otherwise not independently recomputed.",
+ "evidence_problem": "Only the supplied packet was accessed; referenced raw batches and service-event files were not available in this interaction. Production allocation, clustering, machine-specific inspection comparability, and the physical intervention are not established by the packet. Procedural blinding was maintained: no repository, other reviewer output, or external source was accessed. This review was produced by an AI assistant, not an independent human Black Belt expert.",
+ "_usage": {
+  "prompt_tokens": 6071,
+  "completion_tokens": 1348,
+  "total_tokens": 7419
+ }
+}

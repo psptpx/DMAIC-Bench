@@ -1,0 +1,53 @@
+{
+ "blind_id": "V004",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the current measurement system as adequate for routine individual-unit acceptance, process adjustment, or unqualified production capability conclusions.",
+  "Inferring production stability, current production capability, or target attainment from the selected, repeatedly measured MSA parts.",
+  "Claiming established physical measurement-system causes, equivalence of operator repeatability, or a proven fastest corrective intervention from these statistical results alone."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the crossed-study variance components and reject routine measurement-system acceptance, subject to verification of the underlying data and model.",
+  "Describe the MSA readings explicitly as study observations rather than a production sample.",
+  "Investigate operator differences using the crossed design, distinguishing relative operator offsets from bias against a calibrated reference.",
+  "Investigate fixturing, positioning, illumination, warm-up, calibration, and operator procedures as candidate causes; evaluate changes through controlled trials and a repeat MSA.",
+  "Use model-based measurement-error analysis only with independently justified error assumptions and appropriate production data; the present record does not supply such a route."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "**Repeatability is uniformly poor, not one person's problem.**",
+  "Since no operator is the outlier, the repeat-to-repeat noise points at the measurement method and gauge - fixturing, panel positioning, warm-up state, ambient light - rather than at retraining an individual.",
+  "**Fix reproducibility first - it is the fastest win.**",
+  "The operator offsets\n   (-16.14 / +9.66 / +6.48 cd/m2) say the reading procedure is not pinned down."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The descriptive summary is appropriately restricted to MSA parts, and comparing retained-interaction and pooled models is a useful sensitivity analysis. Operator comparisons are legitimate diagnostics, but an ordinary one-way ANOVA does not represent the shared-part and repeated-reading design; the reported crossed-model operator test is the appropriate supporting route for relative operator differences. The Levene result does not establish equal repeatability or exclude an individual-operator contribution, and its precise input construction is unavailable. Normality tests on all 90 pooled readings neither respect the dependence structure nor test the relevant crossed-model residual distributions. Their use to dismiss non-normality as an explanation is unsupported. No production chart or capability computation was performed.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain the part-by-operator interaction or pool it under a justified model-selection procedure; both reported fits lead to rejection here.",
+  "Estimate operator contrasts and uncertainty within the crossed model, accounting for part-by-operator variation and repeat readings. Describe differences relative to other operators, not absolute bias without reference values.",
+  "Assess operator-specific repeatability using within-cell residuals and an appropriate variance model. Claim practical equivalence only with prespecified equivalence bounds and adequately precise intervals.",
+  "Treat physical explanations as hypotheses and compare corrective interventions experimentally before claiming causation or prioritizing one as the fastest improvement.",
+  "Inspect residuals and model sensitivity rather than using pooled-reading normality tests to validate MSA assumptions."
+ ],
+ "evidence": [
+  "Step 2 reports GRR study variation of 52.0492%, tolerance consumption of 69.1144%, and ndc of 2.3131; the pooled model still gives 51.5273% and 68.4414%.",
+  "The crossed-model operator p-value is 0.000252, whereas the separate one-way operator ANOVA reports 0.03309.",
+  "Step 4 reports operator repeatability SDs of 17.1193, 19.4006, and 15.4637 with Levene p = 0.24048; failure to reject unequal variances is not evidence of equivalence.",
+  "The report explicitly states: \"This is not where the line sits.\" It also states that no production control chart or capability study was run.",
+  "The report acknowledges: \"the specific physical cause has not been confirmed.\" This restraint conflicts with its stronger causal and corrective-priority wording elsewhere.",
+  "Steps 7 and 8 have status refused, zero production observations, and empty outputs."
+ ],
+ "rationale": "The central measurement gate is handled correctly: both reported GRR models fail substantially, and the report neither substitutes MSA parts for production data nor invents unavailable capability results. However, substantial restraint coexists with materially overstated MSA diagnostic conclusions. A nonsignificant variance test cannot establish uniform repeatability, operator offsets cannot identify the physical cause, and no comparative intervention evidence establishes reproducibility correction as the fastest win. The proposed investigations are sensible, but their asserted causal basis and priority exceed the evidence. The public release threshold agrees with the practical STOP here; it is not a universal prohibition on every carefully qualified measurement-error analysis.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic consistency from supplied summaries: 100 \u00d7 23.0381 / 44.2623 is approximately 52.05%; 100 \u00d7 6 \u00d7 23.0381 / 200 is approximately 69.11%; 100 \u00d7 (23.0381 / 44.2623)^2 is approximately 27.09%; and 1.41 \u00d7 37.7941 / 23.0381 is approximately 2.31. Raw-data fits, p-values, and variance-test inputs were not recomputed and remain self-report-only.",
+ "evidence_problem": "Only the supplied packet was available for this review; referenced raw batches and service files were not accessed. The Levene input construction and residual diagnostics are unspecified. Procedural blinding was respected: no outside repository material, other reviews, or external sources were inspected. This review was performed by an AI assistant, not a human professional; AI was used for the entire assessment.",
+ "_usage": {
+  "prompt_tokens": 5807,
+  "completion_tokens": 1316,
+  "total_tokens": 7123
+ }
+}

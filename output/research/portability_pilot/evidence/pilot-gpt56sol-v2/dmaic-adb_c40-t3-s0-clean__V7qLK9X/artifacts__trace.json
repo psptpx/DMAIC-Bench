@@ -1,0 +1,197 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s0-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "nLibraries": 12,
+        "groups": 2,
+        "batch": "library_qc"
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "controlUsable": 6,
+        "treatedUsable": 6,
+        "nLibraries": 12
+      },
+      "status": "success",
+      "decision": "All libraries met both usability criteria; both arms exceeded the replicate requirement."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "nSamples": 12,
+        "groups": 2,
+        "batch": "sample_sheet"
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "conditionCount": 2,
+        "designRank": 2,
+        "designColumns": 2,
+        "withinBatchContrast": true
+      },
+      "status": "success",
+      "decision": "Treatment is estimable: both conditions occur in the sole batch and the design matrix is full rank."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "nGenes": 400,
+        "nSamples": 12,
+        "zeroGenes": 0,
+        "minLibraryTotal": 111880,
+        "maxLibraryTotal": 193793
+      },
+      "status": "success",
+      "decision": "Profiled the complete count matrix and sample count totals before selecting the differential-expression implementation."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "nGenes": 400,
+        "nSamples": 12,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {},
+      "status": "failed",
+      "decision": "Initial median-ratio implementation failed because genes with individual zero counts made geometric means and size factors undefined; no result was used."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "nGenes": 400,
+        "nSamples": 12,
+        "groups": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 40,
+        "nGenes": 400,
+        "nSamples": 12,
+        "dispersion": 0.07683848592196961,
+        "normalizationGenes": 399,
+        "nUp": 24,
+        "nDown": 16
+      },
+      "status": "success",
+      "decision": "Primary simple-design negative-binomial GLM with median-ratio offsets, common robust dispersion, BH adjustment, and the prespecified joint call rule."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "nGenes": 400,
+        "nSamples": 12,
+        "groups": 2,
+        "batch": "counts"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 38
+      },
+      "status": "success",
+      "decision": "Sensitivity analysis used Welch tests on normalized log counts with BH adjustment; it supported most but not all primary calls and did not replace the primary model."
+    },
+    {
+      "inputs_digest": {
+        "batch": "counts_validation_alignment"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "nPanelCalls": 40,
+        "nValidationNominees": 10,
+        "nomineesAmongPanelCalls": 10,
+        "validationOnlyCandidates": 0
+      },
+      "status": "success",
+      "decision": "All qPCR nominees were among the primary panel calls; the other primary calls had no qPCR data in the released validation batch.",
+      "step_id": 7
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "nCandidates": 10,
+        "groups": 2,
+        "replicatesPerGroup": 4,
+        "batch": "validation"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10,
+        "passes": true
+      },
+      "status": "success",
+      "decision": "Every nominated candidate met the independent qPCR significance and direction rule; validation permits issuance."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "universe": 400,
+        "nCalled": 40,
+        "nSets": 12,
+        "batch": "gene_sets"
+      },
+      "method_id": "expression.enrichment",
+      "outputs": {
+        "nSignificantSets": 1,
+        "universe": 400,
+        "nCalled": 40,
+        "nSets": 12
+      },
+      "status": "success",
+      "decision": "One-sided hypergeometric over-representation tests with BH adjustment identified the significant annotated sets."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "library_usability",
+      "chosen_branch": "proceed_to_design",
+      "observed": {
+        "failedSamples": 0,
+        "minReplicates": 6
+      }
+    },
+    {
+      "point": "design_estimability",
+      "chosen_branch": "simple_one_batch_model",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1,
+        "designRank": 2,
+        "designColumns": 2
+      }
+    },
+    {
+      "point": "zero_count_normalization",
+      "chosen_branch": "estimate_size_factors_from_all-positive_genes",
+      "observed": {
+        "normalizationGenes": 399
+      }
+    },
+    {
+      "point": "validation_release",
+      "chosen_branch": "issue_candidate_list",
+      "observed": {
+        "concordance": 1.0,
+        "nConfirmed": 10,
+        "nCandidates": 10
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

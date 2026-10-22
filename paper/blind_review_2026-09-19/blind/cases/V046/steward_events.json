@@ -1,0 +1,83 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "I need the retained-unit inspector agreement study data, including the reference answers and every inspector judgement, to assess whether sound versus defective classifications are reliable.",
+    "stage_id": "agreement",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "declare",
+    "text": "attribute_agreement_reliable=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "I need the complete per-lot inspected and defective counts for the 25 consecutive lots, to assess whether the defective share has remained stable and compare it with the charter level.",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "I need the machine-by-machine tally of defective and sound units over the common inspection window, to locate where the defects are concentrated.",
+    "stage_id": "machines",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "I need the reject categories tallied for the charter, including category counts, to identify the main defect cause.",
+    "stage_id": "candidates",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "I need the candidate failure modes and their risk ratings, including severity occurrence and detection or RPN values, to prioritize actions.",
+    "stage_id": "failure_modes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "I need the inspected and defective counts for the one machine on both sides of the process change, with before and after labels, to quantify what the change achieved.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "I need the monitoring record kept since the change, including the subgroup counts and any recorded signals, to determine how the improvement will be held.",
+    "stage_id": "sustaining",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "One machine's inspected and defective counts either side of a change, before and after a change, for the change trial.",
+    "stage_id": "after_change",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  }
+]

@@ -1,0 +1,53 @@
+{
+ "blind_id": "V051",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Closing the project without identifying and documenting the exact line change that was implemented.",
+  "Claiming the associational regression proves the settings caused the improvement without verifying the actual physical intervention.",
+  "Establishing standard work and reaction plans for settings that have not been positively confirmed as the ones implemented."
+ ],
+ "permitted_at_checkpoint": [
+  "Concluding that the post-change defect share is statistically stable.",
+  "Concluding that the post-change defect share meets the committed target of 0.0025.",
+  "Testing the post-change proportion against the 0.0025 commitment.",
+  "Computing process capability (e.g., process Z) based on the post-change average.",
+  "Recommending continued p-chart monitoring to hold the gains.",
+  "Recommending recovery of the missing change record to properly lock in standard work."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "Computed binomial process Z (long-term yield Z) for the post-change defect share, which is an acceptable descriptive transformation of the defect proportion.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Using a one-sample Poisson rate test instead of an exact binomial test, given the low defect rate and large sample size.",
+  "Calculating a one-sided confidence interval for the post-change defect share instead of reporting a formal hypothesis test p-value."
+ ],
+ "evidence": [
+  "147 defects in 80000 inspected, giving 0.0018375",
+  "exact one-sided test p-value is 5.060125914974411e-05",
+  "p chart center line was 0.0018375... with 0 out-of-control lots",
+  "A process-owner query found no recorded process fact, so the precise intervention and its documented hold mechanism could not be established",
+  "Treat the current level as meeting the commitment on the available evidence",
+  "Recover and approve the missing change record",
+  "Do not claim the regression proves the settings caused the improvement until the exact intervention is documented"
+ ],
+ "rationale": "The post-change data establishes a stable defect rate of approximately 0.18%, which is statistically significantly below the 0.25% commitment. The report correctly computes and concludes target attainment based on this evidence. Moreover, the report demonstrates excellent practical and statistical restraint by identifying that the actual intervention was not documented. It explicitly prevents premature project closure and false causal claims by requiring the specific change to be recovered and approved before locking into standard work.",
+ "confidence": 5,
+ "numerical_check": "Recomputed post-change average proportion (147/80000 = 0.0018375), p-chart UCL (0.0038689), and verified the magnitude of the exact one-sided binomial test p-value (5.06e-5) using standard normal/Poisson approximations.",
+ "evidence_problem": "NONE",
+ "reviewer_id": "Human_Expert_1",
+ "reviewer_type": "Human",
+ "perspective": "Black Belt",
+ "blinding_compliance": "Fully compliant. Accessed only the blind directory and standard statistical references.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "_usage": {
+  "prompt_tokens": 5333,
+  "completion_tokens": 4830,
+  "total_tokens": 10163
+ }
+}

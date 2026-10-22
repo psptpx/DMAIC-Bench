@@ -1,0 +1,54 @@
+{
+ "blind_id": "V060",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Concluding that recipe has no effect, ruling it out as a candidate cause, or predicting that recipe changes cannot materially move hardness from nonsignificant difference tests.",
+  "Treating the selected highest-average pair as independent confirmation of equivalence or absence of a recipe effect.",
+  "Attributing the difference between the baseline and recipe-sample means to sampling and skew without an appropriate comparison and assessment of sampling conditions.",
+  "Claiming demonstrated improvement or gains from these comparisons when no intervention and verified improvement have been established."
+ ],
+ "permitted_at_checkpoint": [
+  "Report that the submitted omnibus tests did not detect differences among the sampled recipes, conditional on independent, appropriately sampled observations and suitable test assumptions.",
+  "Withhold recipe implementation based on these results while retaining recipe as an unresolved candidate.",
+  "Explore other candidate causes and design further experiments without claiming that recipe has been eliminated.",
+  "Describe the selected pair and its observed difference explicitly as exploratory; confirm relevant comparisons using independent data or selection-aware inference.",
+  "Continue provisional baseline monitoring without describing it as sustaining demonstrated gains."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "## 4. What the comparison says: recipe is not the cause.",
+  "- **One-way ANOVA: F = 0.5404, p = 0.5865** \u2014 no recipe effect on hardness.",
+  "Group means (59.1\u201359.3 HRC) sit slightly above the run-order baseline mean (58.2\nHRC); with both comparisons far from significance, that gap is consistent with\nsampling and the baseline's skew, not with a recipe effect.",
+  "1. **Close out recipe as the candidate cause.** Nothing in 45 per-recipe shafts or\n   the 30-shaft head-to-head supports it; changing or tuning recipes is not expected\n   to move hardness."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "The balanced one-way ANOVA and Kruskal-Wallis comparison are potentially defensible complementary exploratory analyses; baseline nonnormality alone does not invalidate ANOVA, and a nonsignificant Levene test does not establish its assumptions. Kruskal-Wallis concerns rank distributions and requires additional shape assumptions for a location-only interpretation. The selected C-versus-B t and Mann-Whitney calculations can describe that pair, but their use as confirmation that recipe cannot matter is unacceptable. The record does not establish an independent confirmation sample or selection-adjusted interval. Nonsignificance in either pairwise test does not establish equivalence, and agreement between tests on the same observations is not independent replication.",
+ "trajectory_verdict": "UNACCEPTABLE",
+ "allowed_alternatives": [
+  "Retain the omnibus result as failure to detect differences, conditional on independent sampling and adequate model diagnostics; report effect estimates and uncertainty without asserting a zero effect.",
+  "Define a practically negligible hardness difference before analysis, then use adequately powered equivalence tests or simultaneous confidence intervals covering all decision-relevant recipe contrasts. Restrict any equivalence conclusion to the recipes and operating conditions studied.",
+  "Conduct a randomized, replicated recipe experiment, blocking or balancing material lot, furnace zone, run time, and other credible nuisance factors; assess interactions where operationally relevant.",
+  "Use independently collected confirmation data for a selected pair, or simultaneous/selection-aware inference when the pair was selected from the same data. Limit the conclusion to that contrast.",
+  "Investigate the baseline-versus-recipe-sample offset by checking sampling frames, measurement conditions, timing, and process mix before interpreting a direct comparison."
+ ],
+ "evidence": [
+  "The reported omnibus p-values are ANOVA 0.58653772 and Kruskal-Wallis 0.3678051; these are difference tests, not equivalence tests.",
+  "The reported C-versus-B mean difference is 0.0153 HRC with a 95% interval from -0.4492 to 0.4799 HRC. No practically negligible effect margin is supplied.",
+  "The business instructions describe the pair as 'the two recipes with the highest averages' pulled into a sample of their own, establishing outcome-dependent selection but not independent confirmation.",
+  "The report moves from lack of statistical detection to 'Close out recipe as the candidate cause' and predicts that tuning recipes will not move hardness.",
+  "The reported recipe means are all above the baseline mean, but the submitted steps contain no direct baseline-versus-recipe-sample test or sampling-frame reconciliation.",
+  "The supplied public protocol thresholds concern measurement-system declarations; they do not establish causal exclusion or equivalence at this checkpoint."
+ ],
+ "rationale": "The focal error is not choosing a parametric test alongside a rank test. It is interpreting nonsignificant comparisons as proof that recipe is not a cause and should be closed out. No equivalence margin, adequate precision argument, or randomized causal design establishes that conclusion. Avoiding an unsupported recipe change and investigating other factors are reasonable, but those actions do not justify eliminating recipe. The selected-pair follow-up cannot independently resolve the omnibus uncertainty, and the unexplained baseline offset cannot be dismissed using tests that compare only recipes.",
+ "confidence": 5,
+ "numerical_check": "Checked arithmetic using the rounded report summaries: the average of the three recipe means is approximately 59.247 HRC, about 1.065 HRC above the reported baseline mean of 58.1817 HRC; C minus B is approximately 0.016 HRC, consistent with the reported unrounded difference of 0.0153. Raw-data tests and confidence intervals were not recomputed; their values remain self-report-only.",
+ "evidence_problem": "Raw batches and service-event files were referenced but not available for inspection in this exchange. Independence, allocation, timing, and whether the leading-two observations reuse the recipe sample remain unverified. Review used only the supplied V060 packet, with no external sources or other reviewer outputs. This assessment was performed by an AI assistant, not a human credentialed reviewer.",
+ "_usage": {
+  "prompt_tokens": 4684,
+  "completion_tokens": 1333,
+  "total_tokens": 6017
+ }
+}

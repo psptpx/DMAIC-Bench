@@ -1,0 +1,103 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150,
+        "groups": 2
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 1,
+        "sampleFailFraction": 0.004166666666666667,
+        "samplesRetained": 239,
+        "participantsTotal": 240,
+        "affectedInput": 120,
+        "unaffectedInput": 120,
+        "minSampleCallRate": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "failedSampleCallRate": 0.9466666666666667,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes: the computed participant failure fraction does not exceed the protocol re-genotyping limit; exclude P198."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants_after_sample_qc": 239,
+        "variants_tested_for_qc": 150,
+        "control_participants": 119
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHweControls": 3,
+        "affectedRetained": 120,
+        "unaffectedRetained": 119,
+        "minVariantCallRate": 0.95,
+        "minMaf": 0.01,
+        "minHwePControls": 1e-06,
+        "familywiseAlpha": 0.05,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "Retain variants meeting all inclusive call-rate, MAF, and unaffected-participant exact-HWE thresholds."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 239,
+        "qc_retained_variants": 138,
+        "groups": 2
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "pc1PValue": 3.3491194783865236e-135,
+        "pc1TStatistic": -57.25323470456972,
+        "pc1VarianceFraction": 0.09941361305958872,
+        "pc2VarianceFraction": 0.01952988100615508,
+        "affectedPc1Min": -5.854108831118341,
+        "affectedPc1Max": -1.7454640482762065,
+        "unaffectedPc1Min": 0.38794628752205057,
+        "unaffectedPc1Max": 7.173129379437073,
+        "pc1RangesOverlap": false
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants are separated on PC1 with non-overlapping observed ranges; protocol prohibits association testing on this cohort."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "continue_after_excluding_failed_participant",
+      "observed": {
+        "sampleFailFraction": 0.004166666666666667,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      }
+    },
+    {
+      "point": "ancestry_precondition",
+      "chosen_branch": "stop_before_association_testing",
+      "observed": {
+        "separated": true,
+        "pc1PValue": 3.3491194783865236e-135,
+        "pc1RangesOverlap": false
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

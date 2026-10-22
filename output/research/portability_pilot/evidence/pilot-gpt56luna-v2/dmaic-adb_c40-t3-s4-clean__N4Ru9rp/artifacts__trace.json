@@ -1,0 +1,113 @@
+{
+  "system_id": "openai-api",
+  "task_id": "adb_c40-T3-s4-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "sample_size": 12,
+        "groups": 2,
+        "group_sizes": [6, 6]
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "nLibraries": 12,
+        "controlUsableReplicates": 6,
+        "treatedUsableReplicates": 6,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "allArmsMeetMinimum": true
+      },
+      "status": "success",
+      "decision": "All libraries passed usability QC and both arms met the replicate requirement."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "sample_size": 12,
+        "groups": 2,
+        "batch_count": 1
+      },
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 1,
+        "contrastEstimable": true
+      },
+      "status": "success",
+      "decision": "The treatment contrast is estimable because both arms occur in the same preparation batch."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "counts",
+        "sample_size": 12,
+        "groups": 2,
+        "group_sizes": [6, 6],
+        "gene_count": 400,
+        "normalization": "library-size CPM followed by log2(CPM+1)",
+        "multiple_testing": "Benjamini-Hochberg"
+      },
+      "method_id": "expression.de_simple",
+      "outputs": {
+        "nSignificant": 0,
+        "nGenes": 400,
+        "nControl": 6,
+        "nTreated": 6
+      },
+      "status": "success",
+      "decision": "No gene met both the adjusted-p-value and absolute-log2-fold-change calling criteria."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "validation",
+        "candidate_count": 0,
+        "validation_rule": "independent qPCR"
+      },
+      "method_id": "expression.validation_concordance",
+      "outputs": {
+        "concordance": 1.0,
+        "nConfirmed": 0,
+        "nCandidates": 0,
+        "concordanceDefined": false,
+        "listIssuable": false
+      },
+      "status": "success",
+      "decision": "No candidates were nominated, so no qPCR confirmations exist; the reported concordance is vacuous rather than evidence supporting a candidate list."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "release_sample_sheet",
+      "observed": {
+        "minReplicates": 6,
+        "requiredMinimum": 3
+      }
+    },
+    {
+      "point": "design_identifiability",
+      "chosen_branch": "release_counts",
+      "observed": {
+        "confounded": false,
+        "batchCount": 1
+      }
+    },
+    {
+      "point": "validation_gate",
+      "chosen_branch": "release_gene_sets",
+      "observed": {
+        "candidateCount": 0,
+        "validationConcordance": 1.0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

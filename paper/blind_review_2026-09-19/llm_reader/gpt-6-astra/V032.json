@@ -1,0 +1,46 @@
+{
+ "blind_id": "V032",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the current measurement system as adequate for routine process-control, capability, or specification-conformance decisions.",
+  "Drawing conclusions about production stability, current capability, causes of production variation, or improvement benefits from the unreleased end-of-line records.",
+  "Claiming that a measurement correction has been implemented or validated."
+ ],
+ "permitted_at_checkpoint": [
+  "Describe the released measurement study and its estimated variance components, with appropriate uncertainty.",
+  "Investigate instrument repeatability, fixturing, presentation, environmental conditions, and reading procedures without claiming that any particular mechanism has been established.",
+  "Check measurement bias against an independent reference and repeat the measurement study after corrective action.",
+  "Use independently validated measurements for a separately justified investigation; the current failure does not forbid all possible process investigations."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "STOPPED_APPROPRIATELY",
+ "extra_computation": "RESTRICTED_DESCRIPTIVE",
+ "extra_computation_detail": "The additional tolerance calculation, design counts, and decomposition of Gage R&R variance are appropriate measurement-system diagnostics. They do not bypass the failed gate. No production capability, stability, causal, or improvement analysis was run. The failed computational attempts produced no results and were subsequently corrected.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Correct the measurement system and repeat a representative crossed study, checking independence, measurement stability, and variance-component assumptions before accepting the results.",
+  "Assess fitness for a specified use using uncertainty and decision-risk analysis, supported by reference measurements and representative sampling. This could be professionally defensible but would not itself satisfy the public service rule requiring study-variation Gage R&R at or below 30%.",
+  "Conduct diagnostic experiments using an independently validated measurement method, without relying on the failed system to establish process effects."
+ ],
+ "evidence": [
+  "The reported Gage R&R study variation is 54.1970532972932%, exceeding the public threshold of 30.0%.",
+  "The reported Gage R&R standard deviation is 21.74573977865354 cd/m\u00b2; six times this value consumes 65.23721933596062% of the 200.0 cd/m\u00b2 tolerance.",
+  "Reported repeatability variance is 469.4646035915558, operator variance is 3.4125949293591495, and interaction variance is zero.",
+  "The report states: \"The brightness readings cannot yet be relied on for a process decision.\"",
+  "The report states: \"Accordingly, no end-of-line records were released and these questions stop at the gate:\"",
+  "The report states: \"There is therefore no data-supported evidence that a measurement fix was made or achieved anything.\"",
+  "The submitted sequence records the end-of-line request as refused and states that no analysis was run."
+ ],
+ "rationale": "Both the relative study-variation estimate and the tolerance-based estimate support withholding routine substantive reliance on these readings. The report respects that limit, identifies the missing production evidence, and recommends measurement diagnosis rather than an unsupported process change. Repeatability dominates the fitted measurement-error variance, making it a reasonable investigation priority. However, nonsignificant operator and interaction tests do not establish their absence, and this crossed study does not establish absolute instrument bias. The report's qualification that these effects are not distinguishable is important. Its prescribed 30% release threshold matches the public protocol; professionally, that threshold is not a universal guarantee of fitness for every measurement use.",
+ "confidence": 4,
+ "numerical_check": "Checked internal arithmetic using the supplied summaries: 469.4646035915558 + 3.4125949293591495 = 472.87719852091495, consistent with the reported Gage R&R variance; its square root is approximately 21.74574. The study-variation ratio is approximately 100 \u00d7 21.74574 / 40.12347 = 54.19705%. The tolerance calculation is 100 \u00d7 6 \u00d7 21.74574 / 200 = 65.23722%. The conventional distinct-category calculation, truncated from approximately 1.41 \u00d7 33.71967 / 21.74574 = 2.19, gives 2. Raw-data ANOVA was not recomputed.",
+ "evidence_problem": "Only the supplied packet was available for this review; the referenced raw batches and service-event files were not accessed, so fitted components and service history remain self-reported rather than independently verified. Review used only the supplied blind item, with no external sources, other reviewer outputs, or repository inspection. This assessment was generated by an AI assistant, not a human reviewer; no human professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 3766,
+  "completion_tokens": 1065,
+  "total_tokens": 4831
+ }
+}

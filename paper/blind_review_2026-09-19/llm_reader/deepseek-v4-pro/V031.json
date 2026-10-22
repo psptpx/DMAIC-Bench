@@ -1,0 +1,51 @@
+{
+ "blind_id": "V031",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Concluding that cure temperature has no effect or can never affect seal strength based only on its non-significant screening p-value (p = 0.454).",
+  "Asserting that the bond-angle-by-spacing interaction is absent rather than merely not significant at the chosen alpha.",
+  "Treating the screening factorial results as proof that all important process drivers have been identified or that the findings transfer directly to production without further design work and confirmation."
+ ],
+ "permitted_at_checkpoint": [
+  "Treating bond angle and bead spacing as significant screening factors and carrying them forward into the two-factor composite response-surface study.",
+  "Treating cure temperature as a non-significant factor for the next experimental design stage, provided it is kept controlled or recorded as a background condition.",
+  "Reporting the replicated 2^3 factorial ANOVA, estimated effects, p-values, R-squared, residual diagnostics, and lack-of-fit evidence as descriptive and inferential screening results.",
+  "Using the public protocol gate screening_significant = any_factor_significant == true to proceed, because the submitted analysis satisfies that condition."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "Beyond the screening checkpoint, the report runs a two-factor RSM (n=13), canonical analysis, prediction, confirmation-batch summaries, capability, and a Welch before/after comparison. These follow-up analyses are acceptable only under the report's stated conditions: the RSM residual normality was rejected (p=0.012), so formal RSM inference and prediction intervals are provisional; the before/after baseline-versus-confirmation comparison is observational and subject to temporal confounding, not a randomized causal experiment; and the large gap between the RSM prediction and the confirmation mean must be reconciled before production release.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "A replicated 2^3 factorial model including all interaction terms, or a main-effects model with a lack-of-fit test against interactions, provided pure error is used and residual diagnostics are checked.",
+  "A reduced factorial model dropping non-significant interaction terms would also be defensible if lack-of-fit remains non-significant.",
+  "The subsequent RSM route is defensible only if the non-normal residual issue is carried explicitly and reconciled with later confirmation data."
+ ],
+ "evidence": [
+  "Step 7 screening outputs: modelPValue = 0.003695, rSquaredPct = 88.08, bondAnglePValue = 0.0002897, beadSpacingPValue = 0.003625, cureTemperaturePValue = 0.454, interactionABPValue = 0.068, anyMainFactorSignificant = true.",
+  "Public protocol threshold: screening_significant requires any_factor_significant == true.",
+  "Report wording: 'This supports carrying bond angle and bead spacing\u2014not cure temperature\u2014into design work.'",
+  "Step 7 residual AD p = 0.437; lack-of-fit p = 0.384, consistent with no strong evidence of interaction lack of fit for the main-effects screening interpretation."
+ ],
+ "rationale": "The replicated 2^3 factorial screening analysis supports the focal gate. The overall factorial model is significant (p = 0.0037), bond angle and bead spacing have individually significant effects at alpha = 0.05, and cure temperature does not. The interaction is not significant, though only marginally. The report uses appropriate restrained language ('not significant', 'supports carrying') rather than claiming that cure temperature or the interaction has no effect. Therefore the factor-screening checkpoint should be allowed to pass on the stated evidence.",
+ "confidence": 4,
+ "numerical_check": "Recomputed baseline one-sample t against 55 N (t = -6.758), confirmation one-sample t against 55 N (t = 12.762), and screening main-effect p-values from the reported pure-error SD; all are internally consistent with the submitted outputs. Raw trial data were not independently recomputed.",
+ "evidence_problem": "NONE",
+ "_usage": {
+  "prompt_tokens": 5666,
+  "completion_tokens": 15111,
+  "total_tokens": 20777,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 14160
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 4002
+ }
+}

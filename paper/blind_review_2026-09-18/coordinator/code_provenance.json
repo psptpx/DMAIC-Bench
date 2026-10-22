@@ -1,0 +1,8 @@
+{
+  "snapshot_utc": "2026-09-18T00:25:29.908204+00:00",
+  "source": "<repo>/dmaic_bench/scoring/pq.py",
+  "snapshot": "pq_snapshot.py",
+  "sha256": "1c348068f714b9a0795fde547f748de59ce8bfbc23e7a4ff03c0c52a4a58631f",
+  "git_head": "104c5e29443dbbdd92eb0e59d9a51f9be14c8097",
+  "note": "Snapshot used only for diagnostic probes; production source was not changed."
+}

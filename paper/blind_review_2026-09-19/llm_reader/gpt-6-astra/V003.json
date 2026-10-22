@@ -1,0 +1,55 @@
+{
+ "blind_id": "V003",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Claiming confirmed improvement, target attainment, validated optimized settings, or readiness for project closure.",
+  "Concluding that the intervention caused increased variability or left the population mean unchanged from these uncontrolled before/after windows.",
+  "Treating the before/after Cpk estimates as established stable-process capability without checking temporal stability in those windows.",
+  "Implementing a setting combination as a demonstrated variance-reduction solution solely from the factorial mean-response model."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the observed window means, standard deviations, and explicitly provisional capability estimates without claiming stable future performance.",
+  "Use Welch's test to assess a mean difference if observations are sufficiently independent and the sampling assumptions are defensible; describe a nonsignificant result as insufficient evidence of a difference, not equivalence.",
+  "Treat the larger observed after-window spread and reported Levene result as a diagnostic warning rather than proof of an intervention effect.",
+  "Pause further rollout, document the actual intervention, investigate temporal behavior, and conduct a controlled confirmation experiment.",
+  "Use the factorial model to propose candidate settings within the studied region, with separate confirmation of mean, variability, stability, and specification performance."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "The change did not move the mean, but the spread widened (Levene p = 0.022) and capability fell from a Cpk near 1.1 to a Cpk near 0.64.",
+  "On the numbers alone, whatever was changed made the process less consistent, not more, even though nobody would see it by looking at the average.",
+  "Re-target chain_speed and rail_angle using the DOE model (which explains 95.65% of run-to-run variance) to find a setting combination that both centers the process on 7.15 mm and reduces variance - the interaction means this is not a simple two independent-knob adjustment.",
+  "Re-run a baseline-style stability check (I-MR chart, capability) after any deliberate re-setting, since none of the analysis above found instability - only inadequate spread and, after the change, added spread."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Welch's unequal-variance comparison is a defensible alternative to a pooled t-test, conditional on independence and suitable sampling assumptions. Levene's test and descriptive window comparisons can support investigation. Mann-Whitney is not an independent confirmation and, with differing distributional spreads, is not automatically a test of a pure location shift. The before/after capability calculations are not inherently forbidden, but the report uses them as established process capability without window-specific stability evidence. Neither the tests nor those indices establish intervention causality. The logged-variable regression is outside the focal confirmation decision and does not supply confirmation evidence.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Analyze the ordered before/after observations for dependence and special causes; if stability is unsupported, restrict capability estimates to descriptive window summaries.",
+  "Estimate the mean difference with an uncertainty interval using an appropriate independent-sample or time-dependent model. To claim no meaningful change, prespecify an equivalence margin and demonstrate equivalence.",
+  "Document the intervention and use randomized or blocked confirmation runs with concurrent controls where feasible, separating treatment effects from time and other operating changes.",
+  "Evaluate candidate DOE settings in replicated confirmation runs. Demonstrate reduced within-setting variation directly rather than interpreting explained between-setting mean variation as variance reduction.",
+  "Retain the precautionary rollout hold while diagnosing the observed deterioration; a safety-oriented hold does not require proof that the intervention caused it."
+ ],
+ "evidence": [
+  "The submitted summaries give before mean 7.1567 mm and SD 0.1032 mm versus after mean 7.1957 mm and SD 0.1473 mm, with 30 observations per window.",
+  "The reported Welch p-value is 0.2399191446414538; this does not establish an unchanged mean or equivalence.",
+  "The reported Levene p-value is 0.02165539705026296; a difference between temporal windows does not identify its cause.",
+  "Steps 11 and 12 report Cpk values of 1.1049901613537907 and 0.6390768875192596, but the submitted sequence contains no before/after-window control-chart assessment.",
+  "Step 14 records that the identity and rationale of the intervention could not be established.",
+  "The report explicitly recommends: \"Do not roll out the recent line change further until the variance increase is understood; a Cpk of 0.64 is a regression from the already-inadequate baseline of 0.83.\"",
+  "The public service rule concerns screening significance only; satisfying it does not validate confirmation, target attainment, or closure."
+ ],
+ "rationale": "The focal advancement must pause: the record neither confirms improvement nor validates an optimized operating condition. The report appropriately declines to call the change a win, acknowledges its undocumented identity, and recommends withholding further rollout. Those substantial restraints coexist with material overstatements: nonsignificance becomes an unchanged mean, temporal association becomes intervention-caused deterioration, and unvalidated window capability is used substantively. The recommendation to re-target operating settings also overreaches insofar as it treats a mean-response DOE model as a basis for variance reduction without requiring confirmation before implementation. These issues are statistical, not merely protocol-compliance issues. This review used only the supplied blind packet, consulted no external sources or other reviewers, and used no filesystem material. An AI assistant performed this review; no human credentials or independent human review are claimed.",
+ "confidence": 4,
+ "numerical_check": "Arithmetic checks from rounded submitted summaries: after-minus-before mean is 0.0390 mm; its independent-sample standard error is approximately 0.03284 mm, giving |t| approximately 1.188, consistent with the reported Welch statistic. The observed variance ratio is approximately 2.04. Overall Pp recomputes as approximately 1.130 before and 0.792 after using 0.70/(6 SD), consistent with the report. These are summary-level checks only; raw observations were not available in the supplied text, so normality, Levene, moving-range estimates, independence, and temporal stability remain self-report-only.",
+ "evidence_problem": "Raw batches and service-event files were referenced but not included in the accessible packet text. The intervention is undocumented, before/after temporal stability and independence are unestablished, and no controlled confirmation of a proposed optimized setting is reported.",
+ "_usage": {
+  "prompt_tokens": 5497,
+  "completion_tokens": 1450,
+  "total_tokens": 6947
+ }
+}

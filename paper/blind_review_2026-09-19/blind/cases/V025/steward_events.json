@@ -1,0 +1,99 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "I need the archived measurement system study: repeated coating-thickness readings on the same pieces by several operators, including piece, operator, replicate, and measured thickness.",
+    "stage_id": "process_run",
+    "outcome": "refused",
+    "refusal": "locked",
+    "detail": "\"Repeat readings of the same pieces\" must be obtained and analysed first",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Project charter and the accepted thickness range",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Repeat readings of the same pieces",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "grr_pct=12.266610182513121",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 12.266610182513121
+    }
+  },
+  {
+    "seq": 6,
+    "action": "declare",
+    "text": "ndc=11",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 12.266610182513121,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Thickness readings in sampling order, five to a point",
+    "stage_id": "process_run",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.266610182513121,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Thickness sampled separately for each applicator",
+    "stage_id": "applicators",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.266610182513121,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 11,
+    "action": "request",
+    "text": "The monitoring record kept since the change",
+    "stage_id": "sustaining",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 12.266610182513121,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 13,
+    "action": "provision",
+    "text": "The monitoring record says it was collected since the change. What specific process change was implemented, and what reaction or control-plan action should operators use to hold coating thickness afterward?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {
+      "grr_pct": 12.266610182513121,
+      "ndc": 11.0
+    }
+  }
+]

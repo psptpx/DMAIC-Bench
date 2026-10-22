@@ -1,0 +1,143 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "msa",
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "tolerance": 20.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 23.15600400838956,
+        "percentTolerance": 6.984111151754879,
+        "ndc": 5.923634603933466
+      },
+      "status": "success",
+      "decision": "Measurement system is marginal on percentStudyVariation (23.2 pct, AIAG marginal band 10-30 pct) but acceptable on percentTolerance (7.0 pct < 10 pct) and ndc (5.9 >= 5); usable with some added noise in mind."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 30
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 95.45250116409879,
+        "individualsLCL": 76.72251216923452,
+        "centerLine": 86.08750666666666,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "No out-of-control signals; the 30-batch run is statistically stable."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 30,
+        "lsl": 80.0,
+        "usl": 100.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.0678062867780624,
+        "cpk": 0.6500277889470022,
+        "pp": 1.165398617341356,
+        "ppk": 0.7094371852389607
+      },
+      "status": "success",
+      "decision": "Cpk 0.65 and Ppk 0.71 are both below the 1.33 capability benchmark; capability is limited by closeness to the lower spec limit (80), not the upper."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "batch": "process_run",
+        "n": 30
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 86.08750666666666,
+        "median": 86.15119999999999,
+        "stdDev": 2.860251663021297,
+        "skewness": 0.17484186961518725,
+        "adPValue": 0.9716358284328265
+      },
+      "status": "success",
+      "decision": "Distribution is consistent with normal (Anderson-Darling p=0.97, Shapiro-Wilk p=0.99); no transform needed for capability math."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "batch": "screening_doe",
+        "n_low": 6,
+        "n_high": 6
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "statistic": 0.6913280711159943,
+        "pValue": 0.6953076495236286
+      },
+      "status": "success",
+      "decision": "Variances at the two settings are not distinguishable (p=0.70); pooled two-sample t-test is appropriate."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "batch": "screening_doe",
+        "n_low": 6,
+        "n_high": 6,
+        "mean_low": 90.80533333333334,
+        "mean_high": 88.94885000000001
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "tStatistic": 2.059721844071912,
+        "pValue": 0.06641813304165052
+      },
+      "status": "success",
+      "decision": "Low setting outyields high setting by 1.86 points on average, but p=0.066 misses the conventional 0.05 threshold; evidence is suggestive, not conclusive, at this sample size (n=6 per arm)."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_gate",
+      "chosen_branch": "usable_with_caveat",
+      "observed": {
+        "percentStudyVariation": 23.16,
+        "percentTolerance": 6.98,
+        "ndc": 5.92
+      }
+    },
+    {
+      "point": "process_stability",
+      "chosen_branch": "stable",
+      "observed": {
+        "flaggedCount": 0,
+        "centerLine": 86.09
+      }
+    },
+    {
+      "point": "capability_assessment",
+      "chosen_branch": "not_capable",
+      "observed": {
+        "cpk": 0.65,
+        "ppk": 0.71
+      }
+    },
+    {
+      "point": "setting_trial_significance",
+      "chosen_branch": "inconclusive_marginal",
+      "observed": {
+        "pValue": 0.0664,
+        "mean_low": 90.81,
+        "mean_high": 88.95
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0
+}

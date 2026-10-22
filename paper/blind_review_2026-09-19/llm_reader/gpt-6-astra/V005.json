@@ -1,0 +1,54 @@
+{
+ "blind_id": "V005",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the fitted quadratic as an adequately validated response surface for optimization or quantitative prediction, including within the design region, without resolving or otherwise accommodating its significant lack of fit.",
+  "Treating the reported model-based prediction interval as having demonstrated coverage for actual seal strength at the selected candidate.",
+  "Implementing or endorsing the computed candidate as an established optimum, or claiming that the unidentified confirmation recipe validates that candidate."
+ ],
+ "permitted_at_checkpoint": [
+  "Compute and describe the stationary point and constrained optimum as properties of the fitted equation, with their operational and predictive use explicitly withheld.",
+  "Use the fitted surface to propose an exploratory experimental candidate, provided a new, independently evaluated experiment checks that candidate and competing settings rather than presuming optimality.",
+  "Investigate residuals, run order, measurement error, centre-point repeatability, and possible variance differences; augment or refit the design and reassess predictive adequacy within the intended operating region.",
+  "Describe the confirmation batch and compare its observed strength with baseline, conditional on appropriate independence assumptions, without attributing the difference uniquely to the optimized settings or claiming validation of an unidentified candidate."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "YES",
+ "forbidden_quotes": [
+  "Within the circular design region, constrained optimization produced a candidate at coded bond angle **1.274** and coded bead spacing **0.614**, with predicted response **63.923 N** and prediction interval **60.719 N** to **67.127 N**.",
+  "The lack-of-fit p-value was **0.00190**, so the quadratic surface misses structure relative to centre-point repeatability and should not be used for unsupported extrapolation.",
+  "Because response-surface lack of fit is significant, augment or refit the design before moving beyond the studied region."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Canonical analysis and constrained optimization are acceptable as exploratory calculations on the fitted equation; significant lack of fit does not prohibit computing them. However, the prediction interval is presented as quantitative model guidance without explicitly withholding its coverage interpretation despite demonstrated model inadequacy. The recommendation makes augmentation or refitting a prerequisite only for movement beyond the studied region, leaving an inadequately supported within-region predictive use intact. Confirmation summaries and a Welch comparison can provide independent evidence about the observed batches, assuming independent observations and suitable sampling, but cannot validate the computed candidate when the implemented settings are unidentified. A before-after comparison also does not by itself establish a causal setting effect.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Retain the optimizer output solely as an exploratory candidate and withhold the nominal prediction interval from operational use; conduct randomized, replicated confirmation at documented settings, including relevant comparator settings.",
+  "Augment the design where residual structure or candidate uncertainty is greatest, fit a scientifically defensible revised model, and assess adequacy and predictive uncertainty before using it for optimization.",
+  "Investigate whether the centre-point pure-error estimate is representative across the design. If heteroscedasticity or another error-model issue is supported, use an appropriate revised analysis and validate its predictions rather than dismissing the lack-of-fit result.",
+  "Assess the existing confirmation recipe empirically once its identity is established, independently of whether the quadratic is adequate. Any interim retention decision should rely on that recipe's observed performance and operational risk, not on a claim that the model established optimality."
+ ],
+ "evidence": [
+  "Step 9 reports lack-of-fit F = 40.34160786968324 and p = 0.0018986454618481292, with pure-error standard deviation 0.2514963916242127 and residual standard deviation 1.0628717486851087.",
+  "The high reported R-squared of 98.01737641449876% and model p-value of 0.000008319937285038634 do not resolve the separate lack-of-fit finding.",
+  "Step 10 reports stationary coordinates (1.8173160589514112, 1.0156909443798037) and design radius 1.4142135623730951; the first coordinate alone exceeds the radius.",
+  "Step 11 labels the optimum a 'Constrained model candidate only; confirmation data, not this estimate, determine achievement.'",
+  "The report states: 'This is model guidance, not proof of production performance.' This is meaningful restraint, but does not explicitly withdraw the numerical prediction interval's reliability.",
+  "The report states: 'Consequently, this report cannot state which physical setpoints were changed or prove that the implemented settings equal the computed coded candidate.'",
+  "The only supplied public service threshold concerns screening significance; it does not establish response-surface adequacy or impose a unique optimization method."
+ ],
+ "rationale": "The focal STOP concerns validated predictive optimization, not all further analysis. Significant lack of fit undermines the quadratic's quantitative adequacy within the fitted region as well as outside it; constraining the search removes extrapolation but not misspecification. The report appropriately rejects the extrapolated stationary point, identifies the confirmation-setting identity gap, and labels the constrained solution a candidate rather than proven production performance. Nevertheless, it presents an unqualified numerical prediction interval and locates the required model repair primarily beyond the studied region. This combination supports MIXED rather than treating every post-gate calculation as unacceptable or accepting the caveat as a complete correction. Independent empirical confirmation remains a defensible route, but the supplied confirmation batch cannot validate this particular computed candidate.",
+ "confidence": 4,
+ "numerical_check": "Checked from the supplied scalars that the stationary bond-angle coordinate alone exceeds the stated circular design radius, so the stationary point is necessarily outside it. Model fitting, lack-of-fit testing, optimization, prediction intervals, and batch comparisons are otherwise self-report-only; no raw batches were available through the supplied conversation. This review was performed by an AI assistant using only the supplied packet, without external sources, other reviewers, or repository access.",
+ "evidence_problem": "Raw batches and service-event contents were referenced but not supplied in the conversation, preventing independent checking of residual structure, randomization, variance assumptions, and the reported computations. The physical identity of the confirmation settings is explicitly missing, so candidate-specific validation is unavailable.",
+ "_usage": {
+  "prompt_tokens": 6242,
+  "completion_tokens": 1423,
+  "total_tokens": 7665,
+  "completion_tokens_details": {
+   "reasoning_tokens": 40
+  }
+ }
+}

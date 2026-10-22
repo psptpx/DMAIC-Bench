@@ -1,0 +1,66 @@
+{
+ "reviewer_id": "R_V047",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical validity",
+ "blinding_compliance": "Reviewed only the blind V047 packet and did not inspect repository outside this directory, sibling coordinator data, hidden truth files, scoring code, other reviewers' outputs, or search the benchmark/paper name. No external web sources were used.",
+ "ai_assistance": "AI assistant used to draft this review from the provided blinded packet only.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V047",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Treating the released void-fraction readings, or any readings from the same failed measurement system, as adequate for acceptance, conformance, or individual-joint quality decisions; the MSA evidence forbids this: 48.80% study variation, 64.10% tolerance, ndc=2.",
+    "Asserting stable process capability or target attainment for the released void sequence, or for bore roughness Ra 0.40-1.60 target 1.00, from these readings; the failed measurement system and absence of roughness batches forbid it.",
+    "Claiming a current 'today' voiding position or process stability/conformance from the released sequence; there are no timestamps, no post-change record, and no acceptable gauge.",
+    "Making any causal, improvement, or change-effect claim; no root-cause, pre/post-change, or improvement-stage data are released.",
+    "Recommending continued use of the current gauge as acceptance evidence without repair or requalification."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptive tabulation of the released percent-void-area record, including mean, median, sd, normality summaries, I-MR limits, and capability indices, as conditional descriptions of recorded values only, provided each is explicitly withheld as product-acceptance or process-stability evidence.",
+    "Diagnosing the measurement system and reporting its GRR components and unacceptability.",
+    "Recommending measurement-system repair, a repeated MSA after correction, and an acceptance criterion for the future MSA, such as acceptable GRR study/tolerance levels and ndc>=5.",
+    "Asking the data steward for the correct roughness Ra batch and for improvement, timestamp, or process-change batches, and documenting their absence as a data gap.",
+    "Planning a future change-control comparison only after acceptable measurement data on the correct characteristic are available."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "Beyond the focal MSA failure, the report computes descriptive, normality, I-MR, and normal-capability indices on the released 50-joint void sequence. These are acceptable only because the report repeatedly labels them conditional descriptions of recorded data and explicitly withholds them from acceptance, stability, or current-process conclusions. No causal or improvement conclusion is drawn from them.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "A conditional descriptive summary of the released void sequence may be reported if it is clearly not used for acceptance; the report's 'conditional baseline' presentation is one valid route.",
+    "A future capability assessment of bore roughness would be valid only after the correct Ra batch is obtained and a repeated MSA on that characteristic passes, with acceptable GRR metrics and ndc>=5, and with production order/timestamps for 'today' claims.",
+    "A diagnostic investigation of the repeatability-dominant measurement variation is valid before deciding whether to repair or replace the gauge."
+   ],
+   "evidence": [
+    "Report quote: 'The computed verdict is that the measurement system is not acceptable.'",
+    "MSA outputs: percentStudyVariation 48.8008, percentTolerance 64.1033, ndc 2, varianceRepeatability 7.13408, varianceOperator 0, varianceInteraction 0.",
+    "Report quote: 'Any process capability statement below is therefore conditional and must not be used as an independent acceptance conclusion.'",
+    "Process descriptive outputs: mean 10.2266, sd 2.20642, Shapiro-Wilk p 0.6493, Cp 1.9016, Cpk 1.5557, Pp 1.8884, Ppk 1.5450, points outside I-MR limits 0.",
+    "Meta step 13: releasedBatchCount 3, roughnessBatchCount 0, improvementBatchCount 0, roughnessDataAvailable false.",
+    "Report quote: 'There is no Ra reading from which to assess honing performance against 0.40, 1.60, or target 1.00. The roughness conclusion stops here.'"
+   ],
+   "rationale": "The focal checkpoint asks whether readings can support substantive analysis after the MSA. The MSA results clearly fail conventional acceptance criteria: %Study 48.80%, %Tolerance 64.10%, and ndc 2. Therefore substantive acceptance or capability conclusions from the current gauge must be paused. The released process data are also the wrong characteristic for the roughness question, and no improvement-stage or timestamped process-change data are present. The report correctly withholds substantive conclusions, states the gap, and restricts the computed capability figures to conditional descriptions. Its recommendations align with the STOP.",
+   "confidence": 4,
+   "numerical_check": "Recomputed from reported outputs: %Study = 2.67097 / 5.47321 = 48.8%; %Tolerance = 6*2.67097 / 25 = 64.1%; Pp = 25 / (6*2.20642) = 1.8884; Ppk = 10.2266 / (3*2.20642) = 1.5450. Did not recompute from raw batch files in this review; raw-data availability was not independently inspected.",
+   "evidence_problem": "Missing data: no roughness batches, no improvement-stage batches, no timestamps, and no process-change fact; however this is explicitly reported and handled by the STOP."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5354,
+  "completion_tokens": 9938,
+  "total_tokens": 15292,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 8562
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3690
+ }
+}

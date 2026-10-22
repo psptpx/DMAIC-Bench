@@ -1,0 +1,43 @@
+{
+ "blind_id": "V045",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "The agreement study does not establish error-free classification or guarantee equally strong performance on all future ticket types.",
+  "The 120 repeated judgements must not be treated as 120 independent tickets when quantifying uncertainty in measurement performance."
+ ],
+ "permitted_at_checkpoint": [
+  "Use the classifications for substantive project analysis, conditional on the study tickets and reviewers being representative of operational application and the answer key being valid.",
+  "Continue period monitoring and assessment of breach frequency while retaining measurement checks and acknowledging uncertainty from the small agreement sample.",
+  "Examine class-specific false-positive and false-negative rates and their potential effect on conclusions near the 5% requirement."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "Proceeding to p charts, dispersion assessment, pooled breach-rate analysis, and exploratory team comparisons is permissible after this measurement gate. These analyses require appropriate ticket independence and denominators; stable-process interpretation also requires examination of temporal structure. Computing the pooled rate before charting is not itself invalid when the final interpretation considers stability. The team comparison is appropriately withheld from causal use; neither statistical significance nor its absence would establish an operational cause. These downstream calculations are not independently verified here.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use ordinary variable-denominator p-chart monitoring if tickets are sufficiently independent within and between periods; use dispersion-adjusted limits only if the dispersion estimate and sampling structure justify them.",
+  "Supplement the agreement assessment with ticket-clustered uncertainty intervals and class-specific accuracy estimates before relying on small differences from the contractual target.",
+  "Use team comparisons as exploratory associations only, with comparable sampling windows, independent observations, and explicit attention to case mix; require additional design or process evidence for causal attribution."
+ ],
+ "evidence": [
+  "The agreement study contains 20 distinct tickets, three appraisers, two replicates, and 120 total judgements.",
+  "Reported agreement with the answer key is 96.66666666666667%, minimum reviewer kappa is 0.8989898989898989, and minimum repeat agreement is 90.0%.",
+  "The report states: \"On those computed results, the breach measurement is reliable enough to use for this project.\"",
+  "The report recommends: \"Retain the attribute measurement check as part of routine governance so the breach definition remains dependable.\"",
+  "The report states: \"Do not promote the team comparison to a causal finding on the current evidence.\"",
+  "No explicit numerical measurement-acceptance threshold is supplied in the public protocol."
+ ],
+ "rationale": "Strong answer-key agreement, high minimum kappa, and good repeatability jointly support using the classifications for this project. The evidence does not require pausing all substantive analysis. The small number of distinct tickets and absence of class-specific error information limit precision and generalizability, especially for estimating a low breach rate, but do not by themselves overturn this focal GO. The report accepts measurement for project use rather than claiming perfect classification and recommends continued measurement governance. Downstream issues should not retroactively invalidate an otherwise supported measurement gate.",
+ "confidence": 4,
+ "numerical_check": "Checked aggregate arithmetic: 20 \u00d7 3 \u00d7 2 = 120 judgements; 96.66666666666667% corresponds to 116 agreements and four disagreements. The three appraiser percentages correspond to 38, 39, and 39 agreements out of 40 each, totaling 116. Kappa, repeatability, class-specific error rates, and downstream statistics remain self-report-only because raw files were not accessible in the supplied conversation.",
+ "evidence_problem": "Only the supplied packet was reviewed; no repository, other reviewer output, or external source was accessed. Raw ratings and operational representativeness could not be checked. This review was performed by an AI assistant, not an independent human Black Belt expert, and should not be represented as a human validation vote.",
+ "_usage": {
+  "prompt_tokens": 4820,
+  "completion_tokens": 912,
+  "total_tokens": 5732
+ }
+}

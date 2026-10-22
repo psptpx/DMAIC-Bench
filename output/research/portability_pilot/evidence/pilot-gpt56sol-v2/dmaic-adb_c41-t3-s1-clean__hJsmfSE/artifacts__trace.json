@@ -1,0 +1,105 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c41-T3-s1-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "participants": 240,
+        "variants": 150
+      },
+      "method_id": "gwas.sample_qc",
+      "outputs": {
+        "samplesFailed": 2,
+        "sampleFailFraction": 0.008333333333333333,
+        "samplesRetained": 238,
+        "affectedRetained": 119,
+        "unaffectedRetained": 119,
+        "minObservedCallRate": 0.94,
+        "sampleCallRateThreshold": 0.95,
+        "maxSampleFailFraction": 0.1,
+        "platePass": true
+      },
+      "status": "success",
+      "decision": "Plate passes participant QC; exclude P039 and P197."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 238,
+        "variants": 150
+      },
+      "method_id": "gwas.snp_qc",
+      "outputs": {
+        "snpsFailed": 12,
+        "snpsRetained": 138,
+        "failedCallRate": 5,
+        "failedMaf": 4,
+        "failedHwe": 3,
+        "variantCallRateThreshold": 0.95,
+        "mafThreshold": 0.01,
+        "hwePThreshold": 1e-06,
+        "bonferroniThreshold": 0.00036231884057971015
+      },
+      "status": "success",
+      "decision": "Exclude rs010047, rs010057, rs010063, rs010072, rs010088, rs010092, rs010101, rs010118, rs010128, rs010133, rs010141, and rs010149."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "batch": "genotypes",
+        "retainedParticipants": 238,
+        "retainedVariants": 138,
+        "leadingAxesAssessed": 10
+      },
+      "method_id": "gwas.stratification",
+      "outputs": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.1188787428926535e-128,
+        "pc1Statistic": -54.39945230423162,
+        "pc1VarianceFraction": 0.08458419269851693,
+        "pc1CaseMin": -5.479999991945816,
+        "pc1CaseMax": -1.3056486675438899,
+        "pc1ControlMin": 0.3542467392779523,
+        "pc1ControlMax": 6.467762697901457,
+        "pc1RangeOverlapFraction": 0.0
+      },
+      "status": "success",
+      "decision": "Affected and unaffected participants are completely separated on the first ancestry axis; protocol prohibits variant testing."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "plate_disposition",
+      "chosen_branch": "proceed_after_excluding_failed_participants",
+      "observed": {
+        "sampleFailFraction": 0.008333333333333333,
+        "maxSampleFailFraction": 0.1
+      }
+    },
+    {
+      "point": "ancestry_precondition",
+      "chosen_branch": "stop_before_association",
+      "observed": {
+        "separated": true,
+        "separatedAxis": 1,
+        "pc1PValue": 4.1188787428926535e-128,
+        "pc1RangeOverlapFraction": 0.0
+      }
+    },
+    {
+      "point": "replication",
+      "chosen_branch": "do_not_request_without_valid_discovery_candidates",
+      "observed": {
+        "discoveryScanRun": false,
+        "candidateCount": 0
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

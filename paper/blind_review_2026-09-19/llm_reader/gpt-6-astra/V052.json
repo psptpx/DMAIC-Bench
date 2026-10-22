@@ -1,0 +1,52 @@
+{
+ "blind_id": "V052",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "Do not interpret the observed stability as proof that future lots will remain stable or that every individual lot meets the 2% requirement.",
+  "Do not treat the mismatch-category tally as the distribution of actual manufacturing defects or as evidence establishing a manufacturing root cause.",
+  "Do not interpret the nonsignificant placement-head comparison as proof of equivalence."
+ ],
+ "permitted_at_checkpoint": [
+  "Treat the 25-lot baseline as provisionally consistent with statistical control, subject to verifying chronological chart patterns and the binomial sampling assumptions.",
+  "Conclude that the pooled observed reject share is below 2%, with statistical support for an underlying average below 2% if boards are sufficiently independent and the inspection definition is applicable to these lots.",
+  "Continue prospective p-chart monitoring and inspector calibration.",
+  "Investigate insufficient-solder inspection disagreements first; confirm actual defect frequencies and causes before selecting manufacturing changes."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The homogeneity test and runs test provide complementary checks alongside the p-chart; neither alone proves stability. The pooled proportion test and interval are appropriate for average business performance under a reasonably stable, independent binomial model. The binomial process Z is a transformation of the observed reject fraction, not a separate demonstration of capability or a guarantee of future performance. The placement-head comparison supports only failure to detect a difference in the sampled window, not equivalence or causation. The Pareto analysis is valid for prioritizing investigation of inspection disagreements, not for identifying manufacturing causes.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Use a time-ordered p-chart with lot-specific limits if lot sizes vary; supplement with prespecified pattern checks and investigate any signals before relying on a common rate.",
+  "Use an exact binomial test and confidence interval for the pooled reject probability when independent Bernoulli observations and a common underlying rate are defensible.",
+  "If within-lot dependence or extra-binomial variation is found, use a dispersion-adjusted or hierarchical analysis rather than the ordinary pooled binomial uncertainty calculation.",
+  "Use the disagreement Pareto to target inspection-definition review, then collect verified defect-category data before prioritizing process interventions.",
+  "If practical head equivalence matters, specify an engineering equivalence margin and obtain a confidence interval from an appropriately replicated comparison."
+ ],
+ "evidence": [
+  "The report limits its stability statement to being 'stable in the observed window.'",
+  "Reported totals are 131 rejects out of 10,000 inspected boards, giving 1.31%.",
+  "Reported p-chart limits are 0 to 0.0301554617; the reported maximum lot proportion is 0.0275, within the upper limit.",
+  "The reported count variance is 4.94 versus a binomial expected variance of 5.171356, with no obvious aggregate overdispersion.",
+  "The reported homogeneity p-value is 0.5241529976 and runs-test p-value is 0.2864220228.",
+  "The reported 95% proportion interval is 0.0109641385 to 0.0155259472, entirely below 0.02.",
+  "The report says, 'The mismatch tally shows that insufficient solder should be the first category examined for additional work.' This supports an investigative rather than an established-cause interpretation.",
+  "The report recommends continuing separate head monitoring and does not recommend changing either head."
+ ],
+ "rationale": "The supplied results consistently support provisional baseline stability and an average reject share below the business limit. No special-cause signal is reported, and the proportion interval lies comfortably below 2%. Failure to reject instability is not proof of permanent control, but the report's observed-window qualification and continued-monitoring recommendation make the focal advancement defensible. The insufficient-solder recommendation should be read in its explicit mismatch-analysis context: it supports inspection investigation, not a proven manufacturing intervention. The causal strength of the criteria-rewrite language is a separate earlier-checkpoint issue and does not invalidate this baseline decision. No narrower public protocol rule is supplied.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from the supplied summaries: 131/10000 = 0.0131; assuming 400 boards per lot, the p-chart upper limit is 0.0131 + 3*sqrt(0.0131*0.9869/400), approximately 0.03015546; the binomial count variance is 400*0.0131*0.9869 = 5.171356; the one-proportion null-standard-error statistic is (0.0131-0.02)/sqrt(0.02*0.98/10000) = -4.92857; 24*4.94/5.171356 is approximately 22.9263, consistent with the homogeneity statistic. Raw lot ordering, exact p-values, and interval endpoints were not independently recomputed.",
+ "evidence_problem": "The raw batches and service files referenced in the prompt were not available through this interaction; judgment uses the supplied packet only. Equal lot sizes and chronological chart patterns therefore remain unverified. The timing of the baseline lots relative to the revised inspection criteria is not specified. The 90-item disagreement tally cannot be reconciled to the six incorrect ratings implied by the first study's 95% agreement without clarification of its sampling frame. Review was performed by an AI assistant, not a human expert; no external sources, other reviewers, or repository material were accessed.",
+ "_usage": {
+  "prompt_tokens": 4755,
+  "completion_tokens": 1284,
+  "total_tokens": 6039,
+  "completion_tokens_details": {
+   "reasoning_tokens": 38
+  }
+ }
+}

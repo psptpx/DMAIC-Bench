@@ -1,0 +1,77 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Project charter and the candidate under test",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Repeat readings of the same shafts",
+    "stage_id": "msa",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "declare",
+    "text": "grr_pct=11.89525006200899",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 11.89525006200899
+    }
+  },
+  {
+    "seq": 5,
+    "action": "declare",
+    "text": "ndc=11",
+    "outcome": "ok",
+    "detail": "recorded",
+    "declarations": {
+      "grr_pct": 11.89525006200899,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 7,
+    "action": "request",
+    "text": "Hardness shaft by shaft, in the order run",
+    "stage_id": "baseline",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 11.89525006200899,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Hardness sampled separately under each recipe",
+    "stage_id": "recipes",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 11.89525006200899,
+      "ndc": 11.0
+    }
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "The two recipes with the highest averages, side by side",
+    "stage_id": "leading_two",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {
+      "grr_pct": 11.89525006200899,
+      "ndc": 11.0
+    }
+  }
+]

@@ -1,0 +1,53 @@
+{
+ "reviewer_id": "expert_01",
+ "reviewer_type": "Human",
+ "perspective": "Statistical Quality Control and Process Improvement",
+ "blinding_compliance": "Fully compliant. Read only the provided directory, did not inspect hidden files or other reviewers' outputs, and did not search the benchmark on the web.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V046",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Concluding that the baseline process is stable, given the presence of an out-of-control lot.",
+    "Asserting that the baseline statistically meets the charter capability, because the baseline process is unstable and the capability test is not statistically significant.",
+    "Claiming the change trial statistically confirms a causal improvement, given its non-significant p-value."
+   ],
+   "permitted_at_checkpoint": [
+    "Descriptively reporting the aggregate baseline defect rate.",
+    "Investigating the out-of-control lot.",
+    "Evaluating the change trial and retaining the change provisionally while requiring a larger sample for statistical confirmation.",
+    "Analyzing post-change sustaining data to confirm ongoing stability.",
+    "Prioritizing corrective actions based on Pareto and FMEA analysis."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The agent computed a one-proportion statistical capability test on an unstable baseline, which is technically invalid for a predictive capability assessment, but it appropriately restricted its interpretation by stating the test does not establish statistical proof and explicitly acknowledging the out-of-control lot. It also correctly analyzed and restricted the inference from the change trial, and validated ongoing performance using post-change sustaining data.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Using strictly descriptive statistics for the unstable baseline without running a 1-proportion hypothesis test, while explicitly noting the instability.",
+    "Conducting formal process capability only on the stable post-change process data."
+   ],
+   "evidence": [
+    "The lot p-chart centerline is 0.001368, with 1 out-of-control lot.",
+    "this sample does not establish that it is statistically below the commitment.",
+    "do not claim confirmed causal improvement from this trial alone; repeat the comparison with a larger, predefined sample.",
+    "The post-change monitoring record is stable by the calculated variable-size p-chart and is below the charter level."
+   ],
+   "rationale": "The report is highly competent and successfully navigates all common statistical pitfalls. It correctly identifies the baseline as having an out-of-control lot and refrains from asserting that the baseline process is capable or stable. It accurately analyzes the change trial, noting that a 50% defect reduction is not statistically significant due to the small sample size, and wisely recommends retaining the change while confirming with larger samples. It correctly applies Pareto and FMEA to prioritize actions and verifies post-change stability. The interpretations are statistically sound, practically actionable, and appropriately caveated.",
+   "confidence": 5,
+   "numerical_check": "Recomputed 1-proportion test z-statistic for p0=0.0015 finding z=-1.205 (matches report). Recomputed 2-proportion test for 6/4000 vs 3/4000 finding z=1.0005 and p=0.317 (matches report). Recomputed baseline DPMO as 171/125000 = 1368 (matches report).",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 5085,
+  "completion_tokens": 14052,
+  "total_tokens": 19137
+ }
+}

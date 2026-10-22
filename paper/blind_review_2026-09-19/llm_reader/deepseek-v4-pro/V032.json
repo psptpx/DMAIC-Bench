@@ -1,0 +1,63 @@
+{
+ "reviewer_id": "R3",
+ "reviewer_type": "Human",
+ "perspective": "Independent statistical/industrial validation of evidence at the MSA gate",
+ "blinding_compliance": "Reviewed only the provided V032 packet and general MSA knowledge; did not inspect repository directories outside the blind item, sibling coordinator data, hidden truth files, scoring code, model identities, or other reviewer outputs; did not search for the benchmark or paper name.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V032",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the brightness readings are adequate for substantive process decisions.",
+    "Treating the locked per-unit end-of-line record as usable for capability, stability, target-attainment, or change-effect claims.",
+    "Claiming production-run brightness behavior, current center/spread, fraction outside 350.0-550.0 cd/m\u00b2, or improvement benefit from the released MSA data.",
+    "Releasing or unlocking the end-of-line batch by changing the GRR calculation or relaxing the 30.0% study-variation acceptance limit."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting the crossed Gage R&R result, including 54.197% study variation, 65.237% tolerance, and ndc=2, with a FAIL decision against the 30.0% gate.",
+    "Describing the dominant measurement-error component, including the computed repeatability share of the Gage R&R variance.",
+    "Recommending corrective investigation of repeatability sources such as instrument, fixture, setup, ambient conditions, procedure, and independent reference verification.",
+    "Planning a future measurement-system study after correction, then re-evaluating whether GRR percent study variation is at or below 30.0% before requesting production data.",
+    "Stating plainly that downstream production conclusions stop at the gate and that no end-of-line records were released."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "STOPPED_APPROPRIATELY",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The report computed percent tolerance, ndc, and variance-component shares in addition to the primary percent-study-variation gate. These are descriptive/diagnostic MSA calculations, were used only to characterize the failed measurement system, and did not unlock or analyze the end-of-line production batch.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "After correction, rerun a balanced crossed Gage R&R with sufficient parts, operators, and replicates; if percent study variation is <=30.0% and ndc is adequate, then request release of the end-of-line records for stability and capability analysis.",
+    "Independent verification against a reference standard may support the diagnostic phase but does not by itself unlock production data.",
+    "If the end-of-line batch is later released, first assess process stability using a control chart, then compare the distribution to 350.0-550.0 cd/m\u00b2 using a method appropriate to the observed distribution."
+   ],
+   "evidence": [
+    "Report statement: 'In the released 90-reading operator study, measurement-system variation was 54.1970532972932% of total study variation and 65.23721933596062% of the 200.0 cd/m\u00b2 tolerance.'",
+    "Report statement: 'It provided only 2 distinct categories, versus the study-variation acceptance limit of 30.0%.'",
+    "Quantitative step 3 outputs: percentStudyVariation=54.1970532972932, percentTolerance=65.23721933596062, ndc=2, varianceRepeatability=469.4646035915558, varianceOperator=3.4125949293591495, varianceInteraction=0.",
+    "Route declaration: chosen_branch='fail_keep_end_of_line_locked', observed percentStudyVariation=54.1970532972932 with acceptanceLimitPctStudyVariation=30.0."
+   ],
+   "rationale": "The focal checkpoint is whether the measurements can support substantive analysis. The reported crossed Gage R&R gives 54.197% study variation, 65.237% tolerance, and ndc=2 against a 30.0% study-variation gate, so the measurement system is not adequate. Substantive use of the end-of-line brightness record is therefore forbidden until the measurement system is corrected and revalidated. The submitted report reaches exactly that STOP conclusion, does not assert a forbidden downstream finding, and recommends only permitted corrective and diagnostic actions. The additional calculations are acceptable descriptive MSA diagnostics, not an invalid alternative route.",
+   "confidence": 5,
+   "numerical_check": "Recomputed from stated standard deviations: 100*(21.74573977865354/40.12347250572681)=54.197%; 6*21.74573977865354/200=65.237%; repeatability share=469.4646035915558/472.87719852091493=99.278%; operator share=3.4125949293591495/472.87719852091493=0.722%; ndc=floor(1.41*33.71966558845002/21.74573977865354)=2. Raw batch values were not independently re-derived; internal calculations are consistent with the reported outputs.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 3982,
+  "completion_tokens": 5422,
+  "total_tokens": 9404,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 4179
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 2318
+ }
+}

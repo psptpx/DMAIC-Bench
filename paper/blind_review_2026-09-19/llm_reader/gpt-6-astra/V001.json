@@ -1,0 +1,53 @@
+{
+ "blind_id": "V001",
+ "gate_verdict": "STOP",
+ "forbidden_at_checkpoint": [
+  "Treating the pooled baseline as a stable process or using its capability indices to establish predictable production capability.",
+  "Interpreting a normal distribution fitted to the shifting baseline as a validated long-run nonconformance model.",
+  "Treating the pooled baseline observations as independent, identically distributed Bernoulli trials to claim an exact confidence bound for a common production defect probability without additional justification.",
+  "Treating retrospective segmentation and absence of individual-point chart signals as proof that stable operating phases have been established."
+ ],
+ "permitted_at_checkpoint": [
+  "Report the observed baseline mean, dispersion, ordered pattern, and one observed nonconforming joint as descriptions of these 60 joints.",
+  "Investigate the apparent level shift using time plots, change-point diagnostics, process records, and provisional phase-specific charts; account for retrospective selection before making confirmatory claims.",
+  "Calculate pooled capability ratios for explicitly limited historical description, withholding capability, short-term potential, and future defect-rate conclusions.",
+  "Continue an independently justified designed experiment if randomization or appropriate blocking, independent errors, measurement adequacy, and model diagnostics support its analysis.",
+  "Propose a factorial corner for controlled confirmation rather than immediate production adoption."
+ ],
+ "report_asserts_forbidden_conclusion": "YES",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [
+  "Against the accepted interval, short-term potential was better than overall performance: Cp = 1.533557, Cpk = 1.035005, Pp = 0.799433, and Ppk = 0.539541.",
+  "The observed nonconforming proportion is 0.016667, with an exact 95% upper confidence bound of 0.089399."
+ ],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "MIXED",
+ "extra_computation_detail": "Ordered summaries, runs tests, provisional phase charts, and shift diagnostics are useful exploration. The half-to-half comparison strongly describes a level difference, but its confirmatory p-value requires justified error independence and treatment of any data-selected split; the pooled one-sample test and linear-trend p-value likewise lack demonstrated temporal-error assumptions. Baseline capability arithmetic is computable, but step 9 interprets short-term potential as acceptable without establishing a stable phase. Step 50 estimates long-run normal tails from an unstable, nonnormal pooled record. Step 51 then treats the fitted tail probability as fixed in an exact binomial comparison using the same observations, without accounting for fitted parameters or changing defect probabilities. Those interpretations are unacceptable. The replicated factorial is a potentially valid independent route, conditional on experimental execution and residual checks; baseline instability alone does not invalidate it. Logged-variable analysis is exploratory and explicitly noncausal, but its marginal p-values are not adjusted for multiple comparisons or demonstrated temporal dependence. Later before/after association and distribution-fit sensitivity calculations do not repair baseline capability; their merits require separate window-specific checks.",
+ "trajectory_verdict": "MIXED",
+ "allowed_alternatives": [
+  "Investigate the shift's timing and process explanation, define operationally meaningful phases, and collect independent prospective observations before estimating phase-specific capability.",
+  "Use time-dependent regression or change-point models with checked residual dependence and selection-aware uncertainty when quantifying the shift.",
+  "Report the finite-record nonconformance fraction without a population confidence bound, or estimate phase-specific defect probabilities using a justified sampling model.",
+  "Analyze the replicated factorial jointly, including interactions, provided randomization or blocking addresses time effects and residual diagnostics support inference; validate the selected corner in an independent controlled trial.",
+  "Retain nonnormal capability fits only as sensitivity calculations until temporal stability, distributional adequacy, and uncertainty in tail estimates have been evaluated."
+ ],
+ "evidence": [
+  "The report explicitly states: \"The baseline is not a single stable level.\" This is appropriate focal restraint.",
+  "Steps 29\u201331 report first-half and second-half means of 7.1394 and 7.388166666666667 mm, with within-half standard deviations of approximately 0.07347 and 0.07696 mm.",
+  "Step 11 reports six runs about the sample mean and p = 7.496055857283046e-11; step 8 reports three overall individuals-chart signals.",
+  "Step 9 states: \"Short-term potential is acceptable, but overall performance is poor.\" The report carries the potential-versus-performance interpretation forward rather than explicitly withholding its capability use.",
+  "Step 50 calls a pooled normal tail estimate of 0.05350579309483167 an expected long-run nonconformance probability; step 51 compares the observed count with that fitted probability using an exact binomial test.",
+  "The report states: \"This should be treated only as a confirmation candidate, not an adopted setting, until a controlled trial demonstrates that it centers and holds production.\"",
+  "Only a factor-significance public service threshold is supplied; it does not validate baseline stability or capability."
+ ],
+ "rationale": "The reported temporal evidence supports pausing stable-baseline capability conclusions, not halting all investigation or independent experimentation. The report correctly recognizes the shift and withholds immediate adoption of the proposed setting and identification of the undocumented change mechanism. However, it still interprets pooled capability as short-term potential and presents an exact defect-probability bound without a justified common-probability sampling model. These are material focal overstatements alongside substantial restraint, warranting MIXED rather than blanket acceptance or rejection of every downstream analysis. This is a statistical assessment, not an inference from service authorization.",
+ "confidence": 4,
+ "numerical_check": "Checked arithmetic from supplied summaries: 7.388166666666667 - 7.1394 = 0.248766666666667 mm; 1/60 = 0.0166667; 0.70/(6 \u00d7 0.145936843974983) is approximately 0.799433; and (7.50 - 7.263783333333334)/(3 \u00d7 0.145936843974983) is approximately 0.539541. These checks reproduce descriptive ratios, not their inferential validity. Raw observations were not accessed; test results, chart signals, fitted models, and ordering remain self-report-only.",
+ "evidence_problem": "The supplied packet does not include the raw observations or service-event contents, so temporal residual dependence, retrospective split selection, experimental randomization, and numerical implementations cannot be independently checked. Review used only the packet provided in the conversation; no repository, other reviewer output, external source, or hidden material was accessed. This review was produced by an AI assistant for statistical assessment and JSON drafting, not by an independent human expert; no professional credentials are claimed.",
+ "_usage": {
+  "prompt_tokens": 9826,
+  "completion_tokens": 1457,
+  "total_tokens": 11283
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "reviewer_id": "independent-human-V010",
+ "reviewer_type": "Human",
+ "perspective": "Industrial/statistical Black Belt expert review",
+ "blinding_compliance": "Complied with procedural blinding: reviewed only the V010 packet and did not inspect coordinator, other reviewers, hidden truth, scoring code, or benchmark/paper sources outside this blinded item. No web search of the benchmark/paper was performed.",
+ "ai_assistance": "AI assistant used to draft and format this review output from the blinded packet.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V010",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Concluding that the line change itself caused the increased fillet height or reduced variation; the before/after windows are observational and the report explicitly cannot isolate other events.",
+    "Implementing an optimized production setting or claiming target attainment or closure before the coded factor levels are translated to physical plant setpoints and confirmed on the current line.",
+    "Treating the observational logged-variable null results as proof that those variables do not explain fillet height."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting baseline and before/after descriptive statistics, control-chart screening, and capability estimates with normality caveats.",
+    "Using the randomized factorial DOE to identify coded factors to test next, provided the interpretation remains coded and the physical mapping is acknowledged as missing.",
+    "Recommending a small confirmation experiment at the predicted DOE corner, explicitly conditioned on physical setpoint translation and current-line confirmation.",
+    "Describing the before/after difference as a temporal association only, with explicit confound warnings.",
+    "Retaining the three logged variables for surveillance rather than using them for causal adjustment."
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [
+    "The comparison after the line change showed a statistically significant shift: it raised fillet height and reduced variation, and every observed joint remained inside limits."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "MIXED",
+   "extra_computation_detail": "The baseline descriptive/t-test, control-chart screening, capability estimates, factorial DOE analysis, and Welch/Brown-Forsythe/Mann-Whitney before/after comparisons are acceptable as descriptive or exploratory analyses. The before/after comparison is not acceptable when interpreted causally because it is an observational two-window comparison with no concurrent control and possible temporal confounding. The observational logged-variable regression is acceptable as an association screen, but the statement that those variables 'do not explain' the response is too strong for a non-significant n=48 observational model.",
+   "trajectory_verdict": "MIXED",
+   "allowed_alternatives": [
+    "Randomized factorial confirmation at the coded DOE corner after physical low/high setpoints are documented; valid only if run on the current line and followed by a confirmatory capability sample.",
+    "Interrupted-time-series or change-point descriptive comparison before/after with explicit causal confounding caveat; causal wording withheld unless a randomized intervention or equivalent concurrent control is available.",
+    "Nonparametric or robust capability assessment if normality is rejected or if serial dependence remains unchecked.",
+    "Prospective capability calculation after the confirmed center is stable, with control limits and monitoring rules."
+   ],
+   "evidence": [
+    "Submitted report bottom line: 'The comparison after the line change showed a statistically significant shift: it raised fillet height and reduced variation, and every observed joint remained inside limits.'",
+    "Welch before/after mean difference = 0.194367 mm; 95% CI = 0.140477-0.248257; t = 7.26877; p = 4.60977e-09.",
+    "Before window mean = 7.11773, SD = 0.129493; after window mean = 7.3121, SD = 0.0684268.",
+    "DOE full model: p = 2.3531e-05, R-squared = 96.7834%; chain speed p = 2.82767e-06; rail angle p = 1.87136e-05; chain-speed-by-rail-angle p = 0.0013891; air pressure p = 0.420739.",
+    "Reported data gap: physical low/high mapping could not be obtained; exact change identity unavailable; cannot isolate other events happening at the same time as the change.",
+    "Recommended confirmation prediction at chain speed +1, rail angle -1: 7.1254 mm, PI = 7.00994-7.24086."
+   ],
+   "rationale": "The evidence supports a coded DOE-based confirmation experiment, not a production commitment. The report appropriately withholds final implementation and closure because physical setpoints are unknown and confirmation has not been run. However, the bottom line uses causal language for an observational before/after comparison even though the report elsewhere correctly says the results are only associations and confounders cannot be isolated. That is a material overstatement repaired by using association language, but it does not require pausing the proposed confirmation experiment.",
+   "confidence": 4,
+   "numerical_check": "Rechecked Welch t = 0.1943667 / 0.0267400 = 7.2688; recomputed after-window Ppk = (7.5 - 7.3121) / (3 * 0.0684268) = 0.9153 and before-window Ppk = (7.11773 - 6.8) / (3 * 0.129493) = 0.8179. Other values treated as self-reported.",
+   "evidence_problem": "Missing physical low/high factor mapping and exact change identity; before/after comparison has no randomized counterfactual; possible serial dependence in windowed data was not directly checked."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6816,
+  "completion_tokens": 14302,
+  "total_tokens": 21118,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 13007
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 5152
+ }
+}

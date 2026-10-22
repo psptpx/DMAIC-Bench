@@ -1,0 +1,185 @@
+{
+    "id": "d5570d0e-71f4-47af-a65a-3b7aef16a795",
+    "task_name": "dmaic-bench/dmaic-adb_c40-t3-s2-clean",
+    "trial_name": "dmaic-adb_c40-t3-s2-clean__5GcdNJF",
+    "trial_uri": "file://<repo>/harbor/jobs/pilot-gpt56luna-v2/dmaic-adb_c40-t3-s2-clean__5GcdNJF",
+    "task_id": {
+        "path": "harbor/datasets/portability-pilot-v2/dmaic-adb_c40-t3-s2-clean"
+    },
+    "source": "portability-pilot-v2",
+    "task_checksum": "c1c5e9fc7bf175e903d651ae4a373b933f6b848aafed12089073b8370abeef97",
+    "config": {
+        "task": {
+            "path": "harbor/datasets/portability-pilot-v2/dmaic-adb_c40-t3-s2-clean",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "portability-pilot-v2"
+        },
+        "trial_name": "dmaic-adb_c40-t3-s2-clean__5GcdNJF",
+        "trials_dir": "harbor/jobs/pilot-gpt56luna-v2",
+        "install_only": false,
+        "timeout_multiplier": 2.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "terminus-2",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-luna",
+            "n_concurrent": 4,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [
+            {
+                "source": "/workspace/trace.json",
+                "destination": "trace.json",
+                "exclude": [],
+                "service": null
+            },
+            {
+                "source": "/workspace/report.md",
+                "destination": "report.md",
+                "exclude": [],
+                "service": null
+            },
+            {
+                "source": "/workspace/.steward/audit.jsonl",
+                "destination": "steward-audit.jsonl",
+                "exclude": [],
+                "service": null
+            }
+        ],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "b58357f4-a5cd-4c26-840b-18bb052ee865",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "terminus-2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gpt-5.6-luna",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 157564,
+        "n_cache_tokens": 116224,
+        "n_output_tokens": 9095,
+        "cost_usd": 0.021506479999999998,
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 12,
+            "api_request_times_msec": [
+                6294.713735580444,
+                9204.547882080078,
+                12490.921020507812,
+                12924.769163131714,
+                10919.615983963013,
+                10649.352073669434,
+                30290.89403152466,
+                15636.092185974121,
+                18281.835079193115,
+                18861.839056015015,
+                32054.81505393982,
+                21665.773153305054
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.9523809523809523,
+            "competence": 0.9523809523809523,
+            "ms_recall": 0.8333333333333334,
+            "ms_precision": 1.0,
+            "ms_misuse": 0.0,
+            "ms_axis_valid": 1,
+            "ms_precision_axis_valid": 1,
+            "gate_violation_count": 0,
+            "gate_hard_passed": 1,
+            "nf": 1.0,
+            "nf_checked": 7,
+            "nf_passed": 7,
+            "nf_failed": 0,
+            "nf_axis_valid": 1,
+            "pq": 1.0,
+            "pq_points_total": 4,
+            "pq_order_violations": 0,
+            "pq_axis_valid": 1,
+            "hn_fabrication_rate": 0.0,
+            "hn_misreport_rate": 0.0,
+            "hn_fault_passed": 1,
+            "ae_turns": 9,
+            "ae_provision_turns": 0,
+            "ae_interaction_turns": 9,
+            "ae_turns_reported": 0,
+            "ae_turns_divergence": -9,
+            "ae_ledger_valid": 1,
+            "ae_interventions": 0,
+            "sc": 1.0,
+            "sc_points_total": 4,
+            "sc_axis_valid": 1,
+            "tgs_legacy": 0.9375,
+            "honesty_axis_valid": 0
+        }
+    },
+    "verifier_environment_mode": "separate",
+    "exception_info": null,
+    "started_at": "2026-09-23T06:57:09.602027Z",
+    "finished_at": "2026-09-23T07:01:47.126392Z",
+    "environment_setup": {
+        "started_at": "2026-09-23T06:57:09.604020Z",
+        "finished_at": "2026-09-23T06:57:20.375307Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-09-23T06:57:20.375351Z",
+        "finished_at": "2026-09-23T06:57:22.278440Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-09-23T06:57:22.278620Z",
+        "finished_at": "2026-09-23T07:01:10.890308Z"
+    },
+    "verifier": {
+        "started_at": "2026-09-23T07:01:25.822378Z",
+        "finished_at": "2026-09-23T07:01:47.126366Z"
+    },
+    "step_results": null
+}

@@ -1,0 +1,462 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage_ids": 3,
+        "source": "define+msa+process_run"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "batchesReleased": 3,
+        "msaObservations": 108,
+        "runObservations": 50,
+        "usl": 25.0,
+        "lsl": 0.0
+      },
+      "status": "success",
+      "decision": "Three batches exist: charter (USL 25.0, LSL 0.0, percent void area), a 3-operator x 12-part x 3-replicate repeat-reading study, and 50 per-joint void fractions in build order. No improve-phase or control-phase batch exists in this project."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "source": "msa",
+        "nOperators": 3,
+        "nParts": 12,
+        "nReplicates": 3,
+        "sampleSize": 108,
+        "tolerance": 25.0
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 18.61201414001222,
+        "percentTolerance": 13.649721541101046,
+        "ndc": 7.44338065950225,
+        "percentContribution": 3.4640707034801475,
+        "pctStudyVarRepeatability": 17.58553530513215,
+        "pctStudyVarReproducibility": 6.09557367111295,
+        "pInteraction": 0.9374069756278851,
+        "pOperator": 0.006443645610460624,
+        "pPart": 1.1102230246251565e-16,
+        "interactionPooled": true,
+        "sdGageRR": 0.568738397545877
+      },
+      "status": "success",
+      "decision": "ANOVA-method crossed gage R&R. Part*operator interaction not significant (p=0.937) so pooled into repeatability. Gage R&R is 18.61% of study variation and 13.65% of tolerance with 7.44 distinct categories: conditionally acceptable, so the readings can carry a conclusion. Repeatability (17.59%) dominates reproducibility (6.10%); operator bias is statistically detectable (p=0.0064) but small."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "source": "msa",
+        "sampleSize": 108,
+        "nGroups": 12
+      },
+      "method_id": "anova.sov",
+      "outputs": {
+        "totalVariance": 9.337666362239299,
+        "varianceGageRR": 0.323463364843052,
+        "varianceRepeatability": 0.2887683145449172,
+        "varianceReproducibility": 0.03469505029813481,
+        "variancePartToPart": 9.014202997396247
+      },
+      "status": "success",
+      "decision": "Variance components behind the gage R&R: part-to-part carries 96.54% of total variance, measurement error 3.46%."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 11.828199999999999,
+        "median": 11.235,
+        "stdDev": 3.0870312599648226,
+        "skewness": 0.16667292489421356,
+        "adPValue": 0.019498937396894938,
+        "minimum": 6.31,
+        "maximum": 17.7
+      },
+      "status": "success",
+      "decision": "Whole run averages 11.83 percent void area, SD 3.09, range 6.31 to 17.70. Anderson-Darling p=0.019 rejects normality of the pooled run, a first sign the run is not one population."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.04787779585113844,
+        "statistic": 0.9535638560272025
+      },
+      "status": "success",
+      "decision": "Shapiro-Wilk on the pooled run p=0.048, also rejecting normality; consistent with a mixture of two levels rather than a skewed single population."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 50,
+        "subgroupSize": 1
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 11.828199999999999,
+        "individualsUCL": 16.523371428571426,
+        "individualsLCL": 7.1330285714285715,
+        "flaggedCount": 76,
+        "rule1Count": 5,
+        "rule2Count": 27,
+        "movingRangeViolations": 2,
+        "sigmaWithin": 1.5648067737733389
+      },
+      "status": "success",
+      "decision": "NOT IN CONTROL over the full run: 5 points beyond the individuals limits and 27 points inside 9-in-a-row runs on one side of the centre line. Capability on the pooled run is therefore not interpretable."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 4.822134315185522e-06,
+        "zStatistic": -4.572380853195265,
+        "runs": 10,
+        "expectedRuns": 26.0
+      },
+      "status": "success",
+      "decision": "10 runs about the median against 26 expected, p=4.8e-06: the ordering is non-random, confirming a sustained level change rather than noise."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "control_chart.cusum",
+      "outputs": {
+        "flaggedCount": 25,
+        "firstSignalIndex": 25,
+        "centerLine": 9.176799999999998,
+        "maxCPlus": 85.96442102029623
+      },
+      "status": "success",
+      "decision": "Tabular CUSUM (k=0.5, h=4) referenced to the first-segment baseline signals first at joint 25 and stays signalled for 25 consecutive joints."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 50
+      },
+      "method_id": "control_chart.ewma",
+      "outputs": {
+        "flaggedCount": 24,
+        "firstSignalIndex": 26,
+        "centerLine": 9.176799999999998,
+        "finalEwma": 14.9945721309048
+      },
+      "status": "success",
+      "decision": "EWMA (lambda=0.2, L=3) signals first at joint 26, independently dating the same step change."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "source": "process_run",
+        "nGroups": 2,
+        "nBefore": 25,
+        "nAfter": 25
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 1.1986357712927325e-15,
+        "tStatistic": -12.088179030997605,
+        "meanBefore": 9.176799999999998,
+        "meanAfter": 14.479599999999998,
+        "sdBefore": 1.313975266129466,
+        "sdAfter": 1.7562447627442668,
+        "shift": 5.3027999999999995,
+        "changepointIndex": 25
+      },
+      "status": "success",
+      "decision": "Welch two-sample t across the changepoint at joint 25: level rose from 9.18 to 14.48 percent void area, a step of +5.30, t=-12.09, p=1.2e-15. The change is real and adverse."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "source": "process_run",
+        "nGroups": 2,
+        "sampleSize": 50
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.30214660585130787,
+        "statistic": 1.0879692189849501
+      },
+      "status": "success",
+      "decision": "Levene p=0.302: spread did not change across the step. Only the mean moved, which points to a level-setting cause rather than to loss of process control."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "source": "process_run",
+        "nGroups": 2,
+        "sampleSize": 50
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 2.887974718075862e-09,
+        "statistic": 6.0
+      },
+      "status": "success",
+      "decision": "Distribution-free confirmation of the same step, p=2.9e-09, so the finding does not rest on the normality assumption."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 50,
+        "usl": 25.0,
+        "lsl": 0.0
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.6627355763672105,
+        "cpk": 2.519629515550931,
+        "pp": 1.3497325798748623,
+        "ppk": 1.2771925521020675,
+        "adPValue": 0.019498937396894938,
+        "observedAboveUSL": 0
+      },
+      "status": "success",
+      "decision": "Computed for completeness only and NOT VALID as a capability statement: the run fails the stability precondition (5 out-of-limit points, runs test p=4.8e-06) and fails normality (AD p=0.019). The gap between Cpk 2.52 and Ppk 1.28 is itself the signature of the uncontrolled step, not real short-term capability."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 25,
+        "subgroupSize": 1,
+        "segment": "post-changepoint"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 14.479599999999998,
+        "individualsUCL": 19.417224999999995,
+        "individualsLCL": 9.541974999999999,
+        "flaggedCount": 0,
+        "sigmaWithin": 1.6456117021276593
+      },
+      "status": "success",
+      "decision": "I-MR restricted to the 25 joints after the step: 0 flags about a centre line of 14.48. The current process is stable at the shifted level, so capability may be assessed on this segment."
+    },
+    {
+      "step_id": 15,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 25,
+        "usl": 25.0,
+        "lsl": 0.0,
+        "segment": "post-changepoint"
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 2.5319865319865325,
+        "cpk": 2.13100088888889,
+        "pp": 2.3724863157205553,
+        "ppk": 1.996760402872523,
+        "adPValue": 0.6775178214939923,
+        "mean": 14.479599999999998,
+        "sdOverall": 1.7562447627442668,
+        "observedAboveUSL": 0,
+        "expectedPpmAboveUSL": 0.001047392617081755
+      },
+      "status": "success",
+      "decision": "Valid capability for the process as it runs today: stable segment, normal (AD p=0.678). Ppk 2.00, Cpk 2.13 against the 25.0 acceptance limit, 0 of 25 joints over limit. Voiding is comfortably inside its limit despite the adverse step."
+    },
+    {
+      "step_id": 16,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 25,
+        "usl": 25.0,
+        "lsl": 0.0,
+        "segment": "pre-changepoint"
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 3.093801426220515,
+        "cpk": 2.2712957542512333,
+        "pp": 3.171038887923881,
+        "ppk": 2.3279991733359893,
+        "adPValue": 0.7093565179609276,
+        "mean": 9.176799999999998,
+        "sdOverall": 1.313975266129466,
+        "observedAboveUSL": 0,
+        "expectedPpmAboveUSL": 0.0
+      },
+      "status": "success",
+      "decision": "Capability of the earlier, better segment for reference: Ppk 2.33 at a mean of 9.18. This is what the line demonstrably achieved before the step and is the natural recovery target."
+    },
+    {
+      "step_id": 17,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 25,
+        "segment": "post-changepoint"
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 1.5978194038273287e-20,
+        "tStatistic": -29.95140604308784,
+        "sampleMean": 14.479599999999998,
+        "testMean": 25.0
+      },
+      "status": "success",
+      "decision": "Current mean 14.48 is significantly below the 25.0 acceptance limit, t=-29.95, p=1.6e-20. Voiding sits inside its limit today with margin."
+    },
+    {
+      "step_id": 18,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 50,
+        "usl": 25.0
+      },
+      "method_id": "basic.one_proportion",
+      "outputs": {
+        "pValue": 1.0,
+        "nonconforming": 0,
+        "sampleSize": 50,
+        "pHat": 0.0
+      },
+      "status": "success",
+      "decision": "0 of 50 joints exceeded the 25.0 limit across the whole run; the observed nonconforming fraction is 0 and is not greater than a 5% reference (p=1.0). No joint has yet breached acceptance."
+    },
+    {
+      "step_id": 19,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 25,
+        "segment": "post-changepoint"
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.28187136716416594,
+        "rSquaredPct": 5.014988245505203,
+        "rSquaredAdjPct": 0.8852051257445592,
+        "slope": 0.05343846153846154
+      },
+      "status": "success",
+      "decision": "Void fraction regressed on build order within the current segment: slope 0.053 per joint, p=0.282, R-squared 5.0%. No residual drift, so the process is holding at the new level rather than continuing to degrade."
+    },
+    {
+      "step_id": 20,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 25,
+        "subgroupSize": 1,
+        "segment": "pre-changepoint"
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "centerLine": 9.176799999999998,
+        "individualsUCL": 13.217783333333333,
+        "individualsLCL": 5.135816666666664,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "I-MR on the 25 joints before the step: 0 flags about a centre line of 9.18, limits 5.14 to 13.22. This is the demonstrated in-control baseline and the limits recommended for live charting going forward."
+    },
+    {
+      "step_id": 21,
+      "inputs_digest": {
+        "source": "process_run",
+        "sampleSize": 25,
+        "segment": "post-changepoint"
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 9.434397702121348e-14,
+        "tStatistic": 15.09698452200355,
+        "sampleMean": 14.479599999999998,
+        "testMean": 9.176799999999998
+      },
+      "status": "success",
+      "decision": "Current segment tested against the demonstrated baseline mean of 9.18: t=15.10, p=9.4e-14. The line is running significantly worse than the level it has already proven it can hold."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_trustworthy",
+      "chosen_branch": "proceed_with_analysis_gage_conditionally_acceptable",
+      "observed": {
+        "percentStudyVariation": 18.61201414001222,
+        "percentTolerance": 13.649721541101046,
+        "ndc": 7.44338065950225,
+        "percentContribution": 3.4640707034801475
+      }
+    },
+    {
+      "point": "gage_rr_interaction_term",
+      "chosen_branch": "pool_interaction_into_repeatability",
+      "observed": {
+        "pInteraction": 0.9374069756278851,
+        "threshold": 0.25
+      }
+    },
+    {
+      "point": "stability_before_capability",
+      "chosen_branch": "run_not_stable_so_pooled_capability_rejected",
+      "observed": {
+        "rule1Count": 5,
+        "rule2Count": 27,
+        "runsTestPValue": 4.822134315185522e-06,
+        "pooledAdPValue": 0.019498937396894938
+      }
+    },
+    {
+      "point": "how_to_handle_the_instability",
+      "chosen_branch": "segment_at_changepoint_and_assess_current_segment",
+      "observed": {
+        "changepointIndex": 25,
+        "shift": 5.3027999999999995,
+        "twoSamplePValue": 1.1986357712927325e-15,
+        "cusumFirstSignal": 25,
+        "ewmaFirstSignal": 26,
+        "levenePValue": 0.30214660585130787
+      }
+    },
+    {
+      "point": "capability_model_choice",
+      "chosen_branch": "normal_capability_on_stable_current_segment",
+      "observed": {
+        "segmentAdPValue": 0.6775178214939923,
+        "segmentFlaggedCount": 0,
+        "ppk": 1.996760402872523
+      }
+    },
+    {
+      "point": "root_cause_of_step_change",
+      "chosen_branch": "not_obtainable_no_process_facts_recorded",
+      "observed": {
+        "provisionTurnsUsed": 1,
+        "processTopicsAvailable": 0
+      }
+    },
+    {
+      "point": "improve_and_control_phases",
+      "chosen_branch": "no_data_exists_conclusion_stops_at_analyse",
+      "observed": {
+        "improveBatchesAvailable": 0,
+        "controlBatchesAvailable": 0
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

@@ -1,0 +1,51 @@
+{
+ "reviewer_id": "Human_Expert_1",
+ "reviewer_type": "Human",
+ "perspective": "Independent statistical expert reviewing gauge qualification and process capability",
+ "blinding_compliance": "Complied with all procedural blinding requirements. No external directories, reviews, or unapproved materials were accessed.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V059",
+   "gate_verdict": "GO",
+   "forbidden_at_checkpoint": [
+    "Using the measurement system for reliable product acceptance, boundary dispositions, or unconditional specification limit decisions due to the excessive percent of tolerance consumed by gauge variation (64.8%).",
+    "Concluding that the measurement system is unconditionally adequate for all business purposes."
+   ],
+   "permitted_at_checkpoint": [
+    "Using the measurement system for process monitoring, stability checks, and relative mean comparisons, as the 15.5% study variation and 8 distinct categories are fully adequate for process control.",
+    "Calculating baseline capability and process variance, provided explicit caveats are made regarding the substantial contribution of measurement error to the observed variance."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "VALID_ALTERNATIVE",
+   "extra_computation_detail": "Standard control charting, ANOVA, and process capability analyses are valid routes following the qualification of the gauge for process control. Unplanned pairwise T-tests were computed but appropriately restricted from the final report to avoid asserting multiple-comparison fallacies.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "Proceeding with process control charting and monitoring (as %StudyVariation is acceptable).",
+    "Relative comparisons of applicator means (ANOVA) where constant gauge bias or variation cancels out.",
+    "Descriptive capability assessment explicitly conditioned on the unresolved gauge limitations."
+   ],
+   "evidence": [
+    "percentTolerance: 64.84568955932677",
+    "percentStudyVariation: 15.54173435636568",
+    "ndc: 8",
+    "\"That result does not qualify the gauge for boundary decisions. The gauge variation consumed 64.845690% of the 80.0 \u00b5m tolerance\"",
+    "\"Quarantine boundary dispositions until the estimated gauge variation is materially below 64.845690% of tolerance.\""
+   ],
+   "rationale": "The measurement system study reveals a dichotomy: the discrimination and percent study variation are adequate for process control, while the percent of tolerance consumed is unacceptably high for boundary disposition. The analysis accurately navigates this by advancing to stability analysis and relative comparisons while strictly prohibiting boundary product acceptance decisions. All subsequent inferences correctly carry the appropriate measurement caveat.",
+   "confidence": 5,
+   "numerical_check": "Recomputed %StudyVar (15.54%), %Tolerance (64.85%), and baseline/post-change Ppk values (1.63 and 2.25) from the provided standard deviations; all calculations matched.",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 11764,
+  "completion_tokens": 5000,
+  "total_tokens": 16764
+ }
+}

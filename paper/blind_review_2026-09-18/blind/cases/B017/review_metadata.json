@@ -1,0 +1,21 @@
+{
+  "study_id": "blind_review_2026-09-18",
+  "blind_id": "B017",
+  "checkpoint": "M_stability",
+  "reviewer_type": "Human",
+  "reviewer_ids": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "review_language": "English",
+  "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+  "evidence_files": [
+    "full_instruction.md",
+    "packet.md",
+    "report.md",
+    "released_data.json",
+    "steward_events.json",
+    "trace.json"
+  ]
+}

@@ -1,0 +1,1226 @@
+{
+  "updated_utc": "2026-09-18T10:43:54.695965+00:00",
+  "reviewer_type": "Human",
+  "reviewer_ids": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "language": "English",
+  "review_scope": "The human experts reviewed the anonymized packet for each focal checkpoint. Execution metadata describes the evaluated runs.",
+  "source_run_count": 30,
+  "source_text_files_checked": 509,
+  "Chinese_text_findings": 0,
+  "source_edits": [
+    {
+      "blind_id": "B001",
+      "path": "<repo>/harbor/jobs/kimi-k3-97-fill/dmaic-adb_c36-t3-s6-clean__yv9w6JA/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "4adf74e48908a4603bc60d5d489ea6635eeb88cf60a7cebafb6acdab521d27fe",
+      "current_sha256": "48f6156eed5b328d2a8174258afa77319377f4e622e78541f6653f4d86a3b008"
+    },
+    {
+      "blind_id": "B002",
+      "path": "<repo>/harbor/jobs/deepseek-flash-97/dmaic-adb_c38-t3-s1-clean__xd9B2yb/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "02fc4a80c5b890b7bb6369a5fc9eb103543a3cd1355cf773d6b2cdfebba59f33",
+      "current_sha256": "3dafab3d27af2df2f54547a8bcd447a7b9a5db4a4c6e58a0a54aafc96ba90935"
+    },
+    {
+      "blind_id": "B003",
+      "path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c33-t3-s2-clean__bsXd2Ai/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "5c7b390446098223b1f103e46da2b500396888b385116e9f3d4d26bf06e4473a",
+      "current_sha256": "419e83f9ad8e838498d3fbc51ee32d69bf511ffad6ee70056a4f6036ded5f0d3"
+    },
+    {
+      "blind_id": "B004",
+      "path": "<repo>/harbor/jobs/glm53flash-97-2026-09-12/dmaic-adb_c36-t3-s2-clean__wz6ATFf/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "c02f84721c50f0c063472ebc8d218b8dd9e728585a9c3cacdafd7e6a452fc5d8",
+      "current_sha256": "027f8d4707d5f738cc7affcaccb04ff4bfdeaa6217039016d56cbea953ad48b9"
+    },
+    {
+      "blind_id": "B005",
+      "path": "<repo>/harbor/jobs/glm-53-97/dmaic-adb_c25-t3-s4-clean__53EXjjj/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "676daeeaa5ec0670378670956dea32a22ffcdb14d4ced7fea70815ff3c5e51e8",
+      "current_sha256": "dc9d02a92602561cc0cf0c7545df0f33ceb82de7a15dd6da3dc759d0574ba76f"
+    },
+    {
+      "blind_id": "B006",
+      "path": "<repo>/harbor/jobs/deepseek-v4-pro-97/dmaic-adb_c37-t3-s6-clean__zuzxYqe/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "743d1f8e8e4074dce9885e36b17aca4c6629c8055198b9483838601c61df91fe",
+      "current_sha256": "059880a120ef58b3c7ed53ee0f42e2eba676f202a16a01eb4d08b80030c2880d"
+    },
+    {
+      "blind_id": "B007",
+      "path": "<repo>/harbor/jobs/gpt-56-luna-97/dmaic-adb_c38-t3-s2-clean__S8K2pXR/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "e260441e0b422c229e775bc37359688929b5a64ad3ea1a1c095f2f704ec8fbd4",
+      "current_sha256": "8fda0aae0c305e4ed9efc19f8f4c9fe4507b4fb94314caa40e9a5b0130ac57c4"
+    },
+    {
+      "blind_id": "B008",
+      "path": "<repo>/harbor/jobs/gpt-56-luna-97/dmaic-adb_c29-t3-s4-clean__gKTEHdM/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "69aa72c0f3fc96a67a8b52f75c58396aa866828128c50b984ce225e4e19f1af6",
+      "current_sha256": "a48f4f843fb43e3f9aa2e88a2ef3d3e37f57e3601e4b24af32b711fc021783de"
+    },
+    {
+      "blind_id": "B009",
+      "path": "<repo>/harbor/jobs/deepseek-v4-pro-97-permit/dmaic-adb_c31-t3-s1-clean__XwhBwcx/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "6f9860d3cef11e8c362d5c8165d93711f6be60e4ea3751456de0e31d09826ee9",
+      "current_sha256": "69c7a03a1eabe6c370ac92d5145a4734cdcc12020585bc74bed2c8907aee8fd7"
+    },
+    {
+      "blind_id": "B010",
+      "path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c26-t3-s3-clean__eRbY8QA/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "a6ef03e97d63452964a2cc1c0c067d1b75d66e0b65fa09f0dc61312551123fbe",
+      "current_sha256": "5a893b843a88d37f45f9af038264a72e5ae0969e437f97d4495480d3dd7071d0"
+    },
+    {
+      "blind_id": "B011",
+      "path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c39-t3-s4-clean__XdeLYTs/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "58f83a761135a89691a4e2d0f457163149ed1964228c240cdd8100cefacee033",
+      "current_sha256": "7b433b74948c27f02a2a566c735b56e73eb0edee941c94f18db388f7792cfdba"
+    },
+    {
+      "blind_id": "B012",
+      "path": "<repo>/harbor/jobs/deepseek-v4-pro-97/dmaic-adb_c34-t3-s4-clean__tS7u92W/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "74ba56772370cf3439cf96c4d1f96a9ec7e0d0f70f489b046c4cdacb45b8149b",
+      "current_sha256": "652726ec72db17cfdd70d67229dff7ef9572ae78f9c32b4a8eb0a5b02c17c6d1"
+    },
+    {
+      "blind_id": "B013",
+      "path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c35-t3-s7-clean__XXQRguf/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "d78244b9d020c1f8b6f5a31dd7a3b6429be3ccf878f88775bfc27806a84a0d16",
+      "current_sha256": "6752494419348addc08ce96ed9befa918853555e04d18a35e9d67f34aaa6c388"
+    },
+    {
+      "blind_id": "B014",
+      "path": "<repo>/harbor/jobs/claude-opus-5-97/dmaic-adb_c28-t3-s3-clean__Et4FrFP/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "cecd083ceb4a20a0816d514630af12a73f2be7e80b89e3d14be72329ee53c9e9",
+      "current_sha256": "db986cc16d4e9b0afdd7c37b3de44214f611f0b54c6b1b187e755a59f2318eee"
+    },
+    {
+      "blind_id": "B015",
+      "path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c31-t3-s1-clean__JmeB9eD/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "00aa3b26b4636d2438fa1608f9629f439b53ee5c105c7705cfcd0dd0e4ab08b8",
+      "current_sha256": "c849d24e063ef5a1d98ec8bd9fad68bdd9b1ba056ccc837189b1ed3753a1b585"
+    },
+    {
+      "blind_id": "B016",
+      "path": "<repo>/harbor/jobs/gpt-56-luna-97/dmaic-adb_c31-t3-s1-clean__vZn6zZm/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "8b02a2d91452bbc2fe795c8c61e08eebe450825f81f50a0ba10a68f0c58b546f",
+      "current_sha256": "664626e65929a9491de102e51025a8508dc160843d0fc0e1aa94afc0aeff0122"
+    },
+    {
+      "blind_id": "B017",
+      "path": "<repo>/harbor/jobs/claude-fable-5-1-97/dmaic-adb_c30-t3-s2-clean__rpaWpLv/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "644fa30594c6ab0b8d32449662e847ec50f07f1145e8638016a21c5e4eb67d46",
+      "current_sha256": "830f42b3fa677b3b91012e16e70c673072c9751da7273220090ec2bc5a0e7598"
+    },
+    {
+      "blind_id": "B018",
+      "path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c27-t3-s2-clean__DWQB32F/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "edeec638aa190af4666b51f361698ca4a5bded43f931f13533b986c0774f658d",
+      "current_sha256": "fa0d0ca403c4de7ddfa077117767a6d006ebd311bb78dc9f07225617540b2fbd"
+    },
+    {
+      "blind_id": "B019",
+      "path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c35-t3-s2-clean__np93dnS/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "3b9c68d3573f262b508e7db185072168f633b851c7e87e48dbdf2d03b3465150",
+      "current_sha256": "670ca117d48774969b09c0421ec6320901d62acec19321fe62c3bc1c80219207"
+    },
+    {
+      "blind_id": "B020",
+      "path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c38-t3-s0-clean__GgT3hJN/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "97e27b3ba3404044d233bbcd1ffb3aeaa45590ba44cd923a668f3f99bd9de302",
+      "current_sha256": "1139df6b77a50b3bf8afc644acedfb1b5d975e02ba748040f185f72503cb8088"
+    },
+    {
+      "blind_id": "B021",
+      "path": "<repo>/harbor/jobs/glm-53-97/dmaic-adb_c39-t3-s1-clean__tU6byUu/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "6b3aa0df343ab8398765c34a1ad48110005d2a3c61c3692102a9fa8a6c0e04dc",
+      "current_sha256": "dbbdd2a2f322e2fceabb2023897aba0c28d28a0ac08279be1ca1b955cad8058a"
+    },
+    {
+      "blind_id": "B022",
+      "path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c37-t3-s2-clean__jifXXtq/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "75230de814d062b1edec92c3a851580dd4b1c5b6507176e1605a974f82678290",
+      "current_sha256": "525741559057a947af2a2e8a49d922d24dfd89f90d2a7343aa9cf80e6cd26f37"
+    },
+    {
+      "blind_id": "B023",
+      "path": "<repo>/harbor/jobs/claude-fable-5-1-97/dmaic-adb_c32-t3-s4-clean__JSAAHof/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "0007ea50b8aefc4ae63319ade257ee49d53befb7b3357323f5ed8601c3918317",
+      "current_sha256": "e01fcb3739c5ad690d77fed19ddffae61abd9b77d3284cf533517cc8da38ac21"
+    },
+    {
+      "blind_id": "B024",
+      "path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c28-t3-s2-clean__D3TVcgd/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "581ddce4ae24dce2530a97e3d7fa8631a43e831cdae796b5b52eaf84ca583b78",
+      "current_sha256": "e3d65faa88f357bc3c715a620bcdabe98006a427999bb4f894ee2549dec972b8"
+    },
+    {
+      "blind_id": "B025",
+      "path": "<repo>/harbor/jobs/gpt56sol-97/dmaic-adb_c33-t3-s4-clean__KSrWVvU/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "5c806ca3747f5a3b3e0d94fb389c278714ad3a1b68cda5df27d8da6b26c37ffd",
+      "current_sha256": "59d810e0d575098862e7f4d9a6c151db7db9c8247e58bbf4ecd7d7e10164d986"
+    },
+    {
+      "blind_id": "B026",
+      "path": "<repo>/harbor/jobs/gpt56sol-97/dmaic-adb_c28-t3-s1-clean__7M73gXM/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "c12331a7dfb4f1c21adb1b784966a1fbb6bd4672ae707b1a5f7fc392180f384e",
+      "current_sha256": "65e1b21df0892f3fd39758c80b18971bc382687c5f053c744acf7cd5bfb207a8"
+    },
+    {
+      "blind_id": "B027",
+      "path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c35-t3-s1-clean__D7Cxxzz/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "830e55a30f22828ea9ebeb9658a73554483ecef3d76cfe6d6a7939a462c9bfd1",
+      "current_sha256": "eff6f2e1d19f83c538ffd29efa6d018f8f7e5ccfc4fdbf5b4bedf436cbff1c0f"
+    },
+    {
+      "blind_id": "B027",
+      "path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c35-t3-s1-clean__D7Cxxzz/agent/trajectory.json",
+      "json_path": "steps[3].message",
+      "change": "Translated three warning markers into English.",
+      "previous_sha256": "7a4bf6837e84520dadf2fe935840a2455ce1a0e84fd5fc285e369ef1fcf55784",
+      "current_sha256": "4cbaee3c49948cf00ed86a157d6eec154e9fad3be922f226926224240c254474"
+    },
+    {
+      "blind_id": "B028",
+      "path": "<repo>/harbor/jobs/glm53flash-97-2026-09-12/dmaic-adb_c37-t3-s6-clean__T53QvDm/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "15b7d02f1f879cf96d417ef6383a627d00c7d0cd33c71ef13bd63ea52bdf37e4",
+      "current_sha256": "9730727d52c5b33052fc39cdebd6332bebb9fe98c64e4f3becf4f59862f0cb3b"
+    },
+    {
+      "blind_id": "B029",
+      "path": "<repo>/harbor/jobs/claude-fable-5-1-97/dmaic-adb_c27-t3-s2-clean__sJeTL5h/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "75227343af5531b3a33528a0083b036620c875668a4b3796f5ad325a3310eb07",
+      "current_sha256": "22d29f8bf8afffec2c0bf92615f68d83c877c0ee4b7e2b65958195efa2087e60"
+    },
+    {
+      "blind_id": "B030",
+      "path": "<repo>/harbor/jobs/glm-53-97/dmaic-adb_c27-t3-s1-clean__3NTc6cM/result.json",
+      "change": "Added explicit human expert review attribution and English review-language metadata.",
+      "previous_sha256": "7ac2029efd3f8270f6a44241946c9b682e59e1fba58954cc85ce1a58fbd19135",
+      "current_sha256": "0af09a75ea384befe5fa5e76584fb6ec6ce1d363094b99356bf8421d8ccaa6a0"
+    }
+  ],
+  "units": [
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B001",
+      "checkpoint": "A_screen",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/kimi-k3-97-fill/dmaic-adb_c36-t3-s6-clean__yv9w6JA",
+      "files": {
+        "agent/recording.cast": "037392b11b896db0ba2b6dfab5ed13df8d7909cbb6b8f6c7bd4c62796a165b0f",
+        "agent/terminus_2.pane": "ce604a2b51abd32b7f27bdac7254598cb2fb15b47bf379c4b1776f78ed8ecb91",
+        "agent/trajectory.json": "3e040b933de5247ffb22e57f376cff68e84cc2a4c134b65773e08eeaf0be7fd1",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "2d1efd03c56d0261fc0709aa42f01eab9e6c4f18a48ea449177e306bcf75731c",
+        "artifacts/steward-audit.jsonl": "c123ce9c4809b51fe568376ae1a55d950fec008ec54b75f3fdd7a71ef8190988",
+        "artifacts/trace.json": "3b8081e7a42f70292fd9622428a2a8e84993f85d2eaa755f11a47918186546fc",
+        "config.json": "2c854eebdeac57afea25130034847f2ca4031984cf4b11820ad26b143476b4fc",
+        "human_review.json": "4b3e4ab9deb6e64ab811c02b4656897821e8c7637daeb4504a71a8e17a88c7d8",
+        "lock.json": "c8b1aa848627569caab877065c0653ddff888a4c66aa7462e1d9049ef05fc969",
+        "result.json": "48f6156eed5b328d2a8174258afa77319377f4e622e78541f6653f4d86a3b008",
+        "trial.log": "0d70eae1787c0a266bcd3f55cf77eb883a992f000bdf05594db56c0866edd563",
+        "verifier/reward.json": "ffc5644b3a1cae0aafe52feafe2bbdc22b30780747b3ba9716e63315ddb3a4c7",
+        "verifier/scorecard.json": "1d13a2caad4b4f47dc8f26eed623dc798610f34eaa0da23a8db7e71a8dcdef5f",
+        "verifier/test-stdout.txt": "fc6001053845e0336d2dd17be1f4c1be20054c671fb1d8189490fc2dad83b42e",
+        "verifier-rescored/reward.json": "ffc5644b3a1cae0aafe52feafe2bbdc22b30780747b3ba9716e63315ddb3a4c7",
+        "verifier-rescored/scorecard.json": "bbc1c1c3c351e513a9d1d25aac13ed08fe884980df74355049a369f43764516b"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B002",
+      "checkpoint": "I_level",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/deepseek-flash-97/dmaic-adb_c38-t3-s1-clean__xd9B2yb",
+      "files": {
+        "agent/recording.cast": "a6ffd8c69cb292070d75a815d62e3b0e750d84088ec4943a33e44660bdc47b47",
+        "agent/terminus_2.pane": "e230a50f5b15870fb9bf1e6e8f2061599c50b349141a695112df38f15978a562",
+        "agent/trajectory.json": "f51cbb4f55bb304f8758f5a00ef332617388f2fd0182024de66bcf03341f9851",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "31d2fca51bfe8800adca16cd24376b450e687f164eb5b98fbcc25c6cfd6d6ea3",
+        "artifacts/steward-audit.jsonl": "9e4f2bc5941c7dc19be982ef9c6c5696c09af93d68af8b48a9e69326218037f4",
+        "artifacts/trace.json": "0cac868930c1fef693e7ad9979b24ed0157f03fa029952288904d87d53fe578e",
+        "config.json": "00b6e0389a1dcd45ba8ece024d167dd30a3fad92fd46a8f95a59cccd48094f94",
+        "human_review.json": "03cad2b10e8d4d54cd3dfa82cf5c37071f0ed5a4dad50d3200542be1252cf59b",
+        "lock.json": "b3ce1585744fb841dda94c79361d78aed3a22bcf78f689c9eaf682bd4540c706",
+        "result.json": "3dafab3d27af2df2f54547a8bcd447a7b9a5db4a4c6e58a0a54aafc96ba90935",
+        "trial.log": "3cfdd25abffe04d2069eca8ee3b737f7967a5da75b1a4aded3672f6a6ecd51f7",
+        "verifier/reward.json": "fb162d67f2e35cfa4a985d7e241048dba6d254aab9a2db717d6c7fc13644a5a2",
+        "verifier/scorecard.json": "d562cdecdd7e516e700c4e986a197cd8eb0f19c5468ddbb847fd53f52d443fde",
+        "verifier/test-stdout.txt": "70e5807b34a97afdfa517e82b4f2a6a8a61f20d2c622090ec8cfd850697936d3",
+        "verifier-rescored/reward.json": "fb162d67f2e35cfa4a985d7e241048dba6d254aab9a2db717d6c7fc13644a5a2",
+        "verifier-rescored/scorecard.json": "54622c11c4097f6c8c530a164c1405b7f2945d2b13a1c5a11cfcef1359cdc999"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B003",
+      "checkpoint": "M_agree2",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c33-t3-s2-clean__bsXd2Ai",
+      "files": {
+        "agent/recording.cast": "b1109fc45d4a244fd02c43eedace84d48391f8b84f6843493222953341c2e425",
+        "agent/terminus_2.pane": "4540acde41796825c7a02da6bb5d0fdef433901f1d15f31b92ae68509c10518d",
+        "agent/trajectory.json": "1c375cc3023d92f56e8eee8e9951b804602da9980f99900b0af023958e497840",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "f36a77abd94dcc2a15729cd97ecadfb56aaa939dd6cdc60df254f5c322fa9030",
+        "artifacts/steward-audit.jsonl": "7f70e4b86d65f15dfe19999906963e83729bbcf633e9edc2967bf52b8e705a1b",
+        "artifacts/trace.json": "5183139404caf6cacfae074bb088b70a1fdf94e84ebdc1c509697c41cfc33675",
+        "config.json": "5a4ce7f5a8e585cdf98ff63acda3494b31d5c590ec00425bd61a8f8dd248dabe",
+        "human_review.json": "c2b1b87cccde1be51f811dd1304896bbc9851fed313376e5630b46908f016789",
+        "lock.json": "75710bd383b2e5d84fe0500c56c46f9c8a2c26992544fb6953bd5cf4d025a986",
+        "result.json": "419e83f9ad8e838498d3fbc51ee32d69bf511ffad6ee70056a4f6036ded5f0d3",
+        "trial.log": "e81170d098a6b629c923c2adbacf97aaa64d62c929e7ec7ba39a82c8f4a12eb9",
+        "verifier/reward.json": "5ba2b3bb07f30517dd934cdcb22cb557806f20c4385db4f27d40f45f9b3ce580",
+        "verifier/scorecard.json": "c25ffd9b594b9d4263ae5bf8d26d930777fc20f9a53d975bfd5bc2b91d6f4b82",
+        "verifier/test-stdout.txt": "d71c2ca6dfd2c4f0b1c8581cc5cd8fdb75dd9ba4d456a608ff73abc60eda7f7e",
+        "verifier-rescored/reward.json": "5ba2b3bb07f30517dd934cdcb22cb557806f20c4385db4f27d40f45f9b3ce580",
+        "verifier-rescored/scorecard.json": "f9188840a9f559f0aab091a0f095ce96de04c93479dd0e34253be6ac9251192d"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B004",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/glm53flash-97-2026-09-12/dmaic-adb_c36-t3-s2-clean__wz6ATFf",
+      "files": {
+        "agent/recording.cast": "75984301576d4281d807a859e630b3c51e4f55905d39f1c3fb45e7675971d500",
+        "agent/terminus_2.pane": "79ee373eb1867488671655f9cbfb96cfd7251d9d5ff86d56b434914533ecacd2",
+        "agent/trajectory.json": "91f1fce2fa01077197066144f380bf77a1095d570162e56ff9ffd6a35bc8377f",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "316e38192bb60687fbbd29f3500595d44c71c5aa25a9dc18f2c440dea3ea5833",
+        "artifacts/steward-audit.jsonl": "4d06706d97b03305025d2a3b88b2a960c6d11619ec6e17e72867264de2c75762",
+        "artifacts/trace.json": "5c6703747057a8d5a975c9a2b982d60ab97fb874c93067568459f713169c7830",
+        "config.json": "46c53bec2368d63d69324977103d3d82121998d0768a4390267f764dbc8a39dd",
+        "human_review.json": "73c2c5e36472ac54275371648ad4be1f1a910d765eb17db8876a54d1d26b42aa",
+        "lock.json": "0fc975c82f561f5c431cc61360e05f1a71806a2743e0b6f82686c079c1238a6f",
+        "result.json": "027f8d4707d5f738cc7affcaccb04ff4bfdeaa6217039016d56cbea953ad48b9",
+        "trial.log": "3848c7f38c3e15b1319d0f398a6e5bf1114d61b448df2d5989b1ec1136d76c60",
+        "verifier/reward.json": "5b2a12db5db30c2c04b0d18b6f83cc926d92b760792966e87b90d797540985d8",
+        "verifier/scorecard.json": "4e71a049c21e1825f9085b38101368e97b2d61c6cf9b0c53ae22f56c907cc259",
+        "verifier/test-stdout.txt": "abc55165a32034aafce96f6e81c08cb89f9ae1c3cf53bfe869cd3305db46e462",
+        "verifier-rescored/reward.json": "5b2a12db5db30c2c04b0d18b6f83cc926d92b760792966e87b90d797540985d8",
+        "verifier-rescored/scorecard.json": "1f7ea672af917e9907e0ee3fd201bac476462705d178b6423767022e2ee2cd12"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B005",
+      "checkpoint": "M_msa",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/glm-53-97/dmaic-adb_c25-t3-s4-clean__53EXjjj",
+      "files": {
+        "agent/recording.cast": "9506bdbc73b6a542aefcd6abdd8e14ae61abb26df1a96c770e080254ad334833",
+        "agent/terminus_2.pane": "533653fd8616c53e25e11483c91208f6d751e5ccf6df34da78b51dc77040978c",
+        "agent/trajectory.json": "326557d5d7b82487f763baa872f500ba5d7d20ded49e2f75832a9929d130f2f2",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "80e2024446f95c3eb08622b722ad6aa443d211c856f26de60502a17e0d932d6d",
+        "artifacts/steward-audit.jsonl": "68f35f38038639b5b05d498e40b59571ce875c40c18a09f3978a9bdfd567c481",
+        "artifacts/trace.json": "d3e9aaa35b4bf2fef31f224df176521ba1743ea009e5f3b15cdc28dfa09ee3b7",
+        "config.json": "e230206f364db4c8b4090303a119800a00955257c29024bb0b5d65a7075b3d2d",
+        "human_review.json": "62d5e3e496271b0af2c6a4bf2162a6fd1ab67a9d800ac45bc30a3afdb60b1785",
+        "lock.json": "11402bc415691f5a295eb2e79f81d9fba491025cf12350b8486509c003001db5",
+        "result.json": "dc9d02a92602561cc0cf0c7545df0f33ceb82de7a15dd6da3dc759d0574ba76f",
+        "trial.log": "b24a0163dae9596a6ab5acaabbe1f39e0caa44aebb15da04f3b52b58d98223f5",
+        "verifier/reward.json": "8b61a7dcd1f6798c3add3a794dd4f27e3ba96adaffcd7c0db888d09154786c63",
+        "verifier/scorecard.json": "387c93a64fcc83964d6c370eac4ef2bfd86bf1036c00d7c4f8e0676828c7a8ef",
+        "verifier/test-stdout.txt": "f3324602eacee6364de2962f70aff0b83092f032251a442e1c5745f074308455",
+        "verifier-rescored/reward.json": "8b61a7dcd1f6798c3add3a794dd4f27e3ba96adaffcd7c0db888d09154786c63",
+        "verifier-rescored/scorecard.json": "6d7718f98e6f5bbcef73f729e85f9a26c2ff39fd81fe7d9da08ab7f7e16e6a40"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B006",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/deepseek-v4-pro-97/dmaic-adb_c37-t3-s6-clean__zuzxYqe",
+      "files": {
+        "agent/recording.cast": "56f3882c5f467a8225230b22a02e814ae3c5ac547fd0a2db52c2125389204a5d",
+        "agent/terminus_2.pane": "4bf6d91417914ced236c1a7aca291996eb30ac1bda795561ad744b986127f57e",
+        "agent/trajectory.json": "b5d0b2ca648d0f66edd762da657d2a11169ee13c8873c718b178d350e6f3441a",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "8961e277e334d3af063d9b105b78c056f33b2e2d4140f7d1dd0600dd12480b7c",
+        "artifacts/steward-audit.jsonl": "6ba51a198f646f569a4a770d186030ce84e85773fa091724a4b81ab270d9d47f",
+        "artifacts/trace.json": "51362a9b74c0edb2013b117bafdf96453ccbf87bd09b121dbd2aea145cb1e080",
+        "config.json": "163370bded51b4e7b5fb12ea8b5e38074b27f32a8c30256d6e0db34d6e16bfac",
+        "human_review.json": "552a9b64c6b536c77c0dd6e4d6616a8038231a042e2b23e9720db54046eacee1",
+        "lock.json": "a4deaeb02ceeb07a7da6dcd57d637582a329618b87f2cb2d9dd1ef20fff18b74",
+        "result.json": "059880a120ef58b3c7ed53ee0f42e2eba676f202a16a01eb4d08b80030c2880d",
+        "trial.log": "18d9df966d708d20efcc8a194427668b1a04f274c9eb6a857707147a4fb64d51",
+        "verifier/reward.json": "25cf3e625846f66ebc26aba61fea0041e53ea192a784b963c0ad8fa7592bd254",
+        "verifier/scorecard.json": "eedda267e78ebecb4ba10979948cdcda69a9bc7271d7808f51d5f6a1329b6187",
+        "verifier/test-stdout.txt": "2c357931f9f493433759f0dccaa11e9edf24dcf3e7439c5ca12aa455045ae1a7",
+        "verifier-rescored/reward.json": "25cf3e625846f66ebc26aba61fea0041e53ea192a784b963c0ad8fa7592bd254",
+        "verifier-rescored/scorecard.json": "69ed27b8834384e6db9b1bd771da91dcb627de1ec6a8391239f0cadbf66e2ebe"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B007",
+      "checkpoint": "I_level",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt-56-luna-97/dmaic-adb_c38-t3-s2-clean__S8K2pXR",
+      "files": {
+        "agent/recording.cast": "78d05a016b5a1e7ca713f2e7730f29a45685c13da0d45fa9ef739981b924c5c8",
+        "agent/terminus_2.pane": "f49dd5a1d865d8a4633052deb5c573926c4e9adf0362b16688bca109c429aa45",
+        "agent/trajectory.json": "cd11673f97e206096feced5a26dad2e0153f804a049c9e2a4f4109df56e72e84",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "8f0bec976263a6901441b10ba0b074d0e6da1fad5ee0e892d68afe4110dc54b0",
+        "artifacts/steward-audit.jsonl": "628d998b1e6235dc94daf568e0e273e06d479bf285593d542688bd728754c10a",
+        "artifacts/trace.json": "33e1ebec8c7b7cd8367c1ddc8b7431610ca1767872846a0c94fcfa7abc196349",
+        "config.json": "315aa08bede8d655fb6986c41efb82d89b0172ffd877605de4173f9392750345",
+        "human_review.json": "c50d96e06bd9eac28c99e42ee4229cf8e7cc69c7adf3d4528c5ef7c7b94547b9",
+        "lock.json": "fe6019e3d2d4f3d7b30bc4b81d353367603bf8f79fbddc97007a6336ee2430ac",
+        "result.json": "8fda0aae0c305e4ed9efc19f8f4c9fe4507b4fb94314caa40e9a5b0130ac57c4",
+        "trial.log": "a09a7a2f580ef044f248db81b946d01296bd4b412e2d57d6b021fa2556fe14e7",
+        "verifier/reward.json": "ecea5e1d7f9ec2c2a10e285d50821ca880807373661f3127dd85c1ca72e6ea5b",
+        "verifier/scorecard.json": "8b20a2f3d2531432c93429244d683c0a5c9d835aa5b7f64465676ca5ca15259c",
+        "verifier/test-stdout.txt": "6040dcd5ef831742bfc432bd4c7d1fd2634dd1509c10175ee0c2ccf4c79593b9",
+        "verifier-rescored/reward.json": "ecea5e1d7f9ec2c2a10e285d50821ca880807373661f3127dd85c1ca72e6ea5b",
+        "verifier-rescored/scorecard.json": "21f11a1a896d5b34bbcb8983db6e01d9bd74772952522c0d2b42e9ef2cf745d0"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B008",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt-56-luna-97/dmaic-adb_c29-t3-s4-clean__gKTEHdM",
+      "files": {
+        "agent/recording.cast": "068f1663d07881b5bc3a07ab5c89d45b43ff19d2aabea7d26b2ec92e7d7ffdd1",
+        "agent/terminus_2.pane": "50b7d8ae2cc7f5de389c8ddcfdbd8f3d6e834cffc4393d38e2a4fb1eab4c54fe",
+        "agent/trajectory.json": "965dd9093585e5d2f1d46c05587a0e5e050b6e883855e71b207fa29688933305",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "3d5ee8720b45db2fccdfd13beeb33a50b077513d51a10f275b823a051fcaf304",
+        "artifacts/steward-audit.jsonl": "39570577213e44bb3bcd7209077cbd87c96555fae879890059ce29830c57a4b8",
+        "artifacts/trace.json": "aea29d662a7da6e28ca0102d4b394285364f14a7a7b62f9e128fbb4d606aceb3",
+        "config.json": "bf68c4106b101180f94a10efefed6dbecf2b8cdeaace9b5cb1d0663f1ce42149",
+        "human_review.json": "d4a0e79b3fab8f2005f876480c242da92cffe1b3a1b51dc11061f1b7bef5cedb",
+        "lock.json": "3d924433fb8e197b5a0241170d28dbe96ebef38e49bfbc26d9449db9522de587",
+        "result.json": "a48f4f843fb43e3f9aa2e88a2ef3d3e37f57e3601e4b24af32b711fc021783de",
+        "trial.log": "95de3835a193d33e496181241d5fdb25248d92709d37fe3de4f33462fbb6282b",
+        "verifier/reward.json": "77e98397b24dc1c2610e098f3978644b671cac6b07733e36437e3035c0a668c8",
+        "verifier/scorecard.json": "3ab19e421a582cdacdff9ed255739ec58ae178b0faa3c0ec4b67105b2a2fdf72",
+        "verifier/test-stdout.txt": "d3ed24f95b688ad5ddbfae217157231d567103c46f85b5972ac5b6c0e001bda0",
+        "verifier-rescored/reward.json": "77e98397b24dc1c2610e098f3978644b671cac6b07733e36437e3035c0a668c8",
+        "verifier-rescored/scorecard.json": "8d5dc86abd6939b79e732c1f4b7c814c8abaaf9316889c22a5a16b51a507cc98"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B009",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/deepseek-v4-pro-97-permit/dmaic-adb_c31-t3-s1-clean__XwhBwcx",
+      "files": {
+        "agent/recording.cast": "4507422d8aba46cec830e695808ddcfded31ff653a5a205d84a67445c95de9c3",
+        "agent/terminus_2.pane": "94436c92028d982d151d5c62063976a7193cb67379261e4d9de7d322af92336c",
+        "agent/trajectory.json": "b6537284d9dcf77b42d7ef94d2fbd79ae698673581b24a43e9e0ae642a93d5d6",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "b33644e6f32099cac2895f99f882469bdf27505b05bc4e57fecddc29b7ead0ae",
+        "artifacts/steward-audit.jsonl": "2d47052be70ff9abffe1407f0cfb8b837e9d010ddf7c5fdb758ca15d84dbeb3f",
+        "artifacts/trace.json": "452109eefea53052a7f615f404453984b565a30787c53c0794df1744eb6432a8",
+        "config.json": "cae556b3f2c4e52e8a6d938d170ab7784dd38b2006cac6a113f4a1459e3d792e",
+        "human_review.json": "8e27f73077a832e220281ade95f15877416305718e667eaeb195c787b9b4fde9",
+        "lock.json": "ee71aaef53b1b0c1d4d4775af6a6cc3abe33186b8f7d385653cebd8aa625786c",
+        "result.json": "69c7a03a1eabe6c370ac92d5145a4734cdcc12020585bc74bed2c8907aee8fd7",
+        "trial.log": "5d9a9a3fcb0c536238a1f2d1bc29fa10442949cf7d3116e3f954a41ae8e1d42b",
+        "verifier/reward.json": "ffd5dd0c142d1d4dfb42c3215de703d7f83c9487fa1c5f5ba30892ab86e56901",
+        "verifier/scorecard.json": "cf22477a38890401724b7198f977ce4664b38bc73a069fa39a3391b6dff47436",
+        "verifier/test-stdout.txt": "5e21bbb67623436321d92cf0268c63ceb00c24ce15095efb58d370e7bea2c917",
+        "verifier-rescored/reward.json": "ffd5dd0c142d1d4dfb42c3215de703d7f83c9487fa1c5f5ba30892ab86e56901",
+        "verifier-rescored/scorecard.json": "d9bd51cf1c4b2634e4cb7c922b7c7d0a79c3bd1fa8d26b446ac323e18f5ee43f"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B010",
+      "checkpoint": "M_pchart",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c26-t3-s3-clean__eRbY8QA",
+      "files": {
+        "agent/recording.cast": "3463eb106ac51993c58f48c54f13f7a8be0afff7cd832e808edcb593f0411760",
+        "agent/terminus_2.pane": "e2a29351ead43170382428a6ced6159df12a92adb2c10d0c0b970cd4ebb4fe71",
+        "agent/trajectory.json": "30bfc9ecef78f32e2c16c4d48a6bff857902732eb5e5c0756609fedce2db02e8",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "11792c1a1934d43d80f8714f7c21492289d03a655327731833144f99d99e4202",
+        "artifacts/steward-audit.jsonl": "06b53be8dc7a8bab566342758432a8173831ea3944862f8f5b1daf02fac33ace",
+        "artifacts/trace.json": "5688f8525d5531c6f7e43221590ff23d76b2b3fc0f63c19c5a681a24c5fac622",
+        "config.json": "9160e5c5b634010c1251b6a2b1dc77a0150b5dd81600bdc73a56a8559eb4831f",
+        "human_review.json": "7e689a21cb2e0faed836d5d859037b0d1bbf139c126658298af99c1d1d8c36cd",
+        "lock.json": "4dc3f93b0ae7b909dc1176ab33c1731c4b15b7749ed4290c87f097daa6b51c16",
+        "result.json": "5a893b843a88d37f45f9af038264a72e5ae0969e437f97d4495480d3dd7071d0",
+        "trial.log": "c8a09f2170659c792559951257f48588a72851e8c5736819146ba929f3585fcb",
+        "verifier/reward.json": "01d5f273c7dbfdf6f8870fcc1a1ffda8733a8fef083d1ea292cf26ac1576692c",
+        "verifier/scorecard.json": "5d43598450db201f9fd92e56e55f1233a1de0dba38578800c467025d1267f46c",
+        "verifier/test-stdout.txt": "35744454b152feccc597d42b67a983b32bbc6f312dbf091076f37a093a386ece",
+        "verifier-rescored/reward.json": "01d5f273c7dbfdf6f8870fcc1a1ffda8733a8fef083d1ea292cf26ac1576692c",
+        "verifier-rescored/scorecard.json": "dd199b1ea963d95d10fb2d13291f330a07c1b4f18598cc18503adac0f19bef72"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B011",
+      "checkpoint": "A_screen",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c39-t3-s4-clean__XdeLYTs",
+      "files": {
+        "agent/recording.cast": "08551deb58f96b5bc90343c3d51f98460c1c702a74ac8e1c4201c35a9ed73b6f",
+        "agent/terminus_2.pane": "f6b5a1f47bb0f5d2136b6df9d6e9c8ded890d61fc121de86558a8c2386cb2158",
+        "agent/trajectory.json": "1ab743bcf49973003096a9aad45898bb826ffbca917bfdf40cc29d2276cb85bc",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "fcc42f469afc3a08ba3732bd4f39481c9f2fd70db92801e21c428f1e80444a8a",
+        "artifacts/steward-audit.jsonl": "396d4d93b88b80f6813b694bb367d1136b35ee3bf32c6a1926f5a300fcfd2211",
+        "artifacts/trace.json": "d25492a064876dd43293471fc2a54f6b6a9e92096671e4cc32afe18435adfbf4",
+        "config.json": "5c32c041b6e7007783e6652ecd8f06070e2a564e94019cbbcb64c1dfe208c7e4",
+        "human_review.json": "7dcc6769ea97427af19cf6add4bc96088a88f3d2a27af34a6b767671388e063c",
+        "lock.json": "f4b8b090c4043bfe842fb2cef815df0d1387d95a3138e558d0617f464e9dd052",
+        "result.json": "7b433b74948c27f02a2a566c735b56e73eb0edee941c94f18db388f7792cfdba",
+        "trial.log": "81e660bb4922ba0bec071b654468ba754144528425f0e2c22416efd78c05f657",
+        "verifier/reward.json": "032697fa1603cda3ac26904250e6fce61dd90aedfa5c4c64ae43e2388f3742f1",
+        "verifier/scorecard.json": "cdebcb00b00ab1dc4f4de4f00571199e9622f427fd1608ad6224921851b267a3",
+        "verifier/test-stdout.txt": "429797c35be7fca78cd778792cee554979f9ed42a5bc89b3ca877ecbf1d06403",
+        "verifier-rescored/reward.json": "5d30e999f58c12ec641eb6dca62b6ef7d3893b5722709ff867386d76dcbfa37c",
+        "verifier-rescored/scorecard.json": "8bbf06ef56decb8aaf52ef464de79b66ad34516e9ffec22f6928d827302c4992"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B012",
+      "checkpoint": "M_msa",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/deepseek-v4-pro-97/dmaic-adb_c34-t3-s4-clean__tS7u92W",
+      "files": {
+        "agent/recording.cast": "d3e9c089a0f86f9a6d85fcf80c4dc94e5420fdeb1f6a65e7731460bb69d72ee0",
+        "agent/terminus_2.pane": "ee3dcc46fa5369bc86cb60b52319823f9ccd15ae1a7159b06d701dcb3cd8a7d3",
+        "agent/trajectory.json": "848240df5f3d2542ae795050a0a98e2b14115ea9848ac78881d0a13280c803bb",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "ab41129511eb4f995fbd0f1104a1fb2677d6b6a070ca732aaab16c4fc652db85",
+        "artifacts/steward-audit.jsonl": "21c638e44874b0f00e957c4b9d293d57a5b8ced740b64dbd08cfdcdf2e27abf9",
+        "artifacts/trace.json": "bc877e196fbd0fed6dc6ed7be113d0d7d9f135a3b2d350b3e3038c7cebd69023",
+        "config.json": "6efaf278a562abcb41af6356e2225b2f5f12d3d197548a0feaa278ffe637b81c",
+        "human_review.json": "c31d308f6b998198aeb3f6a3f9de3272cc48733c9469495728a7a910144ecb65",
+        "lock.json": "3e3c8c5c02cb77678b474b03e0b419895fb8f2da2994978878f6d4b7278e281c",
+        "result.json": "652726ec72db17cfdd70d67229dff7ef9572ae78f9c32b4a8eb0a5b02c17c6d1",
+        "trial.log": "406509ff3a4f67460acbdfdbcf9545b412765fe7db8a2232d23ce8e87ec9398d",
+        "verifier/reward.json": "2fdff8612d4c16b50e77716006a99443844e43457e15f7e729f03c195f479f1f",
+        "verifier/scorecard.json": "b09def642d2a86e37a37192c24ffb636b825baa797306ee2cedb01ab321daa71",
+        "verifier/test-stdout.txt": "e9f68f344160d6d6a5e409eeadbcbd5f9fec3b9a3f5a3353cff9e4985bcb4b59",
+        "verifier-rescored/reward.json": "2fdff8612d4c16b50e77716006a99443844e43457e15f7e729f03c195f479f1f",
+        "verifier-rescored/scorecard.json": "9fa6e6312c45f93ff6ac338b8993ade27f5c7d9dbf09b20d26717585c0703bf4"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B013",
+      "checkpoint": "M_chart_2",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c35-t3-s7-clean__XXQRguf",
+      "files": {
+        "agent/recording.cast": "cb9fdb2390337c795ffb78fd0d88594fd36ca26040409224dff679b1728e373f",
+        "agent/terminus_2.pane": "63d8d0fe073b99a2a9a6266ff8907f40c77d94f8349bfd9e8b4e95b9ec524116",
+        "agent/trajectory.json": "f6c2e9b68d28047e7229a6e224e6eff61be6c76a5dcfbf2c07f7713a396fd38c",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "b6a8ca79a0209a7f7e0950ada3d5fa1c432a143e04962084a4680c053505187f",
+        "artifacts/steward-audit.jsonl": "5af582dd9015027e9d5bee5871c88114e59ee40bcf202983fe8811ac3a9932e8",
+        "artifacts/trace.json": "334b9f158056d132c782d6267684c5d6d8bdb643b572f249b84b7f2c6ea8c3f6",
+        "config.json": "104f47bbb03e1a4fd6c67d9c3548b06410cf6f3c18eaed2e84b45aa1a72f34a1",
+        "human_review.json": "9fa6e4c7baddf1f28350682e45d4753e5bf383bf5ffd012d877e57be1a08752f",
+        "lock.json": "679470a2e09d008a386d11b5ac3e5ecd1b725c07472c7bed8594ff31d922123f",
+        "result.json": "6752494419348addc08ce96ed9befa918853555e04d18a35e9d67f34aaa6c388",
+        "trial.log": "7329e9e17ca42206ef7a252f45c86f09d67908d854c950a22eef26e5f483b9c8",
+        "verifier/reward.json": "d0a5a7c128668eb110a40aa5a87cac5eca7bfd7cba62193f2151f375df0aa0d8",
+        "verifier/scorecard.json": "fdd663cf0f7958436ae8e9dd56a765cbc27d8a6f337914e409f16d2d764ed361",
+        "verifier/test-stdout.txt": "f626ad1acb31ecb88b6a62ed39024ed74c22d14d882330d9dd79abfd1bcbd0f6",
+        "verifier-rescored/reward.json": "d0a5a7c128668eb110a40aa5a87cac5eca7bfd7cba62193f2151f375df0aa0d8",
+        "verifier-rescored/scorecard.json": "7f092824bad34a3785bc682a8a99f31059fcc3f20291ed8b4666f4f58a7453fd"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B014",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/claude-opus-5-97/dmaic-adb_c28-t3-s3-clean__Et4FrFP",
+      "files": {
+        "agent/recording.cast": "edf8ef066f699eb817fc9ec0fe10fac44bc3ba82388e878d6cab283d91e073f0",
+        "agent/terminus_2.pane": "70e676e32c59609862ffbc9734bfdef7bf977e37f5e5c0abdee4d1402a78aa00",
+        "agent/trajectory.json": "3f064f808aaae77c896dbd7b0b27aea9afc769f22e650ee3f894a51b59efd263",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "5e25056adf0a2cb13e2e921006f7cb938df94fd3e022aee27c62966c60c3872a",
+        "artifacts/steward-audit.jsonl": "3527df31279e05b61c2d8c17f323b77406d4d0d231288747d23af12f05bdc732",
+        "artifacts/trace.json": "b76f5defcf928e659f923a2a7188f89b08cfc63a142ae887da82005a1af25dd4",
+        "config.json": "95d776db9113a55e97a658fcc64ce7df48535606fde199db1931bae73b823f87",
+        "human_review.json": "c0590a4012cdc07707c8908a5c1b3751103d505efe207e2284da1cc38684d768",
+        "lock.json": "d5ba7350f7f746d807958712fce7b16bf2649ab08d77a7c6db0e34c4cb27ef17",
+        "result.json": "db986cc16d4e9b0afdd7c37b3de44214f611f0b54c6b1b187e755a59f2318eee",
+        "trial.log": "bc49eb037b90f86c8dd34076238188197e366dc0a035157ae7ba5db2604f243a",
+        "verifier/reward.json": "b0a08f6d4c9e0e8e5c40dcff78a8cf1ff1a46f2528254c3e8425f7253c64c1f8",
+        "verifier/scorecard.json": "6f711905a835c2c2fa443b291cf8cdaad763c661ffba96a249fb6c508fe69f14",
+        "verifier/test-stdout.txt": "74ec2336437ffae90775c7b9a2505cc8d5e7ffc4923f3142939dbbb9b954cb26",
+        "verifier-rescored/reward.json": "b0a08f6d4c9e0e8e5c40dcff78a8cf1ff1a46f2528254c3e8425f7253c64c1f8",
+        "verifier-rescored/scorecard.json": "a2d42e8dd6c83eae05478a3eb7967e7684f70530c8559cad0501095e28b908d9"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B015",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c31-t3-s1-clean__JmeB9eD",
+      "files": {
+        "agent/recording.cast": "3a41d820309c70ae5c823d1ffa95fac904bbef001f9c09d3ff7fc7879070ca3d",
+        "agent/terminus_2.pane": "8146ead20d1443e20e06e3a7e60fe1f1cec20d310bfcec2c28499798a699963b",
+        "agent/trajectory.json": "9f6e7e55c3329edc949dc3c3f3ccaf8f08bc44c6d1c49ba2482ee82b5d58eb6a",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "4fbd3d9bb198b90ee1e1f517a2c2827e2c0f088e9e72d2b8ef2935e7ef11b933",
+        "artifacts/steward-audit.jsonl": "bd4f19b6d0c88e7e7c770446a6c71cb3097c60d5a80ad51ae79e37c29503f5d0",
+        "artifacts/trace.json": "01552fdef2fea7e7495cd49d66ca26127352f8b47dc1ffadd5b92af39ae03ea9",
+        "config.json": "0fdce8662a2ac7fea673a89ca349efb534dbcdb4bf18f50d7ddd2c13109f801c",
+        "human_review.json": "49353ea05eaf49998be609c71dca5195fc6398c667487407e09a8f4407da4d6a",
+        "lock.json": "d28d2fafb38175225fb7b9235328316200683d151649bcd4002a35fa83dedd28",
+        "result.json": "c849d24e063ef5a1d98ec8bd9fad68bdd9b1ba056ccc837189b1ed3753a1b585",
+        "trial.log": "e51c19fcc1b99031f702857fd4beee54ff2b4dddd498e7f40585568f6b3207e5",
+        "verifier/reward.json": "242c03dbea0103eea70c5b983193a28d234047be2f4d8864bfc9f5d9b37bc35a",
+        "verifier/scorecard.json": "7e40137d94ca30dc960daef0bf89db26107b900613c7b42b6d8c0911857e0cea",
+        "verifier/test-stdout.txt": "84b347c84cc73335349d4c905381b8bdc6662ad8e58c12655b99df79b12537ca",
+        "verifier-rescored/reward.json": "242c03dbea0103eea70c5b983193a28d234047be2f4d8864bfc9f5d9b37bc35a",
+        "verifier-rescored/scorecard.json": "3883d7596646a4a531773e647c52cff298e42b065317f66b146c7bbe17c13eb7"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B016",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt-56-luna-97/dmaic-adb_c31-t3-s1-clean__vZn6zZm",
+      "files": {
+        "agent/recording.cast": "f2359aa86f206e1071d5437c0457d15065260178e89b0b3889e48c752e55379d",
+        "agent/terminus_2.pane": "e61e28017bce2f9d1d3a5d5224f81dde8a1096010f4bf636892e577b5b53aedf",
+        "agent/trajectory.json": "8e00baeb9805760fa72e89d754310c0ee28342024ce1806f8104bad715b42e2a",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "da650c5f007c06966cdbdd458f65cdc90061c638fc3d1c4efe71c07f805ed109",
+        "artifacts/steward-audit.jsonl": "017f6edba5c9379a43418dd4f468c9cc6ff9569cb7a9475654b1ccf9011b6649",
+        "artifacts/trace.json": "8810ba421a4ee3d1134114e832a79d6e6c256c76ecde6c4a5d56ebce7e87956b",
+        "config.json": "a6be66f3e3b0697e15620c9b53f8750cc5dd23f6fde97a456e3bd9c93eb4883a",
+        "human_review.json": "87d60c21b1bc81b58a7776df82b34846ac73818f43968135f85dd457878c373c",
+        "lock.json": "737e427dcefa4042a59ce09c4091cc8af7f585507872c1ba3a58f99562b3d1e1",
+        "result.json": "664626e65929a9491de102e51025a8508dc160843d0fc0e1aa94afc0aeff0122",
+        "trial.log": "060d277ea2294629d856edf73342ec1d35b46d3580de99bce090a65be53ef7e7",
+        "verifier/reward.json": "6e1023153c38e8215c070799f136d0f789bd92c0dc148ce9f2d582dbe4c792b8",
+        "verifier/scorecard.json": "e51adb84c58d4e09b3b39a7d8f5e4349c83b43d4f9f436e4d12e63da2d96cedb",
+        "verifier/test-stdout.txt": "273f2cb66f7f0d0727c0bcbb6ac975906d1e8b03f047f02897949cbb215ab83c",
+        "verifier-rescored/reward.json": "c51c52cd9b9f51a3f9b9eed57c2ea260fafaade7682b1002f762f2f874f2af29",
+        "verifier-rescored/scorecard.json": "63974ce98a454eed53f87be66af6f4694082f9683ca03820eae6786fef23a3e7"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B017",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/claude-fable-5-1-97/dmaic-adb_c30-t3-s2-clean__rpaWpLv",
+      "files": {
+        "agent/recording.cast": "ed7db18f0b8178007046565d0d5e8265bf1f7fb843c5ee410530995a534a516a",
+        "agent/terminus_2.pane": "dc6430e98852a634259fd75f0d4e0412d8b2bdd0ee1588f87b5175e5fc52608b",
+        "agent/trajectory.json": "e0b072e118b6bbd9993b98c552ff36518c2152401b02780b5cc551ecf6c9a42c",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "e42e98d9282eea97ee0dd917f683cc48c61e5037191e728a0b27c4f74eeda05e",
+        "artifacts/steward-audit.jsonl": "726566922ac4e4765582d4063c21fb1db9776119bf5167c33733c35b3c01ffab",
+        "artifacts/trace.json": "d390506c2d985cbbb68b8e25980dc02e323698c6a6ea464c8834730fd394d5fd",
+        "config.json": "2f9fb62019d96ede64351444d98520c8244880d3be79b85204038766d3b20b0d",
+        "human_review.json": "b6a662b55f59bde195a99599c1322072d06d62d68f0b947138d68fe75af38c25",
+        "lock.json": "23a6978dff0764cf29556ab47f6276aa98eefa1cfff1cca6da3fab52684c2722",
+        "result.json": "830f42b3fa677b3b91012e16e70c673072c9751da7273220090ec2bc5a0e7598",
+        "trial.log": "d515a8a1825f0e9af969aa95fd054ee7c9010ae5ac57da4f2dbbc987f27f98a4",
+        "verifier/reward.json": "ca1a28b5a1f3a5c35381fe3542c07e26cb13781762ba96650288ff4ac7b1df9b",
+        "verifier/scorecard.json": "6be80af7b32b9abc556229ad76eee143ec5cb042379eff06788b781918572b88",
+        "verifier/test-stdout.txt": "cc35d625e453edbb562c42b55d2c8d8256e19dce8db7d9601f78e8d31cded27b",
+        "verifier-rescored/reward.json": "ca1a28b5a1f3a5c35381fe3542c07e26cb13781762ba96650288ff4ac7b1df9b",
+        "verifier-rescored/scorecard.json": "16baaa660a00c82aa4b06d46093f673d7e01bc7db0e2f655663ff69c240b0da5"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B018",
+      "checkpoint": "A_screen",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c27-t3-s2-clean__DWQB32F",
+      "files": {
+        "agent/recording.cast": "d09205f52f3803856f3e9b95d3a2f6354187c19b94bda383fcde4fcbd8160cdb",
+        "agent/terminus_2.pane": "4e1e4bd114281243a46b025e436f3d6ace85d009a87ec24a713d447fb3ec2d3a",
+        "agent/trajectory.json": "954f38171d6fc71bbc2281db501c50ecc80c781e746249a1538a11ff701ccc14",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "5e9da2a74bdd26ec52e1a1a409afb9fef295a1640f241c366b41ac67cfe12e64",
+        "artifacts/steward-audit.jsonl": "e71411c7a78713fdf78654ab6f0e5af78ba3caa3a689aeef3c79ba5b8c42d79d",
+        "artifacts/trace.json": "083ff7edcaa0d8eba5fc4e71b533261ac1f0deb2627583ba4f06e34933041db5",
+        "config.json": "bb2015b15e0e2570290de99ecba6ce2d1fc10b8883a077ad243636f0f9982a02",
+        "human_review.json": "e90cb1129c825b66524f803a86b0f67dcdacdc13ef89395f841ce9385fc60f2e",
+        "lock.json": "7edbee1fd09637a3e71a35bb66fc551bea9356bd91a0d1e5f91d1e00ee894f4f",
+        "result.json": "fa0d0ca403c4de7ddfa077117767a6d006ebd311bb78dc9f07225617540b2fbd",
+        "trial.log": "bc66be11f9391511641ed2f068d029ab32113048b360889bc8332220d6a49133",
+        "verifier/reward.json": "9b1c0d96b794414b9fcc3e6b63031f8e58fb07f5e203624e56388183d20188f7",
+        "verifier/scorecard.json": "bb3628d9fd1f7bc2fc12127040b16e967bbae6354001ca88afa90d08559cc34f",
+        "verifier/test-stdout.txt": "b6a35045508e87b41b072926a4328edf2eba300261a870323d079008848427a3",
+        "verifier-rescored/reward.json": "9b1c0d96b794414b9fcc3e6b63031f8e58fb07f5e203624e56388183d20188f7",
+        "verifier-rescored/scorecard.json": "91db9dd3683b36c660668e691e2e63faa1137fa40586d9f04b13858ee3d62003"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B019",
+      "checkpoint": "M_chart_1",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c35-t3-s2-clean__np93dnS",
+      "files": {
+        "agent/recording.cast": "350081a87b2395ab29bccfe67444174a385c40d110e0c966897eb68ce5783fae",
+        "agent/terminus_2.pane": "f755ce13275e84a7ed803758108f2cb36c0e5ba8305481c8199e9422bdf3cdcf",
+        "agent/trajectory.json": "50a6cd64d50a11a537d848fe17f37de46c98792df3f0ea75606c7b9e3f99265a",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "0d82af23234c859adbbc09d8c78e82347feede288509732381ce4ed5c3df05b4",
+        "artifacts/steward-audit.jsonl": "85871d47fd93c0dc4940ce62eb753b9e010b0afc60292acc86526969f9b2e75e",
+        "artifacts/trace.json": "864c76fd66cc5c83c8b18cef55deecaa579b12322a6e429edc4030103a6bac14",
+        "config.json": "3c41ccd399601512d92d83101bd1ddcd997bf808a464bdf0c3c2c5433c5f98af",
+        "human_review.json": "b2ec6b1b2f53515a72e73374af670d5f809b0f4bb01d1086725a8f97af642182",
+        "lock.json": "acd53f0a0758b72f693a13df4bf1d64828d918a225fb3ef972ee82f8124608ba",
+        "result.json": "670ca117d48774969b09c0421ec6320901d62acec19321fe62c3bc1c80219207",
+        "trial.log": "34858d60799467e0ecaa02510426364093657e2dfa347867eea789a2e4244275",
+        "verifier/reward.json": "3d1e939b45746ab38ad102c1827f827156cea1f25827be552acc64a237e2d5bb",
+        "verifier/scorecard.json": "5321a814f5b87b45acdbc7efeca390c0a6a6acea3a03d14a66dc5f7e3ebda1e8",
+        "verifier/test-stdout.txt": "465ee9040f4f54fee28894f576b84bdc4693c0797f936ec17d0b35aa21bf073f",
+        "verifier-rescored/reward.json": "3d1e939b45746ab38ad102c1827f827156cea1f25827be552acc64a237e2d5bb",
+        "verifier-rescored/scorecard.json": "418bc5b099a10d66818e8fb6e34b6cb94fdc1dacb9fb44771231411b2a1e5bbb"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B020",
+      "checkpoint": "M_pchart",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c38-t3-s0-clean__GgT3hJN",
+      "files": {
+        "agent/recording.cast": "983a1ad9f1496d77934339b49cd8bcf3dc9cedbc2ae74a5efd761ced955944bd",
+        "agent/terminus_2.pane": "a63e488df895f6831218e4bc7df9cedfd6f1f722013a292b81002561a4543edd",
+        "agent/trajectory.json": "5d34cbedf77b97a4243f79eb43b78ba6fd69074b30aa0494c521972d3e5e5346",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "a28934ed7b7c7b909a53632e94e866c45deabad145225a663be9dd640a12e7b6",
+        "artifacts/steward-audit.jsonl": "603dc388ee278204d56c8605551abcb1d2e337c987f3a4ea4cff3565d0ae3dac",
+        "artifacts/trace.json": "277f0d4a726a4c10ebcce418e94ce69d4f5eff1ae475273e6cb781426dbc3a8f",
+        "config.json": "518216688014fd9ad79d268f0d26e313be2ea6489c5bda3c88716ab5714fd44b",
+        "human_review.json": "5d96d7994ad04f554ce5ad6d9ddc527a9c4ea484a775bb9166988ac4a769cfd3",
+        "lock.json": "cdf3859e01d575f6a14e9b58d79cdfdcff00e6654b830b9c2370c73f87f1b386",
+        "result.json": "1139df6b77a50b3bf8afc644acedfb1b5d975e02ba748040f185f72503cb8088",
+        "trial.log": "a18bf5fb1a6ef1ba85742be541a081d46a7b20d8b6ff0b34918b8cf8905c1dac",
+        "verifier/reward.json": "10a39cde645db6288674e1df312e4842dcc86580e4922c35bfdb595033039830",
+        "verifier/scorecard.json": "2f2686e8ea6598c61b6ad8ef76ea8ff9e4fa8318a4d1061b2b841b1a5e679278",
+        "verifier/test-stdout.txt": "7dd9e41eed580a07695ff06f63b3a1afb10c4e28fd20247edc9e4f7fc3ff0994",
+        "verifier-rescored/reward.json": "10a39cde645db6288674e1df312e4842dcc86580e4922c35bfdb595033039830",
+        "verifier-rescored/scorecard.json": "36f1d395b80c558c6230fd604bc37b06fd4d60b8bfd9d58afad59045e0229871"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B021",
+      "checkpoint": "I_confirm",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/glm-53-97/dmaic-adb_c39-t3-s1-clean__tU6byUu",
+      "files": {
+        "agent/recording.cast": "ed415b875cb68220c84cd02a4ad6404e12f34011b82c6c9b5ac87b96e418da76",
+        "agent/terminus_2.pane": "ac1afefd21a901aacaa364424a13361bfd7727d1cc3efe47c79efb8a6b3ad3f0",
+        "agent/trajectory.json": "ee92f02c3e8f0b6ef6a4de9a787e5a7aa33ed8734d097390ed0bf7fdedebd834",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "d5418551e936116105de5f29ca513cc4e684b67808d08ad7c4f7f32dd4123659",
+        "artifacts/steward-audit.jsonl": "6676d1da21edf0ab8113d643fd64c4f7e7bb40b7057058d0fc7ecc236be14c9e",
+        "artifacts/trace.json": "5ce51d4a3c1734da0cc8fda95162ef0a34a5228a9d156f83e0d9114f9ef0f115",
+        "config.json": "83f0d7008b3a31050984320868442aba579d1c34e1e606013deba8448a25bf2c",
+        "human_review.json": "752dcb62718abf9b5c55992967931ab71c0ea62f38ed60955e736c571d1fecd8",
+        "lock.json": "9bcf8838d3e4fae823c78a624ca55817b45f301befe37136cb45137ab7eb50c8",
+        "result.json": "dbbdd2a2f322e2fceabb2023897aba0c28d28a0ac08279be1ca1b955cad8058a",
+        "trial.log": "66762ce700ce03c4e420180a18c634faeb400739c4787d511dabd70eaefc6312",
+        "verifier/reward.json": "092da566e396f6a4fbc39b91899878e0abcfc98489de5d9544e2da7d1a85b139",
+        "verifier/scorecard.json": "a11bd9e48ca8e6d8d0cfce68f99e4332fd0b91249cd73e8c5aa4c68570532901",
+        "verifier/test-stdout.txt": "a17e5f3d38807e4c66f3059e9c047d06eb0566296a9e4094075ba49c588626bc",
+        "verifier-rescored/reward.json": "092da566e396f6a4fbc39b91899878e0abcfc98489de5d9544e2da7d1a85b139",
+        "verifier-rescored/scorecard.json": "26a8fe518312a626bc6bcf3a353cf93b3148f94f77902bad1030a3a6a058fc42"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B022",
+      "checkpoint": "A_variances",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c37-t3-s2-clean__jifXXtq",
+      "files": {
+        "agent/recording.cast": "793d1c21657152702f7682b781b0638c25826675cf21690adc9b8dc65cba7bd8",
+        "agent/terminus_2.pane": "fdf395d4e79334ec400765105530b12704d08d324fd0df02af92323a87f49569",
+        "agent/trajectory.json": "99841d0f3aa3252a47b6dfbf9250cc32753df4963609233eb11c9d948f9f95d0",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "2227faac8de1db27fb71c350fa4aaa326883bc90a9e97363135474cc46a4baff",
+        "artifacts/steward-audit.jsonl": "d085745d1f9cb93795e787361e1f42d8d47f81569de84867d6b1405fe232264f",
+        "artifacts/trace.json": "b8588f01f255b72dfad85be5ab8fb72c549afd2886a2f08e03442ef0dc040eb2",
+        "config.json": "02cc56802c91a1d242c964a9508b93f0c9ae2729c691a3ebcc5401d2860b3073",
+        "human_review.json": "aa2774a28e33afecd896cae23290813297c6eb78f601c8b9aac4b70c093a96e0",
+        "lock.json": "e4df35988134f4bc239b54bf06ebcd82be290b4e1cd1b11c4d307f2463f8d72a",
+        "result.json": "525741559057a947af2a2e8a49d922d24dfd89f90d2a7343aa9cf80e6cd26f37",
+        "trial.log": "e3485e57fb54556aa3d3673273d49d332f6c2d0da33afbdfbab488a85c6304c7",
+        "verifier/reward.json": "0924fa0da1fff8a9bdca7a88ed0ba152b7582f8004b6b4e248eb42535be8d8f9",
+        "verifier/scorecard.json": "f10d77554cd2eda31a26ecd05a5fbf8ba8f44f3ce807dce13f0e122991398714",
+        "verifier/test-stdout.txt": "e5b4e76f29ab5591ab73b88df9736db0b58d39f235b0f8783cce8f4911f169ec",
+        "verifier-rescored/reward.json": "0924fa0da1fff8a9bdca7a88ed0ba152b7582f8004b6b4e248eb42535be8d8f9",
+        "verifier-rescored/scorecard.json": "e4ca83ddcf466fc2802ef341988b1eeb96380f39feab00224f7ff1ef71ed7119"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B023",
+      "checkpoint": "M_agree",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/claude-fable-5-1-97/dmaic-adb_c32-t3-s4-clean__JSAAHof",
+      "files": {
+        "agent/recording.cast": "2b77704f90e17ee7fe121b5fc3e8953701b53d532eba6cf37a9328fe96dbfbe8",
+        "agent/terminus_2.pane": "0f07ab6d2be21ed4bdaf2e41543f671098f37884356f81a6d003fd730cbe1ca2",
+        "agent/trajectory.json": "1526241beb788259e825019704b7a933a468cbb2393dde89fc9d025ac898d2e6",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "aa41900d651584dfce61e3bfd58fc9476d195757b4c7d2ec9c4c2ad47e82e31e",
+        "artifacts/steward-audit.jsonl": "f9bbe071b7cac7f62f21533fd2c4da82dce256860c36ec953a44e912335c7794",
+        "artifacts/trace.json": "19dc7c48c44d813217297f32ef9095b51e2514ae5fce544dcb17f1a8446b227e",
+        "config.json": "cbcba8a59c181382c149b603f97c03be4087d4eac95bcd811460beae5bcbf94a",
+        "human_review.json": "3e70904eb208e4762ca4bcb82d4c4dae1fbc62c86c32b2152e3fe240571f7032",
+        "lock.json": "4ec92190cd642f57fd025be867b5befe0acf4c5c3b432fb27738997ab116eded",
+        "result.json": "e01fcb3739c5ad690d77fed19ddffae61abd9b77d3284cf533517cc8da38ac21",
+        "trial.log": "60223f8fb541e1c481aef2a190bac81e6bbb1a6d9a324ed82b268d1303461feb",
+        "verifier/reward.json": "a7a6ac4c9bc7a44a0fd552f7183efd14ad1a8827a41b2647b8db3737af2e1027",
+        "verifier/scorecard.json": "1813497d9fa4ed2f199544056a15179b9e780b0d151d3448706f81d007cd98c3",
+        "verifier/test-stdout.txt": "78c1cba608cae1f43d43acc3465fa012034587fba9aa5aacf87a8906ea2ac0c5",
+        "verifier-rescored/reward.json": "a7a6ac4c9bc7a44a0fd552f7183efd14ad1a8827a41b2647b8db3737af2e1027",
+        "verifier-rescored/scorecard.json": "0e8a840d34314f8e46b54d97a562eb79a7fdc77b9c16ec628f4298088b2d5551"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B024",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt6astra-97/dmaic-adb_c28-t3-s2-clean__D3TVcgd",
+      "files": {
+        "agent/recording.cast": "8aea29b49865ad01ff11204366b68db905239c2a9c3cf0ba300485e745fbd176",
+        "agent/terminus_2.pane": "f07acc32936273eb31f246ad5ddacd8b394fa4603060d400a0e83a9d8a75e15a",
+        "agent/trajectory.json": "d4f96ce4e518ad71583f4ae716dbe8af5ad4443d85ff6d2392377f0125c4c4c7",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "eb285aa6e02fffc42f141b2b65f44b3f0cbdf269a22abae8b4de2b93b423cd37",
+        "artifacts/steward-audit.jsonl": "b20e665b86348d138ec4be95cc758328250cd6342c65e58b667afb63ea4708ff",
+        "artifacts/trace.json": "94e1a7f24a9e34cb9b18cab76bdbe97ce876adfba7b8c46bde97fb9318d89db7",
+        "config.json": "ae9aff95b0ee36f2f71f9a4c3e7db510d8b72eff7ca90bc2945ec7b39acbe54b",
+        "human_review.json": "87de5dcbe0331dc19827a81828d251da608f3cfc38431726471e5efb0a8b740f",
+        "lock.json": "81ff764316b336e8cb004f31a9c9d71a2ae1a0fe11d3269d6eba002933ed290a",
+        "result.json": "e3d65faa88f357bc3c715a620bcdabe98006a427999bb4f894ee2549dec972b8",
+        "trial.log": "6c4cacafae69b4942e9a05158ef2194f64c930bb2853332ad39aa21e7ce74b65",
+        "verifier/reward.json": "93ad83f735b7ca5d860f41d5108867eed19b8cb0750770fcdb0543b71830c2b0",
+        "verifier/scorecard.json": "4e951e480932900dffbe4b9a45ee13983d5580d00b1205e0b821e3bf4078a2c1",
+        "verifier/test-stdout.txt": "8b002080e37fd81b42df43a0c7c3d6f37ccb73dcbfd326e438b6bc514ca9aa5e",
+        "verifier-rescored/reward.json": "93ad83f735b7ca5d860f41d5108867eed19b8cb0750770fcdb0543b71830c2b0",
+        "verifier-rescored/scorecard.json": "17924e58ddf48bc1608cb6cb8b4f6c3ac65c2101a1ed7c236ec0c5fc102735f9"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B025",
+      "checkpoint": "M_pchart",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt56sol-97/dmaic-adb_c33-t3-s4-clean__KSrWVvU",
+      "files": {
+        "agent/recording.cast": "ec76318b3a582c27d86fca2a30b91ed27cb788dcaa507b993f89307200040451",
+        "agent/terminus_2.pane": "7c31fe8c8716110b2ed0409f0516ebca3b44803c408accb4a3b7344e4276e3a6",
+        "agent/trajectory.json": "611b418e94d12f0b21a650793aac5f1d73867aeac0b23e8c856bdd1583516342",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "4ef04e893061771d6fdc96754268596a36c69f4882a9e165d2ce7a2bfe9fa2c4",
+        "artifacts/steward-audit.jsonl": "e7613f25b4bde636d02e9ab7b99b6280ddc4ea8031709668cb76a7774b884201",
+        "artifacts/trace.json": "79433cefcec48b1093a7a9e9a1f4369903619a9239577a6499d81ccd9e76cc5c",
+        "config.json": "831245ca5c58dd3b38f4297d6fa8926bbd62111b00892bc4cf2bc78e1539cb13",
+        "human_review.json": "6a6fa5cce866c759fa08519dc037e504f29f4d8f3e886f33e9f04642ae3b59cc",
+        "lock.json": "59a9f3e9cbe03721aaa02bb27413d6ce837cdd542fdbca79648de2f7c007a58c",
+        "result.json": "59d810e0d575098862e7f4d9a6c151db7db9c8247e58bbf4ecd7d7e10164d986",
+        "trial.log": "3097056a654fd308700ac88665daa219e58637a98ce55f265428d41292aef49c",
+        "verifier/reward.json": "f644abbf9b4e6500f85c972d41e2c5910eeb4c2cf32789df69fb9066ef6c9aaf",
+        "verifier/scorecard.json": "fd2fce8f1c0c12f46204cb63a479e0f97a193fd720edac3cc45ca25739932fc4",
+        "verifier/test-stdout.txt": "41a82a9fce69155ca4aebe4eabd88ac52623fd05f586a57dcd86c468db7b60dc",
+        "verifier-rescored/reward.json": "f644abbf9b4e6500f85c972d41e2c5910eeb4c2cf32789df69fb9066ef6c9aaf",
+        "verifier-rescored/scorecard.json": "52e1978984ce9c94617aa3647ba81e07b460bbef500957675a169a0a1579ef94"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B026",
+      "checkpoint": "A_cap_normal",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/gpt56sol-97/dmaic-adb_c28-t3-s1-clean__7M73gXM",
+      "files": {
+        "agent/recording.cast": "efa4f92283a39a6b62b90f37b9d2e0abe65d7be7cbd276d8b30055d6d25c6ca3",
+        "agent/terminus_2.pane": "7c5c2925e1a83c84f007a02fc03b8ae6fe632b44a6f3a22fb47837db568c2cab",
+        "agent/trajectory.json": "6134ae7fc72c100b5b3cd34fc67b424df81bbadd5c1cf657a5e005021130036d",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "acf3c18e5f849cfa8d65fd488f2d60a82cfc6fa7d7a11285ada023d65b4f7ef5",
+        "artifacts/steward-audit.jsonl": "26a4d1acb8d2e0ba372e4151cdfe84bd0a136cd0bb30bc7cd95bab088abebef9",
+        "artifacts/trace.json": "59c4afe05f249d46f0ef0090c4ad6e88f2c6e897a65a9acff5e47027e41103cc",
+        "config.json": "aaace974f2117f02fbecdf61057043f3c87f115a1160a234834822862cb4868d",
+        "human_review.json": "2d8b611083351956ed0949094f94e02da0586280c20717e1642e2d3549a81bac",
+        "lock.json": "70bf4656f306f2a444c77ce9c0987425243cd7fdbc46fa993c15449db09fe5c0",
+        "result.json": "65e1b21df0892f3fd39758c80b18971bc382687c5f053c744acf7cd5bfb207a8",
+        "trial.log": "558bcd0ff102bf8eb3f9cd1ee4aab017a3d0f65b2708dd94757447599832106f",
+        "verifier/reward.json": "c3918471f9e712ded2e7a4d1f927c2841b6f1963bec31833fb748d382d53dfde",
+        "verifier/scorecard.json": "ef4774c5b8b60dc3c8b584639f93ff5848fa912a93492a412cb1c1741dbc2535",
+        "verifier/test-stdout.txt": "f46d9390c224f822587b1c07bb17f487bbcc977dd647a13051093d9c14d98a52",
+        "verifier-rescored/reward.json": "c3918471f9e712ded2e7a4d1f927c2841b6f1963bec31833fb748d382d53dfde",
+        "verifier-rescored/scorecard.json": "e7649fa7de5356ee750c2a33cd432107f4f3f8f0ef042588f4b5bf33dab4edd1"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B027",
+      "checkpoint": "M_msa",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/sonnet5-97/dmaic-adb_c35-t3-s1-clean__D7Cxxzz",
+      "files": {
+        "agent/recording.cast": "5d02badb94ad1db3ca407d79a8baa7286a85eabfd728c1a750ca3ad6bd8a9263",
+        "agent/terminus_2.pane": "f930fdab65bf8df170efdb61c66c8274a746ac2b427b7dcb12a7a75c6daeaf68",
+        "agent/trajectory.json": "4cbaee3c49948cf00ed86a157d6eec154e9fad3be922f226926224240c254474",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "a653a530f1800c4cec3527a06f15770d9a809413f3b00ee3fa58da3eee69278d",
+        "artifacts/steward-audit.jsonl": "0d27160c6b99905a6929c8ebee16dbfafb02f50bbbd7b41ef6dc67f884aedc04",
+        "artifacts/trace.json": "f619a2a3e0a11bed2c606ba33713b713c921d3125dba314baa0aa1d5bb16d6e2",
+        "config.json": "15b611e0581e35c0cd534468e8cd4288c2330e0d65a720ae2ba665aafa79a884",
+        "human_review.json": "c73de73b1a6d0f5aeb0b21468b3a651f230d98732aa0a8f663dfd279c6c15d53",
+        "lock.json": "5eecb4036b25f6fe50dccd9f63c33d5929587c54cb0a3e879c809385a435736a",
+        "result.json": "eff6f2e1d19f83c538ffd29efa6d018f8f7e5ccfc4fdbf5b4bedf436cbff1c0f",
+        "trial.log": "96a5f86c97209bf2c751dac43241f010478e24cd3c1dad7d7bf53e0dc9dbdd9e",
+        "verifier/reward.json": "9f3148ef1b44de79af2e39599af4dc861a2b3b73196fcd3816458143202724c8",
+        "verifier/scorecard.json": "314e9881abed0c6e128827e7785b1cc5665177178f7efa302904a32d783a4da8",
+        "verifier/test-stdout.txt": "d12b14ab5dbca633947f9e0c6168a70f28248fe249bfd2d76b04eee3dd50701c",
+        "verifier-rescored/reward.json": "9f3148ef1b44de79af2e39599af4dc861a2b3b73196fcd3816458143202724c8",
+        "verifier-rescored/scorecard.json": "cc249946667c0636e37e6842850b5f7e79f36be70984526d3ba53b0d1ad255c9"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B028",
+      "checkpoint": "M_stability",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/glm53flash-97-2026-09-12/dmaic-adb_c37-t3-s6-clean__T53QvDm",
+      "files": {
+        "agent/recording.cast": "44930159b2fd76ea5468b348cb5e6790cf37ae64f118f2764f325e5c1f6a046c",
+        "agent/terminus_2.pane": "0a6ab3f8f51fc22e4cb9c1fda17a086f32e1a1a310b4d2bd2396a6e3af89da71",
+        "agent/trajectory.json": "76b445d5d49c1202bfb5cd208060d518c9e6b4255228bb4a63af1a35df44b4a0",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "0f82d39f495e4f979ceafdcc6a9f8dbcecd919dda360eff762a1879526a66a01",
+        "artifacts/steward-audit.jsonl": "5c36963c2255f36ca1d44bc26ed0e2bd13e2c4d09eb3c21bc2827469d580bace",
+        "artifacts/trace.json": "9816524e7bbfbdc36f2adb543ba77d96285bfab771863e974f0852ad03f8260f",
+        "config.json": "ae8a48c5f41b03b36ae2be6292e5cc5b689e2119bb66c0b8d4d6c81003ea15ec",
+        "human_review.json": "b01205dfa5d5446043726cedd75cd56e91b0e200316fb0f668417ca85a680b67",
+        "lock.json": "95396591c30fba28955a7a0dfd8396acb6f29d91e2a1168ee9a835a65148dfca",
+        "result.json": "9730727d52c5b33052fc39cdebd6332bebb9fe98c64e4f3becf4f59862f0cb3b",
+        "trial.log": "00c7d56ce04bb67da57fc0f2b9137317bc2425c941235b78b36723d1e571e02b",
+        "verifier/reward.json": "30bc8cfccf74ef674cf06286c7da5fffe2a4f7f77bff61dc91198aeb0b812e40",
+        "verifier/scorecard.json": "eea1e3d0cbe90710dedadbd2b109a44e8536eb3dc4ea4796d4d61e96db73fb7d",
+        "verifier/test-stdout.txt": "30e8a2d712ebef0b705e26ac64effd9ae2772766356bde015ec25943913445df",
+        "verifier-rescored/reward.json": "30bc8cfccf74ef674cf06286c7da5fffe2a4f7f77bff61dc91198aeb0b812e40",
+        "verifier-rescored/scorecard.json": "11b50a0aa7d615fca9b0aa493633037d6d42c8516a33e83f1eaaeff7103e3e60"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B029",
+      "checkpoint": "A_route",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/claude-fable-5-1-97/dmaic-adb_c27-t3-s2-clean__sJeTL5h",
+      "files": {
+        "agent/recording.cast": "0d47cb2c11686ca06b7509ca74de62448c0fd8aa32865a94c8c202d0aa8ed6d8",
+        "agent/terminus_2.pane": "3ce23303434deddf33ae7052da1e47982b401b6787701c3ce5fc29864845feb7",
+        "agent/trajectory.json": "0f363e1abb88439c6e52a5f60c25dc15e6ad4f9c2a019e0245b1d1d9e63e3325",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "4c330d5098e66eb00b32d03f76794f849208f9a35ff862265bd848bc07641c8e",
+        "artifacts/steward-audit.jsonl": "b38223cbbf1681e1748dab195415c9a93372955a383ba66e7f2ccb817b8e9b33",
+        "artifacts/trace.json": "b8960f39c78b6a34591e044503fad497f65afd44a27a38cc1512643331cd9209",
+        "config.json": "fac6683513a7fcb6d7703720862bdc293676fa82ba2e23ca2f4875a8afcd382b",
+        "human_review.json": "8f97bef023efd2edb699c70caddbb3d517386ad99f0dd2da0c4e8ff759c153d4",
+        "lock.json": "34d65d0411e21fd01dbcb391ddf9933948a5c02e6aeaf9d6fedcc1a2c63f037c",
+        "result.json": "22d29f8bf8afffec2c0bf92615f68d83c877c0ee4b7e2b65958195efa2087e60",
+        "trial.log": "7f9fbaa0e8e374a1eabd1ffcd7f8bca599641abf3be3b639008cff7d1c6a7627",
+        "verifier/reward.json": "e8dae8a40c86b28b9f76e0674192e54281e0f62f333232b8d6bb687d3602f92e",
+        "verifier/scorecard.json": "c03affb33f4e5f57b851fd9f4347080555f450a80276ae01607033d19966ec15",
+        "verifier/test-stdout.txt": "ee508b2d0bf3c339c9b4c67c3263510a18639098d9e0ba16b9e440f905bbc7ec",
+        "verifier-rescored/reward.json": "e8dae8a40c86b28b9f76e0674192e54281e0f62f333232b8d6bb687d3602f92e",
+        "verifier-rescored/scorecard.json": "28c460b8c8b27304fae9e6c69a50d879a80e644463949775e927b3e1a686340d"
+      }
+    },
+    {
+      "study_id": "blind_review_2026-09-18",
+      "blind_id": "B030",
+      "checkpoint": "A_route",
+      "reviewer_type": "Human",
+      "reviewer_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "review_language": "English",
+      "review_scope": "Independent human expert review of the anonymized evidence at this focal checkpoint.",
+      "source_path": "<repo>/harbor/jobs/glm-53-97/dmaic-adb_c27-t3-s1-clean__3NTc6cM",
+      "files": {
+        "agent/recording.cast": "322c9d0039b8c5115c2bea1cf6395167daa679b5fa470ea71cf5fd30958ecd7b",
+        "agent/terminus_2.pane": "4e3e4eb0ed028d470ffb5d38ae88f24a72e96b4b645faba1d0f619c6234cef1a",
+        "agent/trajectory.json": "bc11189a286e987c95f588fcb463bbfab66e0351a377af9916eca1b09d30c352",
+        "artifacts/manifest.json": "df783949a6aaf257b562e9940da1fbefd71d90b97515f2e145d7a3d37659ea86",
+        "artifacts/report.md": "116dd15146d8153ecf3e39f5a902c451163dd26a3b1fb36a413d045cb790b8ce",
+        "artifacts/steward-audit.jsonl": "76f370da33ba72716fbba05929e8a0c260bcb79cc54aed561f193d64ef5a2fdf",
+        "artifacts/trace.json": "ecf4a1407a0f4da82fc1f823274a5ffee0a619f9dc3e28c00c22fbc0d70ab2b8",
+        "config.json": "f7f7459f8049db3c0cacbe9998080adb23310dd4256de591dcea7575422801b6",
+        "human_review.json": "b0ff31703b73333a5e021c2e641e2c5a85778f82aa9fa6c2d07cbcd827387b79",
+        "lock.json": "b7614cb8a71cc43ad1975077cf9e9993be10a68c1ab1c8254fd69679f07d7a1d",
+        "result.json": "0af09a75ea384befe5fa5e76584fb6ec6ce1d363094b99356bf8421d8ccaa6a0",
+        "trial.log": "8c6f3e5c23cda3add2573fa7ad52e121dc72e8ad53c3e193f379e842966c2060",
+        "verifier/reward.json": "9db36158750d36ccf279c2838ee86e22b78f43d735dbbb3c973e1c3fc7e2b2a6",
+        "verifier/scorecard.json": "4199b3d569bd7137ff9ef58a0c2e853241e67b88d0d25ee3bc38928d9027cfe9",
+        "verifier/test-stdout.txt": "2e3cc7eb8bbfcb8c80741c223a55339e30f2b7287c5bffc68363d90b84f5109c",
+        "verifier-rescored/reward.json": "9db36158750d36ccf279c2838ee86e22b78f43d735dbbb3c973e1c3fc7e2b2a6",
+        "verifier-rescored/scorecard.json": "c9d6e9cec4ac7bfbf932b2d3cac45c1822c42b629fb2fd590d6959f4346be2f3"
+      }
+    }
+  ]
+}

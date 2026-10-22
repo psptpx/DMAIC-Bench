@@ -1,0 +1,308 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "quality.pareto",
+      "inputs_digest": {
+        "batch": "candidates",
+        "nCategories": 5,
+        "totalRejects": 240
+      },
+      "outputs": {
+        "topCategoryPct": 26.666666666666668
+      },
+      "status": "success",
+      "decision": "Largest reject category is \"loose end\" at 26.7% of 240 rejects. No single category dominates, so a Pareto-led attack on one category is not justified."
+    },
+    {
+      "step_id": 2,
+      "method_id": "quality.fmea_rpn",
+      "inputs_digest": {
+        "batch": "failure_modes",
+        "nModes": 5
+      },
+      "outputs": {
+        "maxRpn": 504
+      },
+      "status": "success",
+      "decision": "Highest risk mode is \"stain\" at RPN 504, driven by a detection rating of 8 - i.e. the top risk is that the defect is not reliably caught by inspection, pointing at the measurement system."
+    },
+    {
+      "step_id": 3,
+      "method_id": "msa.attribute_agreement",
+      "inputs_digest": {
+        "batch": "agreement",
+        "nParts": 20,
+        "nAppraisers": 3,
+        "nTrials": 2,
+        "standardKnown": true
+      },
+      "outputs": {
+        "kappaMin": 0.3478260869565216,
+        "agreementPct": 30.0,
+        "allVsStandardPct": 30.0,
+        "withinAppraiser1Pct": 85.0,
+        "withinAppraiser2Pct": 70.0,
+        "withinAppraiser3Pct": 55.0,
+        "appraiser1VsStandardPct": 70.0,
+        "appraiser2VsStandardPct": 55.0,
+        "appraiser3VsStandardPct": 50.0,
+        "msaAcceptable": false
+      },
+      "status": "success",
+      "decision": "FAIL. Worst Cohen kappa vs the answer key is 0.348, far below the 0.75 acceptability floor; all three appraisers agree with each other on only 30% of units and repeatability is as low as 55%. The pass/fail judgement cannot be relied on, so every downstream defective rate in this project inherits that doubt."
+    },
+    {
+      "step_id": 4,
+      "method_id": "control_chart.p",
+      "inputs_digest": {
+        "batch": "lots",
+        "nSubgroups": 25,
+        "subgroupSize": 5000,
+        "totalInspected": 125000.0
+      },
+      "outputs": {
+        "centerLine": 0.001016,
+        "outOfControlCount": 0,
+        "centerLineDpmo": 1016.0,
+        "uclCounts": 11.838220807283525,
+        "maxLotDpmo": 2200.0,
+        "minLotDpmo": 400.0
+      },
+      "status": "success",
+      "decision": "Stable. 0 of 25 lots outside the limits, so the defective share has held steady across the twenty-five lots at a centre line of 1016 DPMO. Lot-to-lot variation is common cause."
+    },
+    {
+      "step_id": 5,
+      "method_id": "capability.binomial",
+      "inputs_digest": {
+        "batch": "lots",
+        "totalInspected": 125000.0,
+        "totalDefective": 127.0
+      },
+      "outputs": {
+        "avgP": 0.001016,
+        "processZ": 3.085514962525518,
+        "avgPDpmo": 1016.0
+      },
+      "status": "success",
+      "decision": "Baseline capability: average defective share 1016 DPMO, process Z = 3.09."
+    },
+    {
+      "step_id": 6,
+      "method_id": "basic.one_proportion",
+      "inputs_digest": {
+        "batch": "lots",
+        "defective": 127.0,
+        "inspected": 125000.0,
+        "requirementDpmo": 1500,
+        "test": "exact binomial"
+      },
+      "outputs": {
+        "pValue": 3.343274718111073e-06,
+        "pValueOneSidedLess": 1.7104055691204832e-06,
+        "observedDpmo": 1016.0,
+        "requirementDpmo": 1500,
+        "ci95LowDpmo": 847.0616299858289,
+        "ci95HighDpmo": 1208.7306576750684
+      },
+      "status": "success",
+      "decision": "Observed 1016 DPMO is significantly below the 1500 DPMO commitment (exact binomial p = 3.34e-06 two-sided; 95% CI 847 to 1209 DPMO, entirely below the limit). The charter is being met on the numbers as inspected."
+    },
+    {
+      "step_id": 7,
+      "method_id": "tables.chisquare_assoc",
+      "inputs_digest": {
+        "batch": "machines",
+        "nGroups": 4,
+        "totalUnits": 16000.0,
+        "dof": 3,
+        "minExpectedCount": 4.0
+      },
+      "outputs": {
+        "statistic": 8.508508508508509,
+        "pValue": 0.036592216119949804,
+        "worstMachineDpmo": 2000.0,
+        "bestMachineDpmo": 0.0,
+        "machineTotalUnits": 16000.0,
+        "machineTotalDefective": 16.0,
+        "dof": 3,
+        "minExpectedCount": 4.0,
+        "machine1Dpmo": 1250.0,
+        "machine2Dpmo": 0.0,
+        "machine3Dpmo": 750.0,
+        "machine4Dpmo": 2000.0
+      },
+      "status": "success",
+      "decision": "Defective share is not the same on all four machines (chi-square = 8.51, dof 3, p = 0.0366): machine 4 runs at 2000 DPMO against 0 DPMO on machine 2. Caveat: the smallest expected count is 4.0, below the usual 5, so the p-value is approximate and this is a lead rather than a proven cause."
+    },
+    {
+      "step_id": 8,
+      "method_id": "basic.two_proportions",
+      "inputs_digest": {
+        "batch": "after_change",
+        "events1": 6,
+        "n1": 4000,
+        "events2": 9,
+        "n2": 4000
+      },
+      "outputs": {
+        "pValue": 0.4381483041479318,
+        "zStatistic": 0.77532387641392,
+        "fisherPValue": 0.6068946732696925,
+        "beforeDpmo": 1500.0,
+        "afterDpmo": 2250.0
+      },
+      "status": "success",
+      "decision": "No improvement demonstrated. The machine ran 1500 DPMO before the change and 2250 DPMO after - the wrong direction - and the difference is not significant (z = 0.78, p = 0.438; Fisher exact p = 0.607). The change cannot be credited with any gain."
+    },
+    {
+      "step_id": 9,
+      "method_id": "power.two_proportions",
+      "inputs_digest": {
+        "batch": "after_change",
+        "n1": 4000,
+        "n2": 4000,
+        "alpha": 0.05,
+        "alternative": "two-sided"
+      },
+      "outputs": {
+        "power": 0.12194034803316639,
+        "powerToDetectHalving": 0.17384688429477152
+      },
+      "status": "success",
+      "decision": "The change trial was badly underpowered: power at the observed effect is 0.122, and even a genuine halving of the before-rate would have been caught only 17% of the time at 4000 units per side. The trial could not have proved success even if the change had worked, so its null result is uninformative rather than evidence of no effect."
+    },
+    {
+      "step_id": 10,
+      "method_id": "control_chart.p",
+      "inputs_digest": {
+        "batch": "sustaining",
+        "nSubgroups": 20,
+        "subgroupSize": 5000,
+        "totalInspected": 100000.0
+      },
+      "outputs": {
+        "centerLine": 0.00107,
+        "outOfControlCount": 0,
+        "centerLineDpmo": 1070.0,
+        "uclCounts": 12.285306734384571,
+        "maxSubgroupDpmo": 2400.0
+      },
+      "status": "success",
+      "decision": "Monitoring record since the change is in control: 0 of 20 subgroups outside the limits, centre line 1070 DPMO. Holding, not improving."
+    },
+    {
+      "step_id": 11,
+      "method_id": "capability.binomial",
+      "inputs_digest": {
+        "batch": "sustaining",
+        "totalInspected": 100000.0,
+        "totalDefective": 107.0
+      },
+      "outputs": {
+        "avgP": 0.00107,
+        "processZ": 3.0700820102708946,
+        "avgPDpmo": 1070.0
+      },
+      "status": "success",
+      "decision": "Post-change capability 1070 DPMO, process Z = 3.07, against baseline Z = 3.09. Essentially unchanged."
+    },
+    {
+      "step_id": 12,
+      "method_id": "basic.two_proportions",
+      "inputs_digest": {
+        "batches": "lots vs sustaining",
+        "n1": 125000.0,
+        "n2": 100000.0
+      },
+      "outputs": {
+        "pValue": 0.692930343326612,
+        "zStatistic": 0.3948815004841737,
+        "baselineDpmo": 1016.0,
+        "sustainingDpmo": 1070.0
+      },
+      "status": "success",
+      "decision": "Baseline 1016 DPMO vs 1070 DPMO since the change: no significant difference (z = 0.39, p = 0.693). The line is where it was."
+    },
+    {
+      "step_id": 13,
+      "method_id": "basic.one_proportion",
+      "inputs_digest": {
+        "batch": "sustaining",
+        "defective": 107.0,
+        "inspected": 100000.0,
+        "requirementDpmo": 1500,
+        "test": "exact binomial"
+      },
+      "outputs": {
+        "pValue": 0.000270879290475796,
+        "observedDpmo": 1070.0,
+        "requirementDpmo": 1500,
+        "ci95LowDpmo": 876.9711323137236,
+        "ci95HighDpmo": 1292.8412876225486
+      },
+      "status": "success",
+      "decision": "Since the change the line runs 1070 DPMO, still significantly below the 1500 DPMO commitment (p = 2.71e-04; 95% CI 877 to 1293 DPMO)."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_system_trustworthy",
+      "chosen_branch": "no - attribute agreement fails, all later rates are provisional",
+      "observed": {
+        "kappaMin": 0.3478260869565216,
+        "agreementPct": 30.0,
+        "threshold": 0.75
+      }
+    },
+    {
+      "point": "lot_stability",
+      "chosen_branch": "stable - treat variation as common cause, do not chase individual lots",
+      "observed": {
+        "outOfControlCount": 0,
+        "nSubgroups": 25,
+        "centerLineDpmo": 1016.0
+      }
+    },
+    {
+      "point": "capability_vs_charter",
+      "chosen_branch": "commitment met on the numbers as inspected",
+      "observed": {
+        "observedDpmo": 1016.0,
+        "requirementDpmo": 1500,
+        "pValue": 3.343274718111073e-06
+      }
+    },
+    {
+      "point": "source_of_defectives",
+      "chosen_branch": "machine-to-machine difference pursued as the lead",
+      "observed": {
+        "pValue": 0.036592216119949804,
+        "statistic": 8.508508508508509,
+        "minExpectedCount": 4.0
+      }
+    },
+    {
+      "point": "did_the_change_work",
+      "chosen_branch": "not demonstrated - underpowered trial, rate moved the wrong way",
+      "observed": {
+        "beforeDpmo": 1500.0,
+        "afterDpmo": 2250.0,
+        "pValue": 0.4381483041479318,
+        "power": 0.12194034803316639
+      }
+    },
+    {
+      "point": "control_plan",
+      "chosen_branch": "p chart on the monitoring record; hold, and fix the gauge first",
+      "observed": {
+        "outOfControlCount": 0,
+        "centerLineDpmo": 1070.0,
+        "pValue": 0.692930343326612
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 2
+}

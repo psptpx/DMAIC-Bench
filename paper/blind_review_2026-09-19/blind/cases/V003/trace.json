@@ -1,0 +1,253 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "n": 60
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "mean": 7.1604833333333335,
+        "median": 7.1765,
+        "stdDev": 0.13950742543467862,
+        "skewness": -0.23957980021055966,
+        "adPValue": 0.4641869476126487
+      },
+      "status": "success",
+      "decision": "Baseline distribution is consistent with normality (AD p=0.46); slight negative skew, not material."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "n": 60
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.4641869476126487,
+        "statistic": 0.31442770376673934
+      },
+      "status": "success",
+      "decision": "Fail to reject normality for the baseline record."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "n": 60
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 7.570463499218656,
+        "individualsLCL": 6.750503167448011,
+        "centerLine": 7.1604833333333335,
+        "flaggedCount": 0
+      },
+      "status": "success",
+      "decision": "No individual points beyond the I-chart limits; baseline run shows no out-of-control signal."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "stage_id": "baseline",
+        "n": 60,
+        "lsl": 6.8,
+        "usl": 7.5
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.8536998350742169,
+        "cpk": 0.8281294923950885,
+        "pp": 0.8362756771057566,
+        "ppk": 0.8112272294438739
+      },
+      "status": "success",
+      "decision": "Baseline capability is below the conventional 1.33 threshold; process is not capable even though centered near target and stable."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "stage_id": "design",
+        "n": 16,
+        "groups": 3
+      },
+      "method_id": "doe.factorial_analysis",
+      "outputs": {
+        "modelPValue": 7.688688499771875e-05,
+        "rSquaredPct": 95.65009623416219,
+        "rSquaredAdjPct": 91.8439304390541,
+        "fStatistic": 25.13030208959824,
+        "pValue_chain_speed": 5.781140867010388e-06,
+        "pValue_rail_angle": 0.00014181781816853994,
+        "pValue_air_pressure": 0.06523312049063429,
+        "pValue_chain_speed_x_rail_angle": 0.008076770702043238
+      },
+      "status": "success",
+      "decision": "Full factorial model is significant overall (p<0.0001, R2=95.65%). chain_speed and rail_angle are significant main effects, and their interaction is significant; air_pressure alone is not significant at alpha=0.05 (p=0.065)."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "group": "before",
+        "n": 30
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.34641428443671124,
+        "statistic": 0.3974885415070766
+      },
+      "status": "success",
+      "decision": "Before-change window is consistent with normality."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "group": "after",
+        "n": 30
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.4951980309261619,
+        "statistic": 0.3320395421803326
+      },
+      "status": "success",
+      "decision": "After-change window is consistent with normality."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "n1": 30,
+        "n2": 30
+      },
+      "method_id": "anova.equal_variances",
+      "outputs": {
+        "pValue": 0.02165539705026296,
+        "statistic": 5.570044182141309
+      },
+      "status": "success",
+      "decision": "Variances differ significantly between the before and after windows (Levene p=0.022); equal-variance assumption rejected."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "n1": 30,
+        "n2": 30
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.2399191446414538,
+        "tStatistic": -1.1888193048157785
+      },
+      "status": "success",
+      "decision": "Welch's t-test (unequal variance, per Levene result) finds no significant difference in mean fillet height between before and after windows (p=0.24)."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "n1": 30,
+        "n2": 30
+      },
+      "method_id": "nonparametric.mann_whitney",
+      "outputs": {
+        "pValue": 0.3593075615878021
+      },
+      "status": "success",
+      "decision": "Nonparametric check confirms no significant shift in location between the two windows."
+    },
+    {
+      "step_id": 11,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "group": "before",
+        "n": 30,
+        "lsl": 6.8,
+        "usl": 7.5
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.1264462809917362,
+        "cpk": 1.1049901613537907,
+        "pp": 1.1310189372840964,
+        "ppk": 1.1094757194310583
+      },
+      "status": "success",
+      "decision": "Capability in the before-change window (Cpk=1.10) was materially better than the 60-joint baseline and than the after-change window."
+    },
+    {
+      "step_id": 12,
+      "inputs_digest": {
+        "stage_id": "after_change",
+        "group": "after",
+        "n": 30,
+        "lsl": 6.8,
+        "usl": 7.5
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 0.7350539291217261,
+        "cpk": 0.6390768875192596,
+        "pp": 0.7919620977515895,
+        "ppk": 0.688554475273738
+      },
+      "status": "success",
+      "decision": "Capability in the after-change window (Cpk=0.64) is materially worse than before the change; variance increased (see Levene test) even though the mean did not shift significantly."
+    },
+    {
+      "step_id": 13,
+      "inputs_digest": {
+        "stage_id": "logged_variables",
+        "n": 48,
+        "predictors": 3
+      },
+      "method_id": "regression.ols",
+      "outputs": {
+        "modelPValue": 0.8931051172421495,
+        "rSquaredPct": 1.3715685037973269,
+        "rSquaredAdjPct": -5.353097280034658
+      },
+      "status": "success",
+      "decision": "The three logged-only variables (preheat temperature, conveyor width, solder dwell) show no significant relationship with fillet height (model p=0.89, R2=1.4%). Consistent with them being uncontrolled/unvaried nuisance variables in this run, not drivers of y."
+    },
+    {
+      "step_id": 14,
+      "inputs_digest": {
+        "topic": "identity/rationale of the line change between before and after windows"
+      },
+      "method_id": "meta.data_profiling",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Process owner had no recorded fact matching what specific change was implemented or whether it was based on the DOE result; this cannot be established from available data."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "doe_significance_declaration",
+      "chosen_branch": "any_factor_significant=true",
+      "observed": {
+        "pValue_chain_speed": 5.781140867010388e-06,
+        "pValue_rail_angle": 0.00014181781816853994,
+        "modelPValue": 7.688688499771875e-05
+      }
+    },
+    {
+      "point": "before_after_test_choice",
+      "chosen_branch": "Welch's unequal-variance two-sample t-test, corroborated with Mann-Whitney",
+      "observed": {
+        "levene_pValue": 0.02165539705026296
+      }
+    },
+    {
+      "point": "capability_sigma_method",
+      "chosen_branch": "moving-range-based sigma for Cp/Cpk (within), sample stdDev for Pp/Ppk (overall)",
+      "observed": {}
+    }
+  ],
+  "turns": 1,
+  "interventions": 0
+}

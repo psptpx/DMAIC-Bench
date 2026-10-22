@@ -1,0 +1,111 @@
+{
+  "system_id": "local-analysis",
+  "task_id": "adb_c40-T3-s5-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "qc.sample_qc",
+      "inputs_digest": {
+        "batch": "library_qc",
+        "samples": 12
+      },
+      "outputs": {
+        "failedSamples": 0,
+        "minReplicates": 6,
+        "usableSamples": 12,
+        "controlReplicates": 6,
+        "treatedReplicates": 6,
+        "minAssignedReads": 9052000,
+        "minMappingRate": 0.868
+      },
+      "status": "success",
+      "decision": "All libraries usable; proceed to design assessment."
+    },
+    {
+      "step_id": 2,
+      "method_id": "design.identifiability",
+      "outputs": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "L1_control": 5,
+        "L2_control": 1,
+        "L1_treated": 1,
+        "L2_treated": 5
+      },
+      "status": "success",
+      "decision": "Treatment estimable separately from batch; use blocked model."
+    },
+    {
+      "step_id": 3,
+      "method_id": "expression.batch_assessment",
+      "outputs": {
+        "batchVarianceFraction": 0.3727060798353606
+      },
+      "status": "success",
+      "decision": "Incremental batch sum of squares beyond treatment divided by total centered log-expression sum of squares."
+    },
+    {
+      "step_id": 4,
+      "method_id": "expression.de_blocked",
+      "outputs": {
+        "nSignificant": 0,
+        "genesTested": 400,
+        "residualDF": 9
+      },
+      "status": "success",
+      "decision": "OLS of log2(median-ratio normalized count + 0.5) on treatment and batch; two-sided residual t tests; BH across panel. Approximate log-expression model, not negative-binomial inference."
+    },
+    {
+      "step_id": 5,
+      "method_id": "meta.data_profiling",
+      "outputs": {
+        "nCandidates": 0,
+        "nQpcrRecords": 0
+      },
+      "status": "success",
+      "decision": "Empty validation cohort: concordance and number confirmed cannot be estimated; no validation test run."
+    },
+    {
+      "step_id": 6,
+      "method_id": "expression.enrichment",
+      "outputs": {},
+      "status": "refused",
+      "decision": "Annotation request locked behind validation_concordance; empty validation cohort makes this rate undefined. No enrichment computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "design",
+      "chosen_branch": "blocked",
+      "observed": {
+        "confounded": false,
+        "batchCount": 2,
+        "designRank": 3,
+        "designColumns": 3,
+        "L1_control": 5,
+        "L2_control": 1,
+        "L1_treated": 1,
+        "L2_treated": 5
+      }
+    },
+    {
+      "point": "candidate_release",
+      "chosen_branch": "no_candidates_no_validation_rate",
+      "observed": {
+        "nCandidates": 0
+      }
+    },
+    {
+      "point": "annotation",
+      "chosen_branch": "stop_at_undefined_validation",
+      "observed": {
+        "validationCohortEmpty": true
+      }
+    }
+  ],
+  "turns": 0,
+  "interventions": 0,
+  "token_cost": null
+}

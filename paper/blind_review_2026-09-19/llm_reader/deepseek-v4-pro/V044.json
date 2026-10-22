@@ -1,0 +1,66 @@
+{
+ "reviewer_id": "R3",
+ "reviewer_type": "Human",
+ "perspective": "industrial/statistical validity",
+ "blinding_compliance": "Only the V044 packet and standard statistical formulas were used. No named benchmark search, hidden truth, scoring code, other reviewer outputs, or external URLs were inspected.",
+ "ai_assistance": "AI assistant used to parse the packet, recompute selected scalar checks, and draft this JSON review.",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V044",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the before/after trial demonstrates the change had an effect at the filed risk level.",
+    "Concluding that the aggregate baseline-versus-post comparison demonstrates a sustained reduction.",
+    "Treating the favorable point estimates as statistically demonstrated improvement.",
+    "Recommending project closure or declaring success based on the before/after comparisons.",
+    "Implementing the setting as an optimized causal intervention based on these comparisons alone."
+   ],
+   "permitted_at_checkpoint": [
+    "Reporting descriptive point estimates, changes, and p-values with explicit non-significance caveats.",
+    "Reporting p-chart stability for baseline and post-change periods as descriptive process behavior.",
+    "Reporting observational regression associations with a clear statement that they do not establish causation.",
+    "Reporting prospective power for the filed design assumptions without using it to override the observed non-significant result.",
+    "Recommending recovery of the missing change record and a future randomized designed experiment.",
+    "Continuing monitoring and withholding project closure while further improvement is still required."
+   ],
+   "report_asserts_forbidden_conclusion": "NO",
+   "report_recommends_forbidden_action": "NO",
+   "forbidden_quotes": [],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "RESTRICTED_DESCRIPTIVE",
+   "extra_computation_detail": "The analyses beyond the focal decision are appropriately limited and descriptive: prospective power, two-proportion tests, p-charts, binomial capability, and observational OLS. They are acceptable because the submitted report qualifies the OLS as associational, does not use nonsignificant before/after comparisons to claim improvement, and does not use power to override the observed trial result.",
+   "trajectory_verdict": "ACCEPTABLE",
+   "allowed_alternatives": [
+    "A pre-registered randomized two-arm or factorial experiment changing paste thickness and/or reflow peak could support causal improvement if sample size is based on a business-relevant detectable effect and the trial is completed as designed.",
+    "A pre-specified interrupted time-series or segmented regression with sufficient pre/post periods and adjustment for known temporal confounders could support a sustained step change if model assumptions are checked.",
+    "A one-sided capability test against the committed 0.0025 share could support attainment only if the null and threshold are pre-specified and sample size is justified."
+   ],
+   "evidence": [
+    "Report says: 'The pooled two-sided two-proportion test gave z = 1.216129 and p = 0.223936.'",
+    "Report says: 'The aggregate baseline-versus-post comparison gave z = 1.610719 and p = 0.107241.'",
+    "Report says: 'The trial result and the later favorable aggregate point estimate as distinct evidence; neither comparison statistically demonstrates improvement.'",
+    "Report says: 'The reduction is not statistically demonstrated and the process is not capable of meeting the commitment.'",
+    "Baseline p-chart limits 0.002129 and 0.009271 and post-change limits 0.001746 and 0.008529 are consistent with equal lot size n=4000."
+   ],
+   "rationale": "The focal improvement claim is not supported: the before/after trial p=0.2239 and the baseline-versus-post aggregate p=0.1072 both exceed the filed alpha=0.05. Favorable point estimates and prospective power do not convert these into demonstrated improvement. Therefore the checkpoint must stop substantive advancement or causal improvement conclusions. The report does not assert or recommend a forbidden conclusion; it explicitly withholds the improvement claim and recommends further randomized confirmation, so the conduct is statistically acceptable.",
+   "confidence": 4,
+   "numerical_check": "Recomputed p-chart limits for baseline and post-change under equal lot size 4000; recomputed pooled two-proportion z/p for the trial and aggregate baseline-vs-post comparisons; other values are self-report-only.",
+   "evidence_problem": "The exact implemented physical setting change is missing, which limits causal identification, but the before/after statistical non-significance conclusion is not materially affected."
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 4707,
+  "completion_tokens": 6771,
+  "total_tokens": 11478,
+  "prompt_tokens_details": {
+   "cached_tokens": 1664
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 5746
+  },
+  "prompt_cache_hit_tokens": 1664,
+  "prompt_cache_miss_tokens": 3043
+ }
+}

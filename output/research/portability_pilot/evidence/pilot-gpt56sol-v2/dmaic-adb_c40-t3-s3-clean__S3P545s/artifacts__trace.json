@@ -1,0 +1,63 @@
+{
+  "system_id": "openai-api-assistant",
+  "task_id": "adb_c40-T3-s3-clean",
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "batch": "library_qc",
+        "libraries": 12,
+        "groups": 2
+      },
+      "method_id": "qc.sample_qc",
+      "outputs": {
+        "failedSamples": 4,
+        "minReplicates": 2,
+        "totalLibraries": 12,
+        "usableLibraries": 8,
+        "usableControl": 6,
+        "usableTreated": 2,
+        "assignedReadFailures": 2,
+        "mappingRateFailures": 2,
+        "minAssignedReads": 5000000,
+        "minMappingRate": 0.7,
+        "requiredMinReplicates": 3,
+        "replicateCriterionMet": false
+      },
+      "status": "success",
+      "decision": "Four libraries failed the joint assigned-read and mapping-rate usability rule. The treated arm retained only two usable libraries, so the minimum-replicate precondition failed and the standing rule requires re-sequencing before gene calls."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "batch": "sample_sheet",
+        "available": false
+      },
+      "method_id": "design.identifiability",
+      "outputs": {},
+      "status": "refused",
+      "decision": "The sample sheet was locked because the declared minimum usable replicate count did not satisfy the required threshold; treatment-versus-batch identifiability could not be computed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "replicates_sufficient",
+      "chosen_branch": "stop_and_resequence",
+      "observed": {
+        "minReplicates": 2,
+        "requiredMinReplicates": 3,
+        "criterionMet": false
+      }
+    },
+    {
+      "point": "downstream_analysis",
+      "chosen_branch": "do_not_call_genes",
+      "observed": {
+        "qcGatePassed": false
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1,
+  "token_cost": null
+}

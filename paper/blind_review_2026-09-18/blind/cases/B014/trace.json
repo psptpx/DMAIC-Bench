@@ -1,0 +1,357 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "stage_id": "define",
+        "fields": 4
+      },
+      "outputs": {
+        "lsl": 350.0,
+        "usl": 550.0,
+        "toleranceWidth": 200.0
+      },
+      "status": "success",
+      "decision": "Accepted range 350-550 cd/m2 (width 200) taken as the specification; charter states no numeric centring target, and the process owner had no such fact recorded."
+    },
+    {
+      "step_id": 2,
+      "method_id": "msa.gage_rr_crossed",
+      "inputs_digest": {
+        "stage_id": "msa",
+        "operators": 3.0,
+        "parts": 10.0,
+        "replicates": 3.0,
+        "sampleSize": 90,
+        "tolerance": 200.0
+      },
+      "outputs": {
+        "percentStudyVariation": 15.1201,
+        "percentTolerance": 15.2163,
+        "ndc": 9.2182,
+        "percentStudyVariationRepeatability": 12.8011,
+        "percentStudyVariationReproducibility": 8.0466,
+        "sdRepeatability": 4.2942,
+        "sdReproducibility": 2.6993,
+        "sdGageRR": 5.0721,
+        "sdPartToPart": 33.1597,
+        "sdTotal": 33.5454,
+        "interactionPValue": 0.160203,
+        "operatorPValue": 1.49671e-05,
+        "partPValue": 1.11e-16,
+        "interactionPooled": true,
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "sampleSize": 90,
+        "toleranceWidth": 200.0
+      },
+      "status": "success",
+      "decision": "ANOVA crossed gage R&R. Part x operator interaction not significant (p=0.1602) so pooled into repeatability. Total gage R&R 15.12% of study variation and 15.22% of tolerance, 9 distinct categories: measurement system acceptable for process decisions. Operator effect detectable (p=1.5e-05) but small against part-to-part spread."
+    },
+    {
+      "step_id": 3,
+      "method_id": "basic.descriptive_summary",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 50,
+        "groups": 1
+      },
+      "outputs": {
+        "mean": 486.826,
+        "median": 495.35,
+        "stdDev": 43.052,
+        "skewness": -0.2213,
+        "adPValue": 0.023433,
+        "minimum": 401.6,
+        "maximum": 556.9,
+        "sampleSize": 50
+      },
+      "status": "success",
+      "decision": "50 units in production order average 486.83 cd/m2, sd 43.05, range 401.6 to 556.9; maximum already above the 550 upper limit."
+    },
+    {
+      "step_id": 4,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 50,
+        "test": "anderson_darling"
+      },
+      "outputs": {
+        "pValue": 0.023433,
+        "statistic": 0.8728
+      },
+      "status": "success",
+      "decision": "Pooled run fails normality (AD p=0.0234). Diagnosed as a mixture of two stable levels rather than a heavy-tailed process: each half is normal on its own (step 8)."
+    },
+    {
+      "step_id": 5,
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 50,
+        "subgroupSize": 1
+      },
+      "outputs": {
+        "individualsUCL": 560.9576,
+        "individualsLCL": 412.6944,
+        "centerLine": 486.826,
+        "flaggedCount": 46,
+        "sigmaWithin": 24.7105,
+        "movingRangeBar": 27.8735,
+        "movingRangeUCL": 91.0626,
+        "movingRangeFlaggedCount": 1
+      },
+      "status": "success",
+      "decision": "Individuals chart out of control: 46 of 50 points flagged by Nelson rules, driven by long runs on one side of the centre line before and after unit 25. Moving range chart flags 1 point, at the step itself, so within-unit variation is otherwise consistent."
+    },
+    {
+      "step_id": 6,
+      "method_id": "nonparametric.runs_test",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 50,
+        "reference": "median"
+      },
+      "outputs": {
+        "pValue": 1.094e-08,
+        "runsObserved": 6,
+        "runsExpected": 26.0,
+        "zStatistic": -5.7155
+      },
+      "status": "success",
+      "decision": "6 runs observed against 26 expected (z=-5.7155, p=1.09e-08): the sequence is not random, confirming a sustained level change rather than scatter."
+    },
+    {
+      "step_id": 7,
+      "method_id": "basic.two_sample_t",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "groups": 2,
+        "n1": 25,
+        "n2": 25,
+        "splitAtIndex": 25
+      },
+      "outputs": {
+        "pValue": 4.59e-16,
+        "tStatistic": -12.006,
+        "mean1": 449.912,
+        "mean2": 523.74,
+        "sd1": 25.1022,
+        "sd2": 17.7544,
+        "shiftMagnitude": 73.828,
+        "splitAtIndex": 25,
+        "n1": 25,
+        "n2": 25
+      },
+      "status": "success",
+      "decision": "Step change located at unit 25 by maximum-t scan: first 25 units mean 449.91, last 25 mean 523.74, a rise of 73.83 cd/m2 (t=-12.006, p=4.59e-16)."
+    },
+    {
+      "step_id": 8,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "groups": 2,
+        "n1": 25,
+        "n2": 25,
+        "test": "anderson_darling"
+      },
+      "outputs": {
+        "pValue": 0.4313,
+        "pValuePhase1": 0.89799
+      },
+      "status": "success",
+      "decision": "Each regime is normal on its own (AD p=0.8980 before the step, p=0.4313 after), so normal capability indices are valid per regime."
+    },
+    {
+      "step_id": 9,
+      "method_id": "anova.equal_variances",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "groups": 2,
+        "n1": 25,
+        "n2": 25,
+        "test": "levene"
+      },
+      "outputs": {
+        "pValue": 0.229194,
+        "statistic": 1.4834
+      },
+      "status": "success",
+      "decision": "Spread unchanged across the step (Levene p=0.2292): the process moved its centre, it did not become noisier."
+    },
+    {
+      "step_id": 10,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 50,
+        "scope": "whole_run",
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "outputs": {
+        "cp": 1.349,
+        "cpk": 0.8522,
+        "pp": 0.7743,
+        "ppk": 0.4891,
+        "observedAboveUSL": 2,
+        "observedBelowLSL": 0,
+        "pctAboveUSL": 7.1135
+      },
+      "status": "success",
+      "decision": "Reported for completeness only. The run is not stable, so the whole-run Ppk 0.4891 mixes two levels and is not a forecast of either."
+    },
+    {
+      "step_id": 11,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 25,
+        "scope": "units_0_to_24",
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "outputs": {
+        "cp": 1.0937,
+        "cpk": 1.0927,
+        "pp": 1.3279,
+        "ppk": 1.3267,
+        "mean": 449.912,
+        "observedAboveUSL": 0,
+        "observedBelowLSL": 0,
+        "pctBelowLSL": 0.003443
+      },
+      "status": "success",
+      "decision": "Before the step the line was well centred in the accepted range: Ppk 1.3267, no unit outside 350-550."
+    },
+    {
+      "step_id": 12,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 25,
+        "scope": "units_25_to_49_current",
+        "lsl": 350.0,
+        "usl": 550.0
+      },
+      "outputs": {
+        "cp": 1.8428,
+        "cpk": 0.4839,
+        "pp": 1.8775,
+        "ppk": 0.493,
+        "mean": 523.74,
+        "pctAboveUSL": 6.956,
+        "observedAboveUSL": 2,
+        "observedBelowLSL": 0,
+        "pctBelowLSL": 0.0
+      },
+      "status": "success",
+      "decision": "Where the line sits today: Cpk 0.4839, Ppk 0.4930, 6.9560% predicted above the 550 limit and 2 of the last 25 units already measured over it. Cp 1.8428 shows the spread is capable; the loss is entirely centring."
+    },
+    {
+      "step_id": 13,
+      "method_id": "basic.one_sample_t",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 25,
+        "reference": 450.0
+      },
+      "outputs": {
+        "pValue": 7.6e-17,
+        "tStatistic": 20.7667,
+        "mean": 523.74,
+        "referenceValue": 450.0,
+        "meanGapFromReference": 73.74
+      },
+      "status": "success",
+      "decision": "Current level differs from the 450 cd/m2 mid-range point by a wide margin (t=20.7667, p=7.61e-17), quantifying the re-centring the line needs."
+    },
+    {
+      "step_id": 14,
+      "method_id": "doe.factorial_analysis",
+      "inputs_digest": {
+        "stage_id": null,
+        "requested": "improvement trial / factor study on brightness"
+      },
+      "outputs": {
+        "dataReleased": false
+      },
+      "status": "refused",
+      "decision": "Steward has no such batch (refusal=unroutable; the only topics this project holds are charter, repeat readings and end-of-line brightness). No factor effects were estimated and none are reported. Two provision turns also returned no process facts, so the physical cause of the step at unit 25 is not established by data on this run."
+    },
+    {
+      "step_id": 15,
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "stage_id": null,
+        "requested": "post-change verification and control-phase monitoring readings"
+      },
+      "outputs": {
+        "dataReleased": false
+      },
+      "status": "refused",
+      "decision": "No post-change or control-phase batch exists for this project. No improvement effect, no sustained capability and no control-chart performance after a change can be computed or claimed."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "measurement_trust_gate",
+      "chosen_branch": "measurement_acceptable_proceed_to_process_data",
+      "observed": {
+        "percentStudyVariation": 15.1201,
+        "percentTolerance": 15.2163,
+        "ndc": 9.2182,
+        "declared_grr_pct": 15.12
+      }
+    },
+    {
+      "point": "gage_anova_interaction",
+      "chosen_branch": "pool_interaction_into_repeatability",
+      "observed": {
+        "interactionPValue": 0.160203
+      }
+    },
+    {
+      "point": "stability_before_capability",
+      "chosen_branch": "unstable_stratify_by_regime_then_assess_capability",
+      "observed": {
+        "runsPValue": 1.094e-08,
+        "flaggedCount": 46,
+        "twoSamplePValue": 4.59e-16
+      }
+    },
+    {
+      "point": "capability_model",
+      "chosen_branch": "normal_per_regime",
+      "observed": {
+        "adPValuePooled": 0.023433,
+        "adPValuePhase1": 0.89799,
+        "adPValuePhase2": 0.4313
+      }
+    },
+    {
+      "point": "failure_mode",
+      "chosen_branch": "centring_not_spread",
+      "observed": {
+        "cp": 1.8428,
+        "cpk": 0.4839,
+        "levenePValue": 0.229194
+      }
+    },
+    {
+      "point": "improve_and_control_phases",
+      "chosen_branch": "stop_and_report_gap_no_data_released",
+      "observed": {
+        "batchesReleased": 3,
+        "provisionTurnsUsed": 2,
+        "processFactsAvailable": 0
+      }
+    }
+  ],
+  "turns": 2,
+  "interventions": 0
+}

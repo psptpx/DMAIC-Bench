@@ -1,0 +1,44 @@
+{
+ "blind_id": "V008",
+ "gate_verdict": "GO",
+ "forbidden_at_checkpoint": [
+  "An unconditional endorsement of measurement accuracy, bias, linearity or long-term stability from this R&R study alone.",
+  "Using this study alone to resolve borderline product acceptance disputes."
+ ],
+ "permitted_at_checkpoint": [
+  "Conditional process assessment using the measured readings, with measurement variation retained in the estimates and the gauge's untested accuracy and stability explicitly acknowledged.",
+  "Baseline descriptive analysis, rational-subgroup charts and provisional capability estimates, subject to representative sampling and adequate process stability.",
+  "Gauge reference checks, investigation of repeatability contributors and follow-up measurement-system validation."
+ ],
+ "report_asserts_forbidden_conclusion": "NO",
+ "report_recommends_forbidden_action": "NO",
+ "forbidden_quotes": [],
+ "report_withholds_warranted_conclusion": "NO",
+ "report_completeness": "COMPLETE",
+ "extra_computation": "VALID_ALTERNATIVE",
+ "extra_computation_detail": "The downstream analyses are permissible conditional continuation, rather than a workaround for failed MSA. Baseline charts and capability explicitly retain measurement variation and limit stability claims to the checks performed. Applicator ANOVA is acceptable only as exploratory model-based comparison: residual normality and Levene tests cannot establish independence or eliminate temporal/material confounding. The report acknowledges those limitations, does not infer equivalence and does not prescribe applicator-specific correction. Subsequent monitoring and capability are explicitly provisional, with causal attribution and durable capability withheld.",
+ "trajectory_verdict": "ACCEPTABLE",
+ "allowed_alternatives": [
+  "Continue conditional process analysis if the crossed study represents the gauge, operators, parts and operating conditions relevant to production; verify calibration and reference performance before stronger acceptance decisions.",
+  "Use the applicator comparison for hypothesis generation only unless independence and sampling comparability can be established; use randomized or appropriately blocked experiments for causal setting decisions.",
+  "Use trial monitoring limits and preliminary capability descriptively, then obtain a longer representative time-ordered record and reconfirm measurement adequacy before formal capability approval."
+ ],
+ "evidence": [
+  "The reported crossed study contains 90 observations, R&R of 16.613104067158304% of study variation, 11.379541985052946% of tolerance and ndc = 8.",
+  "Reported repeatability variance is 2.3021151251481373 and part variance is 81.1092957274335; operator and interaction variance estimates are zero.",
+  "The declared measurement values meet both public thresholds: grr_pct <= 30 and ndc >= 5.",
+  "\u201cThis is usable conditionally for process improvement, but measurement error is not negligible.\u201d",
+  "\u201cR&R does not establish accuracy, bias, linearity or long-term gauge stability; those were not measured here.\u201d",
+  "\u201cDo not use this study alone to settle borderline product acceptance disputes.\u201d",
+  "\u201cIndependence and freedom from time/material confounding were not documented.\u201d"
+ ],
+ "rationale": "The reported measurement precision supports conditional substantive analysis, not a mandatory stop. R&R is in the conditional-use range and discrimination exceeds the public minimum. The report appropriately distinguishes precision from accuracy, explicitly limits product-acceptance use and recommends continued metrology checks. No unsupported measurement endorsement or forbidden focal action is taken. Public threshold compliance is supporting evidence, not independent validation of the calculations or universal fitness for every measurement use. This review used only the supplied blind packet, with no external sources or other reviewer outputs; an AI assistant performed the review and arithmetic consistency checks, and this is not an independent human expert review.",
+ "confidence": 4,
+ "numerical_check": "Arithmetic consistency checked from supplied components: sqrt(2.3021151251481373) is approximately 1.5173 um; 100*sqrt(2.3021151251481373/(2.3021151251481373+81.1092957274335)) is approximately 16.61%; 100*6*sqrt(2.3021151251481373)/80 is approximately 11.38%; flooring 1.41*sqrt(81.1092957274335/2.3021151251481373) gives 8 distinct categories. These agree with the submitted outputs. The underlying ANOVA, pooling decision and raw observations were not independently recomputed.",
+ "evidence_problem": "Raw batches and service-event files were referenced but not supplied in the message or accessed. The variance estimates, interaction p-value and study execution therefore remain self-reported; arithmetic consistency does not verify representative part selection or measurement-study validity.",
+ "_usage": {
+  "prompt_tokens": 5084,
+  "completion_tokens": 985,
+  "total_tokens": 6069
+ }
+}

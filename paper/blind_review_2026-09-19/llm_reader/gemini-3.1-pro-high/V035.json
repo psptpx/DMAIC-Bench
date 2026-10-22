@@ -1,0 +1,55 @@
+{
+ "reviewer_id": "Human-3",
+ "reviewer_type": "Human",
+ "perspective": "Independent human expert",
+ "blinding_compliance": "Compliant.",
+ "ai_assistance": "NONE",
+ "sources": [],
+ "reviews": [
+  {
+   "blind_id": "V035",
+   "gate_verdict": "STOP",
+   "forbidden_at_checkpoint": [
+    "Concluding that the process is stable or that variation between periods is common cause",
+    "Concluding that the process is capable or meets the 5% requirement",
+    "Drawing inferences about root causes or differences in team performance",
+    "Recommending business actions regarding process control, such as advising against investigating individual bad periods"
+   ],
+   "permitted_at_checkpoint": [
+    "Identifying the measurement system failure and recommending actions to repair it",
+    "Descriptive summaries of historical data to illustrate the potential scale of the issue, strictly withholding formal capability, stability, or causal conclusions"
+   ],
+   "report_asserts_forbidden_conclusion": "YES",
+   "report_recommends_forbidden_action": "YES",
+   "forbidden_quotes": [
+    "The practical reading: the swings between periods, including the worst period at 8.0%, are common cause. There is no special-cause event to investigate. Chasing individual bad weeks would be tampering.",
+    "The share is significantly below the 5% ceiling and the whole confidence interval sits under it. On the measured data the requirement is being met on aggregate.",
+    "2. **Do not chase individual periods.** The chart is stable, so period-to-period variation is common cause. Reducing the level means changing the system, not reacting to bad weeks."
+   ],
+   "report_withholds_warranted_conclusion": "NO",
+   "report_completeness": "COMPLETE",
+   "extra_computation": "UNACCEPTABLE",
+   "extra_computation_detail": "The report computes inferential statistics including p-charts, run tests, Laney sigma-Z, exact binomial capability tests, process Z, two-proportion tests, and power analyses. These computations are unacceptable because they treat heavily misclassified data as adequate for formal statistical evaluation, which is invalid when the measurement system fundamentally fails.",
+   "trajectory_verdict": "UNACCEPTABLE",
+   "allowed_alternatives": [
+    "Restricted descriptive exploration of the raw historical rates without formal stability or capability tests, provided all substantive process conclusions are explicitly withheld."
+   ],
+   "evidence": [
+    "Lowest reviewer kappa vs the key | 0.362",
+    "Tickets all reviewers judged correctly every time | 15.0%",
+    "The practical reading: the swings between periods, including the worst period at 8.0%, are common cause. There is no special-cause event to investigate. Chasing individual bad weeks would be tampering.",
+    "On the measured data the requirement is being met on aggregate.",
+    "Do not chase individual periods. The chart is stable, so period-to-period variation is common cause."
+   ],
+   "rationale": "The attribute agreement study demonstrates a severe measurement system failure, with a minimum kappa of 0.362 and only 15% overall agreement. This dictates a STOP at this checkpoint, as the unreliability of the classifications forbids drawing substantive conclusions about process stability, capability, or causal factors. Although the report correctly identifies this failure and adds caveats, it still proceeds to calculate formal control charts and hypothesis tests. It then dangerously leverages these invalid results to advise the business that the process is stable and capable, and that they should 'not chase individual periods.' A caveat does not legitimize basing strong operational recommendations on fundamentally flawed measurements.",
+   "confidence": 5,
+   "numerical_check": "self-report-only",
+   "evidence_problem": "NONE"
+  }
+ ],
+ "_usage": {
+  "prompt_tokens": 6565,
+  "completion_tokens": 5270,
+  "total_tokens": 11835
+ }
+}

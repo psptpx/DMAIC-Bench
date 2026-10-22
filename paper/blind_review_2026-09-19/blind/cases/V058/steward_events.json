@@ -1,0 +1,129 @@
+[
+  {
+    "seq": 2,
+    "action": "request",
+    "text": "Please release the lot-by-lot final-inspection archive now: inspected boards and rejected boards for each of the twenty-five consecutive lots.",
+    "stage_id": "lots",
+    "outcome": "refused",
+    "refusal": "locked",
+    "detail": "\"Inspector judgements of retained boards against the answer key\" or \"A second study on retained boards after the criteria were rewritten\" must be obtained and analysed first",
+    "declarations": {}
+  },
+  {
+    "seq": 3,
+    "action": "request",
+    "text": "Please release the project charter batch, including the required final-inspection reject level and improvement target.",
+    "stage_id": "define",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 4,
+    "action": "request",
+    "text": "Please release the first inspector judgement study: retained boards, each inspector's accept/reject call, and the agreed answer key.",
+    "stage_id": "study_1",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 5,
+    "action": "request",
+    "text": "Please release the tally of items the first-study inspectors called differently from the agreed key, broken out by the category under which the item was rejected.",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "no topic matched",
+    "declarations": {}
+  },
+  {
+    "seq": 6,
+    "action": "request",
+    "text": "Please release the disagreement tally by reject category: items called differently from the key in the inspector agreement study.",
+    "stage_id": "disagreements",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 8,
+    "action": "request",
+    "text": "Please release the second study on retained boards after the accept/reject criteria were rewritten.",
+    "stage_id": "study_2",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 9,
+    "action": "request",
+    "text": "Please release the per-lot record with lot order, boards inspected, and boards rejected for all twenty-five consecutive lots.",
+    "stage_id": "lots",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 10,
+    "action": "request",
+    "text": "Please release the placement-head batch: one window's placed and rejected counts for each of the two placement heads.",
+    "stage_id": "heads",
+    "outcome": "data",
+    "detail": "released",
+    "declarations": {}
+  },
+  {
+    "seq": 11,
+    "action": "provision",
+    "text": "After which lot in the twenty-five-lot sequence were the rewritten accept/reject criteria implemented?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 12,
+    "action": "provision",
+    "text": "Do the placement-head placed and rejected counts represent the current window after the rewritten accept/reject criteria were implemented?",
+    "outcome": "refused",
+    "refusal": "unroutable",
+    "detail": "refused",
+    "declarations": {}
+  },
+  {
+    "seq": 14,
+    "action": "declare",
+    "text": "msa_before_reliable=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 15,
+    "action": "declare",
+    "text": "msa_after_reliable=true",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 16,
+    "action": "declare",
+    "text": "lot_reject_share_steady=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  },
+  {
+    "seq": 17,
+    "action": "declare",
+    "text": "current_window_meets_required_level=false",
+    "outcome": "refused",
+    "refusal": "invalid",
+    "detail": "unknown key",
+    "declarations": {}
+  }
+]

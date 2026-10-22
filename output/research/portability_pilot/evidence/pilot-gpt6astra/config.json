@@ -1,0 +1,41 @@
+{
+    "job_name": "pilot-gpt6astra",
+    "jobs_dir": "harbor/jobs",
+    "n_attempts": 3,
+    "timeout_multiplier": 2.0,
+    "retry": {
+        "max_retries": 1,
+        "wait_multiplier": 2.0,
+        "min_wait_sec": 5.0,
+        "max_wait_sec": 120.0
+    },
+    "metrics": [
+        {}
+    ],
+    "agents": [
+        {
+            "name": "terminus-2",
+            "model_name": "openai/gpt-6-astra",
+            "n_concurrent": 4
+        }
+    ],
+    "datasets": [
+        {
+            "path": "harbor/datasets/portability-pilot"
+        }
+    ],
+    "artifacts": [
+        {
+            "source": "/workspace/trace.json",
+            "destination": "trace.json"
+        },
+        {
+            "source": "/workspace/report.md",
+            "destination": "report.md"
+        },
+        {
+            "source": "/workspace/.steward/audit.jsonl",
+            "destination": "steward-audit.jsonl"
+        }
+    ]
+}

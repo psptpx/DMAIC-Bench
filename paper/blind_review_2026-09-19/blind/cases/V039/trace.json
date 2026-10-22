@@ -1,0 +1,264 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "inputs_digest": {
+        "source_batch": "msa",
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "tolerance": 1.2000000000000002
+      },
+      "method_id": "msa.gage_rr_crossed",
+      "outputs": {
+        "percentStudyVariation": 7.939866871289401,
+        "percentTolerance": 10.336705592706371,
+        "ndc": 17,
+        "numOperators": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "tolerance": 1.2000000000000002,
+        "operatorPValue": 0.801353966540521,
+        "partPValue": 1.2020890590713281e-14,
+        "interactionPValue": 0.16854636895231834,
+        "repeatability": 0.0032586427777777775,
+        "operatorVariance": 0.0,
+        "interactionVariance": 0.00042738993004114867,
+        "partVariance": 0.0673676380123457,
+        "grrVariance": 0.00042738993004114867,
+        "totalVariance": 0.06779502794238686
+      },
+      "status": "success",
+      "decision": "MSA adequate for these process conclusions: study variation and distinct categories are strong, while percent tolerance is borderline."
+    },
+    {
+      "step_id": 2,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n": 50,
+        "lsl": 0.4,
+        "usl": 1.6,
+        "target": 1.0
+      },
+      "method_id": "basic.descriptive_summary",
+      "outputs": {
+        "n": 50,
+        "mean": 0.9538600000000002,
+        "median": 0.923,
+        "stdDev": 0.13092294197234447,
+        "skewness": 0.6509145742734772,
+        "adPValue": 0.004178560660892869,
+        "minimum": 0.781,
+        "maximum": 1.257,
+        "kurtosis": -0.5960342786102881,
+        "target": 1.0,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "status": "success",
+      "decision": "Run mean is below target; distribution is right-skewed."
+    },
+    {
+      "step_id": 3,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n": 50
+      },
+      "method_id": "basic.normality",
+      "outputs": {
+        "pValue": 0.004178560660892869,
+        "statistic": 1.1720906945656182,
+        "shapiroPValue": 0.0038851385893799105,
+        "shapiroStatistic": 0.9259192612057506,
+        "dagostinoPValue": 0.09482655694545934,
+        "dagostinoStatistic": 4.711411544793203,
+        "skewness": 0.6509145742734772,
+        "kurtosis": -0.5960342786102881
+      },
+      "status": "success",
+      "decision": "Normality is doubtful; capability should be interpreted with caution and checked with a non-normal method."
+    },
+    {
+      "step_id": 4,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n": 50,
+        "target": 1.0
+      },
+      "method_id": "basic.one_sample_t",
+      "outputs": {
+        "pValue": 0.016134736758490514,
+        "tStatistic": -2.4919931062073855,
+        "mean": 0.9538600000000002,
+        "target": 1.0,
+        "meanDifferenceFromTarget": -0.04613999999999985,
+        "n": 50
+      },
+      "status": "success",
+      "decision": "Process mean is statistically below target 1.00 um Ra."
+    },
+    {
+      "step_id": 5,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n": 50
+      },
+      "method_id": "control_chart.imr",
+      "outputs": {
+        "individualsUCL": 1.352090568823274,
+        "individualsLCL": 0.5556294311767263,
+        "centerLine": 0.9538600000000002,
+        "flaggedCount": 0,
+        "individualsFlaggedCount": 0,
+        "movingRangeFlaggedCount": 0,
+        "movingRangeUCL": 0.4891832448979591,
+        "movingRangeMean": 0.149734693877551,
+        "sigmaWithin": 0.13274352294109132
+      },
+      "status": "success",
+      "decision": "No out-of-control signals on individuals or moving-range charts."
+    },
+    {
+      "step_id": 6,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n": 50,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "method_id": "capability.normal",
+      "outputs": {
+        "cp": 1.5066648493934853,
+        "cpk": 1.3908023224751265,
+        "pp": 1.5276161457038373,
+        "ppk": 1.4101424640992124,
+        "belowLSL": 0,
+        "aboveUSL": 0,
+        "outOfSpecCount": 0,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "status": "success",
+      "decision": "Normal capability indices exceed 1.33 and no sample values are outside the accepted band."
+    },
+    {
+      "step_id": 7,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n": 50,
+        "lsl": 0.4,
+        "usl": 1.6
+      },
+      "method_id": "capability.nonnormal",
+      "outputs": {
+        "ppk": 0.8839907727011925,
+        "pp": 3.3359654870972237,
+        "boxcoxLambda": -1.9790791255135078
+      },
+      "status": "success",
+      "decision": "Box-Cox non-normal check gives a lower Ppk, so the normal capability estimate should not be used alone."
+    },
+    {
+      "step_id": 8,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n": 50,
+        "x": "finishing_order_index"
+      },
+      "method_id": "basic.correlation",
+      "outputs": {
+        "correlationCoefficient": 0.24896500643361658,
+        "pValue": 0.08124791379722722,
+        "n": 50
+      },
+      "status": "success",
+      "decision": "No statistically significant linear trend over finishing order."
+    },
+    {
+      "step_id": 9,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n": 50,
+        "reference": "median"
+      },
+      "method_id": "nonparametric.runs_test",
+      "outputs": {
+        "pValue": 0.7659390251740814,
+        "runsCount": 27,
+        "runsExpected": 25.96,
+        "runsZ": 0.29769098423092366,
+        "n": 50
+      },
+      "status": "success",
+      "decision": "No evidence of non-random runs around the median."
+    },
+    {
+      "step_id": 10,
+      "inputs_digest": {
+        "source_batch": "process_run",
+        "n1": 25,
+        "n2": 25,
+        "split": "first 25 vs last 25"
+      },
+      "method_id": "basic.two_sample_t",
+      "outputs": {
+        "pValue": 0.19604756718705715,
+        "tStatistic": -1.3111423744130124,
+        "mean1": 0.92976,
+        "mean2": 0.9779599999999999,
+        "n1": 25,
+        "n2": 25
+      },
+      "status": "success",
+      "decision": "No significant shift between first and second halves of the run."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "msa_adequacy",
+      "chosen_branch": "measurement_system_adequate",
+      "observed": {
+        "percentStudyVariation": 7.939866871289401,
+        "percentTolerance": 10.336705592706371,
+        "ndc": 17
+      }
+    },
+    {
+      "point": "process_stability",
+      "chosen_branch": "stable_no_special_causes",
+      "observed": {
+        "individualsFlaggedCount": 0,
+        "movingRangeFlaggedCount": 0,
+        "runsPValue": 0.7659390251740814
+      }
+    },
+    {
+      "point": "distribution_assumption",
+      "chosen_branch": "nonnormal_caution",
+      "observed": {
+        "adPValue": 0.004178560660892869,
+        "skewness": 0.6509145742734772,
+        "dagostinoPValue": 0.09482655694545934
+      }
+    },
+    {
+      "point": "target_centering",
+      "chosen_branch": "raise_mean_toward_target",
+      "observed": {
+        "mean": 0.9538600000000002,
+        "target": 1.0,
+        "oneSampleTPValue": 0.016134736758490514
+      }
+    },
+    {
+      "point": "process_change_history",
+      "chosen_branch": "unavailable",
+      "observed": {
+        "steward_request": "refused",
+        "refusal": "unroutable"
+      }
+    }
+  ],
+  "turns": 1,
+  "interventions": 1
+}

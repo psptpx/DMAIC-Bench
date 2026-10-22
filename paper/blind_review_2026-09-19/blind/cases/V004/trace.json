@@ -1,0 +1,211 @@
+{
+  "steps": [
+    {
+      "step_id": 1,
+      "method_id": "meta.data_profiling",
+      "inputs_digest": {
+        "stage_id": "msa",
+        "sampleSize": 90,
+        "numGroups": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "lsl": 350.0,
+        "usl": 550.0,
+        "tolerance": 200.0
+      },
+      "outputs": {},
+      "status": "success",
+      "decision": "Two batches released: charter (LSL 350, USL 550 cd/m2, tolerance 200) and the crossed repeat-reading study, 3 operators x 10 parts x 3 replicates = 90 readings. No per-unit run data released."
+    },
+    {
+      "step_id": 2,
+      "method_id": "msa.gage_rr_crossed",
+      "inputs_digest": {
+        "stage_id": "msa",
+        "sampleSize": 90,
+        "numGroups": 3,
+        "numParts": 10,
+        "numReplicates": 3,
+        "tolerance": 200.0,
+        "design": "crossed"
+      },
+      "outputs": {
+        "percentStudyVariation": 52.049155572265235,
+        "percentTolerance": 69.11444436958877,
+        "ndc": 2.3131061361356555,
+        "pctContributionGRR": 27.09114595785869,
+        "pctStudyRepeat": 39.317597392803314,
+        "pctStudyRepro": 34.10632098370176,
+        "sdGRR": 23.038148123196255,
+        "sdRepeat": 17.402868934654958,
+        "sdRepro": 15.096238663639115,
+        "sdPart": 37.794100559551346,
+        "sdTotal": 44.26228988712412,
+        "totalVariance": 1959.1503060518103,
+        "interactionPValue": 0.14600281018775285,
+        "operatorPValue": 0.00025218412759231423,
+        "partPValue": 4.264609554383014e-09,
+        "percentStudyVariationPooledModel": 51.52728604714599,
+        "percentTolerancePooledModel": 68.4414252151014,
+        "ndcPooledModel": 2.3451786645161508,
+        "acceptable": false
+      },
+      "status": "success",
+      "decision": "FAIL. %study variation 52.05% and %tolerance 69.11% are far above the 30% acceptance limit; ndc 2.31 is below the minimum of 5. Verdict is robust to the pooling choice (51.53% / 68.44% / 2.35 with the interaction pooled). The measurement system cannot distinguish product variation from its own noise."
+    },
+    {
+      "step_id": 3,
+      "method_id": "anova.oneway",
+      "inputs_digest": {
+        "stage_id": "msa",
+        "sampleSize": 90,
+        "numGroups": 3,
+        "factor": "operator"
+      },
+      "outputs": {
+        "fStatistic": 3.5456246697887863,
+        "factorPValue": 0.033089923371580406,
+        "biasOperator1": -16.13840444444446,
+        "biasOperator2": 9.662518888888826,
+        "biasOperator3": 6.475885555555465
+      },
+      "status": "success",
+      "decision": "Operator bias is real (p=0.033): operator1 reads 16.14 cd/m2 low, operator2 9.66 high, operator3 6.48 high against the study mean. This is the reproducibility half of the gage failure and it has a named owner."
+    },
+    {
+      "step_id": 4,
+      "method_id": "anova.equal_variances",
+      "inputs_digest": {
+        "stage_id": "msa",
+        "sampleSize": 90,
+        "numGroups": 3,
+        "test": "Levene, median-centred"
+      },
+      "outputs": {
+        "statistic": 1.448701490981333,
+        "pValue": 0.2404842565238669,
+        "repeatSDOperator1": 17.119329914874974,
+        "repeatSDOperator2": 19.400598406105924,
+        "repeatSDOperator3": 15.463662768600463
+      },
+      "status": "success",
+      "decision": "No evidence the three operators differ in spread (p=0.240; within-cell SDs 17.12 / 19.40 / 15.46). Repeatability is uniformly poor rather than driven by one operator, so it points at the method or gage, not at retraining one person."
+    },
+    {
+      "step_id": 5,
+      "method_id": "basic.descriptive_summary",
+      "inputs_digest": {
+        "stage_id": "msa",
+        "sampleSize": 90,
+        "note": "study readings only; NOT a production sample"
+      },
+      "outputs": {
+        "mean": 456.18245111111116,
+        "median": 457.69960000000003,
+        "stdDev": 42.07160018715885,
+        "skewness": -0.05557218746136127,
+        "adPValue": 0.31992852776584063,
+        "min": 368.4613,
+        "max": 550.6283
+      },
+      "status": "success",
+      "decision": "The 90 study readings average 456.18 cd/m2 inside the 350-550 range. These are 10 repeatedly-measured study parts, not a production sample, so this is not an estimate of where the line sits."
+    },
+    {
+      "step_id": 6,
+      "method_id": "basic.normality",
+      "inputs_digest": {
+        "stage_id": "msa",
+        "sampleSize": 90,
+        "test": "Anderson-Darling and Shapiro-Wilk"
+      },
+      "outputs": {
+        "statistic": 0.4062741656442057,
+        "pValue": 0.31992852776584063,
+        "shapiroStatistic": 0.9833299674342065,
+        "shapiroPValue": 0.30456380572535724
+      },
+      "status": "success",
+      "decision": "Normality is not rejected (AD p=0.320, Shapiro-Wilk p=0.305), so non-normality is not the explanation for the gage failing acceptance."
+    },
+    {
+      "step_id": 7,
+      "method_id": "control_chart.imr",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 0,
+        "refusal": "locked",
+        "gate": "msa_pass"
+      },
+      "outputs": {},
+      "status": "refused",
+      "decision": "Not run. The per-unit end-of-line record was never released: the steward holds it behind grr_pct <= 30 (AIAG MSA-4 Ch. II Sec. D) and the computed value is 52.05. No numbers are reported for how the line behaved over the run."
+    },
+    {
+      "step_id": 8,
+      "method_id": "capability.normal",
+      "inputs_digest": {
+        "stage_id": "process_run",
+        "sampleSize": 0,
+        "lsl": 350.0,
+        "usl": 550.0,
+        "refusal": "locked",
+        "gate": "msa_pass"
+      },
+      "outputs": {},
+      "status": "refused",
+      "decision": "Not run. Capability against 350-550 cd/m2 needs the per-unit record, which is locked behind the same gate. No Cp/Cpk/Pp/Ppk is reported. Even with the data, a gage consuming 69.11% of tolerance could not support a capability number."
+    }
+  ],
+  "route_decisions": [
+    {
+      "point": "grr_model_interaction_pooling",
+      "chosen_branch": "retain_part_x_operator_interaction",
+      "observed": {
+        "interactionPValue": 0.14600281018775285,
+        "threshold": 0.25,
+        "percentStudyVariationRetained": 52.049155572265235,
+        "percentStudyVariationPooled": 51.52728604714599
+      }
+    },
+    {
+      "point": "msa_acceptance",
+      "chosen_branch": "measurement_system_rejected",
+      "observed": {
+        "percentStudyVariation": 52.049155572265235,
+        "percentTolerance": 69.11444436958877,
+        "ndc": 2.3131061361356555,
+        "acceptanceLimitPct": 30.0
+      }
+    },
+    {
+      "point": "declare_grr_pct_to_gate",
+      "chosen_branch": "declare_computed_value_52.05_and_accept_lock",
+      "observed": {
+        "declared": 52.05,
+        "gateThreshold": 30.0,
+        "stageLocked": true
+      }
+    },
+    {
+      "point": "downstream_run_and_capability",
+      "chosen_branch": "report_gap_no_estimates",
+      "observed": {
+        "stagesReleased": 2,
+        "processRunReleased": false
+      }
+    },
+    {
+      "point": "gage_failure_root_cause",
+      "chosen_branch": "both_bias_and_repeatability_method_led",
+      "observed": {
+        "operatorFactorPValue": 0.033089923371580406,
+        "equalVariancePValue": 0.2404842565238669,
+        "pctStudyRepeat": 39.317597392803314,
+        "pctStudyRepro": 34.10632098370176
+      }
+    }
+  ],
+  "turns": 3,
+  "interventions": 3
+}
