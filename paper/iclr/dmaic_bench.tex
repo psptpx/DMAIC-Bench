@@ -56,6 +56,10 @@
 
 \title{DMAIC-Bench: From Self-Reflection\\ to Self-Restraint for Agents in\\ Multi-Stage Analytical Tasks}
 
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}{\vskip 0.3in minus 0.1in}{\vskip 0.12in minus 0.04in}{}{\PackageError{preprint}{Unexpected title layout}{Check the conference title macro.}}
+\makeatother
 \input{authors}
 
 \iclrfinalcopy
