@@ -53,13 +53,11 @@ dmaic_bench/cases/legacy_bridge.py
 
 # ---------------------------------------------------------------- OS
 .DS_Store
-paper/iclr/*.pdf
-paper/iclr/*.log
-paper/iclr/*.blg
-paper/iclr/*.aux
-paper/iclr/*.bbl
-paper/iclr/*.xdv
-# author identity: camera-ready only
+# Publication source/PDFs live outside this code repository. Analysis scripts may
+# recreate this ignored directory as a local output target.
+/paper/iclr/
+/output/pdf/dmaic_bench*.pdf
+# Local publication metadata
 paper/authors.yaml
 paper/iclr/authors.tex
 paper/openreview_note.json

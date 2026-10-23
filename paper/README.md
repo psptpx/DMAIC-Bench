@@ -1,17 +1,23 @@
-# Paper and supporting evidence
+# Paper reference and supporting evidence
 
-The preprint source is `iclr/dmaic_bench.tex`. The directory name reflects the
-manuscript's conference template. Its public version identifies the authors and
-uses a preprint header rather than claiming conference acceptance.
+The paper reference is recorded in [Publication status](../docs/PUBLICATION.md).
+Its public arXiv link will be added after announcement. The manuscript's LaTeX
+sources and compiled PDF are distributed separately from this code repository.
 
-The paper manuscript and its figures are research publications, separate from
-the AGPL-3.0-only software and CC BY 4.0 benchmark corpus. Copyright in the paper
-remains with its authors. Its arXiv license and identifier will be recorded once
-the authors complete the arXiv submission. No conference acceptance or arXiv
-publication is claimed by this repository.
+The two directories below contain expert-review evidence, rather than the
+manuscript source. They are retained for inspection and reproducibility:
 
-The expert review packages and the life-sciences evidence are included at the
-paths described in the main README. The main industrial campaigns' raw job
-archive is not included in this release; checked-in tables and numerical macros
-are retained, and the analysis scripts require those original job artifacts to
-recompute the main campaign results.
+- `blind_review_2026-09-18/`: first expert review study.
+- `blind_review_2026-09-19/`: second expert review study.
+
+The [exploratory propagation audit](propagation_audit/) retains selected evidence
+and result-lineage annotations previously stored with the manuscript. This is a
+single Codex-assisted annotation pass, not new independent human adjudication.
+The four audit files have been relocated without changing their contents.
+
+The life-sciences per-trial evidence is in
+`output/research/portability_pilot/`. The main industrial campaigns' raw job
+archive is not included; see [Reproducing results](../docs/REPRODUCING_RESULTS.md).
+
+Some analysis scripts still use the historical `paper/iclr/` path as a local
+output target. That directory is Git-ignored and is not part of the public tree.

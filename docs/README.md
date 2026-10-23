@@ -1,5 +1,12 @@
 # Documentation index
 
+[English README](../README.md) | [Chinese README](../README.zh-CN.md)
+
+[Publication status](PUBLICATION.md) records the arXiv paper link when available;
+[Reproducing results](REPRODUCING_RESULTS.md) lists the required inputs.
+Historical `paper/iclr/*.tex` references below denote paper tables or local
+analysis outputs, which are distributed separately from the public code tree.
+
 One line per file. The measured corpus is v2 (`adb_c25` to `adb_c39`, 15 cases, 97 tasks); every result file below is on that corpus unless its line says otherwise.
 
 ## Benchmark design

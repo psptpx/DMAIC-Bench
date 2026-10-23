@@ -1,5 +1,9 @@
 # Limitations
 
+Paper-table references below describe the separately distributed manuscript;
+they are not files bundled in this code repository. See [Publication](PUBLICATION.md)
+and [Reproducing results](REPRODUCING_RESULTS.md).
+
 What this benchmark and the measurements in this repository cannot support. Every item is a
 limit of the current corpus (v2, `adb_c25` to `adb_c39`, 15 cases, 97 tasks) and of the
 campaigns run on it: 13 systems from six providers, three complete attempts per task under the

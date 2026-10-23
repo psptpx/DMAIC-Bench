@@ -107,3 +107,11 @@ routes, decisions, numerical results, task IDs, and experiment-condition identif
 Original blinded-review protocols, annotations, transcripts, and audit records retain
 their recorded labels. Analysis readers normalize both legacy `STOP` and `NO-GO`
 labels to `NO-GO`; those source records must not be rewritten just for presentation.
+
+## Translated documentation
+
+`README.zh-CN.md` is a Chinese translation of the release documentation. It is
+the sole current-file exception in `tools/check_english_sources.py`; its UTF-8
+encoding is still checked. The English README links to it using an English
+label. This does not change the language or validation contract of task
+instructions, generators, CLI strings, scoring or experimental inputs.

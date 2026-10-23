@@ -1,7 +1,9 @@
 # DMAIC-Bench
 
+**English** | [Chinese](README.zh-CN.md)
+
 [Code repository](https://github.com/psptpx/DMAIC-Bench-public) ·
-[Paper source](paper/iclr/dmaic_bench.tex) · [Citation metadata](CITATION.cff)
+[Paper / arXiv status](docs/PUBLICATION.md) · [Citation metadata](CITATION.cff)
 
 From self-reflection to self-restraint for agents in multi-stage analytical
 tasks. A benchmark of 97 tasks over 15 industrial improvement projects, with a
@@ -41,17 +43,17 @@ Contents of this file: [Quick start](#quick-start), [The self-restraint gap](#th
 [How to obtain the run evidence](#how-to-obtain-the-run-evidence), [Contents](#contents),
 [What this repository is not](#what-this-repository-is-not), [Citation](#citation), [Licence](#licence).
 
-The authoritative manuscript is `paper/iclr/dmaic_bench.tex`. `paper/iclr/numbers.tex` and
-every `paper/iclr/tab_*.tex` file are checked in. `scripts/restraint_analysis.py` writes
-`numbers.tex` and the result tables; `scripts/fig_breakdown.py`, `scripts/fig_study2.py`,
-`scripts/control_replicated.py`, `scripts/lockability.py` and `scripts/reward_sensitivity.py`
-write the remaining figures and macro files. These scripts read the per-trial run artifacts
-under `harbor/jobs/`, which are not included in this release
-(see [How to obtain the run evidence](#how-to-obtain-the-run-evidence)). Those scripts
-require the original run archive to regenerate the checked-in files. The per-trial
-evidence of the life-sciences extension is in the tree (`output/research/portability_pilot/`).
-The current summary is `docs/RESULT_RESTRAINT.md` and `docs/result_restraint.json`. Every
-number below is taken from those files.
+The paper has been submitted to arXiv and is undergoing technical and moderation
+checks. Its public arXiv link will be added after announcement; see
+[publication status](docs/PUBLICATION.md). This code repository distributes the
+benchmark, analysis scripts, numerical summaries and supporting evidence.
+The manuscript source and compiled paper PDF are distributed separately.
+
+The result summaries are in `docs/RESULT_RESTRAINT.md`, `docs/result_restraint.json`,
+`docs/RESULT_PASSK.md` and `docs/RESULT_PORTABILITY_PILOT.md`. Recomputing the main
+industrial campaign results requires the original per-trial archive, which is
+not included in this release. The expert review packages and life-sciences
+per-trial evidence are included. See [reproduction inputs and outputs](docs/REPRODUCING_RESULTS.md).
 
 ## Quick start
 
@@ -65,7 +67,8 @@ pytest harbor/tests -q            # Harbor suite, including the public-image hyg
 # build the task directories: 97 tasks plus the 12 honesty probes
 python -m dmaic_harbor.build --v2 --with-faults --out harbor/datasets/dmaic-bench
 
-# regenerate the paper's macro and table files (needs the run archive unpacked under harbor/jobs/)
+# regenerate results after unpacking the original run archive under harbor/jobs/
+mkdir -p paper/iclr/figures  # ignored local output directory
 python scripts/rescore.py harbor/jobs/<job> [<job> ...] --dataset harbor/datasets/dmaic-bench-r3 --apply
 python scripts/restraint_analysis.py --tex paper/iclr/numbers.tex --md docs/RESULT_RESTRAINT.md
 ```
@@ -75,6 +78,8 @@ Run the test suites under the pinned versions. The pins are part of the benchmar
 `tests/test_english_release_contract.py` fingerprints the generated data and truths, so it is
 not expected to pass under other numpy or scipy versions. Running a campaign needs container
 tooling and a provider credential; see [Running it](#running-it).
+The [release verification record](docs/RELEASE_VERIFICATION.md) also documents an
+inherited task-contract fixture regression under the pinned environment.
 
 ## The self-restraint gap
 
@@ -161,8 +166,7 @@ mechanisms: for GPT-6-astra the permission and a paraphrase of it both add
 +49 points on no-go decisions while the rule stated without permission adds
 +12 (interval −11 to +44); for DeepSeek-v4-pro the permission adds +0 (−8 to +7)
 and the rule +25 (+11 to +42). Whether the agent stops depends on how the
-instruction is phrased, not on whether it knows the rule. Tables: `paper/iclr/tab_control.tex`,
-`paper/iclr/tab_ctlrep.tex`.
+instruction is phrased, not on whether it knows the rule. See `docs/RESULT_RESTRAINT.md`, `docs/control_pairs_2026-09-19.json` and the paper.
 
 ## What a task is
 
@@ -188,7 +192,7 @@ verifier, from the audit log. A precondition is enforceable only when its truth
 has a public form and the data it forbids sits in a batch the steward still
 holds: of the 46 no-go forks, 31 are cross-batch and 13 are enforced as verdict
 locks. The rest are monitorable but not enforceable, and they are where the
-measured behaviour lives (`docs/STEWARD_REFUSALS.md`, `paper/iclr/tab_locks.tex`).
+measured behaviour lives (see `docs/STEWARD_REFUSALS.md`).
 
 Tiers, derived from the graph structure:
 
@@ -214,7 +218,8 @@ targets taken and not taken. A declaration that contradicts the trace does not
 count. `gate_hard_passed` is an integrity check, zero only if the contestant
 used data the steward denied, and was 1 for every trial. Fabrication is
 reported, not scored. Eight alternative aggregations of the same axes rank the
-systems with Spearman ≥ 0.98 against the reported one (`paper/iclr/tab_sensitivity.tex`).
+systems with Spearman ≥ 0.98 against the reported one; see the paper and
+`scripts/reward_sensitivity.py` for the sensitivity analysis.
 
 Depth: `docs/DATASHEET.md`, `docs/SCORING.md`, `docs/FAILURE_MODES.md`,
 `docs/STEWARD_REFUSALS.md`, `docs/HELD_OUT_V2.md`.
@@ -230,9 +235,7 @@ are right 22/24, 23/24 and 17/24 (GPT-6-astra, GPT-5.6-sol, GPT-5.6-luna), and n
 ten errors come after the agent had reported a diagnostic that implied the stop. On first
 attempts, dropping the stated consequence moves pooled no-go accuracy from 20/24 to 17/24:
 RNA-seq stays 12/12 under both briefs, the unlocked GWAS cohort-structure fork falls from
-4/6 to 0/6. The paper reports this in the cross-domain subsection of the experiments
-(`paper/iclr/tab_cross_domain.tex`) and in full in the portability appendix
-(`paper/iclr/app_portability.tex`, `paper/iclr/tab_portability.tex`). Design and rationale: `docs/PORTABILITY_PILOT.md`; every count:
+4/6 to 0/6. The paper reports this in the cross-domain experiments and portability appendix. Design and rationale: `docs/PORTABILITY_PILOT.md`; every count:
 `docs/RESULT_PORTABILITY_PILOT.md`; per-trial evidence (traces, reports, steward logs,
 scorecards, anonymised) in `output/research/portability_pilot/evidence/`; generated by
 `scripts/pilot_portability_analysis.py` and `scripts/pilot_export_release.py` (the latter carries the identity patterns it scrubs and is withheld from the review copy, like the release script).
@@ -286,18 +289,18 @@ Ranking.
 | Qwen3.8-max | 0.404 ± 0.013 | 29.9% | 0.535 | 0.163 | 0.334 | 1.000 | 0.396 |
 | Qwen3.8-flash | 0.379 ± 0.005 | 26.8% | 0.501 | 0.270 | 0.281 | 1.000 | 0.350 |
 
-Case-clustered bootstrap intervals on adjacent pairs are in
-`paper/iclr/tab_boot.tex`. The leader is at 0.662: no ceiling effect.
+Case-clustered bootstrap intervals on adjacent pairs are reported in the paper
+and can be regenerated with `scripts/matched_bootstrap.py` from the original
+run archive. The leader is at 0.662: no ceiling effect.
 
 Computing and routing dissociate. The ranking by mean reward and the
-ranking by no-go accuracy disagree: GPT-5.6-luna is ninth by reward and first on
+ranking by no-go accuracy disagree: GPT-5.6-luna is eighth by reward and first on
 no-go decisions (25%), with four of the six correct B-divert routes across the
 whole benchmark, and it is also the system with the lowest go accuracy (72%).
 
 Reliability. With three attempts per task, pass^3 and pass@3 diverge most on
 C-stop, and B-divert has almost no run-to-run variance for any system: what a
-system gets wrong there it gets wrong every time. `paper/iclr/tab_passk.tex`,
-`docs/RESULT_PASSK.md`.
+system gets wrong there it gets wrong every time. See `docs/RESULT_PASSK.md`.
 
 ## Held-out split
 
@@ -331,7 +334,7 @@ reaches the verifier only through three declared artifacts.
 
 ```bash
 pip install -e .
-uv tool install harbor                 # 0.22.0
+uv tool install 'harbor==0.22.0'
 python3 -m pip install -e harbor
 ```
 
@@ -371,12 +374,14 @@ in-container verifier writes the integrity and method axes; the route axis is
 recomputed by
 
 ```bash
+mkdir -p paper/iclr/figures  # ignored local output directory
 python scripts/rescore.py harbor/jobs/<job> [<job> ...] --dataset harbor/datasets/dmaic-bench-r3 --apply
 python scripts/restraint_analysis.py --md docs/RESULT_RESTRAINT.md
 ```
 
-which writes `verifier-rescored/` beside each trial and regenerates the paper's
-macro and table files.
+which writes `verifier-rescored/` beside each trial and regenerates result
+summaries and optional local LaTeX assets. These local publication outputs are
+ignored by Git; see `docs/REPRODUCING_RESULTS.md`.
 
 The full procedure, image staging, smoke tests, `k = 3` job configs, provider
 liveness probes, resume semantics, aggregation, and the two environment
@@ -384,7 +389,8 @@ variables that are mandatory and appear in no config, is in
 `harbor/README.md`. The pre-registered design is `docs/EXPERIMENT_PLAN.md`.
 
 The released benchmark uses canonical English case text and builds English tasks by
-default. This repository does not maintain a Chinese-language arm. Some case structures
+default. The English and Chinese READMEs describe the same release; documentation
+translation does not create a Chinese-language evaluation arm. Some case structures
 were informed by Chinese-language project reports; that source provenance is retained
 in the documentation. A future Chinese-language corpus would be a separately versioned
 extension with its own validation and experimental results. See
@@ -406,12 +412,17 @@ not included by that exporter. Given such an archive, unpack it under `harbor/jo
 `scripts/rescore.py` then recomputes every
 verdict from it and the corpus build it names, and `scripts/restraint_analysis.py`,
 `scripts/control_replicated.py`, `scripts/lockability.py`, `scripts/reward_sensitivity.py`,
-`scripts/appendix_case33.py` and `scripts/select_control_pairs.py` regenerate the checked-in
-macro and table files. Without the archive these scripts have nothing to read, and the
-checked-in `paper/iclr/numbers.tex` and `tab_*.tex` files are the outputs of their last run.
+`scripts/appendix_case33.py` and `scripts/select_control_pairs.py` regenerate result
+summaries and local publication assets. Without the archive they cannot recompute the
+main campaign results. The checked-in Markdown and JSON summaries remain available;
+local manuscript-layout tools may additionally require the separately distributed
+arXiv source. See `docs/REPRODUCING_RESULTS.md`.
 The two expert review packages (`paper/blind_review_2026-09-18/`,
 `paper/blind_review_2026-09-19/`) and the per-trial evidence of the life-sciences extension
 (`output/research/portability_pilot/`) are in the tree and need no archive.
+The [exploratory post-fork propagation audit](paper/propagation_audit/)
+is retained separately from the manuscript. It is a single Codex-assisted
+annotation pass and does not constitute new independent human adjudication.
 
 ## Contents
 
@@ -430,8 +441,9 @@ The two expert review packages (`paper/blind_review_2026-09-18/`,
 | `tools/` | the English-source, case-text and release-contract checks and the truth digest used by the tests |
 | `docs/` | indexed by `docs/README.md`: datasheet, scoring, results, held-out split, steward refusals, limitations; retired design and result notes under `docs/archive/` |
 | `output/research/portability_pilot/` | per-trial evidence of the life-sciences extension, with its own README |
-| `paper/iclr/` | the manuscript and every generated macro, table and figure file |
+| `docs/PUBLICATION.md` | paper status and the public arXiv link when available |
 | `paper/blind_review_2026-09-18/`, `paper/blind_review_2026-09-19/` | the two expert review packages, records and synthesis |
+| `paper/propagation_audit/` | exploratory result-lineage annotations and evidence; not a new independent expert review |
 
 ## What this repository is not
 
@@ -475,6 +487,7 @@ Multi-Stage Analytical Tasks*. 2026.
 Author order and affiliations were verified against the OpenReview submission
 and author profiles on 22 October 2026; see [author sources](docs/AUTHORS.md).
 An arXiv identifier will be added once the preprint is announced.
+Jia Li is the corresponding author; contact details are in [Authors](docs/AUTHORS.md).
 
 ## Licence
 
@@ -484,5 +497,5 @@ GNU Affero General Public License, version 3 only
 scoring tools, reproduction scripts and the `dmaic-harbor` integration.
 The generated corpus is licensed separately under
 [CC BY 4.0](LICENSE-DATA).
-The software license does not relicense the paper manuscript or its figures; see
-`paper/README.md` for the publication's license status.
+The paper is separately licensed under CC BY 4.0. See
+[publication details](docs/PUBLICATION.md) and the [author/contact information](docs/AUTHORS.md).

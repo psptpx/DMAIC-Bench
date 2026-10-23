@@ -16,6 +16,9 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVES = ROOT / 'tests/fixtures/historical_source_hashes.json'
 HAN = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]')
+# Human-facing documentation may be translated. This exact path does not exempt
+# task instructions, generators, CLI strings, scoring, or arbitrary Markdown files.
+LOCALIZED_DOCUMENTATION = frozenset({'README.zh-CN.md'})
 
 
 def check():
@@ -49,6 +52,8 @@ def check():
             if path.suffix in {".py", ".md", ".yaml", ".yml", ".json", ".toml",
                                 ".sh", ".j2", ".txt", ".cff", ".tex", ".bib"}:
                 problems.append(f"{name}: text source is not valid UTF-8")
+            continue
+        if name in LOCALIZED_DOCUMENTATION:
             continue
         for n, line in enumerate(text.splitlines(), 1):
             if HAN.search(line):

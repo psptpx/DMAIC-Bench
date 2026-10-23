@@ -36,7 +36,7 @@ These counts do not claim a completely passing full suite.
 ## Available evidence
 
 This repository includes the code, generators, scorer, checked-in result
-tables, two expert review packages and life-sciences per-trial evidence.
+summaries, two expert review packages and life-sciences per-trial evidence.
 The main industrial campaigns' raw job archive is not included. See the
 README's run-evidence section for the resulting reproduction requirements.
 
@@ -53,3 +53,25 @@ built archives contain the declared license files and matching license
 expressions. The relevant public-corpus and packaging-hygiene checks report
 **24 passed, 4 skipped**. This licensing update changes no benchmark runtime
 source, data, truths or scoring behavior.
+
+## Documentation and paper separation, 23 October 2026
+
+The English and Chinese README entry points describe the same English-task
+release. The Chinese README is the only added translation exception in the
+English-source check; task inputs and frozen historical hashes remain checked.
+
+Focused public-corpus, English-source and public-image hygiene checks report
+**25 passed, 4 skipped**. No full-suite rerun is claimed for this documentation
+revision; the inherited contract-fixture regression above remains documented.
+All 100 local Markdown links in the changed documentation resolve.
+
+The current tree contains no manuscript LaTeX, bibliography, style files or
+compiled paper PDF. All 884 expert-review files remain byte-identical. Four
+exploratory propagation-audit files were moved from the manuscript directory to
+`paper/propagation_audit/` without changing their contents. Benchmark runtime,
+generators, scoring, experiment scripts and test files have not changed.
+
+arXiv has acknowledged receipt and is performing technical and moderation
+checks. The public paper identifier and URL remain pending. Code licensing
+remains AGPL-3.0-only; the generated corpus and paper retain their separate
+CC BY 4.0 scopes.
