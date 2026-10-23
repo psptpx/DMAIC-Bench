@@ -2,7 +2,7 @@
 
 [English](README.md) | **简体中文**
 
-[代码仓库](https://github.com/psptpx/DMAIC-Bench-public) ·
+[代码仓库](https://github.com/psptpx/DMAIC-Bench) ·
 [论文与 arXiv 状态](docs/PUBLICATION.md) · [引用信息](CITATION.cff)
 
 **DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks**
@@ -185,7 +185,7 @@ python scripts/restraint_analysis.py --md docs/RESULT_RESTRAINT.md --tex paper/i
   title = {DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks},
   author = {Peng, Shan and Cheng, Shuaiqi and Peng, Miao and Zi, Chenyi and Li, Jia},
   year = {2026},
-  url = {https://github.com/psptpx/DMAIC-Bench-public}
+  url = {https://github.com/psptpx/DMAIC-Bench}
 }
 ```
 

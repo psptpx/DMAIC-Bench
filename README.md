@@ -2,7 +2,7 @@
 
 **English** | [Chinese](README.zh-CN.md)
 
-[Code repository](https://github.com/psptpx/DMAIC-Bench-public) ·
+[Code repository](https://github.com/psptpx/DMAIC-Bench) ·
 [Paper / arXiv status](docs/PUBLICATION.md) · [Citation metadata](CITATION.cff)
 
 From self-reflection to self-restraint for agents in multi-stage analytical
@@ -480,7 +480,7 @@ Multi-Stage Analytical Tasks*. 2026.
   title = {DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks},
   author = {Peng, Shan and Cheng, Shuaiqi and Peng, Miao and Zi, Chenyi and Li, Jia},
   year = {2026},
-  url = {https://github.com/psptpx/DMAIC-Bench-public}
+  url = {https://github.com/psptpx/DMAIC-Bench}
 }
 ```
 
