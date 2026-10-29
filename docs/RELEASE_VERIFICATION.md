@@ -71,7 +71,7 @@ exploratory propagation-audit files were moved from the manuscript directory to
 `paper/propagation_audit/` without changing their contents. Benchmark runtime,
 generators, scoring, experiment scripts and test files have not changed.
 
-arXiv has acknowledged receipt and is performing technical and moderation
-checks. The public paper identifier and URL remain pending. Code licensing
+At the time of this 23 October verification, arXiv had acknowledged receipt;
+the preprint was subsequently announced as [arXiv:2610.32305](https://arxiv.org/abs/2610.32305). Code licensing
 remains AGPL-3.0-only; the generated corpus and paper retain their separate
 CC BY 4.0 scopes.

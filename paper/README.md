@@ -1,7 +1,7 @@
 # Paper reference and supporting evidence
 
 The paper reference is recorded in [Publication status](../docs/PUBLICATION.md).
-Its public arXiv link will be added after announcement. The manuscript's LaTeX
+The paper is available at [arXiv:2610.32305](https://arxiv.org/abs/2610.32305). The manuscript's LaTeX
 sources and compiled PDF are distributed separately from this code repository.
 
 The two directories below contain expert-review evidence, rather than the

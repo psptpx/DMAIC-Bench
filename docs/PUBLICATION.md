@@ -8,15 +8,14 @@ Shan Peng, Shuaiqi Cheng, Miao Peng, Chenyi Zi, and Jia Li. 2026.
 
 ## arXiv
 
-arXiv has received the submission. It is undergoing technical and moderation
-checks. A public arXiv identifier and paper URL are not yet available; they will
-be added here and to both READMEs after announcement. Submission is not the same
-as public announcement or conference acceptance.
+The preprint is publicly available at [arXiv:2610.32305](https://arxiv.org/abs/2610.32305).
+Version 1 was submitted on 23 October 2026. Publication on arXiv does not imply
+conference acceptance.
 
 This repository provides code, benchmark generators, scoring tools, numerical
 summaries and supporting evaluation evidence. The current GitHub tree does not
 include the manuscript's LaTeX sources, style files, bibliography or compiled
-paper PDF. The announced arXiv paper will be the paper reference.
+paper PDF. The arXiv preprint is the paper reference.
 
 ## Authors and contact
 

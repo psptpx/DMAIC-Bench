@@ -48,8 +48,7 @@ Manuscript-layout utilities, notably `check_paper_figures.py` and
 `fig_task_breakdown.py`, additionally read the full manuscript or its figure
 manifest. They require the separately distributed arXiv source project, with
 its files extracted into the expected local layout. They are not benchmark
-runtime dependencies. The public paper link will appear in
-[Publication status](PUBLICATION.md) after announcement.
+runtime dependencies. The public paper link is in [Publication status](PUBLICATION.md).
 
 ## Validation record
 

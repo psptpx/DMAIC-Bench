@@ -3,7 +3,7 @@
 [English](README.md) | **简体中文**
 
 [代码仓库](https://github.com/psptpx/DMAIC-Bench) ·
-[论文与 arXiv 状态](docs/PUBLICATION.md) · [引用信息](CITATION.cff)
+[arXiv 论文](https://arxiv.org/abs/2610.32305) · [引用信息](CITATION.cff)
 
 **DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks**
 
@@ -11,7 +11,7 @@ DMAIC-Bench 评估智能体在多阶段分析任务中的自我约束能力：�
 
 基准包含四个工业领域的 15 个 DMAIC（定义、测量、分析、改进、控制）案例，共 97 个由随机种子生成的任务，另有 16 个生命科学扩展任务。任务的正确路径由生成数据重新计算得出，环境中的数据管理服务负责按阶段释放数据，独立验证器根据实际执行记录评分。
 
-论文已提交 arXiv，目前处于技术检查和审核阶段，尚无正式 arXiv 编号或公开论文链接。论文公布后会在[论文状态页](docs/PUBLICATION.md)及两份 README 中补充链接。本仓库提供代码、结果摘要和评估证据，当前版本不包含论文 LaTeX 源码或论文 PDF。
+论文已在 arXiv 公开：[arXiv:2610.32305](https://arxiv.org/abs/2610.32305)，详见[论文信息](docs/PUBLICATION.md)。本仓库提供代码、结果摘要和评估证据，当前版本不包含论文 LaTeX 源码或论文 PDF。
 
 ## 评估什么
 
@@ -168,7 +168,7 @@ python scripts/restraint_analysis.py --md docs/RESULT_RESTRAINT.md --tex paper/i
 - 专家审阅不等于完整人工运行基线；自动路径指标也不等于报告基于无效证据行动的比例。
 - 当前没有经过验证的自动报告审阅器，报告层面的结论来自抽样人工审计。
 - 参考解全部通过是必要条件，不能单独证明评分器没有缺陷。
-- 主工业实验的原始归档需要另行取得；论文提交 arXiv 不代表论文已公开或获得会议录用。
+- 主工业实验的原始归档需要另行取得；arXiv 公开不代表论文获得会议录用。
 
 完整讨论见[局限性](docs/LIMITATIONS.md)。
 
@@ -185,11 +185,14 @@ python scripts/restraint_analysis.py --md docs/RESULT_RESTRAINT.md --tex paper/i
   title = {DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks},
   author = {Peng, Shan and Cheng, Shuaiqi and Peng, Miao and Zi, Chenyi and Li, Jia},
   year = {2026},
-  url = {https://github.com/psptpx/DMAIC-Bench}
+  eprint = {2610.32305},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2610.32305}
 }
 ```
 
-arXiv 正式编号公布后将更新论文链接与引用信息；目前引用入口使用代码仓库地址。另见机器可读的 [CITATION.cff](CITATION.cff)。
+论文可通过 [arXiv:2610.32305](https://arxiv.org/abs/2610.32305) 阅读；另见仓库的机器可读引用信息 [CITATION.cff](CITATION.cff)。
 
 ## 许可证
 

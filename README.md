@@ -3,7 +3,7 @@
 **English** | [Chinese](README.zh-CN.md)
 
 [Code repository](https://github.com/psptpx/DMAIC-Bench) ·
-[Paper / arXiv status](docs/PUBLICATION.md) · [Citation metadata](CITATION.cff)
+[Paper on arXiv](https://arxiv.org/abs/2610.32305) · [Citation metadata](CITATION.cff)
 
 From self-reflection to self-restraint for agents in multi-stage analytical
 tasks. A benchmark of 97 tasks over 15 industrial improvement projects, with a
@@ -43,9 +43,8 @@ Contents of this file: [Quick start](#quick-start), [The self-restraint gap](#th
 [How to obtain the run evidence](#how-to-obtain-the-run-evidence), [Contents](#contents),
 [What this repository is not](#what-this-repository-is-not), [Citation](#citation), [Licence](#licence).
 
-The paper has been submitted to arXiv and is undergoing technical and moderation
-checks. Its public arXiv link will be added after announcement; see
-[publication status](docs/PUBLICATION.md). This code repository distributes the
+The preprint is available as [arXiv:2610.32305](https://arxiv.org/abs/2610.32305);
+see [publication details](docs/PUBLICATION.md). This code repository distributes the
 benchmark, analysis scripts, numerical summaries and supporting evidence.
 The manuscript source and compiled paper PDF are distributed separately.
 
@@ -441,7 +440,7 @@ annotation pass and does not constitute new independent human adjudication.
 | `tools/` | the English-source, case-text and release-contract checks and the truth digest used by the tests |
 | `docs/` | indexed by `docs/README.md`: datasheet, scoring, results, held-out split, steward refusals, limitations; retired design and result notes under `docs/archive/` |
 | `output/research/portability_pilot/` | per-trial evidence of the life-sciences extension, with its own README |
-| `docs/PUBLICATION.md` | paper status and the public arXiv link when available |
+| `docs/PUBLICATION.md` | paper reference, author contacts and licensing |
 | `paper/blind_review_2026-09-18/`, `paper/blind_review_2026-09-19/` | the two expert review packages, records and synthesis |
 | `paper/propagation_audit/` | exploratory result-lineage annotations and evidence; not a new independent expert review |
 
@@ -480,13 +479,15 @@ Multi-Stage Analytical Tasks*. 2026.
   title = {DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks},
   author = {Peng, Shan and Cheng, Shuaiqi and Peng, Miao and Zi, Chenyi and Li, Jia},
   year = {2026},
-  url = {https://github.com/psptpx/DMAIC-Bench}
+  eprint = {2610.32305},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2610.32305}
 }
 ```
 
 Author order and affiliations were verified against the OpenReview submission
 and author profiles on 22 October 2026; see [author sources](docs/AUTHORS.md).
-An arXiv identifier will be added once the preprint is announced.
 Jia Li is the corresponding author; contact details are in [Authors](docs/AUTHORS.md).
 
 ## Licence
