@@ -3,7 +3,9 @@
 **English** | [Chinese](README.zh-CN.md)
 
 [Code repository](https://github.com/psptpx/DMAIC-Bench) ·
-[Paper on arXiv](https://arxiv.org/abs/2610.32305) · [Citation metadata](CITATION.cff)
+[Paper on arXiv](https://arxiv.org/abs/2610.32305) ·
+[Hugging Face dataset](https://huggingface.co/datasets/speng349/DMAIC-Bench) ·
+[Citation metadata](CITATION.cff)
 
 From self-reflection to self-restraint for agents in multi-stage analytical
 tasks. A benchmark of 97 tasks over 15 industrial improvement projects, with a
@@ -55,6 +57,11 @@ not included in this release. The expert review packages and life-sciences
 per-trial evidence are included. See [reproduction inputs and outputs](docs/REPRODUCING_RESULTS.md).
 
 ## Quick start
+
+The [Hugging Face dataset](https://huggingface.co/datasets/speng349/DMAIC-Bench)
+provides a browsable export of 65 public tasks and 13 fault variants. It exposes
+the synthetic data blocks for inspection; running the full staged agent evaluation
+requires the steward, verifier and Harbor environment in this repository.
 
 ```bash
 pip install -e .                  # numpy 2.1.3, scipy 1.14.1, statsmodels 0.14.4, pandas 2.2.3: exact pins

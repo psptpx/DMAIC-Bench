@@ -3,7 +3,8 @@
 [English](README.md) | **简体中文**
 
 [代码仓库](https://github.com/psptpx/DMAIC-Bench) ·
-[arXiv 论文](https://arxiv.org/abs/2610.32305) · [引用信息](CITATION.cff)
+[arXiv 论文](https://arxiv.org/abs/2610.32305) ·
+[Hugging Face 数据集](https://huggingface.co/datasets/speng349/DMAIC-Bench) · [引用信息](CITATION.cff)
 
 **DMAIC-Bench: From Self-Reflection to Self-Restraint for Agents in Multi-Stage Analytical Tasks**
 
@@ -43,6 +44,9 @@ DMAIC-Bench 评估智能体在多阶段分析任务中的自我约束能力：�
 生命科学扩展包含 bulk RNA-seq 批次结构和病例对照 GWAS 队列结构两个工作流，共 16 个任务。参考解在全部任务上得分为 1.000；3 个智能体在明确说明前提失效后果的协议说明下各运行 3 次，并有仅说明阈值的对照。详见[设计](docs/PORTABILITY_PILOT.md)、[结果](docs/RESULT_PORTABILITY_PILOT.md)及[逐次证据](output/research/portability_pilot/)。这些结果不意味着工业实验中的错误率可以直接外推到生命科学。
 
 ## 快速开始
+
+[Hugging Face 数据集](https://huggingface.co/datasets/speng349/DMAIC-Bench)提供
+65 个公开任务和 13 个故障变体的浏览版，并展示合成数据块。运行完整的分阶段智能体评测，仍需使用本仓库中的数据管理服务、验证器和 Harbor 环境。
 
 需要 Python 3.10 或以上版本；发布验证使用 Python 3.12。建议在独立虚拟环境中安装：
 
